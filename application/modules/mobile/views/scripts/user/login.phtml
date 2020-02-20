@@ -1,0 +1,110 @@
+<div class="description">
+  <!-- Start Login Form -->
+    
+    
+    <div id='login_options'>
+    
+        <div>
+            <h2 class='title'>Login</h2>
+            <p>Do you already have an account on one of these sites? Click the logo to log in with it here </p>
+        </div>
+        <div class='clear'></div>
+       <?php
+       
+            //get the FB vars for login 
+            $deviceSession  = new Zend_Session_Namespace('Device');
+            $baseUrl    = Zend_Registry::get('config')->nexva->application->mobile->url;
+
+            $appId = null;
+            $appSecret = null;
+
+
+            if(APPLICATION_ENV != 'development') {
+                $appId      = (!empty($this->themeMeta->WHITELABLE_FB_APPID)) ? $this->themeMeta->WHITELABLE_FB_APPID : null;
+                $appSecret  = (!empty($this->themeMeta->WHITELABLE_FB_SECRET)) ? $this->themeMeta->WHITELABLE_FB_SECRET : null;
+
+                $baseUrl    = (!empty($this->themeMeta->WHITELABLE_URL)) ? $this->themeMeta->WHITELABLE_URL : $baseUrl;
+            }
+            
+            $fb             = new Nexva_Facebook_FacebookConnect('mobile', $appId, $appSecret);
+            $fbLoginUrl     = $fb->getLoginUrl(array(
+                    'redirect_uri'          => "http://$baseUrl/user/login/facebook/1/",
+                    'cancel_url'    => "http://$baseUrl/user/login/facebook/1/",
+                    'scope'     => 'publish_stream,user_likes,email',
+                    'display'       => ($deviceSession->inputMethod == 'touchscreen') ? 'touch' : 'wap'
+                )
+            );
+
+            //die($fbLoginUrl);
+        ?>
+      
+       <div class='option'>
+            <a href='<?php echo $fbLoginUrl;?>'>
+                <img alt="login with Facebook" src="/mobile/images/login_options/facebook_icon.gif" width='30' height='30'>
+                Login with Facebook
+            </a>
+       </div>
+       
+       <div class='option'>
+            <a href='/user/external-login/type/google/url/<?=base64_encode('https://www.google.com/accounts/o8/id')?>'>
+                <img alt="login with Google" src="/mobile/images/login_options/googleIcon.gif" width='30' height='30'>
+                Login with Google
+            </a>
+       </div>
+         <div class='clear'></div>
+    </div>
+      
+      
+  <div id='nexva_login' class='form'>
+      <h2 class='title'>Sign in with your neXva account</h2>
+
+      
+      <?php 
+            if (is_array($this->messages)) {
+                $outputMsg    = ''; 
+                foreach ($this->messages as $msg) {
+                    if (!trim($msg)) {continue;}
+                    $outputMsg  .= $msg . '<br>'; 
+                }
+            }
+            $this->messages = $outputMsg;
+      ?>
+      <?php $this->messages = trim($this->messages);?>
+      <?php if (!empty($this->messages)) : ?>
+            <div class='warning_message'>
+                <?php echo $this->messages;?>
+            </div>
+        <?php endif;?>
+      
+        
+      
+          
+      <form method="post" action="">
+      
+        <div class='input'>
+            <label>E-mail</label>
+            <input size='30' name="username" id="username" type="text" class="utility-text" value="<?= $this->formValues->username ?>"/>
+        </div>
+        
+        <br clear="all" />
+        
+        <div class='input'>
+            <label>Password </label>
+            <input size='30'  name="password" id="password" type="password" class="utility-text"  value="<?= $this->formValues->password ?>"/>
+        </div>
+        
+        <br clear="all" />
+        <div class='input'>
+            <input type="submit" class="button" name="submit" value="Login" />
+        </div>
+        
+        <p>
+          Don't have an account yet? <a href="/user/register">Create an account for free.</a>
+    
+        </p>
+      </form>
+    
+  </div>
+  
+
+</div>

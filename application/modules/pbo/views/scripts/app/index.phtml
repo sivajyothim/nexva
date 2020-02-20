@@ -1,0 +1,696 @@
+<?php
+
+$chapId = Zend_Auth::getInstance()->getIdentity()->id;
+
+?>
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.js"></script>
+<script type="text/javascript" src="<?php echo PBO_PROJECT_BASEPATH;?>js/jeditable.js"></script>
+<link href="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css" >
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function()
+    {
+        //Auto complete for search apps
+        /*$('#txtSearchKey').autocomplete({
+            //source:availableTags
+            source: function( request, response ) {
+                $.ajax({
+                    url: "/app/get-serialised-app-names",
+                    dataType: "json",
+                    data: {q: $('#txtSearchKey').val(),platform: $('#platform').val(),status: $('#chkFilter').val()},
+                    success: function(data) {
+                        if(data.length == 0)
+                        {  
+                            $('#txtSearchKey').val('No apps found');
+                            $('#txtSearchKey').removeClass('ui-autocomplete-loading');
+                            //$('.ui-autocomplete').hide();
+                            return false                                
+                        }
+                        else
+                        {
+                            response($.map(data, function(item) {
+                                return {
+                                    label: item.name,
+                                    id: item.id
+                                };
+                            }));
+                        }
+                        
+                    }
+                });
+            },
+            minLength: 1
+        });*/
+        
+        //When Filter dropdown value changes
+        $('#chkFilter').change(function()
+        {
+            $('#frmManageApps').submit();
+        });
+
+        //When button clicks
+        $('#btnSubmit').click(function()
+        {
+            $('#frmManageApps').submit();
+        });
+
+        //inline edit
+        $(".edit").editable('/app/google-play-downloads',{
+            event: 'dblclick',
+            indicator : 'Saving...',
+            tooltip   : 'Double Click to edit...',
+            select : true
+        });
+
+        //platform select drop down
+        $("#platform").change(function(){
+            $('#frmManageApps').submit();
+        });
+		
+		$("#language").change(function(){
+            $('#frmManageApps').submit();
+        });
+
+        $("#category").change(function(){
+            $('#frmManageApps').submit();
+        });
+
+        $("#grade").change(function(){
+            $('#frmManageApps').submit();
+        });
+    });
+
+    function confirmDelete()
+    {
+        var answer = confirm("Are sure you want to delete the app? If you delete it, the app will disappear from your app store")
+        if (answer){
+            return true;
+
+        }
+        else{
+            return  false;
+        }
+    }
+
+    /**
+     * this is for select platforms which apps supports for more than one platform
+     * @param appId : productId
+     *
+     */
+
+    function get_supported_platforms_feature(appId,status)
+    {
+        $("#apps_feature").html('');
+        $("#preloader_feature").removeClass('display_none');
+
+        $.getJSON("/app/get-platform-for-app",
+            {
+                id : appId
+            },
+            function(data)
+            {
+                var platforms = '';
+                if(data.length >0)
+                {
+                    platforms += '<div id="wrapper">';
+                    platforms += '<div class="popup-topic"><p>Select Platform of Your App to Featured.</p></div>';
+                    platforms += "<input type='hidden' name='appId' value='"+appId+"'/>";
+                    platforms += "<input type='hidden' name='status' value='"+status+"'/>";
+                    $.each(data, function()
+                    {
+                        platforms += '<div class="wrapper-left"><input type="checkbox" name="platforms[]" value="'+this["platform_id"]+'" /></div><div class="wrapper-right"><img src="/pbo/images/platforms/'+this["platform_id"]+'.png" title="'+this["name"]+'" /></div>';
+                    });
+                    platforms += '<input type="submit" value="Submit" class="button">';
+                    platforms += '<input type="hidden" value="<?= ($this->filterVal) ? $this->filterVal : 'all'; ?>" name="chk_filter">';
+                    platforms += '<input type="hidden" value="<?= ($this->searchKey) ? $this->searchKey : ''; ?>" name="search_key">';
+                    platforms += '<input type="hidden" value="<?= ($this->platform) ? $this->platform : ''; ?>" name="platform_filter">';
+                    platforms += '</div>';
+
+                }
+                else
+                {
+                    platforms = "<p>No records found.</p>";
+                }
+
+                $("#preloader_feature").addClass('display_none');
+                $("#apps_feature").html(platforms);
+            });
+    }
+
+    function get_supported_platforms_banner(appId,status)
+    {
+        $("#apps_banner").html('');
+        $("#preloader_banner").removeClass('display_none');
+
+        $.getJSON("/app/get-platform-for-app",
+            {
+                id : appId
+            },
+            function(data)
+            {
+                var platforms = '';
+                if(data.length >0)
+                {
+
+                    platforms += '<div id="wrapper">';
+                    platforms += '<div class="popup-topic"><p>Select Platform of Your App to Show on the Main Slider.</p><div>';
+                    platforms += "<input type='hidden' name='appId' value='"+appId+"'/>";
+                    platforms += "<input type='hidden' name='status' value='"+status+"'/>";
+                    $.each(data, function()
+                    {
+                        platforms += '<div class="wrapper-left"><input type="checkbox" name="platforms[]" value="'+this["platform_id"]+'" /></div><div class="wrapper-right"><img src="/pbo/images/platforms/'+this["platform_id"]+'.png" title="'+this["name"]+'" /></div>';
+                    });
+                    platforms += '<input type="submit" value="Submit" class="button">';
+                    platforms += '<input type="hidden" value="<?= ($this->filterVal) ? $this->filterVal : 'all'; ?>" name="chk_filter">';
+                    platforms += '<input type="hidden" value="<?= ($this->searchKey) ? $this->searchKey : ''; ?>" name="search_key">';
+                    platforms += '<input type="hidden" value="<?= ($this->platform) ? $this->platform : ''; ?>" name="platform_filter">';
+                    platforms += '</div>';
+
+                }
+                else
+                {
+                    platforms = "<p>No records found.</p>";
+                }
+
+                $("#preloader_banner").addClass('display_none');
+                $("#apps_banner").html(platforms);
+            });
+    }
+
+    function load_popup_box_feature(appId)
+    {
+        $("#apps_"+appId).fancybox({
+            'titleShow'     : false,
+            'padding'	: 0,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            'autoDimensions': false,
+            'width'		: 300,
+            'height'	: 340,
+            'showCloseButton' : true,
+            'hideOnOverlayClick' : false
+        });
+    }
+
+    function load_popup_box_banner(appId)
+    {
+        $("#banner_apps_"+appId).fancybox({
+            'titleShow'     : false,
+            'padding'	: 0,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            'autoDimensions': false,
+            'width'		: 300,
+            'height'	: 340,
+            'showCloseButton' : true,
+            'hideOnOverlayClick' : false
+        });
+    }
+
+    function get_qelasy_grades(appId){
+        $("#qelasy-grades-form").html('');
+        $("#preloader_qelasy").removeClass('display_none');
+        $.getJSON("/qelasy/get-qelasy-grades",
+            {
+                appId : appId
+            },
+            function(data){
+                var grades = '';
+                if(data.length > 0){
+
+                    grades += '<div id="wrapper">';
+                    grades += "<input type='hidden' name='appId' value='"+appId+"'/>";
+                    $.each(data, function()
+                    {
+                        var checked;
+                        if(this['grade_app_id']) { checked = 'checked'}
+                        grades += '<div class="wrapper-left"><input type="checkbox" name="grades[]" value="'+this["id"]+'" '+checked+'/></div><div class="wrapper-right">'+this["name"]+'</div>';
+                    });
+                    grades += '<input type="submit" value="Submit" class="button">';
+                    grades += '<input type="hidden" value="<?php echo ($this->page) ? $this->page : ''; ?>" name="chk_filter">';
+                    grades += '<input type="hidden" value="<?php echo ($this->filterVal) ? $this->filterVal : 'all'; ?>" name="chk_filter">';
+                    grades += '<input type="hidden" value="<?php echo ($this->searchKey) ? $this->searchKey : ''; ?>" name="search_key">';
+                    grades += '<input type="hidden" value="<?php echo ($this->platform) ? $this->platform : ''; ?>" name="platform_filter">';
+                    grades += '</div>';
+                    grades += '<br/><br/>';
+                }
+                $("#preloader_qelasy").addClass('display_none');
+                $("#qelasy-grades-form").html(grades);
+            });
+    }
+
+    function load_popup_box_qelasy(appId){
+
+        $("#qelasy_apps_"+appId).fancybox({
+            'titleShow'     : false,
+            'padding'	: 0,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            //'autoDimensions': false,
+            'autoScale': true,
+            //'width'		: 300,
+            //'height'	: 600,
+            'showCloseButton' : true,
+            'hideOnOverlayClick' : false
+        });
+    }
+
+</script>
+
+<?php echo $this->partial('partials/select-platform-for-feature.phtml');?>
+<?php echo $this->partial('partials/select-platform-for-banner.phtml');?>
+<?php echo $this->partial('partials/select-qelasy-grade.phtml');?>
+
+<?php $currency = $this->ChangeCurrency($this->chap_id); //$this->chap_id?>
+<div class="content-box"><!-- Start Content Box -->
+<div class="content-box-header">
+    <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+    <div id="icon_wrapper">
+        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/filter-apps" alt="Filter Apps"> <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/filter_apps-small.png" alt="Filter Apps" /><br />
+            Filter Apps</a>
+    </div>
+
+    <div id="icon_wrapper" style="margin-right:-40px;">
+        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/excel-report" alt="Excel Report"> <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/excel_report.png" alt="Excel Report" /><br />
+            Excel Report</a>
+    </div>
+</div> <!-- End .content-box-header -->
+
+
+<div class="content-box-content">
+
+<!-- Displays Message/s -->
+<?php if (count($this->appMessages)) : ?>
+
+    <div class="notification success png_bg">
+        <div>
+
+            <?php foreach ($this->appMessages as $message) : ?>
+
+                <li><?php echo $this->escape($message); ?></li>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+
+<!-- Displays Message/s -->
+<?php if (count($this->appErrorMessages)) : ?>
+
+    <div class="notification error png_bg">
+        <div>
+
+            <?php foreach ($this->appErrorMessages as $message) : ?>
+
+                <li><?php echo $this->escape($message); ?></li>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+<div style="width:99%;float: right;">
+
+    <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>app/index" id="frmManageApps" name="frmManageApps" class="pbo-admin-form">
+
+        <div class="form-block-1-5">
+            <label>App ID :</label>
+            <input type="text" class="text-input small-txtbox" id="txtSearchId" name="txtSearchId" value="<?= isset($this->txtSearchId) ? $this->txtSearchId : '' ?>" />
+        </div>
+        
+        <div class="form-block-2">
+            <label>App :</label>
+            <input type="text" class="text-input" id="txtSearchKey" name="txtSearchKey" value="<?= isset($this->searchKey) ? $this->searchKey : '' ?>" />
+            <input type="button" value="Search" name="btnSubmit" id="btnSubmit" class="button" />
+        </div>
+        
+        <div class="form-block-1">
+            <label>Platforms:</label>
+            <select name="platform" id="platform" class="chkbox">
+                <option value="">All</option>
+                <?php foreach($this->platforms as $platform)
+                { ?>
+                    <option value="<?php echo $platform->id;?>" <?php echo ($this->platform == $platform->id)?'selected="selected"':'';?> ><?php echo $platform->name;?></option>
+                <?php } ?>
+            </select>
+        </div>
+
+        <div class="form-block-1-5">
+            <label>Status :</label>
+            <select name="chkFilter" id="chkFilter" class="chkbox">
+                <option value="all" <?= ($this->filterVal == 'all') ? 'selected= "selected"' : '' ?> >All</option>
+                <option value="bannered" <?= ($this->filterVal == 'bannered') ? 'selected= "selected"' : '' ?> >Banner</option>
+                <option value="featured" <?= ($this->filterVal == 'featured') ? 'selected= "selected"' : '' ?> >Featured</option>
+                <option value="premium" <?= ($this->filterVal == 'premium') ? 'selected= "selected"' : '' ?> >premium</option>
+                <option value="nexpager" <?= ($this->filterVal == 'nexpager') ? 'selected= "selected"' : '' ?> >AppWall</option>
+            </select>
+        </div>
+        
+        <div class="form-block-1">
+            <label for="language">Language:</label>
+            <select name="language" id="language" >
+                <option value="">All</option>
+                <?php foreach($this->languages as $language)
+                { ?>
+                    <option value="<?php echo $language->id;?>"  <?php echo ($this->language == $language->id)?'selected="selected"':'';?>><?php echo $language->common_name;?></option>
+                <?php } ?>
+            </select>
+        </div>
+
+        <div class="form-block-1">
+            <label for="category">Category:</label>
+            <select name="category" id="category" >
+                <option value="">All</option>
+                <?php $categoryModel = new Pbo_Model_ChapCategories();
+                foreach($this->categories as $category) {
+                    if($category->parent_id == 0){ ?>
+                        <option value="<?php echo $category->id;?>" disabled="disabled"><?php echo $category->name;?></option>
+                        <?php $subCategories = $categoryModel->getSubCategoriesForParentCategory($category->id,$chapId);
+                            foreach($subCategories as $subCategory){
+                                if($subCategory->chap_category_status){ ?>
+                                    <option value="<?php echo $subCategory->id;?>" <?php echo ($this->category == $subCategory->id)?'selected="selected"':'';  ?>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo mb_convert_encoding($subCategory->name,"HTML-ENTITIES","UTF-8");?></option>
+                                <?php }
+                                }
+                         }
+                } ?>
+            </select>
+        </div>
+
+        <?php if('81604' == $chapId){ //grade filtering is only available for qelasy
+            ?>
+            <div class="form-block-1">
+                <label for="grade">Grade:</label>
+                <select name="grade" id="grade" >
+                    <option value="">All</option>
+                    <?php foreach($this->grades as $grade) { ?>
+                        <option value="<?php echo $grade->id;?>"  <?php echo ($this->grade == $grade->id)?'selected="selected"':'';?> ><?php echo utf8_decode($grade->name).' - '.(($grade->institiute_name) ? $grade->institiute_name : '[Standard Grade]') ;?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        <?php } ?>
+
+    </form>
+
+</div>
+
+<div class="clear"></div>
+<br /><br />
+
+<? if($this->showResults == 'true' ) : ?>
+
+
+    <table style="width:97%; margin-left: 15px;" border="0">
+        <thead>
+        <tr>
+            <th valign="top">ID</th>
+            <th valign="top" style="text-align: center">Image</th>
+            <th valign="top">App</th>
+            <?php if($chapId == 23045) { ?><th valign="top">Translations</th><?php } ?>
+            <th valign="top">Vendor</th>
+            <th style="width:10%;" valign="top">Platform</th>
+            <th valign="top">Local Price</th>
+            <th valign="top">Price ($)</th>
+            <th valign="top">Category</th>
+            <th valign="top">Date Created</th>
+            <th valign="top" style="width: 90px">
+
+                <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/index/col/download/ord/<?= ($this->downloadOrder); ?>">Downloads
+
+                    <?php if($this->downloadOrder == 'asc' && $this->downloadIcon == TRUE) :?>
+
+                        <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/sort_desc.png" title="Descending" />
+
+                    <?php elseif($this->downloadOrder == 'desc' && $this->downloadIcon == TRUE): ?>
+
+                        <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/sort_asc.png" title="Ascending" />
+
+                    <?php endif; ?>
+                </a>
+            </th>
+            <th>Google Play Downloads</th>
+            <?php if('136079' != $chapId){ ?>
+                <th valign="top" style="text-align: center">Approved</th>
+            <?php }?>
+            <th valign="top" style="text-align: center">Flagged</th>
+            <?php if('21134' == $chapId){ ?>
+            <th valign="top" style="text-align: center">Appstitude</th>            
+            <?php }?>
+             <?php if('21134' == $chapId){ ?>
+            <th valign="top" style="text-align: center">Islamic</th>            
+            <?php }?>
+            <th valign="top" style="text-align: center">AppWall</th> 
+            <th valign="top" style="text-align: center">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php 
+        
+            $data = array(
+            "chk_filter" => ($this->filterVal) ? $this->filterVal : 'all',
+            "search_key" => ($this->searchKey) ? $this->searchKey : '',
+            "platform"  =>  ($this->platform) ? $this->platform : '',
+            "platform_filter"  =>  ($this->platform) ? $this->platform : '',
+			"language"  =>  ($this->language) ? $this->language : '',
+			"category"  =>  ($this->category) ? $this->category : '',
+			"grade"  =>  ($this->grade) ? $this->grade : ''
+        );
+        //additional platform_filter key added for get the request value for platform select box
+        ?>
+
+        <? foreach ($this->apps as $app): ?>
+            <tr>
+                <td valign="top"><?= $app['product_id'] ?></td>
+                <td valign="center">
+                    <img src="<?= "http://thor.nexva.com/vendors/phpThumb/phpThumb.php?src=/product_visuals/production/" . $app['thumbnail'] . "&w=30&h=30&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" alt="app_image" />
+                </td>
+                <td valign="top" style="width: 320px">
+                    <?php if(!empty($this->whiteLabelUrl)){ ?>
+                          <a target="_blank" href="http://<?php echo $this->whiteLabelUrl,'/',$app['product_id'];?>"><?php echo $app['name'];?></a>
+                    <?php } else {
+                        echo $app['name'];
+                    } ?>
+                </td>
+                
+                <?php if($chapId == 23045) { ?>
+                <td style="text-align: center;">
+                    <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/translate/id/<?= $app['product_id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Click to manage translation of <?= $app['name'] ?>">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/font_add.png" alt="Translation" />
+                    </a>
+                </td>
+                <?php } ?>
+                
+                <!--<td valign="top" style="width: 320px"><?php /*echo $app['name'];*/?></td>-->
+                <td valign="top"><?= $this->vendor($app['user_id']); ?></td>
+                
+                <td>
+                    <?php $platforms = $this->supportedPlatforms($app['product_id']);
+                    
+                    foreach($platforms as $platform)
+                    { ?>
+                 
+                        <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/platforms/<?php echo $platform->id;?>.png" title="<?php echo $platform->name;?>"/>
+                    <?php } ?>
+                </td>
+
+
+                <!--<td valign="top"><?/*= $app['price'] */?></td>-->
+
+                <td valign="top"><?=$this->CurrencyConvertPricePoints($app['price']); ?></td>
+
+
+                <td valign="top"><?= $app['price'] ?></td>
+                <td valign="top"><?= $app['cat_name'] ?></td>
+                <td valign="top"><?= $app['created_date'] ?></td>
+                <!-- cmmented since the wrong count <td valign="top" style="text-align: center"><?= $app['download_count'] ?></td>-->
+                <td valign="top" style="text-align: center"> <?= $this->DownloadStatsByChap($app['product_id'], $this->chap_id); ?></td>
+                <td valign="top" style="text-align:center;width:15%;">
+                    <p id="<?php echo $app['product_id'];?>" class="edit"><?php echo $app['google_download_count'];?></p>
+                </td>
+                <?php if('136079' != $chapId){ ?>
+                <td style="text-align: center">
+                    <? if ($app['approved'] == 1): ?>
+
+                        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/do-approve/id/<?= $app['id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Disapproved'">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/green_thumb.png" alt="Flagged" />
+                        </a>
+
+                    <? else: ?>
+
+                        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/do-approve/id/<?= $app['id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Approved'">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/red_thumb.png" alt="Un Flagged"/>
+                        </a>
+
+                    <? endif; ?>
+
+                </td>
+                <?php } ?>
+                <td style="text-align: center">
+
+                    <? if ($app['flagged'] == 1): ?>
+
+                        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/do-flag/id/<?= $app['id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Un-Flagged">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/pin-red.png" alt="Flagged" />
+                        </a>
+
+                    <? else: ?>
+
+                        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/do-flag/id/<?= $app['id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Flagged'">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/pin-black.png" alt="Un Flagged" />
+                        </a>
+
+                    <? endif; ?>
+
+                </td>
+                
+                 <?php if('21134' == $chapId){ ?>
+                          <td style="text-align: center">
+
+                    <? if ($app['appstitude'] == 1): ?>
+
+                        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/appstitude/id/<?= $app['id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Un-Appstitude">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/pin-red.png" alt="Appstitude" />
+                        </a>
+
+                    <? else: ?>
+
+                        <a href="<?php echo PBO_PROJECT_BASEPATH;?>app/appstitude/id/<?= $app['id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Appstitude'">
+                            <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/pin-black.png" alt="Un appstitude" />
+                        </a>
+
+                    <? endif; ?>
+
+                </td>   
+                 <?php }?>
+                 
+                     <?php if('21134' == $chapId){ ?>
+                          <td style="text-align: center">
+
+                    <? if ($app['islamic'] == 1): ?>
+
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/islamic/id/<?= $app['id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Un-Appstitude">
+                            <img style="border: none" src="/pbo/images/icons/pin-red.png" alt="Islamic " />
+                        </a>
+
+                    <? else: ?>
+
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/islamic/id/<?= $app['id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'Appstitude'">
+                            <img style="border: none" src="/pbo/images/icons/pin-black.png" alt="Un islamic" />
+                        </a>
+
+                    <? endif; ?>
+
+                </td>   
+                 <?php }?>
+                 
+                 
+                   <td style="text-align: center">
+
+                    <? if ($app['nexva'] == 1): ?>
+
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/nexva/id/<?= $app['id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'neXpager">
+                            <img style="border: none" src="/pbo/images/icons/pin-red.png" alt="Islamic " />
+                        </a>
+
+                    <? else: ?>
+
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/nexva/id/<?= $app['id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Toggle to change app as 'neXpager'">
+                            <img style="border: none" src="/pbo/images/icons/pin-black.png" alt="Un islamic" />
+                        </a>
+
+                    <? endif; ?>
+
+                </td>   
+                 
+
+                <td valign="top" style="text-align: center; width: 130px">
+
+                    <?php
+
+                    if($chapId == 81604) { ?>
+                        <!--<a href="#qelasy-grades" id="qelasy_apps_<?php /*echo $app['product_id'];*/?>">
+                            <img style="border:none;width:16px;" src="/pbo/images/icons/note-add.png" alt="Assign For Qelasy" title="Assign Grades For Qelasy" onclick="get_qelasy_grades(<?php /*echo $app['product_id'];*/?>);load_popup_box_qelasy(<?php /*echo $app['product_id'];*/?>);"/>
+                        </a>-->
+                    <?php } ?>
+
+                    <? if ($app['featured'] == 1): ?>
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/do-feature/id/<?= $app['product_id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>/language_id/<?= $this->language ?>" title="Toggle to change app state to 'Unfeatured'">
+                            <img style="border: none" src="/pbo/images/icons/featured.png" alt="Feautred App" />
+                        </a>
+                    <? else: ?>
+
+                        <?php
+                       
+                        if(count($platforms) == 1)
+                        { ?>
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/do-feature/id/<?= $app['product_id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>/platform/<?php echo $platforms[0]->platform_id;?>/language_id/<?= $this->language ?>" title="Toggle to change app state to 'Featured'">
+                                <img class="get-featured" style="border: none" src="/pbo/images/icons/disabled.png" alt="Un Featured App" />
+                            </a>
+                        <?php }else if(count($platforms) > 1)
+                        { ?>
+                            <a href="#app_view" title="Toggle to change app state to 'Featured'" id="apps_<?php echo $app['product_id'];?>">
+                                <img class="get-featured" style="border: none" src="/pbo/images/icons/disabled.png" alt="Un Featured App" onClick="get_supported_platforms_feature(<?php echo $app['product_id'];?>,1);load_popup_box_feature(<?php echo $app['product_id'];?>);"/>
+                            </a>
+                        <?php } ?>
+
+                    <? endif; ?>
+
+
+                    <? if ($app['is_banner'] == 1): ?>
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/do-banner/id/<?= $app['product_id'] ?>/status/0<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>/language_id/<?= $this->language ?>/language_id/<?= $this->language ?>" title="Toggle to un-select the app as a 'Staff Picks'">
+                            <img style="border: none" src="/pbo/images/icons/bannered.png" alt="Banner" />
+                        </a>
+                    <? else: ?>
+                        <?php if(count($platforms) == 1)
+                        { ?>
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/do-banner/id/<?= $app['product_id'] ?>/status/1<?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>/platform/<?php echo $platforms[0]->platform_id;?>/language_id/<?= $this->language ?>" title="Toggle to select the app as a 'Staff Picks'">
+                                <img style="border: none" src="/pbo/images/icons/disabled.png" alt="" />
+                            </a>
+                        <?php }else if(count($platforms) > 1)
+                        { ?>
+                            <a href="#app_view_banner" title="Toggle to select the app as a 'Staff Picks'" id="banner_apps_<?php echo $app['product_id'];?>">
+                                <img style="border: none" src="/pbo/images/icons/disabled.png" alt="" onClick="get_supported_platforms_banner(<?php echo $app['product_id'];?>,1);load_popup_box_banner(<?php echo $app['product_id'];?>);"/>
+                            </a>
+                        <?php } ?>
+                    
+                    <? endif; ?>
+
+                    <a href="<?php echo PROJECT_BASEPATH;?>app/do-delete/id/<?= $app['id'] ?><?=($this->currentPage)? '/page/'.$this->currentPage : '';?><?=($data['chk_filter'])? '/chk_filter/'.$data['chk_filter'] : '';?><?= ($data['search_key'])? '/search_key/'.$data['search_key'] : '';?><?= ($data['platform_filter'])? '/platform_filter/'.$data['platform_filter'] : '';?>" title="Delete ?" onclick="confirmDelete()" >
+                        <img style="border: none" src="/pbo/images/icons/cross_circle.png" alt="Delete ?" />
+                    </a>
+
+                    <a href="<?php echo PROJECT_BASEPATH;?>app/embeded/id/<?= $app['product_id'] ?>" rel='facebox'>
+                        <img alt="Share" src="/chap/assets/img/global/icons/transmit_go.png" title="Share">
+                    </a>
+                </td>
+
+            </tr>
+        <? endforeach; ?>
+        </tbody>
+    </table>
+
+    <br />
+    <?= $this->paginationControl($this->apps, 'Sliding', 'partials/pagination-index.phtml', $data); ?>
+
+    <br />
+
+<? else : ?>
+
+    <p>No Records Found. </p>
+    <br /><br />
+
+<? endif ; ?>
+
+</div>
+</div>
+
+<script type="text/javascript">
+    $('#2').addClass('current');
+    $('#21').addClass('current');
+</script>
+

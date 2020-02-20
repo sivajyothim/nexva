@@ -1,0 +1,91 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <script src="/partnermobile/js/jquery-1.9.1.min.js"></script>
+  <script src="/partnermobile/js/jquery.mobile-1.3.2.min.js"></script> 
+    
+    <script src="https://sandbox.google.com/checkout/inapp/lib/buy.js"></script>
+      
+      <script type='text/javascript'>
+        function googleWalletFunc(jwt_value, id, build, sessionId) {
+            
+        $.ajax({
+        type: "POST",
+        url: "/app/buy-app-by-redirection-pg",
+        data: "id="+id+"&build="+build+"&app_session="+sessionId+"&payment_gateway_name=GoogleWallet",
+        success: function (jwtValue){
+            
+            var jwt_val = jwtValue.trim();
+            //alert(jwtValue);
+            //window.location.href = "/";
+           // alert(msg);
+           //$('#payment-id').attr('value', paymentID);
+            //googleWalletBtn = document.getElementById('googleWalletBtn');
+            google.payments.inapp.buy({
+            jwt: jwt_val,
+            success: successHandler,
+            failure: failureHandler
+          });
+          return false;
+        },
+        error: function(){
+
+        }
+        });
+        
+         /* googleWalletBtn = document.getElementById('googleWalletBtn');
+          google.payments.inapp.buy({
+            jwt: jwt_value,
+            success: successHandler,
+            failure: failureHandler
+          });
+          return false;*/
+        }
+
+        var successHandler = function(result){
+                alert('success');
+                alert(result.toSource())
+                //alert(ducument.getElementById('payment-id').value);
+                //var json = JSON.parse(result);
+ 
+	//alert(json); 
+        
+                $.ajax({
+                type: "POST",
+                url: "/app/post-back-pg",
+                data: result,
+                success: function (msg){
+                    //window.location.href = "/";
+                  alert(msg);
+                   
+                },
+                error: function(){
+
+                }
+                });
+        }
+
+        var failureHandler = function(result){
+                alert('fail');
+                alert(result.toSource())
+        }
+
+      </script>
+      
+</head>
+<body >
+<form name="redirectpost" method="post" action="https://ompay.orange.ci/e-commerce_test_gw/">
+  <input type="hidden" name="merchantid" value="0454fde93a8e2f330adeef80d576e86feca2cbb54e549262605af8a4fd0fb91e"/>
+  <input type="hidden" name="token" value="<?= $this->token ?>"/>
+  <input type="hidden" name="sessionid" value="<?= $this->sessionId ?>"/>
+  <input type="hidden" name="purchaseref" value="<?= $this->purchaseref ?>"/>
+  <input type="hidden" name="amount" value="<?= $this->price ?>"/>
+  <input type="submit" value="Pay by OrangeMoney"/>
+</form>
+</br>
+<form>
+<button id='googleWalletBtn' data-ajax="false" value='buy' class='buy-button' onclick='googleWalletFunc("123", "<?= $this->appId ?>", "<?= $this->buildId ?>", "<?= $this->sessionId ?>");'>Pay by Google Wallet</button>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets') . '/cp/assets/css/analytics.css'); ?>
+<?php $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/excanvas.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/jquery.flot.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/jquery.flot.pie.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/jquery.flot.stack.js'); ?>
+
+<?php $this->headScript()->captureStart(); ?>
+
+var __DATA_DATE = eval(<?= $this->appViewDateJson; ?>); //app views by date
+var __DATA_DOWNLOADS = eval(<?= $this->appDownloadDateJson; ?>); //downloads
+
+//these variables are for App Downloads By Source graph
+var __DATA_API_DOWNLOADS = eval(<?php echo $this->appDownloadsByAndroidAppJson;?>);
+var __DATA_MOBILEWEB_DOWNLOADS = eval(<?php echo $this->appDownloadsByMobileWebJson;?>);
+
+//these variables are for App Views By Source graph
+var __DATA_API_VIEWS = eval(<?php echo $this->appViewByAndroidAppJson;?>); // app views via Android App during the time duration
+var __DATA_WEB_VIEWS = eval(<?php echo $this->appViewByWebJson;?>); // app views via Web during the time duration
+var __DATA_MOBILEWEB_VIEWS = eval(<?php echo $this->appViewByMobileWebJson;?>); // app views via Mobile Web during the time duration
+
+<?php $this->headScript()->captureEnd(); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/pbo/js/analytics/appview.js'); ?>
+
+<script type="text/javascript">
+    
+  
+    $(document).ready(function() 
+    {
+        
+        $("#from").datepicker({ dateFormat: 'yy-mm-dd'});
+        $("#to").datepicker({ dateFormat: 'yy-mm-dd'});
+
+        var freePremiumViewRatiodata = [];
+
+        var pieSliceColors = [];
+        pieSliceColors['free'] = '#D07FF6';
+        pieSliceColors['premium'] = '#98c359';
+
+<? if ($this->freePremiumViewsRatio): ?>
+        	
+                    jsonFreePremiumViewRatio = <?= $this->freePremiumViewsRatio; ?>;
+        	
+                    k = 0;
+                    $.each(jsonFreePremiumViewRatio, function(i, item) {
+                        freePremiumViewRatiodata.push({ label: i, data: item, color: pieSliceColors[i]});
+    	
+                    });
+
+
+                    $.plot($("#views_free_premium"), freePremiumViewRatiodata,
+                    {
+                        series: {
+                            pie: {
+                                show: true,
+                                radius: 1,
+                                label: {
+                                    show: true,
+                                    radius: 1,
+                                    formatter: function(label, series){
+                                        return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+                                    },
+                                    background: { opacity: 0.8 }
+                                }
+                            }
+                        },
+                        legend: {
+                            show: false
+                        }
+                    });
+
+<? endif; ?>  
+
+<? if ($this->freePremiumDownloadRatio): ?>
+    	    
+                 jsonFreePremiumDownloadRatio = <?= $this->freePremiumDownloadRatio; ?>;
+
+                 var freePremiumDownloadRatiodata = [];
+        	
+                 $.each(jsonFreePremiumDownloadRatio, function(i, item) {
+                     freePremiumDownloadRatiodata.push({ label: i, data: item, color: pieSliceColors[i] });
+                 });
+       
+                 $.plot($("#downloads_free_premium"), freePremiumDownloadRatiodata,
+                 {
+                     series: {
+                         pie: {
+                             show: true,
+                             radius: 1,
+                             label: {
+                                 show: true,
+                                 radius: 1,
+                                 formatter: function(label, series){
+                                     return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+                                 },
+                                 background: { opacity: 0.8 }
+                             }
+                         }
+                     },
+                     legend: {
+                         show: false
+                     }
+                 });
+<? endif; ?>  
+        });
+
+</script>
+
+
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?>   
+            Overall App Views / Downloads  </h3>
+    </div> <!-- End .content-box-header -->
+
+    <div class="content-box-content">
+
+        <form id="regUserForm" style='width:auto;' name="regUserForm" action="<?php echo PBO_PROJECT_BASEPATH;?>statistic/index" method="post">
+
+
+            <p style="text-align: center;"> 
+
+                <input type="text" class="text-input date" id="from" name="from" value="<?= $this->startDate ?>" />  <input type="text" class="text-input date" id="to" name="to" value="<?= $this->endDate ?>" />
+
+                <? if ($this->telcoDropdown): ?>
+
+                    <select id="chap" name="chap"> 
+                        <option value="all"> All Teleco</option>
+                        <?php foreach ($this->telcosDropDown as $telco): ?> 
+
+                            <option value="<?= $telco['id'] ?>" <?php if ($this->chapId == $telco['id']) {
+                        echo 'selected';
+                    } ?>><?= $telco['siteName'] ?></option>
+
+                    <?php endforeach; ?> 
+                    </select>
+<? endif; ?>
+                <input type="submit" value="Filter" name="submit" class="button" />
+            </p>               
+
+        </form>
+
+        <div class="box">
+            <div class="txt">
+                <ul class="icon_list wide" style="">
+
+<? if ($this->telcoDropdown and ($this->chapId == 'all')): ?>
+                        <li>
+                            <p>
+                                <span class="large_text"><?= $this->chapCount; ?></span>
+                                <a href="#stats_view_by_date_cont">Total Telcos</a>
+                            </p>
+                        </li>
+<? endif; ?> 
+
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalUsers; ?></span>
+                            <a href="#stats_view_by_date_cont">Users</a>
+                        </p>
+                    </li>
+
+<?php if(Zend_Auth::getInstance()->getIdentity()->id != 274515 ) :  ?>
+
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalCps; ?></span>
+                            <a href="#stats_view_by_date_cont">Developers</a>
+                        </p>
+                    </li>
+
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalFree; ?></span>
+                            <a href="#stats_view_by_date_cont">Free Apps</a>
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalPremium; ?></span>
+                            <a href="#stats_view_by_date_cont">Premium Apps</a>
+                        </p>
+                    </li>
+
+<?php endif;  ?>
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalRevenue; ?></span>
+                            <a href="#stats_view_by_date_cont">Total Revenue</a>
+                        </p>
+                    </li>
+                    
+                     <li>
+                        <p>
+                            <span class="large_text"><?=$this->CurrencyConvert($this->revenue); ?></span>
+                            <a href="#stats_view_by_date_cont">Total Revenue</a>
+                        </p>
+                    </li>
+                    
+
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalDownloads; ?></span>
+                            <a href="#stats_view_by_date_cont">Downloads</a>
+                        </p>
+                    </li>
+
+
+                    <li>
+                        <p>
+                            <span class="large_text"><?= $this->totalViews; ?></span>
+                            <a href="#stats_view_by_date_cont">Views</a>
+                        </p>
+                    </li>
+
+
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class='full_block' style='	margin-left: auto;
+             margin-right: auto;' id='stats_view_by_date'>
+            Please wait while we load the data.
+        </div>
+
+    </div>
+
+
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"> App Downloads By Source </h3>
+    </div>
+    <div class="content-box-content">
+        <div class="full_block" id='stats_download_by_date_and_source' style='margin-left: auto;margin-right: auto;'>
+            Please wait while we load the data.
+        </div>
+    </div>
+
+
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"> App Views By Source </h3>
+    </div>
+    <div class="content-box-content">
+        <div class="full_block" id='stats_view_by_date_and_source' style='margin-left: auto;margin-right: auto;'>
+            Please wait while we load the data.
+        </div>
+    </div>
+
+
+<? if (($this->freePremiumViewsRatio) or ($this->freePremiumDownloadRatio)): ?>
+
+        <div class="content-box-header">
+            <h3 style="cursor: s-resize;"> Free/Premium Downloads and Views Ratio </h3>
+        </div>
+
+        <div class="content-box-content">
+
+
+    <? if ($this->freePremiumViewsRatio): ?>
+                <div style='float:left; width: 300px;padding: 0 0px 0 100px;'>
+                    <div class="title">
+                        <h3>Apps Views Free : Premium Ratio</h3>
+                    </div>
+                    <div id="views_free_premium" style="height: 180px;width: 180px;">
+                    </div>
+
+                </div>
+
+                <?
+            endif;
+            ?>
+    <? if ($this->freePremiumDownloadRatio): ?>
+                <div style='float:left;width: 300px;padding: 0px 0px 0 100px;'>
+                    <div class="title">
+                        <h3>Apps Downloads Free : Premium Ratio</h3>
+                    </div>
+                    <div id="downloads_free_premium" style="height: 180px;width: 180px;margin-left: 40px;">
+                    </div>
+                </div>
+                <?
+            endif;
+            ?>
+            <div style="clear: both;"></div>
+
+        </div>
+        <?
+    endif;
+    ?>
+<? if ($this->topAppSection): ?>
+
+
+        <div class="content-box-header">
+            <h3 style="cursor: s-resize;"> Top Downloads / Top Views  </h3>
+        </div>
+
+
+
+        <div class="content-box-content">
+
+    <? if (count($this->viewsByApp) > 0): ?>
+                <div style='float:left; width:48%;'>
+                    <div class="title">
+                        <h3>Most Viewed Apps</h3>
+                    </div>
+                    <div class="box">
+                        <div class='txt'>
+                            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>App</th>
+                                        <th>Count</th>
+                                    </tr>
+                                </thead>
+                                    <?php if (count($this->viewsByApp)): $class = ''; ?>
+                                    <tbody>
+            <?php foreach ($this->viewsByApp as $item => $value): $class = ($class == 'alt') ? '' : 'alt'; ?>
+                                            <tr>
+                                                <td class='<?= $class ?>'><?= $value->name ?> </td>
+                                                <td class='<?= $class ?>'><?= $value->count ?></td>
+                                            </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+        <?php endif; ?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    <? else: ?>
+                <div style='float:right; width:48%;'>
+                    <div class="title">
+                        <p>No records available for Most Viewed Apps</p>
+                    </div>
+                </div>
+    <? endif; ?>
+
+
+
+    <? if (count($this->downloadsByApp) > 0): ?>
+                <div style='float:right; width:48%;'>
+
+
+                    <div class="title">
+                        <h3>Most Downloaded Apps</h3>
+                    </div>
+
+                    <div class="box">
+                        <div class='txt'>
+
+                            <table cellpadding="0" cellspacing="0" style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th>Apps</th>
+                                        <th>Count</th>
+                                    </tr>
+                                </thead>
+                                    <?php if (count($this->downloadsByApp)): $class = ''; ?>
+                                    <tbody>
+            <?php foreach ($this->downloadsByApp as $value): $class = ($class == 'alt') ? '' : 'alt'; ?>
+                                            <tr>
+                                                <td class='<?= $class ?>'><?= $value->name ?></td>
+                                                <td class='<?= $class ?>'><?= $value->count ?></td>
+                                            </tr>
+                                    <?php endforeach; ?>
+                                    </tbody>
+        <?php endif; ?>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+    <? else: ?>
+                <div style='float:right; width:48%;'>
+                    <div class="title">
+                        <p>No records available for Most Downloaded Apps</p>
+                    </div>
+                </div>
+    <? endif; ?>
+            <div style="clear: both;"></div>
+
+        </div>
+
+
+<? endif; ?>
+
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;">Detail Statistics  </h3>
+    </div>
+
+    <div class="content-box-content">
+        <div style="">
+
+            <table cellspacing="0" cellpadding="0" style="width:100%; margin-left: 15px;">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>App Count</th>
+                        <th>Featured App Count</th>
+                        <th>Appstore App Downlaods </th>
+                        <th>Views</th>    
+                        <th>Downloads</th>   
+                        <th>Revenue</th>           
+                    </tr>
+                </thead>
+
+                <? foreach ($this->telcoDetails as $telco): ?>
+
+    <?= $this->partial('partials/telco_stats.phtml', array("telco" => $telco)); ?>
+<? endforeach; ?>
+
+
+
+            </table>
+
+        </div>
+
+
+
+
+        <div style="clear: both;"></div>
+    </div>
+
+</div>
+
+<script type="text/javascript">        
+    $('#7').addClass('current');  
+    $('#71').addClass('current'); 
+</script>

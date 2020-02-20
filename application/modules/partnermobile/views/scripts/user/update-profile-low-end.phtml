@@ -1,0 +1,104 @@
+<script type="text/javascript">
+	$(document).on("pageshow", "#page-home", function() {
+		$.validator.addMethod("passmatch", function(value) {
+		return value == $("#password").val();
+		}, 'Confirmation password must match.');
+		 
+		$("#registerForm").validate({
+		 
+		errorPlacement: function(error, element) {
+		if (element.attr("name") === "favcolor") {
+		error.insertAfter($(element).parent());
+		} else {
+		error.insertAfter(element);
+		}
+		}
+		});
+});
+</script>
+<style>
+.ui-body{
+background:#ffffff;
+}
+</style>
+<div class="ui-content ui-body-d" id="page-home">
+<h2 class="font-size-16"><?php echo $this->translate("Update Profile");?></h2>
+
+<div class="ui-grid-solo">
+    <?php if($this->ErrorMessages)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+        <?php foreach($this->ErrorMessages as $key=>$value)
+            {
+                if(is_array($value))
+                {
+                    foreach($value as $one=>$two)
+                    {
+                        echo $this->translate($two);
+                    }
+                    echo '<br/>';
+                }
+                else
+                {
+                    echo $this->translate($value),'<br/>';
+                }
+            } ?>
+        </span></span></div>
+   
+    <?php } ?>
+</div>
+
+<div class="ui-body ui-body-c">
+        <form data-ajax="false" id="registerForm" method="post" action="/user/update-profile" >
+    
+        <fieldset class="ui-field-contain ui-body ui-br">
+            <label for="first_name" class="ui-input-text"><?php echo $this->translate("First Name");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="text" value="<?php if (isset($this->first_name)) {echo $this->first_name;}?>" minlength="" class="required ui-input-text ui-body-c" id="first_name" name="first_name">
+            </div>
+        </fieldset>
+            
+        <fieldset class="ui-field-contain ui-body ui-br">
+            <label for="last_name" class="ui-input-text"><?php echo $this->translate("Last Name");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="text" value="<?php if (isset($this->last_name)) {echo $this->last_name;}?>" minlength="" class="required ui-input-text ui-body-c" id="last_name" name="last_name">
+            </div>
+        </fieldset>
+    
+        <fieldset class="ui-field-contain ui-body ui-br">
+            <label for="email" class="ui-input-text"><?php echo $this->translate("Email");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="email" value="<?php if (isset($this->email)) {echo $this->email;}?>" minlength="5" class="required email ui-input-text ui-body-c" id="email" name="email">
+            </div>
+        </fieldset>
+            
+        <!--fieldset class="ui-field-contain ui-body ui-br">
+            <label for="phone_number" class="ui-input-text"><?php echo $this->translate("Phone Number");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="text" value="<?php if (isset($this->phone_number)) {echo $this->phone_number;}?>" minlength="10" class="required number ui-input-text ui-body-c" id="phone_number" name="phone_number">
+            </div>
+        </fieldset>
+            
+        <fieldset class="ui-field-contain ui-body ui-br">
+            <label for="password" class="ui-input-text"><?php echo $this->translate("Password");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="password" minlength="5" class="required ui-input-text ui-body-c" id="password" name="password">
+            </div>
+        </fieldset>
+    
+        <fieldset class="ui-field-contain ui-body ui-br">
+            <label for="password2" class="ui-input-text"><?php echo $this->translate("Confirm Password");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="password" minlength="5" class="required ui-input-text ui-body-c" id="password2" name="password2">
+            </div>
+        </fieldset-->
+
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all">
+            <span class="ui-btn-inner">
+                <span class="ui-btn-text"><?php echo $this->translate("Register");?></span>
+            </span>
+            <input type="submit" value="<?php echo $this->translate("Register");?>" class="ui-btn-hidden" data-disabled="false">
+        </div>
+    </form>
+</div>
+</div>

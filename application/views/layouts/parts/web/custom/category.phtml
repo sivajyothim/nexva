@@ -1,0 +1,21 @@
+<?
+$parents = $this->categories[0];
+foreach($parents as $id => $name):?>
+<div id="categorylist">
+    <a href="/category/<?=$this->slug($name)?>/<?=$id?>" class="menuLink"><?=$name?></a>
+        <?
+        $childs = $this->categories[$id];
+        $selectedId = $this->categoryId;
+        if($id == $this->categoryId || array_key_exists($selectedId, $childs)):?>
+    <div>
+                <?
+                foreach($childs as $id => $name):
+                    ?>
+        <div <?=($selectedId == $id) ? 'class="selected"' : ''?>>
+            <a href="/category/<?=$this->slug($name)?>/<?=$id?>" class="menuLink"><?=$name?></a>
+        </div>
+                <? endforeach; ?>
+    </div>
+        <? endif; ?>
+</div>
+<? endforeach; ?>

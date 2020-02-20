@@ -1,0 +1,102 @@
+<!-- Start Content Box #2 -->
+<script  type="text/javascript" >
+    
+    $(document).ready(function() 
+    {
+        $("#btnSubmit").click(function(){
+            
+            var serchKey = $("#searchTxt").val();
+            document.location.href='<?php echo PROJECT_BASEPATH;?>product/search/q/'+serchKey;
+           
+        });
+        
+    });
+    
+</script>
+
+
+<div class="title">
+
+    <h3><?php echo $this->translate("View content");?></h3>
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            
+            
+            <div style="padding:20px 0px" align="center">
+            <form method="POST" name="frmSearchCp" id="frmSearchCp" action="">
+                <input type="text"  value="<?php echo $this->searchVal; ?>" name="searchTxt" id="searchTxt" class="txt-input medium" style="width:300px" />
+                
+                <input type="button" class="button" name="btnSubmit" id="btnSubmit" value="<?php echo $this->translate("Search");?>" />
+                <small><?php echo $this->translate("Remove the search value and hit search to get the full list.");?></small>
+            </form>
+        </div>
+            
+            <div class="tab-table">
+
+          <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th><?php echo $this->translate("Content name");?> </th>
+                            <th><?php echo $this->translate("Price");?></th>
+                            <th><?php echo $this->translate("Type");?></th>
+                            <th><?php echo $this->translate("Status");?></th>
+                            <th style="text-align: center;"><?php echo $this->translate("Created / Updated");?> <br /> on</th>
+                            <th style="width:20%;"><?php echo $this->translate("Operations");?></th>
+                            <th style="text-align: center;">Stats <br /> <?php echo $this->translate("views / downloads");?> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->products as $product): ?>
+                            <?= $this->partial('partials/product_simple.phtml',array("product" => $product, 'nexpagerState' => $this->nexpagerState)); ?>
+                        <? endforeach; ?>
+
+                        
+                        <tr>
+                            <td colspan="7"><?= $this->paginationControl($this->products, 'Sliding', 'partials/paginator.phtml'); ?></td>
+             
+                        </tr>
+
+
+                        <?if($this->show_empty_msg == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i><?php echo $this->translate("You don't have any contents uploaded yet.");?>
+ <a href='<?php echo PROJECT_BASEPATH;?>product/create/'><?php echo $this->translate("Upload a new application now");?></a>
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                         <?endif; ?>
+
+                       
+                    </tbody>
+                </table>
+                <!-- End Table -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content Box #2 -->

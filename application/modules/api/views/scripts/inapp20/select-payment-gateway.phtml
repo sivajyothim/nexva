@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type"
+    content="application/xhtml+xml;charset=utf-8" />
+<meta content="en" http-equiv="content-language" />
+<meta content="no-cache" http-equiv="Cache-Control" />
+<title>Choose a payment method | neXva | Mobile</title>
+<link href="/mobile/css/style.css" rel="stylesheet" type="text/css"></link>
+<!-- Add JS and CSS dynamically -->
+<link href="/mobile/css/style.css" media="screen" rel="stylesheet"
+    type="text/css">
+</head>
+<body>
+<div class="header padding-all"><a href="/"> <img
+    src="/mobile/images/nexva_logo.gif" alt="neXva Logo" /> </a> <br
+    clear="all" />
+</div>
+<div id="tb_cats" class="wap-wt_tab_div"></div>
+<div class="utility padding-all"><!-- Search and Category Start -->
+<table>
+
+    <tbody>
+    </tbody>
+</table>
+
+<!-- info start -->
+<div class="info orange">
+<div class="menu green"></div>
+</div>
+<!-- info ends --></div>
+
+<hr class="t" />
+
+<div id="content" class="content rounded padding-all">
+<div class="padding-all">
+<h1>Choose a payment method</h1>
+</div>
+
+<ul class="padding-all">
+<? $i = 1; foreach($this->paymentGateways as $paymentGateway): ?>
+  <li><b><?=$i++ . '. ' . $paymentGateway->name ?></b><br/><a href="/inapp/2.0/paynow/pgid/<?=$paymentGateway->id ?>/ssid/<?=$this->ssid ?>"><img src="/mobile/images/payment_gateways/icon_<?=$paymentGateway->id ?>.png" alt="<?=$paymentGateway->name ?>" title="<?=$paymentGateway->name ?>"/></a></li>
+<?  endforeach; ?>
+</ul>
+
+</div>
+<!-- content ends -->
+
+<hr class="b" />
+<div class="menu padding-all"><!-- Add view helper for this --> <a
+    href="#">nexpayer</a></div>
+
+<hr class="t" />
+
+
+
+<div align="center" id="footer" class="padding-all">
+<div>&copy;  2010 neXva Inc</div>
+<div>
+
+<br clear="all" />
+</div>
+</body>
+</html>

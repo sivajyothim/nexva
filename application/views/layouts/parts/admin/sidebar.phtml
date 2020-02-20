@@ -1,0 +1,66 @@
+            <!-- Start Sidebar -->
+            <div id="sidebar">
+                <!-- Start Sidebar Box #1 -->
+                <div class="sort">
+                    <div class="title"><h3>System Status | neXva.com</h3></div>
+                    <div class="box">
+                        <div class="txt">
+                            <ul class="todo">
+                                <li>
+                                    <a href="#"><b>Approved Product</b></a>
+                                    <p>You have <b>20556</b> of total approved products.</p>
+                                    <ul class="links">
+                                        <li><a href="<?php echo PROJECT_BASEPATH;?>product/view/tab/tab-not-approved">Approve Queues</a></li>
+                                        <li><a href="<?php echo PROJECT_BASEPATH;?>product/view/">List All Products</a></li>
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a href="#"><b>Content Providers</b></a>
+                                    <p>You have total <b><?= $this->cp_count; ?></b> number of content providers singed up with neXva.com</p>
+                                    <ul class="links">
+                                        <!--<li><a href="#">Create CP Account</a></li>-->
+                                        <li><a href="/user/list/tab/tab-cps">List All CP's</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><b>Customers</b></a>
+                                    <p>You have total <b><?= $this->customer_count; ?></b> number of customers singed up with neXva.com</p>
+                                    <ul class="links">
+                                        <!--<li><a href="#">Create CP Account</a></li>-->
+                                        <li><a href="/user/list/tab/tab-customers">List All Customers</a></li>
+                                    </ul>
+                                </li>
+                               
+                                <li>
+                                    <a href="/handset/list"><b>Handsets</b></a>
+                                    <p>System has total <b><?= $this->handsets_count; ?></b> number of handsets registered.</p>
+                                    <ul class="links">
+                                        
+                                        <li><a href="/handset/list">List All Handsets</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><b>Platform/OS</b></a>
+                                    <p>System has total <b><?= $this->platforms_count; ?></b> number of mobile platforms/OS registered.</p>
+                                    <ul class="links">
+                                        
+                                        <li><a href="/platform/list">List All Platform/OS</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#"><b>Approved Reviews</b></a>
+                                    <p>System has total <b><?= $this->non_approve_count; ?></b> number of non-approved reviews.</p>
+                                     <ul class="links">
+                                        <li><a href="/review/list">Approve Queues</a></li>
+                                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sidebar Box #1 -->
+
+
+            </div>
+            <!-- End Sidebar -->

@@ -1,0 +1,35 @@
+<?php
+
+    $auth = Zend_Auth::getInstance();
+
+    if ($auth->getIdentity()) {
+        $reseller  =  $auth->getIdentity() ;
+
+        $resellerMeta = new Model_UserMeta();
+        $resellerMeta->setEntityId($auth->getIdentity()->id);
+    }
+
+?>
+<!-- Start Header -->
+
+<div id="header">    
+    <div class="logo">
+    </div>
+ 
+    <?
+        //$locale  =   Zend_Registry::get('Zend_Locale');
+        //$date   =   new Zend_Date(Zend_Date::DATETIME_FULL,$locale);
+    ?>
+
+    <?if ($reseller):?>
+    <div class="info">
+        <div>
+            <h2>Welcome back <span><?php echo $reseller->email;?></span></h2>
+            <?php /* <small>Last login : <?=new Zend_Date($resellerMeta->LAST_LOGIN, $locale);?>  GMT.</small> */?>
+            <small><a href="<?PHP ECHO PROJECT_BASEPATH; ?>/user/logout">Log out</a></small>
+        </div>
+    </div>
+    <?endif;?>
+
+</div>
+<!-- End Header -->

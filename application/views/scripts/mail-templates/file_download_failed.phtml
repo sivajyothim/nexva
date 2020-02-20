@@ -1,0 +1,37 @@
+Hi Content Administrator
+<br /><br />
+File download failed, file not found for below Content. <br />
+Please check the S3 repository and builds exist for the Platform <?=$this->data['platform_name']?>.
+<br /><br />
+
+Content name: <?=$this->data['name']?>
+<br /><br />
+Content id: <?=$this->data['id']?>
+<br /><br />
+Downloaded user id: <?=$this->user_id?>
+<br /><br />
+Downloaded device id: <?=$this->device_id?>
+<br /><br />
+Downloaded device name: <?=$this->device_name?>
+<br /><br />
+Missing File: <?=$this->filename; ?>
+<br /><br />
+Platform name: <?=$this->data['platform_name']?>
+<br /><br /> 
+Platform id: <?=$this->data['platform_id']?>
+<br /><br />
+Build name: <?=$this->build_name; ?>
+<br /><br /> 
+Language id: <?=$this->build_language_id;?>
+<br /><br /> 
+Language: <?=$this->build_language; ?>
+<br /><br /> <br />
+Supported Platforms
+<pre>
+  <?print_r($this->data['supported_platforms']); ?>  
+</pre>
+<br /><br /> 
+Thank you.
+<pre>
+  <?//print_r($this->data); ?>    
+</pre>

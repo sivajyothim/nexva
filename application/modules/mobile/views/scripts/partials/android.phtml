@@ -1,0 +1,27 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/30/13
+ * Time: 11:24 AM
+ * To change this template use File | Settings | File Templates.
+ */
+
+$deviceSession = new Zend_Session_Namespace('Device');
+$deviceName = $deviceSession->deviceName;
+?>
+<div class="app">
+    <?/*= $this->slug($this->item['name'] . ' for ' . $deviceName) . '.' . $this->item['id'] */?>
+    <a href="<?php echo PROJECT_BASEPATH;?>app/show/id/<?php echo $this->item['id'] ?>/">
+        <span class="other">
+            <?php echo $this->thumbnail($this->item[0]['thumb'], array('w' => 50, 'h' => 50)); ?>
+            <br/>
+        </span>
+        <strong><?php echo $this->trim($this->item['name'], 30) ?></strong>
+        <?php echo $this->trim($this->item[0]['desc_brief'], 150);  ?><br/>
+        <span class="mini-description">
+            <?php echo isset($this->item[0]['user_meta']) ? $this->item[0]['user_meta']->COMPANY_NAME : '' ?> | <b><?php echo ($this->item['price'] == 0) ? 'Free' : '$' . $this->item['price'] ?></b>
+            <?php /*Zend_Debug::dump($this->item[0]['user_meta']->COMPANY_NAME);*/?>
+        </span>
+    </a>
+</div>

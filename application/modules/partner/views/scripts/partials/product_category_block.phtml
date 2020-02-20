@@ -1,0 +1,29 @@
+<?php
+//configuration
+if(!isset($this->page_name))$this->page_name='page';
+?>
+<?php if ($this->pageCount): ?>
+<div class="pagination_products">
+    <!-- Previous page link -->
+    <?php if (isset($this->previous)): ?>
+    	<a href="http://<?=$this->baseUrl?><?=$this->previous?>"> &lt;&lt; <?php echo $this->translate("Previous")?></a>
+    <?php else: ?>
+    	<span class="disabled">&lt;&lt; <?php echo $this->translate("Previous")?></span>
+    <?php endif; ?>
+    <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+            	<a href="http://<?=$this->baseUrl?><?=$page?>" class="number"><?=$page?></a>
+            <?php else: ?>
+    			<a class="number current"><?=$page?></a>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+    <!-- Next page link -->
+    <?php if (isset($this->next)): ?>
+    	<a href="http://<?=$this->baseUrl?><?=$this->next?>"><?php echo $this->translate("Next")?> &gt;&gt;</a>
+        <?php else: ?>
+    		<span class="disabled"><?php echo $this->translate("Next")?> &gt;&gt;</span>
+        <?php endif; ?>
+</div>
+<?php endif; ?>

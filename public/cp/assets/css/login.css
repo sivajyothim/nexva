@@ -1,0 +1,276 @@
+#tab-wrap h2 {font-size: 26px;}
+#tab-wrap h3 {font-size: 24px;}
+
+#tab-wrap h2, #tab-wrap h3.title { 
+    font-family: 'Yanone Kaffeesatz', arial, serif;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 15px;
+}
+
+#lh-col{
+    width: 48%;
+    float: left;
+    margin: 0;
+}
+ 
+#rh-col{
+    width: 48%;
+    float: right;
+    margin: 0;
+    position:relative;
+}
+
+/*#acl-web-os{
+    *//*position:absolute;*//*
+    margin-top:700px;
+}*/
+
+#opmob-lh-col{
+    width: 40%;
+    float: left;
+    margin: 0;
+}
+
+#opmob-rh-col{
+    width: 56%;
+    float: right;
+    margin: 0;
+}
+
+#center {
+    width: 50%;
+    margin-left: 25%;
+}
+
+#header-tabs {
+    /* background: url("/cp/assets/img/content/icon_list/title_bg.jpg") repeat-x ; */
+    overflow: auto;
+    margin-top: -40px;
+}
+
+#tab-cont {
+    border: 1px solid #DADADA;
+    
+}
+
+#tab-wrap {
+   padding: 30px;
+}
+
+#header-tabs h3 {
+    float: left;
+}
+
+#content #header-tabs h3 a, #content #header-tabs h3 span {
+    color: #fff;
+    padding: 5px 10px;
+    background: #E47924;
+    display: block;
+    margin: 10px 5px 0 0;
+    font-size: 16px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#header-tabs h3 a: visited {
+    color: #fff;
+}
+
+#content #header-tabs h3 span {
+	color: #E47924;
+	background: #fff;
+}
+
+
+#tab-title-cont {
+    height:35px;
+    overflow:hidden;
+}
+
+#tab-title {
+    display:block;
+    background: #E47924;
+    padding: 10px;
+    color: #fff;
+    display:none;
+    font-size: 13px;
+}
+
+
+/* TILE BUTTONS */
+
+/* Button 100 x 100 */
+.tile-bt {
+    text-align:center;
+    cursor:pointer;
+    width:100px;
+    height:100px;
+}
+.tile-bt a {
+    display:block;
+    padding-top:16px;
+    text-decoration: !important;
+}
+.tile-bt img {
+    margin:0 auto 0 auto;
+    padding-bottom:10px;
+    height:48px;
+    width:48px;
+    position:relative;
+    display:block;
+}
+.tile-bt span {
+    font-size:14px;
+    padding-bottom:10px;
+    display:block;
+}
+.tile-bt:active {
+    opacity:0.5;
+}
+/* Button 100 x 100 */
+
+.tile-bt-2 {
+    width:104%;
+    height:80px;
+    line-height:80px;
+    text-align:center;
+    cursor:pointer;
+}
+.tile-bt-2 a {
+    display:block;
+    /*text-decoration: !important;*/
+}
+.tile-bt-2 img {
+    vertical-align: middle;
+    margin:auto;
+    padding:0px;
+    position:relative;
+    /*width:40px;*/
+    width:100%;
+    /*height:40px;*/
+    height:100%;
+}
+.tile-bt-2 span {
+    vertical-align: middle;
+    display:inline;
+    font-size:18px;
+}
+.tile-bt-2:active {
+    opacity:0.5;
+}
+.tile-bt-2 p {
+    vertical-align: middle;
+    display:block;
+    font-size:18px;
+}
+
+
+/* END TILE BUTTONS */
+
+
+/* BACKGROUND LIST */
+
+/* Solid Colors */
+.solid-blue { background:#00BBE2; }
+.solid-blue-2 { background:#2C84EE; }
+.solid-darkblue { background:#044E94; }
+.solid-violetred { background:#781766; }
+.solid-red { background:#E51400;}
+.solid-red-2 { background:#E81750; }
+.solid-pink { background:#FF539B; }
+.solid-purple { background:#D02090; }
+.solid-orange { background:#FB8F02; }
+.solid-orange-2 { background:#FF6600; }
+/*.solid-orange-2 { background:#E47924; }*/
+.solid-orange-3 { background:#DD5F37; }
+.solid-coral { background:#CD5B45; }
+.solid-green { background:#67B239; }
+.solid-green-2 {background:#96BF01; }
+.solid-darkgreen { background:#016C38; }
+.solid-olive { background:#999900}
+.solid-grass { background:#CDCD00; }
+.solid-darkred { background:#5F0000; }
+.solid-gold { background:#FEE9AE; }
+.solid-yellow { background:#F7D100; }
+.solid-black { background:#000; }
+.solid-smoke { background:#F5F5F5; }
+/* End Solid Colors */
+
+/* END BACKGROUND LIST */
+
+
+
+
+/* MISC */
+.clearspace { clear: both; }
+.floatleft { float:left; }
+.margin-5 { margin-right:5px; margin-bottom:5px; }
+.light-text {
+    color:#fff;
+}
+.dark-text {
+    color:#1e1e1e;
+}
+.gradient {
+    background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0.3))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,0) 00%,rgba(255,255,255,0.3) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 100%); /* IE10+ */
+    background: linear-gradient(-45deg,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 100%); /* W3C */
+}
+.shadow-white, .shadow-black, .shadow-blue, .shadow-green, .shadow-red {
+    display:inline-block;
+    text-decoration:none;
+}
+.shadow-white:hover {
+    box-shadow:0px 0px 6px 3px #fff;
+    -webkit-box-shadow:0px 0px 6px 3px #fff;
+    -moz-box-shadow:0px 0px 6px 3px #fff;
+    -o-box-shadow:0px 0px 6px 3px #fff;
+    -ms-box-shadow:0px 0px 6px 3px #fff;
+}
+.shadow-blue:hover {
+    box-shadow:0px 0px 6px 3px #38D1F7;
+    -webkit-box-shadow:0px 0px 6px 3px #38D1F7;
+    -moz-box-shadow:0px 0px 6px 3px #38D1F7;
+    -o-box-shadow:0px 0px 6px 3px #38D1F7;
+    -ms-box-shadow:0px 0px 6px 3px #38D1F7;
+}
+.shadow-green:hover {
+    box-shadow:0px 0px 6px 3px #AACA37;
+    -webkit-box-shadow:0px 0px 6px 3px #AACA37;
+    -moz-box-shadow:0px 0px 6px 3px #AACA37;
+    -o-box-shadow:0px 0px 6px 3px #AACA37;
+    -ms-box-shadow:0px 0px 6px 3px #AACA37;
+}
+.shadow-red:hover {
+    box-shadow:0px 0px 6px 3px #E81750;
+    -webkit-box-shadow:0px 0px 6px 3px #E81750;
+    -moz-box-shadow:0px 0px 6px 3px #E81750;
+    -o-box-shadow:0px 0px 6px 3px #E81750;
+    -ms-box-shadow:0px 0px 6px 3px #E81750;
+}
+.shadow-black:hover {
+    box-shadow:0px 0px 6px 3px #444;
+    -webkit-box-shadow:0px 0px 6px 3px #444;
+    -moz-box-shadow:0px 0px 6px 3px #444;
+    -o-box-shadow:0px 0px 6px 3px #444;
+    -ms-box-shadow:0px 0px 6px 3px #444;
+}
+.shadow-orange:hover {
+    box-shadow:0px 0px 6px 3px #E47924;
+    -webkit-box-shadow:0px 0px 6px 3px #E47924;
+    -moz-box-shadow:0px 0px 6px 3px #E47924;
+    -o-box-shadow:0px 0px 6px 3px #E47924;
+    -ms-box-shadow:0px 0px 6px 3px #E47924;
+}

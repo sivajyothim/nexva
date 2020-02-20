@@ -1,0 +1,7 @@
+             <?php $temp=Zend_Registry::get('browserLocale'); ?>
+                        <div id="search">
+                            <form action='/search/index' method='post' name="searchForm" id="searchForm">
+                                <input type="text" name="keyword" id="keyword" value='<?=isset($this->TERM) ? $this->TERM : ''?>' placeholder='<?= $temp->_('Search') ?>' style="float: left"/>
+                                <input src="/wl/images/button-search.png" title="Search" value="" type="image" style="width: 27px; height: 27px">
+                            </form>
+                        </div>

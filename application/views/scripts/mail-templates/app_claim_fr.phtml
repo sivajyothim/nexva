@@ -1,0 +1,19 @@
+Hello Admin,<br /><br />
+
+<?=$this->cp_company_name?> a certifié cette application. <?=$this->content_name?>. les détails sont les suivants:  <br/><br/>
+
+<strong> l'ENTREPRISE:</strong> <?=$this->cp_company_name?><br/><br/>
+
+<strong>Contact/dénomination/e-mail:</strong> <?=$this->cp_name?> / <?=$this->designation?> / <?=$this->cp_email?><br/><br/>
+
+<strong>Adresse IP:</strong> <?=$this->ip?> <br/><br/>
+
+<a href="<?='http://'.Zend_Registry::get('config')->nexva->application->admin->url."/user/edit/id/" . $this->cp_id;?>">
+
+cliquez ici pour voir les détails de ce développeur </a> ou  
+<a href="<?='http://'.Zend_Registry::get('config')->nexva->application->admin->url."/product/display/id/" . $this->content_id;?>">
+Cliquez ici pour voir le contenu </a> 
+<br/><br/>
+
+Merci.<br />
+- neXva.

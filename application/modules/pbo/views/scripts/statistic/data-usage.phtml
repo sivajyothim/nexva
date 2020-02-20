@@ -1,0 +1,95 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: viraj
+ * Date: 10/9/14
+ * Time: 2:28 PM
+ */
+
+?>
+<script type="text/javascript" >
+    $(document).ready(function()
+    {
+        $("#from").datepicker({ dateFormat: 'yy-mm-dd'});
+        $("#to").datepicker({ dateFormat: 'yy-mm-dd'});
+    });
+</script>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+        <!--<div id="icon_wrapper">
+
+        </div>-->
+    </div>
+    <div class="content-box-content">
+        <div id="wrapper_main">
+            <div style="width:90%;float: left;">
+                <form id="form-data-usage" name="form-data-usage" action="/statistic/data-usage" method="post">
+
+                    <!--<div style="float:left; width:50px; position: relative; left: 10px">
+                        <label style="position: relative; top: 30px">Filter:</label>
+                    </div>-->
+
+                    <div style="float:left; width:140px; position: relative; left: 10px">
+                        <label style="position: relative; left: 10px; width: 60px">From :</label>
+                        <input style="width: 120px !important; left: 50px" type="text" class="text-input small-input" id="from" name="from" value="<?php echo (isset($this->from)) ? $this->from : '' ?>" />
+                    </div>
+
+                    <div style="float:left; width:140px; position: relative; left: 10px">
+                        <label style="position: relative; left: 10px; width: 60px">To :</label>
+                        <input style="width: 120px !important; left: 150px" type="text" class="text-input small-input" id="to" name="to" value="<?php echo (isset($this->to)) ? $this->to : '' ?>" />
+                    </div>
+
+                    <div style="float:left; width:140px; position: relative; left: 10px">
+                        <label style="position: relative; left: 10px; width: 60px">User :</label>
+                        <input style="width: 120px !important; left: 150px" type="text" class="text-input small-input" id="user" name="user" value="<?php echo (isset($this->user)) ? $this->user : '' ?>" />
+                    </div>
+
+                    <div style="float:left; width:200px; position: relative; left: 10px">
+                        <input style="margin-top: 22px;" type="submit" value="Filter" name="btnSubmit" id="btnSubmit" class="button" />
+                    </div>
+
+                </form>
+            </div>
+            <div class="clear"></div>
+            <br/><br/>
+
+            <h3 style="padding-left: 5px"><?php echo $this->tableTitle; ?> - Total Data usage for the selected period - <?php echo $this->FileSize($this->dataTotal);?></h3>
+            <table class="no-style medium" style="width: 60%">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th class="ta-right">Downloads</th>
+                        <th class="ta-right">Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach($this->data as $data){
+                        ?>
+                        <tr>
+                            <td><?php echo ($data->mobile_no) ? (('0123456789' === $data->mobile_no)?'Common-User':$data->mobile_no) : $data->email; ?></td>
+                            <!--<td><?php /*echo ($data->mobile_no) ? $data->mobile_no : $data->email; */?></td>-->
+                            <td class="ta-right"><?php echo $data->downloads;?></td>
+                            <td class="ta-right"><?php echo $this->FileSize($data->data);?></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <?php
+        $data = array(
+            "from" => ($this->from) ? $this->from : null ,
+            "to" => ($this->to) ? $this->to : null,
+            "user" => ($this->user) ? $this->user : null
+        );
+        ?>
+        <div style ="width : 90%">
+            <?php echo $this->paginationControl($this->data, 'Sliding', 'partials/pagination-data-usage.phtml',$data); ?>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#7').addClass('current');
+    $('#711').addClass('current');
+</script>

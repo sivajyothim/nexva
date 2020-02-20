@@ -1,0 +1,21 @@
+﻿Manifest-Version:  1.0
+MIDlet-Version:  1.0
+MIDlet-Jar-Size:  17082
+RIM-COD-Module-Dependencies:  net_rim_cldc,net_rim_bb_framework_api,net_rim_bbapi_browser,net_rim_bbapi_phone
+MicroEdition-Configuration:  CLDC-1.1
+MIDlet-Jar-URL:  CityNav.jar
+RIM-MIDlet-Flags-2:  3
+RIM-MIDlet-Flags-1:  0
+RIM-COD-Module-Name:  CityNav
+MIDlet-Name:  CityNav
+RIM-COD-Creation-Time:  1380775308
+MIDlet-2: CityNav,,autostartup
+MIDlet-1: CityNav,..\..\src\com\bblauncher\launcher\order6746\item1\images\default-normal.png,
+MIDlet-Description: Citynav application launcher
+RIM-MIDlet-NameResourceId-1:  0
+MicroEdition-Profile:  MIDP-2.0
+MIDlet-Vendor:  Trafficafric Limited
+RIM-MIDlet-NameResourceBundle-1:  com.bblauncher.launcher.order6746.item1.resources.LauncherStrings
+RIM-COD-URL: CityNav.cod
+RIM-COD-SHA1:  38 77 96 e4 da ec 79 fc ed de 5c 36 ca fe 52 7e ed a6 de 86
+RIM-COD-Size: 8448

@@ -1,0 +1,28 @@
+<div id="container">
+    <h1 style="font-size: 16px; position: relative; margin-left: 15px; top: 15px"><?= $this->translate('Page not found. (404 - Not Found)'); ?></h1>
+ 
+    
+    <?php 
+    if (APPLICATION_ENV != 'production' || $_SERVER['REMOTE_ADDR'] == '220.247.236.99') : ?>
+        <br><br>
+        <hr>
+
+        <h2><?php echo $this->message ?></h2>
+
+        <?php if (isset($this->exception)): ?>
+
+            <h3>Exception information:</h3>
+            <p>
+                <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+            </p>
+
+            <h3>Stack trace:</h3>
+            <pre><?php echo $this->exception->getTraceAsString() ?>
+            </pre>
+
+            <h3>Request Parameters:</h3>
+            <pre><?php echo var_export($this->request->getParams(), true) ?>
+            </pre>
+        <?php endif ?>
+    <?php endif; ?>
+</div>

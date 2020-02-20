@@ -1,0 +1,17 @@
+<? if (isset($_SERVER['HTTP_REFERER'])): ?>
+    <a href="<?= $_SERVER['HTTP_REFERER'] ?>"><img src="<?=$this->cdn('site_assets')?>/mobile/images/back.png"></a>
+<? endif; ?>
+<?
+if(count($this->products) == 0) {
+    ?>
+<div class="app">
+    <span class="mini-description">
+        Sorry, we couldn't find any recommended apps for this device.
+    </span>
+</div>
+    <?
+}
+foreach($this->products as $product): ?>
+    <?=$this->partial('/partials/app.phtml', array("item" => $product))?>
+<?php endforeach; ?>
+<?= $this->paginationControl($this->products,'Sliding','partials/paginator.phtml', array('baseUrlfo' => $this->baseUrlfo))?>

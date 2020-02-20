@@ -1,0 +1,29 @@
+<div class="title">
+    <h3 style="cursor: s-resize;">Edit User Account</h3>
+    <div title="content_box" class="selector">
+        <!-- <a class="tab active" href="tab-table">List All</a>-->
+        <a href="tab-forms" class="tab active">Edit a User</a>
+        <!--<a class="tab" href="tab-forms">Create a Page</a>-->
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php
+            if(isset($this->message)) {
+                ?>
+            <div class="message <?=$this->message[1] ?>" style="display: block;">
+                <p><?=$this->message[0] ?></p>
+            </div>
+                <?php
+            }
+            ?>
+            <?php //$this->placeholder('formHeadline')->set($this->getTranslation('Create New User'));?>
+            <fieldset>
+                <legend><?php //echo $this->getTranslation('General Information');?></legend>
+                <?php echo $this->form; ?>
+            </fieldset>
+        </div>
+    </div>
+</div>

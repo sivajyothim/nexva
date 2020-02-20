@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+      <!-- Added for display social media-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <!-- Facebook -->
+                <meta property="og:title" content="neXva | Get access to over 200+ Million Consumers" />
+                <meta property="og:url" content="http://cp.nexva.com/user/login" />
+                <meta property="og:image" content="http://cp.nexva.com/cp/assets/img/image-name1.jpg" />
+                <meta property="og:description" content="Register your App with neXva and get a chance to win Samsung Galaxy S8" />
+            <!-- End -->
+            <!-- twitter -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:site" content="@publisher_handle">
+            <meta name="twitter:title" content="neXva | Get access to over 200+ Million Consumers">
+            <meta name="twitter:description" content="Register your App with neXva and get a chance to win Samsung Galaxy S8…">
+            <meta name="twitter:creator" content="@author_handle">
+            <meta name="twitter:image" content="http://cp.nexva.com/cp/assets/img/image-name1.jpg">
+            <!-- End -->
+            <!-- Google+ -->
+                <meta itemprop="name" content="neXva | Get access to over 200+ Million Consumers" />
+                <meta itemprop="description" content="Register your App with neXva and get a chance to win Samsung Galaxy S8 " />
+                <meta itemprop="image" content="http://cp.nexva.com/cp/assets/img/image-name1.jpg" />
+                <meta itemprop="alternativeHeadline" content="http://cp.nexva.com/user/login" />
+            <!-- End -->
+      <!-- End -->
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title><?= isset($this->cpTitle) ? $this->cpTitle : 'neXva.com - mobile reloaded - CP Administration' ?></title> 
+
+    <!-- Core Stylesheet -->
+    <!--link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+    <link href="/cp/assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/cp/assets/css/yellow.css" title="styles2" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/cp/assets/css/login.css" title="styles2" media="screen" /-->
+    <!-- Javascript Files -->
+    <!--script type="text/javascript" src="/cp/assets/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/superfish.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/jquery-stylesheetToggle.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/forestcp.js"></script-->
+
+    <!-- Adding dynamic libs and CSS Meta to the layout view -->
+    
+    <!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="<?php echo PROJECT_BASEPATH;?>cp/assets/cp_front/css/style.css"/>
+    
+    <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>cp/assets/cp_front/js/jquery-1.7.2.js"></script> 
+    <!--script type="text/javascript" src="/cp/assets/cp_front/js/script.js"></script-->
+
+    <?php if(isset($this->customCss)): ?>
+        <link type="text/css" rel="stylesheet" href="<?php echo PROJECT_BASEPATH;?>cp/assets/css/cp.css" media="screen"/>
+    <?php endif; ?>
+            
+    <?php
+    echo $this->headMeta();
+    echo $this->headScript();
+
+    echo $this->headStyle();
+    echo $this->headLink();
+    ?>
+    <!--[if IE 6]>
+    <link href="/cp/assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="/cp/assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>
+      /* EXAMPLE */
+      DD_belatedPNG.fix('.logo img, .message, table img');
+
+      /* string argument can be any CSS selector */
+    </script>
+    <![endif]-->
+    <script type='text/javascript'>
+    $(document).ready(function(){
+    	$('#header-tabs h3 span').attr('title', '');
+        $('#header-tabs h3 a').hover(
+                 function() {
+                     var title = ($(this).attr('title') != '')? $(this).attr('title') : '';
+                     if (title != '') {
+                          $('#tab-title').stop(true, true).html(title).slideDown();
+                          $(this).attr('title', '');
+                     }
+                 },
+                 function() {
+                      var title   = $('#tab-title').html();
+                      if (title != '') {
+                          $(this).attr('title', $('#tab-title').html());
+                          $('#tab-title').slideUp().html();
+                      }
+                 }
+        );
+    });
+    </script>
+
+</head>
+  <body>
+
+    <?php echo $this->render('parts/cp/header_login.phtml'); ?>
+    <!-- start Wrap -->
+    
+    <!--div id="wrap" class="fixed">
+            <div id="content">
+                <div id='tab-cont'>
+                    <div id='tab-title-cont'><span id='tab-title'>&nbsp;</span></div>
+                    <div id='tab-wrap'> 
+                    <div style='clear:both'></div>
+                    <?php //echo $this->layout()->content ?>
+                    <div style='clear:both'></div>
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div-->
+
+<div id="contentwrapper">
+    <div class="content_wrapper">
+          <?php echo $this->layout()->content ?>
+    </div>
+</div>
+    
+        <!-- End Wrap -->
+
+        <!-- Footer -->
+        <?= $this->render('/parts/cp/footer_login.phtml'); ?>
+        <!-- Footer -->
+        <?php echo $this->partial('/parts/analytics.phtml')?>  
+  </body>
+</html>

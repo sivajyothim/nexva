@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <?= $this->headTitle($this->windowTitle); ?>
+        <!--// Stylesheet //-->
+        <link rel="stylesheet" href="/custom/gray/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="/custom/gray/css/ddsmoothmenu.css" type="text/css" />
+        <link rel="stylesheet" href="/custom/gray/css/slider.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/custom/gray/css/contentslider.css" type="text/css" />
+        <link rel="stylesheet" href="/custom/gray/css/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
+        <!--// Java Script //-->
+        <script type="text/javascript" src="/custom/gray/js/jquery.min.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/ddsmoothmenu.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/menu.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/cufon-yui.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/cufon.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/Comfortaa_400-Comfortaa_700.font.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/jquery.min14.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/jquery.easing.1.2.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/jquery.anythingslider.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/slider.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/contentslider.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/virtualpaginate.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/jquery.fancybox-1.3.1.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/lightbox.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/jquery.validate.pack.js"></script>
+        <script type="text/javascript" src="/custom/gray/js/contact.js"></script>
+
+
+        <script type="text/javascript" src="/web/nexva.js"></script>
+        <link type="text/css" rel="stylesheet" href="/web/nexva.css" />
+        <link type="text/css" rel="stylesheet" href="/web/jquery-ui.nexva.css" />
+        <script language="javascript">
+            $(document).ready(function() {
+                alignPage();
+                searchSgHide ();
+                hideOverlays();
+                setBackground ();
+                loadFeatAppList();
+                //startSession ();
+            });
+        </script>
+
+        <?php
+        echo $this->headMeta();
+        echo $this->headScript();
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+    </head>
+
+    <body>
+        <!-- Wrapper Section -->
+        <div id="wrappersec">
+            <!-- Header Section -->
+            <div id="masthead">
+                <div class="logo"><a href="index.html" name="top"><img src="<?=$this->logo;?>" width="200px" height="30px"/></a></div>
+                <div class="subscribe">
+                    <ul>
+                        <li>Subscribe:</li>
+                        <li><a href="<?=$this->theme->FEED;?>" class="first">Posts</a></li>
+
+                        <li><a href="mailto:<?=$this->user->email;?>" class="last">E-mail</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="navigation">
+                    <div id="smoothmenu1" class="ddsmoothmenu">
+
+                        <?if( isset($this->theme->MANU ) and($this->theme->MANU != '')): ?>
+                        <ul><li><a href="#">Main Page</a>
+                                <ul>
+                                    <li><a href="#">Main</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Portfolio</a>
+                                <ul>
+                                    <li><a href="#">Coop Site</a></li>
+                                    <li><a href="#">Featured items</a>
+                                        <ul>
+                                            <li><a href="#">Item one</a></li>
+                                            <li><a href="#">Item two</a></li>
+                                            <li><a href="#">Item three</a></li>
+                                            <li><a href="#">Item four</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Mail us</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="#">Nexva site</a></li>
+                        </ul>
+                        <?else:?>
+                            <?=html_entity_decode($this->theme->MANU);?>
+                        <?endif;?>
+                        <div class="clear"></div>
+                    </div>
+                    <!--
+                    <div class="search">
+                        <ul>
+                            <li><input name="" type="text" class="bar" /></li>
+                            <li><input name="" type="image" src="images/go.gif" alt="" /></li>
+                        </ul>
+                    </div>
+                    -->
+                </div>
+            </div>
+            <!-- Content Section -->
+
+            <div id="contentsec">
+
+                <div class="clear"></div>
+                <!-- Column 1 -->
+                <div class="col1">
+                    <div class="welcomepara secbg">
+
+                        <div id="main">
+                            <div id="content"  >
+                                <?=$this->layout()->content?>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Column 2 -->
+                <div class="col2">
+                    <div class="services secbg">
+                        <h2 class="colr">Our Services</h2>
+                        <p> <?=$this->theme->ABOUT_BUSINESS;?><p>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="follow">
+                                    <div class="topcurve">&nbsp;</div>
+
+                                    
+                                    <div class="middlecurve">
+                                        <?if($this->theme->FEED == '' and $this->theme->TWITTER == '' and $this->theme->FACEBOOK == ''):?>
+                                         Social networking links.. 
+                                        <?endif;?>
+
+                                        <ul>
+                                            <?if($this->theme->FEED != ''):?>
+                                            <li>
+                                                <a href="<?=$this->theme->FEED;?>" class="rss">SUBSCRIBE TI OUR FEEDS<br />Al Posts</a>
+                                            </li>
+                                            <?endif;?>
+                                            
+                                            <?if($this->theme->TWITTER != ''):?>
+                                            <li>
+                                                <a href="<?=$this->theme->TWITTER;?>" class="twitter">FOLLOW US ON TWITTER<br />@ Guilde</a>
+                                            </li>
+                                            <?endif;?>
+                                            <?if($this->theme->FACEBOOK != ''):?>
+                                            <li>
+                                                <a href="<?=$this->theme->FACEBOOK;?>" class="facebook">BE OUR FRIEND ON FACEBOOK<br />Guilde Communication</a>
+                                            </li>
+                                            
+                                        </ul>
+                                        
+                                        <div class="clear"></div>
+                                    </div>
+                                    
+                                    <?endif;?>
+                                    <div class="bottomcurve">&nbsp;</div>
+                                </div>
+
+                                </div>
+                                </div>
+                                </div>
+                                <div class="clear"></div>
+
+                                <div class="clear"></div>
+                                <!-- Blog Tabs Section -->
+                                <div id="blogtabs">
+                                    <div id="innertabs">
+                                        <?if( '' != $this->theme->LINKEDIN):?>
+                                        <div class="section">
+                                            <h6 class="black"><a href="<?=$this->theme->LINKEDIN;?>">View our linked In profile</a></h6>
+                                        </div>
+                                        <?endif;?>
+
+                                        <div class="section last">
+                                            <h6 class="black">Contact Information</h6>
+                                            <ul class="contact_info">
+
+                                                <?if($this->user->email != ''):?>
+                                                <li class="email">Email<br /><a href="mailto:<?=$this->user->email;?>"><?=$this->user->email;?></a></li>
+                                                <?endif;?>
+                                                
+                                                <?if($this->user_meta->TELEPHONE != ''):?>
+                                                <li class="phone">Phone<br /><?=$this->user_meta->TELEPHONE;?></li>
+                                                <?endif;?>
+
+                                                <?if($this->user_meta->ADDRESS != ''):?>
+                                                <li class="adres">Address<br /><?=$this->user_meta->ADDRESS;?></li>
+                                                <?endif;?>
+
+                                                <?if($this->theme->TWITTER != ''):?>
+                                                <li class="twit_botm">Twitter<br /><a href="<?$this->theme->TWITTER;?>"></a></li>
+                                                <?endif;?>
+                                                <?if( $this->theme->FACEBOOK != ''):?>
+                                                <li class="fb_botm">Facebok<br /><a href="<?=$this->theme->FACEBOOK;?>">Follow us on FB</a></li>
+                                                <?endif;?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <!-- Copyrights Section -->
+                                <div id="copyrights">
+                                    <div id="innerrights">
+                                        <div class="text">
+                                            <p><?=$this->theme->FOOTER;?></p>
+                                            <div class="clear"></div>
+                                            <?= html_entity_decode($this->theme->FOOTER_HTML);?>
+
+                                        </div>
+                                        <div class="top">
+                                            <a href="#top" class="backtotop">Back to Top</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                </body>
+                                </html>

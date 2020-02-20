@@ -1,0 +1,58 @@
+<?php
+/**
+ * User: Rooban
+ * Date: 9/6/13
+ * Time: 10:12 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $().ready(function(){
+        $("#send-otp").validate();
+    });
+</script>
+
+<h2 class="font-size-16"><?php echo $this->translate("SMS Authentication"); ?></h2>
+<div class="ui-grid-solo">
+    <?php
+    if ($this->success) {
+        ?>
+        <div class="ui-submit ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                    <?php echo $this->success; ?>
+                </span></span></div>
+    <?php
+    }
+    if ($this->ErrorMessages) {
+        ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                    <?php
+                    foreach ($this->ErrorMessages as $key => $value) {
+                        if (is_array($value)) {
+                            foreach ($value as $one => $two) {
+                                echo $this->translate($two);
+                            }
+                            echo '<br/>';
+                        } else {
+                            echo $this->translate($value), '<br/>';
+                        }
+                    }
+                    ?>
+                </span></span></div>
+                <?php } ?>
+</div>
+
+<div class="ui-body ui-body-c">
+    <form action="/app/buy-app-by-otp/id/<?= $this->appId ?>" method="post" id="send-otp" data-ajax="false">
+            <fieldset data-role="fieldcontain">
+                <label for="phone"><?php echo $this->translate("Enter the OTP"); ?> :</label>
+                <input type="text" name="otp" id="otp" class="required number" maxlength="4" value="" placeholder="XXXX"/>
+            </fieldset>
+            <input type="hidden" name="paymentId" id="paymentid" value="<?= $this->interopPaymentId ?>"/>
+            <input type="hidden" name="appId" id="app-id" value="<?= $this->appId ?>"/>
+            <input type="hidden" name="buildId" id="biuld-id" value="<?= $this->buildId ?>"/>
+            <input type="hidden" name="msisdn" id="msisdn" value="<?= $this->msisdn ?>"/>
+            <input type="submit" data-theme="c" value="<?php echo $this->translate("Submit"); ?>"/>
+        </form>
+</div>
+
+

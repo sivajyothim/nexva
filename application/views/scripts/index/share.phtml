@@ -1,0 +1,64 @@
+<?
+//  print_r($this->content);
+$config = Zend_Registry::get("config");
+$baseUrl = $config->nexva->application->base->url;
+?>
+<div class="blkCenter innerPage">
+  <!-- product list page start -->
+  <div class="prodListPage">
+    <div class="container">
+      <div class="contTop"></div>
+      <div class="contContent">
+        <div class="blockContent">
+          <div class="blkHead">
+            <h2 id="pageTitle">Share <?= $this->content['name'] ?></h2>
+          </div>
+
+          <div class="blkList">
+            <div class="prodView">
+
+              <div style="padding: 10px">
+                <b>Follow the instructions below:</b><br/><br/>
+
+                * Step 1: Copy your widget code (see just next to the badge).<br/>
+                * Step 2: Paste the widget code into your Web page.<br/>
+                * Step 3: Save and refresh the page to see your changes.<br/>
+              </div>
+
+              <div style="padding: 10px; border-bottom: 1px solid rgb(204, 204, 204);" id="sharecode">
+                <b>1 .</b>
+                <div id="preview">
+                  <img alt="Generating preview, please wait.." id="preview_img" src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->id ?>">
+                </div>
+                <textarea onmouseup="select();" readonly="true" rows="5" cols="60" id="widgettag" name="widgettag" class="txt-input large"><!-- neXva Badge START --><a href="http://<?= $baseUrl ?>/app/<?= $this->slug($this->content['name'] . '-for-' . $this->content['platform_name']) . "." . $this->content['id'] ?>" target="_TOP" title="<?= $this->content['name'] ?>"><img src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->content['id'] ?>" width="400" height="100" style="border: 0px;" /></a><!-- neXva Badge END --></textarea>
+              </div>
+              <div style="padding: 10px; border-bottom: 1px solid rgb(204, 204, 204);" id="sharecode">
+                <b>2 .</b>
+                <div id="preview">
+                  <img alt="Generating preview, please wait.." id="preview_img" src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->id ?>/s/medium">
+                </div>
+                <textarea onmouseup="select();" readonly="true" rows="5" cols="60" id="widgettag" name="widgettag" class="txt-input large"><!-- neXva Badge START --><a href="http://<?= $baseUrl ?>/app/<?= $this->slug($this->content['name'] . '-for-' . $this->content['platform_name']) . "." . $this->content['id'] ?>" target="_TOP" title="<?= $this->content['name'] ?>"><img src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->content['id'] ?>/s/medium" width="330" height="100" style="border: 0px;" /></a><!-- neXva Badge END --></textarea>
+              </div>
+              <div style="padding: 10px; border-bottom: 1px solid rgb(204, 204, 204);" id="sharecode">
+                <b>3 .</b>
+                <div id="preview">
+                  <img alt="Generating preview, please wait.." id="preview_img" src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->id ?>/s/small">
+                </div>
+                <textarea onmouseup="select();" readonly="true" rows="5" cols="60" id="widgettag" name="widgettag" class="txt-input large"><!-- neXva Badge START --><a href="http://<?= $baseUrl ?>/app/<?= $this->slug($this->content['name'] . '-for-' . $this->content['platform_name']) . "." . $this->content['id'] ?>" target="_TOP" title="<?= $this->content['name'] ?>"><img src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->content['id'] ?>/s/small" width="230" height="100" style="border: 0px;" /></a><!-- neXva Badge END --></textarea>
+              </div>
+              <div style="padding: 10px; border-bottom: 1px solid rgb(204, 204, 204);" id="sharecode">
+                <b>4 .</b>
+                <div id="preview">
+                  <img alt="Generating preview, please wait.." id="preview_img" src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->id ?>/s/qr">
+                </div>
+                <textarea onmouseup="select();" readonly="true" rows="5" cols="60" id="widgettag" name="widgettag" class="txt-input large"><!-- neXva Badge START --><a href="http://<?= $baseUrl ?>/app/<?= $this->slug($this->content['name'] . '-for-' . $this->content['platform_name']) . "." . $this->content['id'] ?>" target="_TOP" title="<?= $this->content['name'] ?>"><img src="http://<?= $baseUrl ?>/index/badge/id/<?= $this->content['id'] ?>/s/qr" width="130" height="100" style="border: 0px;" /></a><!-- neXva Badge END --></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contBottom"></div>
+    </div>
+  </div>
+  <!-- product list page end -->
+</div>

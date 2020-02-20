@@ -1,0 +1,254 @@
+#!/bin/bash
+## Script Created By Sbarboff
+##
+## Include path variable (if need modify string path)
+. /var/www/cccam-cms-new/script/variable
+
+
+## Get revision number
+revision_num=`svn info $repo_url | grep '^Revision:' | sed -e 's/^Revision: //'`
+
+
+## Build sky1 oscam custom
+## Defaut config file in /usr/local/etc/sky/1
+##############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-sky1
+cd /tmp/oscam-svn-${revision_num}-sky1
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/sky/1 ..
+make
+
+
+
+## Build sky2 oscam custom
+## Defaut config file in /usr/local/etc/sky/2
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-sky2
+cd /tmp/oscam-svn-${revision_num}-sky2
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/sky/2 ..
+make
+
+
+
+## Build sky3 oscam custom
+## Defaut config file in /usr/local/etc/sky/3
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-sky3
+cd /tmp/oscam-svn-${revision_num}-sky3
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/sky/3 ..
+make
+
+
+
+## Build sky4 oscam custom
+## Defaut config file in /usr/local/etc/sky/4
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-sky4
+cd /tmp/oscam-svn-${revision_num}-sky4
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/sky/4 ..
+make
+
+
+
+## Build srg oscam custom
+## Defaut config file in /usr/local/etc/srg
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-srg
+cd /tmp/oscam-svn-${revision_num}-srg
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/srg ..
+make
+
+
+
+## Build tvsat oscam custom
+## Defaut config file in /usr/local/etc/tvsat
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-tvsat
+cd /tmp/oscam-svn-${revision_num}-tvsat
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/tvsat ..
+make
+
+
+
+## Build xxx oscam custom
+## Defaut config file in /usr/local/etc/xxx
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-dorcel
+cd /tmp/oscam-svn-${revision_num}-dorcel
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/dorcel ..
+make
+
+
+
+## Build private oscam custom
+## Defaut config file in /usr/local/etc/private
+#############################################################################################
+
+## Download Oscam SVN
+cd /tmp
+svn co http://streamboard.gmc.to/svn/oscam/trunk oscam-svn-${revision_num}-private
+cd /tmp/oscam-svn-${revision_num}-private
+mkdir build
+cd build
+
+## Compile with webif, libusb and config path non default
+cmake -DWEBIF=1 -DHAVE_LIBUSB=1 -DCS_CONFDIR=/usr/local/etc/pspace ..
+make
+
+
+## Stop all oscam
+killall -9 $OSCAM_1 >/dev/null 2>&1 &
+killall -9 $OSCAM_2 >/dev/null 2>&1 &
+killall -9 $OSCAM_3 >/dev/null 2>&1 &
+killall -9 $OSCAM_4 >/dev/null 2>&1 &
+killall -9 $OSCAM_5 >/dev/null 2>&1 &
+killall -9 $OSCAM_6 >/dev/null 2>&1 &
+killall -9 $OSCAM_7 >/dev/null 2>&1 &
+killall -9 $OSCAM_8 >/dev/null 2>&1 &
+
+
+cd /usr/local/bin
+rm $OSCAM_1
+rm $OSCAM_2
+rm $OSCAM_3
+rm $OSCAM_4
+rm $OSCAM_5
+rm $OSCAM_6
+rm $OSCAM_7
+rm $OSCAM_8
+
+
+## make new variable file
+BASH="#!/bin/bash"
+OS1="OSCAM_1=\"oscam-${revision_num}-sky1\""
+OS2="OSCAM_2=\"oscam-${revision_num}-sky2\""
+OS3="OSCAM_3=\"oscam-${revision_num}-sky3\""
+OS4="OSCAM_4=\"oscam-${revision_num}-sky4\""
+OS5="OSCAM_5=\"oscam-${revision_num}-srg\""
+OS6="OSCAM_6=\"oscam-${revision_num}-tvsat\""
+OS7="OSCAM_7=\"oscam-${revision_num}-dorcel\""
+OS8="OSCAM_8=\"oscam-${revision_num}-private\""
+REPO_URL="repo_url=\"http://streamboard.gmc.to/svn/oscam/trunk\""
+CCCAM_EMU="CCCAM=\"CCcam.x86\""
+
+## Enter in script directory and delete variable file
+cd /var/www/cccam-cms-new/script
+rm variable
+
+## Make variable file empty
+touch variable
+
+## Put into variable file value
+
+echo $BASH > variable
+echo $REPO_URL >> variable
+echo $CCCAM_EMU >> variable
+echo $OS1 >> variable
+echo $OS2 >> variable
+echo $OS3 >> variable
+echo $OS4 >> variable
+echo $OS5 >> variable
+echo $OS6 >> variable
+echo $OS7 >> variable
+echo $OS8 >> variable
+
+cd /var/www/cccam-cms-new/admin
+rm var_cam_control.php
+touch var_cam_control.php
+
+PHPTAG_OPEN="<?php"
+PHPTAG_CLOSE="?>"
+
+echo $PHPTAG_OPEN > var_cam_control.php 
+echo "\$CCcam=\"CCcam.x86\";" >> var_cam_control.php
+echo "\$Sky1=\"oscam-${revision_num}-sky1\";" >> var_cam_control.php
+echo "\$Sky2=\"oscam-${revision_num}-sky2\";" >> var_cam_control.php
+echo "\$Sky3=\"oscam-${revision_num}-sky3\";" >> var_cam_control.php
+echo "\$Sky4=\"oscam-${revision_num}-sky4\";" >> var_cam_control.php
+echo "\$Srg=\"oscam-${revision_num}-srg\";" >> var_cam_control.php
+echo "\$Tvsat=\"oscam-${revision_num}-tvsat\";" >> var_cam_control.php
+echo "\$Dorcel=\"oscam-${revision_num}-dorcel\";" >> var_cam_control.php
+echo "\$Private=\"oscam-${revision_num}-private\";" >> var_cam_control.php
+echo $PHPTAG_CLOSE >> var_cam_control.php
+
+
+## Copy oscam to /usr/local/bin
+cp /tmp/oscam-svn-${revision_num}-sky1/build/oscam /usr/local/bin/oscam-${revision_num}-sky1
+cp /tmp/oscam-svn-${revision_num}-sky2/build/oscam /usr/local/bin/oscam-${revision_num}-sky2
+cp /tmp/oscam-svn-${revision_num}-sky3/build/oscam /usr/local/bin/oscam-${revision_num}-sky3
+cp /tmp/oscam-svn-${revision_num}-sky4/build/oscam /usr/local/bin/oscam-${revision_num}-sky4
+cp /tmp/oscam-svn-${revision_num}-srg/build/oscam /usr/local/bin/oscam-${revision_num}-srg
+cp /tmp/oscam-svn-${revision_num}-tvsat/build/oscam /usr/local/bin/oscam-${revision_num}-tvsat
+cp /tmp/oscam-svn-${revision_num}-dorcel/build/oscam /usr/local/bin/oscam-${revision_num}-dorcel
+cp /tmp/oscam-svn-${revision_num}-private/build/oscam /usr/local/bin/oscam-${revision_num}-private
+
+
+## Restart All Oscam
+
+cd /usr/local/bin
+$OSCAM_1 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_2 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_3 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_4 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_5 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_6 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_7 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_8 >/dev/null 2>&1 &
+
+## Remove in tmp dir unneccessary file
+rm -r /tmp/oscam-svn-*

@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+        <title><?= isset($this->cpTitle) ? $this->cpTitle : 'neXva.com - mobile reloaded - CP Administration' ?></title> 
+     
+        <!-- Coree Stylesheet -->
+        <link href="<?php echo PROJECT_BASEPATH;?>/cp/assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo PROJECT_BASEPATH;?>/cp/assets/css/yellow.css" title="styles2" media="screen" />
+
+        <!-- Javascript Files -->
+        <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>/admin/assets/js/jquery.min.js"></script>
+
+        <?php
+        echo $this->headMeta();
+        echo $this->headScript();
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+        <!--[if IE 6]>
+        <link href="/cp/assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="/cp/assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script>
+          /* EXAMPLE */
+          DD_belatedPNG.fix('.logo img, .message, table img');
+
+          /* string argument can be any CSS selector */
+        </script>
+        <![endif]-->
+
+    </head>
+    <body>
+        
+       
+            
+		<?php 
+//	        	$chapSessionNs = new Zend_Session_Namespace('chap');
+//	 
+//	        	$logo = '/cp/assets/img/global/logo.png';
+//	        	
+//	        	if( file_exists(APPLICATION_PATH."/../public/cp/".$chapSessionNs->chap->username."/img/logo.png") )  {	        	
+//	        		//override default logo with custom logo
+//	        		$logo ="/cp/".$chapSessionNs->chap->username."/img/logo.png";	        	
+//	        	}		        	        	
+        
+        $chapSessionNs = new Zend_Session_Namespace('chap');
+        //Zend_Debug::dump($chapSessionNs->chap);die();
+        $userName ='';
+        $logout = CP_PROJECT_BASEPATH.'/user/logout';
+
+                 //Default logo - nexva logo
+        	$logo = PROJECT_BASEPATH.'/cp/assets/img/global/logo.png';
+                //Default URL
+                $url = '/';
+                //Default Div class
+        	$divClass = 'inner_logo';
+        	
+                if(!empty($chapSessionNs->chap->username))
+                {
+                   if($chapSessionNs->chap->username == 'nexva.mobi')	
+                   {
+                       $userName = ''; 
+                   }
+                   else 
+                   {
+                       $userName = $chapSessionNs->chap->username; 
+                       
+                        $logout = CP_PROJECT_BASEPATH.'/user/logout/r/'.$chapSessionNs->chap->username;
+
+                        //Check if Chap logo exists
+                        //if( file_exists(APPLICATION_PATH."/../public/cp/".$chapSessionNs->chap->username."/img/logo.png") )  
+                        //{        	
+                            //override default logo with custom logo
+                            $logo =  !empty($this->cpLogo) ? PROJECT_BASEPATH.'/cp/assets/logos/'.$this->cpLogo : PROJECT_BASEPATH."/cp/".$chapSessionNs->chap->username."/img/logo.png";                        
+                            $url = '/r/'.$chapSessionNs->chap->username;
+                            $divClass = 'chap_logo';
+                        //}
+                       $headerColour =  !empty($this->cpHeaderColour) ? 'background:'.$this->cpHeaderColour : 'background:#A5A5A5';     
+                       $userName = $chapSessionNs->chap->username;
+                   }
+                }    
+                else {
+                	
+                   $userName = ''; 
+                }
+        	
+        	        	
+        ?>
+   <!-- Start Wrap -->
+
+<div id="header" style="<?= $headerColour; ?>" >      
+            <div class="<?= $divClass ?>">
+                <a href="<?= $url ?>">
+                    <img src="<?= $logo ?>" alt="logo"/>
+                </a>
+            </div>
+            
+     <? if(!empty($chapSessionNs->chap->username)) : ?>
+     
+        <? if($chapSessionNs->chap->username == 'nexva.mobi') : ?>
+    
+                <div id="nexva_logo"></div>
+         
+        <? else :?>
+                
+                <div id="div_heading">
+                      <h1>Developer Portal</h1>
+                </div>
+        <? endif;?>
+        
+    <? else :?>
+          
+    <? endif;?>
+            
+        </div>
+        
+        <div id="content">
+
+
+            <noscript>
+                <!-- Show message when javascript is not enabled -->
+                <div class="message error">
+                    <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+                </div>
+            </noscript>
+            <?php echo $this->layout()->content ?>
+
+
+        </div>
+        <!-- End Wrap -->
+
+
+        
+        <!-- Footer -->
+        <?= $this->render('/parts/cp/footer.phtml'); ?>
+        <!-- Footer -->
+        <?php echo $this->partial('/parts/analytics.phtml')?>      
+    </body>
+    
+</html><!-- 

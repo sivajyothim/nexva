@@ -1,0 +1,90 @@
+ 
+ 
+ 
+ <div id="main_right_pane">
+
+	
+	<div class="inr_tabs_wrapper">
+		<div class="inr_tab_bar"><span class="inr_brdcrtxt_pur">+</span> 
+			<span class="inr_brdcrtxt_grey">   Reset your password    </span>
+		</div>
+	<div class="box_content_top"></div>
+	<div class="box_content_middle">
+	<div class="inrtab_selection_top inner_content">
+
+
+	
+<div id="form_wrapper">
+
+                    <form name="frm_feedback" id="frm_feedback" method="post" action="">
+                        <!-- form col3-->	
+                        Enter the email address you signed up with and we'll email you a link to reset your password
+
+                            <div align="right" class="required_wrapper">
+                                <span class="required_txt_style">Required infromation (</span><span class="form_font_red">*</span><span class="required_txt_style">)</span>
+                            </div>
+
+                            <br /><br />
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel">Email</span> 
+                                    <span class="form_font_red">* </span> 
+                                    
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                    <input type="text" id="email" name="email" class="input_smallresult_form" style="width:40%" value="<?=$this->email?>" />
+                                    <span id="nameInfo"></span>
+                                </div>
+                            </div>
+
+                          
+                            
+                             <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel">Enter Captcha</span> 
+                                    <span class="form_font_red">* </span> 
+                                    
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                      <?=$this->recaptcha; ?>
+                                </div>
+                            </div>
+
+                            <div align="right" class="submit_btn_wrapper">
+
+						<? if($this->error): ?>
+						    <span class="form_font_red">  
+						      <?=$this->error; ?>   
+						    </span>
+						<? else: ?>
+						    <span class="category_heading">  
+						        <?=$this->message; ?>   
+						    </span>
+						<?endif; ?>
+                                <input type="submit" id="btn_submit" name="btn_submit" value="Reset" class="partner_btn">
+                         
+                           </div>
+
+                        
+                    </form>	<!-- form col6-->	
+
+                </div>
+
+
+	</div>
+	
+	<!--                                                    <div class="tab_selection_bottom"></div>-->
+	
+	</div>
+	
+	</div>
+	<!-- box one-->
+
+	
+	<div style="clear: both;"></div>
+
+	
+</div>
+

@@ -1,0 +1,13 @@
+<?=$this->partial('/partials/tabs.phtml', array("item" => 'all', 'themeMeta' => $this->themeMeta))?>
+<hr class="t" />
+<br clear="all" />
+
+<div class="padding-all">
+    <h1>All Categories</h1>
+</div>
+
+<ul class='catlist'>
+<?php foreach ($this->enabledCategories AS $cat) : ?>
+    <li><a href='/app/cat/category/<?=$cat['id']?>'><?=$cat['name']?><span>&raquo;</span></a></li>
+<?php endforeach; ?>
+</ul>

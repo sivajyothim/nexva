@@ -1,0 +1,500 @@
+<div class="title">
+    <h3>Content Submit and Confirm</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+    Showing error/info messages
+    TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if (is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+        ?>
+                <div class="message <?= key($value) ?>">
+
+            <?= $this->partial('partials/itemlist.phtml', array("item" => $value[$key])); ?>
+
+            </div>
+        <?php
+                endforeach;
+            endif;
+        ?>
+            <div class="info_title">
+                <h3>Basic content details </h3><strong><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/edit/id/<?= $this->productid ?>/6/1/review/1">[EDIT]</a></strong>
+            </div>
+            <div>
+                <table>
+                <?php
+                
+         
+                
+               $user = new Model_User();
+                $basicInfo = $this->basicinfo;
+                $user = $user->getUserById($basicInfo['user_id']);
+                $basicInfo['email'] = $user->email;
+               
+                unset($basicInfo['thumbnail']);
+                unset($basicInfo['registration_model']);
+                unset($basicInfo['product_type']);
+                unset($basicInfo['content_type ']);
+                
+                if($basicInfo['inapp'] == 1 )
+                {
+                	unset($basicInfo['device_selection_type']);
+                	unset($basicInfo['keywords']);
+                	unset($basicInfo['created_date']);
+                   	unset($basicInfo['full_description']);
+                	unset($basicInfo['desktop_product']);
+                	unset($basicInfo['company_name']);
+                	unset($basicInfo['platform_id']);
+                	unset($basicInfo['is_featured ']);
+                	unset($basicInfo['is_suggested']);
+
+                }
+                // unset some unwanted variables
+                foreach ($basicInfo as $key => $info) {
+                    if ($key == 'content_provider')
+                        $info = '<a href="#">' . $info . '</a>';
+                    echo $this->partial('partials/row-details.phtml', array("info" => $info, 'name' => $key));
+                }
+
+                ?>
+            </table>
+        </div>
+        
+        <? if(count($this->transtaltions) >= 1 ) :?>
+        
+         <div class="info_title">
+           	<h3>Content meta details in other languages:</h3>
+         </div>
+         <div>              
+         
+         		<table cellspacing="0" cellpadding="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="10%">Language </th>
+                                                        <th width="20%">Title</th>
+                                                        <th width="30%">Brief Description </th>
+                                                        <th width="40%">Full Description </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                              
+                    <?
+                                                $productLanguageSummery = $this->productLanguageSummery;
+                                                $productLanguageDescription = $this->productLanguageDescription;
+                                                $productLanguageTitle = $this->productLanguageTitle;
+                                                foreach ($this->transtaltions as $transtaltions):
+                                                    $productLanguageSummeryValue =  $productLanguageSummery[$transtaltions->id];
+                                                    $productLanguageDescriptionValue =  $productLanguageDescription[$transtaltions->id];
+                                                    $productLanguageTitleVallue = $productLanguageTitle[$transtaltions->id];
+                    ?>
+                    <?= $this->partial('partials/language-content-row.phtml', array("row" => $transtaltions, 
+                    																'productLanguageTitle' => $productLanguageTitleVallue, 
+                    																'productLanguageSummery' => $productLanguageSummeryValue, 
+                    																'productLanguageDescription' =>  $productLanguageDescriptionValue,
+                    																'productid' => $this->productid
+                    																)
+                    															); ?>
+                   
+                    <? endforeach; ?>
+                                                </tbody>
+                  </table>
+            </div>
+         <?php else: ?>
+        
+ 		<p style="color: red">This content does not have any translations added.</p>
+          <? endif;?>
+
+
+<?php if($basicInfo['inapp'] != 1 ): ?>
+
+
+
+        <div class="info_title">
+            <h3>Content Visuals</h3><strong><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/edit/id/<?= $this->productid ?>/6/2/review/2">[EDIT]</a></strong>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <?php
+                        $viaualPath = Zend_Registry::get('config')->product->visuals->dirpath;
+                        $thumbnail = $this->basicinfo;
+                        ?>
+                        <?= !empty($thumbnail['thumbnail']) ? $this->thumbnail($viaualPath . '/' . $thumbnail['thumbnail'], array('w' => 80, 'h' => 80)) : '<p style="color: red">Warning! Please upload a thumbnail!.</p>'; ?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?php
+                        $visuals = array();
+                        $visuals = $this->visuals;
+                        if (empty($visuals)):
+                        ?>
+                            <p style="color: red">Warning! Please upload at least one screenshot!</p>
+                        <?
+                            endif;
+                            if (is_array($visuals))
+                                foreach ($visuals as $id => $image): ?>
+                        <?= $this->thumbnail($viaualPath . '/' . $image, array('w' => 128)); ?>
+                        <?php endforeach; ?>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+
+                <div class="info_title">
+                    <h3>Content Categories</h3><strong><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/edit/id/<?= $this->productid ?>/6/1/review/1">[EDIT]</a></strong>
+                </div>
+                <div>
+                    <br/>
+
+                <?php
+                                $categories = null;
+                                $categories = $this->categories;
+                                $parent = $categories[0];
+                                $selectedCategory = $this->categorySelected;
+//                print_r($selectedCategory);
+//                echo count($selectedCategory);
+                                if (empty($selectedCategory)):
+                ?>
+                                    <p style="color: red">Warning! Please select at least one category!</p>
+                <? else: ?>
+
+                <?php foreach ($parent as $id => $name): ?>
+                 
+                    <?php
+//                        echo $id;
+                                            if (is_array($selectedCategory))
+                                                if (!key_exists($id, $selectedCategory))
+                                                    continue;
+                                            $parent = new stdClass();
+                                            $parent->id = $id;
+                                            $parent->name = '<b>' . $name . '</b>';
+                                            $parent->class = 'parent';
+                                            if (is_array($selectedCategory))
+                                                $parent->checked = (key_exists($id, $selectedCategory)) ? 'checked' : '';
+                    ?>
+                    <?//= $this->partial('partials/checkbox.phtml', array("checkbox" => $parent)); ?>
+                            
+                        <?php foreach ($categories[$id] as $id => $name): ?>
+                                  
+                            <?php
+//                                    echo $id;
+                                                if (is_array($selectedCategory))
+                                                    if (!key_exists($id, $selectedCategory))
+                                                        continue;
+                                                $child = new stdClass();
+                                                $child->id = $id;
+                                                $child->name = $name;
+                                                $child->class = 'child';
+                                                $child->checked = (key_exists($id, $selectedCategory)) ? 'checked' : '';
+                            ?>
+                            <?=$parent->name ; ?> - <?=$child->name; ?>
+                            <?//= $this->partial('partials/checkbox.phtml', array("checkbox" => $child)); ?>
+                             
+                        <?php endforeach; ?>
+                     
+                       
+                <?php endforeach; ?>
+                <? endif; ?>
+                    
+                                            <br/>   <br/>
+                                        </div>
+
+                                        <div class="info_title">
+                                            <h3>Content Builds</h3>
+                                        </div>
+                                        <div>
+                                            <table cellspacing="0" cellpadding="0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Build </th>
+                                                        <th width="15%">Language </th>
+                                                        <th style="vertical-align: top" width="10%">Devices </th>
+                                                        <th style="vertical-align: top" width="10%">Status </th>
+                                                        <th style="vertical-align: top" width="10%">Operations</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                    <?
+                                                $files = $this->files;
+                                                $devices = $this->devices;
+                                                $avgApproved = $this->avgApproved;
+                                                foreach ($this->builds as $build):
+//                            echo $build->id;
+                                                    $file = $files[$build->id];
+                                                    $devies = $devices[$build->id];
+                    ?>
+                    <?= $this->partial('partials/build-row.phtml', array("row" => $build, "files" => $file, "devices" => $devices, "avgApproved"=>$avgApproved)); ?>
+                    <? endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="info_title">
+                                            <h3>Content Registration Details</h3><strong><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/edit/id/<?= $this->productid ?>/6/3/review/3">[EDIT]</a></strong>
+                                        </div>
+                                        <div>
+                                            <table>
+                <?php
+                                                    $regInfo = $this->basicinfo;
+                                                    $registration['product_type'] = $regInfo['product_type'];
+                                                    $registration['registration_model'] = $regInfo['registration_model'];
+                                                    foreach ($registration as $key => $info) {
+                                                        if (empty($info))
+                                                            continue;
+                                                        echo $this->partial('partials/row-details.phtml', array("info" => $info, 'name' => $key));
+                                                    }
+                ?>
+                                                </table>
+                                            </div>
+
+<?php endif; ?>
+
+                                            <?php
+                                            $fileNames = array(); $apkFiles = array();$i = 0;
+                                            foreach($this->files as $file){
+                                                if(count($file) > 0){
+                                                    $fileNames = explode(".apk",$file[0]->filename);
+                                                    if(count($fileNames) > 1){
+                                                        $apkFiles[] = $file[0]->filename.'_build_id_'.$this->builds[$i]->id;
+                                                        unset($fileNames);
+                                                    }
+                                                    $i++;
+                                                }
+                                            }
+                                            ?>
+                                            <form action="/product/display/id/<?= $this->productid ?>" method="post">
+                                                <br/><br/>
+            <? if ($this->fileExists) : ?>
+                                                        <input <?= ($basicInfo['status'] == 'APPROVED') ? 'disabled' : '' ?>  type="submit" name="submit" id="submit" value="Approve" class="txt-input small approve">
+                         <?php if($basicInfo['inapp'] != 1): ?>                            
+                         
+                            <input <?= ($basicInfo['is_featured'] == 1) ? 'disabled' : '' ?> type="submit" name="submit" id="submit" value="Featured" class="txt-input small featured">
+                            
+                         <?php endif; ?>
+                                                        <input <?= ($basicInfo['status'] == 'REJECTED') ? 'disabled' : '' ?> type="submit" name="submit" id="submit" value="Reject" class="txt-input small reject">
+                                                        <input <?= ($basicInfo['status'] == 'UNDER_REVIEW') ? 'disabled' : '' ?> type="submit" name="submit" id="submit" value="Disable" class="txt-input small disable">
+
+                                                        <?php if(($basicInfo['platform_id']) && ($basicInfo['platform_id'][0]->id) == 12)
+                                                        { ?>
+                                                            <input type="submit" name="submit" value="AVG Approve" class="txt-input small"/> Only apk files will be Approved by AVG
+                                                            <?php
+                                                            foreach($apkFiles as $apkFile)
+                                                            {?>
+                                                                <input type="hidden" name="apk_files[]" value="<?php echo $apkFile;?>" />
+                                                            <?php
+                                                            }
+                                                        } ?>
+            <? else : ?>
+                                                            <input disabled type="submit" name="submit" id="submit" value="This content cannot be approved at this time as one or more files are enqueued to be synchronized with S3." class="txt-input small approve">
+            <? endif; ?>
+
+                                                            <br/><br/>
+                                                            <lable><b>Message to content Provider</b></lable>
+                                                            <textarea class="txt-input large" rows="10" cols="10" name="mail_to_cp"></textarea>
+                                                            <fieldset>
+                                                                <input type="hidden" value="<?= $this->productid ?>" name="product_id" id="product_id">
+                                                                <input type="submit" name="submit" id="submit" value="Send" class="txt-input small">
+                                                            </fieldset>
+                                                        </form>
+                                                        <!--add to chanel product  sujith-->
+                                                        <div class="info_title">
+                                                            <h3>Add to chanel partners</h3>
+                                                        </div>
+                                                        <div>
+                                                            <div style="height:250px; width:100%; overflow-x:hidden; overflow-y: scroll; padding-bottom:10px;"> 
+                                                                <form method="post" id="add-to-Store-form">
+                                                                <input type="hidden" value="<?=$this->productid?>" id="pid"/>
+                                                                <div class="box padding-appstores">
+                                                                    
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr><th colspan="4">
+                                                                                <input type="checkbox" id="all-premium" onchange="checkAll('all-premium','premium')"><strong>Premium Appstore</strong>
+                                                                                </th></tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                     <?php
+                                                                     $premiumChapsRows=0;
+                                                                     foreach (explode(',',Zend_Registry::get ( 'config' )->nexva->premium->chaps) as $premiumChaps){
+                                                                         $appstoreObj=$this->ThemeMeta(trim($premiumChaps),'WHITELABLE_SITE_NAME');
+                                                                         if(!is_null($appstoreObj)){
+                                                                             $appstore=$appstoreObj->current();
+                                                                             if($premiumChapsRows==0){
+                                                                                    echo '<tr>';
+                                                                             }
+                                                                        ?>
+                                                                    <td><input <?=(in_array(trim($premiumChaps), $this->chapProducts))?'checked=checked':''?> type="checkbox" value="<?=trim($premiumChaps)?>" name="premium[]" class="premium"><?=$appstore->meta_value.'&nbsp;&nbsp;'?></td>
+                                                                    <?php
+                                                                                if($premiumChapsRows==3){
+                                                                                    echo '</tr>';
+                                                                                }
+                                                                                $premiumChapsRows++;
+                                                                                if($premiumChapsRows==4){
+                                                                                    $premiumChapsRows=0;
+                                                                                }
+                                                                         }
+                                                                    
+                                                                     } ?>
+                                                                    </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                </form>
+                                                                <div class="box padding-appstores">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr><th colspan="4">
+                                                                    <input type="checkbox" id="all-free" onchange="checkAll('all-free','free')"><strong>Free Appstore</strong>
+                                                                                </th></tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                     <?php
+                                                                     $freeChapsRows=0;
+                                                                    foreach (explode(',',Zend_Registry::get ( 'config' )->nexva->free->chaps) as $freeChaps){
+                                                                           $appstoreObj=$this->ThemeMeta(trim($freeChaps),'WHITELABLE_SITE_NAME');
+                                                                           if(!is_null($appstoreObj)){
+                                                                                $appstore=$appstoreObj->current(); 
+                                                                                if($freeChapsRows==0){
+                                                                                    echo '<tr>';
+                                                                                }
+                                                                           ?>
+                                                                                <td><input <?=(in_array(trim($freeChaps), $this->chapProducts))?'checked=checked':''?> type="checkbox" value="<?=trim($freeChaps)?>" name="free[]" class="free"><?=$appstore->meta_value.'&nbsp;&nbsp;'?> </td>  
+                                                                            <?php
+                                                                                if($freeChapsRows==3){
+                                                                                    echo '</tr>';
+                                                                                }
+                                                                                $freeChapsRows++;
+                                                                                if($freeChapsRows==4){
+                                                                                    $freeChapsRows=0;
+                                                                                }
+                                                                           } 
+                                                                    }
+                                                                    ?>
+                                                                    </tbody>
+                                                                    </table>
+                                                                </div>
+                                                                <div class="box padding-appstores">
+                                                                    
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr><th colspan="4">
+                                                                                <input type="checkbox" id="all-fwa" onchange="checkAll('all-fwa','free_without_ads')"><strong>Free Without Ads</strong>
+                                                                                </th></tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                     <?php
+                                                                     $fwaChapsRows=0;
+                                                                     foreach (explode(',',Zend_Registry::get ( 'config' )->nexva->free_without_ads->chaps) as $fwaChaps){
+                                                                         $appstoreObj=$this->ThemeMeta(trim($fwaChaps),'WHITELABLE_SITE_NAME');
+                                                                                 if(!is_null($appstoreObj)){
+                                                                                     $appstore=$appstoreObj->current();
+                                                                                      if($fwaChapsRows==0){
+                                                                                            echo '<tr>';
+                                                                                      }
+                                                                     ?>
+                                                                        <td><input <?=(in_array(trim($fwaChaps), $this->chapProducts))?'checked=checked':''?> type="checkbox" value="<?=trim($fwaChaps)?>" name="free_without_ads[]" class="free_without_ads"><?=$appstore->meta_value.'&nbsp;&nbsp;'?></td>
+                                                                    <?php
+                                                                                if($fwaChapsRows==3){
+                                                                                    echo '</tr>';
+                                                                                }
+                                                                                $fwaChapsRows++;
+                                                                                if($fwaChapsRows==4){
+                                                                                    $fwaChapsRows=0;
+                                                                                }
+                                                                                
+                                                                         }
+                                                                    
+                                                                    
+                                                                      } ?>
+                                                                     </tbody>
+                                                                    </table>
+                                                                </div><br>
+                                                                <div class="box padding-appstores">
+                                                                    
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr><th colspan="4">
+                                                                                <input type="checkbox" id="all-educational" onchange="checkAll('all-educational','educational_apps')"><strong>Educational/Kids</strong>
+                                                                                </th></tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                     <?php
+                                                                     $educationalChapsRows=0;
+                                                                     foreach (explode(',',Zend_Registry::get ( 'config' )->nexva->educational->chaps) as $educationalChaps){
+                                                                         $appstoreObj=$this->ThemeMeta(trim($educationalChaps),'WHITELABLE_SITE_NAME');
+                                                                                 if(!is_null($appstoreObj)){
+                                                                                     $appstore=$appstoreObj->current();
+                                                                                      if($educationalChapsRows==0){
+                                                                                            echo '<tr>';
+                                                                                      }
+                                                                     ?>
+                                                                        <td><input <?=(in_array(trim($educationalChaps), $this->chapProducts))?'checked=checked':''?> type="checkbox" value="<?=trim($educationalChaps)?>" name="educational_apps[]" class="educational_apps"><?=$appstore->meta_value.'&nbsp;&nbsp;'?></td>
+                                                                    <?php
+                                                                                if($educationalChapsRows==3){
+                                                                                    echo '</tr>';
+                                                                                }
+                                                                                $educationalChapsRows++;
+                                                                                if($educationalChapsRows==4){
+                                                                                    $educationalChapsRows=0;
+                                                                                }
+                                                                                
+                                                                         }
+                                                                    
+                                                                    
+                                                                      } ?>
+                                                                     </tbody>
+                                                                    </table>
+                                                                </div><br>
+                                                                <input type="button" class="txt-input small" value="Save" id="addToStore" name="">
+                                                            </div>                                                          
+                                                            <div id="weburls" class="show-only" >                                                            
+                                                            <div id="message"> </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info_title">
+                                                            <h3>List sent messages</h3>
+                                                        </div>
+                                                        <!-- Start Table -->
+                                                        <table cellpadding="0" cellspacing="0">
+
+                                                            <thead>
+                                                                <tr>
+
+                                                                    <th style="width: 20%">Subject</th>
+                                                                    <th style="width: 70%">Message</th>
+                                                                    <th style="width: 10%">Sent Date</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                <? foreach ($this->paginator as $user): ?>
+                <?= $this->partial('partials/row-cps_messages.phtml', array('user' => $user, 'show_app_icons' => $this->show_app_icons)); ?>
+                <? endforeach; ?>
+                <? if ($this->isCpMessageListEmpty == true): ?>
+                                                                    <tr>
+                                                                        <td colspan="3" style='text-align: center;'>
+                                                                            <small>
+                                                                                <i>Messages list is empty.
+                                                                                </i>
+                                                                            </small>
+                                                                        </td>
+                                                                    </tr>
+                <? endif; ?>
+
+                                                                </tbody>
+                                                            </table>
+        <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator.phtml', array()); ?>
+
+
+
+        </fieldset>
+        </form>
+    </div>
+</div>

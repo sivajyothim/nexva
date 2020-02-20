@@ -1,0 +1,148 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/21/13
+ * Time: 4:35 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<style type="text/css">
+    .ticket-row{
+        margin-top:10px;
+    }
+</style>
+
+<!-- Displays Success Message/s -->
+<?php if(count($this->successMessages)) { ?>
+    <div class="message info">
+        <p>
+            <?php foreach ($this->successMessages as $message) {
+                echo $this->translate($this->escape($message));
+            } ?>
+        </p>
+    </div>
+<?php } ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) { ?>
+    <div class="message error" style="display: block;">
+        <p>
+            <?php foreach($this->errorMessages as $message) {
+                echo $this->translate($this->escape($message));
+            } ?>
+        </p>
+    </div>
+<?php } ?>
+
+<div id="wrap" class="fixed" style="margin-top:20px;">
+    <div id="content">
+        <div class="title">
+            <h3>Ticket #<?php echo $this->ticket->id; ?></h3>
+        </div>
+    </div>
+    <div class="box">
+        <div class="txt">
+
+            <div class="ticket-row curve">
+                <div class="span2">
+                    <span class="ticket-date">Created :
+                        <?php //date_default_timezone_set('Asia/Colombo');
+                        $createdDate = new DateTime($this->ticket->created_date);
+                        $now = new DateTime();
+                        $interval = $createdDate->diff($now);
+                        if(($interval->days) > 0)
+                        {
+                            echo $interval->days,' days';
+                        }
+                        elseif(($interval->h) > 0)
+                        {
+                            echo $interval->h,' hours';
+                        }
+                        elseif(($interval->i) > 0)
+                        {
+                            echo $interval->i,' minutes';
+                        }
+                        elseif(($interval->s) > 0)
+                        {
+                            echo $interval->s,' seconds';
+                        }
+                        ?> ago.
+                    </span>
+                    </br>
+                    <span class="ticket-id curve">#<?php echo $this->ticket->id; ?></span></br>
+                    <span class="ticket-response-count"><?php echo count($this->responses); ?></span></br><span class="grey"><?php echo $this->translate("Responses");?></span>
+                </div>
+                <div class="span8">
+                    <div class="ticket-title"><?php echo $this->ticket->subject;?></div>
+                    <div class="ticket-description curve"><?php echo ($this->LimitWords($this->ticket->description,60)) ? $this->LimitWords($this->ticket->description,60).'...' : $this->ticket->description; ?></div>
+                    <div class="misc">
+                        <span class="misc-left">
+                            <!--<span class="attachment"><a href="<?php /*echo $this->ticket->attachment_name;*/?>" target="_blank"><?php /*echo $this->ticket->attachment_name; */?></a></span>-->
+                            <span class="attachment"><a href="<?php echo '/ticket/download-attachement/file/'.$this->ticket->attachment_name;?>" ><?php echo $this->ticket->attachment_name; ?></a></span>
+                            <br/>
+                            <span class="status <?php echo strtolower($this->ticket->status);?>"><?php echo $this->ticket->status;?></span>
+                            <span class="type <?php echo strtolower($this->ticket->type);?>"><?php echo $this->ticket->type;?></span>
+                            <span class="priority <?php echo strtolower($this->ticket->priority);?>"><?php echo $this->ticket->priority;?></span>
+                        </span>
+                        <div class="misc-right">
+                            <span class="ticket-more"><a href="#reply-ticket"><?php echo $this->translate("Reply");?></a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php if(count($this->responses) > 0) { ?>
+                <div class="title" id="reply">
+                    <h3>Responses</h3>
+                </div>
+                <?php foreach ($this->responses as $response) { ?>
+                    <div class="response-row curve">
+                        <div class="span2">
+                            <span class="ticket-date"><?php echo $this->translate("Reply");?> :
+                                <?php
+                                $createdDate = new DateTime($response->response_date);
+                                $now = new DateTime();
+                                $interval = $createdDate->diff($now);
+                                if(($interval->days) > 0)
+                                {
+                                    echo $interval->days,' days';
+                                }
+                                elseif(($interval->h) > 0)
+                                {
+                                    echo $interval->h,' hours';
+                                }
+                                elseif(($interval->i) > 0)
+                                {
+                                    echo $interval->i,' minutes';
+                                }
+                                elseif(($interval->s) > 0)
+                                {
+                                    echo $interval->s,' seconds';
+                                }
+                                ?> ago.</span>
+                            <span class="ticket-response-count">@<?php echo ltrim($this->GetRepliedUser($response->user_id,'FIRST_NAME')); ?></span>
+                        </div>
+                        <div class="span8">
+                            <div class="ticket-title"></div>
+                            <div class="ticket-description"><?php echo $response->description; ?></div>
+                            <div class="misc">
+                                <span class="misc-left">
+                                     <!--<span class="attachment"><a href="<?php /*echo $response->attachment_name;*/?>" target="_blank"><?php /*echo $response->attachment_name; */?></a></span>-->
+                                     <span class="attachment"><a href="<?php echo '/ticket/download-attachement/file/'.$response->attachment_name;?>" ><?php echo $response->attachment_name; ?></a></span>
+                                </span>
+                                <div class="misc-right">
+                                    <span class="ticket-more"><a href="#reply-ticket"><?php echo $this->translate("Reply");?></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php } } ?>
+
+            <div class="response">
+                <?php echo $this->partial('partials/comment_form.phtml',array('ticketId' => $this->ticket->id)); ?>
+            </div>
+
+        </div>
+    </div>
+</div>

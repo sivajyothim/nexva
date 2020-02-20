@@ -1,0 +1,16 @@
+<tr>
+	<td class="alt">
+       <?= $this->row->name ?> 
+     </td>
+     <td class="alt">            
+         <?= $this->productLanguageTitle ?> 
+     </td>
+     <td class="alt">
+         <?=$this->trim($this->productLanguageSummery, 100, true,'<a rel="facebox" href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/show-translation/id/'.$this->productid.'/language_id/'.
+         																$this->row->language_id.'/summary/1"> ... </a>', true)  ?> 
+     </td>
+     <td class="alt">
+         <?=$this->trim($this->productLanguageDescription, 250,  true,'<a rel="facebox" href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/show-translation/id/'.$this->productid.'/language_id/'.
+         																$this->row->language_id.'/description/1"> ... </a>', true) ?> 
+   </td>
+</tr>

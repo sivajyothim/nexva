@@ -1,0 +1,142 @@
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+
+<?php $this->headScript()->captureStart();?>
+    var __DATA_DATE         = eval(<?php echo $this->appViewDateJson?>); //app views by date
+    var __DATA_DOWNLOADS    = eval(<?php echo $this->appDownloadDateJson;?>); //downloads
+    var __DATA_TOP_APP_COMPARISON   = eval(<?php echo $this->appViewComparisonJson?>);
+<?php $this->headScript()->captureEnd();?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/admin/assets/js/analytics/appview.js'); ?>
+
+
+
+<?php 
+    //lets do some calculations
+    $totalViews     = array_sum($this->appView);
+    $totalDownloads = array_sum($this->appDownloads);
+?>
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView' => $this->endTimeView,
+        'queryString'   => $this->queryString
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+
+<div id='visualizations'>
+    <?php 
+        $opts   = array(
+            'product'       => $this->product
+        );
+        echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+
+<div class="title">
+    <h3>Snapshot</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <ul class="icon_list wide">
+            <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($totalViews)?></span>
+                    <a href="#stats_view_by_date_cont">views</a>
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($totalDownloads)?></span>
+                    <a href="#stats_view_by_date_cont">downloads</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span class='large_text'><?=$this->sing_up?></span>
+                    <a href="">Developer Signup</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span class='large_text'><?=$this->developer_visits?></span>
+                    <a href="">Developer visits</a>
+                </p>
+            </li>
+            <li class='coming_soon'>
+                <p>
+                    <span class='large_text'>$254.00</span>
+                    <a href="#stats_view_by_date_cont">earned</a>
+                </p>
+            </li>
+            
+            <li class='coming_soon'>
+                <p>
+                    <span class='large_text'>1,243</span>
+                    <a href="#stats_view_by_date_cont">neXpage views</a>
+                </p>
+            </li>
+            
+            <li>
+                <?php 
+                    $trendNow       = max($this->downloadTrends['NOW'], 1);
+                    $trendPrevious  = max($this->downloadTrends['PREVIOUS'], 1);
+                    $image          = ($trendNow >= $trendPrevious) ? 'arr_down_green.png' : 'arr_down_orange.png';
+                    $change         = (($trendNow - $trendPrevious) / $trendPrevious ) * 100;
+                    $change         = ($change > 1000) ? '>1,000'  : number_format($change, 2);
+                ?> 
+                <p><img width='32' height='32' src="/cp/assets/img/content/icon_list/<?=$image?>" alt=""/>
+                  <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/downloads/">s (<?=$change?>%)</a></p>
+              </li>
+
+              <li>
+              <?php 
+                    $trendNow       = max($this->viewTrend['NOW'], 1);
+                    $trendPrevious  = max($this->viewTrend['PREVIOUS'], 1);
+                   
+                    $image          = ($trendNow >= $trendPrevious) ? 'arr_down_green.png' : 'arr_down_orange.png';  
+                    $change         = (($trendNow - $trendPrevious) / $trendPrevious) * 100;
+                    $change         = ($change > 1000) ? '>1,000' : number_format($change, 2);
+                ?>
+                <p><img width='32' height='32' src="/cp/assets/img/content/icon_list/<?=$image?>" alt=""/>
+                  <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/views/">Views (<?=$change?>%)</a></p>
+              </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<div id='stats_view_by_date_cont' class="title">
+    <h3>Overall App Views / Downloads</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class='full_block' id='stats_view_by_date'>
+                We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+                
+        <div id="overview_view_by_date" style=";margin-top:20px;width:100%;height:50px"></div>
+    </div>
+</div>
+<!-- 
+<div class="title">
+    <h3>Most Popular Products Comparison</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class='full_block' id='stats_view_app_comparison'>
+                We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+        <div id="overview_comparison" style=";margin-top:20px;width:100%;height:50px"></div>
+    </div>
+    <p id="app_filter">
+        <span class='label'>Filter Apps</span>
+        
+    </p>
+</div>
+ -->
+</div>
+ 

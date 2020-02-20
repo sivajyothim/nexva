@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 71
+*.DB
+Tera-WURFL
+Tera-WURFL_old_2.1.
+device_pix
+device_pix_20100505.zip
+
+END

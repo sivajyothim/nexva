@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/consumer
+END
+try_auth.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/consumer/try_auth.php
+END
+finish_auth.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/consumer/finish_auth.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/consumer/index.php
+END
+common.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/consumer/common.php
+END

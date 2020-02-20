@@ -1,0 +1,50 @@
+<?php $this->headScript()->appendFile($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+<?php 
+    $phrase  = $this->phrase;
+?>
+
+<div class="title">
+    <h3>Quick Links</h3>
+</div>
+        
+<?=$this->render('partials/quick_links_translate.phtml'); ?>
+
+
+        <div class="title">
+            <h3 style="cursor: s-resize;">Phrases (All Phrases : <?php echo $this->fullCount?> / Translated Phrases <?php echo $this->langCount?>) </h3>
+        </div>
+        <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Default</th>
+                    <th>Translated</th>
+                </tr>
+            </thead>
+        <?php if (count($this->phrases)): $class = '';?>
+            <tbody>
+        <?php foreach ($this->phrases as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+            <tr>
+                <td class='<?=$class?>'><?=$item->id?></td>
+                <td class='<?=$class?>'><a href='/translate/add-language/id/<?php echo $item->id ?>' rel='shadowbox;height=530;width=600'><?=$item->name?></a></td>
+                <td class='<?=$class?>'><?=substr(strip_tags($item->value), 0, 100)?></td>
+                <td class='<?=$class?>'><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/<?php echo isset($this->translations[$item->name]) ? 'accept.png' : 'delete.png'  ?>"></td>
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+    </div>
+</div>
+ 

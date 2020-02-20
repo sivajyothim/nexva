@@ -1,0 +1,49 @@
+<?php
+// check the url's slug to active the current menu
+    $urlAddFooter = $this->url();
+    $arrUrlFooter = explode('/',$urlAddFooter);
+    $count = count($arrUrlFooter);
+    $slug = $arrUrlFooter[$count-1];
+?>
+<div data-role="footer" data-position="fixed" data-theme="a" data-tap-toggle="false" class="footer-black">
+    <div data-role="navbar">
+        <ul>            
+
+             <?php 
+             $sessionChapDetails = new Zend_Session_Namespace('partnermobile');
+             if( $sessionChapDetails->id == 585480 or $sessionChapDetails->id == 585474):
+             
+             else:
+             
+            if (Zend_Auth::getInstance()->hasIdentity()) :
+            ?>
+                <li><a rel="external" class="<?php echo ($slug=='account')?' ui-btn-active':'';?>" href="/user/account" data-icon="custom" id="footeraccounticon"><?php echo $this->translate("Account");?></a></li>
+                <li><a rel="external" class="<?php echo ($slug=='updates')?' ui-btn-active':'';?>" href="<?php echo PROJECT_BASEPATH;?>app/updates" data-icon="custom" id="updateicon"><?php echo $this->translate("Updates");?></a></li>
+            
+            <?php else: ?>
+            
+                <li><a rel="external" class="<?php echo ($slug=='login')?' ui-btn-active':'';?>" href="/user/login" data-icon="custom" id="footeraccounticon"><?php echo $this->translate("Account");?></a></li>
+                <li><a rel="external" class="<?php echo ($slug=='updates')?' ui-btn-active':'';?>" href="/user/login" data-icon="custom" id="updateicon"><?php echo $this->translate("Updates");?></a></li>
+             
+            <?php endif; 
+            endif;
+       ?>             
+                
+                <?php if($this->mtnIran || $this->ycoins): ?>
+                    <li><a rel="external" href="<?php echo PROJECT_BASEPATH;?>get-latest-appstore-build-url" data-icon="custom" id="appstoreicon"><?= ($this->ycoins) ? $this->translate("Download Store") : $this->translate("App Store") ?></a></li> 
+                <?php else: ?>
+                    <li><a rel="external" class="<?php echo ($slug=='help')?' ui-btn-active':'';?>" href="/index/help" data-icon="custom" id="helpicon"><?php echo $this->translate("Help") ?></a></li> 
+                <?php endif; ?>
+                           
+                <li><a rel="external" class="<?php echo ($slug=='')?' ui-btn-active':'';?>" href="/" data-icon="custom" id="footerhomeicon" class="ui-btn-active ui-state-persist">
+                 
+                 
+                  <?php if($this->partnerId == 21134 ): ?>
+      <?php echo $this->translate("APPtitude");?>
+      <?php else: ?>
+      <?php echo $this->translate("Home");?>
+      <?php endif; ?>
+         </a></li>            
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+  
+<?php //$currency = $this->ChangeCurrency($this->chap_id);
+
+if($this->showResults == TRUE) :
+?>
+<?php //$currency = $this->ChangeCurrency($this->chap_id); ?>
+<h2 class="font-size-16">
+<?php 
+if($this->chap_id == 324405 ) {
+    echo 'Nos suggestions';
+} else {
+    echo $this->translate("App Wall");
+}
+ ?></h2> 
+    <ul data-role="listview" data-inset="true" class="ui-icon-alt">
+
+        <?php
+        $x = 0;
+        foreach($this->nexvaApps as $app) :  
+            $x++;
+            ?>
+        <li id="custom-li">
+            <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external">
+                <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" />
+                <h3><?= $app['name'] ?></h3>
+                <p><?= $this->trim($app['vendor'],18) ?></p>
+                <div id="rating">
+                     <?= $this->partial('partials/rating_inner.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+                </div>
+            </a>
+            <? if($app['price'] > 0) : ?>
+                        
+                        <span class="ui-li-count">
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '$';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo $app['price']; } */?>
+                            <!-- to be change -->
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '₦';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo number_format(($app['price'])*165,2); } */?>
+                            <?php echo (($app['price']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(ceil($app['price']*$this->currencyDetails["rate"]),2, '.', ',') : $this->translate("Free") ;?>
+                        </span>
+            
+                    <? else : ?>
+                        
+                        <span class="ui-li-count"><?php echo $this->translate("Free");?></span>
+                        
+                    <? endif; ?>
+            <?= ($app['updates_available'] == 1) ? '<span class="update-available">!</span>' : ''; ?>
+        </li>
+
+        <? endforeach; ?>
+    </ul>
+    
+
+
+ <?php if(21134 == $this->chap_id ): ?>
+    
+
+
+<?php endif; ?>
+
+
+ <?php 
+ //airtel nigeria 
+ if(81449 == $this->chap_id ): ?>
+    
+
+
+<?php endif; ?>
+
+
+
+
+<?php
+//airtelbf 
+ if(326728 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1736091&cr=1883321" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/4147/10409/66065/195763/1883323_magic-rush-heroes-android-app_android-app-install_banners-set1_320x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+
+
+
+ <?php
+//airteltchad
+ if(320343 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1750707&cr=2545337" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/5209/12899/81229/238009/2545339_wifi-master-android-app_android-app-install_pack-1_300x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+
+
+ <?php
+//airtelrwanda
+ if(114306 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1736107&cr=2444507" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/5013/12519/79619/230959/2444503_new-promo-swift-wifi-android-app_android-app-install_new-creatives_320x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+
+
+ <?php
+//airtelsl
+ if(320344 == $this->chap_id ): ?>
+    
+<a href="http://c.afftrx.com/?s=1750709&cr=2545337" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/5209/12899/81229/238009/2545339_wifi-master-android-app_android-app-install_pack-1_300x50.jpg" />
+</a>
+
+<?php endif; ?>
+
+ <?php
+//airteluganda
+ if(320342 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1746577&cr=1883321" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/4147/10409/66065/195763/1883323_magic-rush-heroes-android-app_android-app-install_banners-set1_320x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+
+
+ <?php
+//airtel sri lanka a
+ if(25022 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1750711&cr=573707" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/57/1820/12230/51777/277163_mozook_mozook-st-valentine-special-offer_mozook-st-valentine-special_300x50.gif" />
+</a>
+ 
+
+<?php endif; ?>
+
+
+ <?php
+//MTN BENIN
+ if(320345 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1750713&cr=1883321" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/4147/10409/66065/195763/1883323_magic-rush-heroes-android-app_android-app-install_banners-set1_320x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+
+<?php
+//MTN Congo
+ if(33644 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1750719&cr=2545351" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/5209/12899/81229/238009/2545339_wifi-master-android-app_android-app-install_pack-1_300x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+
+<?php
+//MTN Cote d'Ivoire 
+ if(276531 == $this->chap_id ): ?>
+    
+
+<a href="http://c.afftrx.com/?s=1747409&cr=1883321" target="_blank">
+<img src="http://mob-media-prod.s3-website-eu-west-1.amazonaws.com/creatives/4147/10409/66065/195763/1883323_magic-rush-heroes-android-app_android-app-install_banners-set1_320x50.jpg" />
+</a>
+ 
+
+<?php endif; ?>
+   
+ <?= $this->paginationControl($this->nexvaApps, 'Sliding', 'partials/pagination-app-wall.phtml'); 
+        else :
+ ?>
+        
+     
+        
+<p><?php echo $this->translate("No apps found under this category");?></p>
+
+<?php
+        endif;
+        ?>

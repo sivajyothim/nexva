@@ -1,0 +1,83 @@
+<div class="title">
+    <h3><?=$this->translate($this->title)?></h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+Showing error/info messages
+TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+            
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+           
+            
+            
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div class="info_title">
+            <h3><?php echo $this->translate("Basic content details");?> </h3><strong>
+            
+          
+            </strong>
+        </div>
+        <div>
+            <table>
+                <?php
+                $basicInfo = $this->basicinfo;
+                unset($basicInfo['thumbnail']);
+                unset($basicInfo['registration_model']);
+                unset($basicInfo['product_type']);
+                // unset some unwanted variables
+                foreach($basicInfo as $key => $info) {
+                    if($key == 'content_provider')
+                        $info = '<a href="#">' . $info . '</a>';
+                    echo $this->partial('partials/row-details.phtml', array("info" => $info, 'name' => $key));
+                }
+                ?>
+            </table>
+        </div>
+
+
+
+        
+
+      
+        <div style="text-align: center;"> 
+        <br />
+
+<form action="" method="post" id="claim">
+<table>
+  <tr style="background-color: #ffffff">
+     <td style="text-align: right;">
+     <input type="checkbox"  value="1" id="agree" name="agree" class="txt-input medium validate(required)"/> 
+  </td>
+     <td width="80%"><label width="100%"> 
+     <?php echo $this->translate("By claiming this application, I hereby certify that I am the copyright owner for this application or I am acting on behalf of the organization which is the copyright holder of this application.");?></label></td> </tr>
+
+
+</table><br />
+<input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Claim this Application");?>" />
+
+<input type="hidden" value="<?=$this->productInfo ['id']?>" id="applicationId" name="applicationId" class="button">
+</form> <br />
+
+
+
+</div> 
+    
+    </div>
+
+
+    
+</div>
+

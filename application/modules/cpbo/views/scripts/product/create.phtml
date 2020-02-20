@@ -1,0 +1,64 @@
+<?php
+
+if ($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){ ?>
+    <script type="application/javascript">
+        $().ready(function(){
+            $('#in_app').change(function(){
+                if($(this).is(":checked")) {
+                    $('#inapp').val(1);
+                } else {
+                    $('#inapp').val(0);
+                }
+            });
+        });
+    </script>
+<?php } ?>
+
+<div class="title">
+    <h3 style="cursor: s-resize;"><?php echo $this->translate("Create Content");?></h3>
+    <div title="content_box" class="selector">
+        <a href="tab-basic" class="tab active"><?php echo $this->translate("Basic Info");?></a>
+        <a href="tab-warning" class="tab"><?php echo $this->translate("Visuals");?></a>
+<!--        <a href="tab-warning" class="tab">Category</a>-->
+        <a href="tab-warning" class="tab"><?php echo $this->translate("Registration");?></a>
+        <a href="tab-warning" class="tab"><?php echo $this->translate("Channels");?></a>
+        <!-- <a href="tab-language" class="tab">Language</a> -->
+        <!--<a class="tab active" href="tab-table-approve">Unapproved Product Queue</a>-->
+        <!--<a class="tab" href="tab-table">Approved Product List</a>-->
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+        Showing error/info messages
+        TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div id="content_box">
+            <!-- Basic product details -->
+            <div class="tab-basic">
+                <?=$this->form_basic?>
+            </div>
+            <!-- -->
+            <div class="tab-warning">
+                <div class="message error">
+                    <p><?php echo $this->translate("Please fill the basic info then press 'Save and Continue' to continue filling other information.");?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

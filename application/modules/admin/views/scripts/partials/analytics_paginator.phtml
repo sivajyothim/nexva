@@ -1,0 +1,33 @@
+
+<?php if ($this->pageCount): ?>
+<div id="paginationControl" class="pagination">
+
+    <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+    <a href="<?= $this->url(array('page' => $this->previous,$this->type_caption =>  $this->type,'from_view' => $this->from_view,'to_view' => $this->to_view)); ?>">&lt;&lt; Previous</a>
+        <?php else: ?>
+    <span class="disabled">&lt;&lt; Previous</span>
+        <?php endif; ?>
+    <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+
+                <?php if(isset($this->tab)) { ?>
+    <a href="<?= $this->url(array('page'=>$page ,'from_view' => $this->from_view,'to_view' => $this->to_view)); ?>" class="number"><?=$page?></a>
+                    <?php }else { ?>
+    <a href="<?= $this->url(array('page'=>$page ,'from_view' => $this->from_view,'to_view' => $this->to_view)); ?>" class="number"><?=$page?></a>
+                    <?php } ?>
+            <?php else: ?>
+    <a class="number current"><?=$page?></a>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+    <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+    <a href="<?= $this->url(array('page' => $this->next,$this->type_caption =>  $this->type ,$this->search_caption => $this->search_value,$this->searchin => $this->searchin_value)); ?>">Next &gt;&gt;</a>
+        <?php else: ?>
+    <span class="disabled">Next &gt;&gt;</span>
+        <?php endif; ?>
+
+</div>
+<?php endif; ?>

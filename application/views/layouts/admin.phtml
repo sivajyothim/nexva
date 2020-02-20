@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+       <?php if ($this->headTitle() != '<title></title>') : ?>
+            <?=$this->headTitle();?>
+        <?php else : ?>
+            <title>neXva.com - Administration</title>
+        <?php endif; ?>
+
+        <!-- Core Stylesheet -->
+        <link href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/blue.css" title="styles3" media="screen" />
+           <link type="text/css" rel="stylesheet" media="screen" href="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.css" />
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+        <link href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/vtip.css" media="screen" rel="stylesheet" type="text/css" />
+        
+        <!-- Javascript Files -->
+                <script type="text/javascript" src="<?=$this->cdn('jquiry')?>"></script> 
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>admin/assets/js/hoverIntent.js"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>/admin/assets/js/superfish.js"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>/admin/assets/js/jquery.wysiwyg.js"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>/admin/assets/js/jquery-stylesheetToggle.js"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>/admin/assets/js/forestcp.js"></script>
+        <script src="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.js" type="text/javascript"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>/admin/assets/js/vtip.js"></script>
+        <script type="text/javascript" src="<?= PROJECT_BASEPATH; ?>/admin/assets/js/vtip-min.js"></script>
+        <!-- Adding dynamic libs and CSS Meta to the layout view -->
+        <script type='text/javascript'>
+        $(document).ready(function(){
+        	$('a.del_conf').click(function(){
+                return confirm('Are you sure you want to delete this item?');
+            })
+        });
+            
+        </script>
+        <?php
+        echo $this->headMeta();
+        echo $this->headStyle();
+        echo $this->headLink();
+        echo $this->headScript();
+        
+        ?>
+
+        <!--[if IE 6]>
+        <link href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script>
+          /* EXAMPLE */
+          DD_belatedPNG.fix('.logo img, .message, table img');
+
+          /* string argument can be any CSS selector */
+        </script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <!-- Dialogs -->
+        <div id="welcome" style="display: none" title="Welcome to ForestCP">
+            <p>ForestCP is an great and easy to customize backend administration user interface.</p>
+        </div>
+
+        <?=$this->render('parts/admin/header.phtml'); ?>
+        <?php echo $this->render('parts/admin/menu.phtml'); ?>
+
+        <!-- Start Wrap -->
+        <?php
+        $controller_name= Zend_Controller_Front::getInstance()->getRequest()->getControllerName();
+        $action_name=Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+        $inner='inner';
+        if((in_array($controller_name,array('product'))) &&( in_array($action_name,array('view','listfeatured')))){
+            $inner='inner-report';
+        }
+        ?>
+        <div id="wrap">
+            <div id="content">
+                <div class="<?=$inner?>">
+                <?php // error&messages displaying 
+                    $errorMessages      = $this->flashErrors;
+                    $infoMessages       = $this->flashMessages;
+                ?>
+                <?php if(!empty($errorMessages)) : ?>
+                    <div class="message error">
+                   <?php foreach ($errorMessages as $key=>$value): ?>
+                        <p><?=$value?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+                
+                <?php if(!empty($infoMessages)) :?>
+                    <div class="message info">
+                    <?php foreach ($infoMessages as $key=>$value): ?>
+                        <p><?=$value?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+                
+                
+                    <noscript>
+                        <!-- Show message when javascript is not enabled -->
+                        <div class="message error">
+                            <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+                        </div>
+                    </noscript>
+
+                    <?php echo $this->layout()->content ?>
+
+                </div>
+            </div>
+
+            <?php
+
+if($this->sidebar_enabled){
+echo  $this->render("/parts/admin/sidebar.phtml");
+}
+            ?>
+
+
+        </div>
+        <!-- End Wrap -->
+
+    </body>
+
+</html><!--

@@ -1,0 +1,51 @@
+<div class="block category_nav" id="left_menuListBlk_menu_0">
+  <div class="blkContent">
+    <h2>Categories</h2>
+    <div class="blockContent">
+      <ul>
+        <?
+        $parents = $this->categories[0];
+        foreach ($parents as $id => $name): ?>
+          <li>
+            <a href="<?php echo PROJECT_BASEPATH; ?>category/<?= $this->slug($name) ?>/<?= $id ?>" class="menuLink"><?= $name ?></a>
+          <?
+          $childs = $this->categories[$id];
+          $selectedId = $this->categoryId;
+          if ($id == $this->categoryId || array_key_exists($selectedId, $childs)): ?>
+            <ul>
+            <?
+            foreach ($childs as $id => $name):
+            ?>
+              <li <?= ($selectedId == $id) ? 'class="selected"' : '' ?>>
+                <a href="<?php echo PROJECT_BASEPATH; ?>category/<?= $this->slug($name) ?>/<?= $id ?>" class="menuLink"><?= $name ?></a>
+              </li>
+            <? endforeach; ?>
+            </ul>
+          <? endif; ?>
+            </li>
+        <? endforeach; ?>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- share links -->
+<div class="block" id="left_menuListBlk_menu_0">
+  <div class="blkContent">
+    <h2>Find us</h2>
+    <div class="blockContent">
+      <div class="content" style="margin-top:5px; border: none">
+        <p style="text-align: center;">
+          <a style="text-decoration: none" href="http://www.facebook.com/pages/neXva-Inc/189510615951">
+            <img style="border: none" class="imagefield imagefield-field_image" alt="Find Us on Facebook" title="Find Us on Facebook" src="<?php echo PROJECT_BASEPATH; ?>web/images/facebook.png">
+          </a>
+          <a style="text-decoration: none" href="http://twitter.com/nexva">
+            <img style="border: none"  class="imagefield imagefield-field_image" alt="Follow Us on Twitter" title="Follow Us on Twitter" src="<?php echo PROJECT_BASEPATH; ?>web/images/twitter.png">
+          </a>
+          <a style="text-decoration: none" href="http://www.linkedin.com/companies/940580/neXva?trk=pp_icon">
+            <img style="border: none" class="imagefield imagefield-field_image" alt="LinkedIn" title="LinkedIn" src="<?php echo PROJECT_BASEPATH; ?>web/images/linkedin.png">
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

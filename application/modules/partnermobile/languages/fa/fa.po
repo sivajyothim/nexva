@@ -1,0 +1,1189 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-09-18 17:16+0530\n"
+"PO-Revision-Date: 2014-09-18 17:16+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <contentadmins@nexva.com>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: C:\\xampp\\htdocs\\nexva_new_server\\application\\modules"
+"\\partnermobile\\languages\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: fa\n"
+
+#: fa/index.phtml:1 fa/_index.phtml:1 fa/__index.phtml:1
+msgid "Please enter First Name"
+msgstr "لطفاً نام را وارد کنید"
+
+#: fa/index.phtml:2 fa/_index.phtml:2 fa/__index.phtml:2
+msgid "Please enter Last Name"
+msgstr "لطفاً نام خانوادگی را وارد کنید"
+
+#: fa/index.phtml:3 fa/_index.phtml:3 fa/__index.phtml:3
+msgid "Please enter your Email address"
+msgstr "لطفاً آدرس ایمیل را وارد کنید"
+
+#: fa/index.phtml:4 fa/_index.phtml:4 fa/__index.phtml:4
+msgid "Please enter a valid Email address for your Email"
+msgstr "لطفاً ایمیل معتبر وارد کنید"
+
+#: fa/index.phtml:5 fa/_index.phtml:5 fa/__index.phtml:5
+msgid "Please enter your Phone Number"
+msgstr "لطفاً شماره تلفن خود را وارد کنید"
+
+#: fa/index.phtml:6 fa/_index.phtml:6 fa/__index.phtml:6
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr "شماره تلفن همراه نباید کمتر از 10 رقم باشد"
+
+#: fa/index.phtml:7 fa/_index.phtml:7 fa/__index.phtml:7
+msgid "Please enter your Password"
+msgstr "لطفاً رمز عبورتان را وارد کنید"
+
+#: fa/index.phtml:8 fa/_index.phtml:8 fa/__index.phtml:8
+msgid "Please confirm your Password"
+msgstr "لطفاً رمز عبورتان را تأیید کنید"
+
+#: fa/index.phtml:9 fa/_index.phtml:9 fa/__index.phtml:9
+msgid "Password not Matching"
+msgstr "رمز عبور وارد شده صحیح نمی‌باشد"
+
+#: fa/index.phtml:10 fa/_index.phtml:10 fa/__index.phtml:10
+msgid "This Email already exists"
+msgstr "ایمیل از قبل وجود دارد"
+
+#: fa/index.phtml:11 fa/_index.phtml:11 fa/__index.phtml:11
+msgid "You have completed your registration successfully"
+msgstr "ثبت‌نام با موفقیت انجام شده است"
+
+#: fa/index.phtml:12 fa/_index.phtml:12 fa/__index.phtml:12
+msgid "This Phone Number already exists"
+msgstr "این شماره تلفن از قبل وارد شده است"
+
+#: fa/index.phtml:13 fa/_index.phtml:13 fa/__index.phtml:13
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+"پیامک تأیید به موبایل شما ارسال شده است برای تکمیل ثبت‌نام، از کد تایید ارسال "
+"شده استفاده کنید"
+
+#: fa/index.phtml:14 fa/_index.phtml:14 fa/__index.phtml:14
+msgid "Verification failed. verification code is incorrect"
+msgstr "تایید با موفقیت انجام نشد. کد تأیید اشتباه است"
+
+#: fa/index.phtml:15 fa/_index.phtml:15 fa/__index.phtml:15
+msgid "You successfully completed the registration process"
+msgstr "ثبت‌نام با موفقیت انجام شده است"
+
+#: fa/index.phtml:16 fa/_index.phtml:16 fa/__index.phtml:16
+msgid "Already Verified User"
+msgstr "این کاربر از قبل تایید شده است"
+
+#: fa/index.phtml:17 fa/_index.phtml:17 fa/__index.phtml:17
+msgid "The username or password you entered is incorrect"
+msgstr "نام کاربری و  رمز عبور نادرست است"
+
+#: fa/index.phtml:18 fa/_index.phtml:18 fa/__index.phtml:18
+msgid ""
+"You have not verified your account. A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+msgstr ""
+"حساب کاربری شما تایید نشده است پیامک تایید به موبایل شما ارسال شده است لطفاً "
+"از کد تأیید ارسال شده استفاده کنید یا جهت تایید حساب روی /\"ارسال مجدد کد "
+"تایید/\" کلیک کنید"
+
+#: fa/index.phtml:19 fa/_index.phtml:19 fa/__index.phtml:19
+msgid "Please enter a valid username"
+msgstr "لطفاً نام کاربری معتبر وارد کنید"
+
+#: fa/index.phtml:20 fa/_index.phtml:20 fa/__index.phtml:20
+msgid "Please enter your username and password"
+msgstr "لطفاً نام کاربری و رمز عبور خود را وارد کنید"
+
+#: fa/index.phtml:21 fa/_index.phtml:21 fa/__index.phtml:21
+msgid "Please enter your Mobile Number"
+msgstr "لطفاً شماره تلفن همراه خود را وارد کنید"
+
+#: fa/index.phtml:22 fa/_index.phtml:22 fa/__index.phtml:22
+msgid "Mobile Number not Matching"
+msgstr "تکرار شماره تلفن همراه وارد شده صحیح نمی‌باشد"
+
+#: fa/index.phtml:23 fa/_index.phtml:23 fa/__index.phtml:23
+msgid "This number has already been used. Please try another"
+msgstr "از این شماره قبلا استفاده شده است لطفاً شماره دیگری وارد کنید"
+
+#: fa/index.phtml:24 fa/_index.phtml:24 fa/__index.phtml:24
+msgid "Mobile number changed successfully"
+msgstr "شماره تلفن همراه با موفقیت تغییر یافت"
+
+#: fa/index.phtml:25 fa/_index.phtml:25 fa/__index.phtml:25
+msgid "Please confirm your Mobile Number"
+msgstr "لطفاً شماره تلفن همراه خود را تایید کنید"
+
+#: fa/index.phtml:26 fa/_index.phtml:26 fa/__index.phtml:26
+msgid "Password reset successfully"
+msgstr "تنظیم مجدد رمز عبور با موفقیت انجام شد"
+
+#: fa/index.phtml:27 fa/_index.phtml:27 fa/__index.phtml:27
+msgid "Please enter your Email"
+msgstr "لطفاً آدرس ایمیل را وارد کنید"
+
+#: fa/index.phtml:28 fa/_index.phtml:28 fa/__index.phtml:28
+msgid "User not found registered with this email"
+msgstr "کاربری با این ایمیل به ثبت نرسیده است"
+
+#: fa/index.phtml:29 fa/_index.phtml:29 fa/__index.phtml:29
+msgid "Mobile number not registered"
+msgstr "شماره تلفن همراه ثبت نشده است"
+
+#: fa/index.phtml:30 fa/_index.phtml:30 fa/__index.phtml:30
+msgid ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+msgstr ""
+"درخواست تغییر رمز عبور  ارسال شده است پیامک تأیید به موبایل شما ارسال شده "
+"است برای تاييد، از کد تایید ارسال شده استفاده کنید"
+
+#: fa/index.phtml:31 fa/_index.phtml:31 fa/__index.phtml:31
+msgid "Please enter your Verification Code"
+msgstr "لطفاً کد تایید را وارد کنید"
+
+#: fa/index.phtml:32 fa/_index.phtml:32 fa/__index.phtml:32
+msgid "Verification code is incorrect"
+msgstr "کد تایید نادرست است"
+
+#: fa/index.phtml:33 fa/_index.phtml:33 fa/__index.phtml:33
+msgid "Mobile Number not found for this user"
+msgstr "شماره تلفن همراه برای این کاربر  به ثبت نرسیده است"
+
+#: fa/index.phtml:34 fa/_index.phtml:34 fa/__index.phtml:34
+msgid "Email not found for this user"
+msgstr "ایمیلی برای کاربر پیدا نشد"
+
+#: fa/index.phtml:35 fa/_index.phtml:35 fa/__index.phtml:35
+msgid ""
+"You have requested to resend verification code. A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+msgstr ""
+"درخواست ارسال مجدد کد تایید دریافت شده است پیامک تأیید به موبایل شما ارسال "
+"شده است برای تایید حساب، از کد تایید ارسال شده استفاده نمایید"
+
+#: fa/index.phtml:36 fa/_index.phtml:36 fa/__index.phtml:36
+msgid "Newest"
+msgstr "تازه ها"
+
+#: fa/index.phtml:37 fa/_index.phtml:37 fa/__index.phtml:37
+msgid "Top Free"
+msgstr "پرطرفدارترین های رایگان"
+
+#: fa/index.phtml:38 fa/_index.phtml:38 fa/__index.phtml:38
+msgid "Top Paid"
+msgstr "پرطرفدارترین های غیررایگان"
+
+#: fa/index.phtml:39 fa/_index.phtml:39 fa/__index.phtml:39
+msgid "Top Downloads"
+msgstr "بیشترین دانلود شده ها"
+
+#: fa/index.phtml:40 fa/_index.phtml:40 fa/__index.phtml:40
+msgid "Free"
+msgstr "رايگان"
+
+#: fa/index.phtml:41 fa/_index.phtml:41 fa/__index.phtml:41
+msgid "Download"
+msgstr "دانلود"
+
+#: fa/index.phtml:42 fa/_index.phtml:42 fa/__index.phtml:42
+msgid "Description"
+msgstr "توضیحات"
+
+#: fa/index.phtml:43 fa/_index.phtml:43 fa/__index.phtml:43
+msgid "Screenshots"
+msgstr "تصاویر"
+
+#: fa/index.phtml:44 fa/_index.phtml:44 fa/__index.phtml:44
+msgid "Account"
+msgstr "حساب"
+
+#: fa/index.phtml:45 fa/_index.phtml:45 fa/__index.phtml:45
+msgid "Updates"
+msgstr "به روزرسانی"
+
+#: fa/index.phtml:46 fa/_index.phtml:46 fa/__index.phtml:46
+msgid "Help"
+msgstr "راهنما"
+
+#: fa/index.phtml:47 fa/_index.phtml:47 fa/__index.phtml:47
+msgid " HOME"
+msgstr "خانه"
+
+#: fa/index.phtml:48 fa/_index.phtml:48 fa/__index.phtml:48
+msgid "Premium"
+msgstr "ویژه"
+
+#: fa/index.phtml:49 fa/_index.phtml:49 fa/__index.phtml:49
+msgid "Login"
+msgstr "ورود"
+
+#: fa/index.phtml:50 fa/_index.phtml:50 fa/__index.phtml:50
+msgid "Email"
+msgstr "ایمیل"
+
+#: fa/index.phtml:51 fa/_index.phtml:51 fa/__index.phtml:51
+msgid "Password"
+msgstr "رمز عبور"
+
+#: fa/index.phtml:52 fa/_index.phtml:52 fa/__index.phtml:52
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+#: fa/index.phtml:53 fa/_index.phtml:53 fa/__index.phtml:53
+msgid "Sign In"
+msgstr "ورود کاربران"
+
+#: fa/index.phtml:54 fa/_index.phtml:54 fa/__index.phtml:54
+msgid "Forgot Password?"
+msgstr "رمز عبور را فراموش کرده‌اید؟"
+
+#: fa/index.phtml:55 fa/_index.phtml:55 fa/__index.phtml:55
+msgid "Downloaded Apps"
+msgstr "برنامه‌های دانلودشده"
+
+#: fa/index.phtml:56 fa/_index.phtml:56 fa/__index.phtml:56
+msgid "Reset Password"
+msgstr "تنظیم مجدد رمز عبور"
+
+#: fa/index.phtml:57 fa/index.phtml:235 fa/_index.phtml:57 fa/_index.phtml:235
+#: fa/__index.phtml:57 fa/__index.phtml:235
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr "متاسفانه کلمه ای که جستجو کردید نتیجه ای نداشت"
+
+#: fa/index.phtml:59 fa/_index.phtml:59 fa/__index.phtml:59
+msgid "Change Mobile"
+msgstr "تغییر نوع گوشی همراه"
+
+#: fa/index.phtml:60 fa/_index.phtml:60 fa/__index.phtml:60
+msgid "Terms & Conditions"
+msgstr "شرایط و ضوابط"
+
+#: fa/index.phtml:61 fa/_index.phtml:61 fa/__index.phtml:61
+msgid "Mobile Number"
+msgstr "شماره تلفن همراه"
+
+#: fa/index.phtml:62 fa/_index.phtml:62 fa/__index.phtml:62
+msgid "New Password"
+msgstr "رمز عبور جدید"
+
+#: fa/index.phtml:63 fa/_index.phtml:63 fa/__index.phtml:63
+msgid "Confirm Password"
+msgstr "تایید رمز عبور"
+
+#: fa/index.phtml:64 fa/_index.phtml:64 fa/__index.phtml:64
+msgid "Confirm Mobile Number"
+msgstr "تایید شماره  تلفن همراه "
+
+#: fa/index.phtml:65 fa/_index.phtml:65 fa/__index.phtml:65
+msgid "Staff Picks"
+msgstr "صفحه اصلی"
+
+#: fa/index.phtml:66 fa/_index.phtml:66 fa/__index.phtml:66
+msgid "Top Premium"
+msgstr "برترین برنامه‌های پولی"
+
+#: fa/index.phtml:67 fa/_index.phtml:67 fa/__index.phtml:67
+msgid "Buy"
+msgstr "خرید"
+
+#: fa/index.phtml:68 fa/_index.phtml:68 fa/__index.phtml:68
+msgid "Download Started"
+msgstr "دانلود آغاز شده است"
+
+#: fa/index.phtml:69 fa/_index.phtml:69 fa/__index.phtml:69
+msgid "Later"
+msgstr "بعدا"
+
+#: fa/index.phtml:70 fa/_index.phtml:70 fa/__index.phtml:70
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr ""
+"به روزرسانی ها مربوط به برنامه‌هایی هستند که نسخه جدیدشان ارائه شده است به "
+"روزرسانی شامل امکانات جدید، رفع معایب یا ارتقای عملکرد می‌شود"
+
+#: fa/index.phtml:71 fa/_index.phtml:71 fa/__index.phtml:71
+msgid ""
+"Please use this verification code 888555 to complete your registration. "
+"\"MTN CONGO APP STORE\""
+msgstr ""
+"لطفاً برای تکمیل ثبت نام، از کد تایید 888555 استفاده کنید \"فروشگاه برنامه‌های "
+"کاربردی ام‌تی‌ان کنگو\""
+
+#: fa/index.phtml:72 fa/_index.phtml:72 fa/__index.phtml:72
+msgid ""
+"Please use this verification code 888666 to verify your mobile number. \"MTN "
+"CONGO APP STORE\""
+msgstr ""
+"لطفاً برای تایید شماره تلفن همراه، از کد تایید 888666 استفاده کنید \"فروشگاه "
+"برنامه‌های کاربردی ام‌تی‌ان کنگو\""
+
+#: fa/index.phtml:73 fa/_index.phtml:73 fa/__index.phtml:73
+msgid ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process. \"MTN CONGO APP STORE\""
+msgstr ""
+"لطفاً برای تکمیل فرایند تنظیم مجدد رمز عبور، از کد تأیید 8886656 استفاده کنید "
+"\"فروشگاه برنامه‌های کاربردی ام‌تی‌ان کنگو\""
+
+#: fa/index.phtml:74 fa/_index.phtml:74 fa/__index.phtml:74
+msgid ""
+"Please use this verification code 7878778 as you requested. \"MTN CONGO APP "
+"STORE\""
+msgstr ""
+"لطفاً بنا به درخواست خود، از کد تایید 7878778 استفاده کنید \"فروشگاه "
+"برنامه‌های کاربردی ام‌تی‌ان کنگو\""
+
+#: fa/index.phtml:75 fa/_index.phtml:75 fa/__index.phtml:75
+msgid "Next"
+msgstr "بعدی"
+
+#: fa/index.phtml:76 fa/_index.phtml:76 fa/__index.phtml:76
+msgid "Previous"
+msgstr "قبلی"
+
+#: fa/index.phtml:77 fa/_index.phtml:77 fa/__index.phtml:77
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"در صورت مشاهدۀ هر گونه مشکل در زمینۀ خدمات مشتريان، خرابی در برنامۀ "
+"دانلودشده، اشکال در دانلود یا خریدهای اتفاقی و ناخواسته، به نشانی زیر برای "
+"ایمیل ارسال کنید:"
+
+#: fa/index.phtml:78 fa/_index.phtml:78 fa/__index.phtml:78
+msgid "We will get back to you within 48 hours."
+msgstr "ظرف 48 ساعت با شما تماس می‌گیریم."
+
+#: fa/index.phtml:79 fa/_index.phtml:79 fa/__index.phtml:79
+msgid "Verify"
+msgstr "تایید"
+
+#: fa/index.phtml:80 fa/_index.phtml:80 fa/__index.phtml:80
+msgid "Resend Verification Code"
+msgstr "ارسال مجدد کد تایید"
+
+#: fa/index.phtml:81 fa/_index.phtml:81 fa/__index.phtml:81
+msgid "First Name"
+msgstr "نام"
+
+#: fa/index.phtml:82 fa/_index.phtml:82 fa/__index.phtml:82
+msgid "Last Name"
+msgstr "نام خانوادگی"
+
+#: fa/index.phtml:83 fa/_index.phtml:83 fa/__index.phtml:83
+msgid "Phone Number"
+msgstr "شماره تلفن"
+
+#: fa/index.phtml:84 fa/_index.phtml:84 fa/__index.phtml:84
+msgid "Register"
+msgstr "ثبت نام"
+
+#: fa/index.phtml:85 fa/_index.phtml:85 fa/__index.phtml:85
+msgid "Verification Code"
+msgstr "کد تایید"
+
+#: fa/index.phtml:86 fa/_index.phtml:86 fa/__index.phtml:86
+msgid "Change Mobile Number"
+msgstr "تغییر شماره تلفن همراه"
+
+#: fa/index.phtml:87 fa/_index.phtml:87 fa/__index.phtml:87
+msgid "Forgot Password"
+msgstr "رمز عبور را فراموش کرده‌اید؟"
+
+#: fa/index.phtml:88 fa/_index.phtml:88 fa/__index.phtml:88
+msgid "Request"
+msgstr "درخواست"
+
+#: fa/index.phtml:89 fa/_index.phtml:89 fa/__index.phtml:89
+msgid "Please use this verification code"
+msgstr "لطفاً از این کد تایید برای"
+
+#: fa/index.phtml:90 fa/_index.phtml:90 fa/__index.phtml:90
+msgid "to complete your registration."
+msgstr "تکمیل ثبت نام استفاده نمایید"
+
+#: fa/index.phtml:91 fa/_index.phtml:91 fa/__index.phtml:91
+msgid "to verify your mobile number."
+msgstr "تایید شماره تلفن همراه استفاده نمایید"
+
+#: fa/index.phtml:92 fa/_index.phtml:92 fa/__index.phtml:92
+msgid "to complete the password resetting process."
+msgstr "تکمیل فرایند تنظیم مجدد رمزعبور استفاده نمایید"
+
+#: fa/index.phtml:93 fa/_index.phtml:93 fa/__index.phtml:93
+msgid "as you requested."
+msgstr "بنا به درخواست خود"
+
+#: fa/index.phtml:94 fa/_index.phtml:94 fa/__index.phtml:94
+msgid "Payment was unsuceessful"
+msgstr "پرداخت با موفقیت انجام نشده است"
+
+#: fa/index.phtml:95 fa/index.phtml:181 fa/_index.phtml:95 fa/_index.phtml:181
+#: fa/__index.phtml:95 fa/__index.phtml:181
+msgid "Have an Issue?"
+msgstr "آیا با مشکلی مواجه شده‌اید؟"
+
+#: fa/index.phtml:96 fa/_index.phtml:96 fa/__index.phtml:96
+msgid "Featured Apps"
+msgstr "پرطرفدارترین برنامه های ویژه"
+
+#: fa/index.phtml:97 fa/_index.phtml:97 fa/__index.phtml:97
+msgid "BOOKS & REFERENCE"
+msgstr "کتاب‌ها و مرجع"
+
+#: fa/index.phtml:98 fa/_index.phtml:98 fa/__index.phtml:98
+msgid "eBooks"
+msgstr "کتاب‌های الکترونیکی"
+
+#: fa/index.phtml:99 fa/_index.phtml:99 fa/__index.phtml:99
+msgid "Audio books"
+msgstr "کتاب‌های صوتی"
+
+#: fa/index.phtml:100 fa/_index.phtml:100 fa/__index.phtml:100
+msgid "Reference/Dictionaries"
+msgstr "کتاب مرجع/فرهنگ‌نامه‌ها"
+
+#: fa/index.phtml:101 fa/_index.phtml:101 fa/__index.phtml:101
+msgid "Religion"
+msgstr "مذهب"
+
+#: fa/index.phtml:102 fa/_index.phtml:102 fa/__index.phtml:102
+msgid "Comics/Manga"
+msgstr "کتاب‌های مصور/مانگا"
+
+#: fa/index.phtml:103 fa/_index.phtml:103 fa/__index.phtml:103
+msgid "GAMES"
+msgstr "بازی‌ها"
+
+#: fa/index.phtml:104 fa/_index.phtml:104 fa/__index.phtml:104
+msgid "Arcade"
+msgstr "آرکید"
+
+#: fa/index.phtml:105 fa/_index.phtml:105 fa/__index.phtml:105
+msgid "Cards"
+msgstr "ورق"
+
+#: fa/index.phtml:106 fa/_index.phtml:106 fa/__index.phtml:106
+msgid "Action/Strategy"
+msgstr "جنگی/راهبردی"
+
+#: fa/index.phtml:107 fa/_index.phtml:107 fa/__index.phtml:107
+msgid "Role Playing/Multiplayer"
+msgstr "نقش‌آفرینی/تیمی"
+
+#: fa/index.phtml:108 fa/_index.phtml:108 fa/__index.phtml:108
+msgid "Logic/Puzzle/Trivia"
+msgstr "فکری/جدول/معما"
+
+#: fa/index.phtml:109 fa/_index.phtml:109 fa/__index.phtml:109
+msgid "Casino/Cards/Betting"
+msgstr "کازینو/ورق/شرط‌بندی"
+
+#: fa/index.phtml:110 fa/_index.phtml:110 fa/__index.phtml:110
+msgid "Sports"
+msgstr "ورزشی"
+
+#: fa/index.phtml:111 fa/_index.phtml:111 fa/__index.phtml:111
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "ابزارها و بهره ‌وری"
+
+#: fa/index.phtml:112 fa/_index.phtml:112 fa/__index.phtml:112
+msgid "Utilities/Synchronization"
+msgstr "کاربردی/همزمان سازی"
+
+#: fa/index.phtml:113 fa/_index.phtml:113 fa/__index.phtml:113
+msgid "Organizers/Clocks/Desktop"
+msgstr "هماهنگ کننده/ساعت‌ها/صفحۀ نمایش"
+
+#: fa/index.phtml:114 fa/_index.phtml:114 fa/__index.phtml:114
+msgid "Internet/WAP"
+msgstr "اینترنت/WAP"
+
+#: fa/index.phtml:115 fa/_index.phtml:115 fa/__index.phtml:115
+msgid "Device Tools"
+msgstr "ابزارهای سیستم"
+
+#: fa/index.phtml:116 fa/_index.phtml:116 fa/__index.phtml:116
+msgid "Security/Backup"
+msgstr "امنیتی/پشتیبانی"
+
+#: fa/index.phtml:117 fa/_index.phtml:117 fa/__index.phtml:117
+msgid "Developers/DB"
+msgstr "برنامه‌نویس‌ها/DB"
+
+#: fa/index.phtml:118 fa/_index.phtml:118 fa/__index.phtml:118
+msgid "Office Productivity"
+msgstr "کاربردی اداری"
+
+#: fa/index.phtml:119 fa/_index.phtml:119 fa/__index.phtml:119
+msgid "Graphic Tools"
+msgstr "ابزارهای گرافیکی"
+
+#: fa/index.phtml:120 fa/_index.phtml:120 fa/__index.phtml:120
+msgid "BUSINESS & FINANCE"
+msgstr "کسب ‌وکار و مالی"
+
+#: fa/index.phtml:121 fa/_index.phtml:121 fa/__index.phtml:121
+msgid "Accounts/Tax"
+msgstr "حسابداری/مالیاتی"
+
+#: fa/index.phtml:122 fa/_index.phtml:122 fa/__index.phtml:122
+msgid "Stocks/Finance"
+msgstr "سهام/مالی"
+
+#: fa/index.phtml:123 fa/_index.phtml:123 fa/__index.phtml:123
+msgid "Inventory/Sales"
+msgstr "انبارگردانی/فروش"
+
+#: fa/index.phtml:124 fa/_index.phtml:124 fa/__index.phtml:124
+msgid "Currency/Convertors"
+msgstr "ارز/ مبدل‌ها"
+
+#: fa/index.phtml:125 fa/_index.phtml:125 fa/__index.phtml:125
+msgid "TRAVEL & GPS"
+msgstr "گردشگری و راهنمای GPS"
+
+#: fa/index.phtml:126 fa/_index.phtml:126 fa/__index.phtml:126
+msgid "GPS/Maps"
+msgstr "GPS/نقشه‌ها"
+
+#: fa/index.phtml:127 fa/_index.phtml:127 fa/__index.phtml:127
+msgid "Weather"
+msgstr "GPS/نقشه‌ها"
+
+#: fa/index.phtml:128 fa/_index.phtml:128 fa/__index.phtml:128
+msgid "Search"
+msgstr "جستجو"
+
+#: fa/index.phtml:129 fa/_index.phtml:129 fa/__index.phtml:129
+msgid "Translation/Language"
+msgstr "ترجمه/زبان"
+
+#: fa/index.phtml:130 fa/_index.phtml:130 fa/__index.phtml:130
+msgid "NEWS & SPORTS"
+msgstr "اخبار و ورزش"
+
+#: fa/index.phtml:131 fa/_index.phtml:131 fa/__index.phtml:131
+msgid "News/Magazines"
+msgstr "اخبار/مجلات"
+
+#: fa/index.phtml:132 fa/_index.phtml:132 fa/__index.phtml:132
+msgid "Sports/Teams"
+msgstr "ورزش‌ها/تیم‌ها"
+
+#: fa/index.phtml:133 fa/_index.phtml:133 fa/__index.phtml:133
+msgid "RSS"
+msgstr "فید RSS "
+
+#: fa/index.phtml:134 fa/_index.phtml:134 fa/__index.phtml:134
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "شبکه های اجتماعی و پیام‌ رسانی"
+
+#: fa/index.phtml:135 fa/_index.phtml:135 fa/__index.phtml:135
+msgid "IM/SMS/Email/VOIP"
+msgstr "پیام رسانی مستقیم/پیام کوتاه/ایمیل/تلفن اینترنتی"
+
+#: fa/index.phtml:136 fa/_index.phtml:136 fa/__index.phtml:136
+msgid "Social Networks"
+msgstr "شبکه‌های اجتماعی"
+
+#: fa/index.phtml:137 fa/_index.phtml:137 fa/__index.phtml:137
+msgid "Dating"
+msgstr "دوست‌یابی"
+
+#: fa/index.phtml:138 fa/_index.phtml:138 fa/__index.phtml:138
+msgid "Blogs/Images"
+msgstr "وبلاگ‌ها/تصاویر"
+
+#: fa/index.phtml:139 fa/_index.phtml:139 fa/__index.phtml:139
+msgid "MUSIC & AUDIO"
+msgstr "موسیقی و صوتی"
+
+#: fa/index.phtml:140 fa/_index.phtml:140 fa/__index.phtml:140
+msgid "Podcasts"
+msgstr "پادکست‌ها"
+
+#: fa/index.phtml:141 fa/_index.phtml:141 fa/__index.phtml:141
+msgid "MP3/Music"
+msgstr "MP3/موسیقی"
+
+#: fa/index.phtml:142 fa/_index.phtml:142 fa/__index.phtml:142
+msgid "Radios/Players"
+msgstr "رادیوها/برنامه‌های پخش موسیقی"
+
+#: fa/index.phtml:143 fa/_index.phtml:143 fa/__index.phtml:143
+msgid "Lyrics/Bands"
+msgstr "متن آهنگ‌ها/گروه‌ها"
+
+#: fa/index.phtml:144 fa/_index.phtml:144 fa/__index.phtml:144
+msgid "VIDEO & TV"
+msgstr "ویدیو و تلویزیون"
+
+#: fa/index.phtml:145 fa/_index.phtml:145 fa/__index.phtml:145
+msgid "TV/Shows"
+msgstr "تلویزیون/برنامه‌ها"
+
+#: fa/index.phtml:146 fa/_index.phtml:146 fa/__index.phtml:146
+msgid "Movies/Trailers"
+msgstr "فیلم‌های سینمایی/پیش‌پرده‌ها"
+
+#: fa/index.phtml:147 fa/_index.phtml:147 fa/__index.phtml:147
+msgid "players/Converters"
+msgstr "برنامه‌های پخش فیلم/مبدل‌ها"
+
+#: fa/index.phtml:148 fa/_index.phtml:148 fa/__index.phtml:148
+msgid "LIFESTYLE & WELLNESS"
+msgstr "سبک زندگی و سلامتی"
+
+#: fa/index.phtml:149 fa/_index.phtml:149 fa/__index.phtml:149
+msgid "Astro"
+msgstr "نجوم"
+
+#: fa/index.phtml:150 fa/_index.phtml:150 fa/__index.phtml:150
+msgid "Food/Recipes"
+msgstr "غذا/دستور طبخ"
+
+#: fa/index.phtml:151 fa/_index.phtml:151 fa/__index.phtml:151
+msgid "Art/Fashion"
+msgstr "هنر/مُد"
+
+#: fa/index.phtml:152 fa/_index.phtml:152 fa/__index.phtml:152
+msgid "Hobbies/Pets"
+msgstr "سرگرمی‌ها/حیوانات خانگی"
+
+#: fa/index.phtml:153 fa/_index.phtml:153 fa/__index.phtml:153
+msgid "Health/Diet/Fitness"
+msgstr "سلامت/رژیم/تناسب اندام"
+
+#: fa/index.phtml:154 fa/_index.phtml:154 fa/__index.phtml:154
+msgid "Shopping/Brands"
+msgstr "خرید/برندها"
+
+#: fa/index.phtml:155 fa/_index.phtml:155 fa/__index.phtml:155
+msgid "EDUCATION & ELEARNING"
+msgstr "آموزشی و یادگیری مجازی"
+
+#: fa/index.phtml:156 fa/_index.phtml:156 fa/__index.phtml:156
+msgid "Medical"
+msgstr "پزشکی"
+
+#: fa/index.phtml:157 fa/_index.phtml:157 fa/__index.phtml:157
+msgid "Language"
+msgstr "زبان"
+
+#: fa/index.phtml:158 fa/_index.phtml:158 fa/__index.phtml:158
+msgid "Kids/Early learning"
+msgstr "کودکان/بازی‌های کودکان"
+
+#: fa/index.phtml:159 fa/_index.phtml:159 fa/__index.phtml:159
+msgid "University"
+msgstr "دانشگاه‌"
+
+#: fa/index.phtml:160 fa/_index.phtml:160 fa/__index.phtml:160
+msgid "Law"
+msgstr "قانون"
+
+#: fa/index.phtml:161 fa/_index.phtml:161 fa/__index.phtml:161
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "تفریحی و سرگرمی"
+
+#: fa/index.phtml:162 fa/_index.phtml:162 fa/__index.phtml:162
+msgid "Wallpaper/Screensavers"
+msgstr "کاغذ دیواری/عکس‌های محافظ صفحه نمایش"
+
+#: fa/index.phtml:163 fa/_index.phtml:163 fa/__index.phtml:163
+msgid "Personlization/Skins"
+msgstr "شخصی‌سازی/پوسته‌ها"
+
+#: fa/index.phtml:164 fa/_index.phtml:164 fa/__index.phtml:164
+msgid "Humor/Jokes"
+msgstr "طنز/لطیفه‌ها"
+
+#: fa/index.phtml:165 fa/_index.phtml:165 fa/__index.phtml:165
+msgid "Ringtones"
+msgstr "آهنگ تماس"
+
+#: fa/index.phtml:166 fa/_index.phtml:166 fa/__index.phtml:166
+msgid "THEMES"
+msgstr "تم‌ها"
+
+#: fa/index.phtml:167 fa/_index.phtml:167 fa/__index.phtml:167
+msgid "Techno"
+msgstr "تکنو"
+
+#: fa/index.phtml:168 fa/_index.phtml:168 fa/__index.phtml:168
+msgid "Rock"
+msgstr "راک"
+
+#: fa/index.phtml:169 fa/_index.phtml:169 fa/__index.phtml:169
+msgid "Calm"
+msgstr "آرام"
+
+#: fa/index.phtml:170 fa/_index.phtml:170 fa/__index.phtml:170
+msgid "Arts & Crafts"
+msgstr "هنری و خلاقیت"
+
+#: fa/index.phtml:171 fa/_index.phtml:171 fa/__index.phtml:171
+msgid "Animation"
+msgstr "پویانمایی"
+
+#: fa/index.phtml:172 fa/_index.phtml:172 fa/__index.phtml:172
+msgid "Category  Not Found"
+msgstr "دسته‌بندی یافت نشد."
+
+#: fa/index.phtml:173 fa/_index.phtml:173 fa/__index.phtml:173
+msgid "You are not signed in yet"
+msgstr "شما هنوز وارد سیستم نشده‌اید."
+
+#: fa/index.phtml:174 fa/_index.phtml:174 fa/__index.phtml:174
+msgid "No Match Found"
+msgstr "هیچ مطابقتی یافت نشد."
+
+#: fa/index.phtml:175 fa/_index.phtml:175 fa/__index.phtml:175
+msgid "Ok"
+msgstr "تأیید"
+
+#: fa/index.phtml:176 fa/_index.phtml:176 fa/__index.phtml:176
+msgid "You haven't log in yet ? Please log in."
+msgstr "هنوز وارد سیستم نشده‌اید؟ لطفاً نام کاربری و رمز عبور خود را وارد کنید."
+
+#: fa/index.phtml:177 fa/_index.phtml:177 fa/__index.phtml:177
+msgid "Apps"
+msgstr "برنامه‌های کاربردی"
+
+#: fa/index.phtml:178 fa/_index.phtml:178 fa/__index.phtml:178
+msgid "No Data Found"
+msgstr "هیچ اطلاعاتی‌ یافت نشد."
+
+#: fa/index.phtml:179 fa/_index.phtml:179 fa/__index.phtml:179
+msgid "Downloading"
+msgstr "در حال بارگذاری"
+
+#: fa/index.phtml:180 fa/_index.phtml:180 fa/__index.phtml:180
+msgid "You are here"
+msgstr "شما اینجا هستید."
+
+#: fa/index.phtml:182 fa/_index.phtml:182 fa/__index.phtml:182
+msgid "Login to add a ticket"
+msgstr "برای افزودن گزارش مشکل وارد سیستم شوید."
+
+#: fa/index.phtml:183 fa/_index.phtml:183 fa/__index.phtml:183
+msgid "Please add a valid email"
+msgstr "لطفاً یک آدرس ایمیل معتبر وارد کنید."
+
+#: fa/index.phtml:184 fa/_index.phtml:184 fa/__index.phtml:184
+msgid "Please add a valid password"
+msgstr "لطفاً یک رمز عبور معتبر وارد کنید."
+
+#: fa/index.phtml:185 fa/_index.phtml:185 fa/__index.phtml:185
+msgid "Click here to reset it"
+msgstr "برای بازیابی اینجا کلیک کنید."
+
+#: fa/index.phtml:186 fa/_index.phtml:186 fa/__index.phtml:186
+msgid "Home"
+msgstr "صفحه اصلی"
+
+#: fa/index.phtml:187 fa/_index.phtml:187 fa/__index.phtml:187
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted."
+msgstr ""
+"تمامی محصولات، لوگوها و شرکتهای نامبرده در اینجا، جزو نام و علائم تجاری این "
+"شرکتها بوده و بر اساس قانون کپی‌رایت در مالکیت انحصاری آنها می‌باشند."
+
+#: fa/index.phtml:188 fa/_index.phtml:188 fa/__index.phtml:188
+msgid "Add your own review"
+msgstr "نظر دهید."
+
+#: fa/index.phtml:189 fa/_index.phtml:189 fa/__index.phtml:189
+msgid "MTN Iran App Store"
+msgstr "فروشگاه برنامه های کاربردی تلفن همراه"
+
+#: fa/index.phtml:190 fa/_index.phtml:190 fa/__index.phtml:190
+msgid "IRR"
+msgstr "ریال"
+
+#: fa/index.phtml:191 fa/_index.phtml:191 fa/__index.phtml:191
+msgid " APP"
+msgstr "برنامه‌های کاربردی"
+
+#: fa/index.phtml:192 fa/_index.phtml:192 fa/__index.phtml:192
+msgid "Paid"
+msgstr "پرداخت"
+
+#: fa/index.phtml:193 fa/_index.phtml:193 fa/__index.phtml:193
+msgid "Mobile Number or password is incorrect"
+msgstr "Mobile Number or password is incorrect"
+
+#: fa/index.phtml:194 fa/_index.phtml:194 fa/__index.phtml:194
+msgid "Mobile"
+msgstr "تلفن همراه"
+
+#: fa/index.phtml:195 fa/_index.phtml:195 fa/__index.phtml:195
+msgid "Newest Apps"
+msgstr "جدیدترین برنامه‌های کاربردی"
+
+#: fa/index.phtml:196 fa/_index.phtml:196 fa/__index.phtml:196
+msgid "Search Results for"
+msgstr "نتایج جستجو برای"
+
+#: fa/index.phtml:197 fa/_index.phtml:197 fa/__index.phtml:197
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"لطفا آدرس پست الکترونیکی که با آن حساب خود را ایجاد کرده اید را وارد کنید تا "
+"رمز عبور جدید برای شما ارسال شود."
+
+#: fa/index.phtml:198 fa/_index.phtml:198 fa/__index.phtml:198
+msgid "Reset your password"
+msgstr "تنظیم مجدد رمز عبور"
+
+#: fa/index.phtml:199 fa/_index.phtml:199 fa/__index.phtml:199
+msgid "Required infromation"
+msgstr "اطلاعات مورد نیاز"
+
+#: fa/index.phtml:200 fa/_index.phtml:200 fa/__index.phtml:200
+msgid "Enter Captcha"
+msgstr "کد امنیتی را وارد کنید"
+
+#: fa/index.phtml:201 fa/_index.phtml:201 fa/__index.phtml:201
+msgid "Powered by"
+msgstr "ارائه خدمات توسط"
+
+#: fa/index.phtml:202 fa/_index.phtml:202 fa/__index.phtml:202
+msgid "The security key wasn't entered correctly"
+msgstr "کد امنیتی نادرست است"
+
+#: fa/index.phtml:203 fa/_index.phtml:203 fa/__index.phtml:203
+msgid "Please try again"
+msgstr " لطفا مجددا تلاش کنید"
+
+#: fa/index.phtml:204 fa/_index.phtml:204 fa/__index.phtml:204
+msgid "Reset"
+msgstr "تنظیم مجدد"
+
+#: fa/index.phtml:205 fa/_index.phtml:205 fa/__index.phtml:205
+msgid "Info"
+msgstr "اطلاعات"
+
+#: fa/index.phtml:206 fa/_index.phtml:206 fa/__index.phtml:206
+msgid "The email you supplied was not found"
+msgstr "آدرس الکترونیکی وارد شده موجود نمی باشد"
+
+#: fa/index.phtml:207 fa/_index.phtml:207 fa/__index.phtml:207
+msgid "Username or password is incorrect"
+msgstr "نام کاربری یا رمز عبور نادرست است"
+
+#: fa/index.phtml:208 fa/_index.phtml:208 fa/__index.phtml:208
+msgid "Add a ticket"
+msgstr "افزودن درخواست"
+
+#: fa/index.phtml:209 fa/_index.phtml:209 fa/__index.phtml:209
+msgid "View my ticket"
+msgstr "مشاهده درخواست"
+
+#: fa/index.phtml:210 fa/_index.phtml:210 fa/__index.phtml:210
+msgid "Subject"
+msgstr "موضوع"
+
+#: fa/index.phtml:211 fa/_index.phtml:211 fa/__index.phtml:211
+msgid "Type"
+msgstr "نوع"
+
+#: fa/index.phtml:212 fa/_index.phtml:212 fa/__index.phtml:212
+msgid "Priority"
+msgstr "اولویت"
+
+#: fa/index.phtml:213 fa/_index.phtml:213 fa/__index.phtml:213
+msgid "Select Type"
+msgstr "انتخاب نوع"
+
+#: fa/index.phtml:214 fa/_index.phtml:214 fa/__index.phtml:214
+msgid "Question"
+msgstr "سوال"
+
+#: fa/index.phtml:215 fa/_index.phtml:215 fa/__index.phtml:215
+msgid "Incident"
+msgstr "رویداد"
+
+#: fa/index.phtml:216 fa/_index.phtml:216 fa/__index.phtml:216
+msgid "Problem"
+msgstr "مشکل"
+
+#: fa/index.phtml:217 fa/_index.phtml:217 fa/__index.phtml:217
+msgid "Feature"
+msgstr "ویژگی"
+
+#: fa/index.phtml:218 fa/_index.phtml:218 fa/__index.phtml:218
+msgid "Select Priority"
+msgstr "انتخاب اولویت"
+
+#: fa/index.phtml:219 fa/_index.phtml:219 fa/__index.phtml:219
+msgid "Low"
+msgstr "پایین"
+
+#: fa/index.phtml:220 fa/_index.phtml:220 fa/__index.phtml:220
+msgid "Medium"
+msgstr "متوسط"
+
+#: fa/index.phtml:221 fa/_index.phtml:221 fa/__index.phtml:221
+msgid "High"
+msgstr "بالا"
+
+#: fa/index.phtml:222 fa/_index.phtml:222 fa/__index.phtml:222
+msgid "Urgent"
+msgstr "فوری"
+
+#: fa/index.phtml:223 fa/_index.phtml:223 fa/__index.phtml:223
+msgid "Your ticket submitted successfully"
+msgstr "درخواست شما با موفقیت ارسال شد"
+
+#: fa/index.phtml:224 fa/_index.phtml:224 fa/__index.phtml:224
+msgid "Your response submitted successfully"
+msgstr "پاسخ شما با موفقیت ارسال شد"
+
+#: fa/index.phtml:225 fa/_index.phtml:225 fa/__index.phtml:225
+msgid "Responces"
+msgstr "پاسخ ها"
+
+#: fa/index.phtml:226 fa/_index.phtml:226 fa/__index.phtml:226
+msgid "No Response found"
+msgstr "پاسخی یافت نشد"
+
+#: fa/index.phtml:227 fa/_index.phtml:227 fa/__index.phtml:227
+msgid "Reply"
+msgstr "پاسخ"
+
+#: fa/index.phtml:228 fa/_index.phtml:228 fa/__index.phtml:228
+msgid "Submit"
+msgstr "ارسال"
+
+#: fa/index.phtml:229 fa/_index.phtml:229 fa/__index.phtml:229
+msgid "Platforms"
+msgstr "سیستم های عامل"
+
+#: fa/index.phtml:230 fa/_index.phtml:230 fa/__index.phtml:230
+msgid "PLEASE SELECT YOUR PLATFORM"
+msgstr "لطفا سیستم عامل مورد نظر خود را انتخاب کنید"
+
+#: fa/index.phtml:231 fa/_index.phtml:231 fa/__index.phtml:231
+msgid "Register on"
+msgstr "ثبت نام در"
+
+#: fa/index.phtml:232 fa/_index.phtml:232 fa/__index.phtml:232
+msgid "PLEASE SELECT"
+msgstr "لطفا انتخاب کنید"
+
+#: fa/index.phtml:233 fa/_index.phtml:233 fa/__index.phtml:233
+msgid "Android App"
+msgstr "برنامه کاربردی اندروید"
+
+#: fa/index.phtml:234 fa/_index.phtml:234 fa/__index.phtml:234
+msgid "Mobile Web"
+msgstr "موبایل وب"
+
+#: fa/index.phtml:236 fa/_index.phtml:236 fa/__index.phtml:236
+msgid "The mobile number or password you entered is incorrect"
+msgstr "شماره تلفن یا رمز عبور نادرست است"
+
+#: fa/index.phtml:237 fa/_index.phtml:237 fa/__index.phtml:237
+msgid "Open"
+msgstr "سرگشاده"
+
+#: fa/index.phtml:238 fa/_index.phtml:238 fa/__index.phtml:238
+msgid "View my Tickets"
+msgstr "مشاهده درخواست"
+
+#: fa/index.phtml:239 fa/_index.phtml:239 fa/__index.phtml:239
+msgid "ticket"
+msgstr "درخواست"
+
+#: fa/index.phtml:240 fa/_index.phtml:240 fa/__index.phtml:240
+msgid "Please add a subject"
+msgstr "لطفا موضوعی اضافه کنید"
+
+#: fa/index.phtml:241 fa/_index.phtml:241 fa/__index.phtml:241
+msgid "Please select a type"
+msgstr "لطفا نوع را انتخاب کنید"
+
+#: fa/index.phtml:242 fa/_index.phtml:242 fa/__index.phtml:242
+msgid "Please select a priority"
+msgstr "لطفا اولیت را انتخاب کنید"
+
+#: fa/index.phtml:243 fa/_index.phtml:243 fa/__index.phtml:243
+msgid "dashboard"
+msgstr "داشبورد"
+
+#: fa/index.phtml:244 fa/_index.phtml:244 fa/__index.phtml:244
+msgid "Please add your Commenst with more than 10 letters"
+msgstr "لطفا نظر خود را وارد کنید (متن باید بیش از 10 حرف باشد)"
+
+#: fa/index.phtml:245 fa/_index.phtml:245 fa/__index.phtml:245
+msgid "Page not found. (404 - Not Found)"
+msgstr "صفحه مورد نظر یافت نشد (خطای 404)"
+
+#: fa/index.phtml:246 fa/_index.phtml:246 fa/__index.phtml:246
+msgid "No apps found under this category"
+msgstr "برنامه ای در این دسته یافت نشد"
+
+#: fa/index.phtml:247 fa/_index.phtml:247 fa/__index.phtml:247
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+"لطفا برای بررسی مشکلات مربوط به خدمات مشترکین، برنامه های کاربردی دانلود "
+"شده، دانلود یا خرید اشتباه، یک ticket ایجاد کنید تا ظرف 48 ساعت با شما تماس "
+"برقرار شود."
+
+#: fa/index.phtml:248 fa/_index.phtml:248 fa/__index.phtml:248
+msgid "Please enter your Mobile Number and password"
+msgstr "لطفا شماره تلفن همراه و رمز عبور خود را وارد کنید."
+
+#: fa/index.phtml:249 fa/_index.phtml:249 fa/__index.phtml:249
+msgid "This app is only available in the following languages "
+msgstr "این برنامه کاربردی تنها با زبان های زیر قابل دسترسی است"
+
+#: fa/index.phtml:250 fa/_index.phtml:250 fa/__index.phtml:250
+msgid "This app-store will be supported for <<MTN Iran>> subscribers only "
+msgstr "تنها مشترکین  ایرانسل امکان استفاده از محصولات چارسو را دارند."
+
+#: fa/index.phtml:251 fa/_index.phtml:251 fa/__index.phtml:251
+msgid ""
+"The MTN Iran App Store has a rich selection of the best iranian and global "
+"apps just for you. Each app is tested for quality, malware and scams. For "
+"convenience, Paid apps can be purchased using your phone credit."
+msgstr ""
+"مجموعه ای غنی از منتخب بهترین برنامه های کاربردی ایرانی و خارجی در چارسوی "
+"ایرانسل گرآوری شده است. هر برنامه  از لحاظ کیفیت لازم و عاری از هرگونه "
+"بدافزار یا ابزار کلاه برداری بررسی شده است. برای سهولت خرید برنامه از طریق "
+"اعتبار سیم کارت قابل انجام است."
+
+#: fa/index.phtml:252 fa/_index.phtml:252 fa/__index.phtml:252
+msgid "Selected Device"
+msgstr "دستگاه انتخاب شده"
+
+#: fa/index.phtml:253 fa/_index.phtml:253 fa/__index.phtml:253
+msgid ""
+"To download this app you need to install <<MTN Iran App Store>> on your "
+"Android device and sign in. "
+msgstr ""
+"برای دانلود این برنامه ابتدا باید برنامه چارسوی ایرانسل را روی گوشی اندروید "
+"خود نصب کرده و وارد آن شوید."
+
+#: fa/index.phtml:254 fa/_index.phtml:254 fa/__index.phtml:254
+msgid ""
+"If you want to install <<MTN Iran App Store>> on your phone use following "
+"methods. "
+msgstr "برای نصب برنامه چارسوی ایرانسل روی گوشی خود از این روش ها استفاده کنید"
+
+#: fa/index.phtml:255 fa/_index.phtml:255 fa/__index.phtml:255
+msgid "Type in your email address and we will email it to you"
+msgstr "نشانی پست الکترونیکی خود را وارد کنید تا برنامه برای شما ارسال شود"
+
+#: fa/index.phtml:256 fa/_index.phtml:256 fa/__index.phtml:256
+msgid "Point your mobile browser to the following link"
+msgstr "مرورگر تلفن همراه خود را روی این لینک بگیرید"
+
+#: fa/index.phtml:257 fa/_index.phtml:257 fa/__index.phtml:257
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr ""
+"بارکد را با گوشی خود اسکن کنید تا مستقیما به صفحه مربوط به برنامه کاربردی "
+"هدایت شوید."
+
+#: fa/index.phtml:258 fa/_index.phtml:258 fa/__index.phtml:258
+msgid "Do not have a QR code reader? Get one free "
+msgstr "بارکد خوان ندارید؟"
+
+#: fa/index.phtml:259 fa/_index.phtml:259 fa/__index.phtml:259
+msgid "To download this app you need to visit the following URL "
+msgstr "برای دانلود این برنامه نیاز است به لینک زیر بروید"
+
+#: fa/index.phtml:260 fa/index.phtml:262 fa/__index.phtml:260
+#: fa/__index.phtml:262
+msgid "User ID is blocked "
+msgstr "نام کاربری مسدود می باشد ."
+
+#: fa/index.phtml:261 fa/__index.phtml:261
+msgid "User ID not found "
+msgstr "نام کاربری موجود نمی باشد."
+
+#: fa/index.phtml:263 fa/__index.phtml:263
+msgid "Authentication failed "
+msgstr "احراز هویت تایید نشد."
+
+#: fa/index.phtml:264 fa/__index.phtml:264
+msgid "Failed to get MSISDN Status "
+msgstr "نام کاربری اشتباه می باشد."
+
+#: fa/index.phtml:265
+msgid "App Store"
+msgstr "دریافت نرم افزار"
+
+#: fa/index.phtml:266
+msgid "Responses"
+msgstr "پاسخ ها"
+
+#: fa/index.phtml:267 fa/index.phtml:269
+msgid "User ID is blocked"
+msgstr "نام کاربری مسدود می باشد ."
+
+#: fa/index.phtml:268
+msgid "User ID not found"
+msgstr "نام کاربری موجود نمی باشد."
+
+#: fa/index.phtml:270
+msgid "Authentication failed"
+msgstr "احراز هویت تایید نشد."
+
+#: fa/index.phtml:271
+msgid "Failed to get MSISDN Status"
+msgstr "نام کاربری اشتباه می باشد."
+
+#: fa/index.phtml:272
+msgid "Invalid MSISDN or password"
+msgstr "احراز هویت تایید نشد."
+
+#: fa/index.phtml:273
+msgid "Please enter a prepaid MSISDN"
+msgstr "احراز هویت تایید نشد."
+
+#: fa/index.phtml:274
+msgid "My Tickets"
+msgstr "درخواست من"
+
+#: fa/index.phtml:275
+msgid "View Tickets"
+msgstr "نمایش درخواست"
+
+#: fa/index.phtml:276
+msgid "Premium app download restricted to post paid users"
+msgstr "مشترکین دائمی فعلا امکان خرید ندارند"
+
+#~ msgid " HOME "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "HOME"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Home "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid " Home"
+#~ msgstr "صفحه اصلی"

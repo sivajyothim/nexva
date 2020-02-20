@@ -1,0 +1,63 @@
+<?php
+
+$usersNs = new Zend_Session_NameSpace('members');
+$userType = $usersNs->userType;
+                            
+if($userType == 'admin')
+{
+
+$stats = array(
+                'totalAllUserCount'=> $this->totalAllUserCount,
+                'monthUserCount' => $this->monthUserCount,
+                'monthCPCount' =>$this->monthCPCount,
+                'totalUserCount' =>$this->totalUserCount,
+                'totalCPCount' =>$this->totalCPCount,
+         
+                'totalAllDownloadCount'=> $this->totalAllDownloadCount,
+                'premiumDownloadCount' => $this->premiumDownloadCount,
+                'freeDownloadCount' =>$this->freeDownloadCount,
+                'totalPremiumDownloadCount' =>$this->totalPremiumDownloadCount,
+                'totalFreeDownloadCount' =>$this->totalFreeDownloadCount,
+    
+                'totalAllUploadCount'=> $this->totalAllUploadCount,
+                'premiumUploadCount' => $this->premiumUploadCount,
+                'freeUploadCount' =>$this->freeUploadCount,
+                'totalPremiumUploadCount' =>$this->totalPremiumUploadCount,
+                'totalFreeUploadCount' =>$this->totalFreeUploadCount, 
+    
+                'totalAllSales'=> $this->totalAllSales,
+                'thisWeekSales' => $this->thisWeekSales,
+                'preMonthSlaes' =>$this->preMonthSlaes,
+                'thisMonthSlaes' =>$this->thisMonthSlaes
+              );
+
+?>
+
+
+<?= $this->partial('partials/dashboard.phtml', array('username'=>$this->username)); ?>
+<?= $this->partial('partials/dashboard-stats.phtml', $stats); ?>
+
+<?php
+
+$chartStats = array (
+                        'freeDownloadProcessed' => $this->freeAppsDownloadChart,
+                        'premiumDownloadProcessed' => $this->premiumAppsDownloadChart,
+                        'allDownloadProcessed' => $this->allAppsDownloadChart,
+                        'endOfMonth' => $this->endOfMonth,
+                    );
+
+?>
+
+<?= $this->partial('partials/dashboard-chart.phtml', $chartStats); ?>
+
+<?php
+}
+else
+{
+?>    
+ 
+<?= $this->partial('partials/dashboard-super-admin.phtml', array('username'=>$this->username)); ?>
+
+<?php
+}
+?>

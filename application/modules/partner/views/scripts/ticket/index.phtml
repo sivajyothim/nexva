@@ -1,0 +1,44 @@
+<div id="main_right_pane">
+
+
+    <div class="inr_tabs_wrapper">
+        <div class="inr_tab_bar"><span class="inr_brdcrtxt_pur">+</span> 
+            <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Tickets Managements");?></span>
+        </div>
+        <div class="box_content_top"></div>
+        <div class="box_content_middle">
+            <div class="inrtab_selection_top inner_content" >
+
+                <div id="form_wrapper">
+                    
+                    <?php if(!empty($this->messages_sent)) : ?>
+                        <div class="text_bg"> 
+                            <p><?= $this->messages_sent ?></p>
+                        </div> 
+                    <?php endif; ?>
+                    
+                    <ul> 
+                        <li><a href="">View my tickets</a></li>
+                        <li><a href="">Track my ticket</a></li>
+                        <li><a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket">Add ticket</a></li>
+                    </ul>
+                    
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+    <!-- box one-->
+
+
+    <div style="clear: both;"></div>
+
+</div>
+

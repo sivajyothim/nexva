@@ -1,0 +1,36 @@
+<div class='breadcrumb'>
+    <span>&laquo;</span>
+    <a href='/<?=$this->productId; ?>'>Back to app page</a> 
+</div>
+
+        <div class='reviews'>
+            <h2>Recent Reviews</h2>
+            <?php foreach($this->reviews as $review) : ?>
+                <div class='review app'>
+                    <span class='reviewer'><?=$review['name']?> (<?=date('d-m-Y', strtotime($review['date']))?>)</span>
+                    <span class='rating'>
+                        <?php
+                            $rating     = $review['rating']; 
+                            while($rating > 0) : $rating--; 
+                        ?>
+                            <img src="<?=$this->Cdn('site_assets')?>/mobile/images/star_full.gif" alt="star" width="11" height="12" />
+                        <?php endwhile;?>
+                        <?php
+                            $rating     = $review['rating']; 
+                            while($rating < 5) : $rating++; 
+                        ?>
+                            <img src="<?=$this->Cdn('site_assets')?>/mobile/images/star_empty.png" alt="star" width="11" height="12" />
+                        <?php endwhile;?>
+                    </span>
+                    <p>
+                        <?=$review['review']?>
+                    </p>
+                </div>
+            <?php endforeach;?>
+            <?php if (empty($this->reviews)) :?>
+                <a class='button' href='/review/add/pid/<?=$this->productId?>' class='add_review'>Be the first to review!</a>
+            <?php else : ?>
+                <a class='button' href='/review/add/pid/<?=$this->productId?>' class='add_review'>Add your own review</a>
+            <?php endif;?>
+              
+        </div> 

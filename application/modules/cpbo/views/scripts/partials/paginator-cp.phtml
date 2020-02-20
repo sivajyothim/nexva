@@ -1,0 +1,28 @@
+<?php if ($this->pageCount): ?>
+    <div id="paginationControl" class="pagination">
+
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+            <a href="<?= $this->url(array($this->page_name => $this->previous)); ?><?=($this->year) ? '/year/'.$this->year.'/month/'.$this->month : ''?>/tab/<?=$this->tab?>">&lt;&lt; <?php echo $this->translate("Previous");?></a>
+        <?php else: ?>
+            <span class="disabled">&lt;&lt; <?php echo $this->translate("Previous");?></span> 
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?= $this->url(array($this->page_name => $page)); ?><?=($this->year) ? '/year/'.$this->year.'/month/'.$this->month : ''?>/tab/<?=$this->tab?>" class="number"><?=$page?></a>
+            <?php else: ?>
+                <a class="number current"><?=$page?></a>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+            <a href="<?= $this->url(array($this->page_name => $this->next)); ?><?=($this->year) ? '/year/'.$this->year.'/month/'.$this->month : ''?>/tab/<?=$this->tab?>"><?php echo $this->translate("Next");?> &gt;&gt;</a>
+        <?php else: ?>
+            <span class="disabled"><?php echo $this->translate("Next");?> &gt;&gt;</span>
+        <?php endif; ?>
+
+    </div>
+<?php endif; ?>

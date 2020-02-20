@@ -1,0 +1,56 @@
+<?php               
+   $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+   $languageCode="";
+   if(in_array($chapId, array('585474','585480'))){
+       $languageCode="fr_FR";
+       
+   }                        
+?>
+
+<style type="text/css">
+    .required-star{
+        color:red;
+    }
+</style>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea",
+     language : "<?=$languageCode?>"
+});
+</script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#cancel').click(function(event){
+            event.preventDefault();
+            window.location.href = "/ticket/single-ticket/id/<?php echo $this->ticketId; ?>";
+        });
+
+        $('#submit').click(function() {
+            tinyMCE.triggerSave();
+        });
+
+        $('#reply-ticket').ketchup({
+            positionContainer: function(errorContainer, attach) {}
+        });
+    });
+</script>
+
+<div class="title" id="reply">
+    <h3><?php echo $this->translate("Add Reply");?></h3>
+</div>
+
+<form id="reply-ticket" name="reply-ticket" action="/ticket/add-response/id/<?php echo $this->ticketId; ?>" method="POST" enctype="multipart/form-data">
+    <p>
+        <label><?php echo $this->translate("Description");?><span class="required-star">*</span></label>
+        <textarea id="description" class="txt-input medium validate(required)" cols="80" rows="5" name="description"></textarea>
+    </p>
+    <p>
+        <label><?php echo $this->translate("Attach a file from your computer (File size &lt; 5MB)");?></label>
+        <!--<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />-->
+        <input id="attach" class="txt-input medium" type="file" name="attach" />
+    </p>
+    <input id="submit" class="submit button" type="submit" value="<?php echo $this->translate("Submit");?>" name="submit"><!--href="<?php echo PROJECT_BASEPATH;?>ticket/create"-->
+    <input id="cancel" class="submit button" type="submit" href="#" value="<?php echo $this->translate("Cancel");?>" name="cancel">
+</form>

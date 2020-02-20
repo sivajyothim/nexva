@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ 
+	
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<!--meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /-->
+		
+		<title>App Store Admin</title>
+		
+		<!--                       CSS                       -->
+	  
+		<!-- Reset Stylesheet -->
+		<link rel="stylesheet" href="<?php echo PROJECT_BASEPATH; ?>/pbo/css/reset.css" type="text/css" media="screen" />
+	  
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="<?php echo PROJECT_BASEPATH; ?>/pbo/css/style.css" type="text/css" media="screen" />
+                
+                <!-- Fancy box style sheet -->
+		<link rel="stylesheet" href="<?php echo PROJECT_BASEPATH; ?>/pbo/css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+		
+		
+		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
+		<link rel="stylesheet" href="<?php echo PROJECT_BASEPATH; ?>/pbo/css/invalid.css" type="text/css" media="screen" />	 
+		<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" type="text/css" media="screen" />
+			
+	
+  
+		<!-- jQuery -->
+<!--		<script type="text/javascript" src="/pbo/js/jquery-1.3.2.min.js"></script>-->
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>/pbo/js/jquery-1.8.2.min.js"></script>
+		
+		<!-- jQuery Configuration -->
+		<script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>/pbo/js/simpla.jquery.configuration.js"></script>
+                
+                <!-- jQuery Flot -->
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>/pbo/js/jquery.flot.js"></script>
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>/pbo/js/jquery.flot.selection.js"></script>
+                
+                <!-- jQuery Validation -->
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>pbo/js/jquery.validate.js"></script>
+                
+                <!-- jQuery Tinymice Editor -->
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>pbo/js/jquery.tinymce.js"></script>
+          
+                
+                <!-- jQuery Fancy Box -->
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>pbo/js/jquery.fancybox-1.3.4.js"></script>
+                
+                <!-- Auto complete assets -->
+                <script type="text/javascript" src="<?php echo PROJECT_BASEPATH; ?>pbo/js/jquery-ui.js"></script>
+                <link rel="stylesheet" href="<?php echo PROJECT_BASEPATH; ?>pbo/css/jquery-ui.css" type="text/css" media="screen" />
+                
+	   <?php
+        echo $this->headMeta();
+        echo $this->headScript();
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+		
+				
+		
+	</head>
+  
+	<body><div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
+		
+		<div id="sidebar"><div id="sidebar-wrapper"> <!-- Sidebar with logo and menu -->
+			
+			<h1 id="sidebar-title"><a href="#">neXva</a></h1>
+		  
+			<!-- Logo (221px wide) -->
+<!--			<img id="logo" src="/images/logo.png" alt="Nexva logo" />-->
+		  
+			<!-- Sidebar Profile links -->
+			<div id="profile-links">
+                            <h2>App Store Admin</h2>
+				<br />
+                                Hello, <a href="#"><?= ucfirst(Zend_Auth::getInstance()->getIdentity()->username); ?></a>                                 
+                                <br />
+				<a href="<?php echo PBO_PROJECT_BASEPATH;?>user/logout" title="Sign Out">Sign Out</a>
+			</div> 
+			
+			  <!-- Accordion Menu  render('parts/pbo/menu.phtml') -->
+                           
+                        
+			 <!-- End #main-nav -->
+			<?php 
+                        
+                            //$this->navigation()->menu();
+                            echo $this->render('parts/pbo/menu.phtml');
+                        ?>
+			
+			
+			</div>
+		
+		</div> <!-- End #sidebar -->
+		
+		<div id="main-content"> <!-- Main Content Section with everything -->
+			
+			<noscript> <!-- Show a notification if the user has disabled javascript -->
+				<div class="notification error png_bg">
+					<div>
+						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+					</div>
+				</div>
+			</noscript>
+			
+			
+                                            <br />
+                                             <?= $this->layout()->content ?>
+                                               
+				
+                
+			 <div class="clear"></div>
+                                                
+                                                 <!-- End .clear -->
+			<div id="footer">
+				<small> <!-- Remove this notice or replace it with whatever you want -->
+						&#169; Copyright 2012  | <img style="border: none; margin-left: 10px;" src="<?php echo PBO_PROJECT_BASEPATH;?>images/logo_powered_by.png" alt="Powered by neXva" /></a>
+				</small>
+			</div><!-- End #footer -->
+			
+		</div> <!-- End #main-content -->
+		
+	</div></body>
+  
+
+
+</html>
+<!-- 

@@ -1,0 +1,60 @@
+<!-- Start Content Box #1 -->
+<div class="title">
+
+    <h3>Announcements | nexva.com</h3>
+
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-login">
+<?= $this->render('partials/message.phtml'); ?>
+                <!-- Start pagecreate Form -->
+                <form method="post" action="/announcement/save">
+                    <fieldset>
+
+                        <p><label>Title</label>
+                            <input type="text" id="title" name="title" class="txt-input medium" value="<?=$this->vars['title'];?>"/>
+                        </p>
+
+                        <p><label>Body</label>
+                            <textarea class="txt-input medium" id="wysiwyg" name="body"><?=$this->vars['message'];?></textarea>
+                        </p>
+
+                        <p><label>Announcement for</label>
+                            <select class="select-input small" name="for" id="for"  >
+                                <option value="CP" <?= ($this->vars['for'] == 'CP')?'selected=selected':''?>>    CP    </option>
+                                <option value="WEB" <?= ($this->vars['for'] == 'WEB')?'selected=selected':''?>>   WEB   </option>
+                                <option value="MOBILE" <?= ($this->vars['for'] == 'MOBILE')?'selected=selected':''?>>MOBILE</option>
+                            </select>
+                        </p>
+                       
+                         <p><label>Validity period</label>
+                            <input type="text" id="validity" name="validity" class="txt-input medium" value="<?=$this->vars['valid_from']." - ".$this->vars['valid_till'];?>"/>
+                    </p>
+                        
+                        
+                        
+                        <p><label>Approve ?</label>
+                            <input type="checkbox" id="status" name="status" value="1" <?= ($this->vars['status'] == 1)?'checked':'';?>/>
+                            <input type="hidden" id="id" name="id" value="<?= $this->vars['id']; ?>" />
+                        </p>
+                        <p style="float:left;"><input type="submit" class="button" name="submit" value="Save" /><input type="button" class="button" name="button" value="Cancel" onClick="location.href='/country'"/>
+                        </p>
+                     <!--<p  class="remember"><input type="checkbox" /> Remember Me</p>-->
+                    </fieldset>
+                    
+                </form>
+                <!-- End Login Form -->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- End Content Box #1 -->
+
+

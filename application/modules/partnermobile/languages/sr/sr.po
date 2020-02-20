@@ -1,0 +1,838 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2018-07-11 18:50+0530\n"
+"PO-Revision-Date: 2018-07-11 18:50+0530\n"
+"Last-Translator: nexva <nexva@gmail.com>\n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: index.phtml:1
+msgid "Please enter First Name"
+msgstr "Unesi ime"
+
+#: index.phtml:2
+msgid "Please enter Last Name"
+msgstr "Unesi prezime"
+
+#: index.phtml:3
+msgid "Please enter your Email address"
+msgstr "Unesi e-mail adresu"
+
+#: index.phtml:4
+msgid "Please enter a valid Email address for your Email"
+msgstr "Unesi svoju validnu e-mail adresu"
+
+#: index.phtml:5
+msgid "Please enter your Phone Number"
+msgstr "Unesi broj telefona"
+
+#: index.phtml:6
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr "Unesi broj u formatu 06xxxxxxxx"
+
+#: index.phtml:7
+msgid "Please enter your Password"
+msgstr "Unesi lozinku"
+
+#: index.phtml:8
+msgid "Please confirm your Password"
+msgstr "Potvrdi lozinku"
+
+#: index.phtml:9
+msgid "Password not Matching"
+msgstr "Lozinka nije odgovarajuća"
+
+#: index.phtml:10
+msgid "This Email already exists"
+msgstr "Navedena e-mail adresa već postoji."
+
+#: index.phtml:11
+msgid "You have completed your registration successfully"
+msgstr "Proces registracije je uspešno završen."
+
+#: index.phtml:12
+msgid "This Phone Number already exists"
+msgstr "Navedeni broj telefona već postoji."
+
+#: index.phtml:13
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+"SMS poruka sa verifikacionom šifrom je poslata na tvoj mobilni broj. Koristi "
+"verifikacionu šifru da završiš proces registracije."
+
+#: index.phtml:14
+msgid "Verification failed. verification code is incorrect"
+msgstr "Neuspešna verifikacija. Pogrešna verifikaciona šifra"
+
+#: index.phtml:15
+msgid "You successfully completed the registration process"
+msgstr "Proces registracije je uspešno završen."
+
+#: index.phtml:16
+msgid "Already Verified User"
+msgstr "Korisnik je već verifikovan."
+
+#: index.phtml:17 index.phtml:96
+msgid "The username or password you entered is incorrect"
+msgstr "Uneto je pogrešno korisničko ime ili lozinka."
+
+#: index.phtml:18
+msgid ""
+"You have not verified your account. A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+msgstr ""
+"Potrebno je da potvrdiš svoj nalog putem verifikacione šifre. SMS poruka sa "
+"verifikacionom šifrom je poslata na tvoj mobilni broj. Za novu verifikacionu "
+"šifru, klikni na  \"Ponovno slanje verifikacione šifre\""
+
+#: index.phtml:19 index.phtml:97
+msgid "Please enter a valid username"
+msgstr "Unesi ispravno korisničko ime"
+
+#: index.phtml:20 index.phtml:98
+msgid "Please enter your username and password"
+msgstr "Unesi svoje korisničko ime i lozinku"
+
+#: index.phtml:21
+msgid "Please enter your Mobile Number"
+msgstr "Unesi mobilni broj"
+
+#: index.phtml:22
+msgid "Mobile Number not Matching"
+msgstr "Mobilni broj nije odgovarajući."
+
+#: index.phtml:23
+msgid "This number has already been used. Please try another"
+msgstr ""
+"Navedeni broj telefona je registrovan uz drugi nalog. Pokušaj drugi broj."
+
+#: index.phtml:24
+msgid "Mobile number changed successfully"
+msgstr "Mobilni broj je uspešno promenjen."
+
+#: index.phtml:25
+msgid "Please confirm your Mobile Number"
+msgstr "Potvrdi mobilni broj"
+
+#: index.phtml:26
+msgid "Password reset successfully"
+msgstr "Lozinka je uspešno resetovana."
+
+#: index.phtml:27
+msgid "Please enter your Email"
+msgstr "Unesi e-mail adresu"
+
+#: index.phtml:28
+msgid "User not found registered with this email"
+msgstr "Nije pronađen korisnik koji je registrovan sa ovom e-mail adresom"
+
+#: index.phtml:29
+msgid "Mobile number not registered"
+msgstr "Mobilni broj nije registrovan."
+
+#: index.phtml:30
+msgid ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+msgstr ""
+"SMS poruka sa verifikacionom šifrom je poslata na tvoj mobilni broj. Koristi "
+"verifikacionu šifru da potvrdiš novu lozinku."
+
+#: index.phtml:31
+msgid "Please enter your Verification Code"
+msgstr "Unesi verifikacionu šifru"
+
+#: index.phtml:32
+msgid "Verification code is incorrect"
+msgstr "Pogrešna verifikaciona šifra"
+
+#: index.phtml:33
+msgid "Verification code is incorrect."
+msgstr "Pogrešna verifikaciona šifra."
+
+#: index.phtml:34
+msgid "Mobile Number not found for this user"
+msgstr "Mobilni broj korisnika nije pronađen. "
+
+#: index.phtml:35
+msgid "Email not found for this user"
+msgstr "Nije pronađena e-mail adresa za ovog korisnika"
+
+#: index.phtml:36
+msgid ""
+"You have requested to resend verification code. A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+msgstr ""
+"SMS poruka sa verifikacionom šifrom je poslata na tvoj mobilni broj. Koristi "
+"verifikacionu šifru da potvrdiš nalog."
+
+#: index.phtml:37
+msgid "Newest"
+msgstr "Najnovije"
+
+#: index.phtml:38
+msgid "Top Free"
+msgstr "Najbolje besplatno"
+
+#: index.phtml:39
+msgid "Top Paid"
+msgstr "Najbolje koje se plaća"
+
+#: index.phtml:40
+msgid "Top Downloads"
+msgstr "Najpopularnije"
+
+#: index.phtml:41
+msgid "Free"
+msgstr "Besplatno"
+
+#: index.phtml:42
+msgid "Download"
+msgstr "Preuzmi"
+
+#: index.phtml:43
+msgid "Description"
+msgstr "Opis"
+
+#: index.phtml:44
+msgid "Screenshots"
+msgstr "Pozadine"
+
+#: index.phtml:45 index.phtml:99
+msgid "Account"
+msgstr "Moj nalog"
+
+#: index.phtml:46 index.phtml:100
+msgid "Updates"
+msgstr "Ažuriranje"
+
+#: index.phtml:47 index.phtml:101
+msgid "Help"
+msgstr "Pomoć"
+
+#: index.phtml:48
+msgid "Home"
+msgstr "Početna"
+
+#: index.phtml:49 index.phtml:102
+msgid "Premium"
+msgstr "Premijum"
+
+#: index.phtml:50
+msgid "Login"
+msgstr "Prijavi se"
+
+#: index.phtml:51
+msgid "Email"
+msgstr "e-mail"
+
+#: index.phtml:52
+msgid "Password"
+msgstr "Lozinka"
+
+#: index.phtml:53
+msgid "Sign Up"
+msgstr "Registruj se "
+
+#: index.phtml:54
+msgid "Sign In"
+msgstr "Prijavi se"
+
+#: index.phtml:55
+msgid "Forgot Password?"
+msgstr "Zaboravljena lozinka?"
+
+#: index.phtml:56 index.phtml:103
+msgid "Downloaded Apps"
+msgstr "PREUZETE APLIKACIJE"
+
+#: index.phtml:57
+msgid "Reset Password"
+msgstr "RESETUJ LOZINKU"
+
+#: index.phtml:58 index.phtml:104
+msgid "Change Mobile"
+msgstr "Promeni mobilni broj"
+
+#: index.phtml:59 index.phtml:105
+msgid "Terms & Conditions"
+msgstr "Uslovi korišćenja"
+
+#: index.phtml:60
+msgid "Mobile Number"
+msgstr "Mobilni broj"
+
+#: index.phtml:61
+msgid "New Password"
+msgstr "Nova lozinka"
+
+#: index.phtml:62
+msgid "Confirm Password"
+msgstr "Potvrdi lozinku"
+
+#: index.phtml:63
+msgid "Confirm Mobile Number"
+msgstr "Potvrdi mobilni broj"
+
+#: index.phtml:64 index.phtml:65
+msgid "Staff Picks"
+msgstr "Naš izbor"
+
+#: index.phtml:66
+msgid "Top Premium"
+msgstr "Najbolje premijum "
+
+#: index.phtml:67
+msgid "Buy"
+msgstr "Kupi"
+
+#: index.phtml:68 index.phtml:106
+msgid "Download Started"
+msgstr "Preuzimanje je započeto"
+
+#: index.phtml:69 index.phtml:107
+msgid "Later"
+msgstr "Kasnije"
+
+#: index.phtml:70 index.phtml:108
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr "U delu Ažurirano nalaze se nove, unapređene verzije aplikacija. "
+
+#: index.phtml:71
+msgid ""
+"Please use this verification code 888555 to complete your registration. "
+"\"MTN CONGO APP STORE\""
+msgstr ""
+
+#: index.phtml:72
+msgid ""
+"Please use this verification code 888666 to verify your mobile number. \"MTN "
+"CONGO APP STORE\""
+msgstr ""
+
+#: index.phtml:73
+msgid ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process. \"MTN CONGO APP STORE\""
+msgstr ""
+
+#: index.phtml:74
+msgid ""
+"Please use this verification code 7878778 as you requested. \"MTN CONGO APP "
+"STORE\""
+msgstr ""
+
+#: index.phtml:75
+msgid "Next"
+msgstr "Nastavi"
+
+#: index.phtml:76
+msgid "Previous"
+msgstr "Prethodno"
+
+#: index.phtml:77 index.phtml:109
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Za sva pitanja i probleme koji se jave prilikom rada aplikacije, preuzimanja "
+"ili ukoliko do kupovine dođe greškom, kontaktiraj nas na e-mail:"
+
+#: index.phtml:78 index.phtml:110
+msgid "We will get back to you within 48 hours."
+msgstr "Javićemo se u roku od 48 sati"
+
+#: index.phtml:79
+msgid "Verify"
+msgstr "Verifikuj"
+
+#: index.phtml:80
+msgid "Resend Verification Code"
+msgstr "Ponovno slanje verifikacione šifre"
+
+#: index.phtml:81
+msgid "First Name"
+msgstr "Ime"
+
+#: index.phtml:82
+msgid "Last Name"
+msgstr "Prezime"
+
+#: index.phtml:83
+msgid "Phone Number"
+msgstr "Broj telefona"
+
+#: index.phtml:84
+msgid "Register"
+msgstr "Registruj se "
+
+#: index.phtml:85
+msgid "Verification Code"
+msgstr "Verifikaciona šifra"
+
+#: index.phtml:86
+msgid "Change Mobile Number"
+msgstr "Promeni mobilni broj"
+
+#: index.phtml:87
+msgid "Forgot Password"
+msgstr "Zaboravljena lozinka"
+
+#: index.phtml:88
+msgid "Request"
+msgstr "Zahtev"
+
+#: index.phtml:89
+msgid "Please use this verification code"
+msgstr "Koristi ovu verifikacionu šifru"
+
+#: index.phtml:90
+msgid "to complete your registration."
+msgstr "da završiš proces registracije."
+
+#: index.phtml:91
+msgid "to verify your mobile number."
+msgstr "da verifikuješ svoj mobilni broj."
+
+#: index.phtml:92
+msgid "to complete the password resetting process."
+msgstr "da završiš resetovanje lozinke."
+
+#: index.phtml:93
+msgid "as you requested."
+msgstr "po zahtevu."
+
+#: index.phtml:94
+msgid "Please enter your username"
+msgstr "Unesi svoje korisničko ime"
+
+#: index.phtml:95
+msgid "Please enter your password"
+msgstr "Unesi lozinku"
+
+#: index.phtml:111
+msgid "Payment was unsuccessful"
+msgstr "Neuspešno plaćanje"
+
+#: index.phtml:112
+msgid "Paid"
+msgstr "Plaćeno"
+
+#: index.phtml:113
+msgid "Required infromation"
+msgstr "Tražena informacija"
+
+#: index.phtml:114
+msgid "Info"
+msgstr "Info"
+
+#: index.phtml:115
+msgid "Feature"
+msgstr "Karakteristike"
+
+#: index.phtml:116
+msgid "Please download the"
+msgstr "Preuzmi"
+
+#: index.phtml:117
+msgid "App store app using the following methods."
+msgstr "aplikaciju prema sledećem uputstvu."
+
+#: index.phtml:118
+msgid "FEEDBACK"
+msgstr "POVRATNE INFORMACIJE"
+
+#: index.phtml:119
+msgid "LOGIN HERE"
+msgstr "Prijavi se ovde"
+
+#: index.phtml:120
+msgid "To download this app you need to visit the following URL"
+msgstr "Za preuzimanje ove aplikacije, poseti sledeću adresu"
+
+#: index.phtml:121
+msgid "App Store All Rights Reserved."
+msgstr "Sva prava zadržana."
+
+#: index.phtml:122
+msgid "See all results for"
+msgstr "Vidi sve rezultate za "
+
+#: index.phtml:123
+msgid "No results found"
+msgstr "Nisu pronađeni rezultati"
+
+#: index.phtml:124
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr "Nisu pronađene aplikacije za izabrani kriterijum pretrage  "
+
+#: index.phtml:125
+msgid "Have an Issue?"
+msgstr "Postoji problem?"
+
+#: index.phtml:126
+msgid "You are not signed in yet"
+msgstr "Još uvek nisi prijavljen "
+
+#: index.phtml:127
+msgid "No Match Found"
+msgstr "Nisu pronađeni rezultati"
+
+#: index.phtml:128
+msgid "Ok"
+msgstr "Ok"
+
+#: index.phtml:129
+msgid "You haven't log in yet ? Please log in."
+msgstr "Još uvek nisi prijavljen? Prijavi se. "
+
+#: index.phtml:130
+msgid "No Data Found"
+msgstr "Podaci nisu pronađeni"
+
+#: index.phtml:131
+msgid "Downloading"
+msgstr "Preuzimanje"
+
+#: index.phtml:132
+msgid "Login to add a ticket"
+msgstr "Uloguj se da prijaviš problem"
+
+#: index.phtml:133
+msgid "Search Results for"
+msgstr "Rezultat pretrage za "
+
+#: index.phtml:134
+msgid "Powered by"
+msgstr "Omogućio"
+
+#: index.phtml:135
+msgid "The security key wasn't entered correctly"
+msgstr "Sigurnosni kod/ključ nije ispravno unet. "
+
+#: index.phtml:136
+msgid "Please try again"
+msgstr "Pokušaj ponovo"
+
+#: index.phtml:137
+msgid "Add a ticket"
+msgstr "Prijavi problem"
+
+#: index.phtml:138
+msgid "View my ticket"
+msgstr "Moji zahtevi"
+
+#: index.phtml:139
+msgid "Subject"
+msgstr "Naslov"
+
+#: index.phtml:140
+msgid "Type"
+msgstr "Model"
+
+#: index.phtml:141
+msgid "Priority"
+msgstr "Prioritet"
+
+#: index.phtml:142
+msgid "Select Type"
+msgstr "Izaberi model"
+
+#: index.phtml:143
+msgid "Question"
+msgstr "Pitanje"
+
+#: index.phtml:144
+msgid "Incident"
+msgstr "Greška"
+
+#: index.phtml:145
+msgid "Problem"
+msgstr "Problem"
+
+#: index.phtml:146
+msgid "Select Priority"
+msgstr "Izaberi prioritet"
+
+#: index.phtml:147
+msgid "Low"
+msgstr "Nizak"
+
+#: index.phtml:148
+msgid "Medium"
+msgstr "Srednji"
+
+#: index.phtml:149
+msgid "High"
+msgstr ""
+
+#: index.phtml:150
+msgid "Urgent"
+msgstr "Urgent"
+
+#: index.phtml:151
+msgid "Your ticket submitted successfully"
+msgstr "Zahtev je uspešno evidentiran"
+
+#: index.phtml:152
+msgid "Your response submitted successfully"
+msgstr "Tvoj odgovor je uspešno evidentiran"
+
+#: index.phtml:153
+msgid "Responces"
+msgstr "Odgovori"
+
+#: index.phtml:154
+msgid "No Response found"
+msgstr "Odgovor nije pronađen"
+
+#: index.phtml:155
+msgid "Reply"
+msgstr "Odgovori"
+
+#: index.phtml:156
+msgid "Submit"
+msgstr "Potvrdi"
+
+#: index.phtml:157
+msgid "Platforms"
+msgstr "Platforme"
+
+#: index.phtml:158
+msgid "Please add your Commenst with more than 10 letters"
+msgstr "Ostavi komentar sa više od 10 karaktera"
+
+#: index.phtml:159
+msgid "No apps found under this category"
+msgstr "Nisu pronađene aplikacije za izabranu kategoriju "
+
+#: index.phtml:160
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+"Za sva pitanja i probleme koji se jave prilikom rada aplikacije, preuzimanja "
+"ili ukoliko do kupovine dođe greškom, prijavi problem. Javićemo se u roku od "
+"48 sati."
+
+#: index.phtml:161
+msgid "This app is only available in the following languages"
+msgstr "Aplikacija je dostupna samo na sledećim jezicima"
+
+#: index.phtml:162
+msgid "This app-store will be supported for subscribers only"
+msgstr "Ova aplikacija je dostupna samo mts korisnicima"
+
+#: index.phtml:163
+msgid "To download this app you need to install"
+msgstr "Za preuzimanje ove aplikacije, prethodno instaliraj "
+
+#: index.phtml:164
+msgid "on your Android device and sign in."
+msgstr "aplikaciju na svoj Android uređaj i prijavi se."
+
+#: index.phtml:165
+msgid "If you want to install"
+msgstr "Ukoliko želiš da instaliraš"
+
+#: index.phtml:166
+msgid "on your phone use following methods."
+msgstr "potrebno je da ispratiš sledeće uputstvo."
+
+#: index.phtml:167
+msgid "Do not have a QR code reader? Get one free"
+msgstr "Nemaš QR kod čitač? "
+
+#: index.phtml:168
+msgid "We're sorry, the keyword/s you searched for did not return any results"
+msgstr "Nisu pronađeni rezultati za datu ključnu reč/ključne reči "
+
+#: index.phtml:169
+msgid "Please fill the Name"
+msgstr "Popuni polje Naziv"
+
+#: index.phtml:170
+msgid "Page not found. (404 - Not Found)"
+msgstr "Stranica nije pronađena. (404 - Nije pronađeno)"
+
+#: index.phtml:171
+msgid "Please select a type"
+msgstr "Izaberi model"
+
+#: index.phtml:172
+msgid "ticket"
+msgstr "Prijava problema"
+
+#: index.phtml:173
+msgid "open"
+msgstr "Otvori"
+
+#: index.phtml:174
+msgid "Dashboard"
+msgstr ""
+
+#: index.phtml:175
+msgid "Please select a priority"
+msgstr "Izaberi prioritet"
+
+#: index.phtml:176
+msgid "Please add a subject"
+msgstr "Dodaj naslov"
+
+#: index.phtml:177
+msgid "Login here"
+msgstr "PRIJAVI SE OVDE"
+
+#: index.phtml:178
+msgid "Login type"
+msgstr ""
+
+#: index.phtml:179
+msgid "Sign in as parents or university students"
+msgstr ""
+
+#: index.phtml:180
+msgid "Sign in as students"
+msgstr ""
+
+#: index.phtml:181
+msgid "Pin"
+msgstr ""
+
+#: index.phtml:182
+msgid "Student account not found"
+msgstr ""
+
+#: index.phtml:183
+msgid "Pin you entered is incorrect"
+msgstr ""
+
+#: index.phtml:184
+msgid "The student id or password you entered is incorrect"
+msgstr ""
+
+#: index.phtml:185
+msgid "The user name or password you entered is incorrect"
+msgstr ""
+
+#: index.phtml:186
+msgid "Privacy"
+msgstr ""
+
+#: index.phtml:187
+msgid "The mobile number or password you entered is incorrect"
+msgstr "Pogrešan mobilni broj ili lozinka. "
+
+#: index.phtml:188
+msgid "Featured Apps"
+msgstr "Istaknute aplikacije"
+
+#: index.phtml:189
+msgid "Please enter a valid mobile number"
+msgstr ""
+
+#: index.phtml:190
+msgid "Please enter your mobile number and password"
+msgstr "Unesli mobilni broj i lozinku"
+
+#: index.phtml:191
+msgid "Please enter a valid number"
+msgstr ""
+
+#: index.phtml:192
+msgid "User not found registered with this phone number"
+msgstr ""
+
+#: index.phtml:193
+msgid "This field is required"
+msgstr ""
+
+#: index.phtml:194
+msgid "Please enter at least 5 characters"
+msgstr ""
+
+#: index.phtml:195
+msgid "This Phone Number already exists. Please try using forgot password"
+msgstr " Broj je već registrovan. Pokušajte opciju ‘Zaboravljena lozinka’"
+
+#: index.phtml:196
+msgid "Please enter at least"
+msgstr ""
+
+#: index.phtml:197
+msgid "characters"
+msgstr "karaktera"
+
+#: index.phtml:198
+msgid "Update Profile"
+msgstr ""
+
+#: index.phtml:199
+msgid "Update"
+msgstr ""
+
+#: index.phtml:200
+msgid "Please fill all the required fields"
+msgstr ""
+
+#: index.phtml:201
+msgid "Open"
+msgstr "Otvori"
+
+#: index.phtml:202
+msgid "My Tickets"
+msgstr "Moji zahtevi"
+
+#: index.phtml:203
+msgid "Responses"
+msgstr "Odgovori"
+
+#: index.phtml:204
+msgid "Response"
+msgstr "Odgovori"
+
+#: index.phtml:205
+msgid "18 Years or Older"
+msgstr "18 godina i stariji"
+
+#: index.phtml:206
+msgid "Content Warning"
+msgstr "Upozorenje"
+
+#: index.phtml:207
+msgid "Yes"
+msgstr "Da"
+
+#: index.phtml:208
+msgid "No"
+msgstr "Ne"
+
+#: index.phtml:209
+msgid "Sign Out"
+msgstr "Odjavi se"
+
+#: index.phtml:210
+msgid ""
+"To download this app you need to install MTS Appstore on your Android device "
+"and sign in."
+msgstr ""
+"Za preuzimanje ove aplikacije potrebno je da skinete MTS App Store "
+"aplikaciju , instalirate na vas telefon i ulogujete se"

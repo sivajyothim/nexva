@@ -1,0 +1,92 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/6/14
+ * Time: 5:04 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<?php
+    $chap = $this->chap;
+    //Zend_Debug::dump($chap);die();
+    /*if(($chap->PARTNER_SITE_FEATURED_APPS == 'yes') || ($chap->PARTNER_SITE_FEATURED_APPS == NULL)){
+        echo 'yes or null';
+    }
+    if(($chap->PARTNER_SITE_FEATURED_APPS == 'no')){
+        echo 'no';
+    }
+    die('--------------hgkh');//Zend_Deb-ug::dump($chap->PARTNER_SITE_SLIDER);die();*/
+?>
+
+<div class="title">
+    <h3 style="cursor: s-resize;">Home Page Options</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <fieldset>
+                <form class='form_validate' method="post" action="/user/home-page-options">
+                    <p>
+                        <label for='slider' >Show/Hide Main Slider</label>
+                        <input value='yes' type='radio' id='slider' name='meta[PARTNER_SITE_SLIDER]' <?php if(($chap->PARTNER_SITE_SLIDER == 'yes') || ($chap->PARTNER_SITE_SLIDER == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='slider' name='meta[PARTNER_SITE_SLIDER]' <?php if($chap->PARTNER_SITE_SLIDER == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='featured-apps' >Show/Hide Featured Apps</label>
+                        <input value='yes' type='radio' id='featured-apps' name='meta[PARTNER_SITE_FEATURED_APPS]' <?php if(($chap->PARTNER_SITE_FEATURED_APPS == 'yes') || ($chap->PARTNER_SITE_FEATURED_APPS == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='featured-apps' name='meta[PARTNER_SITE_FEATURED_APPS]' <?php if($chap->PARTNER_SITE_FEATURED_APPS == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='top-free-apps' >Show/Hide Top Free Apps</label>
+                        <input value='yes' type='radio' id='top-free-apps' name='meta[PARTNER_SITE_TOP_FREE_APPS]' <?php if(($chap->PARTNER_SITE_TOP_FREE_APPS == 'yes') || ($chap->PARTNER_SITE_TOP_FREE_APPS == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='top-free-apps' name='meta[PARTNER_SITE_TOP_FREE_APPS]' <?php if($chap->PARTNER_SITE_TOP_FREE_APPS == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='top-paid-apps' >Show/Hide Top Paid Apps</label>
+                        <input value='yes' type='radio' id='top-paid-apps' name='meta[PARTNER_SITE_TOP_PAID_APPS]' <?php if(($chap->PARTNER_SITE_TOP_PAID_APPS == 'yes') || ($chap->PARTNER_SITE_TOP_PAID_APPS == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='top-paid-apps' name='meta[PARTNER_SITE_TOP_PAID_APPS]' <?php if($chap->PARTNER_SITE_TOP_PAID_APPS == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='top-downloaded-apps' >Show/Hide Top Downloaded Apps</label>
+                        <input value='yes' type='radio' id='top-downloaded-apps' name='meta[PARTNER_SITE_TOP_DOWNLOADED_APPS]' <?php if(($chap->PARTNER_SITE_TOP_DOWNLOADED_APPS == 'yes') || ($chap->PARTNER_SITE_TOP_DOWNLOADED_APPS == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='top-downloaded-apps' name='meta[PARTNER_SITE_TOP_DOWNLOADED_APPS]' <?php if($chap->PARTNER_SITE_TOP_DOWNLOADED_APPS == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='register-link' >Show/Hide Register Link</label>
+                        <input value='yes' type='radio' id='register-link' name='meta[PARTNER_SITE_REGISTER_LINK]' <?php if(($chap->PARTNER_SITE_REGISTER_LINK == 'yes') || ($chap->PARTNER_SITE_REGISTER_LINK == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='register-link' name='meta[PARTNER_SITE_REGISTER_LINK]' <?php if($chap->PARTNER_SITE_REGISTER_LINK == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='forgot-password-link' >Show/Hide Forgot Password Link</label>
+                        <input value='yes' type='radio' id='forgot-password-link' name='meta[PARTNER_SITE_FORGOT_PASSWORD_LINK]' <?php if(($chap->PARTNER_SITE_FORGOT_PASSWORD_LINK == 'yes') || ($chap->PARTNER_SITE_FORGOT_PASSWORD_LINK == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='forgot-password-link' name='meta[PARTNER_SITE_FORGOT_PASSWORD_LINK]' <?php if($chap->PARTNER_SITE_FORGOT_PASSWORD_LINK == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='login-link' >Show/Hide Login Link</label>
+                        <input value='yes' type='radio' id='login-link' name='meta[PARTNER_SITE_LOGIN_LINK]' <?php if(($chap->PARTNER_SITE_LOGIN_LINK == 'yes') || ($chap->PARTNER_SITE_LOGIN_LINK == NULL)) {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='login-link' name='meta[PARTNER_SITE_LOGIN_LINK]' <?php if($chap->PARTNER_SITE_LOGIN_LINK == 'no') {echo 'checked';}?> >No
+                    </p>
+
+                    <p>
+                        <label for='site-title' >Show/Hide Site Title</label>
+                        <input value='yes' type='radio' id='site-title' name='meta[PARTNER_SITE_TITLE]' <?php if($chap->PARTNER_SITE_TITLE == 'yes') {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                        <input value='no' type='radio' id='site-title' name='meta[PARTNER_SITE_TITLE]' <?php if(($chap->PARTNER_SITE_TITLE == 'no') || ($chap->PARTNER_SITE_TITLE == NULL)) {echo 'checked';}?> >No
+                    </p>
+
+                    <input type='hidden' value='<?php echo $chap->id?>' name='id'>
+                    <p><input type="submit" class="txt-input small" value="Submit" id="submit" name="submit"></p>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>

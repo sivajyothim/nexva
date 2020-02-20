@@ -1,0 +1,219 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Maheel-Appmonkeyz
+ * Date: 2/19/14
+ * Time: 3:34 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#send-option').change(function(){
+            var value = $(this).val();
+            switch(value) {
+                case 'all':
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'single':
+                    $('#phone-no-area').removeAttr('style');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'multiple':
+                    $('#phone-no-area').removeAttr('style');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'app-viewed':
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').removeAttr('style');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'app-downloaded':
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').removeAttr('style');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'by-device':
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').removeAttr('style');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'by-platform':
+                    $('#platform-area').removeAttr('style');
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'by-category':
+                    $('#category-area').removeAttr('style');
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#date-area').attr('style','display:none');
+                    break;
+                case 'signup-date':
+                    $('#date-area').removeAttr('style');
+                    $('#phone-no-area').attr('style','display:none');
+                    $('#app-viewed-area').attr('style','display:none');
+                    $('#app-downloaded-area').attr('style','display:none');
+                    $('#device-area').attr('style','display:none');
+                    $('#platform-area').attr('style','display:none');
+                    $('#category-area').attr('style','display:none');
+                    break;
+            }
+            if(!value){
+                $('#phone-no-area').removeAttr('style');
+                $('#app-viewed-area').attr('style','display:none');
+                $('#app-downloaded-area').attr('style','display:none');
+                $('#device-area').attr('style','display:none');
+                $('#platform-area').attr('style','display:none');
+                $('#category-area').attr('style','display:none');
+                $('#date-area').attr('style','display:none');
+            }
+        });
+        $("#signup-date").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        //auto complete for device selection
+        var cache = {};
+
+        $( "#device" ).autocomplete({
+            minLength: 3,
+            source: function( request, response ) {
+                var term = request.term;
+                if ( term in cache ) {
+                    response( cache[ term ] );
+                    return;
+                }
+
+                $.getJSON( "/campaign/suggest", {request:term}, function( data, status, xhr ) {
+                    cache[ term ] = data;
+                    response( data );
+                });
+            },
+            select: function(event, ui) {
+                $('#device-id').val(ui.item.id);
+            }
+        });
+    });
+</script>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+    </div>
+    <div class="content-box-content">
+        <form method="post" action="/campaign/send-sms/campaignId/<?php echo $this->campaignId;?>" id="send-sms" name="send-sms">
+            <p>
+                <label>Send Option<span class="mendatory_fileds">*</span></label>
+                <select id="send-option" name="send-option" class="text-input small-input">
+                    <option value="">-Select Option-</option>
+                    <option value="all">All</option>
+                    <option value="single">Single</option>
+                    <option value="multiple">Multiple</option>
+                    <option value="app-downloaded">App Downloaded</option>
+                    <option value="app-viewed">App Viewed</option>
+                    <option value="by-device">By Device</option>
+                    <option value="by-platform">By Platform</option>
+                    <option value="by-category">By Category</option>
+                    <option value="signup-date">Signup Date</option>
+                </select>
+            </p>
+
+            <p id="phone-no-area">
+                <label>Phone No<span class="mendatory_fileds">*</span></label>
+                <input id="phone-no" name="phone-no" class="text-input small-input required" type="text" value="" />
+            </p>
+
+            <p id="app-viewed-area" style="display:none;">
+                <label>Viewed App</label>
+                <select id="viewed-app" name="viewed-app" class="text-input small-input">
+                    <option value="">-Select Option-</option>
+                    <?php foreach($this->chapProducts as $chapProduct){ ?>
+                        <option value="<?php echo $chapProduct->product_id;?>"><?php echo $chapProduct->name;?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <p id="app-downloaded-area" style="display:none;">
+                <label>Downloaded App</label>
+                <select id="downloaded-app" name="downloaded-app" class="text-input small-input">
+                    <option value="">-Select Option-</option>
+                    <?php foreach($this->chapProducts as $chapProduct){ ?>
+                        <option value="<?php echo $chapProduct->product_id;?>"><?php echo $chapProduct->name;?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <p id="device-area" style="display:none;">
+                <label>Select Device</label>
+                <input id="device" name="device" class="text-input small-input" type="text" value="" />
+                <input type="hidden" id="device-id" name="device-id" />
+            </p>
+
+            <p id="platform-area" style="display:none;">
+                <label>Select Platform</label>
+                <select id="platform" name="platform" class="text-input small-input">
+                    <option value="">-Select Option-</option>
+                    <?php foreach($this->platforms as $platform){
+                        if($platform->id == '0') continue; ?>
+                            <option value="<?php echo $platform->id;?>"><?php echo $platform->name;?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <p id="category-area" style="display:none;">
+                <label>Select Category</label>
+                <select id="category" name="category" class="text-input small-input">
+                    <option value="">-Select Option-</option>
+                    <?php foreach($this->categories as $category) { ?>
+                        <option value="<?php echo $category->id; ?>"><?php if($category->parent_id != 0) { echo ' -- ';} echo $category->name; ?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <p id="date-area" style="display:none;">
+                <label>Select Date</label>
+                <input id="signup-date" name="signup-date" class="text-input small-input" type="text" value="" />
+            </p>
+
+            <p id="message-area">
+                <label>Message Box</label>
+                <textarea id="message" name="message" class="textarea" rows="3" cols="79" style="width:30% !important;"></textarea>
+            </p>
+            <input id="btnSubmit" name="btnSubmit" class="button" type="submit" value="Send">
+        </form>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<p>Any issue contact/add on Skype id- cj19820508</p>
+
+<? if( $this->message != ''):?>
+<div class="message info">
+<p><?=$this->message?></p>
+</div>
+<p>Any issue contact/add on Skype id- cj19820508</p>
+<?endif;?>
+
+<?if('' !=$this->error):?>
+
+<div class="message error">
+<p><?=$this->error;?></p>
+</div>
+<p>Any issue contact/add on Skype id- cj19820508</p>
+<?endif;?>
+
+
+<?
+if ('' != $this->warningUnverifiedAccount) :
+	?>
+<div class="messagecp warning">
+<p>   
+   We have sent an email to <?=$this->email;?> with details on how to verify your new
+   account. If you don't receive it within 5 minutes, please check your spam folder or 
+   <a href="<?=$this->url;?>"> click here </a> to resend the email.</p>
+</div>
+   
+<?endif;
+?>
+
+<?
+if ('' != $this->warningVerifyEmailRequest) :
+	?>
+<div class="messagecp warning">
+<p>   
+     The account verify request is no longer valid for <?=$this->email;?> Please 
+     <a href="<?=$this->url;?>"> click here </a> to verify again.</p>
+</div>
+<p>Any issue contact/add on Skype id- cj19820508</p>
+<?endif;
+?>
+
+<?
+if ($this->warningUnverifiedAccount=='' and $this->warningVerifyEmailRequest=='' and  '' != $this->warningNotRegistred) :
+	?>
+<div class="messagecp warning">
+<p>   
+     Your account is not verified. You haven't registerd with us or, 
+        We have sent an email to <?=$this->email;?> with details on how to verify your new
+ account at the end of the registration process. If you don't receive it yet, please check your spam
+ folder or <a href="<?=$this->url;?>"> click here </a> to resend the
+email</p>
+<p>Any issue contact/add on Skype id- cj19820508</p>
+</div>
+
+
+<?endif;
+?>
+        
+

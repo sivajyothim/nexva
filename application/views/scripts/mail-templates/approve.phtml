@@ -1,0 +1,19 @@
+Hello <?= $this->name; ?>,<br /><br />
+
+The content that you submitted to neXva (<a href="<?= 'http://' . Zend_Registry::get('config')->nexva->application->cpbo->url . "/product/edit/id/" . $this->product['id']; ?>"><?= $this->product['name'] ?></a>) on <?= $this->product['created'] ?> has now been Approved and is ready for distribution. 
+<br /><br />
+<b><u>Link your content</u></b>
+<br /><br />
+To generate a QR code that can be linked from any page, paste the code below into your HTML text:
+<br />
+<img src='<?= 'http://' . Zend_Registry::get('config')->nexva->application->base->url ?>/qrcode/<?= $this->product['id'] ?>' alt='Generating QR code..' />
+<br />
+You can also use our Badge Generator to create a badge for your content (like the one shown below). <a href="<?= 'http://' . Zend_Registry::get('config')->nexva->application->cpbo->url ?>">Click here</a> to get started.
+<br />
+<img style="padding: 10px" src='<?= 'http://' . Zend_Registry::get('config')->nexva->application->base->url ?>/badge/<?= $this->product['id'] ?>' alt='Generating QR code..' />
+<br /><br />
+If you have any questions regarding this email, we're happy to help. Please write to us at: <a href="mailto:cp@nexva.com">cp@nexva.com</a>
+<br /><br />
+Thank you
+<br />
+-Content Administrator<br />

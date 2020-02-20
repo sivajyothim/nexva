@@ -1,0 +1,120 @@
+<?php 
+    $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/cp/assets/js/cp.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/cp/assets/js/jquery.tooltip.min.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/cp/assets/js/autocomplete.js');
+    $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/cp/assets/css/smoothness/jquery-ui.css');
+    $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/cp/assets/css/jquery.tooltip.css');
+?>
+
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){
+        _ac.init($('#product').eq(0), '/analytics-app/search-json/q/', function(event, ui){
+            $('#product_id').val(ui.item.id);
+        });
+        
+       $(".date").datepicker({
+        'dateFormat' : 'dd-mm-yy'
+       });
+       
+       $("a.tooltip").tooltip({ 
+            bodyHandler: function() { 
+                return $($(this).attr("href")).html(); 
+            }, 
+            showURL: false,
+            width   : 300
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+
+<?php $item    = $this->promotion;?>
+<div class="title">
+    <h3><?php echo $this->translate("Create Promotion Code");?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$this->translate($message) ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <fieldset>
+                 <form class='form_validate' method="post" accept-charset="UTF-8" action="/promotion-code/create/">
+                 
+                 <p>
+                    <label for="user"><?php echo $this->translate("App");?></label>
+                    <input type="text" name="product" id="product" style="width: 40%;" class='txt-input medium ' value="<?=isset($this->savedProduct) ? $this->savedProduct : ''?>" placeholder="start typing the app name">
+                    <input  type="text" readonly="readonly" class='txt-input tiny validate(required)' name="product_id" id="product_id">
+                 </p>
+                 
+                 
+                 <p>
+                    <label for='description'><?php echo $this->translate("Description");?></label>
+                    <textarea name="description" id="description" class="txt-input medium"><?=$item->description?></textarea>
+                 </p>
+                 
+                 <p>
+                    <label for='use_type'>
+                        <a href="#usageTip" class="tooltip"><?php echo $this->translate("Usage Type (?)");?></a>
+                    </label>
+                    <select name='use_type' id='use_type'>
+                        <?php $opts = array('GENERAL', 'SINGLE');?>
+                        <?php foreach ($opts as $opt) : ?>
+                            <option <?php if ($item->use_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$this->translate($opt) ?></option>
+                        <?php endforeach; ?>                    
+                    </select>
+                    <div id="usageTip" style="display:none">
+                        <strong><?php echo $this->translate("GENERAL");?></strong> : <?php echo $this->translate("Allows the code to be used multiple times within the given time period.");?> <br><?php echo $this->translate("Ideal for general discounts for apps.");?>
+                        <br><br>
+                        <strong><?php echo $this->translate("SINGLE");?></strong> : <?php echo $this->translate("Promtion code is valid only for the first to redeem it.");?> <br><?php echo $this->translate("The code is automatically disabled after a single use");?>
+                    </div>
+                 </p>
+                 
+                  <p>
+                        <label for='amount'><?php echo $this->translate("Discount Amount");?></label>
+                        <?php               
+                            $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+                            if(!in_array($chapId, array('585474','585480'))){ ?>
+                                    $opts = array("10" => "10% off", "20" => "20% off", "30" => "30% off", "40" => "40% off", "50" => "50% off", '100' => 'FREE'); 
+                        <?php }else{?>
+                                    $opts = array("10" => "10% ", "20" => "20% ", "30" => "30% ", "40" => "40% ", "50" => "50% ", '100' => 'GRATUIT'); 
+                        <?php } ?>
+                        
+                        <select name='amount' id='amount'>
+                            <?php foreach ($opts as $key => $value) : ?>
+                                <option <?php if ($item->amount == $key):?>selected='selected'<?php endif;?> value='<?=$key?>'><?=$value?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                  <p>
+                    <label for='valid_from'><?php echo $this->translate("Valid From");?></label>
+                    <input readonly="readonly" value='<?=$item->valid_from?>' type='text' id='valid_from' name='valid_from' class='txt-input tiny date validate(required)'>
+                 </p>
+                 
+                 <p>
+                    <label for='valid_from'><?php echo $this->translate("Valid To");?></label>
+                    <input readonly="readonly" value='<?=$item->valid_to?>' type='text' id='valid_to' name='valid_to' class='txt-input tiny date validate(required)'>
+                 </p>
+                 <!--  
+                 <p>
+                    <label for='enabled'>Enabled</label>
+                    <input type="hidden" name="enabled" value="0">
+                    <input <?=$item->enabled == 1 ? "checked='checked'" : ''?> type='checkbox' value='1' id='enabled' name='enabled' >
+                 </p>
+                 -->
+ 
+                 <input type='hidden' value='<?php echo $item->id ?>' name='id'>
+                 <p><input type="submit" class="txt-input tiny" value="<?php echo $this->translate("Generate Code");?>" id="submit" name="submit"></p>
+                 </form>
+            </fieldset>
+        </div>
+        </div>
+</div>    

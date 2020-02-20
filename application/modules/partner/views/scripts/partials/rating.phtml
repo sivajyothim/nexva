@@ -1,0 +1,125 @@
+<?php
+$sessionChapDetails = new Zend_Session_Namespace('partner');
+if(!in_array($sessionChapDetails->id,array(585474,585480))){?> 
+
+<script>
+    function loadPopupBoxFeature(){
+
+        var $ncon = jQuery.noConflict();
+
+        $ncon(".platform_select").fancybox({
+            'titleShow'         : false,
+            'padding'           : 0,
+            'transitionIn'      : 'elastic',
+            'transitionOut'     : 'elastic',
+            'autoDimensions'    : false,
+            'width'             : 300,
+            'height'            : 170,
+            'showCloseButton'   : true,
+            'hideOnOverlayClick': false
+        });
+
+        $ncon(".register_with_select").fancybox({
+            'titleShow'         : false,
+            'padding'           : 0,
+            'transitionIn'      : 'elastic',
+            'transitionOut'     : 'elastic',
+            'autoDimensions'    : false,
+            'width'             : 300,
+            'height'            : 170,
+            'showCloseButton'   : true,
+            'hideOnOverlayClick': false
+        });
+    }
+</script>
+<?php /*
+<?= $this->partial('partials/platform_selection.phtml') ?>
+<?= $this->partial('partials/device_detection.phtml') ?>
+ */ ?>
+ 
+<?/*= $this->partial('partials/register_with_selection.phtml',array('nexLinkerUrl' => $this->nexLinkerUrl,'appStoreAppid' => $this->appStoreAppid,'partnerId' => $this->partnerId,'loggedUser' => $this->loggedUser, 'productId' => $this->product['id'])) */?>
+
+<?php
+$chapId = $sessionChapDetails->id;
+
+$starEmpty = 'star_empty.gif';
+$starHalf = 'star_half.gif';
+$starFull = 'star_full.gif';
+
+switch($chapId){
+    case 23045:
+    $starHalf = 'star_half_right.gif';
+    break;
+
+    case 115189:
+    $starEmpty = 'rating-empty.png';
+    $starHalf = 'rating-half-filled.png';
+    $starFull = 'rating-full.png';
+    break;
+
+    case 81604:
+    $starEmpty = 'rating-empty.png';
+    $starHalf = 'rating-half-filled.png';
+    $starFull = 'rating-full.png';
+    break;
+}
+
+$starRating = 1;
+$numRatings = $this->totalRatings;
+$totalStars = 5;
+$ratingInt = floor($this->avgRating);
+$ratingPart = $this->avgRating - $ratingInt;
+
+$auth = Zend_Auth::getInstance();
+//Zend_Debug::dump($this->userHasRated);
+?>
+<?php echo $this->nexLinkerUrl;?>
+<?php for ($count = 0; $count < $ratingInt; $count++) { ?>
+    <?php if ($auth->hasIdentity()) { ?>
+        <a class='starLinks' rel='<?= $starRating ?>'
+           href='/rating/rate/id/<?= $this->product_id ?>/rating/<?= $starRating++ ?>'>
+           <?php } else { ?>
+        <!--<a class="starLinks" rel="" href="#register_with_select" id="register_with_select" class="register_with_select" onClick="loadPopupBoxFeature();" >-->
+        <a href="/info/login" >
+    <?php } ?>
+        <img src="<?= $this->Cdn('site_assets') .'/web/images/'.$starFull ?>" alt="star" width="11" height="12" />
+        <?php if ($auth->hasIdentity()) { ?>
+        </a>
+    <?php } ?>
+<?php } ?>
+
+        
+<?php
+if ($ratingPart > 0) {
+    $totalStars = 4; //we're showing a halfstar already
+    ?>
+    <?php if ($auth->hasIdentity()) { ?>
+        <a class='starLinks' rel='<?= $starRating ?>'
+           href='/rating/rate/id/<?= $this->product_id ?>/rating/<?= $starRating++ ?>'>
+           <?php } else { ?>
+            <!--<a class="starLinks" rel="" href="#register_with_select" id="register_with_select" class="register_with_select" onClick="loadPopupBoxFeature();" >-->
+            <a href="/info/login" >
+        <?php } ?>
+        <img src="<?= $this->Cdn('site_assets').'/web/images/'.$starHalf ?>" alt="star" width="11" height="12" />
+        <?php if ($auth->hasIdentity()) { ?>
+        </a>
+    <?php } ?>
+<?php } ?>
+
+<? for ($count = $ratingInt; $count < $totalStars; $count++) { ?>
+    <?php if ($auth->hasIdentity()) { ?>
+        <a class='starLinks' rel='<?= $starRating ?>'
+           href='/rating/rate/id/<?= $this->product_id ?>/rating/<?= $starRating++ ?>'>
+           <?php } else { ?>
+                <!--<a class="starLinks" rel="" href="#register_with_select" id="register_with_select" class="register_with_select" onClick="loadPopupBoxFeature();" >-->
+                <a href="/info/login" >
+           <?php } ?>
+        <img src="<?= $this->Cdn('site_assets').'/web/images/'.$starEmpty ?>" alt="star" width="11" height="12" />
+        <?php if ($auth->hasIdentity()) { ?>
+        </a>
+    <?php } ?>
+<? } ?>
+&nbsp;<span class="rating_text">(<span class="rating_value"><?= $this->totalRatings ?></span>)</span>
+
+
+<?php } ?> 

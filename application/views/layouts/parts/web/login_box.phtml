@@ -1,0 +1,18 @@
+<? if(!isset(Zend_Auth::getInstance()->getIdentity()->id)): ?>
+<link href="<?php echo PROJECT_BASEPATH; ?>partner/default/assets/css/easyslider/screen.css" media="screen" rel="stylesheet" type="text/css" >
+<br><br>
+
+<div id='callToAction'> 
+    <a href='<?php echo PROJECT_BASEPATH; ?>user/login' class='orange_button'>Login</a>
+    <a href='<?php echo PROJECT_BASEPATH; ?>user/register' class='orange_button'>Register</a>
+</div>
+
+
+<? else: ?>
+<br/><br/>
+<div style='text-align:center;'>
+    <a class='orangeButton' href="<?php echo PROJECT_BASEPATH; ?>user/logout">Logout</a>
+    <a class='orangeButton' href="<?php echo PROJECT_BASEPATH;?>app/purchased">Downloads</a>
+</div>
+<br/>
+<? endif; ?>

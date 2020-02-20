@@ -1,0 +1,68 @@
+<div class="ui-content ui-body-d" id="page-home">
+<h2 class="font-size-16"><?php echo $this->translate("Add a ticket");?></h2>
+
+<div class="ui-grid-solo">
+    
+    <!-- Displays Success Message/s -->
+<?php if (count($this->successMessages)) : ?>
+
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+
+            <?php foreach ($this->successMessages as $message) : ?>
+
+                <?php echo $this->escape($message); ?>
+
+            <?php endforeach; ?>
+
+      </span></span>
+    </div>
+
+<?php endif; ?>
+
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) : ?>
+
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+
+            <?php foreach ($this->errorMessages as $message) : ?>
+
+                <?php echo $this->escape($message); ?>
+
+            <?php endforeach; ?>
+
+        </span></span>
+    </div>
+
+<?php endif; ?>
+
+</div>
+
+<div class="ui-body ui-body-c">
+    
+    <form action="/ticket/insert-ticket" method="post" id="frm_ticketing" name="frm_ticketing">
+    
+        <fieldset data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><label for="txtSubject" class="ui-input-text"><?php echo $this->translate("Subject");?> <span class="red"> *</span></label><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input type="text" value="<?= (isset($this->txtSubject)) ? $this->txtSubject : ''; ?>" minlength="" class="required ui-input-text ui-body-c" id="txtSubject" name="txtSubject"></div></fieldset>
+            
+        <fieldset data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><label for="selectType" class="ui-select"><?php echo $this->translate("Type");?> <span class="red"> *</span></label><div class="ui-select"><div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-d" data-iconpos="right" data-theme="d" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-right ui-btn-up-d"><span class="ui-btn-inner"><span class="ui-btn-text"><span>- Select Type -</span></span><span class="ui-icon ui-icon-arrow-d ui-icon-shadow">&nbsp;</span></span><select data-theme="d" id="selectType" name="selectType">
+                <option value="">- <?php echo $this->translate("Select Type");?> -</option>
+                <?php foreach($this->optTypes as $optType) : ?>
+                    <option value="<?= $optType ?>" <?= (isset($this->selectType) && ($this->selectType == $optType)) ? 'selected' : ''; ?>><?= $this->translate($optType) ?></option>
+                <?php endforeach;?>
+            </select></div></div></fieldset>
+    
+         <fieldset data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><label for="selectPriority" class="ui-select"><?php echo $this->translate("Priority");?> <span class="red"> *</span></label><div class="ui-select"><div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-icon="arrow-d" data-iconpos="right" data-theme="d" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-right ui-btn-up-d"><span class="ui-btn-inner"><span class="ui-btn-text"><span>- Select Priority -</span></span><span class="ui-icon ui-icon-arrow-d ui-icon-shadow">&nbsp;</span></span><select data-theme="d" id="selectPriority" name="selectPriority">
+                <option value="">- <?php echo $this->translate("Select Priority");?> -</option>
+                <?php foreach($this->optPrioritys as $optPriority) : ?>
+                    <option value="<?= $optPriority ?>" <?= (isset($this->selectPriority) && ($this->selectPriority == $optPriority)) ? 'selected' : ''; ?>><?= $this->translate($optPriority) ?></option>
+                <?php endforeach;?>
+            </select></div></div></fieldset>
+            
+        <fieldset data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><label for="txtDescription" class="ui-input-text"><?php echo $this->translate("Description");?> <span class="red"> *</span></label><textarea id="txtDescription" name="txtDescription" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"><?= (isset($this->txtDescription)) ? $this->txtDescription : ''; ?></textarea></fieldset>
+
+        <div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" data-disabled="false" class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all" aria-disabled="false"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Submit");?></span></span><input type="submit" value="Submit" class="ui-btn-hidden" data-disabled="false"></div>
+    
+    </form>
+   
+    </div>
+</div>

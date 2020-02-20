@@ -1,0 +1,24 @@
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/cp/assets/css/analytics.css'); ?>
+<?php $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/excanvas.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.pie.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.stack.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.selection.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/common//js/jquery/plugins/tablesorter/jquery.tablesorter.min.js'); ?>
+
+  
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){ 
+        $(".sortTable").tablesorter(); 
+        
+        $("#from_view").datepicker({ dateFormat: 'yy-mm-dd'});
+    	$("#to_view").datepicker({ dateFormat: 'yy-mm-dd'});
+        
+        $("#from_view_transactions").datepicker({ dateFormat: 'yy-mm-dd'});
+    	$("#to_view_transactions").datepicker({ dateFormat: 'yy-mm-dd'});
+    	
+        
+        
+    }); 
+<?php $this->headScript()->captureEnd();?>

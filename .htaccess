@@ -1,0 +1,8 @@
+RewriteEngine on
+RewriteRule !\.(js|ico|gif|jpg|png|css)$ public/index.php
+
+#SetEnv APPLICATION_ENV development
+#RewriteEngine On
+#RewriteRule .* index.php
+
+

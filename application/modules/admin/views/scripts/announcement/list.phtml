@@ -1,0 +1,75 @@
+<?php
+/*    foreach($this->announcements as $announcement)
+    {
+        //echo $announcement['cp_chap'],'<br/>';
+        //echo '<pre>';
+        $user = $this->chap($announcement['cp_chap']);
+
+        //echo '</pre>';
+        Zend_Debug::dump($user->meta_value);
+        //echo '<br/>';
+    }
+    die();
+*/?>
+
+
+
+<div class="title">
+
+    <h3>Announcements | Nexva.com</h3>
+
+    
+</div>
+<div class="box">
+    <div class="txt">
+        <?= $this->render('partials/message.phtml'); ?>
+        <div id="content_box">
+            <!-- Start tab tab-handsets -->
+
+            <div class="tab-handsets">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>Name</th>
+                            <th>For</th>
+                            <th>Message</th>
+                            <!--<th>Start date</th>
+                            <th>End date</th>
+                            --><th>Status</th>
+                            <th>Operations</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->announcements as $announcement): ?>
+                        <tr>
+                            <td><?= $announcement['title']; ?></td>
+                           <!--<td><?/*= $announcement['cp_chap']; */?></td>-->
+                            <?php $user = $this->chap($announcement['cp_chap']);?>
+                           <td><?php if($user){echo "For ",$user->meta_value," CP's";}else{echo "For All CP's";}?></td>
+                           <td><?php echo strip_tags($this->trim($announcement['message'], 50));?></td>
+                           <td><img alt="Status" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/<?=($announcement['status'])?'approved.gif':'pending.gif'; ?>" border="0"></td>
+                            <td>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>announcement/create/id/<?=$announcement['id'];?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>announcement/delete/id/<?=$announcement['id'];?>" ><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete"  title="Delete" onClick="return confirm('Are you sure?')"></a>
+                            </td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                   
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->announcements, 'Sliding', 'partials/paginator.phtml'); ?>
+            </div>
+            <!-- End handsets -->
+        </div>
+        <tbody>
+        <tr>
+         <td><?=$this->empty_msg;?></td>
+        </tr>
+        <tbody>
+    </div>
+</div>

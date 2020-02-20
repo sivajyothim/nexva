@@ -1,0 +1,27 @@
+  <div class="ui-content ui-body-d">
+    <h2><?php echo $this->translate("Categories");?></h2>
+   <ul class="ui-listview">
+<?php 
+      $x = 0;
+      foreach ($this->categories as $category) : 
+       $x++;   
+      
+      //print_r($category);
+    ?>
+       
+       <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-first-child ui-btn-up-b" id="catliicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+        <div class="ui-btn-inner ui-li">
+          <div class="ui-btn-text"><a href="/category/menu-sub/id/<?= $category['main_cat'] ?>" class="ui-link-inherit"><?= $category['name'] ?></a></div>
+          <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+          
+<!--          <ul class="ul-listview sub-menu-ul">
+                   <?php foreach ($category['sub_cat'] as $subCat) : ?>    
+              
+              <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-first-child ui-btn-up-c" id="plusliicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="/category/index/id/<?= $subCat['cat_id'] ?>" class="ui-link-inherit"><?= $subCat['name'] ?></a></div><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div></li>
+                  <?php endforeach; ?>
+              </ul>-->
+           
+      </li>
+
+      <?php endforeach ;?>
+   </ul></div>

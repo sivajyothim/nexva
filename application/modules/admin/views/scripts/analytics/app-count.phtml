@@ -1,0 +1,35 @@
+<script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/admin.js"></script>
+<?php $this->headScript()->captureStart(); ?>
+<?php $this->headScript()->captureEnd(); ?>
+<?php echo $this->partial('partials/analytics_includes.phtml'); ?>
+
+
+
+<?php
+$opts = array(
+    'startTimeView' => $this->startTimeView,
+    'endTimeView' => $this->endTimeView,
+    'categories' => $this->categories, 
+    'subCategories' => $this->subCategories,
+    'subCategoryId' => $this->subCategoryId,
+    'categoryParent' => $this->categoryParent
+);
+echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+<div id='visualizations'>
+
+
+
+
+    <div class="title">
+        <h3>App Count</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            App Count is <?=($this->categoryCount)?$this->categoryCount:0?>
+        </div>
+    </div>
+
+</div>

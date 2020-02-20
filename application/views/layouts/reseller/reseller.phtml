@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+        <?php if ($this->headTitle() != '<title></title>') : ?>
+            <?= $this->headTitle($this->title); ?>
+        <?php else : ?>
+            <title>neXva.com - Resellers</title>
+        <?php endif; ?>
+
+
+        <!-- Core Stylesheet -->
+        <link href="/cp/assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="/cp/assets/css/red.css" title="styles2" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/cp/assets/css/cp.css" title="styles2" media="screen" />
+        <link rel="stylesheet" type="text/css" href="/cp/assets/css/smoothness/jquery-ui.css" media="screen" />
+        <!-- Javascript Files -->
+                <script type="text/javascript" src="<?=$this->cdn('jquiry')?>"></script> 
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript" src="/chap/assets/js/hoverIntent.js"></script>
+        <script type="text/javascript" src="/chap/assets/js/superfish.js"></script>
+        <script type="text/javascript" src="/chap/assets/js/jquery.wysiwyg.js"></script>
+        <script type="text/javascript" src="/chap/assets/js/jquery-stylesheetToggle.js"></script>
+
+        
+         <script type="text/javascript" src="/chap/assets/js/forestcp.js"></script>
+
+        <?php
+        echo $this->headMeta();
+        echo $this->headScript();
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+        <!--[if IE 6]>
+        <link href="/chap/assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="/chap/assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script>
+          /* EXAMPLE */
+          DD_belatedPNG.fix('.logo img, .message, table img');
+
+          /* string argument can be any CSS selector */
+        </script>
+        <![endif]-->      
+    </head>
+    <body>
+        <!-- Dialogs -->
+        <div id="welcome" style="display: none" title="Welcome to ForestCP">
+            <p>ForestCP is an great and easy to customize backend administration user interface.</p>
+        </div>
+
+
+        <?php echo $this->render('parts/reseller/header.phtml'); ?>
+        <?php echo $this->render('parts/reseller/menu.phtml'); ?>
+
+        <!-- Start Wrap -->
+        <div id="wrap" class="fixed">
+            <div id="content">
+                <noscript>
+                    <!-- Show message when javascript is not enabled -->
+                    <div class="message error">
+                        <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+                    </div>
+                </noscript>
+                <?if($this->error != ''):?>
+                    <div class="message error">
+                        <p><?=$this->error;?></p>
+                    </div>
+                <?endif;?>
+
+                <?php echo $this->layout()->content ?>
+            </div>
+
+        </div>
+        <!-- End Wrap -->
+
+        <!-- Footer -->
+        <?= $this->render('/parts/reseller/footer.phtml'); ?>
+        <!-- Footer -->
+       <?php echo $this->partial('/parts/analytics.phtml')?>
+    </body>
+</html>

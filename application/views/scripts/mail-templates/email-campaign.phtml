@@ -1,0 +1,48 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 3/6/14
+ * Time: 3:35 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<style type="text/css">
+    body{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    .content{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    .content-bold{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .wraper{
+        background: #f1f1f1;
+    }
+
+    .wraper-inner{
+        padding: 10px;
+    }
+</style>
+<div style="background: #f1f1f1;"><div style="padding: 10px;">
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold;">Dear User,</p>
+
+        <p>
+            <?php echo $this->message; ?>
+        </p>
+
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;">Thank you for your patience.</p>
+
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold;">
+            Sincerely,<br/>
+            neXva Support Team
+        </p>
+    </div></div>

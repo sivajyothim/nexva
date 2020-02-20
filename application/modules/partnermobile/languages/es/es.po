@@ -1,0 +1,1419 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-09-02 17:07+0530\n"
+"PO-Revision-Date: 2014-09-02 17:52+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: D:\\Nexva\\projects\\Translations\\Mobile\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: es\n"
+
+#: es/index.phtml:1
+msgid "Please enter First Name"
+msgstr ""
+
+#: es/index.phtml:2
+msgid "Please enter Last Name"
+msgstr ""
+
+#: es/index.phtml:3
+msgid "Please enter your Email address"
+msgstr " Abra la direccion siguiente en su navegador"
+
+#: es/index.phtml:4
+msgid "Please enter a valid Email address for your Email"
+msgstr ""
+
+#: es/index.phtml:5
+msgid "Please enter your Phone Number"
+msgstr ""
+
+#: es/index.phtml:6
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr ""
+
+#: es/index.phtml:7
+msgid "Please enter your Password"
+msgstr "Escriba su contrasena"
+
+#: es/index.phtml:8
+msgid "Please confirm your Password"
+msgstr ""
+
+#: es/index.phtml:9
+msgid "Password not Matching"
+msgstr ""
+
+#: es/index.phtml:10
+msgid "This Email already exists"
+msgstr ""
+
+#: es/index.phtml:11
+msgid "You have completed your registration successfully"
+msgstr ""
+
+#: es/index.phtml:12
+msgid "This Phone Number already exists"
+msgstr ""
+
+#: es/index.phtml:13
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+
+#: es/index.phtml:14
+msgid "Verification failed. verification code is incorrect"
+msgstr ""
+
+#: es/index.phtml:15
+msgid "You successfully completed the registration process"
+msgstr ""
+
+#: es/index.phtml:16
+msgid "Already Verified User"
+msgstr ""
+
+#: es/index.phtml:17 es/index.phtml:99
+msgid "The username or password you entered is incorrect"
+msgstr "El nombre del utilisador o la contrasena es incorrecta"
+
+#: es/index.phtml:18
+msgid ""
+"You have not verified your account. A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+msgstr ""
+
+#: es/index.phtml:19 es/index.phtml:100
+msgid "Please enter a valid username"
+msgstr "escriba un nombre de utilizador valido"
+
+#: es/index.phtml:20 es/index.phtml:101
+msgid "Please enter your username and password"
+msgstr "Escrsu nombre de utilizador y su contrasena"
+
+#: es/index.phtml:21
+msgid "Please enter your Mobile Number"
+msgstr ""
+
+#: es/index.phtml:22
+msgid "Mobile Number not Matching"
+msgstr ""
+
+#: es/index.phtml:23
+msgid "This number has already been used. Please try another"
+msgstr ""
+
+#: es/index.phtml:24
+msgid "Mobile number changed successfully"
+msgstr ""
+
+#: es/index.phtml:25
+msgid "Please confirm your Mobile Number"
+msgstr ""
+
+#: es/index.phtml:26
+msgid "Password reset successfully"
+msgstr ""
+
+#: es/index.phtml:27
+msgid "Please enter your Email"
+msgstr ""
+
+#: es/index.phtml:28
+msgid "User not found registered with this email"
+msgstr ""
+
+#: es/index.phtml:29
+msgid "Mobile number not registered"
+msgstr ""
+
+#: es/index.phtml:30
+msgid ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+msgstr ""
+
+#: es/index.phtml:31
+msgid "Please enter your Verification Code"
+msgstr ""
+
+#: es/index.phtml:32
+msgid "Verification code is incorrect"
+msgstr ""
+
+#: es/index.phtml:33
+msgid "Mobile Number not found for this user"
+msgstr ""
+
+#: es/index.phtml:34
+msgid "Email not found for this user"
+msgstr ""
+
+#: es/index.phtml:35
+msgid ""
+"You have requested to resend verification code. A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+msgstr ""
+
+#: es/index.phtml:36
+msgid "Newest"
+msgstr "Reciente"
+
+#: es/index.phtml:37
+msgid "Top Free"
+msgstr "Top gratuito"
+
+#: es/index.phtml:38
+msgid "Top Paid"
+msgstr "Top de pago"
+
+#: es/index.phtml:39
+msgid "Top Downloads"
+msgstr "Top de telecarga"
+
+#: es/index.phtml:40
+msgid "Free"
+msgstr "Grattuito"
+
+#: es/index.phtml:41
+msgid "Download"
+msgstr "Telecargar"
+
+#: es/index.phtml:42
+msgid "Description"
+msgstr "Descripcion"
+
+#: es/index.phtml:43
+msgid "Screenshots"
+msgstr "apertura de pantalla"
+
+#: es/index.phtml:44 es/index.phtml:102
+msgid "Account"
+msgstr "Cuenta"
+
+#: es/index.phtml:45 es/index.phtml:103
+msgid "Updates"
+msgstr "Poner al dia"
+
+#: es/index.phtml:46 es/index.phtml:104
+msgid "Help"
+msgstr "Ayuda"
+
+#: es/index.phtml:47
+msgid "Home"
+msgstr "Recepcion"
+
+#: es/index.phtml:48 es/index.phtml:105
+msgid "Premium"
+msgstr "Premium"
+
+#: es/index.phtml:49
+msgid "Login"
+msgstr "Nombre del utilizador"
+
+#: es/index.phtml:50
+msgid "Email"
+msgstr "E-mail"
+
+#: es/index.phtml:51
+msgid "Password"
+msgstr "Contrasena"
+
+#: es/index.phtml:52
+msgid "Sign Up"
+msgstr ""
+
+#: es/index.phtml:53
+msgid "Sign In"
+msgstr "Conectarse"
+
+#: es/index.phtml:54
+msgid "Forgot Password?"
+msgstr ""
+
+#: es/index.phtml:55 es/index.phtml:106
+msgid "Downloaded Apps"
+msgstr "Apps telecargado"
+
+#: es/index.phtml:56
+msgid "Reset Password"
+msgstr ""
+
+#: es/index.phtml:57 es/index.phtml:107
+msgid "Change Mobile"
+msgstr "Cargar teléfono"
+
+#: es/index.phtml:58 es/index.phtml:108
+msgid "Terms & Conditions"
+msgstr "Terminos y condiciones"
+
+#: es/index.phtml:59
+msgid "Mobile Number"
+msgstr ""
+
+#: es/index.phtml:60
+msgid "New Password"
+msgstr ""
+
+#: es/index.phtml:61
+msgid "Confirm Password"
+msgstr ""
+
+#: es/index.phtml:62
+msgid "Confirm Mobile Number"
+msgstr ""
+
+#: es/index.phtml:63 es/index.phtml:64
+msgid "Staff Picks"
+msgstr "Seleccion"
+
+#: es/index.phtml:65
+msgid "Top Premium"
+msgstr "Top Premium"
+
+#: es/index.phtml:66 es/index.phtml:318
+msgid "Buy"
+msgstr "Comprar"
+
+#: es/index.phtml:67 es/index.phtml:109
+msgid "Download Started"
+msgstr "Descargargando"
+
+#: es/index.phtml:68 es/index.phtml:110
+msgid "Later"
+msgstr "Màs tarde"
+
+#: es/index.phtml:69 es/index.phtml:111
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr ""
+
+#: es/index.phtml:70
+msgid ""
+"Please use this verification code 888555 to complete your registration. "
+"\"MTN CONGO APP STORE\""
+msgstr ""
+
+#: es/index.phtml:71
+msgid ""
+"Please use this verification code 888666 to verify your mobile number. \"MTN "
+"CONGO APP STORE\""
+msgstr ""
+
+#: es/index.phtml:72
+msgid ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process. \"MTN CONGO APP STORE\""
+msgstr ""
+
+#: es/index.phtml:73
+msgid ""
+"Please use this verification code 7878778 as you requested. \"MTN CONGO APP "
+"STORE\""
+msgstr ""
+
+#: es/index.phtml:74
+msgid "Next"
+msgstr "Siguiente"
+
+#: es/index.phtml:75
+msgid "Previous"
+msgstr "Precedente"
+
+#: es/index.phtml:76 es/index.phtml:112
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Por toda queja,buugben los apps descargados,dificultades de descarga o de "
+"compra, contactarnos a esta direccion e-mail"
+
+#: es/index.phtml:77 es/index.phtml:113
+msgid "We will get back to you within 48 hours."
+msgstr "Nos pondremos  en contacto en un periodo de 48H"
+
+#: es/index.phtml:78
+msgid "Verify"
+msgstr ""
+
+#: es/index.phtml:79
+msgid "Resend Verification Code"
+msgstr ""
+
+#: es/index.phtml:80
+msgid "First Name"
+msgstr ""
+
+#: es/index.phtml:81
+msgid "Last Name"
+msgstr ""
+
+#: es/index.phtml:82
+msgid "Phone Number"
+msgstr ""
+
+#: es/index.phtml:83
+msgid "Register"
+msgstr ""
+
+#: es/index.phtml:84
+msgid "Verification Code"
+msgstr ""
+
+#: es/index.phtml:85
+msgid "Change Mobile Number"
+msgstr ""
+
+#: es/index.phtml:86
+msgid "Forgot Password"
+msgstr ""
+
+#: es/index.phtml:87
+msgid "Request"
+msgstr ""
+
+#: es/index.phtml:88
+msgid "Please use this verification code"
+msgstr ""
+
+#: es/index.phtml:89
+msgid "to complete your registration."
+msgstr ""
+
+#: es/index.phtml:90
+msgid "to verify your mobile number."
+msgstr ""
+
+#: es/index.phtml:91
+msgid "to complete the password resetting process."
+msgstr ""
+
+#: es/index.phtml:92
+msgid "as you requested."
+msgstr ""
+
+#: es/index.phtml:93 es/index.phtml:114
+msgid "Payment was unsuceessful"
+msgstr "El pago hecho no ha sido validado"
+
+#: es/index.phtml:97
+msgid "Please enter your username"
+msgstr "Escriba su nombre de "
+
+#: es/index.phtml:98
+msgid "Please enter your password"
+msgstr ""
+
+#: es/index.phtml:115
+msgid "Paid"
+msgstr "Pagos"
+
+#: es/index.phtml:116
+msgid "Required infromation"
+msgstr "Informacion solicitada"
+
+#: es/index.phtml:117
+msgid "Info"
+msgstr "Informacion"
+
+#: es/index.phtml:118
+msgid "Feature"
+msgstr "Seleccion"
+
+#: es/index.phtml:119
+msgid "Please download the"
+msgstr ""
+
+#: es/index.phtml:120
+msgid "App store app using the following methods."
+msgstr ""
+
+#: es/index.phtml:121
+msgid "FEEDBACK"
+msgstr "Reaccion"
+
+#: es/index.phtml:122
+msgid "LOGIN HERE"
+msgstr ""
+
+#: es/index.phtml:123
+msgid "To download this app you need to visit the following URL"
+msgstr "Para cargar esta aplicacion debe ir a este sitio"
+
+#: es/index.phtml:124
+msgid "App Store All Rights Reserved."
+msgstr ""
+
+#: es/index.phtml:125
+msgid "See all results for"
+msgstr "Ver todos los resultados para"
+
+#: es/index.phtml:126
+msgid "No results found"
+msgstr "Ningun resultado encontrado"
+
+#: es/index.phtml:127
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr ""
+"Lamentablemente, nunguna aplicacion corresponde a vuestros criterios de "
+
+#: es/index.phtml:128
+msgid "Have an Issue?"
+msgstr "Tiene Usted un problema ?"
+
+#: es/index.phtml:129
+msgid "You are not signed in yet"
+msgstr "Usted todavia no se ha identificado  "
+
+#: es/index.phtml:130
+msgid "No Match Found"
+msgstr "Ninguna correspondenca"
+
+#: es/index.phtml:131
+msgid "Ok"
+msgstr "Ok"
+
+#: es/index.phtml:132
+msgid "You haven't log in yet ? Please log in."
+msgstr "No se ha conectado usted aun ? Conectese por favor "
+
+#: es/index.phtml:133
+msgid "No Data Found"
+msgstr "ningun archivo encontrado"
+
+#: es/index.phtml:134
+msgid "Downloading"
+msgstr "descarga en curso"
+
+#: es/index.phtml:135
+msgid "Login to add a ticket"
+msgstr "conectarse para agregar un tiquet"
+
+#: es/index.phtml:136
+msgid "Search Results for"
+msgstr "resultados de la busqueda por"
+
+#: es/index.phtml:137
+msgid "Powered by"
+msgstr "fabricado por"
+
+#: es/index.phtml:138
+msgid "The security key wasn't entered correctly"
+msgstr "la llave de seguridad que usted introdujo no es corecta"
+
+#: es/index.phtml:139
+msgid "Please try again"
+msgstr "la llave de seguridad no ha sido corectamente"
+
+#: es/index.phtml:140
+msgid "Add a ticket"
+msgstr "comienze nuevamente por favor"
+
+#: es/index.phtml:141
+msgid "View my ticket"
+msgstr "agregar un tiquet"
+
+#: es/index.phtml:142
+msgid "Subject"
+msgstr "materia"
+
+#: es/index.phtml:143
+msgid "Type"
+msgstr "tipo"
+
+#: es/index.phtml:144
+msgid "Priority"
+msgstr "prioridad"
+
+#: es/index.phtml:145
+msgid "Select Type"
+msgstr "selectionar el tipo"
+
+#: es/index.phtml:146
+msgid "Question"
+msgstr "pregunta"
+
+#: es/index.phtml:147
+msgid "Incident"
+msgstr "incidente"
+
+#: es/index.phtml:148
+msgid "Problem"
+msgstr "problema"
+
+#: es/index.phtml:149
+msgid "Select Priority"
+msgstr "seleccionar la prioridad"
+
+#: es/index.phtml:150
+msgid "Low"
+msgstr "débil"
+
+#: es/index.phtml:151
+msgid "Medium"
+msgstr "medio"
+
+#: es/index.phtml:152
+msgid "High"
+msgstr "fuerte"
+
+#: es/index.phtml:153
+msgid "Urgent"
+msgstr "urjente"
+
+#: es/index.phtml:154
+msgid "Your ticket submitted successfully"
+msgstr "vuestro tiquet ha tenido éxito"
+
+#: es/index.phtml:155
+msgid "Your response submitted successfully"
+msgstr "vuestra respuesta tuvo éxito"
+
+#: es/index.phtml:156
+msgid "Responces"
+msgstr "respuestas"
+
+#: es/index.phtml:157
+msgid "No Response found"
+msgstr "ningunas respuestas encontradas"
+
+#: es/index.phtml:158
+msgid "Reply"
+msgstr "responder"
+
+#: es/index.phtml:159
+msgid "Submit"
+msgstr "someter"
+
+#: es/index.phtml:160
+msgid "Platforms"
+msgstr "plataformas"
+
+#: es/index.phtml:161
+msgid "Please add your Commenst with more than 10 letters"
+msgstr ""
+"Por favor agregar vuestros comentarios que contengan màs de 10 palabras"
+
+#: es/index.phtml:162
+msgid "No apps found under this category"
+msgstr "ninguna aplicaccion encontrada en esta categoria"
+
+#: es/index.phtml:163
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+
+#: es/index.phtml:164
+msgid "This app is only available in the following languages"
+msgstr "la aplicaccion es disponible unicamente en los siguientes idiomas"
+
+#: es/index.phtml:165
+msgid "This app-store will be supported for subscribers only"
+msgstr "la aplicaccion es disponible unicamente para los suscriptores"
+
+#: es/index.phtml:166
+msgid "To download this app you need to install"
+msgstr "Para descargar esta aplicacion debe instalar"
+
+#: es/index.phtml:167
+msgid "on your Android device and sign in."
+msgstr "en vuestro teléfono Android y conectarse"
+
+#: es/index.phtml:168
+msgid "If you want to install"
+msgstr "Si usted desea instalar"
+
+#: es/index.phtml:169
+msgid "on your phone use following methods."
+msgstr "en vuestro teléfono ,siga el siguiente procedeimiento"
+
+#: es/index.phtml:170
+msgid "Do not have a QR code reader? Get one free"
+msgstr ""
+"Usted no tiene escaner de lectura de la clave ? Obtener uno gratuitamente"
+
+#: es/index.phtml:171
+msgid "We're sorry, the keyword/s you searched for did not return any results"
+msgstr "Ningun resultado por esta clave"
+
+#: es/index.phtml:172
+msgid "Please fill the Name"
+msgstr "dar el nombre"
+
+#: es/index.phtml:173
+msgid "Page not found. (404 - Not Found)"
+msgstr "Pagina imposible de encontrar"
+
+#: es/index.phtml:174
+msgid "Please select a type"
+msgstr "Seleccionar un tipo svp"
+
+#: es/index.phtml:175
+msgid "ticket"
+msgstr "tiquet"
+
+#: es/index.phtml:176
+msgid "open"
+msgstr "Abierto"
+
+#: es/index.phtml:177
+msgid "Dashboard"
+msgstr "tablero de control"
+
+#: es/index.phtml:178
+msgid "Please select a priority"
+msgstr "Seleccionar una prioridad svp"
+
+#: es/index.phtml:179
+msgid "Please add a subject"
+msgstr "Agregar comentariio"
+
+#: es/index.phtml:180
+msgid "Login here"
+msgstr ""
+
+#: es/index.phtml:181
+msgid "Login type"
+msgstr ""
+
+#: es/index.phtml:182
+msgid "Sign in as parents or university students"
+msgstr ""
+
+#: es/index.phtml:183
+msgid "Sign in as students"
+msgstr ""
+
+#: es/index.phtml:184
+msgid "Pin"
+msgstr ""
+
+#: es/index.phtml:185
+msgid "Student account not found"
+msgstr ""
+
+#: es/index.phtml:186
+msgid "Pin you entered is incorrect"
+msgstr ""
+
+#: es/index.phtml:187
+msgid "The student id or password you entered is incorrect"
+msgstr ""
+
+#: es/index.phtml:188
+msgid "The user name or password you entered is incorrect"
+msgstr ""
+
+#: es/index.phtml:190
+msgid "Featured Apps"
+msgstr "App selecionados"
+
+#: es/index.phtml:191
+msgid "BOOKS & REFERENCE"
+msgstr "Libros de referencia"
+
+#: es/index.phtml:192
+msgid "eBooks"
+msgstr "Libros electronicos"
+
+#: es/index.phtml:193 es/index.phtml:278
+msgid "Audio books"
+msgstr "Libros audio"
+
+#: es/index.phtml:194
+msgid "Reference/Dictionaries"
+msgstr "Referencia/Diccionarios"
+
+#: es/index.phtml:195
+msgid "Religion"
+msgstr "Religion"
+
+#: es/index.phtml:196
+msgid "Comics/Manga"
+msgstr "Comics"
+
+#: es/index.phtml:197
+msgid "GAMES"
+msgstr "Juegos"
+
+#: es/index.phtml:198
+msgid "Arcade"
+msgstr "Arcada"
+
+#: es/index.phtml:199
+msgid "Cards"
+msgstr "Cartas"
+
+#: es/index.phtml:200
+msgid "Action/Strategy"
+msgstr "Accion/Estrategia"
+
+#: es/index.phtml:201
+msgid "Role Playing/Multiplayer"
+msgstr "Juegos de actuacion/multijugadores"
+
+#: es/index.phtml:202
+msgid "Logic/Puzzle/Trivia"
+msgstr "Logica/Rompecabezas/Trivial"
+
+#: es/index.phtml:203
+msgid "Casino/Cards/Betting"
+msgstr "Casino/Cartas/Apuestas"
+
+#: es/index.phtml:204
+msgid "Sports"
+msgstr "Deportes"
+
+#: es/index.phtml:205
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "HERRAMIENTAS §  PRODUCTIVIDAD"
+
+#: es/index.phtml:206
+msgid "Organizers/Clocks/Desktop"
+msgstr "Agenda/Reloj"
+
+#: es/index.phtml:207
+msgid "Internet/WAP"
+msgstr "Internet/WAP"
+
+#: es/index.phtml:208
+msgid "Security/Backup"
+msgstr "Seguridad/Proteccion"
+
+#: es/index.phtml:209
+msgid "Developers/DB"
+msgstr "Desarrollos"
+
+#: es/index.phtml:210
+msgid "Office Productivity"
+msgstr "Ofimàtica"
+
+#: es/index.phtml:211
+msgid "BUSINESS & FINANCE"
+msgstr "Negocios y Finanzas"
+
+#: es/index.phtml:212
+msgid "Accounts/Tax"
+msgstr "Contabilidad"
+
+#: es/index.phtml:213
+msgid "Stocks/Finance"
+msgstr "Bolsa/Finanza"
+
+#: es/index.phtml:214
+msgid "Inventory/Sales"
+msgstr "Inventario/Ventas"
+
+#: es/index.phtml:215
+msgid "Currency/Convertors"
+msgstr "Divisas/Conversiones"
+
+#: es/index.phtml:216
+msgid "TRAVEL & GPS"
+msgstr "VIAJES § GPS"
+
+#: es/index.phtml:217
+msgid "GPS/Maps"
+msgstr "Gps/Mapas"
+
+#: es/index.phtml:218
+msgid "POI/Guides"
+msgstr "Guias"
+
+#: es/index.phtml:219
+msgid "Translation/Language"
+msgstr "Traduccion/Lenguas"
+
+#: es/index.phtml:220
+msgid "NEWS & SPORTS"
+msgstr "Info y Deportes"
+
+#: es/index.phtml:221
+msgid "RSS"
+msgstr "Flux RSS"
+
+#: es/index.phtml:222
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "Redes sociales y lmensajeria"
+
+#: es/index.phtml:223
+msgid "Social Networks"
+msgstr "Redes sociales "
+
+#: es/index.phtml:224
+msgid "Dating"
+msgstr "Encuentros"
+
+#: es/index.phtml:225
+msgid "Blogs/Images"
+msgstr "Blogs/Imàgenes"
+
+#: es/index.phtml:226
+msgid "MUSIC & AUDIO"
+msgstr "Musica y Audio"
+
+#: es/index.phtml:227
+msgid "Podcasts"
+msgstr "radios"
+
+#: es/index.phtml:228
+msgid "MP3/Music"
+msgstr "MP3/Musica"
+
+#: es/index.phtml:229
+msgid "Lyrics/Bands"
+msgstr "Palabras/Grupos"
+
+#: es/index.phtml:230
+msgid "LIFESTYLE & WELLNESS"
+msgstr "Modelos de vida y de bienestar"
+
+#: es/index.phtml:231
+msgid "Astro"
+msgstr "Horoscopo"
+
+#: es/index.phtml:232
+msgid "Food/Recipes"
+msgstr "Alimentacion/recetas"
+
+#: es/index.phtml:233
+msgid "Art/Fashion"
+msgstr "Arte/Moda"
+
+#: es/index.phtml:234
+msgid "Hobbies/Pets"
+msgstr "Diversiones/Animales"
+
+#: es/index.phtml:235
+msgid "Health/Diet/Fitness"
+msgstr "Salud/alimentacion/"
+
+#: es/index.phtml:236
+msgid "Shopping/Brands"
+msgstr "Compras/Marcas"
+
+#: es/index.phtml:237
+msgid "EDUCATION & ELEARNING"
+msgstr "Educacion y formacion en linea"
+
+#: es/index.phtml:238
+#, fuzzy
+msgid "Medical"
+msgstr "medio"
+
+#: es/index.phtml:239
+msgid "Language"
+msgstr "Lengua"
+
+#: es/index.phtml:240
+msgid "Kids/Early learning "
+msgstr "Ninos/Jovenes"
+
+#: es/index.phtml:241
+msgid "University"
+msgstr "Universidad"
+
+#: es/index.phtml:242
+#, fuzzy
+msgid "Law"
+msgstr "débil"
+
+#: es/index.phtml:243
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "REGALOS § DIVERSIONES"
+
+#: es/index.phtml:244
+msgid "Wallpaper/Screensavers"
+msgstr "Fondos de pantallas/pantallas de vigilia"
+
+#: es/index.phtml:245
+msgid "Personlization/Skins"
+msgstr "Personalisacion/Vestidos"
+
+#: es/index.phtml:246
+msgid "Humor/Jokes"
+msgstr "Humor/Bromas"
+
+#: es/index.phtml:247
+msgid "Ringtones"
+msgstr "Timbres"
+
+#: es/index.phtml:248
+msgid "THEMES"
+msgstr "Temas"
+
+#: es/index.phtml:249
+msgid "Techno"
+msgstr "Tecno"
+
+#: es/index.phtml:250
+msgid "Rock"
+msgstr "Rock"
+
+#: es/index.phtml:251
+msgid "Calm"
+msgstr "Relajacion"
+
+#: es/index.phtml:252
+msgid "Arts & Crafts"
+msgstr "Arte"
+
+#: es/index.phtml:253
+msgid "Animation"
+msgstr "Animacion"
+
+#: es/index.phtml:254
+msgid "French"
+msgstr "Francés"
+
+#: es/index.phtml:255
+msgid "Mathematics"
+msgstr "Matémàticas"
+
+#: es/index.phtml:256
+msgid "Living languages"
+msgstr "Lenguas vivas"
+
+#: es/index.phtml:257
+msgid "Languages and antiquity"
+msgstr "lenguas y culturas  de la antiguedad"
+
+#: es/index.phtml:258
+msgid "History and Geography"
+msgstr "Historia-geografia"
+
+#: es/index.phtml:259
+msgid "Civic education"
+msgstr "Educacion civil"
+
+#: es/index.phtml:260
+msgid "Life and Earth Sciences"
+msgstr "Ciencias de la vida y de la tierra"
+
+#: es/index.phtml:261
+msgid "Physics and Chemistry"
+msgstr "Fisica-quimica"
+
+#: es/index.phtml:262
+msgid "Technology"
+msgstr "Tecnologia"
+
+#: es/index.phtml:263
+msgid "Music and painting Learning"
+msgstr "Educacion musical y artes plaàsticas"
+
+#: es/index.phtml:264
+msgid "Sport and Physical education"
+msgstr "Educacion fisica y deportiva (EPS)"
+
+#: es/index.phtml:265
+msgid "Arts history"
+msgstr "Historia del arte"
+
+#: es/index.phtml:266
+msgid "Informatic and Internet"
+msgstr "Informàtica e internet"
+
+#: es/index.phtml:267
+msgid "World discovring"
+msgstr "Dezscubrimiento del mundo"
+
+#: es/index.phtml:268
+msgid "Social Sciences"
+msgstr "Ciencias sociales"
+
+#: es/index.phtml:269
+msgid "Economy and Finance"
+msgstr "conomia y finanzas"
+
+#: es/index.phtml:270
+msgid "Medecine"
+msgstr "Medicina"
+
+#: es/index.phtml:271
+msgid "Business and management"
+msgstr "negocios i gestion"
+
+#: es/index.phtml:272
+msgid "Marketing and Trade"
+msgstr "mercadotecnia i comercio"
+
+#: es/index.phtml:273
+msgid "Writing"
+msgstr "Escritura"
+
+#: es/index.phtml:274
+msgid "Reading"
+msgstr "Lectura"
+
+#: es/index.phtml:275
+msgid "Building and Public works"
+msgstr "Construccion y trabajos publicos"
+
+#: es/index.phtml:276
+msgid "Exams and Test"
+msgstr "Exàmenes y Concursos"
+
+#: es/index.phtml:277
+msgid "Kids"
+msgstr ""
+
+#: es/index.phtml:279
+msgid "Games, Art and Creation"
+msgstr "Juegos/Arte y Creacion"
+
+#: es/index.phtml:280
+#, fuzzy
+msgid "Litterature"
+msgstr "Seleccion"
+
+#: es/index.phtml:281
+msgid "Art,musique and cinema"
+msgstr "Arte, Musica y Cine"
+
+#: es/index.phtml:282
+msgid "Religion and spirituality"
+msgstr "Religion y  Espiritualidad"
+
+#: es/index.phtml:283
+msgid "History"
+msgstr "Historia"
+
+#: es/index.phtml:284
+msgid "News"
+msgstr "Actualidad"
+
+#: es/index.phtml:285
+msgid "Nature and animals"
+msgstr "Naturaleza y Animales"
+
+#: es/index.phtml:286
+msgid "Health/Fitness"
+msgstr "Bienestar y Salud"
+
+#: es/index.phtml:287
+msgid "Human sciences"
+msgstr "Ciencias Humanas"
+
+#: es/index.phtml:288
+msgid "technologies"
+msgstr "Tecnologia"
+
+#: es/index.phtml:289
+msgid "Travel"
+msgstr "Turismo y  Viajes"
+
+#: es/index.phtml:290
+msgid "Calculator"
+msgstr "Calculadoras"
+
+#: es/index.phtml:291
+msgid "Atlas and world map"
+msgstr "Atlas y mapas del mundo"
+
+#: es/index.phtml:292
+msgid "Search"
+msgstr "Investigacion"
+
+#: es/index.phtml:293
+msgid "Apps"
+msgstr "Aplicacion"
+
+#: es/index.phtml:294
+msgid "You are here"
+msgstr "Usted està aqui"
+
+#: es/index.phtml:295
+msgid "Add your own review"
+msgstr "AGREGAR VUESTRO COMENTARIO"
+
+#: es/index.phtml:296
+msgid "APP"
+msgstr "1Aplicacion"
+
+#: es/index.phtml:297
+#, fuzzy
+msgid "Newest Apps"
+msgstr "Reciente"
+
+#: es/index.phtml:298
+msgid "Reset"
+msgstr "RAZ"
+
+#: es/index.phtml:299
+msgid "Click Here"
+msgstr "CLIQUER AQUI"
+
+#: es/index.phtml:300
+msgid "Categories"
+msgstr "Categorias"
+
+#: es/index.phtml:301
+msgid "collection"
+msgstr "Coleccion"
+
+#: es/index.phtml:302
+#, fuzzy
+msgid "Featured"
+msgstr "Seleccion"
+
+#: es/index.phtml:303
+msgid "Free Collection"
+msgstr "Coleccion gratuita"
+
+#: es/index.phtml:304
+msgid "Most"
+msgstr "Màs"
+
+#: es/index.phtml:305
+msgid "Need Help?"
+msgstr "Ayuda?"
+
+#: es/index.phtml:306
+msgid "Premium Collection"
+msgstr "Coleccion Premium"
+
+#: es/index.phtml:307
+msgid "Top"
+msgstr "Top"
+
+#: es/index.phtml:308
+msgid "Top Collection"
+msgstr "Top Coleccion"
+
+#: es/index.phtml:309
+msgid "viewed collection"
+msgstr "Coleccion consultada"
+
+#: es/index.phtml:310
+#, fuzzy
+msgid "Select Your Device"
+msgstr "seleccionar la prioridad"
+
+#: es/index.phtml:311
+msgid ""
+"Selecting a device helps us filter apps that are compatible with your "
+"handset."
+msgstr ""
+"Click To Select A Mobile DeviceLa seleccion nos permite filtrar los  apps "
+"que son compatibles con vuestro teléfono"
+
+#: es/index.phtml:312
+msgid "Start typing the name of your device"
+msgstr "Comience inscribiendo el nombre de su teléfono"
+
+#: es/index.phtml:313
+msgid "No Device Selected"
+msgstr "Ningun teléfono seleccionado"
+
+#: es/index.phtml:314
+msgid "Click To Select A Mobile Device"
+msgstr "Clique para elegir un teléfono"
+
+#: es/index.phtml:315
+msgid "Click on thumbnail to zoom"
+msgstr "Clique en la etiqueta para obtenes un zoom"
+
+#: es/index.phtml:316
+msgid "Nexva All Rights Reserved."
+msgstr "NEXVA derechos reservados en su totalidad"
+
+#: es/index.phtml:317
+msgid "Welcome"
+msgstr "Bien venido"
+
+#: es/index.phtml:319
+msgid "Free Download"
+msgstr "Descarga gratuita"
+
+#: es/index.phtml:320
+msgid "Price"
+msgstr "Precio"
+
+#: es/index.phtml:321
+msgid "Rate"
+msgstr "Costo"
+
+#: es/index.phtml:322
+msgid "Vendor"
+msgstr "Proveedor"
+
+#: es/index.phtml:323
+msgid "Whats new"
+msgstr "Novedades"
+
+#: es/index.phtml:324
+msgid "Free Stuff"
+msgstr "App gratuitos"
+
+#: es/index.phtml:325
+msgid "Logout"
+msgstr "Deconexion"
+
+#: es/index.phtml:326
+msgid "Most Viewed"
+msgstr "Los màs vistos"
+
+#: es/index.phtml:327
+msgid "Rating"
+msgstr "Clasificacion"
+
+#: es/index.phtml:328
+msgid "Supported Formats"
+msgstr "Formas Soportes"
+
+#: es/index.phtml:329
+msgid "Latest Reviews"
+msgstr "Ultimos comentarios"
+
+#: es/index.phtml:330
+msgid "No user reviews yet.."
+msgstr "Sin opinion todavia"
+
+#: es/index.phtml:331
+msgid "Please login to post a review."
+msgstr "Por favor, conectese para enviar una opinion"
+
+#: es/index.phtml:332
+msgid "Name"
+msgstr "Nombre"
+
+#: es/index.phtml:333
+msgid "Title"
+msgstr "Titulo"
+
+#: es/index.phtml:334
+msgid "Review"
+msgstr "Comentario"
+
+#: es/index.phtml:335
+#, fuzzy
+msgid "To register you need to install"
+msgstr "Para descargar esta aplicacion debe instalar"
+
+#: es/index.phtml:336
+#, fuzzy
+msgid "on your Android device. Registration happens on your device."
+msgstr "en vuestro teléfono Android y conectarse"
+
+#: es/index.phtml:337
+msgid ""
+"The app you have selected has been pushed directly to your device. Be sure "
+"to have the"
+msgstr ""
+"La App que usted a elegido ha sido enviada a vuestro teléfono. Verifique"
+
+#: es/index.phtml:338
+msgid "installed on your phone first."
+msgstr "de haberla instalado en vuestro primer teléfono"
+
+#: es/index.phtml:339
+msgid "If you don't have"
+msgstr "Si usted no tiene"
+
+#: es/index.phtml:340
+msgid "installed on your phone here is how to get it"
+msgstr ""
+
+#: es/index.phtml:341
+msgid "Type in your email address and we will email it to you"
+msgstr "introduzca vuestra direccion e-mail y nosotros le enviaremos"
+
+#: es/index.phtml:342
+msgid "your email"
+msgstr "vuestro e-mail"
+
+#: es/index.phtml:343
+msgid "send email"
+msgstr "ENVIAR EMAIL"
+
+#: es/index.phtml:344
+msgid "Point your mobile browser to the following link:"
+msgstr " Abra la direccion siguiente en su navegador"
+
+#: es/index.phtml:345
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr ""
+"Scaner le QR clave utilizando vuestro teléfono  para escribir en la pàgina"
+
+#: es/index.phtml:346
+msgid "Do not have a QR code reader?"
+msgstr "No tiene usted scaner de  qr clave ?"
+
+#: es/index.phtml:347
+msgid "Get one free"
+msgstr "Ontenga uno gratuito"
+
+#: es/index.phtml:348
+msgid "More Details"
+msgstr "Màs informacion"
+
+#: es/index.phtml:349
+msgid "Your Device"
+msgstr "Vuestro teléfono"
+
+#: es/index.phtml:350
+msgid "Most viewed collection"
+msgstr "LAS Colecciones màs consultadas"
+
+#: es/index.phtml:351
+msgid "Contact Us"
+msgstr "Contàctenof"
+
+#: es/index.phtml:352
+msgid "Message"
+msgstr "Mensaje"
+
+#: es/index.phtml:353
+msgid "SEND"
+msgstr "ENVIAR"
+
+#: es/index.phtml:354
+msgid "Feedback"
+msgstr "Reaccion"
+
+#: es/index.phtml:355
+msgid "App"
+msgstr ""
+
+#: es/index.phtml:356
+msgid "Category"
+msgstr "Categoria"
+
+#: es/index.phtml:357
+msgid "Free Apps"
+msgstr "Apps gratuito"
+
+#: es/index.phtml:358
+msgid "Premium Apps"
+msgstr "Premium Apps"
+
+#: es/index.phtml:359
+msgid "Top Downloaded Apps"
+msgstr "Top de Apps descargados"
+
+#: es/index.phtml:360
+msgid "Most Viewed Apps"
+msgstr "los Apps màs consultados"
+
+#: es/index.phtml:361
+#, fuzzy
+msgid "FEEDBACK "
+msgstr "Reaccion"
+
+#: es/index.phtml:362
+msgid "LOGIN HERE "
+msgstr "Conectarsze aqui"

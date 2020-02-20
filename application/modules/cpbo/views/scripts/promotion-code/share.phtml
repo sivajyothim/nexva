@@ -1,0 +1,52 @@
+<div class="title">
+    <h3><?php echo $this->translate("Share Promotion Code");?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <p>
+            <?php echo $this->translate("You can use our neXlinker tool to promote the promotion codes you create.");?> 
+            <?php echo $this->translate("Simply copy and paste the code below to create a neXlinker widget.");?>
+            </p> 
+<?php 
+    $code       = $this->code;
+    $host       = Zend_Registry::get('config')->nexva->application->base->url;
+    $nexcode    = <<<NEXCODE
+<!-- neXlinker START -->
+<span class='nexlinker' id='nexlinker_badge_{$code}'></span>
+<script type='text/javascript'>
+    var _nxs = _nxs || [];
+    var _nx = {};
+    
+    //------------------------------------------------------
+    //Customize your embed code
+    
+       _nx.imageUrl     = '';//If you want to use a custom image, put it between the quotes
+    
+    //Don't change anything below this
+    //------------------------------------------------------
+    
+    _nx.code         = '{$code}'; //The promo code you want users to apply
+    _nx.h       = '{$host}';
+    _nxs.push(_nx);
+</script>
+<script type='text/javascript' src='http://{$host}/web/nexlinker/nl.js'></script>
+<!-- neXlinker END -->
+NEXCODE;
+
+?>            
+            <textarea onclick="this.select()" class="txt-input medium" rows="6" cols="10">
+<?php echo $nexcode?>
+            </textarea>
+        </div>
+    </div>
+</div>
+
+<div class="title">
+    <h3><?php echo $this->translate("Preview");?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php echo $nexcode?>
+    </div>
+</div>

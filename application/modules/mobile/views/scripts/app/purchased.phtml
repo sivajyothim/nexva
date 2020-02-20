@@ -1,0 +1,19 @@
+<!-- Showing Featured Applications as random 2 premium and one Free App -->
+<? if (isset($_SERVER['HTTP_REFERER'])): ?>
+  <a href="<?= $_SERVER['HTTP_REFERER'] ?>"><img src="<?=$this->cdn('site_assets')?>/mobile/images/back.png"></a>
+<? endif; ?>
+<?
+  if (count($this->products) == 0) {
+?>
+    <div class="app">
+      <span class="mini-description">
+        You haven't purchased any apps yet. <a href='/'>Purchase an app now!</a> 
+      </span>
+    </div>
+<?
+  }
+  foreach ($this->products as $product):
+?>
+<?= $this->partial('/partials/app.phtml', array("item" => $product)) ?>
+<?php endforeach; ?>
+<?= $this->paginationControl($this->products, 'Sliding', 'partials/paginator.phtml', array('baseUrlfo' => $this->baseUrlfo)) ?>

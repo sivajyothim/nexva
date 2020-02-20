@@ -1,0 +1,89 @@
+<?php 
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/admin.js');
+?>
+
+<?php $section  = $this->section;?>
+<div class="title">
+    <h3 style="cursor: s-resize;">Create Section</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$message ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <fieldset>
+                 <form class='form_validate' method="post" accept-charset="UTF-8" action="/section/save">
+                 <p>
+                    <label for='name'>Name</label>
+                    <input value='<?=$section->name?>' type='text' id='name' name='name' class='txt-input medium validate(required, rangelength(1,128))'>
+                 </p>
+                 
+                 <p>
+                    <label for='code'>Code</label>
+                    <input value='<?=$section->code?>' type='text' id='code' name='code' class='txt-input medium validate(required, rangelength(1,128))'>
+                 </p>
+                 
+                 <p>
+                    <label for='scope'>Scope</label>
+                    <select name='scope' id='scope'>
+                        <option <?php if ($section->scope == 'LOCAL'):?>selected='selected'<?php endif;?> value='LOCAL'>Local</option>
+                        <option <?php if ($section->scope == 'GLOBAL'):?>selected='selected'<?php endif;?> value='GLOBAL'>Global</option>
+                    </select>
+                 </p>
+                 <input type='hidden' value='<?php echo $section->id ?>' name='id'>
+                 <p><input type="submit" class="txt-input small" value="Save Section" id="submit" name="submit"></p>
+                 </form>
+            </fieldset>
+        </div>
+        </div>
+</div>    
+
+
+        <div class="title">
+            <h3 style="cursor: s-resize;">All Sections</h3>
+        </div>
+        <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Scope</th>
+                    <th>&nbsp</th>
+                </tr>
+            </thead>
+        <?php if (count($this->sections)): $class = '';?>
+            <tbody>
+        <?php foreach ($this->sections as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+            <tr>
+                <td class='<?=$class?>'><?=$item->id?></td>
+                <td class='<?=$class?>'><a href='<?php echo ADMIN_PROJECT_BASEPATH;?>section/view/id/<?=$item->id?>'><?=$item->name?></a></td>
+                <td class='<?=$class?>'><?=$item->code?></td>
+                <td class='<?=$class?>'><?=$item->scope?></td>
+                <td class='<?=$class?>'>
+                    <a href='<?php echo ADMIN_PROJECT_BASEPATH;?>section/index/id/<?php echo $item->id ?>'>Edit</a>
+                    &nbsp;&nbsp;&nbsp; 
+                    <a href='<?php echo ADMIN_PROJECT_BASEPATH;?>section/delete/id/<?php echo $item->id ?>' class='del_conf'>Delete</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+    </div>
+</div>
+
+

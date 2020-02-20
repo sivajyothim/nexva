@@ -1,0 +1,21 @@
+<table>
+    <tbody>
+        <? if ($this->item['search_on']): ?>
+                            <tr>
+                                <td class="utility-td">
+                                    <a name='q'></a>
+                                    <form id="utility_form" name="search" action="/rca-app/search/">
+                                        <br clear="all" />
+                                        <input inputmode = CDATA class="utility-text" type="text" id="q" name="q" value="<?= $this->item['search'] ?>"/>
+                                        <input class="button" type="submit" value="Search"/>
+                                        <?php if (isset($this->item['selectedCat'])) :?>
+                                            <input type="hidden" name="selcat" value="<?= $this->item['selectedCat'] ?>"/>
+                                        <?php endif;?>
+                                        
+                                    </form>
+                                </td>
+                            </tr>
+        <? endif; ?>
+    </tbody>
+</table>
+

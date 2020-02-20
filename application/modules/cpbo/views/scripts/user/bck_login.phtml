@@ -1,0 +1,169 @@
+<div id='lh-col' class='content'>
+    
+<?php if(empty($this->cpDescription)) :?>
+    
+<!--<h2>Who? What? Why? How?</h2>
+<p>
+<strong>Who :</strong> neXva
+</p>
+<p>
+<strong>What :</strong> A disruptive technology platform for mobile application delivery.  
+</p>
+<p>
+<strong>Why :</strong> Because the mobile space is confusing for developers and users alike. Too many OSs, too many app stores.. no control over delivery.
+</p>
+<p>
+<strong>How :</strong> neXva's patented solutions make downloading content simpler for the consumer. Our tools mean users never have to worry about their OS or phone version and can get content directly from their favorite web sites. neXva's tools allow app developers to simplify their work by managing device fragmentation and giving them elegant delivery and viral tools.
+</p>-->
+
+        <h2>New opportunities to publish your apps</h2>
+        <p>The app ecosystem has been monopolized by the OS/OEM app stores. That means you publish your app on some HUGE store and hope it shines through or maybe you spend on getting it known and downloaded.</p>
+        <p><strong>With neXva it is different.</strong></p>
+        <!--<p>neXva creates and operates app stores for telecom operators, OEMs and verticals. Our app stores have operator billing and are promoted directly by the carrier or OEM to their customers. All our stores are localized and curated. So what is listed as Staff Pick in Nigeria will be different than what is promoted in one of our stores in the USA, Sri Lanka or Lebanon.</p>-->
+        <p>neXva creates and operates app stores for telecom operators, OEMs and verticals. Our app stores have operator billing and are promoted directly by the carrier or OEM to their customers. All our stores are localized and curated. So what is listed as Staff Pick in Nigeria will be different than what is promoted in one of our stores in the USA, Sri Lanka or Lebanon.
+            Your app will have the opportunity to SHINE and get REAL exposure.</p>
+        <p>Our app stores are sprouting all over the world from South Asia to the Southern USA to Western Africa. Each store has a different look and feel and different content. Some stores are Android only and some are multi OS.</p>
+        <p>You may have questions about our opportunities or how to manage to all of this so please feel free to send us an email which we will answer : <a href="mailto:contentadmins@nexva.com">contentadmins@nexva.com</a></p>
+
+
+<?php else :?>
+
+<?= $this->cpDescription; ?>
+
+<? endif ;?>
+
+</div>
+
+
+<div id='rh-col'>
+<!-- Start Content Box #1 -->
+<div class="title">
+    <h3>Login</h3>
+    <div class="selector" title="content_box"><a
+    	class="tab <?php
+    	if ($this->tab == "tab-login")
+    		echo ' active'?>"
+    	href="tab-login" title="<?php echo $this->translate("Login");?>">Login</a> <a
+    	class="tab <?php
+    	if ($this->tab == "tab-password")
+    		echo ' active'?>"
+    	href="tab-password"
+    	title="<?php echo $this->translate("Trouble accessing your account? Authenticate and recover your password.");?>">Forgotten
+    Password </a>
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        
+        <div id="content_box">
+        <div class="tab-login" id="login">
+        
+                <?=$this->render ( 'partials/message.phtml' )?>
+        
+                <!-- Start Login Form -->
+        <form method="post" action="">
+        <fieldset>
+        <p><label>Email Address</label> <input name="username" id="username"
+        	type="text" class="txt-input large"
+        	value="<?php
+        	if (isset ( $_COOKIE ['username'] )) {
+        		echo $_COOKIE ['username'];
+        	} else {
+            	if ($this->email)
+            		echo $this->email;
+        	}	
+        	?>" /></p>
+        
+        
+        <p><label>Password</label> <input name="password" id="password"
+        	type="password" class="txt-input large"
+        	value="<?php
+        	if (isset ( $_COOKIE ['password'] )) {
+        		echo $_COOKIE ['password'];
+        	}
+        	
+        	?>" /></p>
+        
+        <p style="float: left;"><input type="submit" class="button"
+        	name="submit" value="Login" /> <input type="reset" class="reset"
+        	name="reset" value="Reset" /> <input type="hidden" name="operation"
+        	value="login"></p>
+        <p class="remember"><input type="checkbox" name="remember" id="remember"
+        	value="1" checked="checked" /> Remember Me</p>
+        
+        </fieldset>
+        <? 
+        	$chapSessionNs = new Zend_Session_Namespace('chap');
+        	$meta = new Model_UserMeta();
+
+        	$meta->setEntityId($chapSessionNs->chap->id);
+        ?>
+        <p>Need a <?=$meta->COMPANY_NAME?> Content Provider account? <a href="/user/register/r/<?=$chapSessionNs->chap->username?>">Create an account for free.</a> <br />
+        
+        </p>
+        
+        </form>
+        <!-- End Login Form --></div>
+        <div class="tab-password" id="forgot_password"><!-- Start Password Form -->
+        
+                <?=$this->render ( 'partials/message.phtml' )?>
+        
+                             <form method="post" name="forgotpassword"
+        	action="/user/login">
+        <fieldset>
+        <p><label>Email</label> <input name="email" id="email" type="text"
+        	class="txt-input large" value="<?=$this->email;?>" /> <small>Enter the email address you signed up
+        with and we'll email you a link to reset your password</small></p>
+        
+        <p> 
+         <label>Enter the security key you see inside the image</label>
+         <?=$this->recaptcha;?>
+        </p>
+        
+        <input type="submit" class="button" name="cmdforgotpassword"
+        	value="Request Password" /> <input type="hidden" name="operation"
+        	value="forgot_password"></fieldset>
+
+        </form>
+        <!-- End Password Form --></div>
+        </div>
+      
+    </div>
+</div>
+
+<!-- End Content Box #1 -->
+</div>
+
+    <script>
+        /**
+            Used for animation
+        **/
+        var __TAB_ANIM_TIMER    = null;
+
+       $(document).ready(function(){
+           
+
+           $('#header-tabs h3 a:not(.active)').mouseenter(stopJiggle);
+           
+           /** Bit of animation for people to notice the tabs**/
+           jiggleTab();
+           
+       });
+
+       function jiggleTab() {
+           var tabId   = Math.floor(Math.random() * 3); //remember to incrememnt according to num tabs
+           $('#header-tabs h3 a:not(.active)').eq(tabId)
+               .animate({marginTop: '-=5px'}, 100)
+               .animate({marginTop: '+=5px'}, 100)
+               .animate({marginTop: '-=5px'}, 100)
+               .animate({marginTop: '+=5px'}, 100);
+
+           __TAB_ANIM_TIMER = setTimeout ( "jiggleTab()", 6000 );
+       }
+
+       function stopJiggle() {
+           clearTimeout(__TAB_ANIM_TIMER);
+       }
+           
+</script>

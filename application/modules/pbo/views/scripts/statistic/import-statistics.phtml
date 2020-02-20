@@ -1,0 +1,67 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/6/13
+ * Time: 5:23 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.js"></script>
+<link href="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css" >
+<script type="text/javascript">
+    function load_popup_app_wise()
+    {
+        $("#app_wise_downloads").fancybox({
+            'titleShow'     : false,
+            'padding'	: 0,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            'autoDimensions': false,
+            'width'		: 500,
+            'height'	: 220,
+            'showCloseButton' : true,
+            'hideOnOverlayClick' : false
+        });
+    }
+    function load_popup_user_wise()
+    {
+        $("#user_wise_downloads").fancybox({
+            'titleShow'     : false,
+            'padding'	: 0,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            'autoDimensions': false,
+            'width'		: 500,
+            'height'	: 200,
+            'showCloseButton' : true,
+            'hideOnOverlayClick' : false
+        });
+    }
+</script>
+<?php echo $this->partial('partials/app-wise-download.phtml');?>
+<?php echo $this->partial('partials/user-wise-download.phtml');?>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;">Downloads (Excel Reports)</h3>
+    </div>
+    <div class="content-box-content">
+        <ul>
+            <li>
+                <a class="" href="#app_wise_popup" id="app_wise_downloads">
+                    <span onClick="load_popup_app_wise();" class="png_bg">App Wise Downloads</span>
+                </a>
+            </li>
+            <li>
+                <a class="" href="#user_wise_popup" id="user_wise_downloads">
+                    <span onClick="load_popup_user_wise();" class="png_bg">User Wise Downloads</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#7').addClass('current');
+    $('#76').addClass('current');
+</script>

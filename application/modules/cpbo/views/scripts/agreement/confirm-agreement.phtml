@@ -1,0 +1,56 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 4/21/14
+ * Time: 4:16 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#confirm-agree').ketchup();
+    });
+</script>
+<div id="content_box">
+    <br/>
+    <div class="message info" style="display: block;">
+        <p><?php echo $this->translate("User Agreement Between Developers & neXva Inc. has been change recently. Please read the new terms & conditions put the tick to Agree it.");?></p>
+    </div>
+</div>
+
+<div class="title">
+    <h3><?php echo $this->translate("Agreement");?><small style="color:gray;"></small></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div id="content_box">
+            <form method="post" action="<?php echo CP_PROJECT_BASEPATH;?>/agreement/confirm-agreement" name="confirm-agree" id="confirm-agree">
+                <div>
+                    <? if(isset($this->agreement_special)): ?>
+                        <object data="<?=$this->agreement_special;?>" type="<?=$this->content_type; ?>" width="100%" height="900">
+                            alt : <a href="<?=$this->agreement_special;?>"><?=$this->agreement_special;?></a>
+                        </object>
+
+                        <div class="div_single_row" style="text-align:center;">
+                            <input type="checkbox" value="agree" class="validate(required(Check box selection))" id="agree" name="agree">
+                            <span style="vertical-align:middle;"><?php echo $this->translate("Check the box to agree neXva terms and conditions.");?></span>
+                            <br/>
+                            <input id="submit" class="button submit" type="submit" value="<?php echo $this->translate("Confirm");?>" name="submit">
+                        </div>
+                    <?else:?>
+                        <div>
+                            <?php echo $this->agreement_normal; ?>
+                            <div style="text-align:center;">
+                                <input type="checkbox" value="agree" class="validate(required(Check box selection))" id="agree" name="agree" >
+                                <span style="vertical-align:middle;"><?php echo $this->translate("Check the box to agree neXva terms and conditions.");?></span>
+                                <br/>
+                                <input id="submit" class="button submit" type="submit" value="<?php echo $this->translate("Confirm");?>" name="submit">
+                            </div>
+                        </div>
+                    <?endif; ?>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

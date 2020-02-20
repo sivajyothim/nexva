@@ -1,0 +1,1068 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-07-22 14:00+0530\n"
+"PO-Revision-Date: 2014-07-22 17:23+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <contentadmins@nexva.com>\n"
+"Language: farsi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: E:\\projects\\Carbo Apps\\translations\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: Mobile\n"
+
+#: Mobile/index.phtml:1
+msgid "Please enter First Name"
+msgstr "Insira o seu Nome"
+
+#: Mobile/index.phtml:2
+msgid "Please enter Last Name"
+msgstr "Insira o seu  Apelido"
+
+#: Mobile/index.phtml:3
+msgid "Please enter your Email address"
+msgstr "Insira o seu E-mail"
+
+#: Mobile/index.phtml:4
+msgid "Please enter a valid Email address for your Email"
+msgstr "Por favor insira um E-mail Válido"
+
+#: Mobile/index.phtml:5
+msgid "Please enter your Phone Number"
+msgstr "Insira o seu Número do Telemóvel"
+
+#: Mobile/index.phtml:6
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr ""
+"Seu número do telemóvel não pode ser inferior a 10 dígitos, ex., 2381234567"
+
+#: Mobile/index.phtml:7
+msgid "Please enter your Password"
+msgstr "Insira a sua Palavra-Passe"
+
+#: Mobile/index.phtml:8
+msgid "Please confirm your Password"
+msgstr "Confirma a Palavra-Passe"
+
+#: Mobile/index.phtml:9
+msgid "Password not Matching"
+msgstr "As palavras-passe não são iguais"
+
+#: Mobile/index.phtml:10
+msgid "This Email already exists"
+msgstr "Este e-mail já existe"
+
+#: Mobile/index.phtml:11
+msgid "You have completed your registration successfully"
+msgstr "A inscrição foi concluida com sucesso"
+
+#: Mobile/index.phtml:12
+msgid "This Phone Number already exists"
+msgstr "Esse número de telemóvel já existe"
+
+#: Mobile/index.phtml:13
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+"Um SMS de verificação foi enviada para o seu telemóvel. Por favor use o "
+"código de verificação dado para completar o seu inscrição"
+
+#: Mobile/index.phtml:14
+msgid "Verification failed. verification code is incorrect"
+msgstr "A verificação falhou. o código de verificação está incorreto"
+
+#: Mobile/index.phtml:15
+msgid "You successfully completed the registration process"
+msgstr "O processo de inscrição foi completada com sucesso"
+
+#: Mobile/index.phtml:16
+msgid "Already Verified User"
+msgstr "O Utilizador já foi Verificado"
+
+#: Mobile/index.phtml:17
+msgid "The username or password you entered is incorrect"
+msgstr "O utilizador ou a palavra-passe inserida está incorreto"
+
+#: Mobile/index.phtml:18
+msgid ""
+"You have not verified your account. A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+msgstr ""
+"A sua conta não foi verificada. O SMS de verificação foi enviada para o seu "
+"telemóvel. Por favor use o código de verificação dado, ou para obtê-lo envie "
+"novamente, clique no botão"
+
+#: Mobile/index.phtml:19
+msgid "Please enter a valid username"
+msgstr "Por favor insira um nome de utilizador válido"
+
+#: Mobile/index.phtml:20
+msgid "Please enter your username and password"
+msgstr "Insira seu nome de utilizador e sua palavra-passe"
+
+#: Mobile/index.phtml:21
+msgid "Please enter your Mobile Number"
+msgstr "Digite seu número do telemóvel"
+
+#: Mobile/index.phtml:22
+msgid "Mobile Number not Matching"
+msgstr "O número do telemóvel não corresponde"
+
+#: Mobile/index.phtml:23
+msgid "This number has already been used. Please try another"
+msgstr "Este número do telemóvel já foi usado. Por favor, tente outro"
+
+#: Mobile/index.phtml:24
+msgid "Mobile number changed successfully"
+msgstr "O número do telemóvel foi alterado com sucesso"
+
+#: Mobile/index.phtml:25
+msgid "Please confirm your Mobile Number"
+msgstr "Por favor, confirme o seu número do telemóvel"
+
+#: Mobile/index.phtml:26
+msgid "Password reset successfully"
+msgstr "A palavra-passe foi restaurada com sucesso"
+
+#: Mobile/index.phtml:27
+msgid "Please enter your Email"
+msgstr "Insira o seu E-mail"
+
+#: Mobile/index.phtml:28
+msgid "User not found registered with this email"
+msgstr "Não existe nenhum utilizador registado com esse e-mail"
+
+#: Mobile/index.phtml:29
+msgid "Mobile number not registered"
+msgstr "O número do telemóvel não está registado"
+
+#: Mobile/index.phtml:30
+msgid ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+msgstr ""
+"Você pediu para alterar a sua palavra-passe. O SMS de verificação foi "
+"enviada para o seu telemóvel. Por favor use o código de verificação dado "
+"para verificar"
+
+#: Mobile/index.phtml:31
+msgid "Please enter your Verification Code"
+msgstr "Insira o seu Código de Verificação"
+
+#: Mobile/index.phtml:32
+msgid "Verification code is incorrect"
+msgstr "O código de verificação está incorreto"
+
+#: Mobile/index.phtml:33
+msgid "Mobile Number not found for this user"
+msgstr "O Número do telemóvel não foi encontrado para esse utilizador"
+
+#: Mobile/index.phtml:34
+msgid "Email not found for this user"
+msgstr "O E-mail não foi encontrado para esse utilizador"
+
+#: Mobile/index.phtml:35
+msgid ""
+"You have requested to resend verification code. A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+msgstr ""
+"Você pediu para reenviar o código de verificação. Um SMS de verificação foi "
+"enviada para o seu telemóvel. Por favor use o código de verificação dado "
+"para verificar a sua conta"
+
+#: Mobile/index.phtml:36
+msgid "Newest"
+msgstr "Mais recentes"
+
+#: Mobile/index.phtml:37
+msgid "Top Free"
+msgstr "Principais Gratuítos"
+
+#: Mobile/index.phtml:38
+msgid "Top Paid"
+msgstr "Mais Bem Pagos"
+
+#: Mobile/index.phtml:39
+msgid "Top Downloads"
+msgstr "Mais Baixados"
+
+#: Mobile/index.phtml:40
+msgid "Free"
+msgstr "Grátis"
+
+#: Mobile/index.phtml:41
+msgid "Download"
+msgstr "Baixar"
+
+#: Mobile/index.phtml:42
+msgid "Description"
+msgstr "Descrição"
+
+#: Mobile/index.phtml:43
+msgid "Screenshots"
+msgstr "Imagens"
+
+#: Mobile/index.phtml:44
+msgid "Account"
+msgstr "Conta"
+
+#: Mobile/index.phtml:45
+msgid "Updates"
+msgstr "Actualizações"
+
+#: Mobile/index.phtml:46
+msgid "Help"
+msgstr "Ajuda"
+
+#: Mobile/index.phtml:47
+msgid " HOME"
+msgstr "INÍCIO"
+
+#: Mobile/index.phtml:48
+msgid "Premium"
+msgstr "Por Pago"
+
+#: Mobile/index.phtml:49
+msgid "Login"
+msgstr "Conectar"
+
+#: Mobile/index.phtml:50
+msgid "Email"
+msgstr "E-mail"
+
+#: Mobile/index.phtml:51
+msgid "Password"
+msgstr "Palavra-passe"
+
+#: Mobile/index.phtml:52
+msgid "Sign Up"
+msgstr "Inscrever-se"
+
+#: Mobile/index.phtml:53
+msgid "Sign In"
+msgstr "Iniciar Sessão"
+
+#: Mobile/index.phtml:54
+msgid "Forgot Password?"
+msgstr "Esqueceu da palavra-passe?"
+
+#: Mobile/index.phtml:55
+msgid "Downloaded Apps"
+msgstr "Aplicativos Baixados"
+
+#: Mobile/index.phtml:56
+msgid "Reset Password"
+msgstr "Redefinir a Palavra-passe"
+
+#: Mobile/index.phtml:57 Mobile/index.phtml:235
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr ""
+"Não foi possível encontrar Apps correspondentes aos seus critérios de busca!"
+
+#: Mobile/index.phtml:59
+msgid "Change Mobile"
+msgstr "Alterar o Número do Telemóvel"
+
+#: Mobile/index.phtml:60
+msgid "Terms & Conditions"
+msgstr "Termos & Condições"
+
+#: Mobile/index.phtml:61
+msgid "Mobile Number"
+msgstr "Número do Telemóvel"
+
+#: Mobile/index.phtml:62
+msgid "New Password"
+msgstr "Nova Palavra-passe"
+
+#: Mobile/index.phtml:63
+msgid "Confirm Password"
+msgstr "Confirmar Palavra-passe"
+
+#: Mobile/index.phtml:64
+msgid "Confirm Mobile Number"
+msgstr "Confirmar o Número do Telemóvel"
+
+#: Mobile/index.phtml:65
+msgid "Staff Picks"
+msgstr "Seleções do Editor"
+
+#: Mobile/index.phtml:66
+msgid "Top Premium"
+msgstr "Melhores Por Pago"
+
+#: Mobile/index.phtml:67
+msgid "Buy"
+msgstr "Comprar"
+
+#: Mobile/index.phtml:68
+msgid "Download Started"
+msgstr "Download Iniciado"
+
+#: Mobile/index.phtml:69
+msgid "Later"
+msgstr "Mais Tarde"
+
+#: Mobile/index.phtml:70 Mobile/index.phtml:247
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr ""
+"As actualizações são aplicativos que têm uma versão mais recente. Isto é "
+"tanto as funcionalidades acrescentadas, correções de bugs ou melhorias"
+
+#: Mobile/index.phtml:71
+msgid ""
+"Please use this verification code 888555 to complete your registration. "
+"\"MTN CONGO APP STORE\""
+msgstr ""
+"Utilize este código de verificação «888555» para completar o seu registo"
+
+#: Mobile/index.phtml:72
+msgid ""
+"Please use this verification code 888666 to verify your mobile number. \"MTN "
+"CONGO APP STORE\""
+msgstr ""
+"Utilize este código de verificação «888666» para verificar o seu número de "
+"telemóvel."
+
+#: Mobile/index.phtml:73
+msgid ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process. \"MTN CONGO APP STORE\""
+msgstr ""
+"Utilize este código de verificação «8886656» para completar o processo de "
+"redefinição da palavra-passe."
+
+#: Mobile/index.phtml:74
+msgid ""
+"Please use this verification code 7878778 as you requested. \"MTN CONGO APP "
+"STORE\""
+msgstr "Utilize este código de verificação «7878778» como você pediu."
+
+#: Mobile/index.phtml:75
+msgid "Next"
+msgstr "Proximo"
+
+#: Mobile/index.phtml:76
+msgid "Previous"
+msgstr "Anterior"
+
+#: Mobile/index.phtml:77
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Para quaisquer questões de serviços ao cliente; bugs no aplicativo baixado, "
+"dificuldade de baixar ou compras feitas por engano, por favor contacte-nos "
+"através deste e-mail:"
+
+#: Mobile/index.phtml:78
+msgid "We will get back to you within 48 hours."
+msgstr "Nós entraremos em contato com você dentro de 48 horas."
+
+#: Mobile/index.phtml:79
+msgid "Verify"
+msgstr "Verificar"
+
+#: Mobile/index.phtml:80
+msgid "Resend Verification Code"
+msgstr "Reenviar O Código de Verificação"
+
+#: Mobile/index.phtml:81
+msgid "First Name"
+msgstr "Nome"
+
+#: Mobile/index.phtml:82
+msgid "Last Name"
+msgstr "Apelido"
+
+#: Mobile/index.phtml:83
+msgid "Phone Number"
+msgstr "Telemóvel"
+
+#: Mobile/index.phtml:84
+msgid "Register"
+msgstr "Registrar"
+
+#: Mobile/index.phtml:85
+msgid "Verification Code"
+msgstr "Código de Verificação"
+
+#: Mobile/index.phtml:86
+msgid "Change Mobile Number"
+msgstr "Alterar o Número do telemóvel"
+
+#: Mobile/index.phtml:87
+msgid "Forgot Password"
+msgstr "Esqueceu da palavra-passe?"
+
+#: Mobile/index.phtml:88
+msgid "Request"
+msgstr "Pedir"
+
+#: Mobile/index.phtml:89
+msgid "Please use this verification code"
+msgstr "Utilize este código de verificação"
+
+#: Mobile/index.phtml:90
+msgid "to complete your registration."
+msgstr "Completar a inscrição"
+
+#: Mobile/index.phtml:91
+msgid "to verify your mobile number."
+msgstr "para verificar o seu número de telemóvel."
+
+#: Mobile/index.phtml:92
+msgid "to complete the password resetting process."
+msgstr "para completar o processo de redefinição de palavra-passe."
+
+#: Mobile/index.phtml:93
+msgid "as you requested."
+msgstr "como pedido."
+
+#: Mobile/index.phtml:94
+msgid "Payment was unsuceessful"
+msgstr "O pagamento não teve êxito"
+
+#: Mobile/index.phtml:95 Mobile/index.phtml:181
+msgid "Have an Issue?"
+msgstr "Algum problema?"
+
+#: Mobile/index.phtml:96
+msgid "Featured Apps"
+msgstr "Apps Destacados"
+
+#: Mobile/index.phtml:97
+msgid "BOOKS & REFERENCE"
+msgstr "LIVROS E REFERÊNCIAS"
+
+#: Mobile/index.phtml:98
+msgid "eBooks"
+msgstr "e-Books"
+
+#: Mobile/index.phtml:99
+msgid "Audio books"
+msgstr "Audiolivros"
+
+#: Mobile/index.phtml:100
+msgid "Reference/Dictionaries"
+msgstr "Referências/Dicionários"
+
+#: Mobile/index.phtml:101
+msgid "Religion"
+msgstr "Religião"
+
+#: Mobile/index.phtml:102
+msgid "Comics/Manga"
+msgstr "Banda desenhada/Manga"
+
+#: Mobile/index.phtml:103
+msgid "GAMES"
+msgstr "Jogos"
+
+#: Mobile/index.phtml:104
+msgid "Arcade"
+msgstr "Arcada"
+
+#: Mobile/index.phtml:105
+msgid "Cards"
+msgstr "Cartões"
+
+#: Mobile/index.phtml:106
+msgid "Action/Strategy"
+msgstr "Acção/Estratégia"
+
+#: Mobile/index.phtml:107
+msgid "Role Playing/Multiplayer"
+msgstr "Encenador/Multijogador"
+
+#: Mobile/index.phtml:108
+msgid "Logic/Puzzle/Trivia"
+msgstr "Lógica / Puzzle / Trivia"
+
+#: Mobile/index.phtml:109
+msgid "Casino/Cards/Betting"
+msgstr "Cassino/Cartas/Aposta"
+
+#: Mobile/index.phtml:110
+msgid "Sports"
+msgstr "Desporto"
+
+#: Mobile/index.phtml:111
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "Ferramentas & Produtividade"
+
+#: Mobile/index.phtml:112
+msgid "Utilities/Synchronization"
+msgstr "Serviços/Sincronização"
+
+#: Mobile/index.phtml:113
+msgid "Organizers/Clocks/Desktop"
+msgstr "Organizador/Relógio/ Ambiênte de Trabalho"
+
+#: Mobile/index.phtml:114
+msgid "Internet/WAP"
+msgstr "Internet/WAP"
+
+#: Mobile/index.phtml:115
+msgid "Device Tools"
+msgstr "Dispositivos de Ferramentas"
+
+#: Mobile/index.phtml:116
+msgid "Security/Backup"
+msgstr "Segurança/Cópia de Segunrança"
+
+#: Mobile/index.phtml:117
+msgid "Developers/DB"
+msgstr "Desenvolvedor/DB"
+
+#: Mobile/index.phtml:118
+msgid "Office Productivity"
+msgstr "Produtividade do escritório"
+
+#: Mobile/index.phtml:119
+msgid "Graphic Tools"
+msgstr "Ferramenta Gráfica"
+
+#: Mobile/index.phtml:120
+msgid "BUSINESS & FINANCE"
+msgstr "NEGÓCIOS & FINANÇAS"
+
+#: Mobile/index.phtml:121
+msgid "Accounts/Tax"
+msgstr "Contas/ Imposto"
+
+#: Mobile/index.phtml:122
+msgid "Stocks/Finance"
+msgstr "Acções/Finança"
+
+#: Mobile/index.phtml:123
+msgid "Inventory/Sales"
+msgstr "Inventários/Vendas"
+
+#: Mobile/index.phtml:124
+msgid "Currency/Convertors"
+msgstr "Moeda/Conversores"
+
+#: Mobile/index.phtml:125
+msgid "TRAVEL & GPS"
+msgstr "VIAGEM E GPS"
+
+#: Mobile/index.phtml:126
+msgid "GPS/Maps"
+msgstr "GPS/Mapas"
+
+#: Mobile/index.phtml:127
+msgid "Weather"
+msgstr "Tempo"
+
+#: Mobile/index.phtml:128
+msgid "Search"
+msgstr "Pesquisa"
+
+#: Mobile/index.phtml:129
+msgid "Translation/Language"
+msgstr "Tradução/Idioma"
+
+#: Mobile/index.phtml:130
+msgid "NEWS & SPORTS"
+msgstr "NOTÍCIAS E DESPORTO"
+
+#: Mobile/index.phtml:131
+msgid "News/Magazines"
+msgstr "Notícias/Revistas"
+
+#: Mobile/index.phtml:132
+msgid "Sports/Teams"
+msgstr "Desporto/Equipa"
+
+#: Mobile/index.phtml:133
+msgid "RSS"
+msgstr "RSS"
+
+#: Mobile/index.phtml:134
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "REDES SOCIAIS E MENSAGEM"
+
+#: Mobile/index.phtml:135
+msgid "IM/SMS/Email/VOIP"
+msgstr "Mensagens/SMS/Email/VoIP"
+
+#: Mobile/index.phtml:136
+msgid "Social Networks"
+msgstr "Redes Sociais"
+
+#: Mobile/index.phtml:137
+msgid "Dating"
+msgstr "Encontros"
+
+#: Mobile/index.phtml:138
+msgid "Blogs/Images"
+msgstr "Blogs/Imagens"
+
+#: Mobile/index.phtml:139
+msgid "MUSIC & AUDIO"
+msgstr "MÚSICA E ÁUDIO"
+
+#: Mobile/index.phtml:140
+msgid "Podcasts"
+msgstr "Podcast"
+
+#: Mobile/index.phtml:141
+msgid "MP3/Music"
+msgstr "MP3/Música"
+
+#: Mobile/index.phtml:142
+msgid "Radios/Players"
+msgstr "Rádios/Aparelhos"
+
+#: Mobile/index.phtml:143
+msgid "Lyrics/Bands"
+msgstr "Letra/Bandas"
+
+#: Mobile/index.phtml:144
+msgid "VIDEO & TV"
+msgstr "VÍDEO E TV"
+
+#: Mobile/index.phtml:145
+msgid "TV/Shows"
+msgstr "TV/Series"
+
+#: Mobile/index.phtml:146
+msgid "Movies/Trailers"
+msgstr "Filmes/Trailers"
+
+#: Mobile/index.phtml:147
+msgid "players/Converters"
+msgstr "Aparelhos/Conversores"
+
+#: Mobile/index.phtml:148
+msgid "LIFESTYLE & WELLNESS"
+msgstr "ESTILO DE VIDA & BEM-ESTAR"
+
+#: Mobile/index.phtml:149
+msgid "Astro"
+msgstr "Astrologia"
+
+#: Mobile/index.phtml:150
+msgid "Food/Recipes"
+msgstr "Comida/Receita"
+
+#: Mobile/index.phtml:151
+msgid "Art/Fashion"
+msgstr "Arte/Moda"
+
+#: Mobile/index.phtml:152
+msgid "Hobbies/Pets"
+msgstr "Passtempos/Domésticos"
+
+#: Mobile/index.phtml:153
+msgid "Health/Diet/Fitness"
+msgstr "Saúde/Dieta/Exercício"
+
+#: Mobile/index.phtml:154
+msgid "Shopping/Brands"
+msgstr "Shopping/Marcas"
+
+#: Mobile/index.phtml:155
+msgid "EDUCATION & ELEARNING"
+msgstr "EDUCAÇÃO"
+
+#: Mobile/index.phtml:156
+msgid "Medical"
+msgstr "Médico"
+
+#: Mobile/index.phtml:157
+msgid "Language"
+msgstr "Idiomas"
+
+#: Mobile/index.phtml:158
+msgid "Kids/Early learning"
+msgstr "Crianças/Aprendizagem Precoce"
+
+#: Mobile/index.phtml:159
+msgid "University"
+msgstr "Universidade"
+
+#: Mobile/index.phtml:160
+msgid "Law"
+msgstr "Lei"
+
+#: Mobile/index.phtml:161
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "PRENDAS E DIVERTIMENTO"
+
+#: Mobile/index.phtml:162
+msgid "Wallpaper/Screensavers"
+msgstr "Papel de Parede/Proteção de Tela"
+
+#: Mobile/index.phtml:163
+msgid "Personlization/Skins"
+msgstr "Personalizações/Capas"
+
+#: Mobile/index.phtml:164
+msgid "Humor/Jokes"
+msgstr "Humor/Piadas"
+
+#: Mobile/index.phtml:165
+msgid "Ringtones"
+msgstr "Toques"
+
+#: Mobile/index.phtml:166
+msgid "THEMES"
+msgstr "TEMAS"
+
+#: Mobile/index.phtml:167
+msgid "Techno"
+msgstr "Tecno"
+
+#: Mobile/index.phtml:168
+msgid "Rock"
+msgstr "Rock"
+
+#: Mobile/index.phtml:169
+msgid "Calm"
+msgstr "Suave"
+
+#: Mobile/index.phtml:170
+msgid "Arts & Crafts"
+msgstr "Artesanato"
+
+#: Mobile/index.phtml:171
+msgid "Animation"
+msgstr "Animação"
+
+#: Mobile/index.phtml:172
+msgid "Category  Not Found"
+msgstr "Category  Not Found"
+
+#: Mobile/index.phtml:173
+msgid "You are not signed in yet"
+msgstr "Ainda não está iniciado"
+
+#: Mobile/index.phtml:174
+msgid "No Match Found"
+msgstr "Nada foi encontrado"
+
+#: Mobile/index.phtml:175
+msgid "Ok"
+msgstr "Ok"
+
+#: Mobile/index.phtml:176
+msgid "You haven't log in yet ? Please log in."
+msgstr "Ainda não iniciou uma sessão? Por favor, faça o login."
+
+#: Mobile/index.phtml:177
+msgid "Apps"
+msgstr "Apps"
+
+#: Mobile/index.phtml:178
+msgid "No Data Found"
+msgstr "Dados não foram encontrados"
+
+#: Mobile/index.phtml:179
+msgid "Downloading"
+msgstr "Baixando"
+
+#: Mobile/index.phtml:180
+msgid "You are here"
+msgstr "Você está aqui"
+
+#: Mobile/index.phtml:182
+msgid "Login to add a ticket"
+msgstr "Login para criar um ticket"
+
+#: Mobile/index.phtml:183
+msgid "Please add a valid email"
+msgstr "Por favor, inclua um e-mail válido"
+
+#: Mobile/index.phtml:184
+msgid "Please add a valid password"
+msgstr "Por favor insira um email válido"
+
+#: Mobile/index.phtml:185
+msgid "Click here to reset it"
+msgstr "Clique aqui para redefini-la"
+
+#: Mobile/index.phtml:186
+msgid "Home"
+msgstr "INÍCIO"
+
+#: Mobile/index.phtml:187
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted."
+msgstr ""
+"Produtos, logótipos e empresas mencionados neste documento são marcas "
+"comerciais ou nomes comerciais de seus respectivos proprietários e, "
+"portanto, protegido por direitos autoriais"
+
+#: Mobile/index.phtml:188
+msgid "Add your own review"
+msgstr "Adicionar seus próprios comentários"
+
+#: Mobile/index.phtml:189
+msgid "MTN Iran App Store"
+msgstr "MTN Iran App Store"
+
+#: Mobile/index.phtml:190
+msgid "IRR"
+msgstr "IRR"
+
+#: Mobile/index.phtml:191
+msgid " APP"
+msgstr "APP"
+
+#: Mobile/index.phtml:192
+msgid "Paid"
+msgstr "Por Pago"
+
+#: Mobile/index.phtml:193
+msgid "Mobile Number or password is incorrect"
+msgstr "O número de telemóvel ou a palavra-passe está incorreto"
+
+#: Mobile/index.phtml:194
+msgid "Mobile"
+msgstr "Telemóvel"
+
+#: Mobile/index.phtml:195
+msgid "Newest Apps"
+msgstr "Mais recentes"
+
+#: Mobile/index.phtml:196
+msgid "Search Results for"
+msgstr "Resultado da pesquisa para"
+
+#: Mobile/index.phtml:197
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"Digite o e-mail que você se inscreveu e vamos enviar-lhe um link para "
+"redefinir sua palavra-passe"
+
+#: Mobile/index.phtml:198
+msgid "Reset your password"
+msgstr "Redefina sua palavra-passe"
+
+#: Mobile/index.phtml:199
+msgid "Required infromation"
+msgstr "Informações necessárias"
+
+#: Mobile/index.phtml:200
+msgid "Enter Captcha"
+msgstr "Insira os caracteres"
+
+#: Mobile/index.phtml:201
+msgid "Powered by"
+msgstr "Facilitado pelo"
+
+#: Mobile/index.phtml:202
+msgid "The security key wasn't entered correctly"
+msgstr "A chave de segurança não foi digitado corretamente"
+
+#: Mobile/index.phtml:203
+msgid "Please try again"
+msgstr "Por favor, tente novamente"
+
+#: Mobile/index.phtml:204
+msgid "Reset"
+msgstr "Restabelecer"
+
+#: Mobile/index.phtml:205
+msgid "Info"
+msgstr "Informação"
+
+#: Mobile/index.phtml:206
+msgid "The email you supplied was not found"
+msgstr "O e-mail que você forneceu não foi encontrado"
+
+#: Mobile/index.phtml:207
+msgid "Username or password is incorrect"
+msgstr "O utilizador ou a palavra-passe está incorreto"
+
+#: Mobile/index.phtml:208
+msgid "Add a ticket"
+msgstr "Criar um ticket"
+
+#: Mobile/index.phtml:209
+msgid "View my ticket"
+msgstr "Ver o meu ticket"
+
+#: Mobile/index.phtml:210
+msgid "Subject"
+msgstr "Assunto"
+
+#: Mobile/index.phtml:211
+msgid "Type"
+msgstr "Tipo"
+
+#: Mobile/index.phtml:212
+msgid "Priority"
+msgstr "Prioridade"
+
+#: Mobile/index.phtml:213
+msgid "Select Type"
+msgstr "Selecionar o tipo"
+
+#: Mobile/index.phtml:214
+msgid "Question"
+msgstr "Questão"
+
+#: Mobile/index.phtml:215
+msgid "Incident"
+msgstr "Incidente"
+
+#: Mobile/index.phtml:216
+msgid "Problem"
+msgstr "Problema"
+
+#: Mobile/index.phtml:217
+msgid "Feature"
+msgstr "Destaque"
+
+#: Mobile/index.phtml:218
+msgid "Select Priority"
+msgstr "Selecionar a prioridade"
+
+#: Mobile/index.phtml:219
+msgid "Low"
+msgstr "Baixa"
+
+#: Mobile/index.phtml:220
+msgid "Medium"
+msgstr "Média"
+
+#: Mobile/index.phtml:221
+msgid "High"
+msgstr "Alta"
+
+#: Mobile/index.phtml:222
+msgid "Urgent"
+msgstr "Urgente"
+
+#: Mobile/index.phtml:223
+msgid "Your ticket submitted successfully"
+msgstr "O ticket foi enviado com sucesso"
+
+#: Mobile/index.phtml:224
+msgid "Your response submitted successfully"
+msgstr "Sua resposta foi enviado com sucesso"
+
+#: Mobile/index.phtml:225
+msgid "Responces"
+msgstr "Respostas"
+
+#: Mobile/index.phtml:226 Mobile/index.phtml:250
+msgid "No Response found"
+msgstr "Nenhuma resposta foi encontrada"
+
+#: Mobile/index.phtml:227
+msgid "Reply"
+msgstr "Responder"
+
+#: Mobile/index.phtml:228
+msgid "Submit"
+msgstr "Submeter"
+
+#: Mobile/index.phtml:229
+msgid "Platforms"
+msgstr "Plataformas"
+
+#: Mobile/index.phtml:230
+msgid "PLEASE SELECT YOUR PLATFORM"
+msgstr "SELECIONE SUA PLATAFORMA"
+
+#: Mobile/index.phtml:231
+msgid "Register on"
+msgstr "Registe-se no"
+
+#: Mobile/index.phtml:232
+msgid "PLEASE SELECT"
+msgstr "SELECIONAR"
+
+#: Mobile/index.phtml:233
+msgid "Android App"
+msgstr "App Android"
+
+#: Mobile/index.phtml:234
+msgid "Mobile Web"
+msgstr "Website Telemóvel"
+
+#: Mobile/index.phtml:236
+msgid "The mobile number or password you entered is incorrect"
+msgstr "O número de telemóvel ou a palavra-passe digitado está incorreto"
+
+#: Mobile/index.phtml:237 Mobile/index.phtml:248
+msgid "Open"
+msgstr "abrir"
+
+#: Mobile/index.phtml:238
+msgid "View my Tickets"
+msgstr "Ver o meu ticket"
+
+#: Mobile/index.phtml:239
+msgid "ticket"
+msgstr "ticket"
+
+#: Mobile/index.phtml:240
+msgid "Please add a subject"
+msgstr "Insira um assunto"
+
+#: Mobile/index.phtml:241
+msgid "Please select a type"
+msgstr "Selecione um tipo"
+
+#: Mobile/index.phtml:242
+msgid "Please select a priority"
+msgstr "Selecione uma prioridade"
+
+#: Mobile/index.phtml:243
+msgid "dashboard"
+msgstr "Painel de Bordo"
+
+#: Mobile/index.phtml:244
+msgid "The email or password you entered is incorrect"
+msgstr "The email or password you entered is incorrect"
+
+#: Mobile/index.phtml:245
+msgid "No apps found under this category"
+msgstr "Nenhum aplicativo foi encontrado nesta categoria"
+
+#: Mobile/index.phtml:246
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours"
+msgstr ""
+"Para quaisquer questões de serviço ao cliente; bugs no aplicativo baixado, "
+"dificuldade de baixar ou compras feitas por engano, por favor crie um "
+"ticket. Nós entraremos em contato com você dentro de 48 horas."
+
+#: Mobile/index.phtml:249
+msgid "Responses"
+msgstr "Respostas"
+
+#: Mobile/index.phtml:251
+msgid "My Tickets"
+msgstr "o meu ticket"
+
+#~ msgid " HOME "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "HOME"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Home "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid " Home"
+#~ msgstr "صفحه اصلی"

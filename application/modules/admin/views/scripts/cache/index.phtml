@@ -1,0 +1,46 @@
+<?php if (!empty($this->message)) : ?>
+<div class="message error">
+    <p><?php echo $this->message ?></p>
+</div>
+<?php endif;?>
+
+<div id="content_box">
+<div id="box">
+<div style='text-align:center; margin:15px '>
+    <form action='/cache/index/' method='post'>
+        <p>Type in the object ID and select the type of object to clear the cache for it</p>
+        <input type='text' class='date txt-input ' name='id'>
+        <select class='txt-input' name='mode'>
+            <option value='product'>Product</option>
+            <option value='user'>User</option>
+        </select> 
+        <input type='submit' value='Clear Cache' class='button'>
+    </form>
+</div>
+<br><br>
+<div style='text-align:center; margin:15px '>
+    <form action='/cache/bulk/' method='post'>
+        <p>If you need to clear a whole range of keys, select the object type and hit enter</p>
+        <select class='txt-input' name='mode'>
+            <option value='product'>Product</option>
+            <option value='category'>Categoy</option>
+            <option value='device'>Device</option>
+            <option value='meta'>Meta</option>
+            <option value='user'>User</option>
+            <option value='theme'>Theme</option>
+            <option value='phrase'>Phrase</option>
+        </select> 
+        <input type='submit' value='Clear Cache' class='button'>
+    </form>
+</div>
+<br><br>
+<div style='text-align:center; margin:15px '>
+    <form action='/cache/key/' method='post'>
+        <p>If you know exactly what key to clear, use this. (environement prefix NOT required)</p>
+        <input type='text' class='txt-input ' name='id'>
+        <input type='submit' value='Remove' class='button'>
+    </form>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,23 @@
+<?php if(!empty($this->messages)) : ?>
+    <div class='message_success'>
+        <?php foreach ($this->messages as $key=>$value): ?>
+            <?=$value?> <br>
+        <?endforeach;?>
+    </div>
+<?endif;?>
+
+<?php if(!empty($this->noticeMessages)) : ?>
+    <div class='message_notice'>
+        <?php foreach ($this->noticeMessages as $key=>$value): ?>
+            <?=$value?> <br>
+        <?endforeach;?>
+    </div>
+<?endif;?>
+
+<?php if(!empty($this->errorMessages)) : ?>
+    <div class='message_error'>
+        <?php foreach ($this->errorMessages as $key=>$value): ?>
+            <?=$value?> <br>
+        <?endforeach;?>
+    </div>
+<?endif;?>

@@ -1,0 +1,80 @@
+<div class="title">
+
+    <h3>Paymet Gateways | Nexva.com</h3>
+
+    
+</div>
+<div class="box">
+    <div class="txt">
+<?= $this->render('partials/message.phtml'); ?>
+        <div id="content_box">
+            <!-- Start tab tab-handsets -->
+
+            <div class="tab-handsets">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>Name</th>
+                            <th>Charge</th>
+                            <th>Fixed Cost</th>
+                            <th>Supports Web</th>
+                            <th>Supports Mobile</th>
+                            <th>Supports Inapp</th>
+                            <th>Active</th>
+                            <th> </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->paymetgateways as $paymetgateway): ?>
+                        <tr>
+                            <!--<td><input type="checkbox" name="check" /></td>-->
+                            <td><?= $paymetgateway['name']; ?></td>
+                            <td><?= $paymetgateway['charge']; ?>%</td>
+                            <td><?
+                            
+                                
+                             $currency = new Zend_Currency ( 'en_US' );
+                             $amount = $currency->toCurrency ( $paymetgateway['fixed_cost'] );
+
+                            echo $amount; ?></td>
+                            <td><? if($paymetgateway['supports_web'])
+                                        echo 'Yes';
+                                    else
+                                        echo 'No';
+                                        ?></td>
+                            <td><? if($paymetgateway['supports_mobile'])
+                                        echo 'Yes';
+                                    else
+                                        echo 'No';
+
+                            ?></td>
+                            <td><? if($paymetgateway['supports_inapp'])
+                                        echo 'Yes';
+                                    else
+                                        echo 'No';
+                             ?></td>
+                            <td><? if($paymetgateway['status'])
+                                            echo 'Yes';
+                                    else
+                                        echo 'No';
+                            ?></td>
+                            <td>
+                                    
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>paymentgateway/edit/id/<?=$paymetgateway['id'];?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+                                  
+                            </td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->paymetgateways, 'Sliding', 'partials/paginator.phtml'); ?>
+            </div>
+            <!-- End handsets -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" class=" webkit safari safari4 iphone js iphone3">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+    <title><?=isset($this->pageTitle)? $this->pageTitle . ' | ' : '' ?><?=$this->title ?> | Mobile</title>
+    <link type="text/css" href="/mobile/whitelables/saw3d/style.css" rel="stylesheet">
+
+    <meta content="yes" name="apple-mobile-web-app-capable">
+
+    <meta content="initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" name="viewport">
+  </head>
+  <body>
+    <div id="wrapper" class="wrapper">
+      <div id="header" class="header" >
+        <div id="logo">
+<!--          <img src="/mobile/whitelables/saw3d/images/logo.png" style="border: none" alt="logo"></img>-->
+        </div>
+      </div>
+      <div id="content" class="content rounded padding-all">
+        <?= $this->layout()->content ?>
+      </div>
+    </div>
+  </body>
+</html>

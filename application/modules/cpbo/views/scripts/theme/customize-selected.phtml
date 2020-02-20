@@ -1,0 +1,42 @@
+<div class="title">
+
+    <h3>Edit the css</h3>
+
+</div>
+
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+
+            <!-- Start tab-whitelabel-enable -->
+
+            <div class="tab-onwhitelabel">
+                <?echo $this->render('partials/message.phtml'); ?>
+                <table>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <form action="/theme/customize_selected" method="post" >
+                                    <small>
+                                        <h3>Please note...</h3>
+                                        <p>
+                                            <textarea id="css" name="css" cols="60" rows="7" style="width:100%;min-height: 300px;padding:2px;">
+                                            <?=$this->css;?>
+                                            </textarea>
+                                        </p>
+                                    </small>
+                                    
+                                    <input type="submit" value="Save CSS"  class="button" />
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End tab-whitelabel-enable -->
+
+        </div>
+    </div>
+</div>

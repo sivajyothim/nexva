@@ -1,0 +1,49 @@
+
+<div class="content-box">
+    <div class="content-box-header">
+       <h3 style="cursor: s-resize;">Inapp Payments</h3>
+        <div id="icon_wrapper">
+
+        </div>
+
+    </div> 
+    <div class="content-box-content">
+        <table style="width:100%;margin-left: 15px;" border="0">
+            <thead>
+                <tr>
+                    <th>App ID</th>
+                    <th>Mobil Number</th>
+                    <th>Transaction ID</th>
+                    <th>Transaction Date</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($this->inappDetails as $inapps) { ?>
+                    <tr>
+                        <td><?php echo $inapps->nexva_app_id; ?></td>
+                        <td><?php echo $inapps->mobile_no; ?></td>
+                        <td><?php echo $inapps->trans_id; ?></td>
+                        <td><?php echo $inapps->date_transaction; ?></td>
+                        <td><?php echo $this->CurrencyConvertPricePoints($inapps->price)." ($".$inapps->price.")"; ?></td>
+                        <td><?php if(isset($inapps->status) && !empty($inapps->status)){ echo $inapps->status; }else{ echo 'Pending';} ?></td>
+<!--                        <td><?php //echo $this->CurrencyConvertPricePoints($download['price']); ?></td>-->
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <br />
+        <div style ="width : 100%">
+            <?php echo  $this->paginationControl($this->inappDetails, 'Sliding', 'partials/pagination-inapp-payments.phtml'); ?>
+        </div>
+        <br />
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#7').addClass('current');
+    $('#72').addClass('current');
+</script>

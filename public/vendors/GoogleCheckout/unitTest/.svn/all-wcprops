@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest
+END
+testGoogleCart.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/testGoogleCart.php
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/index.php
+END
+stylesheet.css
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/stylesheet.css
+END
+testGoogleXMLParser.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/testGoogleXMLParser.php
+END
+message.log
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/message.log
+END
+testGoogleLog.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/testGoogleLog.php
+END
+error.log
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/unitTest/error.log
+END

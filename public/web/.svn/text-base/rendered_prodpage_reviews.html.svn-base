@@ -1,0 +1,394 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Final Fury for Java mobile - neXva.com</title>        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+        <meta property="og:site_name" content="neXva.com"/>
+
+        <meta name="keywords" content="games,Final Fury,,Java mobile, neXva, nexva.com" >
+<meta name="og:title" content="Final Fury (Java mobile)" >
+        <link type="text/css" rel="stylesheet" href="/web/nexva.css">
+        <link href="/web/jquery-ui.nexva.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="/web/libraries/jquery-1.4.2.js"></script>
+        <script type="text/javascript" src="/web/libraries/jquery-ui-1.8.js"></script>
+        <script type="text/javascript" src="/web/nexva.js"></script>
+        <script language="javascript">
+            $(document).ready(function() {
+                alignPage();
+                searchSgHide ();
+                hideOverlays();
+                setBackground ();
+
+
+                //startSession ();
+            });
+        </script>
+    </head>
+    <body>
+        <div id="background">
+            <div id="page">
+                <!-- header start -->
+                <div id="title">
+                    <div id="logo"><a href="/"><img alt="neXva.com" src="/web/images/nexva_logo.gif"></a></div>
+                    <div id="primaryLinks">
+                        <ul class="btn" id="primary">
+                            <li><a id="primary_about" href="#">about</a></li>
+                            <li><a id="primary_adv" href="#">advertise</a></li>
+                            <li><a id="primary_signup" href="#">sign up</a></li>
+                            <li><a id="primary_contact" href="#">contact</a></li>
+                        </ul>
+                        <!--
+                        <form id="search">
+                          <div class="searchFldR">
+                            <input class="searchFld" id="q">
+                            <input type="button" value="search" id="searchBtn" name="search">
+                          </div>
+                        </form>
+                        -->
+                    </div>
+                </div>
+                <!-- header end -->
+
+
+
+
+
+                <div class="blkLeft">
+                    <div class="block">
+                        <div class="blkTop"></div>
+                        <div class="blkContent">
+                            <div id="#userBlock">
+                                <div class="blockContent">
+                                    <div id="usrGreeting">Welcome to neXva.com.</div>
+                                    <ul id="usrPhones">
+                                        
+                                    </ul>
+                                    <div id="usrPhoneSelect"><a id="usr_phone"><img alt="user phone" src="/web/images/unknown_phone_icon.png">
+                                            <p id="usr_phone_str">
+                                                                                                No device selected. Click to select a mobile device
+                                                                                            </p>
+
+                                        </a>
+                                    </div>
+                                    <!--
+                                    <div class="inputFld">
+                                      <ul id="langSelect">
+                                        <li class="start"><a rel="de" href="#">De</a></li>
+                                        <li class="mid"><a rel="en" href="#">En</a></li>
+                                        <li class="mid"><a rel="es" href="#">Es</a></li>
+                                        <li class="mid"><a rel="fr" href="#">Fr</a></li>
+                                        <li class="end"><a rel="sv" href="#">Sv</a></li>
+                                      </ul>
+                                    </div>
+
+                                    <div class="inputFld">
+                                      <ul id="curSelect">
+                                        <li class="start"><a rel="usd" href="#">USD</a></li>
+                                        <li class="mid"><a rel="eur" href="#">EUR</a></li>
+                                        <li class="end"><a rel="gbp" href="#">GBP</a></li>
+                                      </ul>
+                                    </div>
+                                    -->
+                                    <form name="userForm" id="userForm" action="/user/login" method="post">
+    <div class="inputFld">
+        <label>E-Mail</label>
+        <input type="text" value="" id="email" name="email">
+    </div>
+    <div class="inputFld">
+        <label>Password</label>
+        <input type="password" value="" id="password" name="password">
+    </div>
+    <ul class="btn">
+        <li><a id="usr_login" href="#">login</a></li>
+        <li><a id="usr_signup" href="/user/register">sign up</a></li>
+    </ul>
+</form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="blkBottom"></div>
+                    </div>
+                    <div class="leftBlock">
+
+                        <div class="block" id="left_menuListBlk_menu_0">
+    <div class="blkTop"></div>
+    <div class="blkContent">
+        <h2>Categories</h2>
+        <div class="blockContent">
+            <ul>
+                                <li>
+                    <a href="/category/books-reference/1" class="menuLink">Books & Reference</a>
+                                        </li>
+                                <li>
+                    <a href="/category/games/7" class="menuLink">Games</a>
+                                            <ul>
+                                                        <li >
+                            <a href="/category/arcade/8" class="menuLink">Arcade</a>
+                        </li>
+                                                        <li >
+                            <a href="/category/cards/9" class="menuLink">Cards</a>
+                        </li>
+                                                        <li class="selected">
+                            <a href="/category/action-strategy/10" class="menuLink">Action/Strategy</a>
+                        </li>
+                                                        <li >
+                            <a href="/category/role-playing-multiplayer/11" class="menuLink">Role Playing/Multiplayer</a>
+                        </li>
+                                                        <li >
+                            <a href="/category/logic-puzzle-trivia/12" class="menuLink">Logic/Puzzle/Trivia</a>
+                        </li>
+                                                        <li >
+                            <a href="/category/casino-cards-betting/13" class="menuLink">Casino/Cards/Betting</a>
+                        </li>
+                                                        <li >
+                            <a href="/category/sports/14" class="menuLink">Sports</a>
+                        </li>
+                                                    </ul>
+                                        </li>
+                                <li>
+                    <a href="/category/tools-productivity/15" class="menuLink">Tools & Productivity</a>
+                                        </li>
+                                <li>
+                    <a href="/category/business-finance/24" class="menuLink">Business & Finance</a>
+                                        </li>
+                                <li>
+                    <a href="/category/travel-gps/29" class="menuLink">Travel & GPS</a>
+                                        </li>
+                                <li>
+                    <a href="/category/news-sports/35" class="menuLink">News & Sports</a>
+                                        </li>
+                                <li>
+                    <a href="/category/social-networks-messaging/39" class="menuLink">Social Networks & Messaging</a>
+                                        </li>
+                                <li>
+                    <a href="/category/music-audio/44" class="menuLink">Music & Audio</a>
+                                        </li>
+                                <li>
+                    <a href="/category/video-tv/49" class="menuLink">Video & TV</a>
+                                        </li>
+                                <li>
+                    <a href="/category/lifestyle-wellness/53" class="menuLink">Lifestyle & Wellness</a>
+                                        </li>
+                                <li>
+                    <a href="/category/education-elearning/60" class="menuLink">Education & eLearning</a>
+                                        </li>
+                                <li>
+                    <a href="/category/goodies-entertainment/66" class="menuLink">Goodies & Entertainment</a>
+                                        </li>
+                                <li>
+                    <a href="/category/themes/71" class="menuLink">Themes </a>
+                                        </li>
+                            </ul>
+        </div>
+    </div>
+    <div class="blkBottom"></div>
+</div>
+                        <!--
+                        <div class="block" id="left_menuListBlk_nexva_rec">
+                            <div class="blkTop"></div>
+                            <div class="blkContent">
+                                <h2><img class="neXvaLogo" src="/web/images/nexva_logo_small.png"> recommends</h2>
+                                <div class="blockContent"><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a><a id="menu_item_root_1_0" href="javascript:loadPage('root_1_0', 'prod_list');" class="menuLink">Audio books</a><a id="menu_item_root_1_1" href="javascript:loadPage('root_1_1', 'prod_list');" class="menuLink">Comics / Manga</a><a id="menu_item_root_1_2" href="javascript:loadPage('root_1_2', 'prod_list');" class="menuLink">eBooks</a><a id="menu_item_root_1_3" href="javascript:loadPage('root_1_3', 'prod_list');" class="menuLink">Reference / Dictionaries</a><a id="menu_item_root_1_4" href="javascript:loadPage('root_1_4', 'prod_list');" class="menuLink">Religion</a></div>
+                            </div>
+                            <div class="blkBottom"></div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+
+                <div class="blkCenter innerPage">
+    <!-- product list page start -->
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contTop"></div>
+            <div class="contContent">
+                <div class="blockContent">
+                    <div class="blkHead">
+                        <h2 id="pageTitle">Final Fury</h2>
+
+                        <ul id="breadcrumbs">
+                                                        <li><a href="/category/games/7">Games</a></li>
+                                                        <li><a href="/category/action-strategy/10">Action/Strategy</a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="blkList">
+                        <div class="prodView">
+                            <div class="leftCol">
+                                <div class="posterImg"><img name="prod_poster" src="/product_visuals/development/FinalFury101571.gif" width="200" height="270" border="0" id="prod_poster" alt="" /></div>
+                            </div>
+                            <div class="rightCol">
+                                <div class="specsheet">
+
+                                    <div><label>Price</label>
+                                                                                <span id="prod_price">$2.50</span>
+                                                                            </div>
+                                    <div><label>Platform</label><span id="prod_platform">Java mobile</span></div>
+                                    <div><label>Vendor</label><span id="prod_vendor"></span></div>
+                                    <!-- <div><label>Rating</label><span id="prod_rating"><img src="images/star.gif" alt="star" width="11" height="12" /><img src="images/star.gif" alt="star" width="11" height="12" /><img src="images/star.gif" alt="star" width="11" height="12" /></span></div>-->
+                                </div>
+
+                                <div class="qrCode">
+                                    
+                                    <img name="qr_code" src="http://chart.apis.google.com/chart?cht=qr&chs=80x80&chl=http://nexva-v2-dev.mobi/app/show/id/848" width="80" height="80" border="0" id="qr_code" alt="Generating QR code.." />
+
+                                </div>
+                                <div class="buttons">
+                                    <ul class="btn">
+                                                                                <li><a href="/app/buy/id/848" class="buy">Buy</a></li>
+                                                                                <li><a name="fb_share" type="icon_link" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></li>
+                                        
+                                    </ul>
+                                </div>
+                                <div class="screenShots">
+                                    <h3>Screenshots</h3>
+                                    <ul>
+                                                                                <li><a href="javascript:viewScreenShot('/product_visuals/development/FinalFury101571.gif');"><img src="/product_visuals/development/FinalFury101571.gif" width="80" height="80" border="0" alt="" /></a></li>
+                                                                                <li><a href="javascript:viewScreenShot('/product_visuals/development/FinalFury101572.gif');"><img src="/product_visuals/development/FinalFury101572.gif" width="80" height="80" border="0" alt="" /></a></li>
+                                                                                <li><a href="javascript:viewScreenShot('/product_visuals/development/FinalFury101573.gif');"><img src="/product_visuals/development/FinalFury101573.gif" width="80" height="80" border="0" alt="" /></a></li>
+                                                                            </ul>
+                                </div>
+
+                            </div>
+                            <div class="description">
+                                <p><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fnexva-v2-dev.com%2Fapp%2Ffinal-fury-for-java-mobile.848&amp;layout=standard&amp;show_faces=true&amp;width=450&amp;action=like&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:80px;" allowTransparency="true"></iframe></p>
+                                <h3>Description</h3>
+                                <p>FinalFury:<br /><br />Kill as many zombies as you can before they get you!<br /><br />A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it!<br /><br />Controls:<br />1) Press 4 to turn anti-clockwise.<br />2) Press 6 to turn clockwise.<br />3) Press 5 to shoot.<br />4) Press 7 to use a Fragger bomb.<br />5) Shoot bonus elements to get them.<br /><br />Published by ZGroup Mobile (http://www.zgroup-mobile.com)</p>
+                              <h3>Reviews</h3>
+                              <div class="table reviews">
+                                <div class="review">
+                                  <h4>Reviwer's Name</h4>
+                                  <ul class="rating">
+                                    <li>
+                                    	<label>Rating</label>
+                                      <img src="/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_half.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                    </li>
+                                    <li>
+                                    	<label>Date</label>
+                                    	<p>33 / 33 / 33</p>
+                                    </li>
+                                  </ul>
+                                  <div class="comments">
+                                    <p>A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it! A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it! </p>
+                                  </div>
+         												</div>
+                                <div class="review">
+                                  <h4>Reviwer's Name</h4>
+                                  <ul class="rating">
+                                    <li>
+                                    	<label>Rating</label>
+                                      <img src="/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />	
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                    </li>
+                                    <li>
+                                    	<label>Date</label>
+                                    	<p>33 / 33 / 33</p>
+                                    </li>
+                                  </ul>
+                                  <div class="comments">
+                                    <p>A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it! A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it! </p>
+                                  </div>
+         												</div>
+                                <div class="review">
+                                  <h4>Reviwer's Name</h4>
+                                  <ul class="rating">
+                                    <li>
+                                    	<label>Rating</label>
+                                      <img src="/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                      <img src="/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                    </li>
+                                    <li>
+                                    	<label>Date</label>
+                                    	<p>33 / 33 / 33</p>
+                                    </li>
+                                  </ul>
+                                  <div class="comments">
+                                    <p>A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it! A virus has turned the population of Les Angeles into killer zombies! You were part of a Special Forces squad deployed to contain the situation. But all your buddies got killed and the zombies are closing in on you! There&#39;s no way out, and if the zombies want a piece of you, they&#39;re gonna have to work real hard to get it! </p>
+                                  </div>
+         												</div>
+                                <ul class="btn">
+                                	<li><a href="more" class="buy">more</a></li>
+                                </ul>
+                              </div>
+                              <h3>Compatible Devices</h3>
+
+                                <div class="table">
+                                    
+                                    <table>
+                                                                                <tr class="first "><th>Huawei</th><td>Vodafone 716, v716</td></tr>
+                                                                                                                            <tr class=" "><th>kddi</th><td>W61S, W53CA</td></tr>
+                                                                                                                            <tr class=" "><th>LG</th><td>U900, U370, TU515, LG830, LG-LX165, AX300</td></tr>
+                                                                                                                            <tr class=" "><th>Motorola</th><td>Z10 (RAZR), W5, V9m (MOTORAZR 2), V800, V80, V600, V525M, V525, V500, V400, V300, V266, V220, V180, ROKR E1 (RokR), Q9m, i920B, E398, C975 (Tyax), C651, C650</td></tr>
+                                                                                                                            <tr class=" "><th>Nokia</th><td>N92, N90, N80, N73, N72, N71, N70, N-Gage QD, 9500, 9210i, 7650, 7610, 7600, 7370, 7270, 7260, 7250i, 7250, 7210 (Supernova), 7200, 6822, 6820, 6810, 6800, 6681, 6680, 6670, 6651, 6650, 6630, 6585, 6282, 6280, 6275i, 6275, 6270, 6265i, 6265, 6235i, 6235, 6234, 6233, 6230, 6225, 6220, 6200, 6170, 6165, 6131, 6120c, 6108, 6100A, 6100, 6030, 6021, 6020, 5140, 5100, 3660, 3650, 3620, 3600, 3300, 3230, 3220, 3200, 3125, 3120, 3108, 3105, 3100, 2660, 2650</td></tr>
+                                                                                                                            <tr class=" "><th>Sagem</th><td>MC2007</td></tr>
+                                                                                                                            <tr class=" "><th>Samsung</th><td>SGH-X600, SGH-X100, SGH-L170, SGH-i450, SGH-E600, SGH G810, SCH-U550</td></tr>
+                                                                                                                            <tr class=" "><th>SonyEricsson</th><td>Z750i, Z600, W950i, W950, W900i, w900, W850i, W850, T630, T618, T616, T610, S710a, S700c, P990c, P990, P910, P900, P800, M600, K800i, K800, K790, K660i, k500, K300i, K300c, K300a, K300, J300i, J300c, J300a, J300, F500i, f500</td></tr>
+                                                                                                                            <tr class=" last"><th>ZTE</th><td>F165, C88</td></tr>
+                                                                                                                        </table>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contBottom"></div>
+        </div>
+    </div>
+    <!-- product list page end -->
+</div>
+
+
+                <!--
+                <div class="blkRight">
+                    <div class="rightBlock">
+                        <div class="block" id="right_menuListBlk_notices">
+                            <div class="blkTop"></div>
+                            <div class="blkContent">
+                                <h2>notices</h2>
+                                <div class="blockContent"><a id="menu_item_notice_0" href="javascript:loadPage('notice_0', 'prod_list');" class="menuLink">neXva version two. with jquery and ajax. this is a notice.</a><a id="menu_item_notice_1" href="javascript:loadPage('notice_1', 'prod_list');" class="menuLink">the second notice. will be some random message. blah blah blah blah blah.</a></div>
+                            </div>
+                            <div class="blkBottom"></div>
+                        </div>
+                        <div class="block" id="right_menuListBlk_nexva_rec">
+                            <div class="blkTop"></div>
+                            <div class="blkContent">
+                                <h2><img class="neXvaLogo" src="/web/images/nexva_logo_small.png"> recommends</h2>
+                                <div class="blockContent"><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a></div>
+                            </div>
+                            <div class="blkBottom"></div>
+                        </div>
+                    </div>
+                </div>
+                -->
+
+
+                <div id="footer">© Copyright 2010 neXva . All rights reserved .
+                    Products, logos and companies mentioned herein are trademarks or trade names of their respective owners and therefore copyright.</div>
+                <div id="searchSg" style="visibility: hidden;"></div>
+                <div id="systemMsg" style="visibility: hidden;"></div>
+                <div id="phoneSelect" style="visibility: hidden;">
+                    <p>what is the model of your phone?</p>
+                    <form id="searchPhone">
+                        <div class="searchFldR">
+                            <input class="searchFld" id="q_phone" autocomplete="off">
+                            <input type="button" value="search" id="searchBtnPhone" name="search">
+                        </div>
+                    </form>
+                    <div id="searchSgPhone"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

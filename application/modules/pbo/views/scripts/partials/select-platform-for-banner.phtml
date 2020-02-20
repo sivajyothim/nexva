@@ -1,0 +1,72 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 9/13/13
+ * Time: 10:18 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<style type="text/css">
+    #app_view_banner #preloader_banner
+    {
+        position: relative;
+        top:10px;
+        left:142px;
+    }
+    /*#apps_banner img{
+        margin-left:50px;
+    }
+    #apps_banner .button{
+        margin-top: 25px;
+        margin-left: 120px;
+    }*/
+
+    #apps_banner img{
+        /*margin-left:50px;*/
+    }
+    #apps_banner .button{
+        margin-top: 25px;
+        margin-left: 120px;
+    }
+    #apps_banner #wrapper{
+        width:99.9%;
+    }
+    #apps_feature #wrapper p{
+        text-align:center;
+    }
+    #apps_banner .wrapper-left{
+        width:50%;
+        float:left;
+        height:32px;
+    }
+    #apps_banner .wrapper-left input{
+        float:right;
+        margin-top:8px;
+        margin-right:10px;
+    }
+    #apps_banner .wrapper-right{
+        width:50%;
+        float:right;
+        height:32px;
+        /*padding:5px;*/
+        /*vertical-align:middle;*/
+    }
+    #apps_banner .wrapper-right img{
+        float:left;
+    }
+
+</style>
+
+<div style="display:none;">
+    <div id="app_view_banner">
+        <div class="pop_up_head pop_up_head_custom"><h3>Platforms.</h3></div>
+        <img id='preloader_banner' class='display_none' width='16'  src="<?= $this->cdn('site_assets') ?>/web/images/loading.gif" border="0" id="seach_loading" alt="loading" />
+        <div  style="overflow: auto">
+            <form id="apps_banner" action="/app/selected-platforms-for-banner">
+
+            </form>
+        </div>
+    </div>
+</div>

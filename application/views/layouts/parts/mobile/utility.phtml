@@ -1,0 +1,52 @@
+<table>
+    <tbody>
+        <? if ($this->item['categories_on'] && isset($this->item['categories'][0]) && count($this->item['categories'][0])): ?>
+            <tr>    
+                <td> 
+                    <form id="utility_form_cat" name="category_form" action="/app/cat/">
+                        <?php if (!empty($this->item['selectedCat'])) : ?>
+                            <input type="hidden" name="type" value="<?= $this->item['mode'] ?>"/> 
+                        <?php endif; ?>
+                        <br clear="all" />
+                        <select class="utility-f" name="category" onchange="javascript:document.getElementById('utility_form_cat').submit();">
+                        <?php
+                        $selected = ''; 
+                        $selected = $this->item['selectedCat'];
+                        $cat = $this->item['categories'];
+                        $options = '<option value = "0">All Categories</option>';  
+                        foreach ($cat[0] as $key => $value) {
+                            $selectP = ($selected == $key) ? 'selected="selected"' : '';
+                            $options .= '<option value = "' . $key . '" ' . $selectP . '>' . $value . '</option>';
+                            foreach ($cat[$key] as $childKey => $childValue) {
+                                $select = ($selected == $childKey) ? 'selected="selected"' : '';
+                                $options .= '<option value = "' . $childKey . '" ' . $select . '>&nbsp; - ' . $childValue . '</option>';
+                            }
+                        }
+                        echo $options;
+                        ?>
+                    </select>
+                    <input class="button" type="submit" value="Go"/>
+                </form>
+            </td>
+        </tr>
+        <? endif; ?>
+
+        <? if ($this->item['search_on']): ?>
+                            <tr>
+                                <td class="utility-td">
+                                    <a name='q'></a>
+                                    <form id="utility_form" name="search" action="/app/search/">
+                                        <br clear="all" />
+                                        <input inputmode = CDATA class="utility-text" type="text" id="q" name="q" value="<?= $this->item['search'] ?>"/>
+                                        <input class="button" type="submit" value="Search"/>
+                                        <?php if (isset($this->item['selectedCat'])) :?>
+                                            <input type="hidden" name="selcat" value="<?= $this->item['selectedCat'] ?>"/>
+                                        <?php endif;?>
+                                        
+                                    </form>
+                                </td>
+                            </tr>
+        <? endif; ?>
+    </tbody>
+</table>
+

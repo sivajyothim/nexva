@@ -1,0 +1,74 @@
+<?php echo $this->partial('partials/analytics_includes.phtml');?>  
+<?php echo $this->render('partials/analytics_region_includes.phtml', array('appRegions' => $this->appRegions));?>
+    
+    <?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView'   => $this->endTimeView,
+        'product'       => $this->product,
+        'queryString'   => $this->queryString,
+        'chaps'         => $this->chaps
+        //'chap'          => $this->chap
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+    
+<div id='visualizations'>
+    <?php 
+        $opts   = array(
+            'product'       => $this->product
+        );
+        echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+    
+    <div id='stats_view_by_date_cont' class="title">
+        <h3>App <?=$this->metric?> by Region</h3>
+        <div class='filter'>
+             <!--   <a href='/analytics/regions/mode/views-mobile/<?=$this->queryString?>' class='button'>Visits - Mobile</a>  --> 
+             <!--   <a href='/analytics/regions/mode/views-web/<?=$this->queryString?>' class='button'>Visits - Web</a>  --> 
+                <a href='/analytics/regions/mode/views/<?=$this->queryString?>' class='button'>Visits</a>
+                <a href='/analytics/regions/mode/downloads/<?=$this->queryString?>' class='button'>Downloads</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div id='map_canvas' style='width:100%; '></div>
+        </div>
+    </div>
+    
+    <div class='message warning'>
+        <p>Please be aware that this data is based on approximate figures. Mileage may vary</p>
+    </div>
+    
+    <div class="title">
+        <h3>All Regions</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Region</th>
+                        <th><?=$this->metric?></th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $sum    = array_sum($this->appRegions);
+                        $class  = ''; 
+                    ?>
+                    <?php foreach ($this->appRegions as $region => $hits) : ?>
+                    <?php $class = ($class == 'class="alt"') ? '' : 'class="alt"';?>
+                    <tr>
+                        <td><?php echo $region;?></td>
+                        <td><?php echo $hits ?></td>
+                        <td><?php echo round($hits / $sum * 100, 2) ?>%</td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        
+</div>

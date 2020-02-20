@@ -1,0 +1,100 @@
+<?php $this->headScript()->appendFile($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        }, function(){
+            $( ".nexlink" ).each(function(){
+                $(this).attr('href', $(this).attr('href') + '/1');
+                $(this).parent().eq(0).removeClass('display_none');
+            });
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+
+    <div class="blkCenter innerPage">
+      <!-- product list page start -->
+      <div class="prodListPage">
+        <div class="container">
+          <div class="contContent">
+            <div class="blockContent">
+              <div class="blkHead">
+                <h2 id="pageTitle">Purchased Content</h2>
+                <ul id="breadcrumbs">
+
+                    <li><a href="/">Home</a></li>
+                </ul>
+              </div>
+
+              <ul id="selectTabs">
+
+              <?if (isset($this->selectedDevices) && count($this->selectedDevices) > 0): ?>
+
+                  <?foreach($this->selectedDevices as $device): ?>
+                    <li <?if( $this->request()->device_id == $device['id'] ): ?>class="selected"> <?endif;?>
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/purchased/id/<?=$device['id']?>"><?=$device['phone']?></a>
+                    </li>
+                  <?endforeach;?>
+
+              <?endif;?>
+
+              </ul>
+
+
+              <div class="blkList">
+
+                    <?foreach ($this->products as $product): ?>
+
+                    <div class="prodListItem">
+                      <div class="block">
+                        <div class="blkContent">
+                          <div class="blkHead">
+                            <img src="<?=$this->cdn('product_images')?><?=$product['thumb']?>" alt="<?=$product['name']?>">
+                                <h3><?=$product['name']?></h3>
+                                    <div class="priceTag"><label>Price: </label><span class="prod_price"><?=($product['cost']==0) ? "Free" : "$".$product['cost']?></span></div>
+                                <ul>
+
+                                  <li><a class="moreinfo" href="<?php echo PROJECT_BASEPATH;?>app/<?=$this->slug($product['name'].'-for-'.$product['platform_name']).".".$product['id']?>">More&nbsp;Info</a></li>
+                                  <?if($product['cost']==0 || $product['is_purchased']): ?>
+                                  <?$config = Zend_Registry::get("config");?>
+                                  <li>
+                                      <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$product['id']?>" class='nexlink' rel='shadowbox;height=530;width=600'>Download</a>
+                                  </li>
+                                  
+                                  <?if('DYNAMIC' == $product['registration_model']):?>
+                                  <?php
+                                        //figure out the order id for this
+                                        $modelOrder = new Model_Order();
+                                        $order = $modelOrder->getUserOrder(Zend_Auth::getInstance()->getIdentity()->id, $product['id']);                                                                                
+                                  ?>
+                                  <li>
+                                      <a class="moreinfo" href="<?php echo PROJECT_BASEPATH;?>app/generate-dynamic-key/id/<?=$order->order_id?>">Key</a>
+                                  </li>
+                                  <?endif;?>
+                                 
+
+                                  <?endif;?>
+                                </ul>
+                          </div>
+                          <div class="prodListSpecsheet">
+                            <div class="speclist">
+                              <div><label>Platform</label><span class="prod_platform"><?=$product['platform_name']?></span></div>
+                            </div>
+                          </div>
+                              <p>  <?=($product['desc_brief'])?> </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  <? endforeach;?>
+
+
+              </div>
+            </div>
+          </div>
+          <div class='clear'></div>
+        </div>
+      </div>
+      <!-- product list page end -->
+    </div>

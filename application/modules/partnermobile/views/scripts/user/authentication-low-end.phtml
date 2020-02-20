@@ -1,0 +1,77 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 8/30/13
+ * Time: 1:53 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#authenticateform").validate();
+        $("#resend_verification").click(function(){
+            var resend = true;
+            $.post("/user/resend-verification",{resend:resend},function(data) {
+                window.location.href = '/user/forgot-verification';
+               
+            });
+            
+        });
+    });
+</script>
+
+<div class="ui-content ui-body-d">
+       <div class="ui-body ui-body-c bg-color-white">
+           
+<div class="ui-grid-solo">
+    <?php
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->escape($message);
+                };?>
+           </span></span></div>
+    <?php }
+    if($this->Messages)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+              
+        <?php foreach($this->Messages as $key=>$value)
+        {
+            if(is_array($value))
+            {
+                foreach($value as $one=>$two)
+                {
+                    echo $this->translate($two);
+                }
+                echo '<br/>';
+            }
+            else
+            {
+                echo $this->translate($value),'<br/>';
+            }
+        } ?>
+        </span></span></div>
+    <?php } ?>
+</div>
+
+    
+           <form action="/user/authentication" method="post" id="authenticateform" data-ajax="false">
+                  
+               <fieldset class="ui-field-contain ui-body ui-br">
+                   <label for="activation_code" class="ui-input-text"><?php echo $this->translate("Verification Code");?> :</label>
+                   <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                       <input type="text" name="activation_code" id="activation_code" class="required ui-input-text ui-body-c">
+                   </div>
+               </fieldset>
+    
+<div id="verify" class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Verify");?></span></span><input type="submit" value="Verify" class="ui-btn-hidden" id="btn_submit" name="btn_submit"></div>
+    </form>
+    
+     <a id="resend_verification" href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-first-child ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal"><?php echo $this->translate("Resend Verification Code");?></span></span></a>
+
+</div></div>

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/nexva_v1/!svn/ver/22700/v2/trunk/public/vendors/soapui/lib
+END
+class.wsdl.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.wsdl.php
+END
+nusoapmime.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/nusoapmime.php
+END
+changelog
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/changelog
+END
+class.soap_fault.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.soap_fault.php
+END
+class.soap_transport_http.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.soap_transport_http.php
+END
+class.wsdlcache.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.wsdlcache.php
+END
+class.soap_parser.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.soap_parser.php
+END
+class.nusoap_base.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.nusoap_base.php
+END
+class.soapclient.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.soapclient.php
+END
+class.xmlschema.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.xmlschema.php
+END
+nusoap.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/nusoap.php
+END
+class.soap_val.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.soap_val.php
+END
+class.xmlrpcclient.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22700/v2/trunk/public/vendors/soapui/lib/class.xmlrpcclient.php
+END
+class.soap_server.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/lib/class.soap_server.php
+END

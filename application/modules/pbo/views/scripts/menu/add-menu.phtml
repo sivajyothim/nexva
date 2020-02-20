@@ -1,0 +1,159 @@
+<script type="text/javascript" language="javascript">
+    
+    //Validation
+    $(document).ready(function() {
+	$("#frmManageMenu").validate();
+    });
+
+    //Dropdown function 
+    $(document).ready(function()
+    {	
+        //When 'Type' dropdown value changes, Based on the selected value, different field will show up
+        $('#chkMenuType').change(function() 
+        {   
+            var typeVal = $('#chkMenuType').val();
+           
+           if(typeVal == 'external')
+            {
+                $('#urlField').removeClass('display_none');
+                $('#pageField').addClass('display_none');
+            }
+            else
+            {
+                $('#pageField').removeClass('display_none');
+                $('#urlField').addClass('display_none');
+            }
+             
+            
+        });
+
+        $('#language').change(function(){
+
+            var language = $(this).val();
+
+            $.get('/menu/get-pages-by-language-id', { language:language }, function(data, status){
+                var response = JSON.parse(data);
+                var html = '<select name="chkPage" id="chkPage" class="chkbox">';
+                for(var i in response){
+                    html += '<option value="'+response[i].id+'">'+response[i].title+'</option>';
+                }
+                html += '</select>';
+
+                $('#chkPage').html(html);
+
+            });
+
+        });
+
+    });
+
+</script>
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+
+        <div id="icon_wrapper">
+            <a href="<?php echo PBO_PROJECT_BASEPATH; ?>menu" alt="Manage Menu Items"> <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH; ?>images/icons/manage-menu-small.png" alt="Manage Menu Items" /><br />
+            Manage Menu Items</a>
+        </div>
+</div> <!-- End .content-box-header -->
+
+
+<div class="content-box-content">
+
+     <!-- Displays Message/s -->
+        <?php if (count($this->menuMessages)) : ?>
+
+        <div class="notification success png_bg">                
+                <div>
+
+                    <?php foreach ($this->menuMessages as $message) : ?>
+
+                        <li><?php echo $this->escape($message); ?></li>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+    
+    <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>menu/<?= isset($this->menuId) ? $this->action : 'add-menu' ?>" id="frmManageMenu" name="frmManageMenu">
+                       
+            <p>
+                <label>Menu Title <span class="mendatory_fileds">*</span></label>
+                <input id="txtTitle" name="txtTitle" class="text-input small-input required" type="text" name="small-input" value="<?= !isset($this->menuDetails->title) ? '' : utf8_decode($this->menuDetails->title); ?>"></input>
+            </p>
+            
+            <p>
+                <label>Type</label>
+                <select name="chkMenuType" id="chkMenuType" class="chkbox">
+                    <option value="internal" <?= (isset($this->menuDetails->type) && $this->menuDetails->type == 'INTERNAL') ? 'selected= "selected"' : '' ?> >Internal Page</option>
+                    <option value="external" <?= (isset($this->menuDetails->type) && $this->menuDetails->type == 'EXTERNAL') ? 'selected= "selected"' : '' ?> >External URL</option>       
+                </select>                 
+            </p>
+
+            <p>
+                <label>Language</label>
+                <select name="language" id="language" class="chkbox">
+                    <option> - Select Language - </option>
+                    <?php foreach($this->languages as $language) { ?>
+                        <option value="<?php echo $language->language_id;?>" <?php echo (isset($this->menuDetails->language_id) && ($this->menuDetails->language_id == $language->language_id)) ? 'selected= "selected"' : '' ?> ><?php echo utf8_decode($language->name) ;?></option>
+                    <?php } ?>
+                </select>
+            </p>
+            
+            <p id="urlField" class="<?= (($this->menuType == 'INTERNAL') || empty($this->menuType)) ? 'display_none' : ''; ?>">
+                <label>URL <span style="font-weight: normal">(with http://)</span> <span class="mendatory_fileds">*</span></label>
+                <input id="txtUrl" name="txtUrl" class="text-input small-input required" type="text" name="small-input" value="<?= !isset($this->menuDetails->url) ? '' : $this->escape($this->menuDetails->url); ?>"></input>
+            </p>
+            
+            <p id="pageField" class="<?= ($this->menuType == 'EXTERNAL') ? 'display_none' : ''; ?>">
+                <label>Page <span class="mendatory_fileds">*</span></label>
+                <select name="chkPage" id="chkPage" class="chkbox">
+                                       
+                    <?php foreach($this->webPages as $page) : ?>
+                        <option value="<?= $page->id ?>" <?= (isset($this->menuDetails->page_id) && $this->menuDetails->page_id == $page->id) ? 'selected= "selected"' : '' ?> ><?= $page->title; ?></option>
+                    <?php endforeach ; ?>
+                </select>                
+            </p>
+
+            <!--<p id="pageField" class="<?/*= ($this->menuType == 'EXTERNAL') ? 'display_none' : ''; */?>">
+                <label>Page <span class="mendatory_fileds">*</span></label>
+                <select name="chkPage" id="chkPage" class="chkbox">
+
+                </select>
+            </p>-->
+
+
+            <p>
+                <label>Target Window</label>
+                <select name="chkTarget" id="chkTarget" class="chkbox">
+                    <option value="_parent" <?= (isset($this->menuDetails->target_window) && $this->menuDetails->target_window == '_parent') ? 'selected= "selected"' : '' ?> >Parent Window</option>
+                    <option value="_blank" <?= (isset($this->menuDetails->target_window) && $this->menuDetails->target_window == '_blank') ? 'selected= "selected"' : '' ?> >New Window</option>       
+                </select>                
+            </p>
+            <p>
+                <label>Status</label>
+                 <select name="chkStatus" id="chkStatus" class="chkbox">
+                    <option value="publish" <?= (isset($this->menuDetails->status) && $this->menuDetails->status == 'publish') ? 'selected= "selected"' : '' ?> >Publish</option>
+                    <option value="unpublish" <?= (isset($this->menuDetails->status) && $this->menuDetails->status == 'unpublish') ? 'selected= "selected"' : '' ?> >Un Publish</option>       
+                </select>  
+            </p>
+
+            <p>
+                <input id="btnSubmit" name="btnSubmit" class="button" type="submit" value="<?= isset($this->menuId) ? 'Save' : 'Submit' ?>">
+                <input id="btnReset" name="btnReset" class="button" type="reset" value="Reset">
+                <input id="menuId" name="menuId" class="button" type="hidden" value="<?= isset($this->menuId) ? $this->menuId : '' ?>">
+            </p>
+        </form>
+        <br />
+    </div>
+    
+</div>
+
+<script type="text/javascript">        
+   $('#5').addClass('current');  
+   $('#51').addClass('current'); 
+</script>

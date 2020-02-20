@@ -1,0 +1,91 @@
+<div class="title">
+    <h3>Views and downloads</h3>
+</div>
+<div class="box" >
+    <div class="txt" style="background-color: white">
+
+        <div id="content_box" style="float:left;width:50%;">
+            <br /><br />
+            <div>
+                <img src='<?=$this->chart($this->chart);?>' />
+            </div>
+            
+        </div>
+
+        <div id="content_box" style="padding-left:100px;">
+                <br /><br />
+            <div>
+                <img src='<?=$this->chart($this->download_chart);?>' />
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<div class="stats_wrapper">
+    <div class="title">
+
+        <h3>Top ten devices</h3>
+
+
+    </div>
+    <div class="box" >
+        <div class="txt">
+
+            <div id="content_box">
+                <table cellspacing="0" cellpadding="0">
+                    <thead><tr><th>Name</th><th>Hits</th></tr></thead>
+                    <tbody>
+                        <?foreach($this->topTenDevices as $oneOfTopTen):?>
+                        <tr>
+                            <td><?=$oneOfTopTen['brand']." ".$oneOfTopTen['model'];?></td> <td><?=$oneOfTopTen['hits'];?></td>
+                        </tr>
+                        <?endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div  class="stats_wrapper">
+    <div class="title">
+
+        <h3>Top  downloads</h3>
+
+
+    </div>
+    <div class="box" >
+        <div class="txt">
+
+            <div id="content_box">
+                <table cellspacing="0" cellpadding="0">
+                    <thead><tr><th>Name</th><th>Downloads</th></tr></thead>
+                    <tbody>
+
+
+                        
+                    <tbody>
+                        <?foreach($this->stats as $stat): ?>
+
+                            <?if(isset($stat['count'])):?>
+                        <tr>
+                            <td><?=$stat['name'];?></td><td><?=$stat['count']?></td>
+                        </tr>
+                            <?endif;?>
+                        <?endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

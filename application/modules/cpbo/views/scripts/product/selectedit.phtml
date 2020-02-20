@@ -1,0 +1,74 @@
+<div class="title">
+<h3 style="cursor: s-resize;"><?php echo $this->translate("Edit Content");?></h3>
+<div title="content_box" class="selector">
+<!-- <a href="tab-basic" class="tab active">Basic Info</a>  -->
+<!-- <a href="tab-warning" class="tab">Visuals</a>  -->
+<!-- <a href="tab-warning" class="tab">Category</a> -->
+<!-- <a href="tab-warning" class="tab">Registration</a>  -->
+<!-- <a href="tab-language" class="tab">Language</a> -->
+<!-- <a class="tab active" href="tab-table-approve">Unapproved Product Queue</a>-->
+<!-- <a class="tab" href="tab-table">Approved Product List</a>--></div>
+</div>
+
+<div class="box">
+<div class="txt"><!--
+        Showing error/info messages
+        TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div id="content_box"><!-- Basic product details -->
+    <div class="tab-basic">
+    <form id="product_registration"
+        enctype="application/x-www-form-urlencoded" method="post"
+        action="/product/selectedit/id/<?=$this->id; ?>">
+    <table>
+        <dt id="id-label">&nbsp;</dt>
+        <dd id="id-element">
+        
+        
+        <dt id="review-label">&nbsp;</dt>
+        <dd id="review-element"></dd>
+        <tr>
+        
+        
+            <td style='text-align: right;'><input type="radio" name="select"
+                value="web" id="select" <?php if($this->selectOptionWeb) echo 'checked' ?> /></td>
+            <td width="80%"><label width="20%"> <?php echo $this->translate("Publish Content");?> <small class="description">
+            <?php echo $this->translate("Select this option if you want to publish your application in neXva");?> </small></label></td>
+        </tr>
+        <tr>
+            <td style='text-align: right;'><input type="radio" name="select"
+                value="inapp" id="select"  <?php if($this->selectOptionInapp) echo 'checked' ?>/></td>
+            <td width="80%"><label width="20%"> <?php echo $this->translate("neXpayer Integration");?> <small
+                class="description"> <?php echo $this->translate("Select this option if you want to use only");?>
+            nexPayer for your application </small></label></td>
+        </tr>
+        <tr>
+            <td colspan="2" style='text-align: right;'><input type="submit" name="submit" id="submit"
+                value="Next"  width="200" class="small button"></td>        </tr>
+    </table>
+    </form>
+
+
+
+</div>
+<!-- -->
+<div class="tab-warning">
+
+</div>
+</div>
+</div>
+</div>

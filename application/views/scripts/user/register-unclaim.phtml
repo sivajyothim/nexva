@@ -1,0 +1,52 @@
+<div class="prodListPage">
+    <div class="container">
+        <div class="contTop"></div>
+        <div class="contContent">
+
+
+            <div class="blockContent">
+                <div class="blkHead">
+                    <h2 id="pageTitle">Create account </h2>
+                </div>
+                <div class="blkList">
+                    <div class="prodListItem">
+                        <div class="block">
+                            <div class="blkTop"></div>
+                            <div class="blkContent">
+                                <form id="signup" name="signup" action="/user/register-unclaim" method="post">
+                                  
+                                   Enter your e-mail we will log you in. You can claim your account later. 
+                                    <ul>
+                                
+                                   
+                                        <?
+                                        $error = $this->messages;
+                                        if(is_array($error))
+                                            foreach ($error as $key=>$value):
+                                                ?>
+                                        <li><?=$value?></li>
+                                            <?
+                                            endforeach;
+                                        ?>
+                                    </ul>
+                                    <div class="inputFld"><label>E-Mail *</label><input class="validate(required)" name="email" id="email" type="text" value="<?=$this->formValues->email?>"/></div>
+                                   
+                                   
+                                   <input name="referance" id="referance" type="hidden" value="<?=$_SERVER["HTTP_REFERER"]?>"/>
+                                    <ul class="btn">
+                                        <li><a href="#" id="submit">create</a> </li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <div class="blkBottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="contBottom"></div>
+    </div>
+</div>
+<!-- product list page end -->

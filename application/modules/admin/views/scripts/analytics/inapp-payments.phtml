@@ -1,0 +1,57 @@
+
+
+
+<div class="title">
+
+    <h3>Inapp Payments | neXva.com</h3>
+
+</div>
+<div class="box">
+    <div class="txt">
+    
+        <div id="content_box">
+            <div class="tab-all">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>App ID</th>
+                            <th>App Name</th>
+                            <th>Chap Name</th>
+                            <th>Mobil Number</th>
+                            <th>Transaction ID</th>
+                            <th>Transaction Date</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->inappDetails as $inapps) { ?>
+                        <!-- Hide records for following mobile numbers-->
+                                <tr>
+                                    <td><?php echo $inapps->nexva_app_id; ?></td>
+                                    <td><?php 
+                                        if(isset($inapps->nexva_app_id) && !empty($inapps->nexva_app_id)){
+                                            echo $this->getAppName($inapps->nexva_app_id);
+                                        } ?>
+                                    </td>
+                                    <td><?php $user=$this->chap($inapps->chap_id);echo $user->meta_value;?></td>
+                                    <td><?php echo $inapps->mobile_no;?></td>
+                                    <td><?php echo $inapps->trans_id; ?></td>
+                                    <td><?php echo $inapps->date_transaction; ?></td>
+                                    <td><?php echo '$'.$inapps->price; ?></td>
+                                    <td><?php if (isset($inapps->status) && !empty($inapps->status)) { echo $inapps->status; } else { echo 'Pending'; } ?></td>
+            <!--                        <td><?php //echo $this->CurrencyConvertPricePoints($download['price']); ?></td>-->
+                                </tr>
+                            <?php } ?>
+                    </tbody>
+                </table>
+                <?= $this->paginationControl($this->inappDetails,'Sliding','partials/pagination-inapp-payments.phtml',array("tab" => 'tab-all',"page_name" => 'page','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+            
+            
+           
+        </div>
+    </div>
+</div>

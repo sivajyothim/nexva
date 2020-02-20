@@ -1,0 +1,145 @@
+<script type="text/javascript" language="javascript">
+    var $jqNewest = jQuery.noConflict();
+    //Following condition added for MTN Iran RTL carousal
+    <?php if($this->chap_id) { ?>
+        $jqNewest(function() {
+            $jqNewest('#carousel ul').carouFredSel({
+                width: "100%",
+                align: 'right',
+                items: { visible: 5, minimum: 5, start: 1},
+                prev: '#prev',
+                next: '#next',
+                pagination: "#pager_staff",
+                auto: false,
+                scroll: 1000,
+                pauseOnHover: true
+            });
+        });
+    <?php } else { ?>
+        $jqNewest(function() {
+            $jqNewest('#carousel ul').carouFredSel({
+                prev: '#prev',
+                next: '#next',
+                pagination: "#pager_staff",
+                auto: false,
+                scroll: 1000,
+                pauseOnHover: true
+            });
+        });
+    <?php } ?>
+</script>
+
+
+<?php $currency = $this->ChangeCurrency($this->chap_id);
+
+?>
+<div id="tab_selection_top">
+    <div id="carousel">
+        <ul>
+            
+            <? foreach ($this->staffPicks as  $app): ?>
+            
+                <li>
+                    <a class="app_name_link" href="<?=$this->baseUri;?>/app/<?=$this->slug($app['name']);?>.<?=$app['product_id']?>">
+                        <div class="app_image_bg">
+                           
+                            <div class="app_ima_palce_holder">                            
+                                <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|10|10&q=100&f=png" ?>" alt="app_image" />
+                            </div>
+<!--                            <div class="app_ima_palce_holder">                            
+                                <img src="<?= "http://production.applications.nexva.com.s3.amazonaws.com/productimg/".$app['product_id']."/thumbnails/80x80/".basename($app['thumbnail']) ?>" alt="app_image" />
+                            </div>-->
+                        </div>
+                    </a>
+                    <a class="app_name_link" href="<?=$this->baseUri;?>/app/<?=$this->slug($app['name']);?>.<?=$app['product_id']?>"><p class="app_name"><?= $this->trim(ucwords(strtolower($app['name'])),18,true,'',false,true) ?></p></a>
+                    <p class="vendor_name"><?= $this->trim($app['vendor'],18) ?></p>
+                    <?= $this->partial('partials/rating.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+                    
+                    <?php if($this->showPlatformIcons): ?>
+                    <p class="platform_list">
+                        <?php foreach($app['supported_platforms'] as $platform) : ?>
+
+                           <img width="16" height="16" src="/partner/default/assets/img/platforms/<?php echo $platform->id;?>.png" alt="<?php echo $platform->name;?>" title="<?php echo $platform->name;?>"/> 
+
+                        <?php    
+                        endforeach;
+                        ?>
+                    </p>
+                    <?php endif; ?>
+                    
+                    <!-- if the app has multiple platform change the link to platform selection popup -->
+                        <?php
+                        if($app['app_platform_type'] == 'MULTIPLE_AND_ANDROID' && count($app['supported_platforms']) > 1):
+                        ?>
+                            <? if($app['price'] > 0) : ?>
+                                <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $app['product_id'];?>" class="platform_select">
+                                    <p class="buy_text" onClick="getSupportedPlatformsByAppId(<?= $app['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $app['product_id'];?>);"/><?php echo $this->translate("Buy ");?>(<?php if(!empty($currency)){ echo $this->translate($currency[0]['symbol']);} else { echo '$';} ?> 
+                                    <?php if(!empty($currency)){ 
+                                        
+                                         echo number_format($this->PricePoints(ceil($currency[0]['rate']*$app['price'])),($this->chap_id == 23045) ? 0 : 2, '.', ',');
+                                       
+                                        }else{ echo $app['price']; } ?>)</p>
+                                </a>
+                            <? else : ?>
+                                <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $app['product_id'];?>" class="platform_select">
+                                    <p class="downlaod_text" onClick="getSupportedPlatformsByAppId(<?= $app['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $app['product_id'];?>);"/><?php echo $this->translate("Free Download");?></p>
+                                </a>
+                            <? endif; ?>
+                        <?php
+                        else:
+                        ?>     
+                            <? if($app['price'] > 0) : ?>
+                                <p class="buy_text">
+                                    <a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$app['product_id'];?>">
+                                    <?php echo $this->translate("Buy ");?>
+                                        (
+                                        
+                                        <?php if($this->chap_id == 23045){?>
+                                        <?php if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),($this->chap_id == 23045) ? 0 : 2, '.', ',');}else{ echo $app['price']; } ?>
+                                            <?php if(!empty($currency)){ echo $this->translate($currency[0]['symbol']);} else { echo '$';} ?> 
+                                        
+                                        <?php } else { ?>
+                                           <?php if(!empty($currency)){ echo $this->translate($currency[0]['symbol']);} else { echo '$';} ?> 
+                                        <?php if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),($this->chap_id == 23045) ? 0 : 2, '.', ',');}else{ echo $app['price']; } ?>
+                                            <?php }  ?>
+                                        
+                                           )
+                                    </a>
+                                </p>
+                            <? else : ?>
+                                <p class="downlaod_text"><a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$app['product_id'];?>"><?php echo $this->translate("Free Download");?></a></p>
+                            <? endif; ?>
+                        <?php
+                        endif;
+                        ?>
+                                
+                    <!--<? /*if($app['price'] > 0) : ?>
+                        <p class="buy_text">
+                            <a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$app['product_id'];?>">
+                                <?php echo $this->translate("Buy ");?>(<?php if(!empty($currency)){ echo $currency[0]['code'];} else { echo '$';} ?> 
+                                <?php if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo $app['price']; } ?>)
+                            </a>
+                        </p>
+                    <? else : ?>
+                        <p class="downlaod_text">
+                            <a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$app['product_id'];?>">
+                                <?php echo $this->translate("Free Download");?>
+                            </a>
+                        </p>
+                    <? endif; */?>
+                        -->
+                </li>
+
+            <? endforeach; ?>
+
+        </ul>
+        <div class="clearfix"></div>
+        <a id="prev" class="prev" href="#">&lt;</a>
+        <a id="next" class="next" href="#">&gt;</a>
+        <div id="pager_staff" class="pager_staff"></div>
+    </div>
+</div>
+
+
+<div class="box_content_dottedt_line"></div>
+<div class="tab_selection_bottom"></div>

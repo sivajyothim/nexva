@@ -1,0 +1,94 @@
+<?php
+    //figure out colors
+    $bgColor    = isset($this->chapInfo['chap_bg_color']) ? $this->chapInfo['chap_bg_color'] : '#FFAA00';
+    $fgColor    = isset($this->chapInfo['chap_fg_color']) ? $this->chapInfo['chap_fg_color'] : '#FFFFFF';
+    $fontColor  = isset($this->chapInfo['chap_font_color']) ? $this->chapInfo['chap_font_color'] : '#FFAA00';   //for headers
+?>
+
+<?php 
+    $sessionChapDetails = new Zend_Session_Namespace('partner');
+    $chapId = $sessionChapDetails->id;
+
+    $translateObj = Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('view'); 
+?>
+
+<br><br>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;'>
+<?= $translateObj->translate('Hello') ?> <?=$this->email?>
+</p>
+
+<?php if($this->regType == 'mobileweb'): ?>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+    <?= $translateObj->translate('You requested information on how to register to') ?> <strong><?=$this->prod['name']?></strong> <?= $translateObj->translate('application') ?>.
+</p>
+<?php else: ?>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+    <?= $translateObj->translate('You requested information on how to download the') ?> <strong><?=$this->prod['name']?></strong> <?= $translateObj->translate('application') ?>.
+</p>
+<?php endif; ?>
+
+   <?php if ($this->promotion) : ?>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+        You can also apply the code <strong><?=$this->promotion['code']?></strong> to receive a discount. 
+        Click on the download link below to automatically apply this code.
+</p>
+<?php endif;?>
+
+<p>
+
+    <table border="0" bgcolor="eeeeee">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td width='2%'>&nbsp;</td>
+            <td colspan='4'>
+                 <p>
+                    <a style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 16px; color: <?=$fontColor?>; text-decoration:none;'
+                     href="http://<?=$this->mobileurl?>" ><strong><?=$this->prod['name']?></strong></a>
+                </p> 
+            </td>
+        </tr>
+        
+     <!-- Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('view')-->
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr valign="top">
+            <td width='2%'>&nbsp;</td>
+            <td valign="top" width='95'>
+                <img style='border:3px solid #dadada' width='90' src='http://<?=$this->baseurl?><?=$this->prod['thumb']?>'>
+            </td>
+            <td style='border-left: 1px dotted #DADADA;' width='2%'>&nbsp;</td>
+            <td valign="top">
+                <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;' <?php if($chapId == 23045) { echo 'style="direction:rtl;"'; } ?>>
+
+                    <?= ($chapId == 23045) ? $translateObj->translate('APP_STORE_DESC') : $translateObj->translate($this->prod['desc_brief']) ?>
+                </p>    
+                <p>
+                    <?php if ($this->promotion) : ?>
+                    
+                         <a style='text-align:center;display:block;font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;background: <?=$bgColor?>;color: <?=$fgColor?>;margin-right: 2px; padding: 10px 6px; text-decoration: none;' 
+                            href="http://<?=$this->mobileurl?>/app/apply-code/id/<?=$this->prod['id']?>/code/<?=$this->promotion['code']?>" class="button"><strong>Click or Touch here to Download this Application</strong></a>
+                    
+                    <?php else : ?>
+                        <?php if($this->regType == 'mobileweb'): ?>
+                            <a style='text-align:center;display:block;font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;background: <?=$bgColor?>;color: <?=$fgColor?>;margin-right: 2px; padding: 10px 6px; text-decoration: none;' href="http://<?=$this->webUrl?>/user/register/" class="button"><strong><?= $translateObj->translate('Click or Touch here to Continue the Registration') ?></strong></a>
+                        <?php else: ?>
+                            <a style='text-align:center;display:block;font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;background: <?=$bgColor?>;color: <?=$fgColor?>;margin-right: 2px; padding: 10px 6px; text-decoration: none;' href="http://<?=$this->mobileurl?>" class="button"><strong><?= $translateObj->translate('Click or Touch here to Download this Application') ?></strong> or go to - http://<?=$this->mobileurl?> </a>
+                        <?php endif; ?>
+                    <?php endif;?>
+                    
+                </p>
+            </td>
+            <td width='2%'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+    </table>
+</p>
+
+ 
+
+ 

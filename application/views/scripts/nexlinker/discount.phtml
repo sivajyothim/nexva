@@ -1,0 +1,180 @@
+<?php $t = $this->t(); $t->setPage('nexlinker-index');?>
+<?php 
+/**
+ * This page needs to be CHAPS (whitelabel) ready. 
+ * 
+ * Right now, we're only taking the URL so the URL needs to be specific to the 
+ * chap and not nexva's
+ * 
+ * @todo Things that need to change according to chaps
+ * 1. URLs
+ * 2. Colors
+ * 3. ?
+ */
+?>
+<?php $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'web/css/ui-lightness/jquery-ui-1.8.7.tab.css'); ?>
+<?php //$this->headScript()->appendFile('/web/js/jquery-1.4.4.min.js'); //in layout now?>
+<?php $this->headScript()->appendFile(PROJECT_BASEPATH.'web/nexlinker/script.js');?>
+<?php $this->headScript()->appendFile(PROJECT_BASEPATH.'common/js/jquery/plugins/tabs/jquery-ui-1.8.7.tabs.min.js');?>
+
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        $("#tabs").tabs();
+        $("#tabs-2").show();
+    });
+    var __CHAP_ID   = <?=($this->isChap) ? 1 : 0; //1 should actually be chap ID?>;
+<?php $this->headScript()->captureEnd();?>
+
+<?php 
+    $ns = new Zend_Session_Namespace('translation'); //include this only if the translation utility is enabled
+    if (isset($ns->translatorEnabled) && $ns->translatorEnabled === true) : ?>
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/css/translator.css">
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript">
+           var __SECTION = '<?php echo $t->getSection()?>';
+        </script>
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/translateutil.js"></script>
+        
+    <?php endif; ?>
+
+<style>
+<!--
+#tabs .ui-widget-header {
+    background:none;
+    border: none;
+    border-bottom: 1px solid #E78F08;
+}
+
+#nl_window_close {
+    float:right;
+    margin : 3px 8px 0 0;
+}
+
+#email_field {width: 95%;}
+
+-->
+</style>    
+
+
+
+<h2 class='ui-widget-header'>
+    <?=$this->prod['name']?> &mdash;
+    <?php if ($this->promotion['discount_type'] == 'PERCENT') : ?>
+        <?=number_format($this->promotion['amount'], 0)?>% off!
+    <?php else : ?>
+        $<?=number_format($this->promotion['amount'], 2)?> off!
+    <?php endif;?>
+</h2>
+    <div id='notices' class='ui-widget'>
+        
+    </div>
+    
+    <div id='tabs'>
+    <!-- for the JS to pick up -->
+    <input type='hidden' id='appId' value='<?=$this->prod['id'];?>'>
+    <input type='hidden' id='chapId' value='<?=$this->promotion['chap_id'];?>'>
+    <input type="hidden" id="promoCode" value="<?=$this->promotion['code']?>">
+    
+        <ul> 
+            <li><a href="#tabs-1"><?php $t->_('download');?></a></li> 
+            <li><a href="#tabs-2"><?php $t->_('share');?></a></li> 
+        </ul> 
+        
+        <div id='tabs-1'>
+            <p><strong><?php $t->_('download_info');?></strong></p><br>
+            <p><?=$this->promotion['description']?></p>
+            <p><strong>Discount Code : <?=$this->promotion['code']?></strong></p>
+            
+            <?php
+                $config         = Zend_Registry::get("config");
+                $base           = (isset($this->chapData)) ? $this->chapData->WHITELABLE_URL : $config->nexva->application->mobile->url;
+                $appUrl         = "http://". $base . "/" . $this->prod['id'];
+                
+   
+                
+                $promoUrl       = 'http://' . $base . '/app/apply-code/id/' . $this->prod['id'] . '/code/' . $this->promotion['code']; 
+                $qrCode        = $this->qr($promoUrl, 90, 90);
+                
+            ?>
+            <div class='left'>
+                <p><strong>1</strong>. <?php $t->_('email_to_you_text');?><br /><br /> 
+                  <center>
+                   <?    
+                        $za     = Zend_Auth::getInstance()->getIdentity();
+                   ?>
+                   <?php $t->_h('your_email');?>
+                    <input value='<?=(isset ($za->email) ? $za->email : '')?>' type='text' size='30' title='<?php $t->_('your_email', true);?>' class='suggest' id='email_field'>
+                        <button id="send_mail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                            <span class="ui-button-text"><?php $t->_('send_email', true);?></span>
+                        </button>
+                        <?php $t->_h('send_email');?> 
+                        <img class='display_none' width='12'  src="<?php echo PROJECT_BASEPATH;?>web/nexlinker/images/loading.gif" border="0" id="send_mail_loader" alt="loading" />
+                  </center>
+                </p>            
+            </div>
+            <div class='right'>
+                <p>
+                  <strong>2</strong>. <?php $t->_('mobile_browser_text');?> <br /><br />
+                    <center>
+                        <a target="_parent" href="<?=$appUrl?>"><?=$appUrl?></a>
+                    </center>
+                </p>
+            </div>
+            <div class='clear'></div>
+            <div class='center'>
+                <p><strong>3</strong>. <?php $t->_('qr_code_text');?><br /><br /> 
+                    
+                  <center>
+                    <img name="qr_code" src="<?=$qrCode?>" width="120" height="120" border="0" id="qr_code" alt="<?php $t->_('generating_qr', true);?>" />
+                    <?php $t->_h('generating_qr');?> 
+                    <br><br> <?php $t->_('no_qr_reader');?> <a href="http://nexva.com/7990" target="_blank"> <?php $t->_('get_one_free');?> </a> 
+                  </center>
+                </p>            
+            </div>
+            <div class='clear'></div>
+        </div>
+    
+        <div id='tabs-2' style='display:none'>
+            <div class='product_info'>
+                <img width="120" class="alignleft" alt="<?=$this->prod['name'] ?>" src="<?=$this->prod['thumb']?>">
+                <span><?=$this->prod['desc_brief'] ?></span>
+                <span class="moreinfo">
+                    <a target="_parent" href="<?=$appUrl?>" class="button"><?php $t->_('more_info');?></a>
+                </span>
+                <div class='clear'></div>
+            </div>
+            <br><br>
+            <ul class='block-list big-bottom-margin'>
+                <li>
+                    <label><?php $t->_('share_twitter');?></label>
+                    <?php 
+                        $siteName     = isset($this->chapData->WHITELABLE_SITE_NAME) ? $this->chapData->WHITELABLE_SITE_NAME : 'neXva'; 
+                        $tweetVia     = 'nexva';
+                    ?>
+                    <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal"
+                    data-url="<?=$appUrl?>" data-via="<?=$tweetVia?>" data-text="Looking at the <?=$this->prod['name']?> app on <?=$siteName?>" >Tweet</a>
+                    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                </li>
+                <li>
+                    <label><?php $t->_('share_facebook');?></label>
+                        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                        <fb:like href="<?=$appUrl?>" show_faces="false" width="400" font="tahoma"></fb:like>
+                </li>
+                <li>
+                    <label><?php $t->_('tell_friend');?></label>
+                        <?php $t->_h('your_name');?>
+                        <input title='<?php $t->_('your_name', true);?>' value='' type='text' size='13' id='my_name_friend' class='suggest'>
+                        <?php $t->_h('placeholder_friend_mail');?>
+                        <input title="<?php $t->_('placeholder_friend_mail', true);?>" value='' type='text' size='20' id='email_field_friend' class='suggest'>
+                        <?php $t->_h('send_email');?> 
+                        <button id="send_mail_friend" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only friend">
+                            <span class="ui-button-text"><?php $t->_('send_email', true);?></span>
+                        </button>
+                     <img class='display_none' width='12'  src="<?php echo PROJECT_BASEPATH;?>web/nexlinker/images/loading.gif" border="0" id="send_mail_loader_friend" alt="loading" />
+                </li>
+            </ul>
+        </div>
+    
+        
+    </div>

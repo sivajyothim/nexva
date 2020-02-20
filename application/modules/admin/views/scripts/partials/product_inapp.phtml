@@ -1,0 +1,36 @@
+<?php
+$active = (null === $this->active) ? 1 : $this->active;
+?>
+<div class="title">
+    <h3 style="cursor: s-resize;">Create Content</h3>
+    <div title="content_box" class="selector hide_div">
+
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+        Showing error/info messages
+        TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div id="content_box">
+            <!-- Basic product details -->
+            <div class="tab-basic hide_div">
+                <?=$this->form_basic?>
+            </div>
+        </div>
+    </div>
+</div>

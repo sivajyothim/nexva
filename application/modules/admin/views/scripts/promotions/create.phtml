@@ -1,0 +1,222 @@
+<?php 
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/admin.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/autocomplete.js');
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css');
+    $this->headScript()->appendFile('/cp/assets/js/jquery.tooltip.min.js');
+    $this->headLink()->appendStylesheet('/cp/assets/css/jquery.tooltip.css');
+?>
+
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){
+        _ac.init($('#user').eq(0), '/user/searchjson/type/reseller/mode/company_name/q/', function(event, ui){
+            $('#user_id').val(ui.item.id);
+        });
+       
+       _ac.init($('#chap').eq(0), '/user/searchjson/type/chap/mode/chap_name/q/', function(event, ui){
+            $('#chap_id').val(ui.item.id);
+        });
+        
+        _ac.init($('#product').eq(0), '/analytics-app/search-json/q/', function(event, ui){
+            $('#product_id').val(ui.item.id);
+        });
+        
+       $(".date").datepicker({
+        'dateFormat' : 'dd-mm-yy'
+       });
+       
+       $("a.tooltip").tooltip({ 
+            bodyHandler: function() { 
+                return $($(this).attr("href")).html(); 
+            }, 
+            showURL: false 
+        });
+       
+    });
+<?php $this->headScript()->captureEnd();?>
+
+<style>
+div.tooltip {
+    display:none;
+}
+</style>
+
+<?php $item    = $this->promotion;?>
+<div class="title">
+    <h3>Create Promotion Codes</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$message ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <fieldset>
+                 <form class='form_validate' method="post" accept-charset="UTF-8" action="/promotions/create/">
+                 
+                 <p>
+                    <label for="user">Reseller</label>
+                    <input type="text" name="user" id="user" style="width: 40%;" class='txt-input medium validate(required)' value="<?=isset($this->savedUser) ? $this->savedUser : ''?>" placeholder="start typing the company name">
+                    <input value="<?=$item->user_id?>" type="text" readonly="readonly" class='txt-input small' name="user_id" id="user_id">
+                 </p>
+                 
+                 <p>
+                    <label for="user">App</label>
+                    <input type="text" name="product" id="product" style="width: 40%;" class='txt-input medium validate(required)' value="<?=isset($this->savedProduct) ? $this->savedProduct : ''?>" placeholder="start typing the app name">
+                    <input  type="text" readonly="readonly" class='txt-input small' name="product_id" id="product_id">
+                 </p>
+                 
+                  <p>
+                    <label for="chap">Chap</label>
+                    <input type="text" name="chap" id="chap" style="width: 40%;" class='txt-input medium' value="<?=isset($this->savedChap) ? $this->savedChap: ''?>" placeholder="start typing the chap name">
+                    <input  type="text" readonly="readonly" class='txt-input small' name="chap_id" id="chap_id" value="<?=$item->chap_id?>">
+                 </p>
+                 
+                 <p>
+                        <label for='payout_id'>Payout Type</label>
+                        <select name='payout_id' id='payout_id'>
+                            <option value=''>CP Default</option>
+                            <?php foreach ($this->payouts as $payout) : ?>
+                                <option <?php if ($item->payout_id == $payout->id):?>selected='selected'<?php endif;?> 
+                                    value='<?=$payout->id?>'><?=$payout->name?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 
+                 <p>
+                        <label for='promo_campaign_id'>Promotion Campaign</label>
+                        <select name='promo_campaign_id' id='promo_campaign_id'>
+                            <option value=''>[SELECT]</option>
+                            <?php foreach ($this->campaigns as $campaign) : ?>
+                                <option <?php if ($item->promo_campaign_id == $campaign->id):?>selected='selected'<?php endif;?> 
+                                    value='<?=$campaign->id?>'><?=$campaign->title?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 
+                 <p>
+                    <label for='code'><a href='#code_tooltip' class="tooltip">Code (?)</a></label>
+                    <input value='<?=$item->code?>' placeholder='something like SKI[CODE]' type='text' id='code' name='code' class='txt-input medium validate(required, rangelength(1,35))'>
+                    <div id='code_tooltip' style='display:none'>
+                        Promocodes are a random sequence of numbers and letters. For easy identification, the first 3 letters are usually
+                        static static sequence. An example to enter here would be <strong>SKI[CODE]</strong>, the system will keep the 
+                        <strong>SKI</strong> part and automatically replace the <strong>[CODE]</strong> with a random code.  
+                    </div>
+                 </p>
+                 
+                 <p>
+                    <label for='description'>Description</label>
+                    <textarea name="description" id="description" class="txt-input medium"><?=$item->description?></textarea>
+                 </p>
+                 
+                 <p>
+                    <label for='use_type'>
+                        <a href="#usageTip" class="tooltip">Usage Type (?)</a>
+                    </label>
+                    <select name='use_type' id='use_type'>
+                        <?php $opts = array('GENERAL', 'SINGLE', 'LIMITED');?>
+                        <?php foreach ($opts as $opt) : ?>
+                            <option <?php if ($item->use_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$opt?></option>
+                        <?php endforeach; ?>                    
+                    </select>
+                     <div id="usageTip" style="display:none">
+                        <strong>GENERAL</strong> : Allows the code to be used multiple times within the given time period. <br>Ideal for general discounts for apps.
+                        <br><br>
+                        <strong>SINGLE</strong> : Promtion code is valid only for the first to redeem it. <br>The code is automatically disabled after a single use 
+                        <strong>LIMITED</strong> : Promtion code is valid only for the first N people to redeem it. <br>The code is automatically disabled after a N uses. N is defined below
+                    </div>
+                 </p>
+                 
+                  <p>
+                    <label for='use_limit'><a href='#use_limit_tip' class='tooltip'>Use Limit (?)</a></label>
+                    <input value='<?=$item->use_limit?>' type='text' id='use_limit' name='use_limit' class='txt-input small '>
+                    <div id="use_limit_tip" class='tooltip'>
+                        The number of times the promocode may be used. This is applicable only if the usage type is set to LIMITED 
+                    </div>
+                 </p>
+                 
+                 <p>
+                        <label for='promo_type'><a href='#code_type_tip'>Code Type (?)</a></label>
+                        <select name='promo_type' id='promo_type'>
+                            <?php $opts = array('STANDARD', 'DEBIT');?>
+                            <?php foreach ($opts as $opt) : ?>
+                                <option <?php if ($item->discount_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$opt?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                        <div id="code_type_tip" class='tooltip'>
+                            <strong>STANDARD</strong> : This is a normal promocode where a discount is applied to the product. 
+                        <br><br>
+                        <strong>DEBIT</strong> : These promocodes are are like the standard codes, but in addition to the discount to the user, 
+                            these promocodes will also debit the owner of the promocode with either the discount amount or the debit amount (see below)
+                        </div>
+                 </p>
+                 
+                
+                 
+                  <p>
+                        <label for='discount_type'>Discount Type</label>
+                        <select name='discount_type' id='discount_type'>
+                            <?php $opts = array('ABSOLUTE', 'PERCENT');?>
+                            <?php foreach ($opts as $opt) : ?>
+                                <option <?php if ($item->discount_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$opt?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 <p>
+                    <label for='amount'>Amount</label>
+                    <input value='<?=$item->amount?>' type='text' id='amount' name='amount' class='txt-input small validate(required)'>
+                 </p>
+                 
+                 <p>
+                    <label for='debit_amount'><a href='#debit_amount_tip' class='tooltip'>Debit Amount (?)</a></label>
+                    <input value='<?=$item->debit_amount?>' type='text' id='debit_amount' name='debit_amount' class='txt-input small'>
+                    <div id="debit_amount_tip" class='tooltip'>
+                        If the amount a user should be debited with is different from the discount amount, enter that value here (not a percentage).
+                        This is applicable only to debit type promocodes 
+                    </div>
+                 </p>
+                 
+                 
+                 
+                 
+                  <p>
+                    <label for='valid_from'>Valid From</label>
+                    <input value='<?=$item->valid_from?>' type='text' id='valid_from' name='valid_from' class='txt-input small date validate(required)'>
+                 </p>
+                 
+                 <p>
+                    <label for='valid_from'>Valid To</label>
+                    <input value='<?=$item->valid_to?>' type='text' id='valid_to' name='valid_to' class='txt-input small date validate(required)'>
+                 </p>
+                 <!--  
+                 <p>
+                    <label for='enabled'>Enabled</label>
+                    <input type="hidden" name="enabled" value="0">
+                    <input <?=$item->enabled == 1 ? "checked='checked'" : ''?> type='checkbox' value='1' id='enabled' name='enabled' >
+                 </p>
+                 -->
+                
+                <p>
+                    <label for='num_codes'>Number of codes (max of 2000) </label>
+                    <input value='1' type='text' id='num_codes' name='num_codes' class='txt-input medium validate(required)'>
+                 </p>
+ 
+ 
+                 <input type='hidden' value='<?php echo $item->id ?>' name='id'>
+                 <p><input type="submit" class="txt-input small" value="Generate Codes" id="submit" name="submit"></p>
+                 </form>
+            </fieldset>
+        </div>
+        </div>
+</div>    

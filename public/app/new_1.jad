@@ -1,0 +1,16 @@
+MIDlet-Name: new 1
+MIDlet-Version: 1.0.0
+MIDlet-Vendor: BlackBerry Developer
+MIDlet-Jar-URL: new 1.jar
+MIDlet-Jar-Size: 7733
+MicroEdition-Profile: MIDP-2.0
+MicroEdition-Configuration: CLDC-1.1
+MIDlet-1: ,img/icon.png,
+RIM-MIDlet-Flags-1: 0
+Manifest-Version: 1.0
+RIM-COD-URL: new_1.cod
+RIM-COD-Size: 4456
+RIM-COD-Creation-Time: 1402473782
+RIM-COD-Module-Name: new_1
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_bbapi_browser
+RIM-COD-SHA1: bb 06 bd a5 ca 1d 2c e4 1c 98 07 9a fd 5f 63 98 13 63 c3 cf

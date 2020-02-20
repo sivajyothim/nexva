@@ -1,0 +1,98 @@
+<?php 
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/admin.js');
+?>
+
+<?php $lang = $this->language;?>
+ <div class="title">
+        <h3>Add Language</h3>
+    </div>
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+        <fieldset>
+                 <form  accept-charset="UTF-8" class='form_validate' method="post" action="/language/save">
+                 <p>
+                    <label for='name'>Name</label>
+                    <input value='<?=$lang->name?>' type='text' id='name' name='name' class='txt-input medium validate(required, rangelength(1,128))'>
+                 </p>
+                 
+                 <p>
+                    <label for='common_name'>Common Name (should always be in English)</label>
+                    <input value='<?=$lang->common_name?>' type='text' id='common_name' name='common_name' class='txt-input medium validate(required, rangelength(1,128))'>
+                 </p>
+                 
+                 <p>
+                    <label for='code'>Code</label>
+                    <input value='<?=$lang->code?>' type='text' id='code' name='code' class='txt-input medium validate(required, rangelength(2,2))'>
+                 </p>
+                 
+                 <p>
+                    <label for='status'>Enabled</label>
+                    <input type='checkbox' value='1' <?php if ($lang->status) :?> checked='checked'<?php endif;?> name='status' id='status'>
+                 </p>
+                 
+                 <input type='hidden' value='<?php echo $lang->id ?>' name='id'>
+                 <p>
+                    <input type="submit" class="txt-input small" value="Save Language" id="submit" name="submit">
+                    &nbsp;&nbsp;
+                    <input type="button" class="txt-input small"  onclick='window.location="/language/"' value='Cancel'>
+                 </p>
+                 </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+    <div class="title">
+        <h3>All Languages</h3>
+    </div>
+    <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Common Name</th>
+                    <th>Code</th>
+                    <th>Enabled</th>
+                    <th>Default</th>
+                    <th>&nbsp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php unset($lang);?>
+                <?php foreach ($this->languages as $lang) : ?>
+                <tr>
+                    <td><?=$lang->id?></td>
+                    <td><?=$lang->name?></td>
+                    <td><?=$lang->common_name?></td>
+                    <td><?=$lang->code?></td>
+                    <td><?=($lang->status) ? 'Yes' : 'No'?></td>
+                    <td><?=($lang->default) ? 'Yes' : 'No'?></td>
+                    <td>
+                        <a href='/language/index/langid/<?=$lang->id?>'>Edit</a>
+                        &nbsp;&nbsp;&nbsp;
+                        
+                        <?php
+                            $time   = time();
+                            $salt   = Zend_Registry::get('config')->zoha->translator->salt;
+                            $base   = 'http://' . Zend_Registry::get('config')->zoha->application->base->url; 
+                            $url    = $base . '/translate/enable/id/' . $lang->id . '/h/' . md5($salt . $lang->id);
+                            $url    .= '/t/' . $time . '/th/' . md5($salt . $time); 
+                        ?>
+                        <a href='<?=$url ?>' target='_blank'>Translator Tool URL</a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a class='del_conf' href='/language/delete/langid/<?=$lang->id?>'>Delete</a>
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+            </table>
+         </div>
+     </div>
+     

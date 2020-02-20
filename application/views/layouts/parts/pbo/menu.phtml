@@ -1,0 +1,155 @@
+
+<ul id="main-nav">  <!-- Accordion Menu -->
+
+<?php
+  $usersNs = new Zend_Session_NameSpace('members');
+  if( $usersNs->userType != 'speAdmin') :
+?>
+    <li>
+        <a id="1" href="<?php echo PBO_PROJECT_BASEPATH;?>index" class="nav-top-item no-submenu"> <!-- Add the class "no-submenu" to menu items with no sub menu -->
+            Dashboard
+        </a>       
+    </li>
+    
+        <?php
+
+endif;
+?>
+
+    <li> 
+        <a id="2" href="#" class="nav-top-item"> <!-- Add the class "current" to current menu item -->
+            Apps
+        </a>
+        <ul>
+            <li><a id="21" href="<?php echo PBO_PROJECT_BASEPATH;?>app/index">Manage Apps</a></li>
+            <li><a id="22" href="<?php echo PBO_PROJECT_BASEPATH;?>app/filter-apps">Filter Apps</a></li> <!-- Add class "current" to sub menu items also -->
+            <?php if(Zend_Auth::getInstance()->getIdentity()->id != '81604'){ ?>
+                <li><a id="87" href="<?php echo PBO_PROJECT_BASEPATH;?>app/user-apps">User Apps</a></li>
+            <?php } ?>
+        </ul>
+    </li>
+
+    <?php if('23142' == Zend_Auth::getInstance()->getIdentity()->id){ ?>
+    <li>
+        <a id="10" href="<?php echo PBO_PROJECT_BASEPATH;?>category" class="nav-top-item">
+            Categories
+        </a>
+        <ul>
+            <li><a id="86" href="<?php echo PBO_PROJECT_BASEPATH;?>category/manage-category">Manage Categories</a></li>
+        </ul>
+    </li>
+    <?php } ?>
+
+<?php
+  $usersNs = new Zend_Session_NameSpace('members');
+  if( $usersNs->userType != 'speAdmin') :
+?>
+                          
+    <li>
+        <a id="3" href="#" class="nav-top-item">
+            Users
+        </a>
+        <ul>
+            <li><a id="31" href="<?php echo PBO_PROJECT_BASEPATH;?>user/index">Registered Users / Developers</a></li>
+        </ul>
+    </li>
+
+    
+    <li>
+        <a id="4" href="#" class="nav-top-item">
+            Pages
+        </a>
+        <ul>
+<!--            <li><a <?= (basename($_SERVER["PHP_SELF"])=='add-page') ? 'class="current"' : ''?> href="/page/add-page">Add New Page</a></li>-->
+            <li><a id="41" href="<?php echo PBO_PROJECT_BASEPATH;?>page/add-page">Add New Page</a></li>
+            <li><a id="42" href="<?php echo PBO_PROJECT_BASEPATH;?>page/index">Manage Pages</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a id="5" href="#" class="nav-top-item">
+            Menu Items
+        </a>
+        <ul>
+            <li><a id="51" href="<?php echo PBO_PROJECT_BASEPATH;?>menu/add-menu">Add New Menu Item</a></li>
+            <li><a id="52" href="<?php echo PBO_PROJECT_BASEPATH;?>menu/index">Manage Menu Items</a></li>
+        </ul>
+    </li>
+    
+    <li>
+        <a id="6" href="#" class="nav-top-item">
+            Payment Gateways
+        </a>
+        <ul>            
+            <li><a id="61" href="<?php echo PBO_PROJECT_BASEPATH;?>payment-gateway/index">Manage Payment Gateways</a></li>
+        </ul>
+    </li>
+    
+    <li>
+        <a id="7" href="" class="nav-top-item"> 
+            Statistics
+        </a> 
+        <ul>            
+            <li><a id="71" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/index">Overall</a></li>                  
+            <li><a id="72" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/device-wise">Device Wise</a></li>
+            <li><a id="73" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/downloaded-users">Downloaded Users</a></li>
+            <li><a id="74" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/purchases">Sales</a></li> 
+            <li><a id="79" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/user-wise">User Wise</a></li> 
+            <li><a id="76" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/import-statistics">Reports</a></li>
+            <li><a id="77" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/sales">Royalties</a></li>
+            <li><a id="78" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/payout">Payouts</a></li>
+            <li><a id="78" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/inapp-payments">Inapp Payments</a></li>           
+            <?php if('935529' == Zend_Auth::getInstance()->getIdentity()->id){ ?>
+            <li><a id="88" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/ecarrot-paid-user" >Ecarrot Paid User</a></li>
+            <li><a id="89" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/ecarrot-user">Ecarrot trial User</a></li>
+            <?php } ?>
+            <?php
+                $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+                $airtelChaps = array(21134, 25022, 33644, 80184, 81449, 100791, 110721, 114306, 115189,  136079, 163302, 274515, 276531, 280316, 282227, 320342, 320343, 320344, 320345, 324405, 326728);
+
+                if (in_array($chapId,$airtelChaps)){ ?>
+                    <li><a id="711" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic/data-usage">Data Usage</a></li>
+             <?php } ?>
+
+        </ul>
+    </li>
+    
+    
+    <li>
+        <a id="8" href="" class="nav-top-item"> 
+            Tickets
+        </a> 
+        <ul>            
+<!--            <li><a id="81" href="<?php echo PROJECT_BASEPATH;?>ticket/dashboard">Ticket Dashboard</a></li>                  -->
+            <li><a id="82" href="<?php echo PBO_PROJECT_BASEPATH;?>ticket/index">Manage Tickets</a></li>
+        </ul>
+    </li>
+
+      <li>
+          <a id="9" href="<?php echo PBO_PROJECT_BASEPATH;?>campaign" class="nav-top-item">
+              Messaging
+          </a>
+          <ul>
+              <li><a id="83" href="<?php echo PBO_PROJECT_BASEPATH;?>campaign/sms-campaign">SMS Messaging</a></li>
+              <li><a id="84" href="<?php echo PBO_PROJECT_BASEPATH;?>campaign/email-campaign">Email Messaging</a></li>
+          </ul>
+      </li>
+
+      <li>
+          <a id="10" href="<?php echo PBO_PROJECT_BASEPATH;?>category" class="nav-top-item">
+              Categories
+          </a>
+          <ul>
+              <li><a id="86" href="<?php echo PBO_PROJECT_BASEPATH;?>category/manage-category">Manage Categories</a></li>
+          </ul>
+      </li>
+
+    <?php
+
+endif;
+?>
+ 
+    
+      
+
+</ul> 

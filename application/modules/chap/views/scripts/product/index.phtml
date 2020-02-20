@@ -1,0 +1,80 @@
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.js"></script>
+<link href="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.css" media="screen" rel="stylesheet" type="text/css" >
+<div class="title">
+    <h3 style="cursor: s-resize;">Apps</h3>
+</div>
+
+
+<div class="content_box">  
+    
+    <div class="box">
+        <div class="txt">            
+            
+           
+               <div class="div_space"></div> 
+               
+                            <form id="searchAppForm" style='width:auto;' name="searchAppForm" action="/product" method="post">
+                  
+                                   
+                                     <div class="div_space"></div>  
+
+                                     <div class="div_single_row">
+                                         <label for='amount'>App <span style = "color: #FF0000">*</span></label>
+
+                                         <div id="products" style="width:45%">
+                                                <input type="text" style="width:60%" class="txt-input large" id="appName" name="appName" value="<?= isset($this->searchKey) ? $this->searchKey : '' ?>" />
+                                                <input type="submit" value="Search" name="submit" class="button" />
+                                         </div>
+
+                                     </div>   
+
+                                     
+                                     <div class="div_space"></div> 
+                                     <div class="div_space"></div>
+                                     <div class="div_space"></div> 
+
+                        </form> 
+                         
+               
+                <?php if($this->isEmptyApps !== TRUE) :?>
+               
+                          <table cellpadding="0" cellspacing="0" style="width: 90%">
+                    
+                            <thead>
+                                <tr>                                   
+                                    <th>App</th>  
+                                    <th>Price</th>
+                                    <th>Type</th>                                    
+                                    <th>Created / Updated</th>
+                                    <th>Share</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php foreach($this->chapApps as $apps) :?>
+                                                      
+                                <tr>                                    
+                                    <td><?php echo $apps->name; ?></td>
+                                    <td><?php echo $apps->price; ?></td>
+                                    <td><?php echo $apps->product_type; ?></td>
+                                    <td><?php echo $apps->created_date; ?></td>
+                                    <td><a href="<?php echo PROJECT_BASEPATH;?>product/embeded/id/<?= $apps->id ?>" rel='facebox'><img alt="Share" src="/chap/assets/img/global/icons/transmit_go.png" title="Share"></a></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                    </table>
+               
+                    <?= $this->paginationControl($this->chapApps, 'Sliding', 'partials/paginator.phtml',array("page_name" =>"chap_apps","search_caption" =>"search","search_value" => $this->search)); ?>
+        
+            <?php else :?>
+               
+                <div class="div_space"></div> 
+                <p>There are no apps found. </p>
+                
+            <? endif ;?>
+                
+        </div>
+        
+        
+    </div>
+</div> 

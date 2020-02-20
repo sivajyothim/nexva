@@ -1,0 +1,39 @@
+<?php 
+    $mode       = isset($this->mode) ? $this->mode : 'all';  
+    if (isset($this->category['parent_id']) && $this->category['parent_id'] == 0) {
+        $url    = "/app/";
+    } else {
+        $url    = "/app/cat/category/{$this->category['parent_id']}";
+    }
+?>
+
+<div class='breadcrumb'>
+    <a href='/app'>All Categories</a> 
+    <span>&raquo;</span>
+    <?php foreach ($this->breadcrumbs AS $crumb) : ?>
+        <a href='/app/cat/category/<?php echo $crumb['id']?>'><?php echo $crumb['name']?></a>
+        <span>&raquo;</span>
+    <?php endforeach; ?>
+    
+    <span class='last'><?php echo ucfirst($mode)?> Apps</span>
+</div> 
+
+
+<?=$this->partial('/partials/category-tabs.phtml', array("item" => $mode, 'themeMeta' => $this->themeMeta, 'catid' => $this->category['id']))?>
+<hr class="t" />
+<br clear="all" />
+<?
+if(count($this->products) == 0) {
+    ?>
+<div class="app">
+    <span class="mini-description">
+        0 apps found in this category.
+    </span>
+</div>
+    <?
+}
+foreach($this->products as $product): ?>
+    <?php if (empty($product['id'])) continue;?>
+    <?=$this->partial('/partials/app.phtml', array("item" => $product))?>
+<?php endforeach; ?>
+<?=$this->partial('/partials/paginator_simple.phtml', array("baseUrlfo" => $this->baseUrlfo, 'products' => $this->products, 'pageNum' => $this->pageNum))?>

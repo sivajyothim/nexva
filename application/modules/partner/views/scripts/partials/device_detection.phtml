@@ -1,0 +1,85 @@
+<script type="text/javascript">
+    
+    var $jDevice = jQuery.noConflict();
+    var timer = 0;
+    $jDevice(document).ready(function()
+    {        
+        $jDevice('#searchBtnPhone').click(function(e) 
+        {
+            getDevices(e);
+        });
+        
+        $jDevice('#q_phone').keyup(function(e) 
+        {
+            getDevices(e);            
+        });
+        
+        $jDevice('#q_phone').keydown(function(e) 
+        {
+            getDevices(e);            
+        });
+    });
+    
+    
+    function getDevices (e) {
+	window.clearTimeout(timer);
+	timer = window.setTimeout('serachDevices()', 600);
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if(code == 13) 
+        {          
+            return false;//Enter keycode
+        }
+ 
+    }
+    
+    function serachDevices()
+    {
+        $jDevice('#preloader').removeClass("display_none");
+            
+            var search_key = $jDevice("#q_phone").val(); 
+            
+            $jDevice.get("/device/search/q/"+search_key, function(data){
+                /*alert(data);
+                $jDevice('#searchSgPhone').html(devices);
+                $jDevice('#preloader').addClass("display_none");
+                return;*/
+                if(data.length > 0)
+                {
+                    var devices = '';
+                    var obj = $jDevice.parseJSON(data);
+                    $jDevice.each(obj, function() 
+                    {                       
+                        devices += '<div class="device_wrapper">'
+                        devices += '<a href="javascript:setUserPhone(\''+this['id']+'\');"><img align="center" src="..'+ this['img'] +'"/></a><br />';                        
+                        devices += '<a href="javascript:setUserPhone(\''+this['id']+'\');">';
+                        devices += '<p>' + this['phone'] +'</p></a></div>';
+                    });
+                    $jDevice('#searchSgPhone').html(devices);
+                    $jDevice('#preloader').addClass("display_none");
+                 }
+                 
+            }); 
+    }
+    
+</script>
+
+
+<div style="display: none;">
+    <div id="device_detection">
+        <div class="success"><h3><?php echo $this->translate("Select Your Device");?></h3></div>
+        <div class="text_bg">
+            <p class="device_detection_text">            
+                <?php echo $this->translate("Selecting a device helps us filter apps that are compatible with your handset.");?>
+            </p>
+        </div>
+        <p class="device_detection_text"><?php echo $this->translate("Start typing the name of your device");?></p>
+
+            <div>
+                <input size='40' id="q_phone" autocomplete="off" type='text' class='partner_input'>
+                <input type="button" value="<?php echo $this->translate('Search');?>" id="searchBtnPhone" name="searchBtnPhone" class="partner_btn" >
+                <img id='preloader' class='display_none' width='16'  src="<?= $this->cdn('site_assets') ?>/web/images/loading.gif" border="0" id="seach_loading" alt="loading" />
+            </div>
+
+        <div id="searchSgPhone"></div>
+    </div>
+</div>

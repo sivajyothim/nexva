@@ -1,0 +1,58 @@
+<?php
+    $bgColor    = '#FFAA00';
+    $fgColor    = '#FFFFFF';
+    $fontColor  = '#FFAA00'; 
+?>
+<br/><br/>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;'>
+Hello Support Team,
+</p>
+
+<p>
+    <table border="0" bgcolor="eeeeee">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td width='2%'>&nbsp;</td>
+            <td colspan='4'>
+                      <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;'>
+            Following are some of the main informations submitted by the user. Please login to the PBO backend to leave a response.
+            </p>
+            
+                <table width="100%" border="0" cellpadding="3" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;">
+                  <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;">
+                    <td width="29%">Subject</td>
+                    <td width="2%">-</td>
+                    <td width="69%"><?= $this->ticketRow->subject; ?></td>
+                  </tr>
+                  <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;">
+                    <td>Type</td>
+                    <td>-</td>
+                    <td><?= $this->ticketRow->type; ?></td>
+                  </tr>
+                  <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;">
+                    <td>Priority</td>
+                    <td>-</td>
+                    <td><?= $this->ticketRow->priority; ?></td>
+                  </tr>
+                  <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;">
+                    <td>Source</td>
+                    <td>-</td>
+                    <td><?= $this->ticketRow->source; ?></td>
+                  </tr>
+                  <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;">
+                    <td>Description</td>
+                    <td>-</td>
+                    <td><?= $this->ticketRow->description; ?></td>
+                  </tr>
+                </table>
+                <br/>
+            </td>
+        </tr>
+</p>
+For more details. <a href="http://admin.nexva.com/ticket/single-ticket/id/<?php echo $this->ticketId?>" target='_blank'>Click here</a>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+Thank you,<br/>
+neXva
+</p>

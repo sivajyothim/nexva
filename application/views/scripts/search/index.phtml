@@ -1,0 +1,74 @@
+<div class="blkCenter innerPage">
+    <!-- product list page start -->
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contContent">
+                <div class="blockContent">
+                    <div class="blkHead">
+                        <h2 id="pageTitle"><?=$this->cpname?></h2>
+                        <ul id="breadcrumbs">
+
+                            <li><a href="/">Home</a></li>
+							<li>Search</li>
+                            
+                            
+                            
+                        </ul>
+                        
+     
+                   <?php 
+                    if($this->noResuls) {  
+					?>
+
+					<?php echo $this->noResuls; ?> 
+	
+					
+					<?php } 
+					
+		
+					
+					?>
+                                           
+                        
+                        <div style='text-align: center'> 
+                 		<?php  
+                 		if(!empty($this->paginator))
+                 		{ 
+                 		echo $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator_search.phtml',array('q' => $this->keywords)); 
+                         
+                 		}
+                         ?>
+                          
+                        </div>
+                        
+                    </div>
+
+                    <?php 
+                    if(!$this->noResuls)   {
+                    ?>
+
+                   
+                    <?=$this->render('partials/product_block.phtml'); ?>
+                    
+                    <?php  
+                    }
+                    ?>
+                    
+                </div>
+                
+                  		<div style='text-align: center'> 
+                 		<?php  
+                 		if(!empty($this->paginator))
+                 		{ 
+                 		echo $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator_search.phtml',array('q' => $this->keywords)); 
+                         
+                 		}
+                         ?>
+                          
+                        </div>
+                        
+            </div>
+        </div>
+    </div>
+    <!-- product list page end -->
+</div>

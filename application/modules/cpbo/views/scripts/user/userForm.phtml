@@ -1,0 +1,92 @@
+<!-- Start Wrap -->
+<div id="wrap" class="fixed" style="margin-top:20px;">
+    <div id="content">
+        <div class="title">
+            <h3><?=$this->translate($this->window_title); ?></h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+
+                <div class="tab-table">
+
+
+                    <div class="tab-forms">
+
+                        <!-- Start Form -->
+                        <form method="POST" action="" name="user_register" id="user_register">
+                            <fieldset>
+                                <?php if($this->user_add_res != '') { ?>
+                                <div class="message error">
+                                    <p><?php
+
+                                            if(is_array($this->user_add_res)) {
+
+                                                foreach($this->user_add_res as $key=>$res) {
+
+
+                                                    echo $this->translate($res)."<br />";
+
+
+                                                }
+                                            }else {
+
+                                                echo $this->translate($this->user_add_res);
+                                            }
+
+
+                                            ;?></p>
+                                </div>
+                                    <?php } ?>
+
+
+                                <?php if($this->user_add_msg != '') { ?>
+                                <div class="message info">
+                                    <p><?php echo $this->translate($this->user_add_msg);?></p>
+                                </div>
+                                    <?php } ?>
+                                <p>
+                                    <label><?php echo $this->translate("Login name (Username)");?></label>
+                                    <input name="username" id="username"  type="text" class="txt-input small validate(required(Login name field))" value="<?php echo $this->user['username']; ?>" <?=$this->username_field_status; ?>/>
+                                </p>
+
+                                <p>
+                                    <label><?php echo $this->translate("E-mail");?></label>
+                                    <input name="email" id="email" type="text" class="txt-input small validate(required(Email field))" value="<?php echo $this->user['email']; ?>"/>
+                                </p>
+
+                                <p>
+                                    <label><?php echo $this->translate("password");?></label>
+                                    <input name="password" id="password"   type="password" class="txt-input small validate(<?=$this->password_field_required; ?> rangelength(4,25))" value=""/>
+                                </p>
+
+
+                                <p>
+                                    <label><?php echo $this->translate("Retype password");?></label>
+                                    <input name="retypepassword" id="retypepassword" type="password" class="txt-input small validate(<?=$this->password_retypefield_required; ?> match(#password),rangelength(4,25))" value="" />
+                                </p>
+
+
+                                <?if($this->captcha != ''): ?>
+                                <p>
+                                    
+                                   <img src="/captcha/<?=$this->captcha?>.png" alt="Please refresh this page if you don't see a valid secirity code" />
+                                  <br />
+                                  <label><?php echo $this->translate("Enter the security key you see inside the image");?></label>
+                                  <input name="captchaval" id="captchaval" type="text" class="txt-input small validate(required(Security code))" value="" style="width:200px;"/>
+                                   <input type="hidden" name="captcha_id" value="<?=$this->captcha?>" />
+                                </p>
+                                <?endif; ?>
+
+                                <span style="float:left;">
+                                    <input type="submit" class="button submit" name="submit" id="submit" value="<?= $this->translate($this->button_value); ?>" />
+                                </span>
+                            </fieldset>
+                        </form>
+                        <!-- End Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

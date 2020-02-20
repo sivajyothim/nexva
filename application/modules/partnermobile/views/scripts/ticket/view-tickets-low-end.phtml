@@ -1,0 +1,65 @@
+<div class="ui-content ui-body-d">
+<h2><?= $this->translate("My Tickets");?></h2> 
+<div class="ui-grid-solo">
+    
+<!-- Displays Success Message/s -->
+<?php if (count($this->successMessages)) : ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php foreach ($this->successMessages as $message) : ?>
+                <?php echo $this->escape($message); ?>
+            <?php endforeach; ?>
+      </span></span>
+    </div>
+<?php endif; ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) : ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php foreach ($this->errorMessages as $message) : ?>
+                <?php echo $this->escape($message); ?>
+            <?php endforeach; ?>
+        </span></span>
+    </div>
+<?php endif; ?>
+</div>
+<div  style="margin-bottom:25px;">
+<?//=$this->paginationControl($this->paginator, 'Sliding', 'partials/ticket_pagination.phtml', array('baseUrl' => $this->baseUrl)); ?>
+</div>
+<ul class="ui-icon-alt ui-listview right-counter" style="margin-bottom:10px;">  
+        <?php
+        foreach ($this->paginator as $ticket):
+        ?>
+<!--        <li class="ticket-list ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-li-has-thumb ui-first-child ui-btn-up-d">
+            <a href="<?php echo PROJECT_BASEPATH;?>ticket/view-single-ticket/id/<?= $ticket->id; ?>" rel="external">
+                <p class="ticket-date"><?= date("M jS Y", strtotime($ticket->created_date)); ?> <span class="ticket-days-ago"> <?= $this->DateTimeDiff($ticket->created_date);?> </span> </p>
+                <p><span class="response-count"><?= $ticket->response_count; ?> Responses</span></p>
+                <span class="price-red-bg right-top">#<?= $ticket->id; ?></span>
+                <h3><?= $ticket->subject; ?></h3>
+                <p class="ui-li-desc-ul-li"><?= (str_word_count($ticket->description) > 60) ? $this->LimitWords(strip_tags($ticket->description,'<strong><u><p>'),60).' ...' : strip_tags($ticket->description,'<strong><u><p>'); ?></p>
+                <span class="status <?= strtolower($ticket->status); ?>"><?= $ticket->status; ?></span>
+                <span class="type <?= strtolower($ticket->type); ?>"><?= $ticket->type; ?></span>  
+                <span class="priority <?= strtolower($ticket->priority); ?>"><?= $ticket->priority; ?></span>
+            </a>
+        </li>-->
+        
+        <li class="ticket-list ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-first-child ui-btn-up-d">
+          <div class="ui-btn-inner ui-li">
+            <div class="ui-btn-text"> 
+                <a class="ui-link-inherit" href="<?php echo PROJECT_BASEPATH;?>ticket/view-single-ticket/id/<?= $ticket->id; ?>"  rel="external">
+                 <p class="ticket-date"><?= date("M jS Y", strtotime($ticket->created_date)); ?> <span class="ticket-days-ago"> <?= $this->DateTimeDiff($ticket->created_date);?> </span> </p>
+                 <p style="margin:5px 0;"><span class="response-count"><?= $ticket->response_count; ?> Responses</span></p>
+                 <p class="ui-li-aside"><span class="price-red-bg right-top">#<?= $ticket->id; ?></span></p>
+                  <h3 class="ui-li-heading blue-color"><?= $ticket->subject; ?></h3>
+                  <p class="description"><?= (str_word_count($ticket->description) > 60) ? $this->LimitWords(strip_tags($ticket->description,'<u>'),60).' ...' : strip_tags($ticket->description,'<u>'); ?></p>
+                    <span class="status <?= strtolower($ticket->status); ?>"><?= $ticket->status; ?></span>
+                    <span class="type <?= strtolower($ticket->type); ?>"><?= $ticket->type; ?></span>  
+                    <span class="priority <?= strtolower($ticket->priority); ?>"><?= $ticket->priority; ?></span>
+              </a> 
+            </div>
+            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div>
+        </li>
+        
+        <? endforeach; ?>
+    </ul>
+<?//=$this->paginationControl($this->paginator, 'Sliding', 'partials/ticket_pagination.phtml', array('baseUrl' => $this->baseUrl)); ?>
+</div>

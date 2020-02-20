@@ -1,0 +1,203 @@
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, table, th, td, hr
+{
+    margin: 0; padding: 0; border: 0; outline: none;
+}
+
+body
+{
+    line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 100%;
+    font-weight: normal;
+}
+
+ul, ol
+{
+    list-style: none;
+}
+
+a
+{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+.clear{
+    clear: both;
+}
+
+.center{
+    text-align: center;
+}
+
+/* adding custom style*/
+.tree ul{
+    padding-left:10px;
+}
+
+/*  pagination */
+.pagination a {
+    margin:0 5px 0 0;
+    padding:3px 6px;
+}
+
+.pagination {
+    font-family:Verdana,Arial,Helvetica,sans-serif;
+    font-size:10px;
+    padding:20px 0 5px;
+    text-align:right;
+}
+
+.pagination a.number {
+    border:1px solid #DDDDDD;
+}
+
+.pagination a.current {
+    background:url("../img/global/icons/pagination_blue.jpg") repeat-x scroll left top #477FCC !important;
+    border-color: #99CCFF !important;
+    color:#FFFFFF !important;
+}
+
+/* Error messages */
+.errors ul li{
+    color: red;
+}
+
+/* phone elements */
+.phones{
+    max-height:500px;
+    overflow-x:auto;
+    overflow-y:auto;
+    border: 1px solid maroon;
+}
+
+.search_phones {
+    border: 1px solid maroon;
+    max-height: 350px;
+    overflow-x:auto;
+    overflow-y:auto;
+}
+
+.phone {
+    float: left;
+    /*text-align: center;*/
+    padding: 5px;
+    height: 160px;
+    width: 125px;
+    text-align: center;
+}
+
+.phone_tbl td{
+    padding: 0px;
+}
+
+/* Title of the product view */
+.info_title{
+    background-attachment:scroll;
+    background-color:#CCCCCC;
+    border-top-style:solid;
+    border-top-width:1px;
+    font-size:13px;
+    font-weight:bold;
+    padding-bottom:5px;
+    padding-left:15px;
+    padding-right:5px;
+    padding-top:5px;
+}
+
+.info_title h3{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.hide_div{
+    display: none;
+}
+
+/* Add CSS to navigator of the file and url */
+
+.navigate_container{
+    padding: 10px;
+    background-image: url("../img/content/title_bg.jpg");
+    width: 150px;
+    font-weight: bold;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    color: #FFFFFF;
+}
+
+.files_url{
+    border: 1px solid #939393;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-topleft: 0px;
+    overflow: auto;
+}
+
+.navigate_container_devices{
+    padding: 10px;
+    background-image: url("../img/content/title_bg.jpg");
+    font-weight: bold;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    width: 400px;
+    color: #FFFFFF;
+}
+
+.devices_container{
+    border: 1px solid #939393;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-topleft: 0px;
+
+}
+
+.future_devices{
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #939393;
+    padding:10px;
+}
+
+.files .success{
+    background-color: #E5E5E5;
+}
+.files .failed{
+    background-color: #FF6666;
+}
+.files .queue{
+    background-color: #FFFF99;
+}
+.help_notices{
+    background-color:#E5E5E5;
+    float:right;
+    font-size:8pt;
+    padding:10px 20px;
+    width:30%;
+}
+.help_notices li{
+    list-style:square;
+    line-height: 22px;
+}
+
+.urls_mode textarea {
+    width: 60%;
+}

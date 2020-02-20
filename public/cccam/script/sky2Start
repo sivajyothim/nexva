@@ -1,0 +1,4 @@
+#!/bin/bash
+. /var/www/cccam-cms-new/script/variable
+$OSCAM_2 >/dev/null 2>&1 &
+sleep 2

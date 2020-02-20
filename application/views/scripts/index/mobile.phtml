@@ -1,0 +1,31 @@
+<style>
+<!--
+    .content p {
+        margin-bottom:15px;
+    }
+-->
+</style>
+<div class='blkCenter innerPage containerGap'>
+    <div class="container">
+        <div class='content'>
+            <h2>Oops!</h2>
+            
+            <p>Looks like you're trying to access the mobile version of the <strong><?=$this->themeData->WHITELABLE_SITE_NAME?> 
+            App Store</strong> with your regular browser...</p>
+            
+            <p>You need to point your mobile browser to 
+            <a href='http://<?=$this->themeData->WHITELABLE_URL?>'><strong>http://<?=$this->themeData->WHITELABLE_URL?></strong></a>
+             to access the <?=$this->themeData->WHITELABLE_SITE_NAME?> app store.
+            </p>
+            
+            <p>
+            <img align='left' src='<?php echo "http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl=http://{$this->themeData->WHITELABLE_URL}" ?>'>
+            <br><br>
+            Alternatively, you can scan the handy QR code to be taken there as well 
+                (Don't have a QR code reader on your phone? <a href="http://nexva.com/7990" target="_blank"> Get one free </a>)
+            
+            </p>
+            <div class='clear'></div>
+        </div>
+    </div>
+</div>

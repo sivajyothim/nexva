@@ -1,0 +1,12 @@
+<? if( $this->message != ''):?>
+<div class="message info">
+    <p><?=$this->message?></p>
+</div>
+<?endif;?>
+
+<?if('' !=$this->error):?>
+
+<div class="message error">
+   <p><?=$this->error;?></p>
+</div>
+<?endif;?>

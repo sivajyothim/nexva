@@ -1,0 +1,9 @@
+                        <ul>
+                             <?
+                                $messages = $this->_flashMessenger->getMessages();
+                                if(is_array($messages)) :
+                                    foreach ($messages as $key=>$value): ?>
+                                        <li><?=$value?></li>
+                                    <?endforeach;?>
+                                <?endif;?>
+                       </ul>

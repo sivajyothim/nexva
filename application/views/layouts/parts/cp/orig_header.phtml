@@ -1,0 +1,110 @@
+<?php
+$cpauth = Zend_Auth::getInstance();
+$user   = NULL;
+if ($cpauth->getIdentity()) {
+    $user     =   new Cpbo_Model_UserMeta();
+    $user->setEntityId($cpauth->getIdentity()->id);
+}
+
+        $chapSessionNs = new Zend_Session_Namespace('chap');
+        //Zend_Debug::dump($chapSessionNs->chap);die();
+        $userName ='';
+        $logout = '/user/logout';
+
+                //Default logo - nexva logo
+        	$logo = PROJECT_BASEPATH.'/cp/assets/img/global/logo.png';
+                //Default URL
+                $url = '/';
+                //Default Div class=
+        	$divClass = 'logo';
+                
+                if(!empty($chapSessionNs->chap->username))
+                {
+                   if($chapSessionNs->chap->username == 'nexva.mobi')	
+                   {
+                       $userName = ''; 
+                   }                       
+                   else 
+                   {
+                       
+                        $logout = '/user/logout/r/'.$chapSessionNs->chap->username;
+
+                        //Check if Chap logo exists
+                        //if( file_exists(APPLICATION_PATH."/../public/cp/".$chapSessionNs->chap->username."/img/logo.png") )  
+                        //{        	
+                            //override default logo with custom logo
+                        $logo =  !empty($this->cpLogo) ? '/cp/assets/logos/'.$this->cpLogo : "/cp/".$chapSessionNs->chap->username."/img/logo.png";                        
+                        $url = '/r/'.$chapSessionNs->chap->username;
+                        $divClass = 'chap_logo';
+                        //}                    
+                       $headerColour =  !empty($this->cpHeaderColour) ? 'background:'.$this->cpHeaderColour : 'background:#A5A5A5';
+                       $userName = $chapSessionNs->chap->username;
+                   }
+                }    
+                else 
+                {
+                	
+                   $userName = ''; 
+                }	
+        ?>
+
+ <!-- Start Header -->
+<?php //echo $this->customCss; die();?>
+<div id="header" style="<?= $headerColour; ?>" >   
+    <div class="<?= $divClass ?>">
+        <a href="<?= $url ?>">
+            <img src="<?= $logo ?>" alt="logo"/>
+        </a>
+    </div>
+    
+    <?php /*print_r($chapSessionNs->chap);*/?>
+    <? if(!empty($chapSessionNs->chap->username)) : ?>
+     
+        <? if($chapSessionNs->chap->username != 'nexva.mobi') : ?>
+    
+            <div id="div_heading">
+                      <h1><?php echo $this->cpTitle;?></h1>
+            </div>
+    
+        <? endif;?>
+        
+    <? else :?>
+          
+    <? endif;?>
+                
+    
+    
+    <?php
+
+    $locale  =   Zend_Registry::get('Zend_Locale');
+
+    $date   =   new Zend_Date(Zend_Date::DATETIME_FULL,$locale);
+
+    ?>
+    <?php 
+    	if ($user) :    	
+    ?>
+    <div class="info">
+        <div>
+            <h2>Welcome back <span><?php echo ucfirst($user->FIRST_NAME);?></span></h2>
+            <small><?=$date;?> GMT. Last login : <?=$user->LAST_LOGIN;?></small>
+            <small><a href="http://www.nexva.com" target="_blank">View Website</a>  | <a href="<?=$logout;?>">Log out</a></small>
+        </div>
+    </div>
+    <?php endif;?>
+    
+    <? if(!empty($chapSessionNs->chap->username)) : ?>
+     
+        <? if($chapSessionNs->chap->username == 'nexva.mobi') : ?>
+    
+                <div id="nexva_logo"></div>
+                
+        <? endif;?>
+        
+    <? else :?>
+          
+    <? endif;?>
+        
+    <!-- End Info -->
+</div>
+<!-- End Header -->

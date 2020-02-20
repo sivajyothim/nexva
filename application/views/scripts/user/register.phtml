@@ -1,0 +1,78 @@
+<?php 
+    $this->headLink()->appendStylesheet($this->cdn('site_assets').'/common/js/jquery/plugins/validation/css/validationEngine.jquery.css');
+    $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/validation/js/jquery.validationEngine.js');
+    $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/validation/js/languages/jquery.validationEngine-en.js');
+?>
+<script type="text/javascript">
+$(document).ready(function(){
+	 $("#register").validationEngine();
+	 $('#submit').click(function(){
+		 removeSuggests();
+     });
+     $('#show_pass').click(function(){
+         if (this.checked) {
+             $('#pass_hint').slideDown();
+             $('#pass_hint').html($('#password').val());
+             
+         } else {
+        	 $('#pass_hint').slideUp();
+         }
+     });
+     $('#password').keyup(function(){
+    	 $('#pass_hint').html($('#password').val());
+     })
+});
+</script>
+
+<div class="prodListPage">
+
+    <div class='container' style='border: 2px solid #DE6800;'>
+        <div class='textBlock'>
+            <h2 id='pageTitle' style='font-weight: normal; margin-bottom: 15px;'>Sign Up Now</h2>
+            
+            <p style='padding:0px;'>Sign up is quick and easy. Just give us the following information, and you're done!</p>
+            <?
+            $errors = $this->errors;
+            if(is_array($errors)) :?>
+                <div class='message-error'>
+                    <p class='header'>Please correct the following problems</p>
+                <?php foreach ($errors as $error): ?>
+                    <p><?=$error?></p>
+                <?endforeach;?>
+                </div>
+            <?endif;?>
+             <br>
+            
+            <form class='smallInputForm' id="register" style='width:auto;' name="register" action="<?php echo PROJECT_BASEPATH;?>user/register" method="post">
+                <div class="input">
+                    <label>E-Mail</label>
+                    <input class="validate[required,custom[email]] suggest"  title='Your email address. Verification mail will be sent here' name="email" id="email" type="text" value="<?=$this->formValues->email?>"/>
+                </div>
+            
+                <div class="input split">
+                    <label>Full Name</label>
+                    <input class="validate[required] suggest"  title='First name' name="first_name" id="first_name" type="text" value="<?=$this->formValues->first_name?>"/>
+                    <input class="validate[required] suggest"  title='Last name' name="last_name" id="last_name" type="text" value="<?=$this->formValues->last_name?>"/>
+                </div>
+
+                <div class="input">
+                    <label>Password (6 characters or more)</label>
+                    <input style='width:68%' class="validate[required,minSize[6]]  suggest"  name="password" id="password" type="password" value=""/>
+                    <input style='padding:5px;' type='checkbox' id='show_pass'>
+                    <label style='display:inline' for='show_pass'>Show Password</label>
+                    <p style='display:none' id='pass_hint'></p>
+                </div>
+
+                <label>Enter the security key you see inside the image</label>
+                <div id="recaptcha" name="recaptcha" style="width: 60%" class="txt-input small">
+                    <?php echo $this->recaptcha;?>
+                </div>
+
+                <div class="input submit">
+                    <button id='submit' style='padding: 10px;' class='orangeButton' type='submit'>Sign Me Up!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+        

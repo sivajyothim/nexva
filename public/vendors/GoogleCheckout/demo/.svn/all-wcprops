@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/nexva_v1/!svn/ver/5673/v2/trunk/public/vendors/GoogleCheckout/demo
+END
+cartdemo.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/5656/v2/trunk/public/vendors/GoogleCheckout/demo/cartdemo.php
+END
+responsehandlerdemo.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/responsehandlerdemo.php
+END
+digitalCart.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/5673/v2/trunk/public/vendors/GoogleCheckout/demo/digitalCart.php
+END
+lineItemShipping.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/lineItemShipping.php
+END
+merchantsubscriptionrecurrencedemo.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/merchantsubscriptionrecurrencedemo.php
+END
+pollingdemo.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/pollingdemo.php
+END
+subscriptiondemo.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/subscriptiondemo.php
+END
+sampcodetest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/sampcodetest.php
+END
+basicapiresponsehandlerdemo.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/demo/basicapiresponsehandlerdemo.php
+END

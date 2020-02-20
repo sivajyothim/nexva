@@ -1,0 +1,88 @@
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+
+<?php $this->headScript()->captureStart();?>
+    var __DATA_PLATFORMS       = eval(<?php echo $this->appBuildsJson?>); 
+    
+  //   var __DATA_PLATFORMS       =   eval({"1346457600000":0,"1346544000000":0,"1346630400000":0,"1346716800000":0,"1346803200000":0,"1346889600000":1,"1346976000000":2,"1347062400000":0,"1347148800000":0,"1347235200000":0,"1347321600000":0,"1347408000000":0,"1347494400000":0,"1347580800000":0,"1347667200000":0,"1347753600000":0,"1347840000000":0,"1347926400000":0,"1348012800000":0,"1348099200000":0,"1348185600000":0,"1348272000000":0,"1348358400000":0,"1348444800000":0,"1348531200000":0,"1348617600000":0,"1348704000000":0,"1348790400000":0,"1348876800000":0,"1348963200000":0}); //downloads
+<?php $this->headScript()->captureEnd();?>
+<?php               
+                $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+                if(!in_array($chapId, array('585474','585480'))){ ?>
+                        <?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/appview.js'); ?>
+            <?php }else{?>
+                        <?php $this->headScript()->appendFile('/cp/assets/js/analytics/appview_fr.js'); ?>
+            <?php } ?>
+
+
+
+<?php 
+    //lets do some calculations
+    $totalViews     = 0; //array_sum($this->appView);
+    $totalDownloads = 0; //array_sum($this->appDownloads);
+?>
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView' => $this->endTimeView,
+        'product'       => $this->product,
+        'queryString'   => $this->queryString
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+<div id='visualizations'>
+    <?php 
+        $opts   = array(
+            'product'       => $this->product
+        );
+        echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+    <div id='stats_view_by_device_cont' class='chart_box_full'>
+        <div class="title">
+            <h3><?php echo $this->translate("Top Platforms");?></h3>
+            <div class='filter'>
+                    <a href='<?php echo PROJECT_BASEPATH;?>product/view' class='button'><?php echo $this->translate("See all products");?></a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <div class='full_block' id='stats_view_by_platform'>
+                    <?php echo $this->translate("We haven't collected enough data to display analytics for this app. Check back soon!");?>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="title">
+            <h3><?php echo $this->translate("All Platforms");?></h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th><?php echo $this->translate("Device Name");?></th>
+                        <th><?php echo $this->translate("Downloads");?></th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $sum    = array_sum($this->appBuilds);
+                        $class  = ''; 
+                    ?>
+                    <?php foreach ($this->appBuilds as $build => $hits) : ?>
+                    <?php $class = ($class == 'class="alt"') ? '' : 'class="alt"';?>
+                    <tr>
+                        <td><?php echo $build;?></td>
+                        <td><?php echo $hits ?></td>
+                        <td><?php echo round($hits / $sum * 100, 2) ?>%</td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 

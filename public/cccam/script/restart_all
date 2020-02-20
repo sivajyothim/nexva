@@ -1,0 +1,31 @@
+#!/bin/bash
+. /var/www/cccam-cms-new/script/variable
+killall -9 $CCCAM  >/dev/null 2>&1 &
+killall -9 $OSCAM_1 >/dev/null 2>&1 &
+killall -9 $OSCAM_2 >/dev/null 2>&1 &
+killall -9 $OSCAM_3 >/dev/null 2>&1 &
+killall -9 $OSCAM_4 >/dev/null 2>&1 &
+killall -9 $OSCAM_5 >/dev/null 2>&1 &
+killall -9 $OSCAM_6 >/dev/null 2>&1 &
+killall -9 $OSCAM_7 >/dev/null 2>&1 &
+killall -9 $OSCAM_8 >/dev/null 2>&1 &
+sleep 4
+cd /usr/local/bin
+./$CCCAM >/dev/null 2>&1 &
+sleep 5
+$OSCAM_1 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_2 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_3 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_4 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_5 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_6 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_7 >/dev/null 2>&1 &
+sleep 2
+$OSCAM_8 >/dev/null 2>&1 &
+sleep 2

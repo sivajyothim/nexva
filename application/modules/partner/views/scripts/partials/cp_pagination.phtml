@@ -1,0 +1,37 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 1/10/14
+ * Time: 4:03 PM
+ * To change this template use File | Settings | File Templates.
+ */?>
+<?php
+//configuration
+if(!isset($this->page_name))$this->page_name='page';
+?>
+<?php if ($this->pageCount): ?>
+    <div class="pagination_products">
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+            <a href="<?=$this->baseUrl?><?=$this->previous?><?php echo '/uid/'.$this->cpId;?>"> &lt;&lt; <?php echo $this->translate("Previous")?></a>
+        <?php else: ?>
+            <span class="disabled">&lt;&lt; <?php echo $this->translate("Previous")?></span>
+        <?php endif; ?>
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?=$this->baseUrl?><?=$page?><?php echo '/uid/'.$this->cpId;?>" class="number"><?=$page?></a>
+            <?php else: ?>
+                <a class="number current"><?=$page?></a>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+            <a href="<?=$this->baseUrl?><?=$this->next?><?php echo '/uid/'.$this->cpId;?>"><?php echo $this->translate("Next")?> &gt;&gt;</a>
+        <?php else: ?>
+            <span class="disabled"><?php echo $this->translate("Next")?> &gt;&gt;</span>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

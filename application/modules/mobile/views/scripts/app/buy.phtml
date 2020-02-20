@@ -1,0 +1,5 @@
+<ul class="padding-all">
+<? $i = 1; foreach($this->paymentGateways as $paymentGateway): ?>
+  <li><b><?=$i++ . '. ' . $paymentGateway->name ?></b><br/><a href="<?php echo PROJECT_BASEPATH;?>app/checkout/id/<?=$paymentGateway->id?>"><img src="<?=$this->cdn('site_assets')?>/mobile/images/payment_gateways/icon_<?=$paymentGateway->id ?>.png" alt="<?=$paymentGateway->name ?>" title="<?=$paymentGateway->name ?>"/></a></li>
+<?  endforeach; ?>
+</ul>

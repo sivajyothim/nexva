@@ -1,0 +1,615 @@
+<!DOCTYPE html> 
+<html <?php if($this->mtnIran) { echo 'xml:lang="fa" dir="rtl"'; } ?>> 
+<head>
+  
+  <title><?= !empty($this->siteTitle) ? $this->siteTitle : 'neXva - Mobile App Store' ?></title>    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="<?= !empty($this->metaKeys) ? $this->metaKeys : 'nexva, Mobile App Store, Android' ?>" />
+  <meta name="description" content="<?= !empty($this->metaDes) ? $this->metaDes : 'nexva, Mobile App Store.' ?>" />
+  <link href="http://178.63.83.24/wl/favicons/<?= !empty($this->siteFavicon) ? $this->siteFavicon : '' ?>" rel="shortcut icon" type="image/vnd.microsoft.icon" />  
+        
+        
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!-- Jquery Mobile -->
+  <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/jquery.mobile.styles.css" />    
+  <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/jquery.mobile.structure-1.3.2.css" />
+  <link rel="stylesheet" href="/mobile/whitelables/<?= $this->folderPath; ?>/mobile/css/<?= $this->css; ?>" />
+  <script src="http://178.63.83.24/partnermobile/js/jquery-1.9.1.min.js"></script>
+  <script src="http://178.63.83.24/partnermobile/js/jquery.mobile-1.3.2.min.js"></script> 
+  
+  <script src="http://178.63.83.24/partnermobile/js/addtohomescreen.js"></script> 
+  <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/addtohomescreen.css" />
+  
+  <!-- Carousel -->
+  <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/owl.carousel.css">
+  <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/owl.theme.css">
+  <script src="http://178.63.83.24/partnermobile/js/owl.carousel.js"></script>
+  <!-- Rating -->
+  <script type="text/javascript" src="http://178.63.83.24/partnermobile/js/jquery.raty.js"></script>
+  <!-- validate -->
+  <script type="text/javascript" src="http://178.63.83.24/partnermobile/js/jquery-validate.js"></script>
+  
+  <?php if($this->ycoins){ ?>
+    <script type="text/javascript" src="http://demo.centili.com/widget/js/c-mobile-payment-scripts.js"></script>
+  <?php } ?>
+</head> 
+
+<body> 
+<script type="text/javascript">
+
+addToHomescreen();
+
+        function goNext()
+        {
+            $("#product-carousel").trigger('owl.next');
+        }
+
+        function goPrev()
+        {
+            $("#product-carousel").trigger('owl.prev');
+        }
+    
+       var ua = navigator.userAgent;
+       
+       if (ua.indexOf("BlackBerry") >= 0)
+       {
+          if (ua.indexOf("WebKit") >= 0)
+          {
+             $(document).bind("pagecreate", function()
+                {
+                $.support.cors = true;
+                $.mobile.allowCrossDomainPages = true;
+                $("[data-role=header]").fixedtoolbar({ tapToggle: false });
+                $("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+                $("[data-position='fixed']").fixedtoolbar('hide');
+                });
+          }
+       }
+   
+	$(document).ready(function() {
+
+
+        $(".ui-btn-text").click(function(){
+            //allert(345);
+            //$("#owl-carousel").trigger('owl.next');
+        });
+
+		 $("#product-carousel").owlCarousel({
+             navigation : true,
+             navigationText : ["",""],
+             autoPlay : true,
+             responsive: true
+			});
+                        
+		//$("#product-carousel").owlCarousel();
+		$('#rating1').raty({ score: 3 });
+		$('#rating2').raty({ score: 4.5 });
+		$('#rating3').raty({ score: 2.5 });
+		$('#rating4').raty({ score: 3.5 });
+		$('#rating5').raty({ score: 5 });
+		$('#rating6').raty({ score: 1 });
+		$('#rating7').raty({ score: 5 });
+		$('#rating8').raty({ score: 1 });
+
+        //search function
+        /*$("#search").keyup(function(event){
+            //alert(event.keyCode);
+            //var code = (event.keyCode ? event.keyCode : event.which);
+            if(event.keyCode == 13)
+            {
+                //alert(event.keyCode);
+                //var value = $(this).val();
+                //alert(value);
+                //$("#search_form").submit();
+            }
+        });*/
+
+
+
+	});
+
+	$(document).on('pagebeforecreate', '[data-role="page"]', function(){     
+    setTimeout(function(){
+        $.mobile.loading('show');
+    },1);    
+	});
+	
+	$(document).on('pageshow', '[data-role="page"]', function(){  
+		setTimeout(function(){
+			$.mobile.loading('hide');
+		},300);      
+	});
+        
+        
+        $(document).ready(function() {
+		$("#screenshots-carousel-inner").owlCarousel({
+			navigation : true,
+            autoPlay : true,
+            responsive: true,
+            navigationText : ["",""],
+		 	items : 10, //10 items above 1000px browser width
+			itemsDesktop : [1000,5], //5 items between 1000px and 901px
+			itemsDesktopSmall : [900,3], // betweem 900px and 601px
+			itemsTablet: [600,2], //2 items between 600 and 0;
+			itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+		});
+		$('#rating1').raty({ score: 3 });
+		$('#rating2').raty({ score: 4.5 });
+		$('#rating3').raty({ score: 2.5 });
+		$('#rating4').raty({ score: 3.5 });
+		$('#rating5').raty({ score: 5 });
+		$('#rating6').raty({ score: 1 });
+		$('#rating7').raty({ score: 5 });
+		$('#rating8').raty({ score: 1 });
+		$('#rating9').raty({ score: 1 });
+		$('.rating-all').raty({ score: 3.5 });
+	});
+	
+	$(document).on('pagebeforecreate', '[data-role="page"]', function(){     
+    setTimeout(function(){
+        $.mobile.loading('show');
+    },1);    
+	});
+	
+	$(document).on('pageshow', '[data-role="page"]', function(){  
+		setTimeout(function(){
+			$.mobile.loading('hide');
+		},300);      
+	});
+
+    $(document).on('pageinit', '.ui-page',function(event){
+        setTimeout(function () {
+            $('#popup-app-selection-appstore').popup('open');
+        }, 0);
+        
+        setTimeout(function () {
+            $('#warning-dialog').popup('open');
+        }, 0);
+    })
+
+    
+
+</script>
+
+<?php
+if($this->qelasy){
+    ?>
+      <script src="https://sandbox.google.com/checkout/inapp/lib/buy.js"></script>
+      
+      <script type='text/javascript'>
+        function googleWalletFunc(jwt_value, id, build) {
+            
+        $.ajax({
+        type: "POST",
+        url: "/app/buy-app-by-redirection-pg",
+        data: "id="+id+"&build="+build+"&payment_gateway_name=GoogleWallet",
+        success: function (jwtValue){
+            
+            var jwt_val = jwtValue.trim();
+            //alert(jwtValue);
+            //window.location.href = "/";
+           // alert(msg);
+           //$('#payment-id').attr('value', paymentID);
+            //googleWalletBtn = document.getElementById('googleWalletBtn');
+            google.payments.inapp.buy({
+            jwt: jwt_val,
+            success: successHandler,
+            failure: failureHandler
+          });
+          return false;
+        },
+        error: function(){
+
+        }
+        });
+        
+         /* googleWalletBtn = document.getElementById('googleWalletBtn');
+          google.payments.inapp.buy({
+            jwt: jwt_value,
+            success: successHandler,
+            failure: failureHandler
+          });
+          return false;*/
+        }
+
+        var successHandler = function(result){
+                //alert('success');
+                for(var key in result) {
+                    var value = result[key];
+                }
+                alert(result['jwt']);
+                return false;
+                
+                //alert(result.toSource())
+                //alert(ducument.getElementById('payment-id').value);
+                //var json = JSON.parse(result);
+ 
+	//alert(json); 
+        
+                $.ajax({
+                type: "POST",
+                url: "/app/post-back-pg",
+                data: result,
+                success: function (msg){
+                    //window.location.href = "/";
+                  alert(msg);
+                   
+                },
+                error: function(){
+
+                }
+                });
+        }
+
+        var failureHandler = function(result){
+                alert('fail');
+                alert(result.toSource())
+        }
+
+      </script>
+  <?php } ?>
+
+
+<?php 
+        $sessionChapDetails = new Zend_Session_Namespace('partnermobile');
+?>
+<input type="hidden" id="payment-id" value=""/>
+<div data-role="page" id="page-home" data-backbtn="false">
+
+  <div data-role="header" data-position="fixed" data-theme="c" data-tap-toggle="false">
+  
+      <div class="wireframe-header-grid ui-grid-b">
+                <div class="ui-block-a ui-bar-a">
+                    <h1 class="manu-logo ui-title" role="heading" aria-level="1">
+                    <a href="#">
+                      <?php if($this->partnerId == 115189) 
+                      { ?> <img src="http://178.63.83.24/wl/logos/ycoins_mobile_logo.png" class="ui-btn-left"/> 
+                      <?php } elseif($this->partnerId == 136079)  { ?> <img src="http://178.63.83.24/mobile/whitelables/caboapps/web/img/unitellogo_sm.png" class="ui-btn-left"/> 
+                      <?php } elseif($this->partnerId == 726355)  { ?> <img src="http://178.63.83.24/mobile/whitelables/zohakish/mobile/img/zohakis_logo.png" class="ui-btn-left"/> 
+                      <?php } elseif($this->partnerId == 929019)  { ?> <img src="http://178.63.83.24/wl/favicons/1504181270_01.png" class="ui-btn-left"/> 
+                      <?php } else { ?> <img src="http://178.63.83.24/wl/logos/<?= !empty($this->siteLogo) ? $this->siteLogo : ''; ?>" class="ui-btn-left"/> 
+                      <?php } ?>
+                    </a>
+                  </h1>
+                </div>
+                
+                <div class="ui-block-b ui-bar-a">
+                    <form id="search_form" name="search_form" action="/index/search/" data-ajax="false">
+                        <article role="heading" aria-level="1">
+                            <input type="search" id="search" name="q" value="" data-mini="true" data-theme="b" class="search-header" />
+                            <?php if($this->partnerId == 136079): //Only for CaboApps ?>
+                                <!--input id="search" class="custon-search" type="button" data-inline="true" value="go" data-mini="true"/-->
+                            <?php endif; ?>
+                        </article>
+                    </form>
+                </div>
+                
+                <div class="ui-block-c ui-bar-a">
+                    
+                    <div class="ui-btn-right header-right-button-group" data-role="controlgroup" data-type="horizontal">
+                        
+                        <!--a href="#popup-search" data-rel="popup" data-position-to="window" data-role="button" data-transition="pop" data-iconshadow="false" data-corners="false" data-icon="custom" id="searchheadericon" data-iconpos="notext">Search</a--> 
+                        
+                        <?php 
+                            if($this->airtelSriLanka && $this->isHeaderEnrichmentActive):
+                                //Remove login icon for AirtelSL
+                            else:
+                                if (Zend_Auth::getInstance()->hasIdentity()) :
+                                ?>
+                                    <a rel="external" href="/user/logout" data-position-to="window" data-role="button" data-transition="pop" data-iconshadow="false" data-corners="false" data-icon="custom" id="logofficon" data-iconpos="notext">Log out</a> 
+
+                                <!--<a rel="external" href="" id="loginicon"</a>-->  
+                                <?php else: 
+                                    
+                                      if($this->qelasy) : ?>
+                                            <a href="#popup-login-qelasy" data-rel="popup" data-position-to="window" data-role="button" data-transition="pop" data-iconshadow="false" data-corners="false" data-icon="custom" id="loginicon" data-iconpos="notext">Login</a> 
+                                      <?php
+                                      elseif(!$this->airtelNigeria) : ?>
+                                      
+                                      <?php $this->showRegisterLink ?>
+                                        <?php   if($sessionChapDetails->id == 585480 or $sessionChapDetails->id == 585474 or $sessionChapDetails->id == 282227 or $sessionChapDetails->id == 283006):?>
+                                        
+                                      <?php else:?>
+                                       <a <?= ($this->showRegisterLink) ? 'href="#popup-login-register"' : 'href="/user/login"  data-ajax="false"' ?>" data-rel="popup" data-position-to="window" data-role="button" data-transition="pop" data-iconshadow="false" data-corners="false" data-icon="custom" id="loginicon" data-iconpos="notext">Login</a>
+                                      <?php endif;?>
+                                      
+           <?php // chathura remove 
+			
+			if($_SERVER['REMOTE_ADDR'] == '113.59.213.161')  :?>
+			
+			<a <?= ($this->showRegisterLink) ? 'href="#popup-login-register"' : 'href="/user/login"  data-ajax="false"' ?>" data-rel="popup" data-position-to="window" data-role="button" data-transition="pop" data-iconshadow="false" data-corners="false" data-icon="custom" id="loginicon" data-iconpos="notext">Login</a>
+			    
+			<?php endif;
+			// chathura remove
+			?>
+			
+                               
+                                <?php 
+                                    endif; 
+                                endif; 
+                            endif;
+                         ?>
+                                
+                         <a href="#categories-panel" data-role="button" data-iconshadow="false" data-corners="false" data-icon="custom" id="gridicon" data-iconpos="notext">Categories</a> 
+                         <?php if(!$this->airtelNigeria) : ?>
+                            <a href="#menu-panel" data-role="button" data-iconshadow="false" data-corners="false" data-icon="custom" id="menuicon" data-iconpos="notext">Menu</a> 
+                         <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+       <?php
+        //check the url slug and highlight the current menu
+            $urlAdd = $this->url();
+            $arrUrl = explode('/',$urlAdd);
+            $count = count($arrUrl);
+            $slug = $arrUrl[$count-1];
+        ?>     
+      
+        <div data-role="navbar" class="top-menu">
+		<ul data-theme="c">
+		 <?php if($this->partnerId == 163302 ): ?>
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/newest" class="<?php echo ($slug=='newest')?' ui-btn-active':'';?>" rel="external"><?php echo $this->translate("Latest");?></a></li>
+		  <?php else: ?>
+		    <li><a href="<?php echo PROJECT_BASEPATH;?>app/newest" class="<?php echo ($slug=='newest')?' ui-btn-active':'';?>" rel="external"><?php echo $this->translate("Newest");?></a></li>
+		  <?php endif;?>
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/top-free" class="<?php echo ($slug=='top-free')?' ui-btn-active':'';?>" rel="external"><?php echo $this->translate("Top Free");?></a></li>
+			
+			<?php $sessionDevice = new Zend_Session_Namespace("devices_partner_mobile_id"); 
+			if($sessionDevice->platfrom != 'iOS') :
+			?> 
+			
+			<?php if($this->partnerId != 585480 and $this->partnerId !=  585474) :?>
+			
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/top-premium" class="<?php echo ($slug=='top-premium')?' ui-btn-active':'';?>" rel="external"><?php echo $this->translate("Top Paid");?> </a></li>
+			    <?php endif;?>
+			    
+			<?php // chathura remove
+			
+			if($_SERVER['REMOTE_ADDR'] == '113.59.213.161')  :?>
+			
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/top-premium" class="<?php echo ($slug=='top-premium')?' ui-btn-active':'';?>" rel="external"><?php echo $this->translate("Top Paid");?> </a></li>
+			    <?php endif;
+			    		// chathura remove?>
+			    
+			<?php endif;?>
+			
+			
+			
+			
+			
+			
+			
+                        <li><a href="<?php echo PROJECT_BASEPATH;?>app/top-downloads" class="<?php echo ($slug=='top-downloads')?' ui-btn-active':'';?>" rel="external"><?php echo $this->translate("Top Downloads");?></a></li>
+                </ul>
+	</div><!-- /navbar -->
+        <?php 
+        //check the chapter id from session and if it is MTN show developer challange link
+        if($sessionChapDetails->id == 21134 or $sessionChapDetails->id == 320345):?>
+        <div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/mtn-developer-challenge" class="" rel="external" style="background:#000000 !important;"><?php echo $this->translate("Developer Challenge");?></a></li>
+		</ul>
+		</div>
+	<!--	   <div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/appstitude" class="" rel="external" style="background:#000000 !important;"><?php echo $this->translate("APPtitude");?></a></li>
+		</ul>
+	</div>--><!-- /navbar -->
+	 <div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/islamic" class="" rel="external" style="background:#000000 !important;"><?php echo $this->translate("Islamic APPs");?></a></li>
+		</ul>
+	</div>
+	
+        <?php endif;?>
+        
+        <?php   if($sessionChapDetails->id == 276531):?>
+        <div data-role="navbar" data-theme="a">
+		<ul>
+			<li><a href="<?php echo PROJECT_BASEPATH;?>app/mtn-developer-challenge" class="" rel="external" style="background:#ffbe00 !important;"><?php echo $this->translate("Application Day");?></a></li>
+		</ul>
+	</div><!-- /navbar -->
+        <?php endif;?>
+    
+</div><!-- /header -->
+
+<?php if($this->partnerId == 283006) { ?>
+<!-- Adult content warning popup -->
+<?php 
+$sessionAdultsContent = new Zend_Session_Namespace('content');
+if(!isset($sessionAdultsContent->content)) {
+?>
+<div data-role="popup" id="warning-dialog" data-overlay-theme="a" class="ui-corner-all">
+    <p class="align-center-bold"><?php echo $this->translate("Content Warning");?></p>
+    <p class="align-center"><?php echo $this->translate("18 Years or Older");?>?</p>
+    <div style="padding:10px 20px;">
+        <a class="yes-btn" data-ajax="false" href="http://<?=$_SERVER['SERVER_NAME'];?>/app/adult/content/1" data-role="button" data-mini="true" data-theme="c"><?php echo $this->translate("Yes");?></a>
+        <a class="no-btn" data-ajax="false" href="http://<?=$_SERVER['SERVER_NAME'];?>/app/adult/content/0" data-role="button" data-mini="true" data-theme="b"><?php echo $this->translate("No");?></a>
+    </div>
+</div>
+<?php } ?>
+<!-- End adult content warning popup -->
+<?php } ?>
+
+<!-- main menu panel -->   
+<div data-role="panel" id="menu-panel" class="grey-bg-menu">
+    <!-- panel content goes here -->
+    <?php if(count($this->multiLanguages) > 1):?>
+    
+    <div data-role="controlgroup" data-type="horizontal" style="margin-bottom: 20px;">
+    <!--div class="lang-icons"-->
+            <?php 
+            foreach($this->multiLanguages as $language):
+                if($this->currentLanguageId != $language->id) :
+            ?>
+    <a href="#" class="menu-lang-icons" data-role="button" onclick="setlanguage('<?= $language->code ?>','<?= $language->id ?>')"><img src="/partner/default/assets/img/flags/<?= $language->icon ?>" /></a>
+                <!--div class="lang-single-icon"><span class="lang_text"> <?= strtoupper($language->code) ?></span> &nbsp; <a href="#" class="toggle-loading" onclick="setlanguage('<?= $language->code ?>','<?= $language->id ?>')"><img src="/partner/default/assets/img/flags/<?= $language->icon ?>"/></a></div-->
+            <?php 
+                endif;
+            endforeach; 
+            ?>
+    <!--/div-->
+    </div>
+    <?php endif; ?>
+    <ul data-role="listview" data-inset="false">
+      <li data-icon="custom" id="homeicon" class="ui-btn-icon-left"><a rel="external" href="/">  <?php if($this->partnerId == 21134 ): ?>
+      <?php echo $this->translate("APPtitude");?>
+      <?php else: ?>
+      <?php echo $this->translate("Home");?>
+      <?php endif; ?></a></li>
+      
+      <?php if($this->partnerId == 163302 ): ?>
+      <li data-icon="custom" id="newesticon" class="ui-btn-icon-left"><a rel="external" href="<?php echo PROJECT_BASEPATH;?>app/newest"><?php echo $this->translate("Latest");?></a></li>
+      <?php else: ?>
+      <li data-icon="custom" id="newesticon" class="ui-btn-icon-left"><a rel="external" href="<?php echo PROJECT_BASEPATH;?>app/newest"><?php echo $this->translate("Newest");?></a></li>
+      <?php endif; ?>
+      <li data-icon="custom" id="freeicon" class="ui-btn-icon-left"><a rel="external" href="<?php echo PROJECT_BASEPATH;?>app/top-free"><?php echo $this->translate("Top Free");?></a></li>
+           <?php if($this->partnerId == 585480 or $this->partnerId == 585474): ?>
+           
+           <?php else: ?>
+                     
+           <li data-icon="custom" id="paidicon" class="ui-btn-icon-left"><a rel="external" href="<?php echo PROJECT_BASEPATH;?>app/top-premium"><?php echo $this->translate("Top Paid");?></a></li>
+           
+           <?php endif; ?>
+      <li data-icon="custom" id="downloadicon" class="ui-btn-icon-left"><a rel="external" href="<?php echo PROJECT_BASEPATH;?>app/top-downloads"><?php echo $this->translate("Top Downloads");?></a></li>
+      
+      <?php if($this->partnerId == 585480 or $this->partnerId == 585474): ?>
+           
+      <?php else: ?>
+      <li data-icon="custom" id="issueicon" class="ui-btn-icon-left"><a rel="external" href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket"><?php echo $this->translate("Have an Issue?");?></a></li>
+      <?php endif; ?>
+      
+      
+      <?php if($this->partnerId == 585480 or $this->partnerId == 585474): ?>
+           
+      <?php else: ?>
+      <?php  if (Zend_Auth::getInstance()->hasIdentity()): ?>    
+      <li data-icon="custom" id="logouticonmenu" class="ui-btn-icon-left"><a rel="external" href="/user/logout"><?php echo $this->translate("Sign Out");?></a></li>
+      <?php else: ?>
+      <li data-icon="custom" id="loginiconmenu" class="ui-btn-icon-left"><a rel="external" href="/user/login"><?php echo $this->translate("Sign In");?></a></li>
+      <?php endif;?>
+      
+      <?php endif; ?>
+      <?php
+      /* if($this->mtnIran){ 
+          ?>
+            <li data-icon="custom" id="helpicon" class="ui-btn-icon-left"><a rel="external" href="/index/help"><?php echo $this->translate("Help");?></a></li>
+          <?php
+      }
+      */ ?>
+    </ul>
+</div><!-- /panel -->
+
+<!-- main category panel -->
+<div data-role="panel" id="categories-panel" class="grey-bg-menu">
+    <!-- panel content goes here -->
+    <ul data-role="listview" data-inset="false" data-theme="b">
+        
+   <?php 
+   $sessionAdultsContent = new Zend_Session_Namespace('content');
+      $x = 0;
+      foreach ($this->categories as $category) : 
+       $x++;   
+    ?>
+      <li data-icon="custom" id="gamesicon" class="ui-btn-icon-left">
+      
+<?php 
+
+if($sessionAdultsContent->content != 'adults' && $category['main_cat'] == 201) 
+    continue;
+?>
+          <a href="#submenu-<?= $x ?>" data-transition="slide" data-rel="popup"><?= $category['name']; ?></a>
+          
+          <div data-role="popup" id="submenu-<?= $x ?>">
+              <ul data-role="listview" data-inset="false" data-theme="c">
+                   <?php foreach ($category['sub_cat'] as $subCat) : ?>              
+                        <li data-icon="plus" class="ui-btn-icon-left">
+<!--                            <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($child['cat_id']); ?>/<?= $child['cat_id']; ?>">-->
+
+                            <a href="/category/index/id/<?= $subCat['cat_id'] ?>" data-ajax="false">
+                                    <?= $subCat['name'] ?>
+                            </a>
+                        </li>
+                  <?php endforeach; ?>
+              </ul>
+          </div>
+      </li>
+   
+      <?php endforeach ;?>
+    </ul>
+</div><!-- /main menu panel -->
+
+<!--popup when click search-->
+<div data-role="popup" id="popup-search" data-overlay-theme="a" class="ui-corner-all">
+    <form id="search_form" name="search_form" action="/index/search/" data-ajax="false">
+        <div style="padding:10px 20px; background: #cccccc;"> <article role="heading" aria-level="1">
+            <input type="search" id="search" name="q" value="" data-mini="true" data-theme="b" class="search-header" />
+        </article> 
+        <input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Search");?>">
+        </div>
+    </form>
+</div>
+
+<!--popup when click login-->
+<div data-role="popup" id="popup-login-register" data-overlay-theme="a" class="ui-corner-all">
+    <form>
+        <div style="padding:10px 20px;">
+            <h5><?php echo $this->translate("Sign In")?> <?= ($this->partnerId != 23045) ? ' / '.$this->translate("Sign Up") : '';?></h5>
+            <a data-ajax="false" href="/user/login" data-role="button" data-icon="custom" id="login" data-mini="true" data-iconpos="top" data-theme="c"><?php echo $this->translate("Sign In");?></a>
+            <?php if($this->partnerId != 23045) { ?> <a data-ajax="false" href="/user/register" data-role="button" data-icon="custom" id="signup" data-mini="true" data-iconpos="top" data-theme="c"><?php echo $this->translate("Sign Up");?></a> <?php } ?>
+            <a data-ajax="false" href="#" data-rel="back" data-role="button" data-icon="custom" id="later" data-mini="true" data-iconpos="top" data-theme="c"><?php echo $this->translate("Later");?></a>
+        </div>
+    </form>
+</div>
+
+
+<!--popup for Qeasy when click login-->
+<div data-role="popup" id="popup-login-qelasy" data-overlay-theme="a" class="ui-corner-all">
+    <form>
+        <div style="padding:10px 20px;">
+            <a data-ajax="false" href="/user/remote-login/type/1" data-role="button" data-icon="custom" id="login-parent" data-mini="true" data-iconpos="top" data-theme="c"><?php echo $this->translate("Sign in as parents or university students");?></a>
+            <a data-ajax="false" href="/user/remote-login/type/0" data-role="button" data-icon="custom" id="login-student" data-mini="true" data-iconpos="top" data-theme="c"><?php echo $this->translate("Sign in as students");?></a>
+        </div>
+    </form>
+</div>
+
+<!--Popup for listing appstore for AirtelSL-->
+<?php if(($this->airtelSriLanka or $this->partnerId == 163302 or $this->partnerId == 280316  or $this->partnerId == 320342
+              or $this->partnerId ==  320343 or $this->partnerId == 280316 or $this->partnerId == 282227 or $this->partnerId == 320344  or $this->partnerId == 320345
+              or $this->partnerId == 324405 or $this->partnerId == 326728 or $this->partnerId == 136079 or $this->partnerId == 163302  or $this->partnerId == 274515 
+              or $this->partnerId == 276531 or $this->partnerId == 81449  or $this->partnerId == 100791 or $this->partnerId == 110721 or $this->partnerId == 114306)  && $this->showAppstoreApp) : ?> 
+<div data-role="popup" data-history="false" id="popup-app-selection-appstore" data-overlay-theme="a" class="ui-corner-all">
+    <a href="#" data-rel="forward" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right" onclick="closePopup()">Close</a>
+    <p><?= $this->appStoreAppDetailsChap['name']; ?> native app is available. Please download now if you haven't downloaded yet.</p>
+        <ul data-role="listview">
+          <li data-theme="b" style="padding:5px !important;"><a style="white-space:normal; color: #ffffff; " data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->appStoreAppDetailsChap['cost']) > 0 ) ? $buyActionName : 'download'?>/id/<?=$this->appStoreAppDetailsChap['id']?>/build/<?=$this->appStoreAppDetailsChap['supported_platforms'][0]->build_id ?>"><img class="ui-li-thumb-inner-small" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->appStoreAppDetailsChap['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /><?= $this->appStoreAppDetailsChap['name']; ?></a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    function closePopup(){
+        window.location.href = ("/");
+        //$('#popup-app-selection-appstore').popup("close");
+    }
+</script>
+
+<?php endif; ?>
+
+<script type="text/javascript">
+    function setlanguage(languageCode, languageId){
+        $.ajax({
+        type: "POST",
+        url: "/language/set-language-session",
+        data: "code="+languageCode+"&id="+languageId,
+        success: function (msg){
+            //window.location.href = "/";
+            location.reload();
+        },
+        error: function(){
+
+        }
+        });
+    }
+</script>

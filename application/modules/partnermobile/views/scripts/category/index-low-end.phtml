@@ -1,0 +1,52 @@
+<?php //$currency = $this->ChangeCurrency($this->chap_id);
+
+if($this->showResults == TRUE) :
+?>
+
+<div class="ui-content ui-body-d">
+      <h2><?= $this->translate(strtoupper($this->catName)).' > '.$this->translate($this->subCatName) ?></h2> 
+      <ul class="ui-icon-alt ui-listview">  
+
+        <?php
+        $x = 0;
+        foreach($this->catApps as $app) :  
+            $x++;
+            ?>
+          
+          <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-li-has-thumb ui-first-child ui-btn-up-d">
+          <div class="ui-btn-inner ui-li">
+            <div class="ui-btn-text"> <a class="ui-link-inherit" href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>"  rel="external"> <!--img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /-->
+                  <img class="ui-li-thumb" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>">
+             <p class="ui-li-aside"><span class="price-red-bg">
+                <? if($app['price'] > 0) : ?>
+                        
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '$';} ?> <?php if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo $app['price']; }*/?>
+                            
+                            <?php echo (($app['price']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($app['price']*$this->currencyDetails["rate"])),2, '.', ',') : $this->translate("Free") ;?>  
+            
+                    <? else : ?>
+                        
+                      <?php echo $this->translate("Free");?>
+                        
+                    <? endif; ?></span></p>
+              <h3 class="ui-li-heading"><?= $app['name'] ?></h3>
+              <p class="ui-li-desc-ul-li"><?= $this->trim($app['vendor'],18) ?></p>
+              <div style="cursor: pointer; width: 100px;" id="rating"><?= $this->partial('partials/rating_inner.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+            </div>
+              </a> </div>
+            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div>
+        </li>
+
+        <? endforeach; ?>
+    </ul>
+
+<?//= $this->paginationControl($this->catApps, 'Sliding', 'partials/pagination-category.phtml'); 
+        else :
+            ?>
+
+<p><?php echo $this->translate("No apps found under this category");?></p>
+
+<?php
+endif;
+?>
+</div>

@@ -1,0 +1,104 @@
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+<div class="container">
+            <div class="box">
+                <div class="box-heading">
+                    <h2> <?= $temp->_('Featured') ?></h2>
+                </div>
+
+                <div class="box-content">
+                    <div class="box-product">
+
+                        <?php foreach ($this->featuredApps as $product) :  ?>
+                            <div style="opacity: 1;"><!-- << show one product >> -->
+                                <div class="product_outside_border">
+                                    <div class="product_outside">
+                                        <div class="product_inside">
+                                            <div class="image">
+                                                <a href="<?=$this->url()->product($product->id, array('productName' => $product->name));?>">
+                                                    <?php $htmlOpts = array('alt' => $product->name, 'autoheight' => 1, 'class' => 'index_pro_image');?>
+                                                    <?=$this->thumbnail('/product_visuals/' . APPLICATION_ENV . '/' . $product->thumbnail, array('w' => 180, 'h' => 135, 'aoe' => 0), $htmlOpts); ?>
+                                                    
+                                                </a>
+                                            </div>
+                                            <div class="name">
+                                                <a href="<?=$this->url()->product($product->id, array('productName' => $product->name));?>"><?=$product->name?></a>
+                                            </div>
+                                            <div class="cart">
+                                                <a class='button' href="<?=$this->url()->product($product->id, array('productName' => $product->name));?>">
+                                                  <span>More Info</span>
+
+                                                  
+                                                </a>
+                                            </div>
+                                            <div class="price">
+                                                <span class="price-new">
+                                                    <?php if ($product->price == 0) : ?>
+                                                        <?= $temp->_('FREE') ?>
+                                                    <?php else : ?>
+                                                        <?=$this->locale()->getCurrencySymbol()?><?=$product->price?>
+                                                    <?php endif; ?> 
+                                                </span>
+                                                <!-- div class="product_sale">
+                                                    <div class="sale-middle"> Sale </div>
+                                                </div -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- << product outside border >> -->
+                            </div><!-- << show one product >> -->
+                        <?php endforeach; ?>
+                        
+                    </div><!-- << box product >> -->
+                </div><!-- << box content >> -->
+            </div><!-- << box >> -->
+            
+            
+            <div class="box">
+                <div class="box-heading">
+                    <h2> <?= $temp->_('Latest') ?></h2>
+                </div>
+                
+                <div class="box-content">
+                    <div class="box-product">
+                        <?php foreach ($this->latestApps as $product) :  ?>
+                        <div style="opacity: 1;"><!-- << show one product >> -->
+                            <div class="product_outside_border">
+                                <div class="product_outside">
+                                    <div class="product_inside">
+                                        <div class="image">
+                                             <a href="<?=$this->url()->product($product->id, array('productName' => $product->name));?>">
+                                                    <?php $htmlOpts = array('alt' => $product->name, 'autoheight' => 1, 'class' => 'index_pro_image');?>
+                                                    <?=$this->thumbnail('/product_visuals/' . APPLICATION_ENV . '/' . $product->thumbnail, array('w' => 180, 'h' => 135, 'aoe' => 0), $htmlOpts); ?>
+                                                </a>
+                                        </div>
+                                        <div class="name">
+                                            <a title="<?=htmlspecialchars($product->name)?>"  href="<?=$this->url()->product($product->id, array('productName' => $product->name));?>">
+                                                <?=$this->trim($product->name, 50)?>
+                                            </a>
+                                        </div>
+                                        <div class="cart">
+                                            <a href="<?=$this->url()->product($product->id, array('productName' => $product->name));?>" class="button">
+                                                <span><?= $temp->_('More Info') ?></span>
+
+                                            </a>
+                                        </div>
+                                        <div class="price">
+                                            <span class="price-new">
+                                                <?php if ($product->price == 0) : ?>
+                                                    <?= $temp->_('FREE') ?>
+                                                <?php else : ?>
+                                                    <?=$this->locale()->getCurrencySymbol()?><?=$product->price?>
+                                                <?php endif; ?> 
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- << product outside border >> -->
+                        </div><!-- << show one product >> -->
+                        <?php endforeach; ?>
+                    </div><!-- << box product >> -->
+                </div><!-- << box product >> -->
+            </div><!-- << box >> -->
+                            
+
+        </div><!-- << container >> -->

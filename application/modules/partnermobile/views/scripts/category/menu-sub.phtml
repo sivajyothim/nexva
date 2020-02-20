@@ -1,0 +1,15 @@
+<div class="ui-content ui-body-d">
+<h2><?php //echo $this->translate("Sub Categories of ");?> <?= $this->parentCatName ?></h2>
+<ul class="ui-listview border-bottom-gray">
+        <?php
+            $x = 0;
+            foreach ($this->subCatList as $subCategory) :
+            $x++;
+            ?>  
+
+            <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-first-child ui-btn-up-d" id="plusliiconblack" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="/category/index/id/<?= $subCategory['cat_id'] ?>" class="ui-link-inherit"><?= $subCategory['name'] ?></a></div><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div></li>
+        <?php endforeach; ?>
+</ul>
+</div>
+
+<a id="backicon" href="/category/menu" class="ui-btn ui-shadow ui-btn-icon-left ui-first-child ui-btn-up-b"><span class="ui-btn-inner"><span class="ui-btn-text">Back</span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a>

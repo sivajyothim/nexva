@@ -1,0 +1,82 @@
+/** 
+Stylesheet for the Translator tool that we use across the site
+**/
+
+.quick_message_cont {
+    float: left;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.quick_message {
+    background: none repeat scroll 0 0 #00AA00;
+    border: 1px solid #FFFFFF;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.quick_message_pending {
+    background: none repeat scroll 0 0 #FFAA00;
+    border: 1px solid #FFFFFF;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.quick_message_pending p , .quick_message p {
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px;
+}
+
+#dialogTitle {
+    background: none repeat scroll 0 0 #FFAA00;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 5px;
+    padding: 5px;
+}
+
+
+#transDialog {
+     text-align: left;
+}
+
+#transDialog p {
+    margin-bottom:10px;
+    margin-top: 0;
+}
+
+#transDialog p#phraseCont {
+	width: 30%;
+	float: left;
+}
+
+#transDialog p#valueCont {
+	width: 68%;
+	float:right;
+}
+
+#transDialog p strong {
+	display:block;
+}
+
+#transDialog #tagsPara {
+	float:right;
+    width: 68%;
+}
+
+#transDialog #tagSelect {
+	float: right;
+    padding: 0;
+    width: 225px;
+}
+
+#transDialog textarea {
+    width: 97%
+}

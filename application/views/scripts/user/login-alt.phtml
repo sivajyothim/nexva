@@ -1,0 +1,117 @@
+<div class="prodListPage">
+
+    <div class='container' style='border: 2px solid #DE6800;'>
+        <div class='textBlock'>
+            <h2 id='pageTitle' style='font-weight: normal;'>Login to neXva</h2>
+        
+            <p>Do you already have an account on one of these sites? Click the logo to log in with that account</p>
+            
+            <div id='login_options'>  
+               <div class='option'>
+                    <a href=''>
+                        <img alt="login with Facebook" src="/web/images/login_options/facebook_icon.gif" width='30' height='30'>
+                        Login with Facebook
+                    </a>
+               </div>
+               
+               <div class='option'>
+                    <a href=''>
+                        <img alt="login with Google" src="/web/images/login_options/googleIcon.gif"width='30' height='30'>
+                        Login with Google
+                    </a>
+               </div>
+               
+                <div class='option'>
+                    <a href=''>
+                        <img alt="login with Google" src="/web/images/login_options/facebook_icon.gif"width='30' height='30'>
+                        Login with Facebook
+                    </a>
+               </div>
+               
+               <div class='option'>
+                    <a href=''>
+                        <img alt="login with Google" src="/mobile/images/login_options/googleIcon.gif"width='30' height='30'>
+                        Login with Google
+                    </a>
+               </div>
+               
+                 <div class='clear'></div>
+            </div>
+        </div>
+    </div>
+    
+
+        <div class="container small left">
+               
+            <div class='textBlock'>
+                <h2 style='font-weight: normal;'>Sign up now</h2>
+                 
+                <form class='smallInputForm' id="create" style='width:auto;' name="create" action="<?php echo PROJECT_BASEPATH;?>user/login" method="post">
+                    Don't have an account? Enter your email address and we'll do the rest
+                        <ul>
+                            <?
+                            $error = $this->messagesUnclaim;
+                            if(is_array($error))
+                                foreach ($error as $key=>$value):
+                                    ?>
+                            <li><?=$value?></li>
+                                <?
+                                endforeach;
+                            ?>
+                        </ul>
+          
+                        <div class="input">
+                            <label>E-Mail</label>
+                            <input class="validate(required)" name="emailunclaim" id="emailunclaim" type="text" value="<?=$this->formValues->emailunclaim?>"/></div>
+                       
+                       
+                        <input name="unclaim" id="unclaim" type="hidden" value="1"/>
+                        <div class="input">
+                            <button class='orangeButton' type='submit'>Create Account</button>
+                        </div>
+                    </form>                                                                                                                                        
+            </div>
+        </div>
+    
+        <div class="container small right">
+            <div class='textBlock'>
+                <h2 style='font-weight: normal;'>Already have an account?</h2>
+                
+                    <form id="signup" class='smallInputForm'  style='width:auto;' name="signup" action="/user/login" method="post">
+                        <ul>
+                            <?
+                            $error = $this->messages;
+                            if(is_array($error)) :
+                                foreach ($error as $key=>$value): ?>
+                                    <li><?=$value?></li>
+                                <?endforeach;?>
+                            <?endif;?>
+                            <? if( Zend_Controller_Front::getInstance()->getRequest()->getParam('message') != "" ): ?>
+                                    <li style="font-weight:bolder; color:orange"><?=Zend_Controller_Front::getInstance()->getRequest()->getParam('message')?></li>
+                            <?endif;?>
+                        </ul>
+                        
+                        <div class='input'>Sign in with your neXva account</div>
+                        
+                        <div class="input">
+                            <label>E-Mail</label>
+                            <input class="validate(required)" name="email" id="email" type="text" value="<?=$this->formValues->email?>"/>
+                        </div>
+                        
+                        <div class="input">
+                            <label>Password</label>
+                            <input class="validate(required)" name="password" id="password" type="password" value="<?=$this->formValues->password?>"/>
+                        </div>
+                        
+                        <div class="input">
+                            <button class='orangeButton' type='submit'>Log In</button>
+                        </div>
+                        
+                        <div style="float:left; margin-top:15px"><a href="<?php echo PROJECT_BASEPATH; ?>/user/forgot-password" id="forgot" style="color: #c67700">Forgot password ?</a></div>
+                 
+                    </form>
+             </div>       
+         </div>
+    
+</div>
+<!-- product list page end -->

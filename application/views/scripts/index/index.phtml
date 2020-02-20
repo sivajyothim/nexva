@@ -1,0 +1,479 @@
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/cycle/jquery.cycle.all.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/easing/jquery.easing.compatibility.js'); ?>
+<?php $this->headScript()->captureStart();?>
+$(document).ready(function() {
+    $('#featuredContainer').cycle({
+        fx      : 'scrollDown',
+        pager   : '#featuredControl',
+        pagerAnchorBuilder : function(idx, slide) { 
+            return '<a href="#">' + slide.title + '</a>'; 
+        },
+        timeout : 5000,
+        easing: 'bounceout', 
+        pause:   1 
+    });
+});
+<?php $this->headScript()->captureEnd();?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+
+<link href="<?php echo PROJECT_BASEPATH;?>web/css/easyslider/screen.css" media="screen" rel="stylesheet" type="text/css" >
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>web/js/easyslider/easySlider1.7.js"></script>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        }, function(){
+            $( ".nexlink" ).each(function(){          
+                $(this).attr('href', $(this).attr('href') + '/1/5945');//5945 is the nexva chap ID
+                $(this).parent().eq(0).removeClass('display_none');
+            });
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+<script type="text/javascript">
+    $().ready(function(){
+        $("#slider").easySlider({
+            auto: true,
+            continuous: true
+        });
+    });
+</script>
+
+<!--[if IE 7.0]>
+<style type="text/css">
+    #slider {position:relative;}
+</style>
+<![endif]-->
+
+<?php /*echo $this->translate("What we can do now?");*/?>
+<?php /*Zend_Debug::dump($this->featuredApps);*/?>
+<div class="blkCenter homePage">
+<div id="container">
+    <div id="content">
+        <div id="slider">
+            <ul>
+                <?php
+//                print_r($this->featuredApps);
+                
+                foreach($this->featuredApps as $app)
+                { ?>
+                    <li>
+                        <div class="slider_inner_wrapper">
+                            <div class="slider_inner_wrapper_left">
+                                <div class="home_slider_frame">
+                                    <div class="home_slider_frameimage">
+                                        <img class="" autoheight="1" src="http://jyothilocal.com/nexva/public/vendors/phpThumb/phpThumb.php?src=/product_visuals/production/29be0008eb273e9bc4032f0e71beba7d.png&amp;w=200&amp;h=270&amp;aoe=0&amp;fltr[]=ric|0|0&amp;q=100&amp;f=png">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider_inner_wrapper_right">
+                                <div class="slider_inner_wrappertxt">
+                                    <div class="slider_whats_new_txt">
+                                        <span class="whats_new_txt">Whats new</span>
+                                    </div>
+                                    <div class="slider_title_txt">
+                                        <span class="title_plus">+</span>
+                                        <span class="title_txt"><?php echo $this->trim($app['product']['name'], 20);?></span>
+                                    </div>
+
+                                    <div class="slider_line"></div>
+
+                                    <div class="slider_description">
+                                            <span class="slider_des">
+                                                <?php echo $app['product']['desc_brief'];?>
+                                            </span>
+                                    </div>
+                                    <div class="slider_btns">
+                                        <a href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($app['product']['name']) ?>.<?= $app['product']['id'] ?>.en" class="orange_button moreinfo">Details</a>
+                                        <?php if($app['product']['cost'] > 0) { ?>
+                                            <a href="javascript:viewDownload ('Buy <?php echo $this->trim(str_replace("'", "", $app['product']['name']), 50) ?> (for <?php echo $app['product']['platform_name'] ?>)', '<?php echo $app['product']['id'] ?>');" class="orange_button buy">Buy
+                                                <?php $this->partial('partials/buy.phtml', array('id' => $app['product']['id'], 'paymentGateways' => $this->paymentGateways)); ?>
+                                            </a>
+                                        <?php }else{ ?>
+                                            <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $app['product']['id'];?>" class='orange_button nexlink' rel='shadowbox;height=530;width=600'>Download</a>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<?php if(count($this->newestItems) > 0) {?>
+    <div class="prodListBlk">
+        <?php
+        shuffle($this->newestItems);
+        foreach ($this->newestItems as $category): ?>
+            <?php if (sizeof($category['products']) == 0) {continue;}?>
+            <div class="container">
+                <div>
+                    <div class="blockContent">
+                        <div class="blkHead">
+                            <h2>Newest Collection</h2>
+                            <ul class="btn">
+                                <li><a href="<?php echo PROJECT_BASEPATH;?>items/newest/" class="moreapps">More</a></li>
+                            </ul>
+                        </div>
+                        <div class="blkList">
+                            <div class="prodListItem">
+                                <? $counter = 0;?>
+                                <? foreach ($category['products'] as $product):  ?>
+                                    <!-- listing of prodcts - starts -->
+                                    <div class="productBlock <?=($counter == 0) ? 'first' : ''; ?>">
+                                        <div class="blockContent">
+                                            <div class="blkHead">
+                                                <h3>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product['name']) ?>.<?= $product['id'] ?>.en" title='<?=$product['name']?>'>
+                                                        <?= $this->trim($product['name'], 21) ?>
+                                                    </a>
+                                                </h3>
+                                                <p>
+                                                    <?php /*echo $product['thumb'];*/?>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product['name']) ?>.<?= $product['id'] ?>.en">
+                                                        <?php $htmlOpts = array('alt' => $product['name'], 'autoheight' => 1, 'class' => 'index_pro_image');?>
+                                                        <?=$this->thumbnail($product['thumb'], array('w' => 70, 'h' => 70, 'aoe' => 0), $htmlOpts); ?>
+                                                    </a>
+                                                    <?php /*echo $this->trim($product['desc'], 500);*/?>
+                                                    <?php echo substr(($product['desc_brief']),0,120),'. . .' ;?>
+                                                </p>
+                                            </div>
+                                            <div class="vendor">
+                                                <?php echo substr($product['vendor'],0,20);?>
+                                            </div>
+                                            <div class="prodListSpecsheet">
+                                                <div class="speclist">
+                                                    <div class="free"><?= ($product['cost'] == 0) ? "Free" : "$" . $product['cost'] ?></div>
+                                                    <!-- <div><label>Platform</label><span class="prod_platform"><?= $product['platform_name'] ?></span></div>-->
+                                                </div>
+                                            </div>
+                                            <div class="btnLinks">
+                                                <div class="orange_btn">
+
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product['name']) ?>.<?= $product['id'] ?>.en" class="moreinfo orange_button_small">More&nbsp;Info</a>
+
+                                                    <? $config = Zend_Registry::get("config"); ?>
+                                                    <? if ($this->UrlProductCheck($product['id'])): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$product['id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? elseif ($product['cost'] == 0 || $product['is_purchased']): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$product['id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? else: ?>
+                                                        <a href="javascript:viewDownload ('Buy <?= $this->trim(str_replace("'", "", $product['name']), 50) ?> (for <?= $product['platform_name'] ?>)', '<?= $product['id'] ?>');" class="buy orange_button_small">Buy</a>
+                                                        <?=$this->partial('partials/buy.phtml', array('id' => $product['id'], 'paymentGateways' => $this->paymentGateways)); ?>
+
+                                                    <? endif; ?>
+                                                    <!-- <li class="new">
+                        <? //=$this->FacebookLike($url)?>
+                                    </li> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- listing of prodcts - end -->
+                                    <?
+                                    $counter++;
+                                    if($counter >= '4' )
+                                    {
+                                        break;
+                                    }
+                                endforeach; ?>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='clear'></div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php } ?>
+
+    <?php if(count($this->androidApps) > 0) {?>
+        <div class="prodListBlk">
+            <div class="container">
+                <div>
+                    <div class="blockContent">
+                        <div class="blkHead">
+                            <h2>Latest Android Collection</h2>
+                            <ul class="btn">
+                                <li><a href="<?php echo PROJECT_BASEPATH;?>items/android/" class="moreapps">More</a></li>
+                            </ul>
+                        </div>
+                        <div class="blkList">
+                            <div class="prodListItem">
+                                <?php
+                                shuffle($this->androidApps);
+                                $counter = 0;
+                                foreach($this->androidApps as $product){ ?>
+                                    <div class="productBlock <?php echo ($counter == 0) ? 'first' : ''; ?>">
+                                        <div class="blockContent">
+                                            <div class="blkHead">
+                                                <h3>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['product_name']) ?>.<?php echo $product['product_id'] ?>.en" title='<?php echo $product['product_name']?>'>
+                                                        <?= $this->trim($product['product_name'], 21) ?>
+                                                    </a>
+                                                </h3>
+                                                <p>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['product_name']) ?>.<?php echo $product['product_id'] ?>.en">
+                                                        <?php $htmlOpts = array('alt' => $product['product_name'], 'autoheight' => 1, 'class' => 'index_pro_image');?>
+                                                        <?=$this->thumbnail($product[0]['thumb'], array('w' => 70, 'h' => 70, 'aoe' => 0), $htmlOpts); ?>
+                                                    </a>
+                                                    <?php echo substr(($product[0]['desc_brief']),0,120),'. . .' ;?>
+                                                </p>
+                                            </div>
+                                            <div class="vendor">
+                                                <?php
+                                                if(isset($product[0]["vendor"]) && ($product[0]["vendor"] != 'Anonymous')){
+                                                    echo substr($product[0]["vendor"],0,20);
+                                                }else{
+                                                    echo '&nbsp;';
+                                                }
+                                                ?>
+                                            </div>
+                                            <div class="prodListSpecsheet">
+                                                <div class="speclist">
+                                                    <div class="free"><?php echo  ($product['price'] == 0) ? "Free" : "$" . $product['price'] ?></div>
+                                                    <!-- <div><label>Platform</label><span class="prod_platform"><?= $this->newestGames[$item]['platform_name'] ?></span></div>-->
+                                                </div>
+                                            </div>
+                                            <div class="btnLinks">
+                                                <div class="orange_btn" >
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo  $this->slug($product['product_name']) ?>.<?php echo $product['product_id'] ?>.en" class="moreinfo orange_button_small">More&nbsp;Info</a>
+
+                                                    <? $config = Zend_Registry::get("config"); ?>
+                                                    <? if ($this->UrlProductCheck($product['product_id'])): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $product['product_id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? elseif ($product['price'] == 0 || $product[0]['is_purchased']): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $product['product_id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? else: ?>
+                                                        <!--<a href="javascript:viewDownload ('Buy <?php /*echo $this->trim(str_replace("'", "", $product['product_name']), 50) */?> (for <?php /*echo $product[0]['platform_name'] */?>)', '<?php /*echo $product['product_id'] */?>');'" class="buy orange_button_small">Buy</a>-->
+                                                        <a href="javascript:viewDownload ('Buy <?php echo $this->trim(str_replace("'", "", $product['product_name']), 50) ?> (for <?php echo $product[0]['platform_name'] ?>)', '<?php echo $product['product_id'] ?>');" class="buy orange_button_small">Buy</a>
+                                                        <?php echo $this->partial('partials/buy.phtml', array('id' => $product['product_id'], 'paymentGateways' => $this->paymentGateways)); ?>
+                                                    <? endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                                    $counter++;
+                                    if($counter >= '4' )
+                                    {
+                                        break;
+                                    }
+                                } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='clear'></div>
+            </div>
+        </div>
+    <?php } ?>
+
+    <?php if(count($this->newestGames) > 0) {?>
+        <div class="prodListBlk">
+            <?php /*print_r($this->mostViewedItems);*/?>
+            <?/* foreach ($this->mostViewedItems as $one): */?>
+            <?php /*if (sizeof($one['products']) == 0) {continue;}*/?>
+            <div class="container">
+                <div>
+                    <div class="blockContent">
+                        <div class="blkHead">
+                            <h2>Newest Games Collection</h2>
+                            <ul class="btn">
+                                <li><a href="<?php echo PROJECT_BASEPATH;?>items/newestgames/" class="moreapps">More</a></li>
+                            </ul>
+                        </div>
+                        <div class="blkList">
+                            <div class="prodListItem">
+
+                                <?php
+                                    shuffle($this->newestGames);
+                                    $counter = 0;
+                                    foreach($this->newestGames as $product){
+                                    ?>
+                                    <div class="productBlock <?php echo ($counter == 0) ? 'first' : ''; ?>">
+                                        <div class="blockContent">
+                                            <div class="blkHead">
+                                                <h3>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['product_name']) ?>.<?php echo $product['pro_id'] ?>.en" title='<?php echo $product['product_name']?>'>
+                                                        <?= $this->trim($product['product_name'], 21) ?>
+                                                    </a>
+                                                </h3>
+                                                <p>
+
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['product_name']) ?>.<?php echo $product['product_id'] ?>.en">
+                                                        <?php $htmlOpts = array('alt' => $product['product_name'], 'autoheight' => 1, 'class' => 'index_pro_image');?>
+                                                        <?=$this->thumbnail($product[0]['thumb'], array('w' => 70, 'h' => 70, 'aoe' => 0), $htmlOpts); ?>
+                                                    </a>
+                                                    <?php echo substr(($product[0]['desc_brief']),0,120),'. . .' ;?>
+                                                </p>
+                                            </div>
+                                            <div class="vendor">
+                                                <?php
+                                                if(isset($product[0]["vendor"]) && ($product[0]["vendor"] != 'Anonymous')){
+                                                    echo substr($product[0]["vendor"],0,20);
+                                                }else{
+                                                    echo '&nbsp;';
+                                                }
+                                                ?>
+                                            </div>
+                                            <div class="prodListSpecsheet">
+                                                <div class="speclist">
+                                                    <div class="free"><?php echo  ($product['price'] == 0) ? "Free" : "$" . $product['price'] ?></div>
+                                                    <!-- <div><label>Platform</label><span class="prod_platform"><?= $this->newestGames[$item]['platform_name'] ?></span></div>-->
+                                                </div>
+                                            </div>
+                                            <div class="btnLinks">
+                                                <div class="orange_btn" >
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo  $this->slug($product['product_name']) ?>.<?php echo $product['pro_id'] ?>.en" class="moreinfo orange_button_small">More&nbsp;Info</a>
+
+                                                    <? $config = Zend_Registry::get("config"); ?>
+                                                    <? if ($this->UrlProductCheck($product['pro_id'])): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $product['pro_id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? elseif ($product['price'] == 0 || $product[0]['is_purchased']): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $product['pro_id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? else: ?>
+                                                        <a href="javascript:viewDownload ('Buy <?php echo $this->trim(str_replace("'", "", $product['product_name']), 50) ?> (for <?php echo $product[0]['platform_name'] ?>)', '<?php echo $product['pro_id'] ?>');" class="buy orange_button_small">Buy</a>
+                                                        <?php echo $this->partial('partials/buy.phtml', array('id' => $product['pro_id'], 'paymentGateways' => $this->paymentGateways)); ?>
+                                                    <? endif; ?>
+                                                    <!-- <li class="new">
+                                                    <? //=$this->FacebookLike($url)?>
+                                    </li> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- listing of products - end -->
+                                <?php
+                                    $counter++;
+                                    if($counter >= '4' )
+                                    {
+                                        break;
+                                    }
+                                } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='clear'></div>
+            </div>
+            <?/* endforeach; */?>
+        </div>
+    <?php } ?>
+
+    <?php if(count($this->mostViewedItems) > 0) {?>
+        <div class="prodListBlk">
+            <?php /*print_r($this->mostViewedItems);*/?>
+            <?/* foreach ($this->mostViewedItems as $one): */?>
+            <?php /*if (sizeof($one['products']) == 0) {continue;}*/?>
+            <div class="container">
+                <div>
+                    <div class="blockContent">
+                        <div class="blkHead">
+                            <h2>Most Viewed Collection</h2>
+                            <ul class="btn">
+                                <!--<li><a href="#" class="moreapps">More</a></li>/category/<?/*= $this->slug($one['name']) */?>/--><?/*= $one['id'] */?>
+                            </ul>
+                        </div>
+                        <div class="blkList">
+                            <div class="prodListItem">
+                                <?php
+                                shuffle($this->mostViewedItems);
+                                $counter = 0;
+                                foreach($this->mostViewedItems as $product) { ?>
+                                    <div class="productBlock <?=($counter == 0) ? 'first' : ''; ?>">
+                                        <div class="blockContent">
+                                            <div class="blkHead">
+                                                <h3>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['name']) ?>.<?php echo $product['id'] ?>.en" title='<?php echo $product['name']?>'>
+                                                        <?php echo $this->trim($product['name'], 17) ?>
+                                                    </a>
+                                                </h3>
+                                                <p>
+                                                    <?php /*echo 'Image ',$this->mostViewedItems[$item]['thumbnail'] ;*/?>
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['name']) ?>.<?php echo $product['id'] ?>.en">
+                                                        <?php $htmlOpts = array('alt' => $product['name'], 'autoheight' => 1, 'class' => 'index_pro_image');?>
+                                                        <?php echo $this->thumbnail($product[0]['thumb'], array('w' => 70, 'h' => 70, 'aoe' => 0), $htmlOpts); ?>
+                                                    </a>
+                                                    <?php echo substr(($product[0]['desc_brief']),0,120),'. . .' ;?>
+                                                </p>
+                                            </div>
+                                            <div class="vendor">
+                                                <?php
+                                                if(isset($product[0]["vendor"]) && ($product[0]["vendor"] != 'Anonymous')){
+                                                    echo substr($product[0]["vendor"],0,20);
+                                                }else{
+                                                    echo '&nbsp;';
+                                                }
+                                                ?>
+                                            </div>
+                                            <div class="prodListSpecsheet">
+                                                <div class="speclist">
+                                                    <div class="free"><?php echo ($product['price'] == 0) ? "Free" : "$" . $product['price'] ?></div>
+                                                    <!-- <div><label>Platform</label><span class="prod_platform"><?php echo $product['platform_name'] ?></span></div>-->
+                                                </div>
+                                            </div>
+                                            <div class="btnLinks">
+                                                <div class="orange_btn">
+
+                                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?php echo $this->slug($product['name']) ?>.<?php echo $product['id'] ?>.en" class="moreinfo orange_button_small">More&nbsp;Info</a>
+
+                                                    <? $config = Zend_Registry::get("config"); ?>
+                                                    <? if ($this->UrlProductCheck($product['id'])): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $product['id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? elseif ($product['price'] == 0 || $product[0]['is_purchased']): ?>
+
+                                                        <a href="<?php echo PROJECT_BASEPATH;?>nl/<?php echo $product['id'] ?>" class='nexlink orange_button_small' rel='shadowbox;height=530;width=600'>Download </a>
+
+                                                    <? else: ?>
+
+                                                        <a href="javascript:viewDownload ('Buy <?php echo $this->trim(str_replace("'", "", $product['name']), 50) ?> (for <?php echo $product[0]['platform_name'] ?>)', '<?php echo $product['id'] ?>');" class="buy orange_button_small">Buy</a>
+
+                                                        <?php echo $this->partial('partials/buy.phtml', array('id' => $product['id'], 'paymentGateways' => $this->paymentGateways)); ?>
+
+                                                    <? endif; ?>
+                                                    <!-- <li class="new">
+                            <? //=$this->FacebookLike($url)?>
+                                        </li> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- listing of prodcts - end -->
+                                    <?
+                                    $counter++;
+                                    if($counter >= '4' )
+                                    {
+                                        break;
+                                    }
+                                } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='clear'></div>
+            </div>
+            <?/* endforeach; */?>
+        </div>
+    <?php } ?>
+
+</div>

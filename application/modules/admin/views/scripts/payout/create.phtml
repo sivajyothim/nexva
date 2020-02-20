@@ -1,0 +1,60 @@
+<!-- Start Content Box #1 -->
+<div class="title">
+
+    <h3>Payouts.. Create | Edit</h3>
+
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-login">
+            <?= $this->render('partials/message.phtml'); ?>
+                <!-- Start pagecreate Form -->
+                <form method="post" action="/payout/create" id='payout_create'>
+                    <fieldset>
+
+                        <p><label>Name</label>
+                            <input type="text" id="payoutName" name="payoutName" class="txt-input medium validate(required)" value="<?=$this->payout['name']; ?>"/>
+                        </p>
+
+                        <p><label>Description</label>
+                         <textarea name="payoutDescription" id="payoutDescription"  class="txt-input medium"" ><?=$this->payout['description']; ?></textarea>
+                        </p>
+                        
+                        <p><label>Payout CP</label>
+                            <input type="text" id="payoutCp" name="payoutCp" class="txt-input medium validate(number)" value="<?php if($this->payoutCp){ echo $this->payoutCp; } else { echo $this->payout['payout_cp'];}?>"/>
+                        </p>
+                        
+                        <p><label>Payout Nexva</label>
+                            <input type="text" id="payoutNexva" name="payoutNexva" class="txt-input medium validate(number)" value="<?php if($this->payoutNexva) { echo $this->payoutNexva; } else { echo $this->payout['payout_nexva'];}?>"/>
+                        </p>
+
+                        <p><label>Payout Chap</label>
+                            <input type="text" id="payout_chap" name="payout_chap" class="txt-input medium validate(number)" value="<?php if($this->payoutChap) { echo $this->payoutChap; } else { echo $this->payout['payout_chap'];}?>" />
+                        </p>
+
+                        <p><label>Payout Super Chap</label>
+                            <input type="text" id="payout_superchap" name="payout_superchap" class="txt-input medium" value="<?php if($this->payout_superchap) { echo $this->payout_superchap;} else { echo $this->payout['payout_super_chap'];}?>" />
+                        </p>
+
+                        <p><label>CP Payout Description</label>
+                            <textarea id="cp_payout_description" name="cp_payout_description" class="txt-input medium"><?php if($this->cp_payout_description) { echo $this->cp_payout_description;} else { echo $this->payout['cp_payout_description'];}?></textarea>
+                        </p>
+
+                        <p style="float:left;"><input type="submit" class="button" name="submit" value="Save" />
+                        </p>
+                     <!--<p  class="remember"><input type="checkbox" /> Remember Me</p>-->
+                    </fieldset>
+                    <input type="hidden" name="id" id="id" value="<?=$this->payout['id']; ?>" />
+                </form>
+                <!-- End Login Form -->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- End Content Box #1 -->

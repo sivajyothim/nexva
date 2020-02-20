@@ -1,0 +1,26 @@
+
+<table><thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>Product</th>
+                            <th>Review</th>
+                            <th>Reviewer</th>
+                            <th>Rate</th>
+
+                            <th style="width:10px;">Operations</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->reviews as $review): ?>
+                        <tr>
+                            <!--<td><input type="checkbox" name="check" /></td>-->
+                            <td><?= $review['name']; ?></td>
+                            <td><?= $review['review']; ?></td>
+                            <td><?= $review['email']; ?></td>
+                            <td><?= $review['rating']; ?></td> 
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+</table>

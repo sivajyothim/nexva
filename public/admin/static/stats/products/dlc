@@ -1,0 +1,15 @@
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+|~~~[ CONFIG SPY BY MOCHA ]~~~|
+|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|
+
+[X] localhost   : 144.76.136.81
+[X] System      : Linux Debian-76-wheezy-64-minimal 3.2.0-4-amd64
+[X] Log Created : Fri Feb  6 03:43:53 2015
+
+[?] Total username : (25)
+[?] Total readable : (23)
+
+[*] Searching config files
+
+[@] /var/www/vhosts/nexva_blog/wp-config.php
+[~] www-data : abc123

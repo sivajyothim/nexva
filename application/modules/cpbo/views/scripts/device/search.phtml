@@ -1,0 +1,41 @@
+<div class="title">
+    <h3><?php echo $this->translate("Search Devices");?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <form method='post'> 
+            <input type='text' name='device' class='txt-input' size='40' value="<?=$this->deviceName?>">
+            <input type='submit' class='button' value ='<?php echo $this->translate("Search");?>'>
+        </form>
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php if (empty($this->devices)) : ?>
+            <p><?php echo $this->translate("No devices to display");?></p>
+        <?php else : ?>
+                <table cellspacing="0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th width='10%'><?php echo $this->translate("ID");?></th>
+                            <th width='20%'><?php echo $this->translate("Brand");?></th>
+                            <th width='20%'><?php echo $this->translate("Model");?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $class  = ''; 
+                        ?>
+                        <?php foreach ($this->devices as $device) : ?>
+                            <?php $class = ($class == 'class="alt"') ? '' : 'class="alt"';?>
+                            <tr>
+                                <td><?php echo $device['device_id'];?></td>
+                                <td><?php echo $device['brand'];?></td>
+                                <td><?php echo $device['model']; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+        <?php endif;?>
+    </div>
+</div>

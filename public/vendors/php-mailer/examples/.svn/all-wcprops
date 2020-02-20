@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/nexva_v1/!svn/ver/29230/v2/trunk/public/vendors/php-mailer/examples
+END
+sendmail.phps
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/sendmail.phps
+END
+send_file_upload.phps
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/send_file_upload.phps
+END
+contentsutf8.html
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/contentsutf8.html
+END
+smtp_no_auth.phps
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/smtp_no_auth.phps
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/index.html
+END
+mailing_list.phps
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/mailing_list.phps
+END
+ssl_options.phps
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/ssl_options.phps
+END
+code_generator.phps
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/code_generator.phps
+END
+smtp_check.phps
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/smtp_check.phps
+END
+exceptions.phps
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/exceptions.phps
+END
+gmail_xoauth.phps
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/gmail_xoauth.phps
+END
+mail.phps
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/mail.phps
+END
+pop_before_smtp.phps
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/pop_before_smtp.phps
+END
+smtp.phps
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/smtp.phps
+END
+contents.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/contents.html
+END
+signed-mail.phps
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/signed-mail.phps
+END
+mailing_list_nexva.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/nexva_v1/!svn/ver/29230/v2/trunk/public/vendors/php-mailer/examples/mailing_list_nexva.php
+END
+gmail.phps
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/examples/gmail.phps
+END

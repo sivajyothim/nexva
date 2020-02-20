@@ -1,0 +1,136 @@
+<?php $this->headScript()->captureStart();?>
+    var __DATA_DATE         = eval(<?php echo $this->appViewDateJson?>); //app views by date
+    var __DATA_DOWNLOADS    = eval(<?php echo $this->appDownloadDateJson;?>); //downloads
+    var __DATA_APP          = eval(<?php //echo $this->appViewJson;?>); //most often downloaded
+    var __DATA_CHAPS        = eval(<?php echo $this->appViewsByChapJson?>);//view breakdown by chap
+<?php $this->headScript()->captureEnd();?>
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+
+
+
+<?php 
+    //lets do some calculations
+    $totalViews     = array_sum($this->appView);
+    $totalDownloads = array_sum($this->appDownloads);
+?>
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView'   => $this->endTimeView,
+        'product'       => $this->product,
+        'queryString'   => $this->queryString,
+        'chap'          => $this->chap
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+
+
+
+<div id='visualizations'>
+    <?php 
+        $opts   = array(
+            'product'       => $this->product
+        );
+        echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+
+
+    <div id='stats_view_by_date_cont' class="title">
+        <h3>App Views / Downloads</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='full_block' id='stats_view_by_date'></div>
+            
+            <div id="overview_view_by_date" style=";margin-top:20px;width:100%;height:50px"></div>
+        </div>
+    </div>
+    
+        <?php 
+            echo $this->partial('/partials/analytics_region_ajax_includes.phtml', array(
+                'title'     => 'App Views by Region',
+                'dataUrl'   => '/analytics/summary-region-json/mode/views/',
+                'queryString'   => $this->queryString,
+                'moreUrl'   => '/analytics/regions/'
+            ));
+        ?>
+    
+        <div class='chart_box_full'>
+            <div class="title">
+                <h3>App Views by CHAP</h3>
+                
+            </div>
+            <div class="box">
+                <div class="txt">
+                    <div class='full_block' id='stats_apps_by_chap'>
+                        We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+                </div>
+            </div>
+        </div> 
+    
+    <?php if (!$this->product) : ?>    
+        <div id='stats_downloads_by_app_cont' class='chart_box_full'>
+            <div class="title">
+                <h3>Most Viewed</h3>
+                <div class='filter'>
+                        <a href='<?php echo ADMIN_PROJECT_BASEPATH;?>product/view' class='button'>See all products</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="txt">
+                    <div class='full_block' id='stats_view_by_app'>
+                We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+                </div>
+            </div>
+        </div> 
+        
+        
+<!--            <div class="title">
+                <h3>All Views</h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <table cellspacing="0" cellpadding="0" class='sortTable'>
+                    <thead>
+                        <tr>
+                            <th width='60%'>App Name</th>
+                            <th width='10%'>Views</th>
+                            <th width='10%'>Downloads</th>
+                            <th width='10%'>Conversion Rate</th>
+                            <th width='10%'>% of total (views)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+//                            $base   = $url = 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/";
+//                            $sum    = array_sum($this->viewsByApp);
+//                            $class  = ''; 
+                        ?>
+                        <?php //foreach ($this->viewsByApp as $app => $hits) : ?>
+                        <?php 
+//                            $class  = ($class == 'class="alt"') ? '' : 'class="alt"';
+//                            $break      = strpos($app, ' ');
+//                            $appId      = substr($app, 0, $break);
+//                            $appName    = substr($app, $break);
+//                            $downloads  = isset($this->downloadCounts[$appId]) ? $this->downloadCounts[$appId] : 0;
+                        ?>
+                        <tr>
+                            <td><?php //echo $appName;?></td>
+                            <td><?php //echo $hits ?></td>
+                            <td><?php //echo $downloads ?></td>
+                            <td><?php //echo ($downloads) ? round($downloads / $hits * 100, 2) : 0 ?>%</td>
+                            <td><?php //echo ($hits ) ? round($hits / $sum * 100, 2) : 0; ?>%</td>
+                        </tr>
+                        <?php //endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>-->
+    <?php endif; ?>
+</div>
+ 

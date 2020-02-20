@@ -1,0 +1,894 @@
+/*
+ * admin.js
+ * admin jQuery
+ * author : Heshan (heshan at nexva dot com)
+ * package : neXva V 2.0
+ */
+
+// document ready function
+$(document).ready(function(){
+	
+    // enable JS vallidations
+    $('#payout_create').ketchup();
+
+    // Remove class attributes
+    $('.hide_div').each(function(){
+
+        //        alert('oki');
+        // remove class
+        $(this).removeClass('hide_div');
+    });
+
+    $('#technical_user').ketchup();
+    $('#admin_user').ketchup();
+
+    // enable JS vallidations
+    $('#user_create').ketchup();
+    $('.form_validate').ketchup();
+  
+    $('#build').ketchup();
+    // adding clear status messager in few seconds
+    //    $('.message').delay(8000).fadeOut(200);
+    // hide the key value files in registation of the product
+    if($("#product_type").val() == 'COMMERCIAL')	{
+    	
+    	
+
+	    if($("#registration_model").val() == 'POOL'){
+	        $("#keys").show();
+	        $("#dynamic").hide();
+	        $("#dynamicregistration").hide();
+	        
+	    }else if($("#registration_model").val() == 'STATIC') {
+	    	$("#dynamic").show();
+	        $("#keys").hide();
+	        $("#dynamicregistration").hide();
+	    }
+	    else if($(".registration_model").val() == 'DYNAMIC'){
+	    	$("#dynamic").show();
+	    	
+	        $("#keys").hide();
+	        
+	        if($(".registration_model").val() == '' )	{
+	        	
+	        $("#dynamic").val("Enter the URL of your registration script. E.g.  http://license.example.com/generate.jsp.");
+	        
+	        }
+	      
+	        $('#dynamic').after('<small class = "description" id = "dynamicregistration"> <a href="http://developers.nexva.com/wiki/Cp/DynamicRegistration" target="_blank">Learn more about dynamic registration </a></small>');
+	       
+	        
+	    }   else	{
+	    	 $("#keys").hide();
+	    	 $("#dynamic").hide();
+	    	 $("#dynamicregistration").hide();
+	    }
+    
+    } else {
+
+   	 	$('#registration_model').hide();
+   	 	$('.commercial').hide();
+    }
+    
+    // hide all dev ul
+    $(".radio_all_ul").hide();
+    //hide attributes ul
+    $(".radio_attrib_ul").hide();
+    // hide the manuas select ul
+    $(".radio_manual_ul").hide();
+    //hide the display counter
+    $(".display_count").hide();
+    // hide phones div
+    $(".phones").hide();
+    $(".phones_selected").hide();
+    $(".search_phones").hide();
+
+    // hide operations div
+    $(".operations").hide();
+    
+    // when change the registration model change the keys appers in
+    $("#registration_model").change(function() {
+        //        alert($(".registration_model").val());
+        if($(".registration_model").val() == 'POOL'){
+            $("#keys").show('slow');
+            $("#dynamic").hide('slow');
+            //            if($(".registration_model").val() == null || $(".registration_model").val() == 'Enter static key here.')
+            $("#keys").val('Enter keys separated by comma.');
+            $("#dynamicregistration").hide();
+        }
+        else if($(".registration_model").val() == 'STATIC'){
+            $("#dynamic").show('slow');
+            //            if($(".registration_model").val() == null || $(".registration_model").val() == 'Enter keys separated by comma.')
+            $("#dynamic").val('Enter static key here.');
+            $("#keys").hide('slow');
+            $("#dynamicregistration").hide();
+        }
+        else if($(".registration_model").val() == 'DYNAMIC'){
+        	$("#keys").hide('slow');
+        	$("#dynamic").show('slow');
+            //            if($(".registration_model").val() == null || $(".registration_model").val() == 'Enter keys separated by comma.')
+            $("#dynamic").val("Enter the URL of your registration script. E.g.  http://license.example.com/generate.jsp.");
+            $('#dynamic').after('<small class = "description" id = "dynamicregistration"> <a href="http://developers.nexva.com/wiki/Cp/DynamicRegistration" target="_blank">Learn more about dynamic registration </a></small>');
+        }
+        else	{
+        	
+        	  $("#keys").hide('slow');
+        	  $("#dynamic").hide('slow');
+              $("#dynamicregistration").hide();
+        }
+          
+    });
+    // set valu to null
+    $("#keys").click(function(){
+        var value = $("#keys").val();
+        if(value == 'Enter keys separated by comma.' || value == 'Enter static key here.'){
+            $("#keys").val('')
+        }
+    });
+    
+
+
+    // check whether the attributes are checked
+    if($(".radio_all").attr('checked')){
+        $(".radio_all_ul").show();
+    };
+    if($(".radio_attrib").attr('checked')){
+        $(".radio_attrib_ul").show();
+    };
+    if($(".manually_select").attr('checked')){
+        $(".radio_manual_ul").show();
+    };
+
+    // select all/none on tables
+    $(".selectall").change(function() {
+        if($(".selectall").attr('checked')){
+            $('.select_check').attr('checked', true);
+        }
+        else {
+            $('.select_check').attr('checked', false);
+        }
+        return false;
+    });
+
+    // select all devices
+    $(".radio_all").change(function() {
+        $(".radio_attrib_ul").hide("slow");
+        $(".radio_manual_ul").hide("slow");
+        $(".radio_all_ul").show("slow");
+        //        $(".phones_selected").hide();
+        $(".search_phones").hide();
+        // set the product count
+        get_app_count('all', '');
+        // disply count
+        //        show_count();
+        // remove showed phones and all
+        $('.phones').empty();
+        $('.phones').hide();
+        $('.operations').hide();
+
+    // query devices
+    //        query_devices('all', '');
+    });
+    // check other attributes
+    $(".radio_attrib").change(function() {
+        $(".radio_attrib_ul").show("slow");
+        $(".display_count").hide("slow");
+        $(".radio_manual_ul").hide("slow");
+        $(".radio_all_ul").hide("slow");
+        //        $(".phones_selected").hide();
+        $('.phones').empty();
+        $('.phones').hide();
+        $('.operations').hide();
+        $(".search_phones").hide();
+    });
+
+    // Device width validate
+    $(".device_width").keypress(function(e) {
+        if( e.which!=8 && e.which!=0 && (e.which<48 || e.which>57))
+        {
+            //display error message
+            //            alert('Allowed Numbers Only!!.');
+            return false;
+        }
+    });
+    //device height
+    $(".device_height").keypress(function(e) {
+        if( e.which!=8 && e.which!=0 && (e.which<48 || e.which>57))
+        {
+            //display error message
+            //            alert('Allowed Numbers Only!!.');
+            return false;
+        }
+    });
+
+    // show all selected dvies
+    if(!$(".radio_all").attr("checked"))
+        //      alert("checked the all")
+        show_selected_devices();
+    $(".show_selected").click(show_selected_devices);
+
+
+    // Button Click Show All devices
+    $(".showall").click(function() {
+        //remove showing phones
+        $('.phones').empty();
+        $('.phones').hide();
+        $('.operations').hide();
+        //        show_count();
+        query_devices('all');
+    });
+
+
+    // Button Click on Sttibutes Select
+    $(".attributes").click(function() {
+        //remove showing phones
+        $('.phones').empty();
+        $('.phones').hide();
+        $('.operations').hide();
+        // validate for check boxes
+        var query_attrib = '';
+        query_attrib = check_attrib_fields();
+        //alert(query_attrib );
+        if(query_attrib){
+            //            show_count();
+            query_devices('attributes', query_attrib);
+        }
+        else {
+            alert ('You need to select atleast one attribute option.');
+        }
+    // validate empty fields
+    });
+
+    //manually select devices
+    // check all devices
+    $(".manually_select").change(function() {
+        //        alert('checked');
+        $(".radio_attrib_ul").hide("slow");
+        $(".radio_manual_ul").show("slow");
+        $(".radio_all_ul").hide("slow");
+        $(".display_count").hide("slow");
+        //        $(".phones_selected").hide();
+        // remove showed phones and all
+        $('.phones').empty();
+        $('.phones').hide();
+        $('.operations').hide();
+
+    // query devices
+    //        query_devices('all');
+    });
+    // disable defaul submit action
+    $(".device_submit").click(function() {
+    
+        // validate all even one attribute is selected
+        var all = $(".radio_all").attr('checked');
+        var attributes = $(".radio_attrib").attr('checked');
+        var manualy = $(".manually_select").attr('checked');
+        if(!all && !attributes && !manualy){
+            return false
+        }
+        // if attributes are checked
+        if(attributes){
+            if(!check_attrib_fields()) {
+                alert('You need to select atleast one attribute option.');
+                return false
+            } else {
+            	if ($('#device_os').val() == '') {
+            		alert("Please select a Device Operating System");
+                    $('#device_os').css('background', '#FEE0C6');
+                    $('html, body').animate({
+                        scrollTop: $('#device_os').offset().top - 40
+                    }, 1000);
+                    return false;
+                }
+                $('#build').submit();
+            }
+        }
+        // if manualy select devices
+        if(manualy){ 
+            // @TODO : add validations
+            $('#build').submit();
+        }
+    });
+    // Device width validate
+    $(".search").click(search_devices);
+    //device height
+    $(".suggest_devices").keypress(function(e) {
+        if( e.which == 13)
+        {
+           // alert('working');
+            search_devices();
+         
+        //      return false;
+        }
+    });
+    // Add confirmation on the approve button
+    $(".approve").click(function(){
+        var approve = confirm('Approve this product?. This product will flag as APPROVED');
+        if(approve)
+            return true;
+        else
+            return false;
+    });
+
+    $(".reject").click(function(){
+        var approve = confirm('Reject this product?. This product will flag as REJECTED.');
+        if(approve)
+            return true;
+        else
+            return false;
+    });
+
+    $(".disable").click(function(){
+        var approve = confirm('Disable this product?.');
+        if(approve)
+            return true;
+        else
+            return false;
+    });
+
+    $(".featured").click(function(){
+        var approve = confirm('Featured this product?');
+        if(approve)
+            return true;
+        else
+            return false;
+    });
+
+    //featured
+    /// remove selected devices
+
+    // show url if its selected
+    $(".navigate_file_url").each(function(){
+        //    alert($(this).val());
+        //    $('.files_mode').css('display', 'none');
+        //    $('.urls_mode').css('display', 'block');
+        if($(this).attr('checked')){
+            var selected = $(this).val();
+            //      alert(selected);
+            if(selected == 'files') {
+                $('.files_mode').css('display', 'block');
+                $('.urls_mode').css('display', 'none');
+            }
+            else {
+                $('.files_mode').css('display', 'none');
+                $('.urls_mode').css('display', 'block');
+            }
+        }
+
+    });
+  
+    /// Add File url selector to the builds
+    $('.navigate_file_url').change(function(){
+        //  alert('ooki');
+        var selected = $(this).val();
+        //    alert(selected);
+        if(selected == 'files') {
+            $('.files_mode').css('display', 'block');
+            $('.urls_mode').css('display', 'none');
+        }
+        else {
+            $('.files_mode').css('display', 'none');
+            $('.urls_mode').css('display', 'block');
+        }
+    });
+
+    // remove all devices form selected list
+
+    $('.remove_all').click(function(){
+        //    alert('oki');
+        var confirm_delete = confirm('Are you sure you wan to delete all devices?.');
+        if(confirm_delete){
+            $('.remove_device').each(function(){
+                //      alert($(this).attr('ref'));
+                //remove_device" ref="'
+                var build_id = $('#build_id').val();
+                var id = $(this).attr('ref');
+                //        alert(id);
+                $.getJSON('/async/deletefiles', {
+                    id:id,
+                    bid:build_id
+                }, remove_device_completed);
+
+            //        //        $('.loading_bar').html('<p align="center"><img src="/admin/assets/img/global/ajax-loader.gif" width="220" height="19" /></p>');
+            //        $(this).parents('.' + id).remove();
+            //        $(this).parents('.phone').remove();
+            });
+        //    //      $('.selected_container').hide();
+        }
+    });
+  
+    // registration form change
+    $('#product_type').change(function(){
+        var value = $(this).val();
+        if(value != 'COMMERCIAL'){
+            $('#registration_model').hide();
+            $('.commercial').hide();
+        }
+        else {
+            $('#registration_model').show();
+            $('.commercial').show();
+        	
+      	  $("#keys").hide('slow');
+      	  $("#dynamic").hide('slow');
+          $("#dynamicregistration").hide();
+          $("#registration_model").val("NO");
+        }
+    //    alert(value);
+    });
+
+
+    //price point create form
+    $('#price_point_create').ketchup();
+
+    //$('#price_point_filter').click()
+    /*added by sujith*/
+    $('#show_only').click(function(){
+        $('#message').html("");
+        var webUrl="<hi>Added on following</hi>";
+        $.getJSON('/product/add-chanel-partner', {
+            app_payment:$('#app_payment').val(),
+            pid:$('#pid').val()
+        }).done(function(data) {
+            if(data.length>0){
+                $.each( data, function( index, value ){
+                    webUrl+='<li>'+value+'</li>';
+                });
+                $('#weburls').html("");
+                $('#weburls').html(webUrl);
+            }
+          }).fail(function(data) {
+            $('#message').css("color","red");
+            $('#message').html(data);
+          });
+    });
+    
+    
+    /*addToStore*/
+    $('#addToStore').click(function(){
+        //$('#add-to-Store-form').submit();
+        $.post('/product/add-to-store', {
+            premium:$('.premium:checked').serialize(),
+            free:$('.free:checked').serialize(),
+            free_without_ads:$('.free_without_ads:checked').serialize(),
+            educational_apps:$('.educational_apps:checked').serialize(),
+            pid:$('#pid').val()
+        }).done(function(data) {
+            alert("This product is updated successfully.");
+          }).fail(function(data) {
+          });
+    });
+   
+});
+
+
+function checkAll(id,cls){
+    if($('#'+id).attr('checked')){
+           $('.'+cls).attr('checked','checked');
+    }else{
+         $('.'+cls).removeAttr('checked');
+    }
+}
+
+function remove_device_completed(data){
+    //  alert(data);
+    var id = data;
+    $('.' + id).remove();
+//  var delay_in_sec = 2000;
+//  $('.loading_bar').html('<p align="center">Deleted all devices.</p>');
+//  $('.phone ').attr('ref');
+//  alert('oki');
+//  alert($(''));
+//  $(this).parents('.phone').remove();
+}
+
+function search_devices(e) {
+    // TODO : add a timeout to check typing is done
+    var keyword = $('.suggest_devices').val();
+    //    alert(keyword);
+    if(keyword.length > 2){
+        //    var code = (e.keyCode ? e.keyCode : e.which);
+        //        if(code == 13) { //Enter keycode
+        //          alert('keypess');  //
+        // set the product count
+        get_app_count('manual', keyword);
+        // disply count
+        $(".search_phones").empty();
+        $(".search_phones").hide();
+        $('.operations').hide();
+        query_devices('search', keyword);
+            
+    //             $(".device_submit").click(function() {
+    //                 $(".device_submit").submit();
+    //             });
+    //        }
+    }
+    else {
+        $(".search_phones").empty();
+        $(".search_phones").hide();
+        $('.operations').hide();
+    }
+    return false;
+}
+
+
+function check_attrib_fields(){
+    // get all the inputs into an array.
+    var $inputs = $('.radio_attrib_ul :input');
+
+    // get an associative array of just the values.
+    //        var values = {};
+    var query = '';
+    var selected = false;
+    $inputs.each(function() {
+        //        alert(this.type + ' - ' + this.name);
+        switch(this.type){
+            case 'checkbox':
+                if(this.checked){
+                	
+                	if(this.name == 'minimum_version' || this.name == 'or_better' )	{        		
+                		
+                	} else {
+                		
+                	      query += this.value + '&';
+                          selected = true;
+                	}
+              
+                    
+                    
+                }
+                break;
+            case 'text':
+                if(this.value > 0){
+                	
+                	if(this.name == 'minimum_version_value')	{
+                		               		
+                	} else {
+                    selected = true;
+                    query += this.name + '=' + this.value + '&';
+                	}
+                }
+                break;
+            case 'select-one':
+                if(this.value != 'any'){
+                    selected = true;
+                    query += this.name + '=' + this.value + '&';
+                }
+                break;
+        }
+    //                alert(query);
+    //            values[this.name] = $(this).val();
+    });
+    //    alert('final value is ' + selected);
+    if(selected)
+        return query.slice(0, -1);
+    else
+        return false;
+}
+
+function query_devices(switcher, query){
+    // show phones div
+    
+    // show operations div
+    
+    //    $(".phones_selected").empty();
+    //    $(".phones_selected").hide();
+
+    
+    //    alert(other + ' --- ' + query );
+    if(switcher == 'search'){
+        $(".search_phones").show();
+        $('.search_phones').html('<p align="center"><img src="/admin/assets/img/global/ajax-loader.gif" width="220" height="19" /></p>');
+        $.getJSON('/async/getdevices', {
+            q:switcher,
+            search:query
+        }, parse_info_search);
+    }
+    else {
+        $(".operations").show();
+        $(".phones").show();
+        $('.phones').html('<p align="center"><img src="/admin/assets/img/global/ajax-loader.gif" width="220" height="19" /></p>');
+        $.getJSON('/async/getdevices', {
+            q:switcher,
+            search:query
+        }, parse_info);
+    }
+
+}
+
+/**
+ * AHAH callback
+ */
+function parse_info(data, textStatus)
+{
+    //    alert(data.model);
+    //console.log(data);
+    
+    var html = '';
+    //html = '<div class="operations" id="operations"><a class="select_none_all" href="#">Select None</a></div>';
+    var count = data.length;
+    html += '<table style="padding :10px">';
+    for(var i in data){
+        //        alert(data[i]);
+        //        console.log(data[i].models);
+        //        if(data[i].info)
+        //            var device_info = data[i].info.join('<br/>')
+        //    if(data[i].info)
+        //      //            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/></td><td><input type="checkbox" value="' + data[i].id + '" name="devices[]" id="devices[]" checked></input><label>' + data[i].phone + '</label>' + device_info + '</td></tr></table></div>';
+        //      html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><input type="checkbox" value="' + data[i].id + '" name="devices[]" id="devices[]" checked></input><label>' + data[i].phone + '</label>' + device_info + '<img alt="loading image.." src="' + data[i].img + '"/></td></tr></table></div>';
+        //    else
+        //      //            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/></td><td><input type="checkbox" value="' + data[i].id + '" name="devices[]" id="devices[]" checked></input><label>' + data[i].phone + '</label></td></tr></table></div>';
+        //      html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/><br/><input type="checkbox" value="' + data[i].id + '" name="devices[]" id="devices[]" checked></input> ' + data[i].phone + '</td></tr></table></div>';
+        //        html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><br/><input type="checkbox" value="' + data[i].id + '" name="devices[]" id="devices[]" checked></input> ' + data[i].phone + '</td></tr></table></div>';
+
+        
+        html += '<tr class="';
+        if (0 == i)
+            html +='first1';
+        if (i == count - 1)
+            html += 'last1';
+        html +='"><th>';
+        html += data[i].brand + '</th><td>';
+        html += data[i].models + '</td></tr>';
+    }
+    html += '</table>';
+
+
+    $(".phones").empty();
+    if(html.length == 0)
+        html = 'Sorry, the device/manufacturer you searched for was not found.';
+    $('.phones').append(html);
+    //    select_all_none();
+    //  alert('oki');
+    lazy_load();
+}
+
+/**
+ * AHAH callback for search
+ */
+function parse_info_search(data, textStatus)
+{
+    //    alert(textStatus);
+    var html = '';
+    //html = '<div class="operations" id="operations"><a class="select_none_all" href="#">Select None</a></div>';
+    for(var i in data){
+        if(data[i].info)
+            var device_info = data[i].info.join('<br/>')
+        if(data[i].info)
+            //            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/></td><td><input type="checkbox" value="' + data[i].id + '" class = "search_check" name="devices[]" id="devices[]" ></input><label>' + data[i].phone + '</label>' + device_info + '</td></tr></table></div>';
+            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><input type="checkbox" value="' + data[i].id + '" class = "search_check" name="devices[]" id="devices[]" ></input><label>' + data[i].phone + '</label>' + device_info + '<img alt="loading image.." src="' + data[i].img + '"/></td></tr></table></div>';
+        else
+            //            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/></td><td><input type="checkbox" value="' + data[i].id + '" class = "search_check" name="devices[]" id="devices[]" ></input><label>' + data[i].phone + '</label></td></tr></table></div>';
+            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/><br/><input type="checkbox" class = "search_check" value="' + data[i].id + '" name="devices[]" id="devices[]"></input> ' + data[i].phone + '</td></tr></table></div>';
+    }
+    $(".search_phones").empty();
+    if(html.length == 0)
+        html = 'Sorry, the device/manufacturer you searched for was not found.';
+
+    $('.search_phones').append(html);
+
+    // add check select option for devices
+    $(".search_check").click(function(){
+        //        var div_phone = $(".phone").html();
+        //        alert($(this).parents('div').html());
+        var phone_table = $(this).parents('.phone').html();
+        $(".phones").show();
+        //                alert($(this).parents('.phone').html());
+        // set attributes
+        //        name="devices[]" id="devices[]"
+        //        this.attr('name', 'devices[]');
+        //        this.attr('checked', 'checked');
+        //        div_phone.removeClass();
+        $(this).attr('checked', 'checked');
+        $('.phones').append('<div class="phone">' + phone_table + '</div>');
+        
+        $('.phones .search_check').attr('checked', 'checked');
+        //        $('.phones .search_check').
+        //        div_phone.empty();
+        $(this).parents('.phone').remove();
+        select_all_none();
+    });
+//    select_all_none();
+}
+function get_sub_categories(){
+    $('#category_sub').remove();
+    var value = $('#category_parent').val();
+    //    alert(value);
+    var prod_id = $('#id').val();
+    $.getJSON('/async/getcategories', {
+        id:value,
+        product_id:prod_id
+    }, process_sub_categories);
+}
+
+function process_sub_categories(data, textStatus){
+    //    alert(data);
+    //    $('#category_parent').parent().html(value);
+    //    alert (parent);
+    if($(".subcategories"))
+        $(".subcategories").remove();
+    var html = '<select class="validate(required) select-input subcategories" id="category_sub" name="category_sub">';
+    html += '<option  value="null">Select Sub Category</option>';
+    var selectedSubVal	= parseInt($('#subcategory').val());
+    for(var i in data){
+        //        console.log(data[i]);
+    	var selected	= (selectedSubVal == i) ? ' selected="selected" ' : ''; 
+        html += '<option ' + selected + ' label="'+data[i]+'" value="'+i+'">'+data[i]+'</option>';
+    }
+    html += '</select>';
+    $('#category_parent').parent().append(html);
+}
+
+function select_all_none(){
+    // Select All and Select None links
+    $(".select_none_all").click(function() {
+        if($(".phones div input").attr('checked')){
+            $('.phones div input').attr('checked', false);
+            $('.select_none_all').html('Select All');
+        }
+        else {
+            $('.phones div input').attr('checked', true);
+            $('.select_none_all').html('Select None');
+        }
+        return false;
+    });
+}
+
+
+/**
+ * chage the device count
+ */
+function change_app_count(switcher, amount) {
+    var current = $(".display_count_hid").val();
+    var amount = get_app_count();
+    if(switcher == 1)
+        var total = parseInt(current) + parseInt(amount);
+    else
+        var total = parseInt(current) - parseInt(amount);
+
+    $(".display_count_hid").val(total);
+}
+
+/**
+ * show the device count
+ */
+function show_count(){
+    $(".display_count").css('float', 'right');
+    $(".display_count").show("slow");
+    var current = $(".display_count_hid").val();
+    $(".display_count").html(current + " <small>devices has been added.</small>");
+}
+
+/**
+ * get the application count
+ */
+function get_app_count(switcher, query){
+    // TODO : add AHAH call to the php and query the App count
+    var devices = 0;
+    switch(switcher){
+        case 'all':
+            devices = 5430;
+            break;
+        case 'manual':
+            devices = 250;
+            break;
+    }
+    // set app count to a hidden variable
+    $(".display_count_hid").val(devices);
+    return devices;
+}
+
+/**
+ * Reset the display counter
+ */
+function reset_counter(){
+    $(".display_count_hid").val(0);
+}
+
+
+
+
+// AHAH callback
+function parse_saved_info(data, textStatus)
+{
+    //    alert(textStatus);
+    var html = '';
+    //html = '<div class="operations" id="operations"><a class="select_none_all" href="#">Select None</a></div>';
+    for(var i in data){
+        if(data[i].info)
+            var device_info = data[i].info.join('<br/>')
+        if(data[i].info)
+            //            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/></td><td><input type="checkbox" value="' + data[i].id + '" name="devices_saved[]" id="devices_saved[]" checked></input><label>' + data[i].phone + '</label>' + device_info + '</td></tr></table></div>';
+            html += '<div ref="' + data[i].id + '" class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img alt="loading image.." src="' + data[i].img + '"/></input><label>' + data[i].phone + '</label>' + device_info + '</td></tr></table></div>';
+        else
+            //            html += '<div class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img src="' + data[i].img + '"/></td><td><input type="checkbox" value="' + data[i].id + '" name="devices_saved[]" id="devices_saved[]" checked></input><label>' + data[i].phone + '</label></td></tr></table></div>';
+            html += '<div ref="' + data[i].id + '" class="phone ' + data[i].id + ' ' + data[i].css + '"><table class = "phone_tbl"><tr><td><img alt="loading image.." src="' + data[i].img + '"/><br/></input> ' + data[i].phone + '<br/><a class="remove_device" ref="' + data[i].id + '" href="#">Remove</a></td></tr></table></div>';
+    }
+    $(".phones_selected").empty();
+    if(html.length == 0)
+        html = 'Sorry, no device/manufacturer was not found.';
+
+    $('.phones_selected').append('<p align="center"><b>Selected Devices</b></p>' + html);
+
+    // Remove seleted devies
+    $(".remove_device").click(function(){
+        //remove_device" ref="'
+        var build_id = $('#build_id').val();
+        var id = $(this).attr('ref');
+        //
+        $.getJSON('/async/deletefiles', {
+            id:id,
+            bid:build_id
+        });
+        //        alert(build_id);
+        //        alert(id);
+        //        alert('oki');
+        $(this).parents('.phone').remove();
+        return false;
+    });
+//    select_all_none();
+}
+
+// JS upload function
+//$(function(){
+//    var btnUpload=$('#upload_button');
+//    var status=$('#status_message');
+//    new AjaxUpload(btnUpload, {
+//        action: '/async/upload',
+//        name: 'uploadfile',
+//        onSubmit: function(file, ext){
+//            if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
+//                // extension is not allowed
+//                status.text('Only JPG, PNG or GIF files are allowed');
+//                return false;
+//            }
+//            status.text('Uploading...');
+//        },
+//        onComplete: function(file, response){
+//            //On completion clear the status
+//            status.text('');
+//            //Add uploaded file to list
+//            if(response==="success"){
+//                $('<li></li>').appendTo('#files_list').html('<img src="./uploads/'+file+'" alt="" /><br />'+file).addClass('success');
+//            } else{
+//                $('<li></li>').appendTo('#files_list').text(file).addClass('error');
+//            }
+//        }
+//    });
+//
+//});
+
+function show_selected_devices() {
+    $(".phones_selected").show();
+    //                alert($(".show_selected").val());
+    var btn_val = $(".show_selected").val();
+    if(btn_val == 'Show Currently Selected Devices') {
+        //            $(".phones").empty();
+        //        $(".phones").hide();
+        //        $(".operations").empty();
+        //        $(".operations").hide();
+        $('.phones_selected').html('<p align="center"><img src="/admin/assets/img/global/ajax-loader.gif" width="220" height="19" /></p>');
+        var prod_id = $("#build_id").val();
+        $.getJSON('/async/getdevices', {
+            q:'saved',
+            search:prod_id
+        }, parse_saved_info);
+        // set button values
+        $(".show_selected").val('Hide');
+    }
+    else {
+        $('.phones_selected').empty();
+        $('.phones_selected').hide();
+        $(".show_selected").val('Show Currently Selected Devices');
+    }
+}
+
+
+function lazy_load(){
+    $(function() {
+        $(".phones img").lazyload({
+            placeholder: "images/grey.gif",
+            effect: "fadeIn",
+            container: $(".phones")
+        });
+    });
+}

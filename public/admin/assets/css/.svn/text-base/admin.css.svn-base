@@ -1,0 +1,12 @@
+#price_point_filter{
+    /*margin: 100px 100px;*/
+}
+#filter_gateway{
+    width:200px;
+}
+#filter_price_point{
+    width: 200px;
+}
+#price_point_header{
+    margin: 10px 100px;
+}

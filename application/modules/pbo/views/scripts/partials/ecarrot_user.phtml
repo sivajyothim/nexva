@@ -1,0 +1,14 @@
+<?php
+$startedDate = $this->ecarrotUser->varification_date;
+$dateObj = date_create($startedDate);
+date_add($dateObj, date_interval_create_from_date_string("14 days"));
+$finalDate = date_format($dateObj, "Y-m-d");
+?>
+<tr>
+    <th><?= $this->ecarrotUser->email; ?></th>
+    <th><?= $this->ecarrotUser->mobile_number; ?></th>
+    <th><?= $this->ecarrotUser->started_date; ?></th>
+    <th><?= $this->ecarrotUser->varification_date; ?></th>
+    <th><?= $finalDate; ?></th>
+
+</tr>

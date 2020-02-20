@@ -1,0 +1,9 @@
+<?php 
+// added condition for render partials according to the device
+if($this->isLowEndDevice) { ?>
+<?= $this->render('parts/featured_low_end.phtml') ?>
+<?= $this->render('parts/staff_picks_low_end.phtml') ?>
+<?php } else { ?>
+<?= $this->render('parts/featured.phtml') ?>
+<?= $this->render('parts/staff_picks.phtml') ?>
+<?php } ?>

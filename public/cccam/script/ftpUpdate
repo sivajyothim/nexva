@@ -1,0 +1,12 @@
+#!/bin/bash
+# Script by Sbarboff
+
+cd /var/www/cccam-cms-new/admin
+
+php -q cron-client-cccam-update.php
+
+cd /var/www/cccam-cms-new/script
+
+sleep 2
+
+./client_update

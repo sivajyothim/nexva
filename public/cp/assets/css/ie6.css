@@ -1,0 +1,51 @@
+#content .message{
+	padding: 3px;
+}
+
+#content .message.warning p,
+#content .message.info p,
+#content .message.error p,
+#content .message.success p{
+	padding-top: 10px;
+	margin-left: 25px;
+}
+
+.sf-sub-indicator {
+	background:		url('../img/superfish/arrows-ffffff.gif') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+
+.sf-menu li a.m:hover{
+	background: #FFF;
+}
+.sf-menu li.sfHover a.m{
+	color: #4b4b4b;
+}
+
+	#wrap.login{
+		width: 400px;
+		margin: 0 auto;
+		float: none;
+		margin-top: 50px;
+		padding-top: 50px;
+	}
+	
+		#wrap.login #content{
+				float: none;
+				min-width: 0px; 
+				margin-right: 0px;
+				width: auto;
+		}
+		
+		#wrap.login #content .box{
+			width: auto;
+		}
+		
+		#wrap.login #content .inner {
+			margin-right: 0px; 
+			margin-left: 0px;
+		}
+		
+		.remember{
+			float: right;
+			padding: 5px;
+		}

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test
+END
+phpmailerTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/phpmailerTest.php
+END
+phpmailerLangTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/phpmailerLangTest.php
+END
+runfakepopserver.sh
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/runfakepopserver.sh
+END
+fakesendmail.sh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/fakesendmail.sh
+END
+test_callback.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/test_callback.php
+END
+bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/bootstrap.php
+END
+testbootstrap-dist.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/testbootstrap-dist.php
+END
+fakepopserver.sh
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/test/fakepopserver.sh
+END

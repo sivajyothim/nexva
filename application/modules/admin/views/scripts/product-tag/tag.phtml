@@ -1,0 +1,71 @@
+<?php 
+    $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/common/js/jquery/plugins/tagsinput/jquery.tagsinput.css'); 
+    $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/tagsinput/jquery.tagsinput.js'); 
+?>
+<?php $this->headScript()->captureStart();?>
+    <?php 
+        $allTagList = array();
+        foreach ($this->allTags as $tag) { 
+            $allTagList[]   = $tag->tag;
+        } 
+    ?>
+    var validTags   = <?=json_encode($allTagList)?>;
+    
+    $(document).ready(function(){
+        
+    });
+<?php $this->headScript()->captureEnd();?>
+
+<div class="title">
+    <h3>Available Tags</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <ul class='tags'>
+            <?php foreach ($this->allTags as $tag) : ?>
+                <li title="<?=htmlspecialchars($tag->description)?>"><?=$tag->tag?></li>
+            <?php endforeach;?>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="title">
+    <h3>Add tags for <?=$this->product['name']?></h3>
+</div>
+
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <form method="post" action="/product-tag/tag">
+            <?php foreach ($this->builds as $build) : ?>
+            <div> 
+                <p><strong><?=$build->name?></strong></p>
+                <?php
+                    $tags   = isset($this->buildTags[$build->id]) ? $this->buildTags[$build->id] : '';
+                ?>
+                <input class='build_tags' name="tags[<?=$build->id?>]" id="tags_<?=$build->id?>" value="<?=$tags?>" />
+                <script>
+                $('#tags_<?=$build->id?>').tagsInput({
+                    height          : '33px',
+                    width           : '90%', 
+                    onBeforeAddTag  : function(tag){
+                        if (validTags.indexOf(tag) > -1) {
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+                </script>
+            </div>
+            <br>
+            <?php endforeach;?>
+            <input type='hidden' value='<?php echo $this->product['id'] ?>' name='pro_id'>
+                 <p><input type="submit" class="txt-input small" value="Save Tags" id="submit" name="submit"></p>
+            </form>
+        </div>
+    </div>
+</div>

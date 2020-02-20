@@ -1,0 +1,58 @@
+<?php $formValues = $this->formValues;  ?>
+<div class='description'>
+<div class='block'>
+    <div class='form'>
+        <h2 class='title'>Register</h2>
+        <form method="post" action="">
+            <p class='message_notice'>Please note that all fields are required</p>
+            <?
+                $errors = $this->errors;
+                if(is_array($errors)) :?>
+                    <div class='message_error'>
+                    <?php foreach ($errors as $error): ?>
+                        <p><?=$error?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+        
+            <div class='input'>
+                <label>E-mail</label>
+                <input size='30' name="email" id="username" type="text" value='<?=$formValues->email?>' />
+            </div>
+            <br clear="all" />
+            
+            <div class='input'>
+                <label>First Name</label>
+                <input size='30' name="first_name" id="first_name" type="text" value='<?=$formValues->first_name?>' />
+            </div>
+            <br clear="all" />
+            
+            <div class='input'>
+                <label>Last Name</label>
+                <input size='30' name="last_name" id="last_name" type="text" value='<?=$formValues->last_name?>' />
+            </div>
+            <br clear="all" />
+            
+            <div class='input'>
+                <label>Password (at least 6 characters)</label>
+                <input size='30'  name="password" id="password" type="password" value="" />
+            </div>
+
+            <label>Enter the security key you see inside the image</label>
+            <div id="recaptcha" name="recaptcha" style="width: 60%" class="txt-input small">
+                <?php echo $this->recaptcha;?>
+            </div>
+            
+            <br clear="all" />
+            <div class='input'>
+                <input type="submit" class="button" name="submit" value="Sign up now" />
+            </div>
+            
+            <p>
+              Already have an account? <a href="/user/login">Login here.</a>
+        
+            </p>
+          </form>
+    </div>
+</div>
+</div>

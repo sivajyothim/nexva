@@ -1,0 +1,123 @@
+<script type="text/javascript">
+//Form Validation
+$(document).ready(function() {
+	$("#frmAddPage").validate();
+});
+
+//Tinymice Editor
+$().ready(function() {
+        $('textarea.tinymce').tinymce({
+            // Location of TinyMCE script
+            script_url : '<?php echo PROJECT_BASEPATH;?>'+'/pbo/js/tiny_mce.js',
+            
+            // General options
+            theme : "advanced",
+            plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,advlist",
+            
+            // Theme options
+            theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,formatselect,fontsizeselect",
+            theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+            theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+            //theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
+            theme_advanced_toolbar_location : "top",
+            theme_advanced_toolbar_align : "left",
+            theme_advanced_statusbar_location : "bottom",
+            theme_advanced_resizing : true
+
+        });
+});
+ //End Tinymice Editor      
+</script>
+
+<style>    
+#main-content table td, #main-content table th {
+    line-height: 1.3em;
+    padding: 0px;
+}
+</style>
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+
+        <div id="icon_wrapper">
+            <a href="/page" alt="Manage Pages"> <img style="border: none" src="<?php echo PROJECT_BASEPATH; ?>pbo/images/icons/manage-pages-small.png" alt="Manage Pages" /><br />
+            Manage Pages</a>
+        </div>
+    </div> <!-- End .content-box-header -->
+
+
+    <div class="content-box-content">
+
+
+        <!-- Displays Message/s -->
+        <?php if (count($this->pageMessages)) : ?>
+
+        <div class="notification success png_bg">                
+                <div>
+
+                    <?php foreach ($this->pageMessages as $message) : ?>
+
+                        <li><?php echo $this->escape($message); ?></li>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+
+
+        <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>/page/<?= isset($this->pageId) ? $this->action : 'add-page' ?>" id="frmAddPage" name="frmAddPage">
+
+            <p>
+                <label>Page Title <span class="mendatory_fileds">*</span></label>
+                <input id="small-input" class="text-input small-input required" type="text" name="txtTitle" id="txtTitle" value="<?= !isset($this->pageDetails->title) ? '' : ($this->pageDetails->title); ?>" />
+            </p>
+
+            <p>
+                <label>Category</label>
+                <select name="chkCategory" id="chkCategory" class="chkbox">
+                    <option value="Web" <?= (isset($this->pageDetails->category) && $this->pageDetails->category == 'Web') ? 'selected= "selected"' : '' ?> >Web</option>   
+                </select>                
+            </p>
+
+            <p>
+                <label>Language</label>
+                <select name="language" id="language">
+                    <option> - Select Language - </option>
+                    <?php foreach($this->languages as $language) { ?>
+                        <!--<option value="<?php /*echo $language->language_id;*/?>" <?php /*echo (isset($this->pageDetails->language_id) && ($this->pageDetails->language_id == $language->language_id)) ? 'selected= "selected"' : '' */?> ><?php /*echo mb_convert_encoding($language->name, 'UTF-8','HTML-ENTITIES');*/?></option>-->
+                        <option value="<?php echo $language->language_id;?>" <?php echo (isset($this->pageDetails->language_id) && ($this->pageDetails->language_id == $language->language_id)) ? 'selected= "selected"' : '' ?> ><?php echo utf8_decode($language->name);?></option>
+                    <?php } ?>
+                </select>
+            </p>
+
+            <p>
+                <label>Page Text</label>
+                <textarea class="tinymce" rows="15" cols="79" name="txtPageText" style="width:300px;"><?= !isset($this->pageDetails->page_text) ? '' : $this->escape($this->pageDetails->page_text); ?></textarea>
+            </p>
+
+            <p>
+                <label>Status</label>
+                <select name="chkStatus" id="chkStatus" class="chkbox">
+                    <option value="publish" <?= (isset($this->pageDetails->status) && $this->pageDetails->status == 'publish') ? 'selected= "selected"' : '' ?> >Publish</option>
+                    <option value="unpublish" <?= (isset($this->pageDetails->status) && $this->pageDetails->status == 'unpublish') ? 'selected= "selected"' : '' ?> >Un Publish</option>       
+                </select>  
+            </p>
+
+            <p>
+                <input id="btnSubmit" name="btnSubmit" class="button" type="submit" value="<?= isset($this->pageId) ? 'Save' : 'Submit' ?>">
+                <input id="btnReset" name="btnReset" class="button" type="reset" value="Reset">
+                <input id="pageId" name="pageId" class="button" type="hidden" value="<?= isset($this->pageId) ? $this->pageId : '' ?>">
+            </p>
+        </form>
+        <br />
+    </div>
+
+</div>
+
+<script type="text/javascript">        
+   $('#4').addClass('current');    
+   $('#41').addClass('current'); 
+</script>

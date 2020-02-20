@@ -1,0 +1,13 @@
+<tr>
+    <th><?=$this->paymentList->app_id;?></th>
+    <th><?=$this->paymentList->build_id;?></th>
+    <th><?=$this->paymentList->mobile_no;?></th>
+    <th><?=$this->paymentList->price;?> [ You get(<?=$this->payout_chap;?>)% - <?=$this->paymentList->price*($this->payout_chap/100)?> ] </th>
+    <th><?=$this->CurrencyConvert($this->paymentList->price);?> [ You get(<?=$this->payout_chap;?>% - <?=$this->CurrencyConvert($this->paymentList->price*($this->payout_chap/100))?> ] </th>
+    <th><?=$this->paymentList->date_transaction;?></th>
+    <th><?=$this->paymentList->trans_timestamp;?></th>
+    <th><?=$this->paymentList->trans_id;?></th>
+    <th><?=$this->paymentList->status;?></th>
+    <th><?=$this->paymentList->maketing_name;?></th>
+    <th><?//=$this->userTelephone($this->paymentReceivedList->paid_user_id);?></th>
+</tr>

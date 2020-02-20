@@ -1,0 +1,101 @@
+                    <!-- Start Content Box #1 -->
+                    <div class="title" style="width: 550px;">
+
+                        <h3>Back Office Channel Partner Login | neXva.com</h3>
+
+                        <div class="selector" title="content_box">
+                            <a class="tab <?php
+    										if ($this->tab == "tab-login")
+    										echo ' active'?>" 
+    						href="tab-login">Login</a>
+                            <a class="tab <?php
+    										if ($this->tab == "tab-password")
+    										echo ' active'?>" 
+    						href="tab-password">Forgotten Password</a>
+                        </div>
+                    </div>
+                    <div class="box"  style="width: 550px;">
+                        <div class="txt">
+
+                            <div id="content_box">
+                                <div class="tab-login">
+
+                                    <!-- Start Message -->
+                                    <div class="message info">
+                                        <p>Please enter you email address and password to login to your Channel Partner admin panel.</p>
+                                    </div>
+                                    <!-- End Message -->
+
+                                    <?=$this->render ( 'partials/message.phtml' )?>
+
+                                    <!-- Start Login Form -->
+                                    <form method="post" action="/user/login">
+                                        <fieldset>
+                                            <p>
+                                            	<label>Email Address</label>
+                                                <input type="text" id="username" name="username" class="txt-input medium"  value="<?php
+										        	if (isset ( $_COOKIE ['username'] )) {
+										        		echo $_COOKIE ['username'];
+										        	} else {
+										            	if ($this->email)
+										            		echo $this->email;
+										        	}	
+										        	?>"/>
+                                            </p>
+
+
+                                            <p>
+                                            	<label>Password</label>
+                                                <input type="password" id="password" name="password" class="txt-input medium" value="<?php
+										        	if (isset ( $_COOKIE ['password'] )) {
+										        		echo $_COOKIE ['password'];
+										        	}
+										        	
+										        	?>" />
+                                            </p>
+
+                                            <p style="float:left;">
+                                            	<input type="submit" class="button" name="submit" value="Login" />
+                                                <input type="reset" class="reset" name="reset" value="Reset" />
+                                                <input type="hidden" name="operation" value="login">
+                                             </p>
+                                              <p class="remember">
+                                              	  <input type="checkbox" name="remember" id="remember" value="1" checked="checked" /> Remember Me
+                                              </p>
+
+                                        </fieldset>
+
+                                    </form>
+                                    <!-- End Login Form -->
+
+                                </div>
+                                <div class="tab-password">
+                                    <?=$this->render ( 'partials/message.phtml' )?>
+        
+                             		<form method="post" name="forgotpassword" action="/user/login">
+        								<fieldset>
+        									<p>
+        										<label>Email</label> 
+        										<input name="email" id="email" type="text" class="txt-input small" value="<?=$this->email;?>" /> 
+        										<small>Enter the email address you signed up with and we'll email you a link to reset your 
+        										password</small>
+        									</p>
+        
+        									<p> 
+        										 <label>Enter the security key you see inside the image</label>
+         											<?=$this->recaptcha;?>
+       										</p>
+        
+        									<input type="submit" class="button" name="cmdforgotpassword" value="Request Password" /> 
+        									<input type="hidden" name="operation" value="forgot_password">
+        								</fieldset>
+
+        							</form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Content Box #1 -->
+
+

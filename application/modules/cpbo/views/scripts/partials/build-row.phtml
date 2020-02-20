@@ -1,0 +1,31 @@
+<tr>
+    <td class="alt">
+        <b><?= $this->row->name ?></b>
+<dt style="padding-left: 20px">
+    <?
+    if ($this->files->count() > 0):
+        foreach ($this->files as $file): ?>
+        <li><?= $file->filename ?></li>
+    <?
+    endforeach;
+    else:
+    ?>
+            <p style="color: red"><?php echo $this->translate("Warning! Please select at least one file!");?>.</p>
+<? endif ?>
+</dt>
+</td>
+<td class="alt">
+                <FORM>
+                    <INPUT class="txt-input small" type="button" value="<?php echo $this->translate("Show Devices");?>" onClick="window.open('/build/showcompatibledevices/id/<?= $this->row->product_id ?>','Compatible Devices','scrollbars=yes, width=500')">
+                </FORM>
+</td>
+<td class="alt">
+    <?php echo $this->translate("Active");?>
+</td>
+<td class="alt">
+                <a href="/build/create/productid/<?= $this->row->product_id ?>/build/<?= $this->row->id ?>"><img title="<?php echo $this->translate("Edit");?>" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" alt="Edit"></a>
+                <a href="/build/delete/productid/<?= $this->row->product_id ?>/build/<?= $this->row->id ?>" onclick="return confirm('Are you sure you want to delete?')">
+        <img title="<?php echo $this->translate("Delete");?>" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+    </a>
+</td>
+</tr>

@@ -1,0 +1,438 @@
+<?php error_reporting(0);$this->headScript()->appendFile($this->Cdn('site_assets').'/web/product_rating.js'); ?>
+<?php $this->headScript()->appendFile($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        }, function(){
+            $( ".nexlink" ).each(function(){          
+                $(this).attr('href', $(this).attr('href') + '/1/5945');//5945 is the nexva chap ID
+                $(this).removeClass('display_none');
+            });
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+    <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>web/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+    <script type="text/javascript">
+        $().ready(function(){
+            var content = 'This App has been checked by AVG for viruses and malware';
+            <?php
+            foreach($this->productInfo["supported_platforms"] as $platform)
+            {
+                if($platform->id != 12)
+                { ?>
+                    content = 'Android Version of this App has been checked by AVG for viruses and malware';
+                <?php }
+            }
+            ?>
+            $("#avg").qtip({
+                content: content,
+                show: 'mouseover',
+                hide: 'mouseout',
+                position: {
+                    corner: {
+                        target: 'topRight',
+                        tooltip: 'bottomLeft'
+                    }
+                },
+                style: {
+                    width: 250,
+                    padding: 5,
+                    background: '#FA6900',
+                    color: 'white',
+                    textAlign: 'center',
+                    border: {
+                        width: 3,
+                        radius: 5,
+                        color: '#F38630'
+                    },
+                    tip: 'bottomLeft',
+                    name: 'red' // Inherit the rest of the attributes from the preset dark style
+                }
+            });
+        });
+    </script>
+
+<div class="blkCenter innerPage containerGap">
+    <!-- product list page start -->
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contContent">
+                <div class="blockContent">
+                    <div class="blkHead">
+                        <h2 id="pageTitle"><?=$this->productInfo['name']?></h2>
+
+                        <?if( isset($this->categoryBreadcrumbs) && count($this->categoryBreadcrumbs)>0 ) : ?>
+                            <ul id="breadcrumbs">
+                                <?foreach($this->categoryBreadcrumbs as $breadcrumb): ?>
+                                    <li><a href="/category/<?=$this->slug($breadcrumb['name'])."/".$breadcrumb['id']?>"><?=$breadcrumb['name']?></a></li>
+                                <?endforeach;?>
+                            </ul>
+                        <?endif;?>
+
+                    </div>
+                    <div class="blkList">
+                        <div class="prodView">
+                            <div class="leftCol">
+                                <div class="posterImg">
+                                    <?php $htmlOpts = array('alt' => $this->productInfo['name'], 'autoheight' => 1, 'id' => 'prod_poster');?>
+                                    <?=$this->thumbnail(@$this->productInfo['screenshots'][0], array('w' => 200, 'h' => 270, 'aoe' => 0), $htmlOpts); ?>
+                                    
+                                </div>
+                            </div>
+                            <div class="rightCol">
+                                <div class="specsheet">
+
+                                    <div><label>Price</label>
+                                        <?if($this->productInfo['cost']==0): ?>
+                                        <span id="prod_price">Free</span>
+                                        <?else: ?>
+                                        <span id="prod_price">$<?=$this->productInfo['cost']?></span>
+                                        <?endif;?>
+                                    </div>
+
+                                    <div>
+                                    <? if($this->cpId != 1): ?>
+                                         <label>Vendor</label>
+                                         <a href="/cp/<?=$this->slug($this->cpName) ?>.<?=$this->slug($this->cpId) ?>.en"  style="color: #e6832b">
+                                         <span id="prod_vendor"><?=$this->productInfo['user_meta']->COMPANY_NAME?></span></a>
+                                     <? else :?>
+                                         <br />
+                                         <!-- Commented on 22-01-2014 -->
+                                         <!--span class="noDeviceNotice ui-state-highlight ui-corner-all claimYourApp" id="claimYourApp"> Are you the owner of this application? <a href="http://cp.<?=$this->baseUrl?>/product/claim/id/<?=$this->productInfo['id']?>" target="_blank"> Claim this application now.</a></span-->
+                                      <? endif; ?>
+                                    </div><br />
+                                    
+                                   
+
+                                    <div><label>Rating</label>
+                                        <div style='display:none'>
+                                            <img id='starFull' src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                            <img id='starEmpty' src="<?=$this->Cdn('site_assets')?>/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                        </div>   
+                                        <div id='fullRating'>
+                                            
+                                            <?php
+                                                $starRating = 1;
+                                                $numRatings = $this->totalRatings;
+                                                $totalStars = 5;
+                                                $ratingInt  = floor($this->avgRating);
+                                                $ratingPart = $this->avgRating - $ratingInt;
+                                            ?>
+                                            <? for ($count = 0; $count < $ratingInt; $count++) : ?>
+                                                <?php if (!$this->productRated) : ?> 
+                                                    <a class='starLinks' rel='<?=$starRating?>' 
+                                                        href='/rating/rate/productId/<?=$this->productInfo['id']?>/rating/<?=$starRating++?>'> 
+                                                <?php endif; ?> 
+                                                    <img src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                                <?php if (!$this->productRated) : ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <? endfor; ?>
+                                            
+                                            <?php 
+                                                if ($ratingPart > 0) :
+                                                    $totalStars = 4; //we're showing a halfstar already 
+                                            ?>
+                                                <?php if (!$this->productRated) : ?>
+                                                    <a class='starLinks' rel='<?=$starRating?>' 
+                                                        href='/rating/rate/productId/<?=$this->productInfo['id']?>/rating/<?=$starRating++?>'>
+                                                 <?php endif; ?>
+                                                    <img src="<?=$this->Cdn('site_assets')?>/web/images/star_half.gif" alt="star" width="11" height="12" />
+                                                <?php if (!$this->productRated) : ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                            
+                                            <? for ($count = $ratingInt; $count < $totalStars; $count++) : ?>
+                                                <?php if (!$this->productRated) : ?>
+                                                    <a class='starLinks' rel='<?=$starRating?>' 
+                                                        href='/rating/rate/productId/<?=$this->productInfo['id']?>/rating/<?=$starRating++?>'>
+                                                    <?php endif; ?>
+                                                    <img src="<?=$this->Cdn('site_assets')?>/web/images/star_empty.gif" alt="star" width="11" height="12" />
+                                                <?php if (!$this->productRated) : ?>
+                                                    </a>
+                                                <?php endif; ?>
+                                            <? endfor; ?>
+                                        </div>
+                                            &nbsp;(<?=$this->totalRatings?> <?=($this->totalRatings = 1) ? 'votes' : 'vote'?>) 
+                                            
+                                            
+                                    </div>
+
+                                   <!-- --><?php
+/*                                        if($this->productInfo['google_id']){
+                                            echo $this->AppStoreScore($this->productInfo['google_id']);
+                                        }
+
+                                        if($this->productInfo['apple_id']){
+                                            echo $this->AppStoreScore($this->productInfo['apple_id']);
+                                        }
+                                    */?>
+
+                                    <div>
+                                        <br>
+                                        <span id='rateLabel'>&nbsp;</span>
+                                        <input type='hidden' id='appRated' value='<?=($this->productRated) ? 1 : 0;?>'>
+                                    </div>
+                                    
+
+                                </div>
+
+                                <?php
+                                if($this->productInfo['google_id']){
+                                    echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/12.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->productInfo['google_id']).'</div></div>&nbsp;&nbsp;';
+                                }
+
+                                if($this->productInfo['apple_id']){
+                                    echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/10.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->productInfo['apple_id']).'</div></div>';
+                                }
+                                ?>
+
+                                <div class="qrCode">
+                                    <?$config = Zend_Registry::get("config");?>
+
+                                    <img name="qr_code" src="<?=$this->qr("http://".$config->nexva->application->mobile->url."/app/show/id/".$this->productInfo['id'], 80, 80)?>" width="80" height="80" border="0" id="qr_code" alt="Generating QR code.." />
+
+                                </div>
+
+                                <div style="display: block; float: left; clear: both; position: relative;top: -20px;">
+                                    <?php foreach($this->productInfo['supported_platforms'] as $platform)
+                                    {
+                                        if(($platform->id == 12) && ($this->avgApproved))
+                                        { ?>
+                                            <a href="http://www.avg.com" target="_blank"><img id="avg" src="/web/images/avg.png" style="width:80px;margin-left:20px;"/></a>
+                                            <div class="avg-tagline">Protect Your Phone</div>
+                                        <?php }
+                                    } ?>
+                                </div>
+
+                                <div style="clear:both;">
+                                <?php 
+                                    $opts   = array(
+                                        'url'   => 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/{$this->productInfo['id']}",
+                                        'title' => $this->product['name'],
+                                        'description'   => $this->product['desc_brief'] //trimming is done internally 
+                                    );
+                                    echo $this->partial('partials/addthis.phtml', $opts)
+                                ?>
+                                </div>
+                                <div class="buttons" id="avg-in">
+
+                                        <?if($this->UrlProductCheck($this->productInfo['id'])):?>
+                                            <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$this->productInfo['id'] ?>" class='nexlink display_none' rel='shadowbox;height=530;width=600'>
+                                                <img src='<?php echo PROJECT_BASEPATH;?>web/images/download_now.jpg' alt='download free now'>
+                                            </a>
+                                        <?elseif($this->productInfo['cost']==0 || $this->productInfo['is_purchased']): ?>
+                                            <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$this->productInfo['id'] ?>" class='nexlink display_none' rel='shadowbox;height=530;width=600'>
+                                                <img src='<?php echo PROJECT_BASEPATH;?>web/images/download_now.jpg' alt='download free now'>
+                                            </a>
+                                        <?else: ?>
+                                            <a href="javascript:viewDownload ('Buy <?=$this->trim(str_replace("'", "", $this->productInfo['name']), 50)?> (for <?=$this->productInfo['platform_name']?>)', '<?=$this->productInfo['id']?>');">
+                                                <img src='<?php echo PROJECT_BASEPATH;?>web/images/buy_now.png' alt='buy now'>    
+                                            </a>
+                                            <?=$this->partial('partials/buy.phtml', array('id'=>$this->productInfo['id'], 'paymentGateways' => $this->paymentGateways));?>
+                                        <?endif;?>
+                                </div>
+
+                                
+                                <div class="screenShots">
+                                    <h3>Screenshots</h3>
+                                    <ul>
+                                        <? foreach($this->productInfo['screenshots'] as $screenshot): ?>
+                                        <li>
+                                            <a class='showScreenshot' href="javascript:viewScreenShot('<?=$this->thumbnail($screenshot, array('w' => 200, 'h' => 270, 'aoe' => 0), $htmlOpts, true); ?>');">
+                                            
+                                            <?php $htmlOpts = array('alt' => $this->productInfo['name'], 'autoheight' => 1, 'id' => 'prod_poster');?>
+                                            <?=$this->thumbnail($screenshot, array('w' => 80, 'h' => 80, 'aoe' => 0), $htmlOpts); ?>
+                                            <div style='display:none'>
+                                                <?=$this->thumbnail($screenshot, array('w' => 200, 'h' => 270, 'aoe' => 0), $htmlOpts); //pre fetching images?>
+                                            </div>
+                                            </a>
+                                        </li>
+                                        <?endforeach;?>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                                 <p>
+                                    <label><strong> Supported Platforms: </strong></label> <br/><br/>
+                                    <span id="prod_platform">
+
+                                    <? foreach( $this->productInfo['supported_platforms'] as $platform ): ?>
+
+                                        <img src="<?=$this->cdn('site_assets')?>/web/images/platforms/<?=$platform->id?>.png" alt="<?=$platform->name?>" />&nbsp;<?=$platform->name?> <br/><br/>
+
+                                    <?endforeach;?>
+
+                                    </span>
+                                    <!--<div id="avg-protect">
+                                        <a href="#">Protect Your Phone</a>
+                                    </div>-->
+                                 </p>
+                                 <br/>
+
+                            <div class="description" style="margin-top: 70px;">
+                                 <p><?=$this->FacebookLike("http://".$config->nexva->application->base->url. $_SERVER['REQUEST_URI'])?></p>
+                                <h3>Description</h3>
+                                <p><?=$this->productInfo['desc']?></p>      
+                            </div>
+                            
+                            
+                                <div id='reviews' class="description">
+                                    <h3 style='overflow: auto;'>
+                                        <a style='float:right;float: right;font-size: 12px;margin: 0 5px 0 0;padding: 5px;' 
+                                            class='orangeButton' href="<?php echo PROJECT_BASEPATH;?>review/add/pid/<?=$this->productInfo['id']?>">Add your own review</a>
+                                        Reviews
+                                    </h3>
+                                    <div class="table reviews">
+                                    
+                                        <?php 
+                                            if (!empty($this->evaReview) && isset($this->evaReview[0])) : 
+                                                $review = $this->evaReview[0];
+                                        ?>
+                                        <div class="review eva">
+                                             <h4 class='review_title' title='<?php echo $review['title']?>'>
+                                                <?php echo $this->trim(($review['title'] == '' ? $review['review'] : $review['title']), 60)?>
+                                             </h4>
+                                             <span class='meta'>
+                                                reviewed <?php echo date('jS M \'y', strtotime($review['date']))?>
+                                                <?php
+                                                    $rating     = $review['rating']; 
+                                                    while($rating > 0) : $rating--; 
+                                                ?>
+                                                    <img src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                                <?php endwhile;?>
+                                             </span>
+                                             
+                                             <p class='review_body'>
+                                                <?php echo substr(strip_tags($this->Wikimarkup($review['review'])), 0, 300) . '...';?>
+                                             </p>
+                                             
+                                             <p class='more'>
+                                               <a class='orangeButton' href="/review/eva/id/<?=$review['id']?>">Continue reading Eva's review</a>
+                                             </p>
+                                             
+                                              
+                                             <div class='info'>
+                                                <img width='80' height='80' src='<?=$this->Cdn('site_assets')?>/web/images/eva.png' class='logo'>
+                                                <h4>Eva's Reviews</h4>
+                                                <?=$this->partial('partials/eva_text.phtml')?>
+                                                
+                                                <p class='all_reviews'>
+                                                    <a class='orangeButton' href="/review/eva-index">See other reviews by Eva</a>
+                                                </p>
+                                             </div>
+                                        </div>
+                                            
+                                        <?php endif;//finish evas reviews ?>
+                                    
+                                    <?php if(is_array($this->reviews) && count($this->reviews)): ?>
+                                        
+                                    
+                                        <? foreach($this->reviews as $review):  ?>
+                                        <div class="review">
+                                             <h4 class='review_title' title='<?php echo $review['title']?>'>
+                                                <?php echo $this->trim(($review['title'] == '' ? $review['review'] : $review['title']), 60)?>
+                                                <span class='author'>by <?php echo $review['name']?></span> 
+                                             </h4>
+                                             <span class='meta'>
+                                                reviewed <?php echo date('jS M \'y', strtotime($review['date']))?>
+                                                <?php
+                                                    $rating     = $review['rating']; 
+                                                    while($rating > 0) : $rating--; 
+                                                ?>
+                                                    <img src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                                <?php endwhile;?>
+                                             </span>
+                                             
+                                             <p class='review_body'>
+                                                <?php echo nl2br(htmlspecialchars(strip_tags($review['review'])));?>
+                                             </p>
+                                            
+                                        </div>
+                                        <?endforeach; ?>
+                                        
+                                        <p style='padding:0px; text-align:right;'>
+                                        <br>
+                                            <a class='orangeButton' href="/review/more/id/<?=$this->productInfo['id']?>">See all reviews</a>
+                                        </p>
+                                        <br>
+                                    
+                                    <?php else : ?>
+                                        <p>No user reviews yet, <a href="/review/add/pid/<?=$this->productInfo['id']?>">be the first to review this app!</a></p>
+                                    <?endif; ?>
+                                    </div>
+                                </div>
+                            
+                            <div class="description">
+                                <h3>Compatible Devices</h3>
+
+                                <div class="table">
+                                    <?
+                                    $i = 0;
+                                    $count = count($this->productCompatibleDevices);
+                                    $currentDeviceBrand = "";
+                                    $models = "";
+                                    ?>
+
+                                    <table>
+                                        <?foreach($this->productCompatibleDevices as $device): ?>
+                                        <tr class="<?if( 0 == $i ) echo 'first'?> <?if($i==$count-1) echo 'last'?>"><th><?=$device->brand?></th><td><?=$device->models?></td></tr>
+                                            <? $i++; ?>
+                                        <?endforeach; ?>
+                                    </table>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product list page end -->
+</div>
+
+
+<? if(!$this->hideRecommendations): ?>
+<div class="blkRight">
+      <div class="rightBlock">      
+        <div class="block" id="right_menuListBlk_nexva_rec">
+          
+          <div class="blkContent">
+            <h2>Discover More</h2>
+           
+                <table>
+                    
+                    <?foreach($this->recommendedApps as $recommendedApp): ?>
+                        <tr>
+                            <td class="apptitle" >
+                                <a  style="font-weight:bold;" href="<?php echo PROJECT_BASEPATH;?>app/<?=$this->slug($recommendedApp['nameForLinks']);?>.<?=$recommendedApp['id'];?>.en"><?=$recommendedApp['name'];?></a></h2></td>
+                        </tr>
+                        <tr>
+                            <td><br />
+                                <div class='appthump'>
+                                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?=$this->slug($recommendedApp['nameForLinks']);?>.<?=$recommendedApp['id'];?>.en">
+                                    <?=$this->thumbnail($recommendedApp['thumb'], array('w'=>100, 'h'=>100));?>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class='recProFoot'>
+                        <div >
+                            <td ><div class="appshortdesc"><?=(strlen($recommendedApp['desc_brief']) > 130) ? substr($recommendedApp['desc_brief'], 0, 130) . '...' : $recommendedApp['desc_brief'] ;?></div></td>
+                        </div>
+                        </tr>
+                    <?endforeach;?>
+                </table>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <?endif; ?>

@@ -1,0 +1,78 @@
+<?php 
+    $review = $this->review;
+?>
+<?php 
+    /*
+     * Convert to pure JS?
+    <script type="text/javascript">
+    $(document).ready(function(){
+         $('#body').keyup(function(){
+             var span   = $('#charlimit');
+             var $this  = $(this);
+             var length = $this.val().length;
+    
+             if (length < 20) {
+                 span.html((20 - length) + ' more to go ...');
+             } else {
+                 span.html((1000 - length) + ' characters left...');
+             } 
+             if (length > 1000) {
+                 span.css({'color' : '#aa0000'});
+             } else {
+                 span.css({'color' : '#666'});
+             }
+         });
+    });
+    </script>
+    */
+?>
+<div class='breadcrumb'>
+    <span>&laquo;</span>
+    <a href='/<?=$this->productId; ?>'>Back to app page</a> 
+</div>
+
+<div class='description'>
+    <div class='block'>
+        <div class='form'>
+            <h2 class='title'>Add Review</h2>
+            <form class='smallInputForm' id="review" style='width:auto;' name="review" action="/review/add/pid/<?=$this->productId;?>" method="post">
+                <?
+                $errors = $this->errors;
+                if(is_array($errors)) :?>
+                    <div class='message_error'>
+                    <?php foreach ($errors as $error): ?>
+                        <p><?=$error?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+            
+                <div class="input">
+                    <label>Name *</label>
+                    <input class="validate[required]"  name="reviewer" id="name" type="text" value='<?=$review->reviewer?>'/>
+                </div>
+                 
+                <br clear="all">
+                <div class="input">
+                    <label>Review * (between 10 and 1000 characters)</label>
+                    <textarea id='body' name="body"  class="validate[required,minSize[20],maxSize[1000]]" rows='10' ><?=$review->body?></textarea>
+<!--                    <span style='display:block; color:#666;margin-top: 5px;' id='charlimit'>Enter at least 20 characters</span>-->
+                </div>
+                <br clear="all">
+                <div class="input">
+                    <label>Rate your experience with this app</label>
+                    <select name='rating'>
+                        <?php foreach (range(1, 5) as $rating) : ?>
+                            <option <?=($review->rating == $rating) ? 'selected = "selected"': ''?> value='<?=$rating?>'><?=$rating?> stars</option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                
+                <br clear="all">
+                <input type="hidden" value="<?=$this->productId;?> " name="pid" id="pid" />
+                <div class="input submit">
+                     <input type="submit" class="button" name="submit" value="Add Review" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

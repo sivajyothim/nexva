@@ -1,0 +1,33 @@
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/cp/assets/css/login.css'); ?>
+<?php 
+    $this->user->ACTIVE_NEXPAGE = isset($this->user->ACTIVE_NEXPAGE) ? $this->user->ACTIVE_NEXPAGE : 0;
+?>
+<div class="title">
+    <h3><?php echo $this->translate("neXpager Status");?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+            <p>
+                <?php echo $this->translate("Your neXpage status is");?> : <strong><?=($this->user->ACTIVE_NEXPAGE == 1) ? $this->translate("ENABLED"): $this->translate("DISABLED") ;?></strong>
+            </p>
+            <p>
+                <a class='orangeButton' href='<?php echo CP_PROJECT_BASEPATH;?>nexpage/update-status'><?=($this->user->ACTIVE_NEXPAGE == 0) ? $this->translate("Activate Now") : $this->translate("Deactivate") ;?></a>
+                <a class='orangeButton' href='<?php echo CP_PROJECT_BASEPATH;?>user/details#tabs-2'><?php echo $this->translate("Update Information");?></a>
+                <?php if ($this->user->ACTIVE_NEXPAGE == 1) : ?>
+                    <a class='orangeButton' href='<?='http://' . Zend_Registry::get('config')->nexva->application->base->url . "/np/" . $this->cp->id?>'><?php echo $this->translate("Preview");?></a>
+                <?php endif;?>
+            </p>
+            <p><strong><?php echo $this->translate("New");?> - </strong> <?php echo $this->translate("neXpager is available for single apps as well. Simply click the");?> 
+                 <img alt="neXpager app page" src="<?php echo PROJECT_BASEPATH;?>cp/assets/img/global/icons/arrow_in.png" title="neXpager app page"> <?php echo $this->translate("image in any content listing page");?></p>
+    </div>
+</div>
+	
+<div class="title">
+    <h3><?php echo $this->translate("neXpager Introduction");?></h3>
+</div>
+<div class="box">
+        <div id='tab-wrap' class="txt">
+            <?php echo $this->page['content']?>
+            <div class='clear'></div> 
+        </div>
+</div>  

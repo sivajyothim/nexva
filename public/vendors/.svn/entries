@@ -1,0 +1,118 @@
+10
+
+dir
+32450
+http://nexva.com/repos/nexva_v1/v2/trunk/public/vendors
+http://nexva.com/repos/nexva_v1
+
+
+
+2016-02-26T12:32:34.821215Z
+29401
+chathura
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+954fb6b5-daeb-42cd-9323-0570cc868170
+
+FusionCharts
+dir
+
+GoogleCheckout
+dir
+
+HD
+dir
+
+MaxMind
+dir
+
+Mobile-Detect-2.8.17
+dir
+
+Nusoap
+dir
+
+
+
+delete
+
+Nusoap_old
+dir
+
+
+
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+copied
+http://nexva.com/repos/nexva_v1/v2/trunk/public/vendors/Nusoap
+32450
+
+WURFL-Cloud
+dir
+
+apc
+dir
+
+easy_smpp
+dir
+
+incutio
+dir
+
+memcached
+dir
+
+openid
+dir
+
+php-mailer
+dir
+
+php-smpp
+dir
+
+phpThumb
+dir
+
+phpxmlrpc-3.0.0-beta
+dir
+
+smpp
+dir
+
+soapui
+dir
+
+test
+dir
+
+uploadify
+dir
+
+xml-rpc
+dir
+

@@ -1,0 +1,8 @@
+Hi <?=$this->name; ?>,<br /><br />
+Your <a href="<?='http://'.Zend_Registry::get('config')->nexva->application->base->url."/product/edit/id/" . $this->product['id'];?>"><?=$this->product['name']?></a> has been <b>disabled</b>. Please verify application details and re submit to approve.
+<br /><br />
+<?=!empty($this->body) ? $this->body : ''; ?>
+<br /><br />
+Thank you.<br />
+- Admin
+<? Zend_Auth::getInstance()->getIdentity()->email?>

@@ -1,0 +1,65 @@
+<?php 
+    $this->headScript()->appendFile('/web/product_rating.js');
+?>
+<div class="blkCenter innerPage">
+    <!-- product list page start -->
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contContent">
+                <div class="blockContent">
+                    
+                    <div class="blkList">
+                        <div class="prodView">
+                            <h3 style='overflow: auto; padding: 5px 0 5px 5px'>
+                                    <a style='float:right;font-size: 12px;margin: 0 5px 0 0;padding: 5px;' 
+                                        class='orangeButton' href="/<?=$this->productInfo['id']?>">Back to <?=$this->productInfo['name']?> app page</a>
+                                        
+                                    <a style='float:right;float: right;font-size: 12px;margin: 0 5px 0 0;padding: 5px;' 
+                                        class='orangeButton' href="<?php echo PROJECT_BASEPATH;?>review/add/pid/<?=$this->productInfo['id']?>">Add your own review</a>
+                                </h3>
+                        
+                        <div class="blkHead">
+                            <h2 id="pageTitle">Reviews for <?=$this->productInfo['name']?></h2>
+                        </div>
+                           <div class="description">
+                                
+                                <?php if(is_array($this->reviews) && count($this->reviews)): ?>
+                                <div class="table reviews">
+                                    <? foreach($this->reviews as $review):  ?>
+                                    <div class="review">
+                                         <h4 class='review_title' title='<?php echo $review['title']?>'>
+                                            <?php echo $this->trim(($review['title'] == '' ? $review['review'] : $review['title']), 60)?>
+                                            <span class='author'>by <?php echo $review['name']?></span> 
+                                         </h4>
+                                         <span class='meta'>
+                                            reviewed on <?php echo date('jS M \'y', strtotime($review['date']))?>
+                                            <?php
+                                                $rating     = $review['rating']; 
+                                                while($rating > 0) : $rating--; 
+                                            ?>
+                                                <img src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                                            <?php endwhile;?>
+                                         </span>
+                                         
+                                         <p>
+                                            <?php echo nl2br(htmlspecialchars(strip_tags($review['review'])));?>
+                                         </p>
+                                    </div>
+                                    <?endforeach; ?>
+                                    <br>
+                                </div>
+                                <?php else : ?>
+                                    <p>No reviews yet, <a href="<?php echo PROJECT_BASEPATH;?>review/add/pid/<?=$this->productInfo['id']?>">be the first to review this app!</a></p>
+                                <?endif; ?>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class='clear'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product list page end -->
+ 

@@ -1,0 +1,43 @@
+<div class="title">
+    <h3>Oops! Well this is embarassing</h3>
+</div>
+<div class='box'>
+    <div class='txt'>
+    <p>
+        <strong>Looks like something is broken. </strong>
+    </p>
+    
+    <p>
+        Click on the back button on your browser and try to continue 
+        what you were doing. <br> <br>
+        If this error happens again, please click on the link below to report this issue.
+    </p>
+    <p><a href='/user/report'>Report this issue</a></p>
+    </div>
+    
+    <?php if (APPLICATION_ENV != 'production') : ?>
+    <div class='txt'>
+            <br><br>
+                <hr>
+                
+                  <h2><?php echo $this->message ?></h2>
+                
+                  <?php if (isset($this->exception)): ?>
+                
+                  <h3>Exception information:</h3>
+                  <p>
+                      <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+                  </p>
+                
+                  <h3>Stack trace:</h3>
+                  <pre><?php echo $this->exception->getTraceAsString() ?>
+                  </pre>
+                
+                  <h3>Request Parameters:</h3>
+                  <pre><?php echo var_export($this->request->getParams(), true) ?>
+                  </pre>
+                  <?php endif ?>
+          </div>
+    <?php endif;?>
+</div>
+

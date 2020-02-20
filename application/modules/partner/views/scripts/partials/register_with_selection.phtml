@@ -1,0 +1,42 @@
+<script type="text/javascript">   
+    var $nc = jQuery.noConflict();    
+
+    $nc(document).ready(function()
+    {
+        $nc('.select_reg').live('click', function() {
+                $nc.fancybox.close(); 
+                Shadowbox.open(this);
+                return false;
+        }); 
+        
+    });
+</script>
+
+<div style="display:none;">
+    <div id="register_with_select">
+        <div class="success"><h3><?php echo $this->translate("Register on");?></h3></div>
+        <div class="text_bg">
+            <p class="device_detection_text">            
+                <?php echo $this->translate("Please select");?>.                
+            </p>
+        </div>
+        <div id="reg-all">
+                <!--div class="reg-item"><a class="nexlink select_reg" rel="shadowbox;height=530;width=600" href="/nexlinker/partner/id/29297/p/21134/userid/none/productid/">
+                    <img title="Android App" src="/partner/default/assets/img/android_app.png"/><br/>Android App
+                </a></div-->
+                <div class="reg-item">
+                    <a class="nexlink select_reg" rel="shadowbox;height=530;width=600" href="http://<?= $this->nexLinkerUrl; ?>/nexlinker/partner/id/<?= $this->appStoreAppid; ?>/p/<?= $this->partnerId; ?>/userid/<?= $this->loggedUser; ?>/productid/<?= $this->productId; ?>">
+                        <img title="Android App" src="/partner/default/assets/img/android_app.png"/><br/>Android App
+                    </a>
+                </div>
+                <div class="reg-item">
+                    <a class="nexlink select_reg" rel="shadowbox;height=530;width=600" href="http://<?= $this->nexLinkerUrl; ?>/nexlinker/partner/id/<?= $this->appStoreAppid; ?>/p/<?= $this->partnerId; ?>/userid/<?= $this->loggedUser; ?>/productid/<?= $this->productId; ?>/type/mobileweb/">
+                        <img title="Mobile Web" src="/partner/default/assets/img/mobile_web.png"/><br/>Mobile Web
+                    </a>
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+                
+             

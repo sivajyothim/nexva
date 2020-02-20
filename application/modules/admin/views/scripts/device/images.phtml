@@ -1,0 +1,61 @@
+<div class="title">
+
+    <h3>Devices with no images (<?=count($this->devices)?> missing device images)</h3>
+    
+   
+
+
+
+</div>
+
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box_1">
+            
+            
+            <table cellpadding="0" cellspacing="0" border="1">
+
+                <thead>
+                    <tr>
+                    	<th style="width:20%">No</th>
+                    	<th style="width:20%">Device Id</th>
+                        <th style="width:20%">Device Name</th>
+                        <th style="width:30%">User Agent</th>
+                        <th style="width:30%">Expected Filename</th>
+                    </tr>
+                </thead>
+
+                <?$i = 0;
+                 foreach($this->devices as $device ) : ?>
+                <tr>
+                  	<td>
+                         <?=++$i;?>  <?=$device->id;?>
+                    </td>
+                    <td>
+          				  <?=$device->id;?>
+                    </td>
+                    <td>
+                        <?=$device->brand." ".$device->model?>
+                    </td>
+                    <td><?=$device->useragent?></td>
+                    <td>
+                        <a href="http://www.google.lk/images?q=<?= str_replace(' ', '+', $device->brand." ".$device->model)  ?>&hl=en&as_st=y&biw=1920&bih=812&tbs=isch:1,isz:ex,iszw:72,
+                           iszh:72&source=lnt" target="_blank"> <img alt="Search this device image on google.com" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" /></a>
+
+                        <?=$device->wurfl_device_id?>.gif</td>
+                </tr>
+                <?endforeach;?>
+
+            </table>
+
+            
+
+        </div>
+
+    </div>
+</div>
+<!-- End Content Box #1 -->
+
+
+ 

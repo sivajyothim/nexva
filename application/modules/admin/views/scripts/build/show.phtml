@@ -1,0 +1,107 @@
+<div class="title">
+    <h3 style="cursor: s-resize;">Manage Build for <?= $this->product['name'] ?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php
+        if (is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+        ?>
+                <div class="message <?= key($value) ?>">
+            <?= $this->partial('partials/itemlist.phtml', array("item" => $value[$key])); ?>
+            </div>
+        <?php
+                endforeach;
+            endif;
+        ?>
+            <div id="content_box">
+                <div class="right">
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/create/productid/<?= $this->product['id'] ?>">
+                        <b><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/icons/plugin_add.png" border="0"> Add New Build</b>
+                    </a>
+                    |
+                <? if (count($this->builds) > 0): ?>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/publish/id/<?= $this->product['id'] ?>">
+                        <b><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/approve.png" border="0"> Publish This Product?</b>
+                    </a> |
+                    <a href="<?= $this->link ?>" target="_blank">
+                        <b><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/view.png" border="0"> Preview this product</b>
+                    </a> |
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/edit/id/<?= $this->product['id'] ?>" target="_blank">
+                        <b><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/icons/edit.png" border="0"> Edit this product</b>
+                    </a>
+
+                <? endif ?>
+                </div>
+                <br/>
+                <!-- showing builds -->
+                <div class="tab-table">
+                    <!-- Start Table -->
+                    <table cellspacing="0" cellpadding="0">
+                        <thead>
+                            <tr>
+                                <th width="40%">Build </th>
+                                <th>Status </th>
+                                <th>Operations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?
+                        $files = $this->files;
+                        foreach ($this->builds as $build):
+                            $buildfiles = $files[$build->id];
+                        ?>
+                        <? //=$this->partial('partials/build-row.phtml', array("row" => $build, "files" => $file));?>
+                            <tr>
+                                <td class="alt">
+                                    <b><?= $build->name ?></b>
+                        <dt style="padding-left: 20px">
+                        <?
+                            if ($buildfiles->count() > 0):
+                                foreach ($buildfiles as $file): ?>
+                                <li>
+                        <?= $file->filename ?>
+                                          <? 
+ 
+                        if ( $file->build_type != 'urls')   {
+                        	
+   
+                        
+		                        if (!$this->S3FileCheck("$build->product_id/$file->filename")) {
+		                        ?>
+		                                        <img alt="File Not Found" src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/icons/thumb_down.png" title="File Not Found">
+		                        <? } 
+		                        
+
+                        
+                        }
+                        
+           						  ?>
+                                </li>
+                    <?
+                                    endforeach;
+                                else:
+                    ?>
+                                    <p style="color: red">Warning! Please select atleast one file!.</p>
+                    <? endif ?>
+                                    </dt>
+                                    </td>
+                                    <td class="alt">
+                                        Active
+                                    </td>
+                                    <td class="alt">
+                                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/create/productid/<?= $build->product_id ?>/build/<?= $build->id ?>"><img title="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/icons/edit.png" alt="Edit"></a>
+                                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/delete/productid/<?= $build->product_id ?>/build/<?= $build->id ?>" onclick="return confirm('Are you sure you want to delete?')">
+                                            <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>admin/assets/img/global/icons/delete.png" alt="Delete">
+                                        </a>
+                                    </td>
+                                    </tr>
+                    <? endforeach; ?>
+                    </tbody>
+                </table>
+                <!-- End Table -->
+            </div>
+        </div>
+    </div>
+</div>

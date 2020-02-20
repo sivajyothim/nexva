@@ -1,0 +1,87 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 9/6/13
+ * Time: 4:12 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $().ready(function(){
+        $("#forgot_verification_form").validate();
+        $("#resend_verification").click(function(){
+            var resend = true;
+            $.post("/user/resend-verification",{resend:resend},function(data) {
+                window.location.href = '/user/forgot-verification';              
+            });
+            
+        });
+    });
+</script>
+<div class="ui-content ui-body-d">
+    <div class="ui-body ui-body-c bg-color-white">
+<!--<h2 class="font-size-16"></h2>-->
+<div class="ui-grid-solo">
+    <div id="jquery_message"></div>
+    <?php
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+    
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->escape($message);
+                }?>
+            </span></span></div>
+    <?php }
+
+    if($this->ErrorMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all">
+            <span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+    
+                <?php foreach($this->ErrorMessages as $key=>$value)
+                {
+                    if(is_array($value))
+                    {
+                        foreach($value as $one=>$two)
+                        {
+                            echo $this->translate($two);
+                        }
+                        echo '<br/>';
+                    }
+                    else
+                    {
+                        echo $this->translate($value),'<br/>';
+                    }
+                } ?>
+            </span></span></div>
+    <?php }
+    //$userId = Zend_Controller_Front::getInstance()->getRequest()->getParam('userId');
+    ?>
+</div>
+
+
+    <form action="/user/forgot-verification" method="post" id="forgot_verification_form" data-ajax="false">
+        <input type="hidden" name="userId" id="userId" value="">
+        
+        <fieldset class="ui-field-contain ui-body ui-br">
+            <label for="verificationCode" class="ui-input-text"><?php echo $this->translate("Verification Code");?> :</label>
+            <div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c">
+                <input type="text" name="verificationCode" id="verificationCode" class="required ui-input-text ui-body-c" minlength="" value="" >
+            </div>
+        </fieldset>
+
+        <div id="submit" class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner">
+                <span class="ui-btn-text"><?php echo $this->translate("Submit");?></span></span>
+            <input type="submit" value="<?php echo $this->translate("Verify");?>" class="ui-btn-hidden" id="btn_submit" ></div>
+
+    </form>
+           
+           <a id="resend_verification" href="#" class="ui-btn ui-shadow ui-btn-icon-left ui-first-child ui-btn-up-b">
+               <span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal"><?php echo $this->translate("Resend Verification Code");?></span>
+                   <span class="ui-icon ui-icon-custom">&nbsp;</span></span></a>
+
+    
+</div></div>

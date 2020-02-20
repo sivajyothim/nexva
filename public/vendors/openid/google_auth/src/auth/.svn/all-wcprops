@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth
+END
+Google_OAuth2.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_OAuth2.php
+END
+Google_AssertionCredentials.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_AssertionCredentials.php
+END
+Google_Signer.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_Signer.php
+END
+Google_P12Signer.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_P12Signer.php
+END
+Google_Verifier.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_Verifier.php
+END
+Google_LoginTicket.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_LoginTicket.php
+END
+Google_PemVerifier.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_PemVerifier.php
+END
+Google_Auth.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_Auth.php
+END
+Google_AuthNone.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/auth/Google_AuthNone.php
+END

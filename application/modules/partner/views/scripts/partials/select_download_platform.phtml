@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 3/13/14
+ * Time: 1:31 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    var $no = jQuery.noConflict();
+    $no(document).ready(function()
+    {
+        $no('.select-download-platform').live('click', function() {
+            $no.fancybox.close();
+            Shadowbox.open(this);
+            return false;
+        });
+    });
+</script>
+<div style="display:none;">
+    <div id="select-download-platform" >
+        <div class="success"><h3><?php echo $this->translate("Platforms");?></h3></div>
+        <div class="text_bg">
+            <p class="device_detection_text">
+                <?php echo $this->translate("Please select your platform");?>.
+            </p>
+        </div>
+        <div id="all_platforms">
+            <img id='preloader_feature' class='display_none' width='16'  src="<?= $this->cdn('site_assets') ?>/web/images/loading.gif" border="0" id="seach_loading" alt="loading" />
+            <div id='apps-feature-new'>
+
+            </div>
+        </div>
+    </div>
+</div>

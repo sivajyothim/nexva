@@ -1,0 +1,113 @@
+<?php 
+    $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile(PROJECT_BASEPATH.'/admin/assets/js/admin.js');
+?>
+<?php $this->headScript()->appendFile($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+<?php 
+    $product        = (object)$this->product; 
+    $translation    = $this->translation;
+?>
+
+<div class="title">
+    <h3 style="cursor: s-resize;"><?php echo $this->translate("Add Translations");?> : </h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$this->translate($message) ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <fieldset>
+                <form action='/product/addtranslation/id/<?php echo $this->proid?>' method='post'>
+                    <p>
+                        <label>Content</label>
+                        <?php echo $product->name?>
+                    </p>
+                    
+                    <p>
+                        <label for='lang_id'><?php echo $this->translate("Language");?></label>
+                        <select id='lang_id' name='langId'>
+                            <?php foreach ($this->languages as $lang) : ?>
+                            <option <?php if($lang->id == $translation->language_id):?>selected='selected'<?php endif;?> value='<?php echo $lang->id?>'>
+                                <?=$lang->common_name ?> <?=(!empty($lang->common_name)) ?  ' &mdash; ' . $lang->name : $lang->name?>
+                            </option>
+                            <?php endforeach;?>
+                        </select>
+                    </p>
+                    
+                    <p>
+                        <label for='name'><?php echo $this->translate("Content name");?></label>
+                        <input value='<?=$translation->PRODUCT_NAME?>' type='text' id='summary' name='name' class='txt-input medium validate(required, rangelength(1,128))'>
+                    </p>
+                    
+                    <p>
+                        <label for='summary'><?php echo $this->translate("Content Summary");?></label>
+                        <textarea class='txt-input medium' rows='7' id='summary' name='summary'><?php echo $translation->PRODUCT_SUMMARY?></textarea>
+                    </p>
+            
+                    <p>
+                        <label for='desc'><?php echo $this->translate("Content Description");?></label>
+                        <textarea class='txt-input medium' rows='7' id='desc' name='desc'><?php echo $translation->PRODUCT_DESCRIPTION?></textarea>
+                    </p>
+                    
+                    <p>
+                        <input type="submit" class="txt-input" value="<?php echo $this->translate("Save Translation");?>" id="submit" name="submit">
+                    </p>
+                  </form>  
+            </fieldset>
+        </div>
+        </div>
+</div>    
+
+
+        <div class="title">
+            <h3><?php echo $this->translate("All Translations");?></h3>
+        </div>
+        <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th width='50%'><?php echo $this->translate("Name");?></th>
+                    <th width='20%'><?php echo $this->translate("Language");?></th>
+                    <th width='20%'><?php echo $this->translate("Last Updated");?></th>
+                    <th width='10%'>&nbsp</th>
+                </tr>
+            </thead>
+        <?php if (count($this->translations)): $class = '';?>
+            <tbody>
+        <?php foreach ($this->translations as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+        <?php $item = (object) $item;?>
+            <tr>
+                <td class='<?=$class?>'><?=$item->meta_value?></td>
+                <td class='<?=$class?>'><?=$item->name?></td>
+                <td class='<?=$class?>'><?=date('g:ia D, jS-M-Y', strtotime($item->updated))?></td>
+                <td class='<?=$class?>'>
+                    <a href='<?php echo PROJECT_BASEPATH;?>product/translate/id/<?php echo $product->id ?>/langId/<?php echo $item->language_id?>'><?php echo $this->translate("Edit");?></a>
+                    &nbsp;&nbsp;&nbsp; 
+                    <a href='<?php echo PROJECT_BASEPATH;?>product/remove-translation/id/<?php echo $product->id?>/langId/<?php echo $item->language_id ?>' class='del_conf'><?php echo $this->translate("Delete");?></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+    </div>
+</div>

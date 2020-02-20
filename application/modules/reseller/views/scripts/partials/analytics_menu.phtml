@@ -1,0 +1,38 @@
+<div id='analytics_menu'>
+    <div class="title">
+        <h3>Filters</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form class='date_filter'  method='post'>
+                <input type='text' size='12' class='date txt-input texthint' data-hint='from' name='from_view' value='<?=$this->startTimeView?>'> 
+                <input type='text' size='12' class='date txt-input texthint' data-hint='until' name='to_view' value='<?=$this->endTimeView?>'>
+                <select class='select-input' id='date-range'>
+                    <option selected="selected" value=''>[SELECT RANGE]</option>
+                    <option value='604800'>Last Week</option>
+                    <option value='2678400'>Last Month</option>
+                    <option value='15768000'>Last 6 Months</option>
+                </select>
+                <button class='button'>Filter</button>
+            </form>
+        </div>
+    </div>
+    
+ 
+    <div class="box">
+        <div class="txt">
+            <input type='text' class='txt-input texthint' data-hint="type in an app name for filtering" id='app_search' name='app_search' size='33'>
+            <ul class="icon_list">
+                <li>
+                    <p>
+                        <a href="/analytics/applies/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="/cp/assets/img/content/icon_list/dashboard.png" alt="dashboard"/>
+                            <br>Dashboard
+                        </a>
+                    </p>
+                </li>
+            </ul>
+            <div class='clear'></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<?php
+//print_r($this->info);
+//exit;
+?>
+<tr>
+	<th width="10%">
+        <?=ucwords(str_replace('_', ' ', $this->name)) ?>
+    </th>
+	<td>
+        
+        
+        <?
+								
+		if (is_array($this->info)) {
+			
+		  foreach ( $this->info as $info ) :
+
+		?>
+          
+    <table>
+		<tr>
+			<td><img alt='' src='/web/images/platforms/<?=$info->id?>.png'>  <?=$info->name?>
+			</td>
+		</tr>
+
+
+
+	</table>
+          
+          <?
+          
+          endforeach;
+								
+		} else
+									
+		  echo $this->info?>
+    </td>
+</tr>

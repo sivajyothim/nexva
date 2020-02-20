@@ -1,0 +1,66 @@
+<?php $t = $this->t();?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        }, function(){
+            $( ".nexlink" ).each(function(){          
+                $(this).attr('href', $(this).attr('href') + '/1/5945/');//5945 is the nexva chap ID
+            });
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+<? foreach ($this->product as $product): ?>
+
+    <?php
+        $ratingString   = '';
+        $avgRating  = $this->ratings[$product['id']];   
+        $starRating = 1;
+        $totalStars = 5;
+        $ratingInt  = floor($avgRating);
+        $ratingPart = $avgRating - $ratingInt;
+    ?>
+    <? for ($count = 0; $count < $ratingInt; $count++) : ?>
+            <?php $ratingString   .= '<img src="'.$this->cdn('site_assets').'/web/images/star_full.gif" alt="star" width="11" height="12" />'; ?>
+    <? endfor; ?>
+    
+    <?php 
+        if ($ratingPart > 0) :
+            $totalStars = 4; //we're showing a halfstar already 
+    ?>
+       <?php $ratingString   .= '<img src="'.$this->cdn('site_assets').'/web/images/star_half.gif" alt="star" width="11" height="12" />'; ?>
+    <?php endif; ?>
+    
+    <? for ($count = $ratingInt; $count < $totalStars; $count++) : ?>
+        <?php $ratingString   .= '<img src="'.$this->cdn('site_assets').'/web/images/star_empty.gif" alt="star" width="11" height="12" />'; ?>
+    <? endfor; ?>
+
+
+<li>
+    <img width='120' src="<?=$this->cdn('product_images').$product['thumb'] ?>" alt="<?=$product['name'] ?>" alt="" class="alignleft" />
+    <h5 class="uppertext">
+        <a class='nexlink' rel='shadowbox;height=550;width=600' href='/nl/<?=$product['id'] ?>'>
+            <?=$product['name'] ?>
+        </a>
+        <?=$ratingString?>
+    </h5>
+    <p>
+    <span id="prod_platform">
+        <?=$this->CompatibleDevices($product['id'])?> 
+    </span>
+    </p>
+    <span><?=$product['desc_brief'] ?> </span>
+    
+    <span class='moreinfo'>
+        <?php if ($product['cost'] <= 0) : ?>
+            <a class='button nexlink' rel='shadowbox;height=500;width=600' href='/nl/<?=$product['id'] ?>'><?php $t->_('download_uc');?></a>
+        <?php else : ?>
+            <a class='button nexlink' rel='shadowbox;height=500;width=600' href='/nl/<?=$product['id'] ?>'><?php $t->_('buy_uc');?></a>
+        <?php endif; ?>
+    </span>
+    <div class='clear'></div>
+</li>
+</li>
+<? endforeach; ?>

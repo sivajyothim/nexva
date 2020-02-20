@@ -1,0 +1,526 @@
+/**
+Common CSS file
+This file is required because the current design has two different
+CSS files so changes need to be made twice. New CSS changes will go in here
+to keep the design neat and in 1 place
+**/
+
+/** Defaults **/
+a img {
+	border:0px;
+}
+
+/** Clearing old css statements. mostly borders**/
+.innerPage .container .contContent {border: none;}
+.blkLeft .block .blkContent {border: none;}
+.blkRight .block .blkContent {border: none;}
+.prodListItem .block .blkContent {border: none;}
+.innerPage .prodListItem .block .blkContent p {width: auto;}
+.innerPage .prodListPage .container .contContent .blockContent .blkList .prodListItem .block .blkContent {width: auto;}
+
+
+#page .contTop, #page .blkTop, #page .contBottom, #page .blkBottom {
+	display: none;
+}
+
+#page .contBottom {
+	border: none;
+	height: 1px;
+	clear: both;
+	border: 1px solid #888888;
+}
+
+p.spaced {
+	margin-bottom: 15px;
+}
+ 
+#page {
+     background: #FFFFFF;
+     padding: 15px;
+     width: 990px;
+     -moz-border-radius:10px; 
+     -webkit-border-radius:10px; 
+     border-radius:10px;
+}
+.shadowWrap {
+    background: #fff;	
+}
+
+#page #searchContainer {
+    background: none repeat scroll 0 0 #E77918;
+    float: right;
+    height: 39px;
+    width: 563px;
+    text-align: center;
+    margin-right: 14px;
+}
+
+#page #searchContainer #q{
+	width: 350px;
+	border:none;
+	padding: 11px 70px 11px 5px;
+	margin:0px;
+}
+
+#page #searchContainer #searchBtn {
+	margin-left: -70px;
+	background: #E77A18;
+	color: #fff;
+}
+
+/** making autocomplete show on top **/
+ul.ui-autocomplete.ui-menu {
+	z-index: 100;
+}
+
+/** Left column **/
+#usr_phone {
+	float:right;
+	width: 130px;
+}
+
+.noDeviceNotice {
+	display: block;
+    padding: 5px;
+    height: 33px; /** size of the image**/
+}
+
+.blkLeft .block, .blkRight .block {
+	-moz-border-radius:10px; 
+	-webkit-border-radius:10px; 
+	border-radius:10px;
+	border: 1px solid #dadada;
+	padding: 5px;
+	margin-bottom: 15px;
+}
+
+/** Middle column **/
+.textBlock {
+	margin: 5px 13px; /** to align with H2 headers **/
+}
+
+.textBlock .textBody p {
+    font-size: 13px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    padding: 2px 0;
+}
+	
+.textBlock p {
+	padding: 2px 0px
+} 
+ 
+/** Right column **/
+#page .blkCenter.innerPage {
+	margin-left: 18px;
+}
+
+/** Home page products **/
+#page .container {
+     -moz-border-radius:10px; 
+     -webkit-border-radius:10px; 
+     border-radius:10px;
+     border: 1px solid #dadada;
+     margin-bottom: 20px;	
+     padding : 5px 0;
+}
+
+#page .container.small {
+	width: 47%;
+	clear:none;
+}
+
+#page .container.small.left {
+	float:left;
+}
+
+#page .container.small.right {
+	float:right;
+}
+
+.container .content {
+    padding: 10px;
+}
+ 
+.content p {
+    margin-bottom:15px;
+}
+
+.blockContent .blkHead h2 {
+	    padding: 5px 5px 5px 8px;
+}
+
+.blockContent .blkHead ul.btn {
+	padding: 5px 0;
+} 
+
+.prodListItem .productBlock {
+	width: 175px;
+    height:180px;
+	float: left;
+	margin: 10px 7px 0;
+	background: #eee;
+	-moz-border-radius:10px; 
+     -webkit-border-radius:10px; 
+     border-radius:10px;
+}
+.productBlock .blockContent .blkHead p{
+    height: 80px;
+}
+.prodListItem .productBlock.first {
+	margin-left: 14px;
+}
+
+.productBlock .blkContent {
+	padding: 5px 3px;
+}
+
+
+/** Product page **/
+td.apptitle {
+	background: #fff;
+}
+tr.recProFoot td {
+	 padding-bottom: 10px;
+	border-bottom: 1px solid #dadada;
+}
+
+/** Category and search **/
+.innerPage .prodListPage .container .contContent {
+	display:block;
+	width: auto;
+}
+
+.containerGap { 
+	margin-left: 18px;
+}
+
+.blockContent .blkList .prodListItem .productLongBlock {
+	padding: 10px 5px;
+	margin: 0 10px 20px 10px;
+	background: #eee;
+	-moz-border-radius:10px; 
+	-webkit-border-radius:10px; 
+	border-radius:10px; 
+	float:none;
+}
+
+.innerPage .prodListPage .container .contContent .blockContent .blkList .prodListItem .block .blkContent  {
+	display: block;
+}
+
+/** Category navigation **/
+#background #page .category_nav ul li a:hover{
+	color: #fff;
+	background: #E6832B;
+	
+}
+
+/** Forms and buttons **/
+#page .leftInlineInput, #page .rightInlineInput {
+	overflow: auto;
+	margin-bottom: 15px;
+}
+
+#page .leftInlineInput label, #page .leftInlineInput .button {
+    border : 1px solid #ccc;
+    float: left;
+    padding: 4px;
+}
+
+#page .rightInlineInput label, #page .rightInlineInput .button {
+    border : 1px solid #ccc;
+    float: right;
+    padding: 4px;
+}
+#page .rightInlineInput .button {
+	padding: 3px;
+    margin: 0;
+}
+
+
+#page .smallInputForm .input  {
+	margin-bottom: 10px;
+}
+
+#page .smallInputForm .input.submit  {
+    margin-bottom: 10px;
+    padding-top: 15px;
+}
+
+#page .smallInputForm  .input label {
+	display:block;
+	margin-bottom:4px;
+	font-weight: bold;
+	color: #666666;
+}
+
+#page .smallInputForm  .input input[type='text'], #page .smallInputForm  .input input[type='password'],
+#page .smallInputForm  .input textarea, #page .smallInputForm  .input select {
+    border: 1px solid #DADADA;
+    padding: 5px;
+    width: 90%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#page .smallInputForm  .input select {
+	width: auto;
+	min-width: 100px;
+}
+
+#page .smallInputForm  .input.split input[type='text'], #page .smallInputForm  .input.split input[type='password'] {
+	width: 43%;
+	margin-right: 10px; 
+}
+
+/** Buttons container in product page **/
+.prodView .buttons {
+	clear:both;
+	padding: 10px 0;
+}
+
+.prodView .buttons img {
+	display:inline;
+	float:none;
+}  
+
+button.orangeButton, a.orangeButton {
+    background: none repeat scroll 0 0 #DE6800;
+    border: medium none;
+    -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+    color: #FFFFFF;
+    padding: 3px 5px;	
+}
+
+ a.orangeButton {
+    display:inline-block;
+    padding: 5px;
+ }
+ 
+ a.orangeButton.buy {
+    min-width: 40px;
+ }
+ 
+ button.orangeButton.big, a.orangeButton.big {
+    font-size: 14px;
+    margin: 5px 0;
+    padding: 10px;
+    text-align: center;
+ }
+ 
+
+/** webkit hack **/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #page .leftInlineInput label, #page .leftInlineInput .button {margin-top: 2px;}
+    #page .rightInlineInput label, #page .rightInlineInput .button {margin-top: 2px;}
+}
+
+/** FF hacks **/
+@-moz-document url-prefix() { 
+	#page .rightInlineInput .button {padding: 2px;margin: 0;}
+}
+
+
+#page label.small {width: 60px;}
+#page label.medium {width: 130px;}
+#page label.large {width: 180px;}
+
+#page .leftInlineInput input.small {width: 100px;}
+#page .leftInlineInput inputl.medium {width: 200px;}
+#page .leftInlineInput input.large {width: 350px;}
+
+#page .leftInlineInput input {
+    border : 1px solid #ccc;
+    border-left:none;
+    float: left;
+    padding: 3px;
+}
+
+#page .rightInlineInput input {
+    border : 1px solid #ccc;
+    border-right:none;
+    float: right;
+    padding: 3px;
+}
+
+
+
+#page .blkLeft .leftInlineInput input {
+    width : 100px;
+} 
+
+/** misc classes **/
+
+.rounded, .leftRounded, .rightRounded {
+    -moz-border-radius:4px; 
+    -webkit-border-radius:4px; 
+    border-radius:4px; 
+    border: 1px solid #ccc;
+    padding: 0.4em;
+}
+
+.rightRounded {
+	-moz-border-radius-topleft:0px;
+	-moz-border-radius-bottomleft:0px; 
+    -webkit-border-radius-topleft:0px; 
+    -webkit-border-radius-bottomleft:0px;
+    border-bottom-left-radius:0px;
+    border-top-left-radius:0px;
+}
+
+.leftRounded {
+    -moz-border-radius-topright:0px; 
+    -moz-border-radius-bottomright:0px; 
+    -webkit-border-radius-bottomright:0px; 
+    -webkit-border-radius-topright:0px;
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+
+.display_none {
+	display : none !important;
+}
+	
+.clear {
+	clear:both;
+	height: 1px;
+}
+
+.disabled_text {
+	color: #999;
+}
+
+
+/** alternate login page and login element on left panel**/
+
+#callToAction {
+	padding: 10px 5px;
+	overflow:auto;
+}
+
+#callToAction .orangeButton {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin: 5px;
+    padding: 8px;
+    text-align: center;
+    width: 34%;
+}
+
+#login_options {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+#login_options .option {
+    border: 2px solid #DADADA;
+    border-radius: 5px 5px 5px 5px;
+     -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    float: left;
+    margin-bottom: 10px;
+    margin-right: 15px;
+    width: 110px;
+}
+
+#login_options .option img {
+    float: left;
+    height: 30px;
+    margin: 0 7px 4px 0;
+    width: 30px;
+}
+
+#login_options .option a {
+    background: none repeat scroll 0 0 #EEEEEE;
+    display: block;
+    font-size: 12px;
+    margin: 3px;
+    overflow: auto;
+    padding: 3px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    color: #000;
+}
+
+#login_options .option a:hover {
+    color:#E6832B;
+}
+
+/**
+    Message classes
+**/
+
+.message-success,.message-error , .message-notice {
+	padding: 5px;
+	 margin: 5px 0 10px;
+     -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.message-success a,.message-error a, .message-notice a {
+	text-decoration: underline;
+}
+
+.message-success a {
+	color:#fff;
+}
+
+.message-error {
+    background:#aa0000;
+    color: #fff;
+}
+
+.message-error .header {
+    background: none repeat scroll 0 0 #CC0000;
+    padding: 5px;
+    margin-bottom: 6px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.message-success {
+	background:#00aa00;
+	color: #fff;
+}
+
+.message-notice {
+	color: #fff;
+	background: #FFA500;
+}
+
+/*css for appscores*/
+.app-cracker-rate-wrap{
+    display:block;
+    float:right;
+    height: 75px;
+    line-height:75px;
+    margin-bottom: 10px;
+}
+
+.app-cracker-rate-wrap img{
+    margin-top:30px;
+}
+
+.app-cracker-rate{
+    background: url("../images/app_crack_bg.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    float: right;
+    font: bold 22px Arial,Helvetica,sans-serif;
+    height: 75px;
+    padding: 32px 5px 0 0;
+    text-align: center;
+    text-shadow: 0 -1px 0 #997858;
+    width: 75px;
+}

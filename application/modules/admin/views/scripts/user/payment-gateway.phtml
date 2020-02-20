@@ -1,0 +1,53 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/9/13
+ * Time: 2:17 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="title">
+    <h3>Payment Gateway | neXva.com</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <?php if(count($this->messages) > 0 ){?>
+            <div class="message info">
+                <p><?php foreach($this->messages as $message)
+                    {
+                        echo $this->escape($message);
+                    } ?>
+                </p>
+            </div>
+        <?php } ?>
+        <div class="content-box-content">
+            <table cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Payment Gateway</th>
+                        <th valign="top" style="text-align: center">Default</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($this->paymentGateways as $paymentGateway) { ?>
+                        <tr>
+                            <td><?php echo $paymentGateway['name'];?></td>
+                            <td valign="top" style="text-align: center">
+                                <?php if(isset($this->userDetails[0]) && ($paymentGateway['id'] == $this->userDetails[0]['payment_gateway_id'])) { ?>
+                                    <img style="border: none" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/icon/icon-default.png"/>
+                                <?php } else { ?>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/set-default-payment-gateway/user/<?php echo $this->user_id;?>/id/<?php echo $paymentGateway['id'];?>" title="Set Default">
+                                        <img style="border: none" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/icon/icon-notdefault.png"/>
+                                    </a>
+                                <?php } ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <?php echo $this->paginationControl($this->paymentGateways, 'Sliding', 'partials/pagination-payment-gateway.phtml'); ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="app">
+    <a href="/device/select/id/<?= $this->item['id'] ?>">
+        <span class="other">
+            <span class="thumb">
+                <!--<img src="<? //=$this->item['thumb']  ?>" alt="thumb" width="50" height="50" /> -->
+                <?= $this->thumbnail($this->item['img'], array('w' => 50, 'h' => 50)); ?>
+            </span>
+        </span>
+        <strong><?= $this->trim($this->item['phone'], 200) ?></strong>
+        <span class="mini-description">
+            <? //if (!empty($this->item['info']))
+
+            ?>
+<?//= implode(',', $this->item['info']) ?>
+        </span>
+    </a>
+</div>

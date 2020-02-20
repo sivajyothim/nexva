@@ -1,0 +1,209 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/26/13
+ * Time: 2:40 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<style type="text/css">
+    #right-panel{
+        margin-top:20px;
+        float:right;
+        width:15%;
+    }
+    /*#wrap.fixed{
+        width:84%;!important;
+        float:left;!important;
+    }*/
+</style>
+
+<!-- Displays Success Message/s -->
+<?php if(count($this->successMessages)) { ?>
+    <div class="message info">
+        <p>
+            <?php foreach ($this->successMessages as $message) {
+                echo $this->escape($message);
+            } ?>
+        </p>
+    </div>
+<?php } ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) { ?>
+    <div class="message error" style="display: block;">
+        <p>
+            <?php foreach($this->errorMessages as $message) {
+                echo $this->escape($message);
+            } ?>
+        </p>
+    </div>
+<?php } ?>
+
+<div id="analytics_menu">
+    <div class="title">
+        <h3>Ticket Properties</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form class='date_filter' method='post' action="/ticket/update/id/<?php echo $this->ticket->id; ?>" >
+            <label>Priority*</label>
+            <select class="select-input" id="priority" name="priority">
+                <option value="" selected="selected">-Select Priority-</option>
+                <option value="Low" <?php if($this->ticket->priority == 'Low'){echo 'selected="selected"';}?> >Low</option>
+                <option value="Medium" <?php if($this->ticket->priority == 'Medium'){echo 'selected="selected"';}?> >Medium</option>
+                <option value="High" <?php if($this->ticket->priority == 'High'){echo 'selected="selected"';}?> >High</option>
+                <option value="Urgent" <?php if($this->ticket->priority == 'Urgent'){echo 'selected="selected"';}?> >Urgent</option>
+            </select>
+            <br/>
+            <label>Status*</label>
+            <select class="select-input" id="status" name="status">
+                <option value="" selected="selected">-Select Status-</option>
+                <option value="Open" <?php if($this->ticket->status == 'Open'){echo 'selected="selected"';}?> >Open</option>
+                <option value="Pending" <?php if($this->ticket->status == 'Pending'){echo 'selected="selected"';}?> >Pending</option>
+                <option value="Resolved" <?php if($this->ticket->status == 'Resolved'){echo 'selected="selected"';}?> >Resolved</option>
+                <option value="Closed" <?php if($this->ticket->status == 'Closed'){echo 'selected="selected"';}?> >Closed</option>
+            </select>
+            <br/>
+            <label>Type*</label>
+            <select class="select-input" id="type" name="type">
+                <option value="" selected="selected">-Select Type-</option>
+                <option value="Question" <?php if($this->ticket->type == 'Question'){echo 'selected="selected"';}?> >Question</option>
+                <option value="Incident" <?php if($this->ticket->type == 'Incident'){echo 'selected="selected"';}?> >Incident</option>
+                <option value="Problem" <?php if($this->ticket->type == 'Problem'){echo 'selected="selected"';}?> >Problem</option>
+                <option value="Feature" <?php if($this->ticket->type == 'Feature'){echo 'selected="selected"';}?> >Feature</option>
+            </select>
+            <br/>
+            <!--<label>Source</label>
+            <select class="select-input" id="source" name="source">
+                <option value="" selected="selected">-Select Source-</option>
+                <option value="Partnerweb">Web</option>
+                <option value="Partnermobile">Mobile Web</option>
+                <option value="Androidapp">Android App</option>
+                <option value="CP">CP</option>
+            </select>
+            <br/>-->
+            <label>Assigned To</label>
+            <select class="select-input" id="assign" name="assign">
+                <option value="" selected="selected">-Assign-</option>
+                <option value="">Heshan</option>
+                <option value="">Vihara</option>
+            </select>
+            <!--<input id="submit" class="submit button" type="submit" name="submit" value="Update">-->
+            <button class='button'>Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="tickets" class="fixed">
+    <div class="title">
+        <h3>Ticket : Ticket #<?php echo $this->ticket->id; ?></h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class="ticket-row curve">
+                <div class="span2">
+                    <span class="ticket-date">Created :
+                        <?php //date_default_timezone_set('Asia/Colombo');
+                        $createdDate = new DateTime($this->ticket->created_date);
+                        $now = new DateTime();
+                        $interval = $createdDate->diff($now);
+                        if(($interval->days) > 0)
+                        {
+                            echo $interval->days,' days';
+                        }
+                        elseif(($interval->h) > 0)
+                        {
+                            echo $interval->h,' hours';
+                        }
+                        elseif(($interval->i) > 0)
+                        {
+                            echo $interval->i,' minutes';
+                        }
+                        elseif(($interval->s) > 0)
+                        {
+                            echo $interval->s,' seconds';
+                        }
+                        ?> ago.
+                    </span>
+                    </br>
+                    <span class="ticket-id curve">#<?php echo $this->ticket->id; ?></span></br>
+                    <span class="ticket-response-count"><?php echo count($this->responses); ?></span></br><span class="grey">Responses</span>
+                </div>
+                <div class="span8">
+                    <div class="ticket-title"><?php echo $this->ticket->subject;?></div>
+                    <div class="ticket-description curve"><?php echo ($this->LimitWords($this->ticket->description,60)) ? $this->LimitWords($this->ticket->description,60).'...' : $this->ticket->description; ?></div>
+                    <div class="misc">
+                        <span class="misc-left">
+                            <!--<span class="attachment"><a href="<?php /*echo $this->ticket->attachment_name;*/?>" target="_blank"><?php /*echo $this->ticket->attachment_name; */?></a></span>-->
+                            <span class="attachment"><a href="<?php echo '/ticket/download-attachement/file/'.$this->ticket->attachment_name;?>" ><?php echo $this->ticket->attachment_name; ?></a></span>
+                            <br/>
+                            <span class="status <?php echo strtolower($this->ticket->status);?>"><?php echo $this->ticket->status;?></span>
+                            <span class="type <?php echo strtolower($this->ticket->type);?>"><?php echo $this->ticket->type;?></span>
+                            <span class="priority <?php echo strtolower($this->ticket->priority);?>"><?php echo $this->ticket->priority;?></span>
+                        </span>
+                        <div class="misc-right">
+                            <span class="ticket-more"><a href="#reply-ticket">Reply</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <?php if(count($this->responses) > 0) { ?>
+                <div class="title" id="reply">
+                    <h3>Responses</h3>
+                </div>
+                <?php foreach($this->responses as $response) { ?>
+                    <div class="response-row curve">
+                        <div class="span2">
+                            <span class="ticket-date">Reply :
+                                <?php
+                                $createdDate = new DateTime($response->response_date);
+                                $now = new DateTime();
+                                $interval = $createdDate->diff($now);
+                                if(($interval->days) > 0)
+                                {
+                                    echo $interval->days,' days';
+                                }
+                                elseif(($interval->h) > 0)
+                                {
+                                    echo $interval->h,' hours';
+                                }
+                                elseif(($interval->i) > 0)
+                                {
+                                    echo $interval->i,' minutes';
+                                }
+                                elseif(($interval->s) > 0)
+                                {
+                                    echo $interval->s,' seconds';
+                                }
+                                ?> ago.</span>
+                            <span class="ticket-response-count">@<?php echo ltrim($this->GetRepliedUser($response->user_id,'FIRST_NAME')) ?></span>
+                        </div>
+                        <div class="span8">
+                            <div class="ticket-title"></div>
+                            <div class="ticket-description"><?php echo $response->description; ?></div>
+                            <div class="misc">
+                                <span class="misc-left">
+
+                                     <span class="attachment"><a href="<?php echo '/ticket/download-attachement/file/'.$response->attachment_name;?>" ><?php echo $response->attachment_name; ?></a></span>
+                                </span>
+                                <div class="misc-right">
+                                    <span class="ticket-more"><a href="#reply-ticket">Reply</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php } } ?>
+
+                <div class="response">
+                    <?php echo $this->partial('partials/comment_form.phtml',array('ticketId' => $this->ticket->id)); ?>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+

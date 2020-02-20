@@ -1,0 +1,15 @@
+ <div id="main_right_pane">
+     
+     <?php if(count($this->products) == 0):?>
+        <div style="" class="warning_message"><?= $this->translate('No results found');?>! </div>
+     <?php endif;?>
+ 
+  <?=$this->paginationControl($this->paginator, 'Sliding', 'partials/product_category_block.phtml', array('baseUrl' => $this->baseUrl)); ?>
+ 
+		<?=$this->partial('partials/product.phtml', array('products' => $this->products, 'partnerId' => $this->partnerId, 'appStoreAppid' => $this->appStoreAppid, 'nexLinkerUrl' => $this->nexLinkerUrl, 'loggedUser' => $this->loggedUser,'chap_id' => $this->chap_id) );?>
+
+	<div style="clear: both;"></div>
+	
+	<?=$this->paginationControl($this->paginator, 'Sliding', 'partials/product_category_block.phtml', array('baseUrl' => $this->baseUrl)); ?>
+	
+</div>

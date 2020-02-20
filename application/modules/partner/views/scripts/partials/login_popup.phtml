@@ -1,0 +1,91 @@
+<script type="text/javascript">
+    
+var $form_validation = jQuery.noConflict();
+
+$form_validation(document).ready(function(){
+	//global vars	
+	var form = $form_validation("#login");
+        
+	var username = $form_validation("#username");
+        var usernameInfo = $form_validation("#username-info");
+        
+        var password = $form_validation("#password");
+        var passwordInfo = $form_validation("#password-info");
+	
+	//On blur
+	username.blur(validateUsername);
+        password.blur(validatePassword);
+        
+	//On key press
+        username.keyup(validateUsername);
+        password.keyup(validatePassword);
+
+	//On Submitting
+	form.submit(function(){					 
+			
+		if(validateUsername() & validatePassword())
+		{			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
+	
+	function validateUsername(){
+		if(username.val().length < 1){
+			username.addClass("error");
+			usernameInfo.text("<?= $this->translate("Please add a valid email");?>");
+			usernameInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			username.removeClass("error");
+			usernameInfo.text("");
+			usernameInfo.removeClass("error");
+			return true;
+		}
+	}
+        
+        function validatePassword(){
+		if(password.val().length < 1){
+			password.addClass("error");
+			passwordInfo.text("<?= $this->translate("Please add a valid password");?>");
+			passwordInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			password.removeClass("error");
+			passwordInfo.text("");
+			passwordInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+});
+</script>
+
+<section class="container">
+    <div class="login">
+      <h1><?= $this->translate("Login to add a ticket");?></h1>
+      <form method="post" action="<?= ($this->partnerId == 115189 || $this->partnerId == 23045) ? '/info/remote-login' : '/info/login'; ?>" id="login">
+        <p><input type="text" name="username" id="username" value="" placeholder="<?= $this->translate("Email");?>"><div id="username-info" style="position: relative; left:5px;"></div></p>
+        <p><input type="password" name="password" id="password" value="" placeholder="<?= $this->translate("Password");?>"><div id="password-info" style="position: relative; left:5px;"></div></p>
+        <p class="submit"><input type="submit" id="btn_submit" name="btn_submit" value="<?= $this->translate("Login");?>"></p>
+      </form>
+    </div>
+
+    <?php
+    //$sessionChapDetails = new Zend_Session_Namespace('partner');
+    if($this->partnerId == '23045' || $this->partnerId == '115189'){ 
+        
+    } else {?>
+        <div class="login-help">
+            <p><?= $this->translate("Forgot your password");?>? <a href="<?=$this->baseUri;?>/info/reset"><?= $this->translate("Click here to reset it");?></a></p>
+
+        </div>
+    <?php } ?>
+</section>

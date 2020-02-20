@@ -1,0 +1,96 @@
+body{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+margin-top:15px;
+background-color:#E8F8FF;
+}
+
+
+td{
+}
+
+.mainholder{
+border:solid 1px    #CCCCCC;
+}
+
+#header{
+    border-bottom:solid 8px  #00CCFF;
+    float:left;width:100%;
+    height:100px;
+    background-color:white;
+}
+
+#logo{
+    float:left;
+    margin:0px;
+    margin-left:10px;
+    margin:5px;
+}
+#name{clear:right;color:#00CCFF;font-size:18px;margin:0px;}
+#moto{float:left;color:#CCCCCC;}
+#logoimg{
+width:150px;
+height:70px;
+border:solid 2px #00CCFF;
+}
+
+#right{
+background-color:#CCCCFF;
+min-height:400px;
+padding:5px;
+overflow: auto;
+}
+
+#right_inner{
+background-color:#F0F0FF;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+padding:5px;
+}
+#footer{
+min-height:50px;
+color:#FFFFFF;
+text-align:center;
+vertical-align:middle;
+padding-top:5px;
+width:100%;
+background-color: #00CCFF;
+}
+#middle{
+background-color:#FFFFFF;
+color:#FFFFFF;
+padding-top:5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+margin:5px;
+min-height: 400px;
+overflow: auto;
+}
+
+.productboxes{
+    width:150px;
+    height:300px;
+    float:left;
+    border:solid 1px gray;
+    margin:5px;
+    padding:5px;
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+    background-repeat: no-repeat;
+    background-color: white;
+    color:black;
+}
+
+.productboxes h3{
+    color:black;
+    font-size:11px;
+}
+.productboxbuttons{
+    margin-top:10px;
+    vertical-align: baseline;
+
+}
+.productboxbuttons-moreinfo{
+    float:left;
+    margin-right:10px;
+}

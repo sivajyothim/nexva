@@ -1,0 +1,163 @@
+<div id="main_right_pane">
+    <div class="inr_tabs_wrapper">
+        <div class="inr_tab_bar"><?php if(!mtnIran): ?><span class="inr_brdcrtxt_pur">+</span>  <?php endif; ?>
+            <span class="inr_brdcrtxt_grey"><?php echo $this->translate("My Ticket"); ?></span>
+            <!--span class="dashboard-username">Welcome, <?= $this->UserMeta($this->userId,'FIRST_NAME'); ?> | <a href="/info/logout"><?php echo $this->translate("Logout");?></a></span-->
+        </div>
+
+            <div class="inrtab_selection_top inner_content" >
+                
+                <!-- Displays Success Message/s -->
+<?php if (count($this->successMessages)) : ?>
+
+    <div class="notification success png_bg">
+        <div>
+
+            <?php foreach ($this->successMessages as $message) : ?>
+
+                <?php echo $this->escape($message); ?>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) : ?>
+
+    <div class="notification error png_bg">
+        <div>
+
+            <?php foreach ($this->errorMessages as $message) : ?>
+
+                <?php echo $this->escape($message); ?>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+                <div id="form_wrapper">
+
+                        <div class="ticket-row curve">
+                            <div class="span2">
+                                <span class="ticket-date">
+                                    <?= date("M jS Y", strtotime($this->ticket['created_date'])); ?>
+                                </span>
+                                
+                                <span class="ticket-days-ago">         
+                                <?php 
+                                    echo $this->DateTimeDiff($this->ticket['created_date']);
+                                ?>                                    
+                                </span>
+                                
+                                </br>
+                                <span class="ticket-id curve">#<?= $this->ticket['id']; ?></span></br>
+                                
+                                <span class="ticket-response-count"><?= $this->ticket['response_count']; ?></span></br><span class="grey"><?= $this->translate('Responses'); ?></span>
+                            </div>
+                            <div class="span8">
+                                <div class="ticket-title"><?= $this->ticket['subject']; ?></div>
+                                <div class="ticket-description"><?= $this->ticket['description']; ?></div>
+                                
+                                <div class="misc">
+                                   <span class="misc-left">
+<!--                               <span class="attachment"><a href="<?= $this->otherData['attachmentPath'].$this->ticket['attachment_name'];?>" target="_blank"><?= $this->ticket['attachment_name']; ?></a></span>-->
+                                   <span class="attachment"><a href="<?php echo PROJECT_BASEPATH;?>ticket/download-attachement/file/<?= $this->ticket['attachment_name'];?>" target="_blank"><?= $this->ticket['attachment_name']; ?></a></span>
+                                   </br>
+                                   <span class="status stat-<?= strtolower($this->ticket['status']); ?>"><?= $this->translate($this->ticket['status']); ?></span>  
+                                    <span class="type <?= strtolower($this->ticket['type']); ?>"><?= $this->translate($this->ticket['type']); ?></span>  
+                                   <span class="priority <?= strtolower($this->ticket['priority']); ?>"><?= $this->translate($this->ticket['priority']); ?></span>
+                                    
+                                    </span>
+                                    
+                                    <div class="misc-right">
+                                        <a class="ticket-more" href="#comment-form"><?= $this->translate('Reply') ?></a>
+                                    </div>
+                            
+                            </div>
+                            </div>
+                    </div>
+                    
+                    
+                    
+                    <?php
+                    
+                    if(count($this->responses) > 0):
+                        ?>
+                    <div class="ticketing-h2" id="responses">
+                        <?php /*echo $this->translate("Responses");*/ ?>
+                         <?php if(!mtnIran): ?><span class="inr_brdcrtxt_pur">+</span>  <?php endif; ?>
+                        <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Responses"); ?></span>
+                    </div>
+                   
+                    <?php
+                        foreach ($this->responses as $response):
+                        //print_r($response); die();
+                            ?>
+                            <div class="response-row curve <?= ($response['user_id'] == $this->otherData['userId']) ? 'my-response' : ''; ?>">
+                                <div class="span2">
+                                    <span class="ticket-date"><?= date("M jS Y", strtotime($response['response_date'])); ?></span>
+                                    <span class="ticket-days-ago">         
+                                    <?php 
+                                        echo $this->DateTimeDiff($response['response_date']);
+                                    ?>                                    
+                                    </span>
+                                    <?php if($this->UserMeta($response['user_id'],'FIRST_NAME')): ?>
+                                    <!--span class="grey">Response by</span></br--><span class="ticket-response-count">@<?= $this->UserMeta($response['user_id'],'FIRST_NAME'); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="span8">
+                                    <div class="ticket-title"></div>
+                                    <div class="ticket-description"><?= $response['description']; ?></div>
+                                    <div class="misc">
+                                        <span class="misc-left">
+                                            <span class="attachment"><a href="<?= $this->otherData['attachmentPath'].$response['attachment_name'];?>" target="_blank"><?= $response['attachment_name']; ?></a></span>
+                                        </span>
+                                        <div class="misc-right">
+                                        <a class="ticket-more" href="#comment-form"><?php echo $this->translate("Reply"); ?></a>
+                                    </div></div>
+                            </div>
+                             </div>
+                            <?php
+                        endforeach;
+                        ?>
+                     
+                    <?php
+                    else:
+                        ?>
+                        <div class="no-result attention"><?= $this->translate('No responses found'); ?></div>
+                    <?php
+                    endif;
+                    ?> 
+                        
+            </div>
+
+
+
+    <div id="form_wrapper">
+        
+        <div class="ticketing-h2" id="comment-form">
+                       <?php if(!mtnIran): ?> <span class="inr_brdcrtxt_pur">+</span> <?php endif; ?>
+                        <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Add a Reply"); ?></span>
+                    </div>
+        <!--div class="ticketing-h2"><?php echo $this->translate("Add a Reply"); ?></h2-->
+        
+        <div class="response" id="comment-form">
+                <?= $this->partial('partials/comment_form.phtml',array('tiketPartialId' => $this->otherData['ticketId'])) ?>
+        </div>
+    </div>
+
+        </div>
+
+    
+            <!-- box one-->
+    <div style="clear: both;"></div>
+    
+</div>
+</div>

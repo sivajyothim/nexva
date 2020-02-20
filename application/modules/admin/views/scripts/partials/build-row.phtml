@@ -1,0 +1,44 @@
+<tr>
+    <td class="alt">
+        <b><?= $this->row->name ?></b>
+
+
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/download/product/<?=$this->row->product_id?>/build/<?=$this->row->id?>" title="Download build '<?=$this->row->name?>' in a single ZIP file">[Download]</a>
+
+        <?php
+        //Zend_Debug::dump($this->avgApproved);die();
+        if((count($this->avgApproved)>0) && ($this->avgApproved[0]->build_id == $this->row->id))
+        { ?>
+            <img src="/web/images/avg.png" width="32" style="position:relative; top: 20px;"/>
+        <?php } ?>
+
+<dt style="padding-left: 20px">
+    <?
+    if ($this->files->count() > 0):
+        foreach ($this->files as $file): ?>
+        <li>
+            <?= $file->filename ?>
+        </li>
+<?
+            endforeach;
+        else:
+?>
+            <p style="color: red">Warning! Please select at least one file!</p>
+<? endif ?>
+            </dt>
+            </td>
+            <td class="alt">            
+                <FORM>
+                    <INPUT class="txt-input small" type="button" value="Show devices" onClick="window.open('/build/showcompatibledevices/id/<?= $this->row->product_id ?>/build/<?= $this->row->id ?>/device_selection_type/<?= $this->row->device_selection_type ?>','Compatible Devices','scrollbars=yes, width=500')">
+                </FORM>
+            </td>
+            <td class="alt">
+                Active
+            </td>
+            <td class="alt">
+                <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/create/productid/<?= $this->row->product_id ?>/build/<?= $this->row->id ?>"><img title="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" alt="Edit"></a>
+                <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/delete/productid/<?= $this->row->product_id ?>/build/<?= $this->row->id ?>" onclick="return confirm('Are you sure you want to delete?')">
+        <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+    </a>
+</td>
+</tr>

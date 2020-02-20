@@ -1,0 +1,41 @@
+<style>
+.share-this a {
+    display: inline-block;
+    height: 32px;
+}
+
+.addthis_toolbox.addthis_pill_combo a {
+    float: left;
+}
+.addthis_toolbox.addthis_pill_combo a.addthis_button_tweet,
+.addthis_toolbox.addthis_pill_combo a.addthis_counter {
+    margin-top: -2px;
+}
+.addthis_button_compact .at15t_compact {
+    margin-right: 4px;
+    float: left;
+}
+</style>
+
+<div class='share-this'>
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style "
+       addthis:url="<?=$this->url?>"
+       addthis:title="<?=htmlspecialchars($this->title)?>"
+       addthis:description="<?=$this->trim(htmlspecialchars($this->description), 100)?>">
+       
+        <a class="addthis_button_facebook_like"></a>
+        <a class="addthis_button_google_plusone"></a>
+        <a class="addthis_button_tweet" tw:count="horizontal"></a>
+        <a class="addthis_counter addthis_pill_style"></a>
+    </div>
+    <?php if (!isset($this->disableScripts)) : ?>
+    <script type="text/javascript">
+        var addthis_config = {
+            "data_track_clickback": true
+        };
+    </script>
+    <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e1567643692886e"></script>
+    <!-- AddThis Button END -->
+    <?php endif; ?>
+</div>

@@ -1,0 +1,41 @@
+<tr>
+   
+    <td>
+        <?= $this->user->id ?>
+    </td>
+    <td>
+        <?= $this->user->username ?>
+    </td>
+    <td>
+        <?= $this->user->email ?>
+    </td>
+    <td>
+        <?= ($this->user->status > 0) ? 'Active' : 'Blocked' ?>
+    </td>
+    <td>
+        <?= $this->user->type; ?>
+    </td>
+     <td>
+        <?php        
+        if($this->user->created_date!='0000-00-00 00:00:00'){
+            $date = new DateTime($this->user->created_date);
+            echo $date->format('Y-m-d');
+        }else{
+            echo '--';
+        }
+        ?>
+    </td>
+    <td>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/edit/id/<?=$this->user->id ?>"><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+        <?php if($this->show_app_icons): ?>
+            <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/apps/id/<?=$this->user->id ?>"><img alt="View all content of this USER" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/app.gif" title="View all content of this USER"></a>
+        <?php endif; ?>
+        <?php if($this->UserImpersonate($this->user->id)){ ?>
+            <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/impersonate/id/<?=$this->user->id?>" target="_blank" onclick="res = confirm('You are about to impersonate this USER.\n\nAny action taken during an impersonation session would look as if it was done by the USER and not you. If you are already logged into a USER account or currently impersonating another USER, your session will automatically end.\n\n*Please proceed with caution* \n\n Press OK to begin impersonating <?=$this->user->email?>');  return res;">
+            <img alt="Impersonate" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/user_go.png" title="Impersonate">
+        </a>
+        <?php } ?>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/delete/id/<?=$this->user->id ?>"><img alt="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" title="Delete"></a>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/order-details/id/<?=$this->user->id ?>"><img alt="View Order Details" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/order_detail.png" title="View Order Details"></a>
+    </td>
+</tr>

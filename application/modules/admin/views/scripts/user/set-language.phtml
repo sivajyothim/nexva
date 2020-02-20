@@ -1,0 +1,95 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/2/13
+ * Time: 5:31 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<?php
+/*
+foreach($this->languages as $language){
+   echo $language['id'],'-',$language['language_id'],'<br/>';
+}
+die();
+*/?>
+
+
+<?php
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    //$this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css');
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/multiselect/jquery.multiselect.css');
+
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/multiselect/multiselect-widget.js');
+?>
+<style type="text/css">
+    select {width:300px;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#set-currency').ketchup();
+
+        $("#language").multiselect({
+            selectedText: "# of # selected"
+        });
+
+    });
+</script>
+<div class="title">
+    <h3 style="cursor: s-resize;">Assign Language for <?php echo $this->user[0]->username;?> | neXva.com</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php if(count($this->messages) > 0 ){?>
+            <div class="message info">
+                <p><?php foreach($this->messages as $message)
+                    {
+                        echo $this->escape($message);
+                    } ?>
+                </p>
+            </div>
+        <?php } ?>
+        <div class="content_box">
+            <form id="set-language" name="set-language" class="" method="post" accept-charset="UTF-8" action="/user/save-language/id/<?php echo $this->user[0]->id;?>">
+                <p>
+                    <label for='title'>Language</label>
+                    <select multiple="multiple" id="language" name="language[]" class="txt-input small validate(required)">
+                        <!--<option value="">Select Language</option>-->
+                        <?php foreach($this->languages as $language)
+                        { ?>
+                            <option value="<?php if(!empty($language['id'])) {echo $language['id'];}?>" <?php if($language['language_assigned']) { echo 'selected="selected"';} ?>><?php echo $language['common_name']?> - <?php echo $language['name']?></option>
+                        <?php } ?>
+                    </select>
+                </p>
+                
+                <p>
+                    <label for='title'>Default Language</label>
+                    <select id="default_language" name="default_language" class="txt-input small validate(required)">
+                        <!--<option value="">Select Language</option>-->
+                        <?php foreach($this->languages as $language)
+                        { ?>
+                            <option value="<?php if(!empty($language['id'])) {echo $language['id'];}?>" <?php if(1 == $language['default_language']) { echo 'selected="selected"';} ?>><?php echo $language['common_name']?> - <?php echo $language['name']?></option>
+                        <?php } ?>
+                    </select>
+                </p>
+                <!--<p>
+                    <label for='title'>Status</label>
+                    <select id="status" name="status" class="txt-input small validate(required)">
+                        <option value="">Select Status</option>
+                        <option value="1" <?php /*if((!empty($this->languageUser[0])) && ($this->languageUser[0]['status'] == 1)) { echo 'selected="selected"';} */?> >Active</option>
+                        <option value="0" <?php /*if((!empty($this->languageUser[0])) && ($this->languageUser[0]['status'] == 0)) { echo 'selected="selected"';} */?> >InActive</option>
+                    </select>
+                </p>-->
+                <p>
+                    <input type="submit" class="txt-input small" value="Save Details" id="submit" name="submit">
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>

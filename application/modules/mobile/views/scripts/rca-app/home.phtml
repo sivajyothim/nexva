@@ -1,0 +1,12 @@
+<? if (is_array($this->featuredProducts)): ?>
+    <h2 class='title_alt'><?=strtoupper($this->partnerHtmlTitle);?> Apps.</h2>
+    <div style="height: 4px;"></div>
+    <div class="featured">
+        <?php
+        foreach ($this->featuredProducts as $product): ?>
+            <?=$this->partial('/partials/app-rca.phtml', array("item" => $product)) ?>
+        <?php endforeach; ?>
+    </div>
+<? else: ?>
+Sorry, we couldn't find any apps that compatible your device.
+<? endif; ?>

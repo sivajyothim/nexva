@@ -1,0 +1,15 @@
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/ckeditor/ckeditor.js"></script>
+
+<div class="title">
+    <h3>CP Panel Home Page Customize</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <form action="/settings/cp-home-customize" method="post">
+            
+            <textarea class="ckeditor" name="description" id="description"><?= !isset($this->description) ? '' : $this->description?></textarea>
+                <br />
+                <input type="submit" name="btnSubmit" id="btnSubmit" value="Submit" class="txt-input small submit button" style="width: 70px"/>
+        </form>
+    </div>
+</div>

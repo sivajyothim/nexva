@@ -1,0 +1,7 @@
+<?php $this->headScript()->captureStart();?>
+    var __DATA_REGIONS          = eval(<?php echo json_encode($this->appRegions); ?>);
+    var __DATA_REGIONS_COUNT    = <?php echo count($this->appRegions);?>;
+<?php $this->headScript()->captureEnd();?>
+
+<?php $this->headScript()->appendFile('http://www.google.com/jsapi'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/admin/assets/js/analytics/regions.js'); ?>

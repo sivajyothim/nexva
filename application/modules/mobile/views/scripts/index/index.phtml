@@ -1,0 +1,69 @@
+<!-- Showing Featured Applications as random 2 premium and one Free App -->
+
+<? if (is_array($this->promotedProducts)): ?>
+<div class="promoted">
+        <?php foreach ($this->promotedProducts as $product): ?>
+            <?= $this->partial('/partials/app.phtml', array("item" => $product)) ?>
+        <?php endforeach; ?>
+</div>
+<? endif; ?>
+
+<?php if (!empty($this->reviews)) : ?>
+    <div class='reviews'>
+        <h2 class='title_alt'>Recent Review by Eva</h2>
+        
+        <?php foreach($this->reviews as $review) : $review  = $review->toArray();?>
+            <div class='app'>
+                <h3><?=$review['title']?></h3>
+                <span class='reviewer'><?=$review['name']?> (<?=date('d-m-Y', strtotime($review['date']))?>)</span>
+                <span class='rating'>
+                    <?php
+                        $rating     = $review['rating']; 
+                        while($rating > 0) : $rating--; 
+                    ?>
+                        <img src="<?=$this->Cdn('site_assets')?>/mobile/images/star_full.gif" alt="star" width="11" height="12" />
+                    <?php endwhile;?>
+                </span>
+                <p>
+                <?php 
+                    $thumb  = Zend_Registry::get('config')->product->visuals->dirpath . '/' . $review['thumbnail'];
+                    echo $this->thumbnail($thumb, array('w' => 50, 'h' => 50), array('class'=>'app_image'))
+                ?>
+                    <?php echo substr(strip_tags($this->Wikimarkup($review['review'])), 0, 200) . '...';?>
+                </p>
+                
+                <p class='more'>
+                   <a class='button' href="/review/eva/id/<?=$review['id']?>">Read full review</a>
+                 </p>
+            </div>
+        <?php endforeach;?>
+    </div>
+     <div class="pagination b-b">
+        <a href="/review" class="p-right">See more reviews by Eva &raquo;</a>
+        <br clear="all">
+    </div>
+<?php endif;?>
+<br>
+
+<?/* if (is_array($this->featuredProducts)): */?><!--
+    <h2 class='title_alt'>Featured Apps </h2>
+    <div class="featured">
+        <?php /*foreach ($this->featuredProducts as $product): */?>
+            <?/*=$this->partial('/partials/app.phtml', array("item" => $product)) */?>
+        <?php /*endforeach; */?>
+    </div>--><? /*endif;*/ ?>
+
+
+<?php if (is_array($this->featuredApps)){ ?>
+    <h2 class='title_alt'>Featured Apps </h2>
+    <div class="featured">
+        <?php foreach ($this->featuredApps as $product): ?>
+            <?php echo $this->partial('/partials/app.phtml', array("item" => $product)) ?>
+        <?php endforeach; ?>
+    </div>
+<?php } ?>
+
+ <div class="pagination b-b">
+    <a href="<?php echo PROJECT_BASEPATH;?>app/index" class="p-right">More Apps &raquo;</a>
+    <br clear="all">
+</div>

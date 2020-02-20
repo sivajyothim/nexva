@@ -1,0 +1,180 @@
+<?php
+//If airtel sl
+$mobileNo = '';
+$mobilePlaceHolder="";
+if(isset($this->mobileNo) && !empty($this->mobileNo)){
+    $mobileNo = $this->mobileNo;
+}
+
+elseif($this->chapId == 25022){
+    $mobileNo = 9475;
+}
+elseif($this->chapId == 33644){
+	$mobileNo = '24206xxxxxxx';
+}
+elseif($this->chapId == 80184){
+    $mobileNo = '256xxxxxxxxx';
+}
+elseif($this->chapId == 23045){
+    //$mobileNo = 98;
+    $mobilePlaceHolder = '(98xxxxxxxxxx)';
+    
+}
+elseif($this->chapId == 114306){
+	$mobileNo = '(e.g. 25073xxxxxxx)';
+}
+elseif($this->chapId == 81449){
+	$mobileNo = '(e.g. 2348022222222)';
+}
+elseif($this->chapId == 110721){
+    $mobileNo = '241xxxxxxxx';
+}
+elseif($this->chapId == 274515){
+    $mobileNo = '227xxxxxxxxxx';
+}
+elseif($this->chapId == 163302){
+    $mobileNo = '(e.g. 265XXXXXXXXXX)';
+}
+elseif($this->chapId == 276531){
+	$mobileNo = '(e.g. 225XXXXXXXX)';
+}
+elseif($this->chapId == 320345){
+	$mobileNo = '(e.g. 229XXXXXXXX)';
+}
+elseif($this->chapId == 283006){
+	$mobileNo = '3816XXXXXXXX';
+}
+else{
+
+}
+
+switch($this->chapId){
+    case 23045:
+    case 115189:
+    case 81604:
+        $url = '/user/remote-login';
+        break;
+
+    default:
+        $url = '/user/login';
+        break;
+}
+
+?>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $("#register").click(function(){
+            window.location.href = '/user/register';
+        });
+    });
+
+
+
+    function freez(obj)
+    {
+     if(obj.value=='')
+     {
+       obj.value='<?=$mobileNo;?>';
+     }else if(obj.value=='<?=$mobileNo;?>')
+     {
+       obj.value='';
+     }
+    } 
+    
+</script>
+<?php /*Zend_Debug::dump($this->showRegisterLink);die();*/?>
+<h2 class="font-size-16"><?php echo $this->translate("Sign In");?></h2>
+<div class="ui-grid-solo">
+    <?php
+    if($this->error)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php echo $this->translate($this->error);?>
+       </span></span>
+    </div>
+    <?php }
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->translate($this->escape($message));
+                };?>
+           </span></span>
+    </div>
+    <?php }
+    ?>
+</div>
+
+<?php if($this->chapId  != 136079) : ?>
+<form action="<?= $url ?>" method="post" id="frm_login" name="frm_login" data-ajax="false">
+        <?php if($this->headerEnrichment || $this->chapId == 23045) : ?>
+	<fieldset data-role="fieldcontain"> 
+		<label for="mobile_no"><?php echo $this->translate("Phone Number");?>  <span style="font-size: 10px;">  <?php  if($this->chapId == 280316) echo '(e.g. 243xxxxxxxxx)'; ?> </span> :</label>
+                <input <?= (isset($this->mobileNo) && !empty($this->mobileNo)) ? 'readonly="readonly"' : '' ; ?> <?php if($this->chapId == 283006){ ?> style="color: #777575 !important; "<?php } ?>  type="text" dir="ltr" name="mobile_no" id="mobile_no" class="required number" minlength="5" value="<?= $mobileNo ; ?>"  placeholder="<?= $mobilePlaceHolder ?>" onfocus="freez(this)" onblur="freez(this)">
+	</fieldset>
+        <?php else: ?>
+        <fieldset data-role="fieldcontain"> 
+		<label for="username">
+                    <?php 
+                    if($this->qelasy) {
+                        if($this->loginType == 1){
+                            echo $this->translate("Email");
+                        }
+                        else{
+                            echo $this->translate("Student ID");
+                        }
+                    }
+                    else{
+                         echo $this->translate("Email");
+                    }
+                    ?> :</label>
+		<input type="text" name="username" id="username" class="required" minlength="5" value="">
+	</fieldset>
+        <?php endif; ?>
+	<fieldset data-role="fieldcontain"> 
+		<label for="password"><?= ($this->qelasy) ? $this->translate("Pin") : $this->translate("Password");?> :</label>
+		<input type="password" name="password" id="password" class="required" minlength="5" value="" dir="ltr">
+	</fieldset>
+
+        <?php if(isset($this->loginType)): ?>
+            <input type="hidden" name="login_type" value="<?= $this->loginType ?>"/>
+        <?php endif; ?>    
+    
+	<input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Sign In");?>">
+
+</form>
+
+
+<div class="ui-grid-a">
+    <?php if($this->showRegisterLink) { ?>
+        <div class="ui-block-a"> <a class="link-red" id="register" href="#"><?php echo $this->translate("Sign Up");?></a> </div>
+    <?php } ?>
+
+    <?php if($this->showForgotPasswordLink) { ?>
+	<div class="ui-block-b">
+        <div style="text-align:right;">
+            <a class="link-red" href="<?php echo PROJECT_BASEPATH; ?>/user/forgot-password" style="text-align: right"><?php echo $this->translate("Forgot Password?");?></a>
+        </div>
+    </div>
+    <?php } ?>
+</div>
+
+
+<?php else: ?>  
+</br></br>
+<div class="login-gmail"><a class="" href="<?php echo $this->gooleUrl; ?>">Login with gmail </a></div>
+    <?php 
+    $fb = new Nexva_Facebook_FacebookConnect('web', '840862629279829', '617e486288a6718bf8554c8813120109');
+    $baseUrl = 'unitelapps.nexva.com';
+    $fbLoginUrl = $fb->getLoginUrl(array('redirect_uri'=> "http://$baseUrl/user/login/facebook/1/",
+    		'cancel_url' => "http://$baseUrl/user/login/facebook/1/",
+    		'scope' => 'publish_stream,user_likes,email'
+    )
+    );
+                    
+                    ?>
+
+<div class="login-facebook"><a class="" href="<?php echo $fbLoginUrl;?>">Login with facebook </a></div>
+<?php endif; ?>  

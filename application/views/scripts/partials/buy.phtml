@@ -1,0 +1,13 @@
+<div class="hidden" id="<?= $this->id ?>">
+  <p>You may buy this app using one of the following payment methods:</p>
+  <p>
+    <ul class="padding-all">
+      <?
+
+      $i = 1;
+      foreach ($this->paymentGateways as $paymentGateway): ?>
+      <li><b><?= $i++ . '. ' . $paymentGateway->name ?></b><br/><a href="<?php echo PROJECT_BASEPATH;?>app/buy/pgid/<?= $paymentGateway->id ?>/id/<?= $this->id ?>"><img style="border: none" src="<?=$this->cdn('site_assets')?>/web/images/payment_gateways/icon_<?= $paymentGateway->id ?>.png" alt="<?= $paymentGateway->name ?>" title="<?= $paymentGateway->name ?>"/></a></li>
+      <? endforeach; ?>
+    </ul>
+</p>
+</div>

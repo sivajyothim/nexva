@@ -1,0 +1,208 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;">
+    <tr>
+        <td colspan="3" style="font-size: 12px;">Thanks for purchasing on neXva's App store. Here is
+        your receipt.</td>
+    </tr>
+    <tr>
+        <td style="width: 40%">&nbsp;</td>
+        <td style="width: 20%">&nbsp;</td>
+        <td style="width: 40%">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px;  font-weight: bold;">Billed To:</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  style="vertical-align: top">
+    <?=! empty ( $this->name ) ? $this->name . '<br>' : ''?>
+    <?=! empty ( $this->address ) ? $this->address . '<br>' : ''?>
+    <?=! empty ( $this->city ) ? $this->city . '<br>' : ''?>
+    <?=! empty ( $this->country ) ? $this->country . '<br>' : ''?>
+    <?=! empty ( $this->mobile ) ? $this->mobile . '<br>' : ''?>
+    <a target="_blank" href="mailto:<?=$this->email?>"><span
+            class="il"><?=$this->email?></span></a><br><br>
+            
+          <span style="font-size: 11px;"> Paid Via: <?=$this->paymentgateway; ?></span>  
+            
+        </td>
+        <td colspan="2" style="vertical-align: top; width: 40%"><span style="font-size: 11px;font-weight: bold;">Order Number:</span> #<?=strtotime("now")."-".str_pad($this->orderid, 6, "0", STR_PAD_LEFT) //to make order id look pretty ?> <br> 
+        <?=! empty ( $this->transid ) ? '<br><span style="font-size: 11px;font-weight: bold;">Transaction Number:</span> #' . $this->transid . '<br>' : ''?>
+        <span style="font-size: 11px; font-weight: bold;">Receipt Date:</span> <?=date ( "F j, Y, g:i a" );?><br>
+        <span style="font-size: 11px; font-weight: bold;">Order Total:</span> <?=$this->cost?><br>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+            id='subtable_1'>
+
+            <tr>
+                <td style="height: 5px;border-top: 1px solid #000000;" colspan="3"></td>
+            </tr>
+            <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold;">
+                <td style="width: 20%; height: 15px; font-weight: bold;" >Item Number</td>
+                <td style="font-weight: bold;">App Description</td>
+                <td style="width: 35%; font-weight: bold;">Price</td>
+            </tr>
+            <tr>
+                <td style="height: 5px;border-top: 1px solid #000000;" colspan="3"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="height: 50px;">1</td>
+                <td>
+                    <?=$this->app_name?> <br />
+                    <?=isset ( $this->productkey ) ? 'Key : ' . $this->productkey : ''?>
+
+                    <?if( $this->is_registration_dynamic ): ?>
+                        <br />
+                        <? $config = Zend_Registry::get('config'); ?>
+                        Requires a license key to register/activate.
+                        <a href="http://<?=$config->nexva->application->base->url?>/app/generate-dynamic-key/id/<?=$this->orderid?>"> Request one now</a>.
+                    <?endif;?>
+
+                </td>
+
+                <td><?=$this->cost?></td>
+            </tr>
+
+
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="background-color: #999999; height: 2px;border-top: 1px solid #000000;" colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;font-weight: bold;"> Order
+                Total: </td>
+                <td><?=$this->cost?></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="height: 15px"></td>
+
+    </tr>
+    <?if( isset($this->recomondations) && count($this->recomondations)> 0 ): ?>
+    <tr>
+        <td style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold;"> <br /> <br />You may also like <br /> <br /></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <? endif; ?>    
+    <tr>
+        <td colspan="3">
+        <?if( isset($this->recomondations) && count($this->recomondations)> 0 ): ?>
+            <table>
+                <tr>
+                 <?
+                  foreach ( $this->recomondations as $recomondation ) :
+                 ?>
+
+                 <td style="padding: 5px 5px 5px 5px; border: #999999 1px solid">
+                    <div class='sub_hedings'
+                        style="padding-bottom: 5px; background-color: #f3f3f3"><a
+                        style="color: #e77a19;"
+                        href="<?=$this->baseUrl;?>/app/<?=$this->baseUrl;?>/app/<?=$recomondation ['nameForLinks'];?>.<?=$recomondation ['id'];?>.en"><?=$recomondation ['name'];?></a>
+                    </div>
+                    <div style="text-align: center;"><img
+                        src="http://<?=$this->baseUrl . $recomondation ['thumb'];?>"
+                        height="80" width="80"></div>
+                    </td>
+                   <?
+                    endforeach;
+                    ?>
+                 </tr>
+
+            </table>
+        <? endif; ?>
+        <div style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold;  color: #000000"><br /> <br />Add your review (and rate this app)<br /> <br /></div>
+        <div>
+        <form id="form1" name="form1" method="post"
+            action="http://<?=$this->postTo;?>">
+        <div>
+        <div><textarea name="review" style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 9px; width: 100%;"></textarea>
+        </div>
+
+        <div class="rate">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;  color: #000000">
+          <tr>
+                <td style="height: 15px" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="color: #e77a19;font-weight:bold; text-align: right; padding-right: 3px"> * * * * * </td>
+                <td><input name="rating" type="radio" value="5" /></td>
+                <td style="padding-left:10px;">(5/5: Awesome!)</td>
+            </tr>
+             <tr>
+                <td style="height: 15px" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="color: #e77a19;font-weight:bold; text-align: right; padding-right: 3px"> * * * * </td>
+                <td><input name="rating" type="radio" value="4" /></td>
+                <td style="padding-left:10px;">(4/5: Pretty good)</td>
+            </tr>
+            
+             <tr>
+                <td style="height: 15px" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="color: #e77a19;font-weight:bold; text-align: right; padding-right: 3px"> * * * </td>
+                <td><input name="rating" type="radio" value="3" checked /></td>
+                <td style="padding-left:10px;">(3/5: Nothing special)</td>
+            </tr>
+                   <tr>
+                <td style="height: 15px" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="color: #e77a19;font-weight:bold; text-align: right; padding-right: 3px"> * * </td>
+                <td><input name="rating" type="radio" value="2" /></td>
+                <td style="padding-left:10px;">(2/5: Meh, could be better)</td>
+            </tr>
+            <tr>
+                <td style="height: 18px" colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="width: 8%; color: #e77a19;;font-weight:bold;text-align: right; padding-right: 3px"> * </td>
+                <td style="width: 2%"><input name="rating" type="radio" value="1" /></td>
+                <td style="padding-left:10px;">(1/5: Uninstalling it now)</td>
+            </tr>
+        </table>
+
+        </div>
+        <br /><br />
+
+        <div><label> <input type="hidden" name="pid" id="pid"
+            value="<?=$this->pid?>" /> <input type="hidden" name="hash"
+            id="hash" value="<?=$this->hash?>" /> <input type="hidden"
+            name="userId" id="userId" value="<?=$this->userId?>" /> <input
+            type="submit" name="Submit" value="Submit your review" /> </label></div>
+        </div>
+        </form>
+
+        </div>
+
+
+
+
+
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,49 @@
+.thumbnails {
+
+}
+
+.container-fluid {
+
+	margin: none !important;
+	padding: none !important;
+}
+
+.thumbnails li {
+	margin:3px;
+    width: 150px;
+    height: 75px;
+    float: none !important; /* to overwrite the default property on the bootstrap stylesheet */
+    display: inline-block;
+    *display: inline; 
+    zoom: 1;
+}
+
+.thumbnails li div .thumbnail{
+    
+    width: 140px;
+    height: 110px;
+	border: 0 none; 
+	box-shadow:none;
+
+}
+
+.innerThumbnail {
+
+    height: 40px !important;
+	
+}
+
+.thumbnails li div{
+
+	white-space: wrap;
+	overflow: hidden;
+	text-overflow: clip;
+}
+img {
+
+	width: 120px;
+	height: 110px;
+}
+p {
+	margin-bottom: 0px;
+}

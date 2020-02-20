@@ -1,0 +1,72 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: viraj
+ * Date: 8/7/14
+ * Time: 4:02 PM
+ */
+?>
+
+<?php
+
+if($this->hasApps){
+    $appCount = count($this->inappProducts);
+}?>
+
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/cp/assets/css/login.css'); ?>
+<script type="application/javascript">
+    $().ready(function(){
+        var baseUrl = '<?php echo $_SERVER['HTTP_HOST']; ?>';
+        $(".download-library").click(function(){
+            window.location = 'http://'+baseUrl+'/page/download-library/name/library';
+        });
+        $(".download-doc").click(function(){
+            window.location = 'http://'+baseUrl+'/page/download-library/name/doc';
+        });
+        $("#accordion").accordion({
+            header : 'h2.header',
+            heightStyle: "content",
+            collapsible: true,
+            active : <?php echo ($appCount-1); ?>
+        });
+    });
+</script>
+<div class="title">
+    <h3><?php echo $this->translate($this->title) ?></h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content">
+        <div id="accordion">
+            <?php if($this->hasApps) {
+                foreach($this->inappProducts as $inappProduct){ ?>
+                    <div class="content-accordian">
+                        <h2 class="header">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $inappProduct->name; ?></h2>
+                        <div>
+                            <p>API Key : 5c9b4ba980b2cb493cd04d9dfff76b00</p>
+                            <p>Developer ID : <?php echo Zend_Auth::getInstance()->getIdentity()->id;?></p>
+                            <p>App ID : <?php echo $inappProduct->id;?></p>
+                            <div class="download-library">Download JAR</div>
+                            <div class="download-doc">Integration manual</div>
+                            <br/>
+                            <!--<p><strong>Seamless integration for one-tap purchase.</strong></p>
+                            <p>We've built the Android Library to provide you with easy and seamless integration of Android in-app payments with all the cool features like one-tap payment. Just import the library into your project and start using in-app payments from your Android app.</p>
+                            <p><a href="https://www.centili.com/android-library.html" target="_blank">Read more</a></p>-->
+                        </div>
+                    </div>
+                <?php  }
+                 } ?>
+        </div>
+            <br/>
+        <div class="content-accordian">
+            <form action="/product/basic" method="POST">
+                <h3>Enter your app name : </h3>
+                <input type="text" class="txt-input medium" name="name" id="name" />
+                <input type="hidden" name="ycoin-inapp" id="ycoin-inapp" value="true"/>
+                <input type="submit" class="submit button" value="<?php echo $this->translate("Create");?>"/>
+            </form>
+        </div>
+        <div class='clear'></div>
+    </div></div>
+</div>

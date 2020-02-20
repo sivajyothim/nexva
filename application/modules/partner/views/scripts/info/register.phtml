@@ -1,0 +1,330 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 12/19/13
+ * Time: 4:08 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<script type="text/javascript">
+
+    var $no = jQuery.noConflict();
+    $no().ready(function(){
+
+            //global vars
+            var form = $no("#form_register");
+            var firstName = $no("#firstName");
+            var lastName = $no("#lastName");
+            var email = $no("#email");
+            var phoneNumber = $no("#phoneNumber");
+            var password1 = $no("#password1");
+            var password2 = $no("#password2");
+
+            var firstNameInfo = $no("#firstNameInfo");
+            var lastNameInfo = $no("#lastNameInfo");
+            var emailInfo = $no("#emailInfo");
+            var phoneNumberInfo = $no("#phoneNumberInfo");
+            var password1Info = $no("#password1Info");
+            var password2Info = $no("#password2Info");
+
+            //On blur
+            firstName.blur(validateFirstName);
+            lastName.blur(validateLastName);
+            email.blur(validateEmail);
+            phoneNumber.blur(validatePhoneNumber);
+            password1.blur(validatePassword);
+            password2.blur(validatePassword2);
+            //password2.blur();
+
+            //On key press
+            firstName.keyup(validateFirstName);
+            lastName.keyup(validateLastName);
+            email.keyup(validateEmail);
+            phoneNumber.keyup(validatePhoneNumber);
+            password1.keyup(validatePassword);
+            password2.keyup(validatePassword2);
+            password2.keyup(passwordMatch);
+
+            //On Submitting
+            form.submit(function(){
+                if(validateFirstName() && validateLastName() && validateEmail() && validatePhoneNumber() && validatePassword() && validatePassword2())
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
+
+            //validation functions
+            function validateFirstName(){
+                //if it's NOT valid
+                if(!firstName.val()){
+                    firstName.addClass("error");
+                    firstNameInfo.text("Please fill the First Name!");
+                    firstNameInfo.addClass("error");
+                    return false;
+                }
+                //if it's valid
+                else{
+                    firstName.removeClass("error");
+                    firstNameInfo.text("");
+                    firstNameInfo.removeClass("error");
+                    return true;
+                }
+            }
+
+            function validateLastName(){
+                //if it's NOT valid
+                if(!lastName.val()){
+                    lastName.addClass("error");
+                    lastNameInfo.text("Please fill the Last Name!");
+                    lastNameInfo.addClass("error");
+                    return false;
+                }
+                //if it's valid
+                else{
+                    lastName.removeClass("error");
+                    lastNameInfo.text("");
+                    lastNameInfo.removeClass("error");
+                    return true;
+                }
+            }
+
+            function validateEmail(){
+                //testing regular expression
+                var a = $no("#email").val();
+                var filter = /^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/;
+                //if it's valid email
+                if(filter.test(a)){
+                    email.removeClass("error");
+                    emailInfo.text("");
+                    emailInfo.removeClass("error");
+                    return true;
+                }
+                //if it's NOT valid
+                else{
+                    email.addClass("error");
+                    emailInfo.text("Please enter Valid E-mail!");
+                    emailInfo.addClass("error");
+                    return false;
+                }
+            }
+
+            function validatePhoneNumber(){
+                if(isNaN(parseFloat(phoneNumber.val()))){
+                    phoneNumber.addClass("error");
+                    phoneNumberInfo.text('Please enter a Number!');
+                    phoneNumberInfo.addClass("error");
+                    return false;
+                }else{
+                    phoneNumber.removeClass("error");
+                    phoneNumberInfo.text('');
+                    phoneNumberInfo.removeClass('error');
+                    return true;
+                }
+            }
+
+            function validatePassword(){
+                //if it's NOT valid
+                if(password1.val()=== ''){
+                    password1.addClass("error");
+                    password1Info.text("Please enter a Password!");
+                    password1Info.addClass("error");
+                    return false;
+                }
+                //if it's valid
+                else{
+                    password1.removeClass("error");
+                    password1Info.text("");
+                    password1Info.removeClass("error");
+                    return true;
+                }
+            }
+
+            function validatePassword2(){
+                //if it's NOT valid
+                if(!password2.val()){
+                    password2.addClass("error");
+                    password2Info.text("Please confirm Password!");
+                    password2Info.addClass("error");
+                    return false;
+                }
+                else{
+                    password2.removeClass("error");
+                    password2Info.text("");
+                    password2Info.removeClass("error");
+                    return true;
+                }
+            }
+
+            function passwordMatch(){
+                if(password1.val() != password2.val()){
+                    password2.addClass("error");
+                    password2Info.text("Password not Matching");
+                    password2Info.addClass("error");
+                    return false;
+                }else{
+                    password2.removeClass("error");
+                    password2Info.text("");
+                    password2Info.removeClass("error");
+                    return true;
+                }
+            }
+    });
+</script>
+
+<div id="main_right_pane">
+    <div class="inr_tabs_wrapper">
+        <div class="inr_tab_bar"><span class="inr_brdcrtxt_pur">+</span>
+            <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Register");?></span>
+        </div>
+        <div class="box_content_top"></div>
+        <div class="box_content_middle">
+            <div class="inrtab_selection_top inner_content" >
+                <?php if($this->ErrorMessages)
+                { ?>
+                    <!--class="notification error png_bg"-->
+                    <div class="notification error png_bg">
+                        <div>
+                            <?php foreach($this->ErrorMessages as $key=>$value)
+                            {
+                                if(is_array($value))
+                                {
+                                    foreach($value as $one=>$two)
+                                    {
+                                        echo $this->translate($two);
+                                    }
+                                    echo '<br/>';
+                                }
+                                else
+                                {
+                                    echo $this->translate($value),'<br/>';
+                                }
+                            } ?>
+                        </div>
+                    </div>
+                <?php } ?>
+                <div id="form_wrapper">
+                    <form name="form_register" id="form_register" method="post" action="/info/register/">
+                        <div align="right" class="required_wrapper">
+                            <span class="required_txt_style"><?php echo $this->translate("Required Information");?> (</span><span class="form_font_red">*</span><span class="required_txt_style">)</span>
+                        </div>
+
+                        <br /><br />
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("First Name");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+                            <div class="form_col3_class1_right">
+                                <input type="text" id="firstName" name="firstName" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="firstNameInfo"></span>
+                            </div>
+                        </div>
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("Last Name");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+
+                            <div class="form_col3_class1_right">
+                                <input type="text" id="lastName" name="lastName" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="lastNameInfo"></span>
+                            </div>
+                        </div>
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("Email");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+
+                            <div class="form_col3_class1_right">
+                                <input type="text" id="email" name="email" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="emailInfo"></span>
+                            </div>
+                        </div>
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("Phone Number");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+
+                            <div class="form_col3_class1_right">
+                                <input type="text" id="phoneNumber" name="phoneNumber" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="phoneNumberInfo"></span>
+                            </div>
+                        </div>
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("Password");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+
+                            <div class="form_col3_class1_right">
+                                <input type="password" id="password1" name="password1" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="password1Info"></span>
+                            </div>
+                        </div>
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("Confirm Password");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+
+                            <div class="form_col3_class1_right">
+                                <input type="password" id="password2" name="password2" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="password2Info"></span>
+                            </div>
+                        </div>
+
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel">Enter Captcha</span>
+                                <span class="form_font_red">* </span>
+
+                            </div>
+
+                            <div class="form_col3_class1_right">
+                                <?php echo $this->recaptcha; ?>
+                            </div>
+                        </div>
+
+                        <div align="right" class="submit_btn_wrapper">
+                            <input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Sign Up");?>" class="partner_btn" />
+                            <!--<input type="reset" id="btn_reset" name="btn_reset" value="<?php /*echo $this->translate("RESET");*/?>" class="partner_btn">-->
+                        </div>
+
+
+                        <? if($this->error): ?>
+                            <span class="form_font_red">
+						      <?=$this->error; ?>
+						    </span>
+                        <? else: ?>
+                            <span class="category_heading">
+						        <?=$this->message; ?>
+						    </span>
+                        <? endif; ?>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

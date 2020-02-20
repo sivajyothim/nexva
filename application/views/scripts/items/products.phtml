@@ -1,0 +1,92 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/28/13
+ * Time: 11:42 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');?>
+<?php $this->headLink()->appendStylesheet($this->cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css'); ?>
+<?php $this->headScript()->captureStart();?>
+$(function() {
+Shadowbox.init({
+'troubleElements' : ["select", "object", "embed"]
+}, function(){
+$( ".nexlink" ).each(function(){
+$(this).attr('href', $(this).attr('href') + '/1/5945'); //5945 is the nexva chap ID
+$(this).parent().eq(0).removeClass('display_none');
+});
+});
+});
+<?php $this->headScript()->captureEnd();?>
+
+<div class="blkList">
+    <? foreach ($this->products as $product): ?>
+        <?php if (empty($product['id'])) continue;?>
+        <div class="prodListItem">
+            <div class="block productLongBlock">
+                <div class="blkContent">
+                    <div class="blkHead">
+                        <a href='' class='pro_image_link'>
+                            <?php $htmlOpts = array('alt' => $product[0]['name'], 'autoheight' => 1, 'class' => 'a.pro_image_link');?>
+                            <?=$this->thumbnail($product[0]['thumb'], array('w' => 50, 'h' => 70, 'aoe' => 0), $htmlOpts); ?>
+                        </a>
+                        <h3>
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product[0]['name']) . "." . $product['pro_id'] ?>">
+                                <?= $product[0]['name'] ?>
+                            </a>
+                        </h3>
+                        <div class="priceTag"><label>Price: </label><span class="prod_price"><?= ($product['price'] == 0) ? "Free" : "$" . $product['price'] ?></span></div>
+                        <ul>
+                            <li><a class="moreinfo" href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product[0]['name']) . "." . $product['pro_id'] ?>">More&nbsp;Info</a></li>
+                            <? $config = Zend_Registry::get("config"); ?>
+                            <? if ($this->UrlProductCheck($product['pro_id'])): ?>
+                                <li>
+                                    <?
+                                    $download = '';
+                                    foreach ($product[0]['file'] as $url): ?>
+                                        <? if (preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url)): ?>
+                                            <? $download = "<a href='" . $url . "'>" . $url . "</a><br clear='all'>"; ?>
+                                        <? else: ?>
+                                            <? $download = "<a href='" . $this->S3Url($product['pro_id'] . '/' . $url) . "'>" . $url . "</a><br clear='all'>"; ?>
+                                        <? endif; ?>
+                                    <? endforeach; ?>
+                                    <? $qrCode = $this->qr($download, 150, 150) ?>
+                                    <? $url = "http://" . $config->nexva->application->mobile->url . "/app/show/id/" . $product['pro_id'] ?>
+                                    <?= $this->partial('partials/download.phtml', array('or_code' => $qrCode, 'uri' => $url, 'id' => $product['pro_id'])); ?>
+                                    <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$product['pro_id'] ?>" class='nexlink' rel='shadowbox;height=530;width=600'>Download </a>
+                                </li>
+                            <? elseif ($product['price'] == 0 || $product[0]['is_purchased']): ?>
+                                <li>
+                                    <a href="<?php echo PROJECT_BASEPATH;?>nl/<?=$product['pro_id'] ?>" class='nexlink' rel='shadowbox;height=530;width=600'>Download </a>
+                                    <? $qrCode = $this->qr("http://" . $config->nexva->application->mobile->url . "/app/show/id/" . $product['pro_id'], 150, 150) ?>
+                                    <? $url = "http://" . $config->nexva->application->mobile->url . "/app/show/id/" . $product['pro_id'] ?>
+                                    <?= $this->partial('partials/download.phtml', array('or_code' => $qrCode, 'uri' => $url, 'id' => $product['pro_id'])); ?>
+                                </li>
+                            <? else: ?>
+                                <li><a href="javascript:viewDownload ('Buy <?= $this->trim(str_replace("'", "", $product[0]['name']), 50) ?> (for <?= $product[0]['platform_name'] ?>)', '<?= $product['pro_id'] ?>');" class="buy">Buy</a></li>
+                                <?= $this->partial('partials/buy.phtml', array('id' => $product['pro_id'], 'paymentGateways' => $this->paymentGateways)); ?>
+
+                            <? endif; ?>
+                        </ul>
+                    </div>
+                    <div class="prodListSpecsheet">
+                        <div class="speclist">
+                            <div><label>Supported Platforms</label>
+                                <? foreach ($product[0]['supported_platforms'] as $platform): ?>
+                                    <span class="prod_platform">
+                            <img src="<?=$this->cdn('site_assets')?>/web/images/platforms/<?= $platform->id ?>.png" alt="<?= $platform->name ?>" />&nbsp;<?= $platform->name ?>
+                          </span>
+                                <? endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <p>  <?= strip_tags(($product[0]['desc_brief'])) ?> </p>
+                </div>
+            </div>
+        </div>
+    <? endforeach; ?>
+</div>
+

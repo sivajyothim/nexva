@@ -1,0 +1,119 @@
+<?php
+$currency = $this->ChangeCurrency($this->partnerId);
+switch($this->partnerId){
+    case 23045:
+        $mtnIran = TRUE;
+        break;
+    
+    case 81604:
+        $qelasy = TRUE;
+        break;
+    
+    case 25022:
+        $airtelSrilanka = TRUE;
+        break;
+}
+?>
+
+<? foreach($this->products as $product): ?>
+	
+	<div class="inr_tabs_wrapper">
+		<div class="inr_tab_bar"><?php if(!$mtnIran): ?><span class="inr_brdcrtxt_pur">+</span> <?php endif; ?>
+			<span class="inr_brdcrtxt_grey"><?=$product['name']; ?></span>
+		</div>
+	<div class="box_content_top"></div>
+	<div class="box_content_middle">
+	<div class="inrtab_selection_top">
+	<!-- db val here-->
+	<div class="inrtab_selection_top_part">
+	<div class="cat_left_part" align="center" style="">
+		 
+		  <?php $htmlOpts = array('alt' => $product['name'], 'autoheight' => 1, 'class' => 'a.pro_image_link');?>
+          <?=$this->thumbnail($product['thumb'], array('w' => 150, 'h' => 120, 'zc' => 1), $htmlOpts); ?>
+
+	</div>
+
+	<div class="cat_right_part">
+	<div class="cat_right_des"><span class="orange_cat_des"><?php echo $this->translate("Description");?> <br />
+	</span> <span class="generaltext_cat_des"> <?=$this->trim(strip_tags($product['desc_brief']),400); ?> </span></div>
+	
+	<div class="cat_right_rating">
+	<div class="cat_rat_left"><span class="generaltext_cat_des"><b><?php echo $this->translate('Rate'); ?> :</b></span>
+	<?=$this->partial('partials/rating.phtml', array('product_id'=>$product['id'], 'avgRating'=>$product['avg_rating'], 'totalRatings'=>$product['total_ratings'], 'productRated'=>$product['product_rated'])); ?></div>
+	
+	<!--div class="cat_rat_right"><span class="vendor_text"><b>Price:</b></span>
+	<span class="orange_cat_des">$</span><span class="generaltext_cat_des"><?=$product['cost']; ?></span>
+	</div-->
+            
+        <div class="cat_rat_right"><span class="vendor_text"><b><?php echo $this->translate("Price");?>:</b></span>
+	<span class="generaltext_cat_des">
+        <span class="price-pr">
+        <?php if(!empty($currency) && ($product['cost'] != 0)){ echo $this->translate($currency[0]['code']);} else { echo $this->translate('Free');} ?> 
+        </span>
+            <span class="amount-pr">
+        <?php if(!empty($currency) && ($product['cost'] != 0)){ 
+            
+                echo number_format($this->PricePoints(ceil($currency[0]['rate']*$product['cost'])),($mtnIran) ? 0 : 2, '.', ',');
+         
+            }else{  } ?></span></span>
+	</div>
+            
+			</div>
+		</div>
+	</div>
+	<div class="inrtab_selection_btm_part">
+	<div class="btn_cal_left"><span class="generaltext_cat_des"><b></b></span> <span class="generaltext_cat_des"></span>
+	<span class="generaltext_cat_des"> &nbsp;&nbsp;|</span> <span
+		class="vendor_text"><b><?php echo $this->translate('Vendor'); ?> :</b></span> <span class="generaltext_cat_des"><?=$product['user_meta']->COMPANY_NAME?></span></div>
+	
+                <div class="btn_cal_right">
+	<a href="<?=$this->baseUri;?>/app/<?=$this->slug($product['name']);?>.<?=$product['id']?>"> 
+            <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("More Details");?></span><span class="slider-button-right">&nbsp;</span></div>
+	    <!--<img src="<?=$this->baseUri;?>/partner/default/assets/img/sli_images/006_header_more_details.png" border="0" />-->
+	</a>
+	
+            <!-- if the app has multiple platform change the link to platform selection popup -->
+                <?php
+                if($product['app_platform_type'] == 'MULTIPLE_AND_ANDROID' && count($product['supported_platforms']) > 1):
+                ?>
+                    <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $product['id'];?>" class="platform_select">
+                        <span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><p onClick="getSupportedPlatformsByAppId(<?= $product['id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $product['id'];?>);"><?php echo $this->translate("Download");?></p></span><span class="slider-button-right">&nbsp;</span>
+                    </a>
+                <?php
+                else:
+                ?>     
+                    <a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid;?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$product['id']?>">
+		    <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Download");?></span><span class="slider-button-right">&nbsp;</span></div>
+                    <!--<img src="<?=$this->baseUri;?>/partner/default/assets/img/dtls_download.jpg" border="0" />-->
+		    </a>
+                <?php
+                endif;
+                ?>
+                        
+		<!--<a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid;?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$product['id']?>">
+		    <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Download");?></span><span class="slider-button-right">&nbsp;</span></div>
+                    
+		</a>-->
+	</div>
+            
+	<!--div class="btn_cal_right">
+	<a href="<?=$this->baseUri;?>/app/<?=$this->slug($product['name']);?>.<?=$product['id']?>"> 
+	<img src="<?=$this->baseUri;?>/partner/default/assets/img/sli_images/006_header_more_details.png" border="0" />
+	 </a>
+	
+		<a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$_SERVER ['SERVER_NAME']; ?>/nexlinker/partner/id/<?=$this->appStoreAppid;?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$product['id']?>">
+		<img src="<?=$this->baseUri;?>/partner/default/assets/img/dtls_download.jpg" border="0" />
+		</a>
+	</div-->
+	
+	</div>
+	<!-- db val here-->
+	</div>
+	
+	<!--                                                    <div class="tab_selection_bottom"></div>-->
+	
+	</div>
+	<div class="box_content_footer"></div>
+	</div>
+	<!-- box one-->
+	<?endforeach;?>

@@ -1,0 +1,37 @@
+<?php $this->headScript()->appendFile('http://www.google.com/jsapi'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/admin/assets/js/analytics/regions.js'); ?>
+<?php $this->headScript()->captureStart();?>
+var __DATA_REGIONS, __DATA_REGIONS_COUNT;
+
+$(document).ready(function(){
+    var jqxhr = $.getJSON('<?=$this->dataUrl?><?=$this->queryString?>', {}, function(data){
+    
+           __DATA_REGIONS          = data.REGIONS;
+           __DATA_REGIONS_COUNT    = data.REGION_COUNT;
+           drawRegionsMap();
+    })
+    .error(function() {
+        $('#region').hide(); 
+        alert("Something wen't wrong when loading the geo data. Try reloading the page and if that fails contact an admin"); 
+    })
+    
+});
+<?php $this->headScript()->captureEnd();?>
+
+        <div id='region'>
+            <div id='stats_view_by_date_cont' class="title">
+                <h3><?=$this->title?></h3>
+                <?php if (isset($this->moreUrl)) : ?>
+                <div class='filter'>
+                        <a href='<?=$this->moreUrl?><?=$this->queryString?>' class='button'>See all regions</a>
+                </div>
+                <?php endif;?>
+            </div>
+            <div class="box">
+                <div class="txt">
+                    <div id='map_canvas' style='width:100%;'>
+                        <img src='/admin/assets/img/content/icon_list/loading.gif' title='Loading geo data'>
+                    </div>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,95 @@
+<link href="<?php echo ADMIN_PROJECT_BASEPATH;?>cp/assets/css/fileupload/style.css" rel="stylesheet" />
+<div class="title">
+    <h3 style="cursor: s-resize;">Upload phone numbers</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div id="content_box">
+            <form action="" method="post" enctype="multipart/form-data" id="upload-phone-number">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td valign="top" align="left">
+
+                                <div class="files_url">
+                                    <div id="files_mode" class="files_mode">
+<!--                                        <div class="help_notices">
+                                            <ul>
+                                                <li style="color:red;font-size:30px;">We have been reported some issues that this uploader doesn't work Firefox, IE please use only chrome until we fix this error. It works perfectly on chrome.</li>
+                                                <li>Your content should not exceed <?= ini_get('post_max_size') ?>B</li>
+                                                <li>You may select up-to 20 files at a time for upload.</li>
+                                                <li>Please upload all files relevant for a <a href='http://en.wikipedia.org/wiki/Over-the-air_programming' target='_blank'>OTA </a>(over-the-air) installation. Do not upload content such as license file or user manuals.</li>
+                                                <li>If your content only supports <a href='http://en.wikipedia.org/wiki/Sideloading' target='_blank'>side-loading</a> and not OTA installs, please <mailto:contact@appeteh.com> contact us</a> for assistance.</li>
+                                                    <li style="color:red;">If you find any problems with uploading file, upgrade your flash player plugin.</li>
+
+                                            </ul>
+                                        </div>-->
+
+
+                                        <div id="drop">
+                                            Drop Here
+
+                                            <a>Browse</a>
+                                            <input type="file" name="upl" multiple/>
+                                        </div>
+
+                                        <ul id="preview-upload">
+                                             The file uploads will be shown here 
+                                        </ul>
+                                        <br/>
+                                        <div id='error-message' class='message error' style="display: none;"></div>    
+
+
+
+                                    </div>
+                                    <div id="urls_mode"  style="display: none"  class="urls_mode">
+                                        <div class="help_notices">
+                                            <ul>
+                                                <li>Preferably, point your URLs directly to the content (e.g. http://domain.com/awesome-app/application-ota-install.jad). Make sure you prefix 'http://' to your URL.</li>
+                                                <li>If you have multiple URLs, enter each of them in a new line.</li>
+                                                <li>Please ensure your URLs work. Zoha periodically runs a link-bot to check for broken URLs and may suspend your content automatically if the URLs are broken for more than 24 hours.</li>
+                                            </ul>
+                                        </div>
+                                        <div style="width: 70%">
+                                            <?= $this->formUrl->url ?>
+                                        </div>
+                                    </div>
+                                    <div class="progress"></div>
+                                    <ul class="files">
+                                        <?
+                                        if (!empty($this->files)):
+                                        foreach ($this->files as $build): ?>
+                                        <li>
+                                            <div class="uploadifyQueueItem completed <?= $class ?>">
+                                                <div class="cancel">
+                                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/filedelete/pid/<?= $this->product_id ?>/bid/<?= $this->build_id ?>/id/<?= $build->id ?>" onclick="return confirm('Are you sure you want to delete?')">
+                                                        <img border="0" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/uploadify/cancel.png">
+                                                    </a>
+                                                </div>
+                                                <span class="fileName"><?= $build->filename ?> <?= !empty($build->filesize) ? ' (' . round($build->filesize / 1024, 2) . 'KB)' : '' ?></span>
+                                                <span class="percentage"> - <?= $message ?></span>
+                                            </div>
+                                        </li>
+                                        <?
+                                        endforeach;
+                                        endif;
+                                        ?>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.knob.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.ui.widget.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.iframe-transport.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.fileupload.js"></script>
+<script src="/cp/assets/js/fileupload/script.js"></script>

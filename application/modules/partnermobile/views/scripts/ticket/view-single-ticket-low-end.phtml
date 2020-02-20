@@ -1,0 +1,88 @@
+<div class="ui-content ui-body-d">
+<h2><?= $this->translate("My Ticket");?></h2> 
+
+<!-- Displays Success Message/s -->
+<?php if (count($this->successMessages)) : ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php foreach ($this->successMessages as $message) : ?>
+                <?php echo $this->escape($message); ?>
+            <?php endforeach; ?>
+      </span></span>
+    </div>
+<?php endif; ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) : ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php foreach ($this->errorMessages as $message) : ?>
+                <?php echo $this->escape($message); ?>
+            <?php endforeach; ?>
+        </span></span>
+    </div>
+<?php endif; ?>
+<?php if(count($this->ticket) > 0): ?>
+    <ul class="ui-listview">
+        <li class="ticket-list ui-li ui-li-static ui-btn-up-d ui-first-child ui-last-child">
+
+               <div class="ui-btn-inner ui-li">
+            <div class="ui-btn-text"> 
+                
+                 <p class="ticket-date"><?= date("M jS Y", strtotime($this->ticket['created_date'])); ?> <span class="ticket-days-ago"> <?= $this->DateTimeDiff($this->ticket['created_date']);?> </span> </p>
+                 <p style="margin:5px 0;"><span class="response-count"><?= $this->ticket['response_count']; ?> Responses</span></p>
+                 <p class="ui-li-aside"><span class="price-red-bg right-top">#<?= $this->ticket['id']; ?></span></p>
+                  <h3 class="ui-li-heading blue-color"><?= $this->ticket['subject']; ?></h3>
+                  <div class="description"><?= $this->ticket['description']; ?></div>
+                  
+                  
+                       
+                    <span class="status <?= strtolower($this->ticket['status']); ?>"><?= $this->ticket['status']; ?></span>  
+                    <span class="type <?= strtolower($this->ticket['type']); ?>"><?= $this->ticket['type']; ?></span>  
+                   <span class="priority <?= strtolower($this->ticket['priority']); ?>"><?= $this->ticket['priority']; ?></span>
+        
+            </div>
+            
+        </li>
+        <li class="ui-li ui-li-divider ui-bar-b" role="heading" data-role="list-divider" data-theme="b"><?php echo $this->translate("Responses");?></li>
+        <?php if(count($this->responses) > 0): ?>   
+        
+            <?php
+            foreach ($this->responses as $response):
+            ?>
+            <li class="ticket-list ui-li ui-li-static ui-btn-up-d ui-first-child">
+                    <p class="ticket-date"><span class="ticket-days-ago"> <?= $this->DateTimeDiff($response['response_date']);?> </span></p>
+                    <p class="ui-li-aside"><span class="price-red-bg right-top">@ Admin<?php //echo $this->UserMeta($response['user_id'],'FIRST_NAME'); ?></span></p>
+
+                   <div class="description">
+                    
+                    <?= $response['description']; ?>
+                   
+                       <?php if($response['attachment_name']) : ?>
+                       <p> Attachment : <a href="/tickets/attachments/<?= $response['attachment_name'];?>" target="_blank"><?= $response['attachment_name']; ?></a></p>
+                   <?php endif; ?>
+                       
+                   </div>
+                   
+                   
+            </li>
+            <? endforeach; ?>
+        
+        <?php else: ?>
+        <li class="ticket-list ui-li ui-li-static ui-btn-up-d ui-first-child ui-last-child">
+            <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                      <?= $this->translate("No response found!");?>
+            </span></span></div>
+        </li>
+        <?php endif; ?>    
+        <li class="ui-li ui-li-divider ui-bar-b" role="heading" data-role="list-divider" data-theme="b"><?php echo $this->translate("Reply");?></li>
+        <li class="ticket-list ui-li ui-li-static ui-first-child ui-last-child"><?= $this->partial('partials/comment_form-low-end.phtml',array('tiketPartialId' => $this->otherData['ticketId'])) ?></li>
+    </ul>
+<?php else: ?>
+<ul data-role="listview" data-inset="true">
+        <li>
+            <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                      <?= $this->translate("No results found!");?>
+                  </span></span>
+            </div>
+</li></ul>
+<?php endif; ?>
+</div>

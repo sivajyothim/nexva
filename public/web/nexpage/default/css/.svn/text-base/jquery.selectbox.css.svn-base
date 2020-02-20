@@ -1,0 +1,138 @@
+@CHARSET "UTF-8";
+#language_sel_top {
+    text-align: right;
+}
+
+#language_sel_top button {
+    background: none repeat scroll 0 0 #FFAA00;
+    border: none;
+    border-left: 4px solid #fff;
+    color: #FFFFFF;
+    float: right;
+    margin-right: 5px;
+    padding: 6px;
+    padding-top:0px;
+    font-size: 24px;
+    height: 30px;
+}
+
+.sbLabel {
+    background-color: #FFAA00;
+    float: right;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    height: 30px;
+    width: 134px;
+    border-right: none;
+}
+
+.sbLabel span {
+    display: block;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    outline: medium none;
+    overflow: hidden;
+    text-align: center;
+    text-indent: 10px;
+    width: 100%;
+    color: #1C1B19;
+}
+
+.sbHolder{
+    background-color: #FFAA00;
+    border-left: none;
+    float: right;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    height: 30px;
+    position: relative;
+    width: 151px;
+}
+.sbSelector{
+	display: block;
+	height: 30px;
+	left: 0;
+	line-height: 30px;
+	outline: none;
+	overflow: hidden;
+	position: absolute;
+	text-indent: 10px;
+	top: 0;
+	width: 85%;
+	font-weight:bold;
+	text-align: center;
+}
+.sbSelector:link, .sbSelector:visited, .sbSelector:hover{
+	color: #fff;
+	outline: none;
+	text-decoration: none;
+}
+.sbToggle{
+	background: url(../images/select-icons.png) 0 -113px no-repeat;
+	display: block;
+	height: 30px;
+	outline: none;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 30px;
+}
+.sbToggle:hover{
+	background: url(../images/select-icons.png) 0 -164px no-repeat;
+}
+.sbToggleOpen{
+	background: url(../images/select-icons.png) 0 -13px no-repeat;
+}
+.sbToggleOpen:hover{
+	background: url(../images/select-icons.png) 0 -63px no-repeat;
+}
+.sbHolderDisabled{
+	background-color: #3C3C3C;
+	border: solid 1px #515151;
+}
+.sbHolderDisabled .sbHolder{
+	
+}
+.sbHolderDisabled .sbToggle{
+	
+}
+.sbOptions{
+	background-color: #fafafa;
+	border: solid 1px #ccc;
+	list-style: none;
+	left: -100px;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 30px;
+	width: 250px;
+	z-index: 9000;
+	overflow-y: auto;
+}
+.sbOptions li{
+	padding: 0 7px;
+}
+
+.sbOptions li:hover {
+    background: #FFAA00;   
+}
+
+.sbOptions a{
+	border-bottom: dotted 1px #515151;
+	display: block;
+	outline: none;
+	padding: 7px 0 7px 3px;
+}
+.sbOptions a:link, .sbOptions a:visited{
+	color: #666;
+	text-decoration: none;
+}
+.sbOptions a:hover{
+	color: #fff;
+}
+.sbOptions li.last a{
+	border-bottom: none;
+}

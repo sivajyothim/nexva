@@ -1,0 +1,89 @@
+### CCcam Web Manager v.1.0.5
+### create by sbarboff
+### sbarboff@hotmail.it
+### http://www.oscam-tools.ch/forum
+
+Distro
+
+Ubuntu 10.04.1 Server
+
+Requisiti :
+
+apache2
+php5
+phpmyadmin
+php-cli
+rar
+zip
+mysql-server
+mc
+
+Installazione software 
+
+apt-get install apache2 php5 php-cli phpmyadmin rar zip mc mysql-server
+
+
+
+Installazione cccam web manager :
+
+1. Scaricare e copiare la cartella cccam-cms-new in /var/www
+2. Create il database "cccam" con phpmyadmin.
+3. Importa cccam.sql.
+4. Modifica config.inc.php con i tuoi dati per accedere al database.
+5. Modifica il file "variable" nella cartella script e cambia i nomi delle tue emu.
+6. dare i permessi di esecuzione ;
+
+ chown www-data:www-data -R /var/www/cccam-cms-new/*
+ chmod 755 /var/www/cccam-cms-new/script/*
+
+7. Aggiungere nel file sudoer la stringa :
+	eseguire da shell :
+	visudo
+	e aggiungere :
+
+ www-data ALL=(ALL) NOPASSWD: /var/www/cccam-cms-new/script/*
+
+12. Andate sul vostro dominio/ip ( http://www.miosito.tdl/cccam-cms-new )
+    Default Administrator Login :
+	Username : admin
+	Password : admin
+    
+Info:
+
+Nell'area user l'utente ha la possibilità di pagare con paypal, se il pagamento ha avuto successo, verranno automaticamente aggiunti i giorni che ha pagato  e aggiornato il database.
+Se l'utente é scaduto e fa il pagamento, vengono aggiornati i dati ma la fline sarà attiva solo dopo le 04:00 del mattino. Se non si vuole far aspettare basta riavviare la cccam da cam control.
+
+
+#####################################################################################
+## Script													#
+#####################################################################################
+
+load_cccam_config
+
+1. Ferma CCcam.x86
+2. Controlla se ci sono delle F-Line scadute, se le trova disabilita la F-Line
+3. Crea il file CCcam.cfg
+4. copia CCcam.cfg del giorno precedente e lo rinomina
+5. copia il file CCcam.cfg generato in automatico in /var/etc
+6. setta i permessi a 755
+7. riavvia CCcam.x86 con il nuovo CCcam.cfg
+
+
+enable_auto_update
+
+1. aggiunge alle cronjob il file da eseguire:
+0 4 * * *       root    /var/www/cccam-cms-new/script/load_cccam_config
+
+
+disable_auto_update
+
+1. rimuove dalle cronjob il file da eseguire:
+0 4 * * *       root    /var/www/cccam-cms-new/script/load_cccam_config
+
+
+
+Problemi Conosciuti:
+
+Quando si cancellano tutte le fline nella lista degli utenti non viene visualizzato l'utente.
+Soluzone, aggiungere una fline associata all'utente.
+

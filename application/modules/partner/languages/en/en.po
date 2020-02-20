@@ -1,0 +1,714 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-06-25 13:34+0530\n"
+"PO-Revision-Date: 2014-06-25 13:34+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <contentadmins@nexva.com>\n"
+"Language: farsi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: E:\\projects\\MTN Iran\\Translations\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: partner web en\n"
+
+#: partner web en/index.phtml:1
+msgid "COPYRIGHT_TXT"
+msgstr ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted."
+
+#: partner web en/index.phtml:2
+msgid "FEATURED_APPS"
+msgstr "Featured Apps"
+
+#: partner web en/index.phtml:3
+msgid "MOSTVIEWED_APPS"
+msgstr "Most Viewed Apps"
+
+#: partner web en/index.phtml:4
+msgid "NEWEST_APPS"
+msgstr "Newest Apps"
+
+#: partner web en/index.phtml:5
+msgid "RIGHTS_TXT_QELASY"
+msgstr "Qelasy All Rights Reserved."
+
+#~ msgid "Click Here"
+#~ msgstr "اینجا کلیک کنید"
+
+#~ msgid "Apps"
+#~ msgstr "برنامه‌های کاربردی"
+
+#~ msgid "Categories"
+#~ msgstr "دسته‌بندی‌ها"
+
+#~ msgid "collection"
+#~ msgstr "مجموعه"
+
+#~ msgid "Featured"
+#~ msgstr "تازه‌ها"
+
+#~ msgid "Free Collection"
+#~ msgstr "مجموعۀ رایگان"
+
+#~ msgid "Most"
+#~ msgstr "بیشترین"
+
+#~ msgid "Need Help?"
+#~ msgstr "کمک لازم دارید؟"
+
+#~ msgid "Premium Collection"
+#~ msgstr "مجموعۀ ویژه"
+
+#~ msgid "Top"
+#~ msgstr "برتر"
+
+#~ msgid "Top Collection"
+#~ msgstr "مجموعۀ برتر"
+
+#~ msgid "viewed collection"
+#~ msgstr "مجموعۀ بازدید شده"
+
+#~ msgid "Search"
+#~ msgstr "جستجو"
+
+#~ msgid "Select Your Device"
+#~ msgstr "مدل گوشی را انتخاب کنید"
+
+#~ msgid ""
+#~ "Selecting a device helps us filter apps that are compatible with your "
+#~ "handset."
+#~ msgstr ""
+#~ ".در صورت انتخاب نوع دستگاه، برنامه‌های کاربردی مناسب تلفن همراه شما "
+#~ "پیشنهاد می‌گردد"
+
+#~ msgid "Start typing the name of your device"
+#~ msgstr "مدل گوشی را وارد کنید"
+
+#~ msgid "No Device Selected"
+#~ msgstr "مدل گوشی انتخاب نشده است"
+
+#~ msgid "Click To Select A Mobile Device"
+#~ msgstr "برای انتخاب مدل گوشی، کلیک کنید"
+
+#~ msgid "Click on thumbnail to zoom"
+#~ msgstr "برای زوم کردن، نمایۀ سریع را کلیک کنید"
+
+#~ msgid "Screenshots"
+#~ msgstr "اسکرین شات"
+
+#~ msgid "Nexva All Rights Reserved."
+#~ msgstr ".تمامي حقوق برای نکسوا (Nexva) محفوظ است"
+
+#~ msgid ""
+#~ "Products, Logos and Companies mentioned herein are trademarks or trade "
+#~ "names of their respective owners and therefore copyrighted."
+#~ msgstr ""
+#~ "تمامی محصولات، لوگوها و شرکتهای نامبرده در اینجا، جزو نام و علائم تجاری "
+#~ "این شرکتها بوده و بر اساس قانون کپی‌رایت در مالکیت انحصاری آنها .می‌باشند"
+
+#~ msgid "Register"
+#~ msgstr "ثبت‌نام"
+
+#~ msgid "Sign In"
+#~ msgstr "ورود"
+
+#~ msgid "IRR"
+#~ msgstr "ریال"
+
+#~ msgid "Welcome"
+#~ msgstr "خوش آمدگویی"
+
+#~ msgid "You Are Here"
+#~ msgstr "شما اینجا هستید"
+
+#~ msgid "Buy "
+#~ msgstr "خرید "
+
+#~ msgid "Buy"
+#~ msgstr "خرید"
+
+#~ msgid "Buy : "
+#~ msgstr "خرید "
+
+#~ msgid "Description"
+#~ msgstr "شرح"
+
+#~ msgid "Free"
+#~ msgstr "رايگان"
+
+#~ msgid "Free Download"
+#~ msgstr "دانلود رایگان"
+
+#~ msgid "Price :"
+#~ msgstr ":قیمت"
+
+#~ msgid "Price"
+#~ msgstr "قیمت"
+
+#~ msgid "Rate"
+#~ msgstr "امتیاز"
+
+#~ msgid "Rate "
+#~ msgstr ":امتیاز "
+
+#~ msgid "Rate : "
+#~ msgstr ":امتیاز"
+
+#~ msgid "Vendor"
+#~ msgstr "تأمین‌کننده"
+
+#~ msgid "Vendor : "
+#~ msgstr ":تأمین‌کننده"
+
+#~ msgid "Whats new"
+#~ msgstr "امکانات جدید"
+
+#~ msgid "Free Stuff"
+#~ msgstr "آیتم‌های رایگان"
+
+#~ msgid "Logout"
+#~ msgstr "خروج"
+
+#~ msgid "Most Viewed"
+#~ msgstr "بیشترین بازدید"
+
+#~ msgid "Newest"
+#~ msgstr "جدیدترین"
+
+#~ msgid "SEARCH"
+#~ msgstr "جستجو"
+
+#~ msgid "Staff Picks"
+#~ msgstr "منتخب کارکنان"
+
+#~ msgid "Rating"
+#~ msgstr "رتبه‌بندی"
+
+#~ msgid "Supported Formats"
+#~ msgstr "فرمت‌های پشتیبانی شده"
+
+#~ msgid "Latest Reviews"
+#~ msgstr "جدیدترین نظرات"
+
+#~ msgid "No user reviews yet.."
+#~ msgstr "..هنوز هیچ کاربری نظر نداده است"
+
+#~ msgid "Please login to post a review."
+#~ msgstr "لطفاً برای ارسال نظر، ابتدا وارد شوید"
+
+#~ msgid "Name"
+#~ msgstr "نام و نام خانوادگی"
+
+#~ msgid "Title"
+#~ msgstr "عنوان"
+
+#~ msgid "Review"
+#~ msgstr "نظر"
+
+#~ msgid "Home"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "To download this app you need to install"
+#~ msgstr "برای دانلود این برنامۀ کاربردی، باید ابتدا ... را روی "
+
+#~ msgid "on your Android device and sign in."
+#~ msgstr ".تلفن همراه آندرویدی خود نصب کرده و سپس وارد شوید"
+
+#~ msgid "To register you need to install"
+#~ msgstr "برای ثبت‌نام، باید ابتدا ... را روی"
+
+#~ msgid "on your Android device. Registration happens on your device."
+#~ msgstr ""
+#~ ".تلفن همراه مجهز به سیستم عامل آندروید خودتان نصب کنید. ثبت‌نام در  تلفن "
+#~ "همراهتان انجام می‌شود"
+
+#~ msgid "Please download the App store app using the following methods."
+#~ msgstr ""
+#~ "لطفاً با استفاده از روش‌های پیشنهادی، برنامه «فروشگاه برنامه کاربردی» را "
+#~ "دانلود کنید."
+
+#~ msgid ""
+#~ "The app you have selected has been pushed directly to your device. Be "
+#~ "sure to have the"
+#~ msgstr ""
+#~ ".برنامه کاربردی انتخاب شده مستقیماً به دستگاه شما ارسال شد. اطمینان حاصل "
+#~ "نمایید که"
+
+#~ msgid "installed on your phone first."
+#~ msgstr ".از قبل روی تلفن همراهتان نصب شده باشد"
+
+#~ msgid "If you don't have"
+#~ msgstr "اگر ... روی تلفن همراهتان"
+
+#~ msgid "installed on your phone here is how to get it"
+#~ msgstr "نصب نشده است، از این روش استفاده کنید:"
+
+#~ msgid "If you want to install"
+#~ msgstr "اگر می‌خواهید ... را روی"
+
+#~ msgid "on your phone use following methods."
+#~ msgstr ".تلفن همراهتان نصب کنید، از  روش‌های زیر استفاده کنید"
+
+#~ msgid "Type in your email address and we will email it to you"
+#~ msgstr "ایمیل خود را بنویسید و ما آن را از طریق ایمیل برایتان ارسال می‌کنیم"
+
+#~ msgid "your email"
+#~ msgstr "ایمیل:"
+
+#~ msgid "send email"
+#~ msgstr "ارسال "
+
+#~ msgid "Point your mobile browser to the following link:"
+#~ msgstr ":به لینک زیر بروید"
+
+#~ msgid ""
+#~ "Scan the QR code using your phone to be directly taken to the app page"
+#~ msgstr ""
+#~ ".با استفاده از تلفن همراهتان، بارکد QR را اسکن کنید تا مستقیماً به صفحۀ "
+#~ "برنامه منتقل شوید"
+
+#~ msgid "Do not have a QR code reader?"
+#~ msgstr "بارکدخوان QR ندارید؟"
+
+#~ msgid "Get one free"
+#~ msgstr "رایگان دریافت کنید"
+
+#~ msgid "Download"
+#~ msgstr "دانلود"
+
+#~ msgid "More Details"
+#~ msgstr "اطلاعات بیشتر"
+
+#~ msgid "Login"
+#~ msgstr "ورود"
+
+#~ msgid "Required infromation"
+#~ msgstr "اطلاعات موردنیاز"
+
+#~ msgid "User name"
+#~ msgstr "نام کاربری"
+
+#~ msgid "Password"
+#~ msgstr "رمز عبور"
+
+#~ msgid "Forgot your password"
+#~ msgstr "رمزعبور را فراموش کرده‌اید؟"
+
+#~ msgid "Please enter First Name"
+#~ msgstr "لطفاً نام خود را وارد کنید."
+
+#~ msgid "Top Downloads"
+#~ msgstr "برترین برنامه‌های دانلود شده"
+
+#~ msgid "Top Free"
+#~ msgstr "برترین برنامه‌های رایگان"
+
+#~ msgid "Featured Apps"
+#~ msgstr "برنامه‌های تازه"
+
+#~ msgid "Top Premium"
+#~ msgstr "برترین برنامه‌های ویژه"
+
+#~ msgid "Top Paid"
+#~ msgstr "برترین برنامه‌های پولی"
+
+#~ msgid "Your Device"
+#~ msgstr "مدل گوشی"
+
+#~ msgid "Sign Up"
+#~ msgstr "ثبت نام"
+
+#~ msgid "Next"
+#~ msgstr "بعدی"
+
+#~ msgid "Previous"
+#~ msgstr "قبلی"
+
+#~ msgid "Most viewed collection"
+#~ msgstr "پر بازدید ترین مجموعه"
+
+#~ msgid "Contact Us"
+#~ msgstr "تماس با ما"
+
+#~ msgid "Email"
+#~ msgstr "ایمیل"
+
+#~ msgid "Message"
+#~ msgstr "پیامها"
+
+#~ msgid "SEND"
+#~ msgstr "ارسال"
+
+#~ msgid "RESET"
+#~ msgstr "تنظیم مجدد"
+
+#~ msgid "NO DEVICE SELECTED"
+#~ msgstr "هیچ دستگاهی انتخاب نشده است"
+
+#~ msgid "Feedback"
+#~ msgstr "بازخورد"
+
+#~ msgid "SUPPORTED FORMATS"
+#~ msgstr "فرمت‌های پشتیبانی شده"
+
+#~ msgid "ADD YOUR OWN REVIEW"
+#~ msgstr "نظر خود را اضافه کنید"
+
+#~ msgid "App"
+#~ msgstr "برنامه‌ کاربردی"
+
+#~ msgid "Category"
+#~ msgstr "دسته‌بندی"
+
+#~ msgid "Newest Apps"
+#~ msgstr "جدیدترین برنامه‌های کاربردی"
+
+#~ msgid "Free Apps"
+#~ msgstr "برنامه‌های کاربردی رایگان"
+
+#~ msgid "Premium Apps"
+#~ msgstr "برنامه‌های کاربردی ویژه"
+
+#~ msgid "Top Downloaded Apps"
+#~ msgstr "برترین برنامه‌های کاربردی دانلود شده"
+
+#~ msgid "Most Viewed Apps"
+#~ msgstr "پر بازدیدترین برنامه‌های کاربردی"
+
+#~ msgid "BOOKS & REFERENCE"
+#~ msgstr "کتاب‌ها و مرجع"
+
+#~ msgid "eBooks"
+#~ msgstr "کتاب‌های الکترونیکی"
+
+#~ msgid "Audio books"
+#~ msgstr "کتاب‌های صوتی"
+
+#~ msgid "Reference/Dictionaries"
+#~ msgstr "کتاب مرجع/فرهنگ‌نامه‌ها"
+
+#~ msgid "Religion"
+#~ msgstr "مذهب"
+
+#~ msgid "Comics/Manga"
+#~ msgstr "کتاب‌های مصور/مانگا"
+
+#~ msgid "GAMES"
+#~ msgstr "بازی‌ها"
+
+#~ msgid "Arcade"
+#~ msgstr "آرکید"
+
+#~ msgid "Cards"
+#~ msgstr "ورق"
+
+#~ msgid "Action/Strategy"
+#~ msgstr "جنگی/راهبردی"
+
+#~ msgid "Role Playing/Multiplayer"
+#~ msgstr "نقش‌آفرینی/تیمی"
+
+#~ msgid "Logic/Puzzle/Trivia"
+#~ msgstr "فکری/جدول/معما"
+
+#~ msgid "Casino/Cards/Betting"
+#~ msgstr "کازینو/ورق/شرط‌بندی"
+
+#~ msgid "Sports"
+#~ msgstr "ورزشی"
+
+#~ msgid "TOOLS & PRODUCTIVITY"
+#~ msgstr "ابزارها و بهره‌وری"
+
+#~ msgid "Utilities/Synchronization"
+#~ msgstr "کاربردی/همزمان سازی"
+
+#~ msgid "Organizers/Clocks/Desktop"
+#~ msgstr "هماهنگ کننده/ساعت‌ها/صفحۀ نمایش"
+
+#~ msgid "Internet/WAP"
+#~ msgstr "اینترنت/WAP"
+
+#~ msgid "Device Tools"
+#~ msgstr "ابزارهای سیستم"
+
+#~ msgid "Security/Backup"
+#~ msgstr "امنیتی/پشتیبانی"
+
+#~ msgid "Developers/DB"
+#~ msgstr "برنامه‌نویس‌ها/DB"
+
+#~ msgid "Office Productivity"
+#~ msgstr "کاربردی اداری"
+
+#~ msgid "Graphic Tools"
+#~ msgstr "ابزارهای گرافیکی"
+
+#~ msgid "BUSINESS & FINANCE"
+#~ msgstr "کسب‌وکار و مالی"
+
+#~ msgid "Accounts/Tax"
+#~ msgstr "حسابداری/مالیاتی"
+
+#~ msgid "Stocks/Finance"
+#~ msgstr "سهام/مالی"
+
+#~ msgid "Inventory/Sales"
+#~ msgstr "انبارگردانی/فروش"
+
+#~ msgid "Currency/Convertors"
+#~ msgstr "ارز/ مبدل‌ها"
+
+#~ msgid "TRAVEL & GPS"
+#~ msgstr "گردشگری و راهنمای GPS"
+
+#~ msgid "GPS/Maps"
+#~ msgstr "GPS/نقشه‌ها"
+
+#~ msgid "Weather"
+#~ msgstr "آب‌وهوا"
+
+#~ msgid "Translation/Language"
+#~ msgstr "ترجمه/زبان"
+
+#~ msgid "NEWS & SPORTS"
+#~ msgstr "اخبار و ورزش"
+
+#~ msgid "News/Magazines"
+#~ msgstr "اخبار/مجلات"
+
+#~ msgid "Sports/Teams"
+#~ msgstr "ورزش‌ها/تیم‌ها"
+
+#~ msgid "RSS"
+#~ msgstr "فید RSS"
+
+#~ msgid "SOCIAL NETWORKS & MESSAGING"
+#~ msgstr "شبکه‌های اجتماعی و پیام‌رسانی"
+
+#~ msgid "IM/SMS/Email/VOIP"
+#~ msgstr "پیامرسانی مستقیم/پیام کوتاه/ایمیل/تلفن اینترنتی"
+
+#~ msgid "Social Networks"
+#~ msgstr "شبکه‌های اجتماعی"
+
+#~ msgid "Dating"
+#~ msgstr "دوست‌یابی"
+
+#~ msgid "Blogs/Images"
+#~ msgstr "وبلاگ‌ها/تصاویر"
+
+#~ msgid "MUSIC & AUDIO"
+#~ msgstr "موسیقی و صوتی"
+
+#~ msgid "Podcasts"
+#~ msgstr "پادکست‌ها"
+
+#~ msgid "MP3/Music"
+#~ msgstr "MP3/موسیقی"
+
+#~ msgid "Radios/Players"
+#~ msgstr "رادیوها/برنامه‌های پخش موسیقی"
+
+#~ msgid "Lyrics/Bands"
+#~ msgstr "متن آهنگ‌ها/گروه‌ها"
+
+#~ msgid "VIDEO & TV"
+#~ msgstr "ویدیو و تلویزیون"
+
+#~ msgid "TV/Shows"
+#~ msgstr "تلویزیون/برنامه‌ها"
+
+#~ msgid "Movies/Trailers"
+#~ msgstr "فیلم‌های سینمایی/پیش‌پرده‌ها"
+
+#~ msgid "players/Converters"
+#~ msgstr "برنامه‌های پخش فیلم/مبدل‌ها"
+
+#~ msgid "LIFESTYLE & WELLNESS"
+#~ msgstr "سبک زندگی و سلامتی"
+
+#~ msgid "Astro"
+#~ msgstr "نجوم"
+
+#~ msgid "Food/Recipes"
+#~ msgstr "غذا/دستور طبخ"
+
+#~ msgid "Art/Fashion"
+#~ msgstr "هنر/مُد"
+
+#~ msgid "Hobbies/Pets"
+#~ msgstr "سرگرمی‌ها/حیوانات خانگی"
+
+#~ msgid "Health/Diet/Fitness"
+#~ msgstr "سلامت/رژیم/تناسب اندام"
+
+#~ msgid "Shopping/Brands"
+#~ msgstr "خرید/برندها"
+
+#~ msgid "EDUCATION & ELEARNING"
+#~ msgstr "آموزشی و یادگیری مجازی"
+
+#~ msgid "Medical"
+#~ msgstr "پزشکی"
+
+#~ msgid "Language"
+#~ msgstr "زبان"
+
+#~ msgid "Kids/Early learning"
+#~ msgstr "کودکان/بازی‌های کودکان"
+
+#~ msgid "University"
+#~ msgstr "دانشگاه‌"
+
+#~ msgid "Law"
+#~ msgstr "قانون"
+
+#~ msgid "GOODIES & ENTERTAINMENT"
+#~ msgstr "تفریحی و سرگرمی"
+
+#~ msgid "Wallpaper/Screensavers"
+#~ msgstr "کاغذ دیواری/عکس‌های محافظ صفحه نمایش"
+
+#~ msgid "Personlization/Skins"
+#~ msgstr "شخصی‌سازی/پوسته‌ها"
+
+#~ msgid "Humor/Jokes"
+#~ msgstr "طنز/لطیفه‌ها"
+
+#~ msgid "Ringtones"
+#~ msgstr "آهنگ تماس"
+
+#~ msgid "THEMES"
+#~ msgstr "تم‌ها"
+
+#~ msgid "Techno"
+#~ msgstr "تکنو"
+
+#~ msgid "Rock"
+#~ msgstr "راک"
+
+#~ msgid "Calm"
+#~ msgstr "آرام"
+
+#~ msgid "Arts & Crafts"
+#~ msgstr "هنری و خلاقیت"
+
+#~ msgid "Animation"
+#~ msgstr "پویانمایی"
+
+#~ msgid "Category  Not Found"
+#~ msgstr "دسته‌بندی یافت نشد."
+
+#~ msgid "You are not signed in yet"
+#~ msgstr "شما هنوز وارد سیستم نشده‌اید."
+
+#~ msgid "No Match Found"
+#~ msgstr "هیچ مطابقتی یافت نشد."
+
+#~ msgid "Ok"
+#~ msgstr "تأیید"
+
+#~ msgid "You haven't log in yet ? Please log in."
+#~ msgstr ""
+#~ "هنوز وارد سیستم نشده‌اید؟ لطفاً نام کاربری و رمز عبور خود را وارد کنید."
+
+#~ msgid "No Data Found"
+#~ msgstr "هیچ داده‌ای یافت نشد."
+
+#~ msgid "Downloading"
+#~ msgstr "در حال بارگذاری"
+
+#~ msgid "You are here"
+#~ msgstr "شما اینجا هستید."
+
+#~ msgid "Have an Issue?"
+#~ msgstr "آیا با مشکلی مواجه شده‌اید؟"
+
+#~ msgid "Login to add a ticket"
+#~ msgstr "برای افزودن گزارش مشکل وارد سیستم شوید."
+
+#~ msgid "Please add a valid email"
+#~ msgstr "لطفاً یک آدرس ایمیل معتبر وارد کنید."
+
+#~ msgid "Please add a valid password"
+#~ msgstr "لطفاً یک رمز عبور معتبر وارد کنید."
+
+#~ msgid "Click here to reset it"
+#~ msgstr "برای بازنشانی اینجا کلیک کنید."
+
+#~ msgid " HOME"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid " HOME "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "HOME"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid ""
+#~ ".Products, Logos and Companies mentioned herein are trademarks or trade "
+#~ "names of their respective owners and therefore copyrighted"
+#~ msgstr ""
+#~ "تمامی محصولات، لوگوها و شرکت‌های نامبرده در اینجا، جزء نام و علائم تجاری "
+#~ "این شرکت‌ها بوده و مشمول قانون حق انتشار  می‌باشند."
+
+#~ msgid "Add your own review"
+#~ msgstr "نظر دهید."
+
+#~ msgid "MTN Iran App Store"
+#~ msgstr "فروشگاه برنامه های کاربردی تلفن همراه"
+
+#~ msgid " APP "
+#~ msgstr "درخواست"
+
+#~ msgid "Required Information"
+#~ msgstr "اطلاعات موردنیاز"
+
+#~ msgid " FEEDBACK "
+#~ msgstr "بازخورد"
+
+#~ msgid " INFO "
+#~ msgstr "اطلاعات"
+
+#~ msgid " LOGIN HERE "
+#~ msgstr "ورود"
+
+#~ msgid "Login here"
+#~ msgstr "ورود"
+
+#~ msgid " APP"
+#~ msgstr "برنامه‌های کاربردی"
+
+#~ msgid "FEEDBACK"
+#~ msgstr "بازخورد"
+
+#~ msgid "INFO"
+#~ msgstr "اطلاعات"
+
+#~ msgid "To download this app you need to visit the following URL"
+#~ msgstr "برای دانلود این برنامه شما نیاز به بازدید از URL زیر"
+
+#~ msgid "MTN Iran App Store All Rights Reserved."
+#~ msgstr "MTN ایران فروشگاه App همه حقوق محفوظ است."
+
+#~ msgid "See all results for"
+#~ msgstr "مشاهده تمامی نتایج برای"
+
+#~ msgid "APP"
+#~ msgstr "درخواست"
+
+#~ msgid " Home"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Home "
+#~ msgstr "صفحه اصلی"
+
+#, fuzzy
+#~ msgid "Buy: "
+#~ msgstr ":خرید"

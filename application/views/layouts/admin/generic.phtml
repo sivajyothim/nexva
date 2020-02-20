@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+       <?php if ($this->headTitle() != '<title></title>') : ?>
+            <?=$this->headTitle();?>
+        <?php else : ?>
+            <title>neXva.com - Utility Page</title>
+        <?php endif; ?>
+
+        <!-- Core Stylesheet -->
+        <link href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" type="text/css" href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/blue.css" title="styles3" media="screen" />
+
+        <!-- Javascript Files -->
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/jquery-ui-1.7.2.custom.min.js"></script>
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/hoverIntent.js"></script>
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/superfish.js"></script>
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/jquery.wysiwyg.js"></script>
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/jquery-stylesheetToggle.js"></script>
+        <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/forestcp.js"></script>
+        <script src="<?php echo PROJECT_BASEPATH;?>common/facebox/facebox.js" type="text/javascript">
+        <!-- Adding dynamic libs and CSS Meta to the layout view -->
+        <script type='text/javascript'>
+        $(document).ready(function(){
+            $('a.del_conf').click(function(){
+                return confirm('Are you sure you want to delete this item?');
+            })
+        });
+            
+        </script>
+        <?php
+        echo $this->headMeta();
+        echo $this->headStyle();
+        echo $this->headLink();
+        echo $this->headScript();
+        
+        ?>
+
+        <!--[if IE 6]>
+        <link href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script>
+          /* EXAMPLE */
+          DD_belatedPNG.fix('.logo img, .message, table img');
+
+          /* string argument can be any CSS selector */
+        </script>
+        <![endif]-->
+
+    </head>
+    <body>
+         
+
+        <?=$this->render('parts/admin/generic_header.phtml'); ?>
+
+        <!-- Start Wrap -->
+        <div id="wrap">
+            <div id="content">
+                <div class="inner">
+                <?php // error&messages displaying 
+                    $errorMessages      = $this->flashErrors;
+                    $infoMessages       = $this->flashMessages;
+                ?>
+                <?php if(!empty($errorMessages)) : ?>
+                    <div class="message error">
+                   <?php foreach ($errorMessages as $key=>$value): ?>
+                        <p><?=$value?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+                
+                <?php if(!empty($infoMessages)) :?>
+                    <div class="message info">
+                    <?php foreach ($infoMessages as $key=>$value): ?>
+                        <p><?=$value?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+                
+                
+                    <noscript>
+                        <!-- Show message when javascript is not enabled -->
+                        <div class="message error">
+                            <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+                        </div>
+                    </noscript>
+
+                    <?php echo $this->layout()->content ?>
+
+                </div>
+            </div>
+ 
+
+        </div>
+        <!-- End Wrap -->
+
+    </body>
+
+</html><!--

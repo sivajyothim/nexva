@@ -1,0 +1,9 @@
+<form accept-charset="UTF-8" method="post" action='/translate/convert'>
+    <?php foreach ($this->languages as $language) : ?>
+    <input type='text' name='languageId[<?=$language->id?>]' value='<?=$language->id?>'>
+    <input type='text' name='languageValue[<?=$language->id?>]' value='<?=$language->name?>'>
+    <br><br>    
+    <?php endforeach; ?>
+    <br><br>
+    <input type='submit' name='sub' value='Submit'>
+</form>

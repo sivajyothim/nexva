@@ -1,0 +1,20 @@
+#!/bin/bash
+. /var/www/cccam-cms-new/script/variable
+killall -9 $CCCAM  >/dev/null 2>&1 &
+sleep 4
+cd /var/www/cccam-cms-new/admin
+php -q cron-cccam-cfg.php
+
+sleep 1
+
+cp /var/etc/CCcam.cfg /var/etc/CCcam.cfg.bak.auto
+rm /var/etc/CCcam.cfg
+cp /var/www/cccam-cms-new/admin/CCcam.cfg /var/etc/CCcam.cfg
+chmod 777 /var/etc/CCcam.cfg
+rm /var/www/cccam-cms-new/admin/CCcam.cfg
+
+sleep 3
+cd /usr/local/bin
+sleep 3
+./$CCCAM >/dev/null 2>&1 &
+sleep 5

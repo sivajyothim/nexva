@@ -1,0 +1,75 @@
+<h2>Welcome, <?= ucfirst($this->username); ?></h2>
+
+<ul class="shortcut-buttons-set">
+
+
+    
+    
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>app/index"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/missing_job.png" alt="icon" /><br />
+                Manage <br />Apps
+            </span></a>
+    </li>
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>app/filter-apps"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/filter_data.png" alt="icon" /><br />
+                Filter <br />Apps
+            </span></a>
+    </li>
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>user"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/user_manage.png" alt="icon" /><br />
+                Users <br />Developers<br />
+            </span></a>
+    </li>
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>payment-gateway"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/pgate.png" alt="icon" /><br />
+                Payment Gateways
+            </span></a>
+    </li>
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>menu/add-menu"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/menu_item.png" alt="icon" /><br />
+                Add <br />Menu Item
+            </span></a>
+    </li>
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>page/add-page"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/new_page.png" alt="icon" /><br />
+                Add <br />Web Page
+            </span></a>
+    </li>            
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>statistic"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/bar_chart.png" alt="icon" /><br />
+                Statistics <br /><br />
+            </span></a>
+    </li>     
+
+    <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>ticket"><span>
+                <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/ticket.png" alt="icon" /><br />
+                Manage <br />Tickets
+            </span></a>
+    </li>
+
+    <?php  $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+    //echo $chapId;
+            if($chapId == 81604) { ?>
+                <li><a class="shortcut-button" href="<?php echo PBO_PROJECT_BASEPATH;?>qelasy/qelasy-grades">
+                    <span>
+                        <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/qelasy-grades.png" alt="icon" /><br />Qelasy <br />Grades
+                    </span>
+                    </a>
+                </li>
+    <?php } ?>
+
+</ul><!-- End .shortcut-buttons-set -->
+
+
+<div class="clear"></div>
+
+<script type="text/javascript">        
+   $('#1').addClass('current'); 
+</script>

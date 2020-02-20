@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data
+END
+delegated-20060809.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/delegated-20060809.xrds
+END
+brian.multi.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/brian.multi.xrds
+END
+no-xrd.xml
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/no-xrd.xml
+END
+pip.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/pip.xrds
+END
+example-xrds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/example-xrds.xml
+END
+brian.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/brian.xrds
+END
+test1-parsehtml.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/test1-parsehtml.txt
+END
+brian_priority.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/brian_priority.xrds
+END
+not-xrds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/not-xrds.xml
+END
+accept.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/accept.txt
+END
+subsegments.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/subsegments.xrds
+END
+uri_priority.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/uri_priority.xrds
+END
+brian.multi_uri.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/brian.multi_uri.xrds
+END
+delegated-20060809-r1.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/delegated-20060809-r1.xrds
+END
+delegated-20060809-r2.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/delegated-20060809-r2.xrds
+END
+spoof1.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/spoof1.xrds
+END
+spoof2.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/spoof2.xrds
+END
+spoof3.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/spoof3.xrds
+END
+test1-discover.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/test1-discover.txt
+END
+test1-xrd.xml
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/test1-xrd.xml
+END
+ref.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/ref.xrds
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/README
+END
+sometimesprefix.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/sometimesprefix.xrds
+END
+prefixsometimes.xrds
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/data/prefixsometimes.xrds
+END

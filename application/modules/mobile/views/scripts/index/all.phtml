@@ -1,0 +1,26 @@
+
+<?php if ($this->page > 0) : ?>
+    <a href='/index/all/page/<?=($this->page - 1)?>'>Previous</a>
+<?php endif; ?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<?php if (!empty($this->apps)) : ?>
+    <a href='/index/all/page/<?=($this->page + 1)?>'>Next</a>
+<?php endif;?>
+
+<br><br>
+
+<?php foreach ($this->apps as $app) : ?>
+    <a href='/app/show/id/<?=$app['id'] ?>'>
+        <?=$app['name']?>
+    </a>
+    <br>
+<?php endforeach; ?>
+
+<br><br>
+<?php if ($this->page > 0) : ?>
+    <a href='/index/all/page/<?=($this->page - 1)?>'>Previous</a>
+<?php endif; ?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<?php if (!empty($this->apps)) : ?>
+    <a href='/index/all/page/<?=($this->page + 1)?>'>Next</a>
+<?php endif;?>

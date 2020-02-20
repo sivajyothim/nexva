@@ -1,0 +1,43 @@
+
+<div class="title">
+    <h3 style="cursor: s-resize;">Send SMS</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php
+            if(isset($this->message)) {
+                ?>
+            <div class="message <?=$this->message[1] ?>" style="display: block;">
+                <p><?=$this->message[0] ?></p>
+            </div>
+                <?php
+            }
+            ?>
+            
+            <fieldset>
+                <form class='form_validate' method="post" action="/utility/sendsms">
+                 <p>
+                    <label for='username'>CHAP's ID</label>
+                    <input value='' type='text' id='chapid' name='chapid' class='txt-input medium validate(required)'>
+                 </p>
+                 
+                 <p>
+                    <label for='email'>Message</label>
+                    <textarea value='' autocomplete='off' type='text' id='message' name='message' class='txt-input medium validate(required)'></textarea>
+                 </p>
+                 
+                 <p>
+                    <label for='email'>Phone Number</label>
+                    <textarea value='' autocomplete='off' type='text' id='phone_numbers' name='phone_numbers' class='txt-input medium validate(required)' placeholder="Use ',' to separate phone numbers."></textarea>
+                 </p>
+                 
+                 <p><input type="submit" class="txt-input small" value="send SMS" id="submit" name="submit"></p>
+                 </form>
+                 
+                 
+            </fieldset>
+        </div>
+    </div>
+</div>

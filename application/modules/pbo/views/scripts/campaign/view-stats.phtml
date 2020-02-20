@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 3/18/14
+ * Time: 1:25 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+    </div>
+    <?php if($this->haveRecords){ ?>
+    <div class="content-box-content">
+        <table style="width:97%; margin-left: 15px;" border="0">
+            <thead>
+                <tr>
+                    <th style="text-align: left">Campaign Type</th>
+                    <th style="text-align: center">Description</th>
+                    <th style="text-align: center">Chap</th>
+                    <th style="text-align: right">Count</th>
+                    <th style="text-align: right">Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="text-align: left;"><?php echo $this->campaignStats->campaign_type; ?></td>
+                    <td style="text-align: center;"><?php echo $this->campaignStats->description; ?></td>
+                    <td style="text-align: center"><?php echo $this->campaignStats->username; ?></td>
+                    <td style="text-align:right;"><?php echo $this->campaignStats->count; ?></td>
+                    <td style="text-align:right;"><?php echo $this->campaignStats->created_date; ?></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <?php } else { ?>
+        <div class="content-box-content">
+            No Stats found for this Campaign
+        </div>
+    <?php } ?>
+
+</div>

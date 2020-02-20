@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors
+END
+SpecialCases.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/SpecialCases.php
+END
+Apple.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Apple.php
+END
+Nokia.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Nokia.php
+END
+Vodafone.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Vodafone.php
+END
+ZTE.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/ZTE.php
+END
+Lenovo.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Lenovo.php
+END
+LG.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/LG.php
+END
+Allview.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Allview.php
+END
+Others.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Others.php
+END
+Prestigio.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Prestigio.php
+END
+Microsoft.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Microsoft.php
+END
+Mi.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Mi.php
+END
+Alcatel.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Alcatel.php
+END
+HP.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/HP.php
+END
+Acer.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Acer.php
+END
+Asus.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Asus.php
+END
+Google.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Google.php
+END
+Samsung.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Samsung.php
+END
+HTC.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/HTC.php
+END
+Archos.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Archos.php
+END
+Blackberry.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Blackberry.php
+END
+Dell.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Dell.php
+END
+Onda.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Onda.php
+END
+Huawei.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Huawei.php
+END
+Lava.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Lava.php
+END
+Amazon.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Amazon.php
+END
+Sony.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Sony.php
+END
+Leader.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Leader.php
+END
+Motorola.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/providers/vendors/Motorola.php
+END

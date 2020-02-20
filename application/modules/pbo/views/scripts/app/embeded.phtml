@@ -1,0 +1,173 @@
+<?
+$config     = Zend_Registry::get("config");
+$baseUrl    = $config->nexva->application->base->url;
+
+$chapOption = '';  
+if (isset($this->chapId)) {
+    $chapOption = "\n   _nx.c = {$this->chapId};";     
+}
+
+/** preparing the JS that needs to be embedded **/
+$defaultJs  = <<<JSDEF
+<!-- neXlinker START -->
+<span class='nexlinker' id='nexlinker_badge_[!AID][!SIZE][!BADGE]'></span>
+<script type='text/javascript'>
+   var _nxs = _nxs || [];
+   var _nx = {};
+   //------------------------------------------------------
+   //Customize your embed code
+   
+      _nx.s = '[!SIZE]'; //Size of the badge. Valid values are - large, medium, small, qr
+      _nx.b = '[!BADGE]';//Badge type to be used. Options are 'default' - No badge displayed. 'nexva' - store badge displayed
+      _nx.imageUrl    = '';//Use a custom image instead of the auto generated badge
+      
+   //Don't change anything below this line
+   //------------------------------------------------------
+   _nx.aid = '[!AID]'; //The ID of the app you're generating the badge for
+   _nx.h = '{$baseUrl}';{$chapOption}
+   _nxs.push(_nx);
+</script>
+<script type='text/javascript' src='http://{$baseUrl}/web/nexlinker/nl.js'></script>
+<!-- neXlinker END -->
+JSDEF;
+//remove \n and make it 1 line
+//$defaultJs  = str_ireplace("\n", '', $defaultJs);
+?>
+<textarea id='js_source' style='display:none'>
+<?php echo $defaultJs;?>
+</textarea>
+
+
+<div id="share<?= $this->content['id'] ?>">
+  <script type="text/javascript">
+    // document ready function
+    $(document).ready(function(){
+      var js_default    = $('#js_source').val(); 
+      var html_default  = js_default;
+      var badge_url_default = 'http://<?= $baseUrl ?>/badge/<?= $this->content['id'] ?>/!size/!template/!chap';
+
+      //do the initial replaces. defaults to large with nexva badge
+      var   badgehtml     = js_default;
+      badgehtml = badgehtml.replace(/\[\!AID\]/g, '<?= $this->content['id'] ?>');
+      badgehtml = badgehtml.replace(/\[\!SIZE\]/g, 'large');
+      badgehtml = badgehtml.replace(/\[\!BADGE\]/g, 'default');
+      
+      $('#widgettag').val(badgehtml);
+      
+      // check on the check box to off nexva badge
+      $('.template').change(function(){
+        var template = 'nexva';
+        var value;
+        generateCode(js_default);
+        
+        
+        $('.badge_type').each(function(){
+          if($(this).attr('checked'))
+            value = $(this).val();
+        });
+        if(!$(this).prop('checked')){
+          template = 'default';
+        }
+        var badge_url   = badge_url_default.replace('!size', value)
+        badge_url       = badge_url.replace('!template', template);
+        badge_url       = badge_url.replace('!chap', '<?=$this->chapId?>');
+
+        var image   = $('<img>').attr({
+                'id'  : 'preview_img',
+                'alt' : 'Generating preview, please wait..',
+                'src' : badge_url,
+                'class' : 'badge_preview'
+        });
+      
+        $('#preview_img').remove();
+        $('#preview').append(image);
+        
+      });
+
+      // cange size
+      $('.badge_type').change(function(){
+    	   generateCode(js_default);
+        var value = $(this).val();
+        var template    = 'nexva';
+        var badge_url   = badge_url_default.replace('!size', value)
+        if(!$('.template').prop('checked'))
+          template = 'default';
+        
+        badge_url       = badge_url.replace('!template', template)
+        badge_url       = badge_url.replace('!chap', '<?=$this->chapId?>');
+        
+        var image   = $('<img>').attr({
+                  'id'  : 'preview_img',
+                  'alt' : 'Generating preview, please wait..',
+                  'src' : badge_url,
+                  'class' : 'badge_preview'
+            });
+        
+        $('#preview_img').remove();
+        $('#preview').append(image);
+      });
+    });
+    
+    function generateCode(badgehtml) {
+        //get size
+        bsize       = $(".badge_type:checked").val();
+        bbadge      = ($("#nex_show_badge").prop('checked')) ? 'nexva' : 'default';
+    	badgehtml = badgehtml.replace(/\[\!AID\]/g, '<?= $this->content['id'] ?>');
+        badgehtml = badgehtml.replace(/\[\!SIZE\]/g, bsize);
+        badgehtml = badgehtml.replace(/\[\!BADGE\]/g, bbadge);
+        $('#widgettag').val(badgehtml);
+    }
+  </script>
+  <br/>
+  <!--
+  <b>Direct Link</b>
+  <p>
+    <a href="http://nexva.com/show"></a>
+  </p>
+  -->
+  <style>
+    .html_buttons label {display:inline;}
+  </style>
+  
+  <form>
+    <b>HTML With Link: <br/><br/>
+      <span class="html_buttons">
+        <input class="badge_type" type="radio" checked value="large" id="badge_type1" name="button_type"/> <label for="badge_type1">Large </label>
+        <input class="badge_type" type="radio" value="medium" id="badge_type2" name="button_type"/> <label for="badge_type2">Medium </label>
+        <input class="badge_type" type="radio" value="small" id="badge_type3" name="button_type"/> <label for="badge_type3">Small </label>
+        <input class="badge_type" type="radio" value="qr" id="badge_type4" name="button_type"/> <label for="badge_type4">QR-Code </label>
+      </span>
+    </b>
+    <br><br>
+    <textarea onmouseup="select();" readonly="true" rows="10" id="widgettag" name="widgettag" class="txt-input large widgettag"></textarea>
+  </form>
+
+  <b>Preview:</b><br><br>
+  <div id="preview">
+    <img id="preview_img" class="badge_preview" alt="Generating preview, please wait.." 
+        src="http://<?= $baseUrl ?>/badge/<?= $this->content['id'] ?>/large/default/<?=isset($this->chapId) ? $this->chapId : '';?>"/>
+  </div>
+<!--  <br/>
+        <b>Options:</b><br/>
+        <input type="checkbox" value="template" id='nex_show_badge' class="template" /> Show Logo 
+-->
+        <br/><br/>
+  <div id="instructionsection">
+    <h2>
+      <b>Follow the instructions below:</b>
+    </h2>
+    <div class="highlightFormSection">
+      <ul>
+        <li>
+          <label><b>Step 1:</b></label> Copy the code (see above).
+        </li>
+        <li>
+          <label><b>Step 2:</b></label> Paste the code into your Web page.
+        </li>
+        <li>
+          <label><b>Step 3:</b></label> Save and refresh the page to see your changes.
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

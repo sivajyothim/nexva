@@ -1,0 +1,304 @@
+<div class="title">
+
+    <h3>Reports | neXva.com</h3>
+
+    <div class="selector" title="content_box">
+        <a class="tab <? if($this->selected_tab == '' or $this->selected_tab == 'tab-all'){echo ' active';}?>" href="tab-all">All products</a>
+        <a class="tab <? if($this->selected_tab == 'tab-not-approved' ){echo ' active';}?>" href="tab-not-approved">Not approved</a>
+        <a class="tab <? if($this->selected_tab == 'tab-under-review' ){echo ' active';}?>" href="tab-under-review">Under review</a>
+        <a class="tab <? if($this->selected_tab == 'tab-approved' ){echo ' active';}?>" href="tab-approved">Approved</a>
+        <a class="tab <? if($this->selected_tab == 'tab-rejected' ){echo ' active';}?>" href="tab-rejected">Rejected</a>
+        <a class="tab <? if($this->selected_tab == 'tab-pending' ){echo ' active';}?>" href="tab-pending">Pending</a>
+        <!--<a class="tab" href="tab-table">Forms</a>-->
+        <!--<a class="tab" href="tab-table">Recent Logs</a>-->
+        <!--<a class="tab" href="tab-forms">Create a TODO</a>-->
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+    
+            <?php
+        if (is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+        ?>
+                <div class="message <?= key($value) ?>">
+
+            <?= $this->partial('partials/itemlist.phtml', array("item" => $value[$key])); ?>
+
+            </div>
+        <?php
+                endforeach;
+            endif;
+        ?>
+
+        <div style="padding:20px 0px" align="center">
+        <form method="POST" name="frmsearch" id="frmsearch" action="<?=$this->product_form_submit_to;?>">
+                <input type="text"  value="<?=$this->search;?>"name="search" id="search" class="txt-input medium" style="width:300px" />
+                is
+                <select class="select-input small" name="searchin" id="searchin"  >
+                    <option value="cp" <? if($this->searchin == 'cp') echo 'selected = selected'; ?>>Cp name</option>
+                    <option value="name"  <? if($this->searchin == 'name' or '' == $this->searchin) echo 'selected = selected'; ?>>Product name</option>
+                    <option value="product_type" <? if($this->searchin == 'product_type') echo 'selected = selected'; ?>>Product type</option>
+                </select> in 
+                <select class="select-input small" name="tab" id="tab"  >
+                    <option value="tab-all">All contents</option>
+                    <option value="tab-not-approved" <? if($this->selected_tab == 'tab-not-approved' )echo 'selected=selected';?>>Not approved</option>
+                    <option value="tab-under-review" <? if($this->selected_tab == 'tab-under-review' )echo 'selected=selected';?>>Under review</option>
+                    <option value="tab-approved" <? if($this->selected_tab == 'tab-approved' )echo 'selected=selected';?>>Approved</option>
+                    <option value="tab-rejected" <? if($this->selected_tab == 'tab-rejected' )echo 'selected=selected';?>>Rejected</option>
+                    <option value="tab-pending" <? if($this->selected_tab == 'tab-pending' )echo 'selected=selected';?>>Pending Approval</option>
+                </select>
+                <input type="submit" class="button" name="submit" value="Search" />
+                <small>Remove the search value and hit search to get the full list.</small>
+            </form>
+        </div>
+        <div id="content_box">
+            <div class="tab-all">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>Is New</th>
+                            <th>Type</th>
+                            <th>Content status</th>
+                            <th>Created / Updated  on</th>
+                            <th>Operations</th>
+                            <th>Status  views / downloads </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <? foreach($this->products_all as $product): ?>
+
+                        <?= $this->partial('partials/product_simple.phtml',array("product" => $product, 'deleteUriAppend' => $this->deleteUriAppend  )); ?>
+                        
+                        <?endforeach; ?>
+
+                        <?if($this->show_products_all_empty_msg == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                    </tbody>
+                </table>
+                <?= $this->paginationControl($this->products_all,'Sliding','partials/paginator.phtml',array("tab" => 'tab-all',"page_name" => 'page','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+
+             <!-- tab not-approved -->
+            <div class="tab-not-approved">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>Is New</th>
+                            <th>Type</th>
+                            <th>Content status</th>
+                            <th>Created / Updated on </th>
+                            <th>Operations</th>
+                            <th>Status  views / downloads </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->products_not_approved as $product_na): ?>
+                            <?= $this->partial('partials/product_simple.phtml',array("product" => $product_na)); ?>
+                        <?endforeach; ?>
+
+                        <?if($this->show_product_not_approved_empty_msg == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                    </tbody>
+                </table>
+                 <?= $this->paginationControl($this->products_not_approved,'Sliding','partials/paginator.phtml',array("tab" => 'tab-not-approved',"page_name" => 'non_approved','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+            <!-- tab -->
+
+            <!-- tab under-review -->
+            <div class="tab-under-review">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>Is New</th>
+                            <th>Type</th>
+                            <th>Content status</th>
+                            <th>Created / Updated  on</th>
+                            <th>Operations</th>
+                            <th>Status  views / downloads </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->products_under_review as $product_ur): ?>
+                            <?= $this->partial('partials/product_simple.phtml',array("product" => $product_ur)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                    <?if($this->show_products_under_review_empty_msg == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                </table>
+                  <?= $this->paginationControl($this->products_under_review,'Sliding','partials/paginator.phtml',array('tab' => 'tab-under-review','page_name' => 'under_review','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+            <!-- tab -->
+
+             <!-- tab approved -->
+            <div class="tab-approved">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>Is New</th>
+                            <th>Type</th>
+                            <th>Content status</th>
+                            <th>Created / Updated  on </th>
+                            <th>Operations</th>
+                            <th>Status  views / downloads </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?foreach($this->products_approved as $product_app): ?>
+                            <?= $this->partial('partials/product_simple.phtml',array("product" => $product_app)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                    <?if($this->show_products_approved_empty_msg == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                </table>
+                <?= $this->paginationControl($this->products_approved,'Sliding','partials/paginator.phtml',array('tab' => 'tab-approved','page_name' => 'approved','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+            <!-- tab -->
+
+            <!-- tab rejected -->
+            <div class="tab-rejected">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>Is New</th>
+                            <th>Type</th>
+                            <th>Content status</th>
+                            <th>Created / Updated on </th>
+                            <th>Operations</th>
+                            <th>Status  views / downloads </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->products_rejected as $product_rej): ?>
+                            <?= $this->partial('partials/product_simple.phtml',array("product" => $product_rej)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                    <?if($this->show_products_rejected_empty_msg  == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                </table>
+                <?= $this->paginationControl($this->products_rejected,'Sliding','partials/paginator.phtml',array('tab' => 'tab-rejected','page_name' => 'rejected','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+            <!-- tab -->
+            
+            
+            <!-- tab pending -->
+            <div class="tab-pending">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Price</th>
+                            <th>Is New</th>
+                            <th>Type</th>
+                            <th>Content status</th>
+                            <th>Created / Updated   on </th>
+                            <th>Operations</th>
+                            <th>Status  views / downloads </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->productsPending as $productPending): ?>
+                            <?= $this->partial('partials/product_simple.phtml',array("product" => $productPending)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                    <?if($this->show_products_penidng_empty_msg  == true):?>
+                        <tr>
+                            <td colspan="7">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                </table>
+                <?= $this->paginationControl($this->productsPending,'Sliding','partials/paginator.phtml',array('tab' => 'tab-pending','page_name' => 'pending','search_caption' => 'search','search_value' =>$this->search,'searchin'=>'searchin','searchin_value'=>$this->searchin)); ?>
+                 <!-- End Table -->
+            </div>
+            <!-- tab -->
+            
+            
+           
+        </div>
+    </div>
+</div>

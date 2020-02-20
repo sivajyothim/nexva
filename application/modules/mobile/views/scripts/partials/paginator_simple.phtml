@@ -1,0 +1,10 @@
+<div class="pagination b-b"><!-- Previous page link -->
+    <?php if ($this->pageNum > 1) : ?>
+        <a href="<?php echo "http://" . $this->baseUrlfo . "/page/" . ($this->pageNum - 1)?>" class="p-left"> Prev</a>
+    <?php endif;?>
+    
+    <?php if (count($this->products)) : ?>
+    <a href="<?php echo "http://" . $this->baseUrlfo . "/page/" . ($this->pageNum + 1)?>" class="p-right"> Next</a>
+    <?php endif;?>    
+    <br clear="all">
+</div>

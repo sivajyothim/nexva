@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : pboNavigation.xml
+    Created on : August 3, 2012, 6:41 PM
+    Author     : Administrator
+    Description:
+        Purpose of the document follows.
+-->
+
+<configdata>
+
+    <nav>
+        
+        <dashboard>
+            <label>Dashboard</label>
+            <class>nav-top-item no-submenu</class>
+            <controller>index</controller>
+            <action>index</action>
+            <resource>index</resource>
+            <privilege>index</privilege>
+        </dashboard>
+        
+        <app>
+            <label>Apps</label>  
+            <class>nav-top-item no-submenu</class>
+            <uri>#</uri>
+                        
+            <pages>
+                <managefeaturedapps>
+                    <label>Manage Apps</label>                    
+                    <controller>app</controller>
+                    <action>index</action>
+                    <resource>app</resource>
+                    <privilege>index</privilege>
+                </managefeaturedapps>             
+                <managepage>
+                    <label>Filter Apps</label>                    
+                    <controller>app</controller>
+                    <action>filter-apps</action>
+                    <resource>app</resource>
+                    <privilege>filter-apps</privilege>
+                </managepage>
+             </pages> 
+        </app>
+        
+        <user>
+            <label>Users</label>  
+            <class>nav-top-item no-submenu</class>
+            <uri>#</uri>
+            
+            <pages>
+                <allusers>
+                    <label>Registered Users / Developers</label>                    
+                    <controller>user</controller>
+                    <action>index</action>
+                    <resource>user</resource>
+                    <privilege>index</privilege>
+                </allusers>
+             </pages>
+        </user>        
+        
+        <page>
+            <label>Pages</label> 
+            <class>nav-top-item no-submenu</class>
+            <uri>#</uri>
+            
+            <pages>
+                <addpage>
+                    <label>Add New Page</label>                    
+                    <controller>page</controller>
+                    <action>add-page</action>
+                    <resource>page</resource>
+                    <privilege>add-page</privilege>
+                </addpage>             
+                <managepage>
+                    <label>Manage Pages</label>                    
+                    <controller>page</controller>
+                    <action>index</action>
+                    <resource>page</resource>
+                    <privilege>index</privilege>
+                </managepage>
+             </pages> 
+        </page>
+        
+        <menu>
+            <label>Menu Items</label> 
+            <class>nav-top-item no-submenu</class>
+            <uri>#</uri>
+            
+            <pages>
+                <addmenu>
+                    <label>Add New Menu Item</label>                    
+                    <controller>menu</controller>
+                    <action>add-menu</action>
+                    <resource>menu</resource>
+                    <privilege>add-menu</privilege>
+                </addmenu>
+                <managemenu>
+                    <label>Manage Menu Items</label>                    
+                    <controller>menu</controller>
+                    <action>index</action>
+                    <resource>menu</resource>
+                    <privilege>index</privilege>
+                </managemenu>
+             </pages>              
+        </menu>
+        
+        <gateways>
+            <label>Payment Gateways</label> 
+            <class>nav-top-item no-submenu</class>
+            <uri>#</uri>
+            
+            <pages>
+                <managegateway>
+                    <label>Manage Payment Gateways</label>                    
+                    <controller>payment-gateway</controller>
+                    <action>index</action>
+                    <resource>payment-gateway</resource>
+                    <privilege>index</privilege>
+                </managegateway>
+             </pages>              
+        </gateways>
+        
+        <statistics>
+            <label>Statistics</label> 
+            <class>nav-top-item no-submenu</class>
+            <uri>#</uri>
+            
+            <pages>
+                <managegateway>
+                    <label>Statistics</label>                    
+                    <controller>statistic</controller>
+                    <action>index</action>
+                    <resource>statistic</resource>
+                    <privilege>index</privilege>
+                </managegateway>
+             </pages>              
+        </statistics>
+        
+    </nav>
+    
+</configdata>

@@ -1,0 +1,377 @@
+<script type="text/javascript" language="javascript">
+    
+    var $jqFreeColl = jQuery.noConflict();
+    
+    $jqFreeColl(function() {
+
+        $jqFreeColl('#free_col ul').carouFredSel({
+            prev: '#prev_free',
+            next: '#next_free',
+            pagination: "#pager_free",
+            auto: false,
+            scroll: 1000,
+            pauseOnHover: true
+        });
+
+    });
+</script>
+
+<script type="text/javascript" language="javascript">
+    
+    var $jqTopColl = jQuery.noConflict();
+    
+    $jqTopColl(function() {
+
+        $jqTopColl('#premium_collection ul').carouFredSel({
+            prev: '#prev_prem',
+            next: '#next_prem',
+            pagination: "#pager_prem",
+            auto: false,
+            scroll: 1000,
+            pauseOnHover: true
+        });
+
+    });
+</script>
+
+
+<script type="text/javascript" language="javascript">
+    
+    var $jqPremColl = jQuery.noConflict();
+    
+    $jqPremColl(function() {
+
+        $jqPremColl('#top_collection ul').carouFredSel({
+            prev: '#prev_top',
+            next: '#next_top',
+            pagination: "#pager_top",
+            auto: false,
+            scroll: 1000,
+            pauseOnHover: true
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+    // <![CDATA[
+				
+    var $tabJs = jQuery.noConflict();
+ 
+    $tabJs(document).ready(function () 
+    {
+        $tabJs('#menu').tabify();				
+    });
+					
+    // ]]>
+</script>
+<?php if($this->showSlider == 'yes') { ?>
+<div class="template_row" id="banner_area_wrapper">
+
+    <?= $this->render('parts/banner.phtml') ?>
+
+</div>
+<?php } ?>
+
+<!-- Warning popup for MTS Serbija chap -->
+<?php
+if($this->chap_id == 283006){
+    echo $this->render('partials/adult_content_warning_popup.phtml');
+}
+?>
+<!-- Warning popup for MTS serbija chap -->
+
+<div class="template_row" id="main_content_pane">            
+    <div class="height_beem" style="height:300px;">&nbsp;</div> 
+
+    <div class="template_row" id="banner_nav"> </div> 
+
+    <div class="template_row" id="widgets_div">
+<?php if(!$this->mtnIran) :?>
+
+        <div id="home_bcrumbs">
+            <p><!--You Are Here >--><span class="first-heading"><?php echo $this->translate("You Are Here");?></span> <span class="right-arrow"> > </span><span class="title_bar_heading"> <?php echo $this->translate("Home");?></span></p>
+        </div>
+
+        <div id="home_time_area">
+
+            <div id="local_time_div">
+                <p> 
+                
+                <!-- 
+                    <script>
+                                        	
+                        document.write(d_names[curr_day] + " " + curr_date + "<SUP>"
+                            + sup + "</SUP> " + m_names[curr_month] + " " + curr_year+ " ");
+                                 		       
+                        document.write(curr_hour + " : " + curr_min);
+                                           
+                                         
+                    </script>       
+                    
+                     -->                                                                            
+                    <!-- time--> </p>
+            </div>
+            <!--a href="/feedback/" title="Need Help">
+                <div id="nead_help_icon"></div>
+                <div id="nead_help_text">
+                    <p><span class="category_heading"><?php echo $this->translate("Need Help?");?></span> <?php echo $this->translate("Click Here");?></p>
+                </div>
+            </a-->
+<?php if($this->loggedUser == 'none') : ?>
+     <!--   <div class="ticket-link">
+                <div id="nead_help_icon"></div>
+                <span class="category_heading_home"><?= ($this->mtnIran) ? '' : $this->translate("Have an Issue?");?></span>
+                    
+                <div class='popbox'>
+                        <a class='<?= ($this->qelasy || $this->ycoins || $this->caboapps) ? 'qelasy-open' : 'open' ?>' href='<?= ($this->qelasy || $this->ycoins || $this->caboapps) ? '/dashboard' : '#' ?>'>
+                           <?= ($this->mtnIran) ? $this->translate("TICKET_SYS") : $this->translate("Click Here");?>
+                        </a>
+                <div class='collapse'>
+                  <div class='box'>
+                    <div class='arrow'></div>
+                    <div class='arrow-border'></div>
+
+                    <?= $this->partial('partials/login_popup.phtml') ?>
+
+                  </div>
+                </div>
+
+
+                    </div>
+        </div>
+        
+         --> 
+<?php else: ?>
+    <a href="/dashboard/" title="Dashboard">
+        <div class="dashboard-wrap">
+                <div class="dashboard-icon"></div>
+                <div id="nead_help_text">
+                    <p><span class="dashboard-text"><?php echo $this->translate("Dashboard");?></span></p>
+                </div>
+        </div>
+    </a>
+<?php endif; ?>
+        </div>
+<?php endif; ?>
+        
+    </div> 
+
+    <!--                        <div id="horizontal_dotted_line"></div>-->
+    <div class="space_div"></div>
+    <div class="template_row" id="middle_area_top_wrapper"> 
+
+        <div id="main_left_pane">
+
+            <div class="space_div"></div>
+
+            <div id="category_wrapper">
+
+                <div id="category_top">
+                    <h1><span class="category_heading"><?php echo ($this->mtnIran) ? '' : $this->translate("Top"); //MTN IRan ?></span> <?php echo $this->translate("Categories");?></h1>
+                </div>
+                <div id="category_middle">
+                    <ul>   
+                        
+                        <? 
+$sessionAdultsContent = new Zend_Session_Namespace('content');
+if(!count($this->categories)){
+    echo 'Assign Categories for this CHAP via PBO login.';
+}
+$parents = $this->categories;
+foreach ($parents as $parent): ?>
+
+<?php 
+
+if($sessionAdultsContent->content != 'adults' && $parent['main_cat'] == 201) 
+    continue;
+?>
+<?php //Zend_Debug::dump($parent); //echo $parent['main_cat'].'##'.$this->selectedCategory ?>
+                                    
+<? 
+//if ($this->selectedCategory == $parent['main_cat']): 
+if ($this->parentCategoryId == $parent['main_cat']):
+?>
+
+
+    <li> <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($parent['name']); ?>/<?= $parent['main_cat']; ?>"> <?= $parent['name']; ?>  </a> </li>
+    
+    <ul>
+        <div class="sub_menu_list" id="sub_menu_list_<?= $parent['main_cat']; ?>">
+        <? foreach ($parent['sub_cat'] as $child): ?>
+            <li> 
+                <a class="<?= ($this->selectedCategory == $child['cat_id']) ? 'active-cat' : '' ?>" href="<?= $this->baseUri; ?>/category/<?= $this->slug($child['name']); ?>/<?= $child['cat_id']; ?>"> <?= $child['name']; ?> </a>
+            </li>
+<? endforeach; ?>
+    </div></ul>
+    <div class="category_li_hsep"></div> 
+<? else: ?> 
+  <!--li> 
+        <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($parent['name']); ?>/<?= $parent['main_cat']; ?>"> <?= $parent['name']; ?>  </a> 
+  </li>  
+    <div class="category_li_hsep"></div--> 
+
+<li> 
+    <a style="cursor: pointer;" onclick="getSubMenus(<?= $parent['main_cat']; ?>);" class="top-category"> <?= $parent['name']; ?>  </a> 
+    <div id="preloader_<?= $parent['main_cat']; ?>" class="display_none" style="float: right;"><span class="ui-autocomplete-loading"></span></div> 
+</li>        
+<div class="sub_menu_list" id="sub_menu_list_<?= $parent['main_cat']; ?>"></div>
+<div class="category_li_hsep"></div>
+    <? endif; ?>
+
+<? endforeach; ?>
+
+                        <?php /*$parents = $this->categories;
+                        foreach ($parents as $parent): ?>
+
+                            <? if ($this->selectedCategory == $parent['main_cat']): ?>
+                                <li> <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($parent['main_cat']); ?>/<?= $parent['main_cat']; ?>"> <?php echo $this->translate($parent['name']); ?>  </a> </li>
+
+                                <ul>
+                                    <? foreach ($parent['sub_cat'] as $child): ?>
+                                        <li> 
+                                            <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($child['cat_id']); ?>/<?= $child['cat_id']; ?>"> <?= $child['name']; ?> </a>
+                                        </li>
+                                    <? endforeach; ?>
+                                </ul>
+                                <div class="category_li_hsep"></div> 
+                            <? else: ?> 
+                                <li> 
+                                    <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($parent['name']); ?>/<?= $parent['main_cat']; ?>"> <?= $parent['name']; ?>  </a> 
+                                </li>  
+                                <div class="category_li_hsep"></div> 
+                            <? endif; ?>
+
+                        <? endforeach; */?>
+                    </ul>
+
+                </div>
+                <div id="category_bottom"></div>
+
+                <div class="space_div"></div>
+                <div class="space_div"></div>
+            </div>
+
+            <?php if(!$this->mtnIran): ?>
+            <div id="need_help_text_wrapper">
+                <p><?php echo $this->translate("Need Help?");?><a href="/feedback/" title="Need Help"> <?php echo $this->translate("Click Here");?></a></p>
+                <?php /*if($this->mtnIran) { ?>
+                    <p><a href="/feedback/" title="Need Help"> <?php echo $this->translate("FEEDBACK_SYS");?></a></p>
+                <?php } else { ?>
+                    <p><?php echo $this->translate("Need Help?");?><a href="/feedback/" title="Need Help"> <?php echo $this->translate("Click Here");?></a></p>
+                <?php }*/ ?>
+            </div>
+            <?php endif; ?>
+            
+            <div class="space_div"></div>
+<!--
+            <div id="social_plugins_wrapper">
+                <div id="plugin_container">
+                      
+                    <?php // $this->render('parts/addthis_widget.phtml') ?>
+                    
+                </div>
+            </div>-->
+
+        </div>
+
+
+        <div id="main_right_pane">
+
+            <?php if($this->showFeaturedApps == 'yes') { ?>
+            <div class="title_bar">
+                <?php if($this->mtnIran || $this->ycoins || $this->chap_id == 324405) { ?>
+                   <h1><span class="title_bar_heading"><?php echo $this->translate("FEATURED_APPS");?></span></h1>
+                <?php } else { ?>
+                   <h1><?php echo $this->translate("Featured");?>&nbsp;<span class="title_bar_heading">
+                <?php if($this->chap_id != 585480 and $this->chap_id !=  585474) :?>       <?php echo $this->translate("Apps");?> 	    <?php endif;?>
+                   </span></h1>
+                <?php } ?>
+                
+            </div>
+
+            <div id="staff_pick_wrapper">
+                <div class="box_content_top"></div>
+                <div class="box_content_middle">
+
+                    <?= $this->render('parts/staff_picks.phtml') ?> 
+
+                </div>
+                <div class="box_content_footer"></div>
+            </div>
+            <?php } ?>
+            
+            <div class="title_bar">
+                <div class="title_bar_left">
+                    <?php if($this->mtnIran || $this->ycoins  || $this->chap_id == 324405) { ?>
+                        <h1><span class="title_bar_heading2"><?php echo $this->translate("MOSTVIEWED_APPS");?> </span></h1>
+                    <?php } else { ?>
+                        <h1><span class="title_bar_heading2"><?php echo $this->translate("Most");?> </span>
+                        
+                        <?php echo $this->translate("viewed collection")?></h1>
+                    <?php } ?>
+
+                </div>
+                <div class="title_bar_right">
+                    
+                    <?php if($this->mtnIran || $this->ycoins  || $this->chap_id == 324405) { ?>
+                        <h1><span class="title_bar_heading"><?php echo $this->translate("NEWEST_APPS");?> </span></h1>
+                    <?php } else { ?>
+                        <h1><span class="title_bar_heading"><?php echo $this->translate("Newest");?>  </span><?php if($this->chap_id != 585480 and $this->chap_id !=  585474) :?>  <?php echo $this->translate("collection");?>    <?php endif;?></h1>
+                    <?php } ?>
+                    
+                </div>
+            </div>
+
+            <div id="most_viewed_wrapper">
+                <div class="box_content_top"></div>
+                <div class="box_content_middle">
+                    <div id="most_viewed_inner">                                                   
+                        <?= $this->render('parts/most_viewed.phtml') ?>                                                        
+                    </div>
+                    <div id="most_viewed_vsep"></div>
+                    <div id="newest_inner">
+
+                        <?= $this->render('parts/newest.phtml') ?> 
+                    </div>
+                </div>
+                <div class="box_content_footer"></div>
+            </div>
+            
+            <?php if(!(($this->showTopFreeApps == 'no') AND ($this->showTopPaidApps == 'no') AND ($this->showTopDownloadedApps == 'no'))) { ?>
+            <div id="tabs_wrapper">
+                <div id="tab_bar">
+                    <ul id="menu" class="menu">
+                        <?php if($this->showTopFreeApps == 'yes') { ?><li class="active"><a href="#free_apps"><?php echo $this->translate("Top Free");?></a></li><?php } ?>
+                        <?php if($this->showTopPaidApps == 'yes') { ?><li <?php if(($this->showTopFreeApps == 'no')){ echo 'class="active"';}?> ><a href="#premium_apps"><?php echo $this->translate("Top Paid");?></a></li><?php } ?>
+                        <?php if($this->showTopDownloadedApps == 'yes') { ?><li <?php if(($this->showTopFreeApps == 'no') && ($this->showTopPaidApps == 'no')){ echo 'class="active"';}?> ><a href="#top_apps"><?php echo $this->translate("Top Downloads");?></a></li><?php } ?>
+                    </ul>
+                </div>
+
+                <div class="box_content_top"></div>
+                <div class="box_content_middle"> 
+
+                    <?php if($this->showTopFreeApps == 'yes') {
+                        echo $this->render('parts/free_collection.phtml') ;
+                    } ?>
+                    <?php if($this->showTopPaidApps == 'yes') {
+                        echo $this->render('parts/premium_collection.phtml');
+                    } ?>
+                    <?php  if($this->showTopDownloadedApps == 'yes') {
+                        echo $this->render('parts/top_collection.phtml') ;
+                    } ?>
+
+                    <div class="box_content_dottedt_line"></div>
+                    <div class="tab_selection_bottom"></div>
+
+                </div>
+                <div class="box_content_footer"></div>
+            </div>
+            <?php } ?>
+            
+        </div>
+    </div>
+
+</div>
+
+

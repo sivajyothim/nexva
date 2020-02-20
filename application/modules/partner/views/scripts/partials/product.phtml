@@ -1,0 +1,148 @@
+<?php
+$currency = $this->ChangeCurrency($this->chap_id);
+switch($this->chap_id){
+    case 23045:
+        $mtnIran = TRUE;
+        break;
+    
+    case 81604:
+        $qelasy = TRUE;
+        break;
+    
+    case 25022:
+        $airtelSrilanka = TRUE;
+        break;
+}
+?>
+<? foreach($this->products as $product): ?>
+	
+	<div class="inr_tabs_wrapper">
+		<div class="inr_tab_bar"><?php if(!$mtnIran): ?><span class="inr_brdcrtxt_pur">+</span> <?php endif; ?>
+			<span class="inr_brdcrtxt_grey"><?=$product['name']; ?></span>
+		</div>
+	<div class="box_content_top"></div>
+	<div class="box_content_middle">
+	<div class="inrtab_selection_top">
+	<!-- db val here-->
+	<div class="inrtab_selection_top_part">
+	<div class="cat_left_part" align="center" style="">
+		 
+		  <?php $htmlOpts = array('alt' => $product['name'], 'autoheight' => 1, 'class' => 'a.pro_image_link');?>
+          <?=$this->thumbnail($product['thumb'], array('w' => 150, 'h' => 150, 'zc' => 1), $htmlOpts); ?>
+
+	</div>
+
+	<div class="cat_right_part">
+	<div class="cat_right_des"><span class="orange_cat_des"><?php echo $this->translate("Description");?> <br />
+	</span> <span class="generaltext_cat_des"> <?=$this->trim(strip_tags($product['desc_brief']),400); ?> </span></div>
+	
+            
+	<div class="cat_right_rating">
+	<div class="cat_rat_left"><span class="generaltext_cat_des"><b><?php 
+            if(!in_array($this->chap_id, array(585474,585480))){
+                echo $this->translate("Rate").' : ';
+            } ?>  </b></span>
+	<?=$this->partial('partials/rating.phtml', array('product_id'=>$product['id'], 'avgRating'=>$product['avg_rating'], 'totalRatings'=>$product['total_ratings'], 'productRated'=>$product['product_rated'])); ?></div>
+	
+	<div class="cat_rat_right"><span class="vendor_text"><b><?php echo $this->translate("Price");?> : </b></span>
+	<span class="generaltext_cat_des">
+            <span class="price-pr">
+        <?php if(!empty($currency) && ($product['cost'] != 0)){ 
+                echo $this->translate($currency[0]['code']);} else { echo $this->translate('Free');
+                } 
+        ?> 
+            </span>
+            <span class="amount-pr">
+        <?php if(!empty($currency) && ($product['cost'] != 0)){ 
+            /*if($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){
+                echo $currency[0]['symbol_web'].'##';
+                print_r($currency[0]);
+            }*/
+                   echo number_format($this->PricePoints(ceil($currency[0]['rate']*$product['cost'])),($mtnIran) ? 0 : 2, '.', ',');
+                  
+                }else{  
+                    
+                } 
+        ?></span></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="inrtab_selection_btm_part">
+	<div class="btn_cal_left"><span class="generaltext_cat_des"><b></b></span> <span class="generaltext_cat_des"></span>
+        
+        <div class="support-platforms">
+            <p class="platform_list_mostviewd">
+                <!--span class="platform-title"><?php //echo $this->translate("Supported Formats");?> : </span-->
+                <?php if($this->showPlatformIcons): ?>
+                    <?php foreach($product['supported_platforms'] as $platform) : ?>
+                       <img src="/partner/default/assets/img/platforms/<?php echo $platform->id;?>.png" width="22" height="22" alt="<?php echo $platform->name;?>" title="<?php echo $platform->name;?>"/> 
+                    <?php    
+                    endforeach;
+                    ?>
+                <?php endif; ?>
+            </p>
+        </div>
+            
+	<?php if($this->showPlatformIcons): ?><span class="generaltext_cat_des">&nbsp;&nbsp;&nbsp;&nbsp;|</span><?php endif; ?>
+        <span class="vendor_text"><b><?php echo $this->translate("Vendor");?>:</b></span> <span class="generaltext_cat_des"><?=$product['user_meta']->COMPANY_NAME?></span>
+        </div>
+	
+	<div class="btn_cal_right">
+            
+            <?php if($mtnIran || $qelasy) : ?>
+                 <a href="<?=$this->baseUri;?>/app/<?=$this->slug($product['name']);?>.<?=$product['id']?>" class="download-btn detail-btn"><?php echo $this->translate("More Details");?></a>  
+            <?php else: ?>
+                 <a href="<?=$this->baseUri;?>/app/<?=$this->slug($product['name']);?>.<?=$product['id']?>"> 
+                    <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("More Details");?></span><span class="slider-button-right">&nbsp;</span></div>
+                    <!--<img src="<?=$this->baseUri;?>/partner/default/assets/img/sli_images/006_header_more_details.png" border="0" />-->
+                </a>
+            <?php endif; ?>
+	
+            <!-- if the app has multiple platform change the link to platform selection popup -->
+                <?php
+                if($product['app_platform_type'] == 'MULTIPLE_AND_ANDROID' && count($product['supported_platforms']) > 1):
+                ?>
+                    <?php if($mtnIran || $qelasy) : ?>
+                        <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $product['id'];?>" class="platform_select">
+                            <div class="download-btn" id="apps_<?php echo $product['id'];?>" onClick="getSupportedPlatformsByAppId(<?= $product['id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $product['id'];?>);"><?php echo $this->translate("Download");?></div>  
+                        </a>
+                   <?php else: ?>
+                        <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $product['id'];?>" class="platform_select">
+                            <span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><p onClick="getSupportedPlatformsByAppId(<?= $product['id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $product['id'];?>);"><?php echo $this->translate("Download");?></p></span><span class="slider-button-right">&nbsp;</span>
+                        </a>
+                    <?php endif; ?>
+                    
+                <?php
+                else:
+                ?>  
+                         <?php if($mtnIran || $qelasy) : ?>
+                            <a href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid;?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$product['id']?>" rel="shadowbox;height=530;width=600" class="download-btn nexlink"><?php echo $this->translate("Download");?></a>  
+                         <?php else: ?>
+                            <a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid;?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$product['id']?>">
+                            <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Download");?></span><span class="slider-button-right">&nbsp;</span></div>
+                            <!--<img src="<?=$this->baseUri;?>/partner/default/assets/img/dtls_download.jpg" border="0" />-->
+                            </a>
+                         <?php endif; ?>
+                    
+                <?php
+                endif;
+                ?>
+                      
+		<!--<a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid;?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$product['id']?>">
+		    <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Download");?></span><span class="slider-button-right">&nbsp;</span></div>
+                    
+		</a>-->
+	</div>
+	
+	</div>
+	<!-- db val here-->
+	</div>
+	
+	<!--                                                    <div class="tab_selection_bottom"></div>-->
+	
+	</div>
+	<div class="box_content_footer"></div>
+	</div>
+	<!-- box one-->
+	<?endforeach;?>

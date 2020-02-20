@@ -1,0 +1,78 @@
+<div class="ui-grid-solo">
+    <?php
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->translate($this->escape($message));
+                };?>
+            </span></span></div>
+    <?php }
+    ?>
+</div>
+<?php $currency = $this->ChangeCurrency($this->partnerId);?>
+<?php if(!$this->isHeaderEnrichmentActive && $this->showRegisterLink):  ?>
+ <?php if($this->chapId != 935529){ ?>
+<a href="/user/update-profile" data-role="button" data-icon="star"><?php echo $this->translate("Update Profile");?></a>
+ <?php } ?>
+<a href="/user/reset-password" data-role="button" data-icon="star"><?php echo $this->translate("Reset Password");?></a>
+
+<a href="/user/change-mobile" data-role="button" data-icon="star"><?php echo $this->translate("Change Mobile");?></a>
+
+<?php endif; ?>
+
+<a href="/index/terms" data-role="button" data-icon="star"><?php echo $this->translate("Terms & Conditions");?></a>
+
+<a href="/index/aboutus" data-role="button" data-icon="star"><?php echo $this->translate("About Us");?></a>
+
+<a href="<?php echo PROJECT_BASEPATH;?>ticket/view-tickets" data-role="button" data-icon="star"><?php echo $this->translate("View my ticket");?></a>
+
+<a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket" data-role="button" data-icon="star"><?php echo $this->translate("Add a ticket");?></a>
+
+<?php //$currency = $this->ChangeCurrency($this->chap_id);?>
+<h2 class="font-size-16"><?php echo $this->translate("Downloaded Apps");?></h2>
+    <ul data-role="listview" data-inset="true" class="ui-icon-alt">
+
+        <?php
+        $x = 0;
+        foreach($this->downloadedApps as $app) :  
+            $x++;
+            ?>
+        <li id="custom-li">
+            <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external">
+                <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" />
+                <h3><?= $app['name'] ?></h3>
+                <p><?= $this->trim($app['vendor'],18) ?></p>
+<!--                <div id="rating">
+                     <?= $this->partial('partials/rating_inner.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+                </div>-->
+            </a>
+            <? if($app['price'] > 0) : ?>
+                        
+                        <span class="ui-li-count">
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '$';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo $app['price']; } */?>
+                            <?php /* if($this->airtelSriLanka) : ?>  
+                                <?php echo $this->currencyDetails["symbol_web"]. " ".number_format($this->AirtelPricePoints(ceil($app['price']*$this->currencyDetails["rate"])),2, '.', ',');?>
+                            <?php else: ?>
+                                <?php echo $this->currencyDetails["symbol_web"]. " ".number_format(ceil(($app['price']*$this->currencyDetails["rate"])),2);?>
+                            <?php endif;*/ ?>
+                            
+                            <?php if($this->mtnIran){ ?>
+                                <?php echo (($app['price']) > 0) ? number_format($this->PricePoints(ceil($app['price']*$this->currencyDetails["rate"])),0, '.', ',').' '.$this->translate($currency[0]['symbol']) : $this->translate("Free") ;?>  
+                            <?php } else { ?>
+                                <?php echo (($app['price']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($app['price']*$this->currencyDetails["rate"])),2, '.', ',') : $this->translate("Free") ;?>  
+                            <?php } ?>
+                            
+                        </span>
+            
+                    <? else : ?>
+                        
+                        <span class="ui-li-count"><?php echo $this->translate("Download");?></span>
+                        
+                    <? endif; ?>
+            <?= ($app['updates_available'] == 1) ? '<span class="update-available">!</span>' : ''; ?>
+        </li>
+
+        <? endforeach; ?>
+    </ul>

@@ -1,0 +1,15 @@
+<!-- Start Form -->
+<div class="description">
+    <? 
+    
+    $request = Zend_Controller_Front::getInstance()->getRequest();  ?>
+    <form method="POST" action="" name="user_register" id="user_register">
+        <label>E-mail*</label>
+        <input name="email" id="email" type="text" class="utility-text"  value="<?=$request->email?>"/>
+        <br clear="all" />
+        <input type="submit" class="button" name="submit" id="submit" value="Signup" />
+    </form>
+    <p>
+        Have an account? <a href="/user/login">Login here.</a>
+    </p>
+</div>

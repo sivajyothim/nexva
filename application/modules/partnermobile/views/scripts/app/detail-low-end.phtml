@@ -1,0 +1,112 @@
+<?php if(($this->qelasy || $this->ycoins || $this->caboapps || $this->mtnIran || $this->airtelNigeria) && $this->buildUrl && $this->buildUrlAvailable) { ?>
+<script>
+$( window ).load(function() {
+    window.location = "<?= $this->buildUrl; ?>";
+});
+
+//$( "#popup-enter-mobile" ).popup( "open", options );
+</script>
+<?php } ?>
+<?php $currency = $this->ChangeCurrency($this->partnerId);?>
+<?php if (count($this->errorMsgApp)) : ?>          
+
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text">
+       
+                    <?php foreach ($this->errorMsgApp as $message) : ?>
+
+                        <h5 class="font-size-12 ui-li-heading" style="white-space: normal"><?= $this->escape($message); ?></h5>
+
+                    <?php endforeach; ?>
+               </span></span></div>
+
+    <?php endif; ?>
+        
+      <ul class="ui-listview">
+        <li class="ui-li ui-li-static ui-btn-up-d ui-first-child ui-last-child">
+          <div class="ui-grid-a">
+             <div class="ui-block-a"><?= ($this->product['updates_available'] == 1) ? '<span class="update-available-details">Update Available!</span>' : ''; ?><img class="ui-li-thumb-inner-large" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->product['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>"></div>
+            <div class="ui-block-b">
+            <h2 style="white-space: normal" class="font-red-size-16 ui-li-heading"><?= $this->product['name']; ?></h2>
+              <h3 style="white-space: normal" class="blue-color ui-li-heading"><?= $this->product['vendor']; ?></h3>
+              <?php /*if($this->avgApproved): ?>
+              <div><a href="http://www.avg.com" target="_blank"><img id="avg" src="/partner/default/assets/img/avg.png" style="width: 60px; position:relative; top:2px;"/></a></div>
+              <div class="avg-tagline">Protect your phone</div>
+              <?php endif; */ ?>
+                    <div style="cursor: pointer;" id="rating1"><?= $this->partial('partials/rating.phtml', array('product_id' => $this->product['id'], 'avgRating' => $this->product['avg_rating'], 'totalRatings' => $this->product['total_ratings'], 'productRated' => $this->product['product_rated'], 'page' => 'detail')); ?></div>
+            </div>
+          </div>
+
+          <div class="ui-grid-a">
+            <div class="ui-block-a"> <a class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-left ui-btn-up-a border-yellow" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="#" data-role="button" data-icon="custom" id="priceicon" data-mini="true" data-iconpos="left" data-theme="a"><span class="ui-btn-inner"><span class="ui-btn-text">
+                            
+                   (
+                        <?/*= ($this->product['cost']) > 0 ? ((!empty($currency) && !is_null($currency)) ? $currency[0]['symbol'].' '.number_format(ceil($currency[0]['rate']*$this->product['cost']),2, '.', ',') : '$ '.$this->product['cost']) : 'Free' */    /*number_format($number, 2, '.', '');*/  ?>
+                        <!-- to be change -->
+                        <?/*= ($this->product['cost']) > 0 ? ((!empty($currency) && !is_null($currency)) ? $currency[0]['symbol'].' '.number_format(ceil($currency[0]['rate']*$this->product['cost']),2, '.', ',') : '₦ '.number_format(($this->product['cost'])*165,2) ): 'Free' */?>
+                        <?php //echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(($this->product['cost']*$this->currencyDetails["rate"]),2) : $this->translate("Free") ;?>
+                        <?php /*echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(ceil($this->product['cost']*$this->currencyDetails["rate"]),2, '.', ',') : $this->translate("Free") ;*/ ?>
+                        <?php //echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($this->product['cost']*$this->currencyDetails["rate"])),2, '.', ',') : $this->translate("Free") ;?>  
+           
+                        <?php if($this->mtnIran){ ?>
+                               <?php echo (($this->product['cost']) > 0) ? number_format($this->PricePoints(ceil($this->product['cost']*$this->currencyDetails["rate"])),0, '.', ',').' '.$this->translate($currency[0]['symbol']) : $this->translate("Free") ;?>                      
+                        <?php } else { ?>
+                              <?php echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($this->product['cost']*$this->currencyDetails["rate"])),2, '.', ',') : $this->translate("Free") ;?>                       
+                        <?php } ?>
+                        
+                    )
+                    
+                        </span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></div>
+            <div class="ui-block-b">
+          
+            <?php 
+                    if(Zend_Auth::getInstance()->hasIdentity() || $this->allowFreeDownload) :
+                ?>
+                    <a href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->product['cost']) > 0  && ($this->buildType != 'urls' )) ? 'buy' : 'download'?>/id/<?=$this->product['id']?>/build/<?=$this->product['build_id']?>" id="downloadheadericon" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-left ui-btn-up-c">
+                        <span class="ui-btn-inner"><span class="ui-btn-text">
+                        <?= ($this->product['cost']) > 0 ? $this->translate("Buy") : $this->translate("Download") ?>
+                    </span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a>
+                <?php 
+                
+                    else:
+                ?>                
+                    <a href="/user/login" id="buyicon" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-left ui-btn-up-c"><span class="ui-btn-inner"><span class="ui-btn-text">
+                        <?= ($this->product['cost']) > 0 ? $this->translate("Buy") : $this->translate("Download") ?>
+                    </span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a>
+                <?php 
+                
+                    endif;
+                ?>
+            
+          
+          </div>
+        </li>
+        
+        <li class="ui-li ui-li-divider ui-bar-b" role="heading" data-role="list-divider" data-theme="b"><?php echo $this->translate("Description");?></li>
+             <li class="ui-li ui-li-static ui-btn-up-d">
+             <div class="ui-grid-solo">
+                    <div class="ui-block-a"><h5 style="white-space: normal" class="font-size-12 ui-li-heading">
+ <?= $this->product['desc']; ?></h5></div>
+                </div>
+              </li>
+              
+              <li class="ui-li ui-li-divider ui-bar-b" role="heading" data-role="list-divider" data-theme="b"><?php echo $this->translate("Screenshots");?></li>
+              <li class="ui-li ui-li-static ui-btn-up-d ui-last-child">
+<div align="center">
+
+     <?php
+                    $x = 0;
+                    foreach ($this->product['screenshots'] as $screenshot): 
+                    $x++; 
+                    
+                ?>
+ 
+                            <a href="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($screenshot)."&w=320&h=480&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" class="ui-li-thumb-inner">
+                                <?php $htmlOpts = array('alt' => $this->product['name'], 'autoheight' => 0, 'id' => 'prod_poster'); ?>
+                                    <?= $this->thumbnail($screenshot, array('w' => 100, 'h' => 100, 'zc' => 1), $htmlOpts); ?>
+                            </a>
+             
+               <?php endforeach; ?>  
+    
+              </div>
+    </li>
+</ul>

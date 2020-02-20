@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render
+END
+login.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render/login.php
+END
+idpage.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render/idpage.php
+END
+about.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render/about.php
+END
+idpXrds.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render/idpXrds.php
+END
+userXrds.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render/userXrds.php
+END
+trust.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/server/lib/render/trust.php
+END

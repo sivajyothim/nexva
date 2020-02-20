@@ -1,0 +1,28 @@
+<div class="pagination b-b"><!-- Previous page link -->
+    
+    <?php
+				
+				if (isset ( $this->previous )) :
+					?>
+    <?php
+					echo "<a class='p-left' href='http://" . $this->baseUrlfo . "/go/" . $this->previous . "/#content'> Prev</a>";
+					?>
+    
+				<?php endif;
+				?>
+    <?=$this->current . ' of ' . $this->pageCount?>
+    <!-- Next page link -->
+    <?php
+				if (isset ( $this->next )) :
+					?>
+     <?php
+					echo "<a class='p-right' href='http://" . $this->baseUrlfo . "/go/" . $this->next . "/#content'> Next</a>";
+					?>
+    
+				<?php endif;
+				?>
+
+    <!--    <a href="#" class="p-left">Prev</a>
+        <a href="#" class="p-right">Next </a>
+    --> <br clear="all" />
+</div>

@@ -1,0 +1,39 @@
+<link href="css/nexva.css" rel="stylesheet" type="text/css" />
+<form id="signup" name="signup">
+	<div class="inputFld"><label>First Name</label><input name="firstname" id="firstname" type="text" /></div>
+    <div class="inputArea"><label>Address</label><div class="textarea"><textarea name="address" id="address"></textarea></div></div>
+    <div class="inputFld">
+      <label>Gender</label>
+      <select name="" id="">
+    	<option value="1">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+    	<option value="2">test</option>
+      </select>
+    </div>
+    <div class="inputArea">
+      <label>Meals per day</label>
+      <div class="textarea">
+        <select name="" size="3" id="">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+      </div>
+    </div>
+    <ul class="btn">
+      <li><a href="#" id="rest">submit</a></li>
+      <li><a href="#" id="submit">reset</a></li>
+    </ul>
+</form>

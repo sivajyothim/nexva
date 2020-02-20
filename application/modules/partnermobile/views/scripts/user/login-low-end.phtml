@@ -1,0 +1,129 @@
+<script type="text/javascript">
+    $().ready(function(){
+        $("#register").click(function(){
+            window.location.href = '/user/register';
+        });
+    });
+</script>
+
+<?php
+$url = '/user/login';
+switch($this->chapId){
+    case 23045:
+    case 115189:
+    case 81604:
+        $url = '/user/remote-login';
+        break;
+
+    default:
+        $url = '/user/login';
+        break;
+}
+
+$mobileNo = '';
+
+if(isset($this->mobileNo) && !empty($this->mobileNo)){
+    $mobileNo = $this->mobileNo;
+}
+
+elseif($this->chapId == 25022){
+    $mobileNo = 9475;
+}
+elseif($this->chapId == 33644){
+	$mobileNo = '24206xxxxxxx';
+}
+elseif($this->chapId == 80184){
+        $mobileNo = '256xxxxxxxxx';
+}
+elseif($this->chapId == 23045){
+    $mobileNo = 98;
+}
+elseif($this->chapId == 114306){
+    $mobileNo = '(e.g. 250222222222)';
+}
+elseif($this->chapId == 81449){
+	$mobileNo = '(e.g. 25073xxxxxxx)';
+}
+elseif($this->chapId == 110721){
+    $mobileNo = '241xxxxxxxx';
+}
+elseif($this->chapId == 274515){
+    $mobileNo = '227xxxxxxxxxx';
+}
+elseif($this->chapId == 163302){
+    $mobileNo = '(e.g. 265XXXXXXXXXX)';
+}
+elseif($this->chapId == 276531){
+	$mobileNo = '(e.g. 225XXXXXXXX)';
+}
+elseif($this->chapId == 320345){
+	$mobileNo = '(e.g. 229XXXXXXXX)';
+}
+else{
+
+}
+
+?>
+    <div class="ui-content ui-body-d">
+      <h2><?php echo $this->translate("Sign In");?></h2> 
+       <div class="ui-body ui-body-c bg-color-white">
+           
+           
+<div class="ui-grid-solo">
+    <?php
+    if($this->error)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php echo $this->translate($this->error);?>
+        </span></span></div>
+    <?php }
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->translate($this->escape($message));
+                };?>
+            </span></span></div>
+    <?php }
+    ?>
+</div>
+<form action="<?= $url ?>" method="post" id="frm_login" name="frm_login" data-ajax="false">
+ 
+    <?php if($this->headerEnrichment || $this->chapId == 23045) : ?>
+        <fieldset class="ui-field-contain ui-body ui-br"><label for="phone_number" class="ui-input-text"><?php echo $this->translate("Phone Number");?> :</label><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input dir="ltr" type="text" name="mobile_no" id="mobile_no" class="required number ui-input-text ui-body-c" minlength="5" value="<?= $mobileNo ; ?>" ></div></fieldset>
+    <?php else: ?>
+        <fieldset class="ui-field-contain ui-body ui-br"><label for="username" class="ui-input-text"><?php echo $this->translate("Email");?> :</label><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input dir="ltr" type="text" name="username" id="username" class="required ui-input-text ui-body-c" minlength="5" value="" ></div></fieldset>
+    <?php endif; ?>
+    <fieldset class="ui-field-contain ui-body ui-br"><label for="username" class="ui-input-text"><?php echo $this->translate("Password");?> :</label><div class="ui-input-text ui-shadow-inset ui-corner-all ui-btn-shadow ui-body-c"><input dir="ltr" type="password" name="password" id="password" class="required ui-input-text ui-body-c" minlength="5" value="" ></div></fieldset>
+
+<!--    
+	<fieldset data-role="fieldcontain"> 
+		<label for="username">Email:</label>
+		<input type="text" name="username" id="username" class="required" minlength="5" value="">
+	</fieldset>
+ 
+	<fieldset data-role="fieldcontain"> 
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="password" class="required" minlength="5" value="">
+	</fieldset>-->
+
+<div id="register" class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text">&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Sign In");?></span></span><input type="submit" value="Sign In" class="ui-btn-hidden" id="btn_submit" name="btn_submit"></div>
+
+<?php if($this->showRegisterLink) { ?>
+    <a id="register" href="/user/register" class="ui-btn ui-shadow ui-btn-icon-left ui-first-child ui-btn-up-d grey-color-bg"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Sign Up");?></span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a>
+<?php } ?>
+<?php if($this->showForgotPasswordLink) { ?>
+    <a id="forgotpwd" href="/user/forgot-password" class="ui-btn ui-shadow ui-btn-icon-left ui-first-child ui-btn-up-d grey-color-bg"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Forgot Password?");?></span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a>
+<?php } ?>
+<!--<div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text">Sign In</span></span><input type="submit" value="Sign In" class="ui-btn-hidden" id="btn_submit" name="btn_submit"></div>-->
+
+<!--	<input type="submit" id="btn_submit" name="btn_submit" value="Sign In">-->
+
+</form>
+<!--<div style="text-align:right;">
+    <a href="/user/forgot-password" style="text-align: right">Forgot Password?</a>
+</div>-->
+
+<!--<button id="register">Sign Up</button>-->
+       </div></div>

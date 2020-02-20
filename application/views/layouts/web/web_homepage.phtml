@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+         
+        <?php if ($this->headTitle() != '<title></title>') : ?>
+            <?=$this->headTitle();?>
+        <?php else : ?>
+            <title>neXva.com - mobile reloaded</title>
+        <?php endif; ?>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <?php $this->siteVersion()->appendVersion(); //versioning resources?>
+        <meta name="google-site-verification" content="jSMdInfMYCjRf9PaaT01TyECI8H_lPFSQWSu1M0rpVQ" />
+        
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/nexva.css<?=$this->VER?>">
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/css/common.css<?=$this->VER?>">  
+
+        <!--[if IE ]>
+            <link type="text/css" rel="stylesheet" href="/web/ie_tweaks.css<?=$this->VER?>">
+        <![endif]-->  
+        <link href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css<?=$this->VER?>" type="text/css" rel="stylesheet">
+        <link href="<?=$this->cdn('site_assets')?>/web/css/thickbox.css" type="text/css" rel="stylesheet">
+        
+        <?php echo $this->headLink() ?>
+        
+       <!-- <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/libraries/jquery-1.4.2.js<?=$this->VER?>"></script> -->
+       <!-- <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/common/js/jquery/jquery-ui-1.8.9.min.js<?=$this->VER?>"></script> -->
+       
+       <script type="text/javascript" src="<?=$this->cdn('jquiry')?>"></script> 
+       <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+       <script type="text/javascript">
+            if(!window.jQuery) {
+                document.write('<script src="<?=$this->cdn('site_assets')?>/web/js/jquery-1.5.1.min.js">\x3C/script>');
+                document.write('<script src="<?=$this->cdn('site_assets')?>/web/js/jquery-ui-1.8.10.min.js">\x3C/script>')
+            }
+        </script>
+       
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/nexva.js<?=$this->VER?>"> </script>
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/common.js<?=$this->VER?>"></script>
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/common/js/jquery/plugins/equalheights/jquery.equalheights.js<?=$this->VER?>"></script>
+        <script type="text/javascript">
+        var __FIRST_LOAD    = true;
+            $(document).ready(function() {
+                alignPage();
+                searchSgHide ();
+                hideOverlays();
+                setBackground ();
+                //loadFeatAppList();
+                //startSession ();
+                $(".productBlock .blkHead").equalHeights();
+                $("#phoneSelect input:button").button();
+
+                <?php if ($this->showDevicePage) : ?>
+                selectUserPhone();
+                <?php else:?>
+                __FIRST_LOAD    = false;
+                <?php endif; ?>
+            });
+        </script>
+        
+        <?php echo $this->headScript() ?>
+    </head>
+    <body>
+        <div id="background">
+            <div id="page">
+                <!-- header start -->
+                <div id="title">
+                    <div id='logo'>
+                    <h1 style='margin:0;'>
+                        <a href="/">Nexva</a>
+                    </h1>
+                    </div>
+                    <div id="primaryLinks">
+                        <ul class="btn" id="primary">
+                            <li><a id="primary_about" target="_blank" href="<?php echo CP_PROJECT_BASEPATH;?>">ABOUT</a></li>
+                            <li><a id="primary_adv" target="_blank" href="cpbo/user/login">DEVELOPERS</a></li>
+                            <li><a id="primary_signup" href="<?php echo PROJECT_BASEPATH;?>user/login">SIGNUP</a></li>
+                            <li><a id="primary_contact" target="_blank" href="<?php echo CP_PROJECT_BASEPATH;?>index.php#contact_usa">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div id='searchContainer' class='rounded'>
+                        <form action='/search/index/q' method="get">
+                                <input class='rounded suggest' type="text" id="q" name="q" value="<?=$this->escape($this->keywords)?>" title='search all apps' autocomplete="off">
+                                <input type="submit" class='rounded button' value="Search" id="searchBtn" name="search">
+                        </form>
+                    </div>
+                </div>
+                <!-- header end -->
+                
+                <?php
+                echo "";
+                    $vars   = array("messages" => $this->flashMessages, 'errors' => $this->flashErrors, 'notices' => $this->flashNotices);
+                    echo $this->partial('parts/web/messages.phtml', $vars);  
+                ?>
+         
+       <?=$this->layout()->content?>
+
+
+                <div class="blkLeft">
+                    <div class="block">
+                        <div class="blkContent">
+                            <div id="#userBlock">
+                                <div class="blockContent">
+                                    <?
+                                        if( isset (Zend_Auth::getInstance()->getIdentity()->id) ) {
+                                            $userMeta = new Model_UserMeta();
+                                            $userMeta->setEntityId(Zend_Auth::getInstance()->getIdentity()->id);
+                                        }
+                                    ?>
+                                    <div id="usrGreeting">
+                                        <h2>Welcome <?=(isset ($userMeta) ? $userMeta->FIRST_NAME : 'to neXva.com.')?></h2>
+                                    </div>
+                                    <ul id="usrPhones">
+                                        <?if (isset($this->selectedDevices) && count($this->selectedDevices) > 0): ?>
+                                            <?foreach($this->selectedDevices as $device): ?>
+
+                                        <li class="usrPhoneBlk">
+                                            <a href="javascript:removeUserPhone('<?=$device['id']?>');" class="closeBtn"></a>
+                                            <a class="phoneInfo"><img alt="<?=$device['phone']?>" src="<?=$device['image']?>"><?=$device['phone']?></a>
+                                        </li>
+
+                                            <?endforeach;?>
+                                        <?endif;?>
+
+                                    </ul>
+                                    <div id="usrPhoneSelect">
+                                        
+                                        <div id='selDeviceWrap'>
+                                        <div id='selDeviceCont'>
+                                            <p id='selDeviceText' class='rounded'>
+                                                You haven't selected a device yet. Click the link below to select a device.
+                                                (Click to dismiss)
+                                            </p>
+                                            <span></span>
+                                       </div>
+                                       </div>
+                                       
+                                        
+                                        <p id="usr_phone_str">
+                                            <img alt="user phone" src="<?=$this->cdn('site_assets')?>/web/images/unknown_phone_icon.png">
+                                            <a id="usr_phone" href='#phoneSelect'>
+                                                <?if (isset($this->selectedDevices) && count($this->selectedDevices) > 0): ?>
+                                                Filtering apps by <?=count($this->selectedDevices)?> phone(s). Click here to add another phone.
+                                                <?else: ?>
+                                                <span class='noDeviceNotice ui-state-highlight ui-corner-all'>
+                                                    No device selected. Click to select a mobile device
+                                                    <script type="text/javascript">
+                                                        $(document).ready(function(){
+                                                            if (!__FIRST_LOAD) {showNoDeviceSelectedNotice();}
+                                                        });
+                                                    </script>
+                                                </span>
+                                                <?endif;?>
+                                             </a>   
+                                            </p>
+                                            <div class='clear'></div>
+                                    </div>
+                                    <?=$this->partial('parts/web/login_box.phtml', array("item" => array())); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leftBlock">
+
+
+                        <?=$this->render('parts/web/category.phtml')?>
+
+
+
+                    </div>
+                </div>
+                <div class='clear'></div>
+                <div id="footer">&copy; Copyright <?=date('Y'); ?> neXva . All rights reserved .
+                    Products, logos and companies mentioned herein are trademarks or trade names of their respective owners and therefore copyright.</div>
+                </div> <!-- end of page -->
+                </div> <!-- end of wrapper -->
+                                
+                <div id="promo" style="display:none;">
+                    <p style="">Which site do you want to visit?</p>
+
+                    <div style="width: 250px; float: none; margin: 10px auto;">
+                    <div id="" class="" style="-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px; padding: 10px 0px 10px; text-align: center; cursor: pointer; min-height: 12px; background: none repeat scroll 0% 0% rgb(241, 241, 241);">
+                        <img src="<?=$this->cdn('site_assets')?>/web/images/corp.png" style="position: relative;">&nbsp;&nbsp;&nbsp;
+                    <a class="" href="http://corp.nexva.com" style="font-size: 16px; font-weight: bold; color: rgb(85, 85, 85); position: relative; top: -12px;">CORPORATE</a>
+                    </div>
+                    </div>
+
+                    <div style="width: 250px; float: none; margin: 10px auto;">
+                    <div id="" class="" style="-webkit-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px; padding: 10px 0px 10px; text-align: center; cursor: pointer; background: none repeat scroll 0% 0% rgb(241, 241, 241);">
+                    <img src="<?=$this->cdn('site_assets')?>/web/images/shop.png" style="position: relative;">&nbsp;&nbsp;&nbsp;
+                    <a id="TB_closeWindowButton" class="" href="#" style="font-size: 16px; font-weight: bold; color: rgb(85, 85, 85); position: relative; top: -12px;">CONSUMER</a>
+                    </div>
+                    </div>
+                </div> 
+                
+                <?php echo $this->partial('parts/web/device_selector.phtml')?>
+                <?php echo $this->partial('parts/analytics.phtml')?>   
+                
+                <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/thickbox-3.1.min.js"></script>
+                    <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/ui-2.0.1.js"></script>
+                    
+                    <script type="text/javascript">
+                      //<![CDATA[
+
+                      function createCookie(name,value,days) {
+                        if (days) {
+                          var date = new Date();
+                          date.setTime(date.getTime()+(days*24*60*60*1000));
+                          var expires = "; expires="+date.toGMTString();
+                        }
+                        else var expires = "";
+                        document.cookie = name+"="+value+expires+"; path=/";
+                      }
+
+                      function readCookie(name) {
+                        var nameEQ = name + "=";
+                        var ca = document.cookie.split(';');
+                        for(var i=0;i < ca.length;i++) {
+                          var c = ca[i];
+                          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+                        }
+                        return null;
+                      }
+
+                      function eraseCookie(name) {
+                        createCookie(name,"",-1);
+                      }
+
+                      function showModal() {
+                        tb_show('Which site do you want to visit?','#TB_inline?height=200&amp;width=300&amp;inlineId=promo',false);
+                      }
+
+                      var visited = readCookie('mypopup');
+
+                      if (!visited) {
+                        $(document).ready(function(){
+                          showModal();
+                          createCookie('mypopup','no',0);
+                        });
+                      }
+
+                      //]]>
+                      </script>
+                    
+                </body>
+                </html><!--

@@ -1,0 +1,36 @@
+<?php
+// check the url's slug to active the current menu
+    $urlAddFooter = $this->url();
+    $arrUrlFooter = explode('/',$urlAddFooter);
+    $count = count($arrUrlFooter);
+    $slug = $arrUrlFooter[$count-1];
+?>
+<div class="ui-footer ui-bar-a">
+      <div class="ui-navbar ui-mini">
+        <ul class="ui-grid-c">
+    
+            <?php
+            $sessionChapDetails = new Zend_Session_Namespace('partnermobile');
+            if( $sessionChapDetails->id == 585480 or $sessionChapDetails->id == 585474):
+             
+            else:
+            if (Zend_Auth::getInstance()->hasIdentity()) :
+            ?>
+          <li class="ui-block-a"><a class="ui-btn<?php echo ($slug=='account')?' ui-btn-active':'';?> ui-btn-up-a ui-btn-inline ui-btn-icon-top" href="/user/account" id="footeraccounticon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Account");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></li>
+          
+          <li class="ui-block-c"><a class="ui-btn<?php echo ($slug=='updates')?' ui-btn-active':'';?> ui-btn-up-a ui-btn-inline ui-btn-icon-top" href="<?php echo PROJECT_BASEPATH;?>app/updates" id="updateicon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Updates");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></li>
+          <?php else: ?>
+          
+          <li class="ui-block-a"><a class="ui-btn<?php echo ($slug=='login')?' ui-btn-active':'';?> ui-btn-up-a ui-btn-inline ui-btn-icon-top" href="/user/login" id="footeraccounticon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Account");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></li>
+          
+          <li class="ui-block-c"><a class="ui-btn<?php //echo ($slug=='login')?' ui-btn-active':'';?> ui-btn-up-a ui-btn-inline ui-btn-icon-top" href="/user/login" id="updateicon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Updates");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></li>
+          
+    <?php endif;
+     endif; ?>    
+          
+          <li class="ui-block-b"><a class="ui-btn<?php echo ($slug=='help')?' ui-btn-active':'';?> ui-btn-up-a ui-btn-inline ui-btn-icon-top" href="/index/help" id="helpicon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Help");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></li>
+          
+          <li class="ui-block-d"><a class="ui-btn<?php echo ($slug=='')?' ui-btn-active':'';?> ui-btn-up-a ui-btn-inline ui-btn-icon-top" href="/" id="footerhomeicon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Home");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a></li>
+        </ul>
+      </div>
+</div>

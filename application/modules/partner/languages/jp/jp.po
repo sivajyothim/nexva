@@ -1,0 +1,1203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-09-26 12:07+0530\n"
+"PO-Revision-Date: 2014-09-26 12:10+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <contentadmins@nexva.com>\n"
+"Language: farsi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: C:\\xampp\\htdocs\\nexva_new_server\\application\\modules"
+"\\partner\\languages\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: jp\n"
+
+#: jp/index.phtml:1
+msgid "Click Here"
+msgstr "ここをクリック"
+
+#: jp/index.phtml:2 jp/index.phtml:191
+msgid "Apps"
+msgstr "アプリ"
+
+#: jp/index.phtml:3
+msgid "Categories"
+msgstr "カテゴリー"
+
+#: jp/index.phtml:4
+msgid "collection"
+msgstr "コレクション"
+
+#: jp/index.phtml:5
+msgid "Featured"
+msgstr "注目"
+
+#: jp/index.phtml:6
+msgid "Free Collection"
+msgstr "無料コレクション"
+
+#: jp/index.phtml:7
+msgid "Most"
+msgstr "最も"
+
+#: jp/index.phtml:8
+msgid "Need Help?"
+msgstr "お困りですか？"
+
+#: jp/index.phtml:9
+msgid "Premium Collection"
+msgstr "プレミアムコレクション"
+
+#: jp/index.phtml:10
+msgid "Top"
+msgstr "トップ"
+
+#: jp/index.phtml:11
+msgid "Top Collection"
+msgstr "トップコレクション"
+
+#: jp/index.phtml:12
+msgid "viewed collection"
+msgstr "コレクション閲覧履歴"
+
+#: jp/index.phtml:13 jp/index.phtml:142
+msgid "Search"
+msgstr "検索"
+
+#: jp/index.phtml:14
+msgid "Select Your Device"
+msgstr "あなたのデバイスを選択。"
+
+#: jp/index.phtml:15
+msgid ""
+"Selecting a device helps us filter apps that are compatible with your "
+"handset."
+msgstr ""
+"デバイスを選択することによって、あなたのスマートデバイスに適したアプリに絞る"
+"ことができます。"
+
+#: jp/index.phtml:16
+msgid "Start typing the name of your device"
+msgstr "あなたのデバイスの名前をタイプしてください。"
+
+#: jp/index.phtml:17
+msgid "No Device Selected"
+msgstr "デバイスが未選択です。"
+
+#: jp/index.phtml:18
+msgid "Click To Select A Mobile Device"
+msgstr "クリックしてモバイルデバイスを選択"
+
+#: jp/index.phtml:19
+msgid "Click on thumbnail to zoom"
+msgstr "サムネイルをクリックしてズーム"
+
+#: jp/index.phtml:20
+msgid "Screenshots"
+msgstr "スクリーンショット"
+
+#: jp/index.phtml:21
+msgid "Nexva All Rights Reserved."
+msgstr "Nexva All Rights Reserved."
+
+#: jp/index.phtml:22 jp/index.phtml:221
+msgid "Mobile Number or password is incorrect"
+msgstr "メールアドレスまたはパスワードが間違っています。"
+
+#: jp/index.phtml:23 jp/index.phtml:222
+msgid "Mobile"
+msgstr "電話番号"
+
+#: jp/index.phtml:24
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted."
+msgstr ""
+"ここにでてくる商品・ロゴ・会社はそれぞれ、所有者のトレードマークもしくはト"
+"レードネームであり、著作権に守られています。"
+
+#: jp/index.phtml:25
+msgid "Register"
+msgstr "登録"
+
+#: jp/index.phtml:26
+msgid "Sign In"
+msgstr "サインイン"
+
+#: jp/index.phtml:27
+msgid "IRR"
+msgstr "IRR"
+
+#: jp/index.phtml:28
+msgid "Welcome"
+msgstr "ようこそ"
+
+#: jp/index.phtml:29
+msgid "You Are Here"
+msgstr "現在地"
+
+#: jp/index.phtml:30
+msgid "Buy "
+msgstr "購入"
+
+#: jp/index.phtml:31
+msgid "Buy"
+msgstr "購入"
+
+#: jp/index.phtml:32
+msgid "Buy : "
+msgstr "購入"
+
+#: jp/index.phtml:33
+msgid "Description"
+msgstr "説明"
+
+#: jp/index.phtml:34
+msgid "Free"
+msgstr "無料"
+
+#: jp/index.phtml:35
+msgid "Free Download"
+msgstr "無料ダウンロード"
+
+#: jp/index.phtml:36
+msgid "Price : "
+msgstr "価格"
+
+#: jp/index.phtml:37
+msgid "Price"
+msgstr "価格"
+
+#: jp/index.phtml:38
+msgid "Rate"
+msgstr "評価する"
+
+#: jp/index.phtml:39
+msgid "Rate "
+msgstr "評価する"
+
+#: jp/index.phtml:40
+msgid "Rate : "
+msgstr "評価する"
+
+#: jp/index.phtml:41
+msgid "Vendor"
+msgstr "販売元"
+
+#: jp/index.phtml:42
+msgid "Vendor : "
+msgstr "販売元"
+
+#: jp/index.phtml:43
+msgid "Whats new"
+msgstr "最新情報"
+
+#: jp/index.phtml:44
+msgid "Free Stuff"
+msgstr "無料"
+
+#: jp/index.phtml:45
+msgid "Logout"
+msgstr "ログアウト"
+
+#: jp/index.phtml:46
+msgid "Most Viewed"
+msgstr "訪問数トップアプリ"
+
+#: jp/index.phtml:47
+msgid "Newest"
+msgstr "最新"
+
+#: jp/index.phtml:48
+msgid "SEARCH"
+msgstr "検索"
+
+#: jp/index.phtml:49
+msgid "Staff Picks"
+msgstr "スタッフオススメ"
+
+#: jp/index.phtml:50
+msgid "Rating"
+msgstr "評価"
+
+#: jp/index.phtml:51
+msgid "Supported Formats"
+msgstr "サポートされてるフォーマット"
+
+#: jp/index.phtml:52
+msgid "Latest Reviews"
+msgstr "最新のレビュー"
+
+#: jp/index.phtml:53
+msgid "No user reviews yet.."
+msgstr "まだユーザーレビューはありません。"
+
+#: jp/index.phtml:54
+msgid "Please login to post a review."
+msgstr "レビューを書くにはログインしてください。"
+
+#: jp/index.phtml:55
+msgid "Name"
+msgstr "名前"
+
+#: jp/index.phtml:56
+msgid "Title"
+msgstr "タイトル"
+
+#: jp/index.phtml:57
+msgid "Review"
+msgstr "レビュー"
+
+#: jp/index.phtml:58
+msgid "Home"
+msgstr "ホーム"
+
+#: jp/index.phtml:59
+msgid "To download this app you need to install"
+msgstr "このアプリをダウンロードするには 、あなたのアンドロイドデバイスに"
+
+#: jp/index.phtml:60
+msgid "on your Android device and sign in."
+msgstr "をインストールしてサインインしてください。"
+
+#: jp/index.phtml:61
+msgid "To register you need to install"
+msgstr "登録するには、 あなたのアンドロイドデバイスに"
+
+#: jp/index.phtml:62
+msgid "on your Android device. Registration happens on your device."
+msgstr "をインストールしてください。 あなたのデバイスに登録されます。"
+
+#: jp/index.phtml:63
+msgid "Please download the App store app using the following methods."
+msgstr "以下の方法でアプリストアのアプリをダウンロードしてください。"
+
+#: jp/index.phtml:64
+msgid ""
+"The app you have selected has been pushed directly to your device. Be sure "
+"to have the"
+msgstr "選択したアプリは直接デバイスに送られました。まず"
+
+#: jp/index.phtml:65
+msgid "installed on your phone first."
+msgstr "がインストールされているか確認しましょう。"
+
+#: jp/index.phtml:66
+msgid "If you don't have"
+msgstr "If you don't have"
+
+#: jp/index.phtml:67
+msgid "installed on your phone here is how to get it"
+msgstr "installed on your phone here is how to get it"
+
+#: jp/index.phtml:68
+msgid "If you want to install"
+msgstr " "
+
+#: jp/index.phtml:69
+msgid "on your phone use following methods."
+msgstr "をゲットしたいなら、次の方法で携帯電話にインストールしよう。"
+
+#: jp/index.phtml:70
+msgid "Type in your email address and we will email it to you"
+msgstr "メールで送りますので、メールアドレスを入力してください。"
+
+#: jp/index.phtml:71
+msgid "your email"
+msgstr "あなたのメール"
+
+#: jp/index.phtml:72
+msgid "send email"
+msgstr "メールを送信"
+
+#: jp/index.phtml:73
+msgid "Point your mobile browser to the following link:"
+msgstr "携帯電話のブラウザーから以下のリンクに飛んでください:"
+
+#: jp/index.phtml:74
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr "携帯電話でＱＲコードをスキャンするとアプリページが開きます。"
+
+#: jp/index.phtml:75
+msgid "Do not have a QR code reader?"
+msgstr "ＱＲコード読取機能はありますか？"
+
+#: jp/index.phtml:76
+msgid "Get one free"
+msgstr "ひとつ無料でゲット"
+
+#: jp/index.phtml:77
+msgid "Download"
+msgstr "ダウンロード"
+
+#: jp/index.phtml:78
+msgid "More Details"
+msgstr "詳しく"
+
+#: jp/index.phtml:79
+msgid "Login"
+msgstr "ログイン"
+
+#: jp/index.phtml:80 jp/index.phtml:240
+msgid "Required infromation"
+msgstr "必要な情報"
+
+#: jp/index.phtml:81
+msgid "User name"
+msgstr "ユーザーネーム"
+
+#: jp/index.phtml:82
+msgid "Password"
+msgstr "パスワード"
+
+#: jp/index.phtml:83
+msgid "Forgot your password"
+msgstr "パスワードをお忘れですか？"
+
+#: jp/index.phtml:84
+msgid "Please enter First Name"
+msgstr "名前を入力してください。"
+
+#: jp/index.phtml:85
+msgid "Top Downloads"
+msgstr "人気アプリ"
+
+#: jp/index.phtml:86
+msgid "Top Free"
+msgstr "トップ無料"
+
+#: jp/index.phtml:87
+msgid "Featured Apps"
+msgstr "注目のアプリ"
+
+#: jp/index.phtml:88
+msgid "Top Premium"
+msgstr "トッププレミアム"
+
+#: jp/index.phtml:89
+msgid "Top Paid"
+msgstr "トップ有料"
+
+#: jp/index.phtml:90
+msgid "Your Device"
+msgstr "あなたのデバイス"
+
+#: jp/index.phtml:91
+msgid "Sign Up"
+msgstr "サインアップ"
+
+#: jp/index.phtml:92
+msgid "Next"
+msgstr "次"
+
+#: jp/index.phtml:93
+msgid "Previous"
+msgstr "前"
+
+#: jp/index.phtml:94
+msgid "Most viewed collection"
+msgstr "人気コレクション"
+
+#: jp/index.phtml:95
+msgid "Contact Us"
+msgstr "お問い合わせ"
+
+#: jp/index.phtml:96
+msgid "Email"
+msgstr "メールアドレス"
+
+#: jp/index.phtml:97
+msgid "Message"
+msgstr "メッセージ"
+
+#: jp/index.phtml:98
+msgid "SEND"
+msgstr "送信"
+
+#: jp/index.phtml:99
+msgid "RESET"
+msgstr "リセット"
+
+#: jp/index.phtml:100
+msgid "NO DEVICE SELECTED"
+msgstr "デバイスが未選択です。"
+
+#: jp/index.phtml:101 jp/index.phtml:216
+msgid "Feedback"
+msgstr "フィードバック"
+
+#: jp/index.phtml:102
+msgid "SUPPORTED FORMATS"
+msgstr "サポートされてるフォーマット"
+
+#: jp/index.phtml:103
+msgid "ADD YOUR OWN REVIEW"
+msgstr "あなたのレビューを追加しよう。"
+
+#: jp/index.phtml:104
+msgid "App"
+msgstr "App"
+
+#: jp/index.phtml:105
+msgid "Category"
+msgstr "カテゴリー"
+
+#: jp/index.phtml:106
+msgid "Newest Apps"
+msgstr "最新のアプリ"
+
+#: jp/index.phtml:107
+msgid "Free Apps"
+msgstr "無料アプリ"
+
+#: jp/index.phtml:108
+msgid "Premium Apps"
+msgstr "プレミアムアプリ"
+
+#: jp/index.phtml:109
+msgid "Top Downloaded Apps"
+msgstr "トップダウンロードアプリ"
+
+#: jp/index.phtml:110
+msgid "Most Viewed Apps"
+msgstr "人気アプリ"
+
+#: jp/index.phtml:111
+msgid "BOOKS & REFERENCE"
+msgstr "本・資料"
+
+#: jp/index.phtml:112
+msgid "eBooks"
+msgstr "電子ブック"
+
+#: jp/index.phtml:113
+msgid "Audio books"
+msgstr "オーディオブック"
+
+#: jp/index.phtml:114
+msgid "Reference/Dictionaries"
+msgstr "資料／辞書"
+
+#: jp/index.phtml:115
+msgid "Religion"
+msgstr "宗教"
+
+#: jp/index.phtml:116
+msgid "Comics/Manga"
+msgstr "コミック本／マンガ"
+
+#: jp/index.phtml:117
+msgid "GAMES"
+msgstr "ゲーム"
+
+#: jp/index.phtml:118
+msgid "Arcade"
+msgstr "アーケードゲーム"
+
+#: jp/index.phtml:119
+msgid "Cards"
+msgstr "カード"
+
+#: jp/index.phtml:120
+msgid "Action/Strategy"
+msgstr "アクション／戦略"
+
+#: jp/index.phtml:121
+msgid "Role Playing/Multiplayer"
+msgstr "ロールプレイング／マルチプレイヤー"
+
+#: jp/index.phtml:122
+msgid "Logic/Puzzle/Trivia"
+msgstr "ロジック／パズル／トリビア"
+
+#: jp/index.phtml:123
+msgid "Casino/Cards/Betting"
+msgstr "カジノ／カード／賭け"
+
+#: jp/index.phtml:124
+msgid "Sports"
+msgstr "スポーツ"
+
+#: jp/index.phtml:125
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "ツール・生産性"
+
+#: jp/index.phtml:126
+msgid "Utilities/Synchronization"
+msgstr "同期ツール"
+
+#: jp/index.phtml:127
+msgid "Organizers/Clocks/Desktop"
+msgstr "オーガナイザー／時計／デスクトップ画面"
+
+#: jp/index.phtml:128
+msgid "Internet/WAP"
+msgstr "インターネット／ＷＡＰ"
+
+#: jp/index.phtml:129
+msgid "Device Tools"
+msgstr "デバイスツール"
+
+#: jp/index.phtml:130
+msgid "Security/Backup"
+msgstr "セキュリティー／バックアップ"
+
+#: jp/index.phtml:131
+msgid "Developers/DB"
+msgstr "開発会社／ＤＢ"
+
+#: jp/index.phtml:132
+msgid "Office Productivity"
+msgstr "オフィス生産性"
+
+#: jp/index.phtml:133
+msgid "Graphic Tools"
+msgstr "グラフィックツール"
+
+#: jp/index.phtml:134
+msgid "BUSINESS & FINANCE"
+msgstr "ビジネス・ファイナンス"
+
+#: jp/index.phtml:135
+msgid "Accounts/Tax"
+msgstr "アカウント／税"
+
+#: jp/index.phtml:136
+msgid "Stocks/Finance"
+msgstr "在庫品／ファイナンス"
+
+#: jp/index.phtml:137
+msgid "Inventory/Sales"
+msgstr "在庫／売上"
+
+#: jp/index.phtml:138
+msgid "Currency/Convertors"
+msgstr "通貨／両替"
+
+#: jp/index.phtml:139
+msgid "TRAVEL & GPS"
+msgstr "トラベル・ＧＰＳ"
+
+#: jp/index.phtml:140
+msgid "GPS/Maps"
+msgstr "ＧＰＳ／地図"
+
+#: jp/index.phtml:141
+msgid "Weather"
+msgstr "天気"
+
+#: jp/index.phtml:143
+msgid "Translation/Language"
+msgstr "翻訳／言語"
+
+#: jp/index.phtml:144
+msgid "NEWS & SPORTS"
+msgstr "ニュース・スポーツ"
+
+#: jp/index.phtml:145
+msgid "News/Magazines"
+msgstr "ニュース／雑誌"
+
+#: jp/index.phtml:146
+msgid "Sports/Teams"
+msgstr "スポーツ／チーム"
+
+#: jp/index.phtml:147
+msgid "RSS"
+msgstr "ＲＳＳ"
+
+#: jp/index.phtml:148
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "ソーシャルネットワーク・ メッセージ"
+
+#: jp/index.phtml:149
+msgid "IM/SMS/Email/VOIP"
+msgstr "IM／SMS／Email／VOIP"
+
+#: jp/index.phtml:150
+msgid "Social Networks"
+msgstr "ソーシャルネットワーク"
+
+#: jp/index.phtml:151
+msgid "Dating"
+msgstr "デート"
+
+#: jp/index.phtml:152
+msgid "Blogs/Images"
+msgstr "ブログ／写真"
+
+#: jp/index.phtml:153
+msgid "MUSIC & AUDIO"
+msgstr "音楽・オーディオ"
+
+#: jp/index.phtml:154
+msgid "Podcasts"
+msgstr "ポッドキャスト"
+
+#: jp/index.phtml:155
+msgid "MP3/Music"
+msgstr "ＭＰ３／音楽"
+
+#: jp/index.phtml:156
+msgid "Radios/Players"
+msgstr "ラジオ／プレイヤー"
+
+#: jp/index.phtml:157
+msgid "Lyrics/Bands"
+msgstr "歌詞／バンド"
+
+#: jp/index.phtml:158
+msgid "VIDEO & TV"
+msgstr "ビデオ・ テレビ"
+
+#: jp/index.phtml:159
+msgid "TV/Shows"
+msgstr "テレビ／番組"
+
+#: jp/index.phtml:160
+msgid "Movies/Trailers"
+msgstr "映画／予告編"
+
+#: jp/index.phtml:161
+msgid "players/Converters"
+msgstr "プレイヤー／コンバータ"
+
+#: jp/index.phtml:162
+msgid "LIFESTYLE & WELLNESS"
+msgstr "ライフスタイル・健康"
+
+#: jp/index.phtml:163
+msgid "Astro"
+msgstr "アストロ"
+
+#: jp/index.phtml:164
+msgid "Food/Recipes"
+msgstr "食べ物／レシピ"
+
+#: jp/index.phtml:165
+msgid "Art/Fashion"
+msgstr "芸術／ファッション"
+
+#: jp/index.phtml:166
+msgid "Hobbies/Pets"
+msgstr "趣味／ペット"
+
+#: jp/index.phtml:167
+msgid "Health/Diet/Fitness"
+msgstr "健康／ダイエット／フィットネス"
+
+#: jp/index.phtml:168
+msgid "Shopping/Brands"
+msgstr "ショッピング／ブランド"
+
+#: jp/index.phtml:169
+msgid "EDUCATION & ELEARNING"
+msgstr "教育・eラーニング"
+
+#: jp/index.phtml:170
+msgid "Medical"
+msgstr "医療"
+
+#: jp/index.phtml:171
+msgid "Language"
+msgstr "言語"
+
+#: jp/index.phtml:172
+msgid "Kids/Early learning"
+msgstr "子供／早期教育"
+
+#: jp/index.phtml:173
+msgid "University"
+msgstr "大学"
+
+#: jp/index.phtml:174
+msgid "Law"
+msgstr "法律"
+
+#: jp/index.phtml:175
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "楽しみ・エンターテインメント"
+
+#: jp/index.phtml:176
+msgid "Wallpaper/Screensavers"
+msgstr "壁紙／スクリーンセーバー"
+
+#: jp/index.phtml:177
+msgid "Personlization/Skins"
+msgstr "カスタマイズ／スキン"
+
+#: jp/index.phtml:178
+msgid "Humor/Jokes"
+msgstr "ユーモア／ジョーク"
+
+#: jp/index.phtml:179
+msgid "Ringtones"
+msgstr "着信音"
+
+#: jp/index.phtml:180
+msgid "THEMES"
+msgstr "テーマ"
+
+#: jp/index.phtml:181
+msgid "Techno"
+msgstr "テクノ"
+
+#: jp/index.phtml:182
+msgid "Rock"
+msgstr "ロック"
+
+#: jp/index.phtml:183
+msgid "Calm"
+msgstr "落ち着き"
+
+#: jp/index.phtml:184
+msgid "Arts & Crafts"
+msgstr "芸術・工芸"
+
+#: jp/index.phtml:185
+msgid "Animation"
+msgstr "アニメ"
+
+#: jp/index.phtml:186
+msgid "Category  Not Found"
+msgstr "このカテゴリーは見つかりませんでした。"
+
+#: jp/index.phtml:187
+msgid "You are not signed in yet"
+msgstr "サイインインがまだです。"
+
+#: jp/index.phtml:188
+msgid "No Match Found"
+msgstr "一致しません。"
+
+#: jp/index.phtml:189
+msgid "Ok"
+msgstr "ＯＫ"
+
+#: jp/index.phtml:190
+msgid "You haven't log in yet ? Please log in."
+msgstr "ログインがまだですか？ログインしてください。"
+
+#: jp/index.phtml:192
+msgid "No Data Found"
+msgstr "データが見つかりません。"
+
+#: jp/index.phtml:193
+msgid "Downloading"
+msgstr "ダウンロード中"
+
+#: jp/index.phtml:194
+msgid "You are here"
+msgstr "現在地"
+
+#: jp/index.phtml:195
+msgid "Have an Issue?"
+msgstr "お困りですか？"
+
+#: jp/index.phtml:196
+msgid "Login to add a ticket"
+msgstr "チケットを追加するにはログインしてください。"
+
+#: jp/index.phtml:197
+msgid "Please add a valid email"
+msgstr "正しいメールアドレスを入力してください。"
+
+#: jp/index.phtml:198
+msgid "Please add a valid password"
+msgstr "正しいパスワードを入力してください。"
+
+#: jp/index.phtml:199
+msgid "Click here to reset it"
+msgstr "リセットするならここをクリック。"
+
+#: jp/index.phtml:200
+msgid " HOME"
+msgstr "ホーム"
+
+#: jp/index.phtml:201
+msgid " HOME "
+msgstr "ホーム"
+
+#: jp/index.phtml:202
+msgid "HOME"
+msgstr "ホーム"
+
+#: jp/index.phtml:203
+msgid ""
+".Products, Logos and Companies mentioned herein are trademarks or trade "
+"names of their respective owners and therefore copyrighted"
+msgstr ""
+"ここにでてくる商品・ロゴ・会社はそれぞれ、所有者のトレードマークもしくはト"
+"レードネームであり、著作権に守られています。"
+
+#: jp/index.phtml:204
+msgid "Add your own review"
+msgstr "あなたのレビューを追加しよう。"
+
+#: jp/index.phtml:205
+msgid "MTN Iran App Store"
+msgstr "MTN イラン アプリストア"
+
+#: jp/index.phtml:206
+msgid " APP "
+msgstr " APP "
+
+#: jp/index.phtml:207
+msgid "Required Information"
+msgstr "必要な情報"
+
+#: jp/index.phtml:208
+msgid " FEEDBACK "
+msgstr "フィードバック"
+
+#: jp/index.phtml:209
+msgid " INFO "
+msgstr "インフォ"
+
+#: jp/index.phtml:210
+msgid " LOGIN HERE "
+msgstr "ここからログイン"
+
+#: jp/index.phtml:211
+msgid "Login here"
+msgstr "ここからログイン"
+
+#: jp/index.phtml:212
+msgid " APP"
+msgstr " APP "
+
+#: jp/index.phtml:213
+msgid "APP"
+msgstr " APP "
+
+#: jp/index.phtml:214
+msgid "FEEDBACK"
+msgstr "フィードバック"
+
+#: jp/index.phtml:215
+msgid "INFO"
+msgstr "インフォ"
+
+#: jp/index.phtml:217
+msgid "To download this app you need to visit the following URL"
+msgstr "ＵＲＬをクリックして、アプリをダウンロードしてください。"
+
+#: jp/index.phtml:218
+msgid "MTN Iran App Store All Rights Reserved."
+msgstr "MTN Iran App Store All Rights Reserved."
+
+#: jp/index.phtml:219
+msgid "See all results for"
+msgstr "全ての結果を見る。"
+
+#: jp/index.phtml:220
+msgid "COPYRIGHT_TXT"
+msgstr ""
+"ここにでてくる商品・ロゴ・会社はそれぞれ、所有者のトレードマークもしくはト"
+"レードネームであり、著作権に守られています。"
+
+#: jp/index.phtml:223
+msgid "No results found"
+msgstr "結果が見つかりません。"
+
+#: jp/index.phtml:224
+msgid "Books & Reference"
+msgstr "本・資料"
+
+#: jp/index.phtml:225
+msgid "Games"
+msgstr "ゲーム"
+
+#: jp/index.phtml:226
+msgid "Tools & Productivity"
+msgstr "ツール・生産性"
+
+#: jp/index.phtml:227
+msgid "Business & Finance "
+msgstr "ビジネス・ファイナンス"
+
+#: jp/index.phtml:228
+msgid "Travel & GPS"
+msgstr "トラベル・ＧＰＳ"
+
+#: jp/index.phtml:229
+msgid "News & Sports"
+msgstr "ニュース・スポーツ"
+
+#: jp/index.phtml:230
+msgid "Social Networks & Messaging"
+msgstr "ソーシャルネットワーク・ メッセージ"
+
+#: jp/index.phtml:231
+msgid "Music & Audio"
+msgstr "音楽・オーディオ"
+
+#: jp/index.phtml:232
+msgid "Video & TV"
+msgstr "ビデオ・ テレビ"
+
+#: jp/index.phtml:233
+msgid "Lifestyle & Wellness"
+msgstr "ライフスタイル・健康"
+
+#: jp/index.phtml:234
+msgid "Education & eLearning"
+msgstr "教育・eラーニング"
+
+#: jp/index.phtml:235
+msgid "Goodies & Entertainment"
+msgstr "楽しみ・エンターテインメント"
+
+#: jp/index.phtml:236
+msgid "Themes"
+msgstr "テーマ"
+
+#: jp/index.phtml:237
+msgid "Search Results for"
+msgstr "次の言葉の検索結果を表示しています。"
+
+#: jp/index.phtml:238
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"登録時のメールアドレスを入力してください。パスワードリセット用のリンクを送り"
+"ます。"
+
+#: jp/index.phtml:239
+msgid "Reset your password"
+msgstr "パスワードをリセット。"
+
+#: jp/index.phtml:241
+msgid "Enter Captcha"
+msgstr "キャプチャを入力してください。"
+
+#: jp/index.phtml:242
+msgid "Powered by"
+msgstr "Powered by"
+
+#: jp/index.phtml:243
+msgid "The security key wasn't entered correctly"
+msgstr "セキュリティキーの入力が間違っています。"
+
+#: jp/index.phtml:244
+msgid "Please try again"
+msgstr "再度お試し下さい。"
+
+#: jp/index.phtml:245
+msgid "Reset"
+msgstr "リセット"
+
+#: jp/index.phtml:246
+msgid "Info"
+msgstr "インフォメーション"
+
+#: jp/index.phtml:247
+msgid "The email you supplied was not found"
+msgstr "メールアドレスが見つかりませんでした。"
+
+#: jp/index.phtml:248
+msgid "Username or password is incorrect"
+msgstr "メールアドレスまたはパスワードが間違っています。"
+
+#: jp/index.phtml:249
+msgid "Add a Ticket"
+msgstr "問い合わせを追加"
+
+#: jp/index.phtml:250
+msgid "View my Ticket"
+msgstr "問い合わせ履歴を見る"
+
+#: jp/index.phtml:251
+msgid "Subject"
+msgstr "件名"
+
+#: jp/index.phtml:252
+msgid "Type"
+msgstr "タイプ"
+
+#: jp/index.phtml:253
+msgid "Priority"
+msgstr "優先順位"
+
+#: jp/index.phtml:254
+msgid "Select Type"
+msgstr "種類を選択"
+
+#: jp/index.phtml:255
+msgid "Question"
+msgstr "質問"
+
+#: jp/index.phtml:256
+msgid "Incident"
+msgstr "障害"
+
+#: jp/index.phtml:257
+msgid "Problem"
+msgstr "問題"
+
+#: jp/index.phtml:258
+msgid "Feature"
+msgstr "注目"
+
+#: jp/index.phtml:259
+msgid "Select Priority"
+msgstr "検索条件を選択"
+
+#: jp/index.phtml:260
+msgid "Low"
+msgstr "低い"
+
+#: jp/index.phtml:261
+msgid "Medium"
+msgstr "中間"
+
+#: jp/index.phtml:262
+msgid "High"
+msgstr "高い"
+
+#: jp/index.phtml:263
+msgid "Urgent"
+msgstr "緊急"
+
+#: jp/index.phtml:264
+msgid "Your ticket submitted successfully"
+msgstr "あなたの問い合わせが投稿されました。"
+
+#: jp/index.phtml:265
+msgid "Your response submitted successfully"
+msgstr "あなたの問い合わせが無事に送信されました。"
+
+#: jp/index.phtml:266
+msgid "Responses"
+msgstr "回答"
+
+#: jp/index.phtml:267
+msgid "No Response found"
+msgstr "回答が見つかりません。"
+
+#: jp/index.phtml:268
+msgid "Reply"
+msgstr "返信"
+
+#: jp/index.phtml:269
+msgid "Submit"
+msgstr "投稿"
+
+#: jp/index.phtml:270
+msgid "Platforms"
+msgstr "プラットフォーム"
+
+#: jp/index.phtml:271
+msgid "PLEASE SELECT YOUR PLATFORM"
+msgstr "あなたのプラットフォームを選択してください。"
+
+#: jp/index.phtml:272
+msgid "Register on"
+msgstr "登録"
+
+#: jp/index.phtml:273
+msgid "PLEASE SELECT"
+msgstr "選択してください。"
+
+#: jp/index.phtml:274
+msgid "Android App"
+msgstr "アンドロイドアプリ"
+
+#: jp/index.phtml:275
+msgid "Mobile Web"
+msgstr "モバイルウェブ"
+
+#: jp/index.phtml:276
+msgid "app"
+msgstr "app"
+
+#: jp/index.phtml:277
+msgid "info"
+msgstr "インフォ"
+
+#: jp/index.phtml:278
+msgid "feedback"
+msgstr "フィードバック"
+
+#: jp/index.phtml:279
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: jp/index.phtml:280
+msgid "Open"
+msgstr "Open"
+
+#: jp/index.phtml:281
+msgid "View my Tickets"
+msgstr "問い合わせ履歴を見る"
+
+#: jp/index.phtml:282
+msgid "ticket"
+msgstr "ticket"
+
+#: jp/index.phtml:283
+msgid "Please add a subject"
+msgstr "件名"
+
+#: jp/index.phtml:284
+msgid "Please select a type"
+msgstr "種類を選択"
+
+#: jp/index.phtml:285
+msgid "Please select a priority"
+msgstr "検索条件を選択"
+
+#: jp/index.phtml:286
+msgid "dashboard"
+msgstr "dashboard"
+
+#: jp/index.phtml:287
+msgid "TICKET_SYS"
+msgstr "お困りですか？ここをクリック"
+
+#: jp/index.phtml:288
+msgid "FEEDBACK_SYS"
+msgstr "お困りですか？ここをクリック"
+
+#: jp/index.phtml:289
+msgid "FEATURED_APPS"
+msgstr "注目のアプリ"
+
+#: jp/index.phtml:290
+msgid "MOSTVIEWED_APPS"
+msgstr "人気コレクション"
+
+#: jp/index.phtml:291 jp/index.phtml:292
+msgid "NEWEST_APPS"
+msgstr "最新のアプリ"
+
+#: jp/index.phtml:293
+msgid "Sign in with ¥Coins"
+msgstr "¥Coinsにログイン"
+
+#: jp/index.phtml:294
+msgid "Download ¥Coins App Store"
+msgstr "ダウンロード ¥Coins アプリストア"
+
+#: jp/index.phtml:295
+msgid "Download Store"
+msgstr "ダウンロードアプリストア"
+
+#, fuzzy
+#~ msgid "Category "
+#~ msgstr "دسته‌بندی"
+
+#~ msgid " Home"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Home "
+#~ msgstr "صفحه اصلی"
+
+#, fuzzy
+#~ msgid "Buy: "
+#~ msgstr ":خرید"

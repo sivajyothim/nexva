@@ -1,0 +1,56 @@
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+ <?php 
+    $product    = $this->product;
+ ?>
+ 
+ <div>
+    <div class="product_outside_border">
+        <div class="product_outside">
+            <div class="product_inside">
+                
+                <div class="right">
+                    <div class="price">
+                        <span class="price-new"><?=$this->locale()->getCurrencySymbol()?><?=$product->price?></span>
+                        
+                        <br>
+                        
+                    </div>
+                    
+                    <div class="cart">
+                        <a class="button" href="<?=$this->url()->product($product->id)?>"><span><?= $temp->_('More Info') ?></span></a>
+                        <br><br>
+                        <?php $baseUrl  = Zend_Registry::get('config')->nexva->application->base->url;
+                        
+                               $chapId = ($this->widget=='search') ? "" : "/$this->chapId/1";
+                                
+                        ?>
+                        
+                        
+                        <a class="alt button nexlink" rel='shadowbox;height=530;width=600' href="http://<?=$baseUrl?>/nl/<?=$product->id.$this->$chapId?>" >
+                            <span><?= $temp->_('Download') ?></span>
+                        </a>
+                       
+                    </div>
+                    
+                </div>
+                
+                <div class="left">
+                    <div class="image">
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/view/id/<?=$product->id?>">
+                            <?php $htmlOpts = array('alt' => $product->name, 'autoheight' => 1);?>
+                            <?=$this->thumbnail('/product_visuals/' . APPLICATION_ENV . '/' . $product->thumbnail, array('w' => 180, 'h' => 135, 'aoe' => 0), $htmlOpts); ?>
+                        </a>
+                    </div>
+                    
+                    <div class="name">
+                        <a href="<?=$this->url()->product($product->id)?>"><?=$product->name?></a>
+                    </div>
+                    
+                    <div class="description">
+                        <?=$product->meta->BRIEF_DESCRIPTION?>
+                    </div>
+                </div>
+            </div>
+        </div><!-- << product outside >> -->
+    </div><!-- << product outside border >> -->
+</div>

@@ -1,0 +1,39 @@
+<div class="ui-content ui-body-d">
+      <h2><?php echo $this->translate("Main Menu");?></h2> 
+       <ul class="ui-listview">
+  <!--<li data-role="list-divider">Divider</li>-->
+  <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-first-child ui-btn-up-b" id="homeicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text"><a href="/" class="ui-link-inherit"><?php echo $this->translate("Home");?></a></div>
+      <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+  </li>
+  <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b" id="newesticon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text"><a href="<?php echo PROJECT_BASEPATH;?>app/newest" class="ui-link-inherit"><?php echo $this->translate("Newest");?></a></div>
+      <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+  </li>
+  <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b" id="freeicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text"><a href="<?php echo PROJECT_BASEPATH;?>app/top-free" class="ui-link-inherit"><?php echo $this->translate("Top Free");?></a></div>
+      <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+  </li>
+  <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b" id="paidicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text"><a href="<?php echo PROJECT_BASEPATH;?>app/top-premium" class="ui-link-inherit"><?php echo $this->translate("Top Paid");?></a></div>
+      <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+  </li>
+  <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b" id="downloadicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text"><a href="<?php echo PROJECT_BASEPATH;?>app/top-downloads" class="ui-link-inherit"><?php echo $this->translate("Top Downloads");?></a></div>
+      <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+  </li>
+  
+  <li class="ui-btn-icon-left ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-b" id="helpicon" data-icon="custom" data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-iconpos="right" data-theme="b">
+    <div class="ui-btn-inner ui-li">
+      <div class="ui-btn-text"><a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket" class="ui-link-inherit"><?php echo $this->translate("Have an Issue?");?></a></div>
+      <span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></div>
+  </li>
+  
+</ul>
+
+    </div>

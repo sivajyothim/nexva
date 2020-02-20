@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Enable CCcam Auto Reload
+
+sudo cat >> /etc/crontab << EOF
+0 4 * * *       root    /var/www/cccam-cms-new/script/load_cccam_config
+EOF

@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="content-type" content="application/xhtml+xml;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name='HandheldFriendly' content='True' />
+        <meta content="en" http-equiv="content-language"/>
+        <meta name="google-site-verification" content="hJ1cHVj4q3Rjg9JxFGpEAhYhDNT66v5Id2cIwgBb4BQ" />
+        <title>
+            <?php 
+                //The legacy system has tied page titles directly to the main html title.
+                //I'm just decoupling it by using $htmlTitle. 
+            ?>
+            <?= isset($this->pageTitle) ? $this->pageTitle . ' | ' : '' ?>
+            <?= isset($this->htmlTitle) ? $this->htmlTitle . ' | ' : '' ?>
+            <?= $this->title ?> | <?= $this->phone ?> | Mobile
+        </title>
+        <link href="<?=$this->cdn('site_assets')?>/mobile/css/style.css<?=$this->VER?>" rel="stylesheet" type="text/css" />
+		<!-- Adding style sheet used for iPhone safari to set the page as homepage -->
+		<link href="<?=$this->cdn('site_assets')?>/mobile/css/add2home.css" rel="stylesheet" type="text/css" />
+        <!-- Add JS and CSS dynamically -->
+        <?php
+        echo $this->headMeta();
+        //echo $this->headScript();
+		//Adding script used for iPhone safari to set the page as homepage
+		echo $this->headScript()->appendFile('/mobile/js/add2home.js');
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+    </head>
+    <body>
+        <div id='topPosition' class="header padding-all">
+            <a href="/">
+                <?= $this->partial('parts/mobile/image.phtml', array("item" => $this->logo)) ?>
+            </a>
+            
+            <a class='image_link' href='#q'><img src='/mobile/images/search.png'></a>
+            <a class='image_link' title='Home' href='/'><img alt='home' src='/mobile/images/home.png'></a>
+            
+        </div>
+
+        <div class="menu_top">
+            <? if ($this->showToplinks): ?>
+                
+                <a class="button_lnk orange_btn <?= ($this->recent) ? 'selected_mn' : '' ?>" href="<?php echo PROJECT_BASEPATH;?>app/recent">Newest</a> |
+                <a class="button_lnk orange_btn <?= ($this->all) ? 'selected_mn' : '' ?>" href="<?php echo PROJECT_BASEPATH;?>app/index">All</a> 
+                <?php if ($this->themeMeta->WHITELABLE_APP_FILTER != 'FREE') : ?>    
+                    <?php if(Zend_Auth::getInstance()->hasIdentity()) : ?>
+                        | <a class="button_lnk orange_btn <?= ($this->login) ? 'selected_mn' : '' ?>" href="<?php echo PROJECT_BASEPATH;?>app/purchased">My Apps</a>
+                    <?php else : ?>
+                        | <a class="button_lnk orange_btn <?= ($this->login) ? 'selected_mn' : '' ?>" href="/user/login">My Apps</a>
+                    <?php endif ?>
+                <?php endif; ?>
+                <?php if (!isset($this->themeMeta->WHITELABLE_EVA_SHOW_MENU) || $this->themeMeta->WHITELABLE_EVA_SHOW_MENU == 1) : ?>
+                    | <a class="button_lnk orange_btn <?= ($this->reviewPage) ? 'selected_mn' : '' ?>" href="/review">Reviews</a>
+                <?php endif;?>
+                    <!--| <a class="button_lnk orange_btn <?php /*echo ($this->android)?'selected_mn':'';*/?>" href="<?php echo PROJECT_BASEPATH;?>app/android">Android</a>-->
+            <? endif; ?>
+        </div>
+
+  
+        <?php // error&messages displaying 
+            $flashMsgHelper = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger');
+            $messages       = $flashMsgHelper->getMessages();
+            $flashMsgHelper->setNamespace('ERROR');
+            $errorMessages      = $flashMsgHelper->getMessages();
+            $flashMsgHelper->setNamespace('NOTICE');
+            $noticeMessages     = $flashMsgHelper->getMessages();
+        ?>
+          <?php 
+                $opts   = array(
+                    'errorMessages'     => $errorMessages,
+                    'noticeMessages'    => $noticeMessages,
+                    'messages'     => $messages,                    
+                );
+                echo $this->partial('parts/mobile/messages.phtml', $opts)
+          ?>
+        
+            <div id="content" class="content rounded">
+                <?php if (isset($this->DEVICE_EXACT_MATCH) && !$this->DEVICE_EXACT_MATCH) : ?>
+               <!-- <div class='message_notice'>
+                    We had trouble detecting your device. <a href='/device'>Please set it manually</a>.
+                </div> --> 
+                <?php endif;?>
+            <? if ($this->showPageTitle && !empty($this->pageTitle)): ?>
+                                <div class="padding-all">
+                                    <h1><?= $this->pageTitle ?></h1>
+                                </div>
+            <? endif; ?>
+            <?= $this->layout()->content ?>
+                            </div><!-- content ends -->
+
+                            <div class="utility padding-all">
+                                <!-- Search and Category Start -->
+            <?=
+                                ($this->showUtility) ? $this->partial('parts/mobile/utility.phtml',
+                                            array("item" => array(
+                                                'categories' => $this->categories,
+                                                'search' => $this->searchKeyword,
+                                                'search_on' => $this->enableSearch,
+                                                'categories_on' => $this->enableCategories,
+                                                'selectedCat' => $this->selectedCategory,
+                                                'mode'      => $this->mode //lets us know which type of products we're looking at (paid, free, all)
+                                            ))) : ''
+            ?>
+                            </div>
+
+
+            <div class='padding-all'>
+                <ul class='catlist alternate'>
+                    <li><a href="<?php echo PROJECT_BASEPATH;?>app/index">All Categories<span>&raquo;</span></a></li>
+                    <li><a href="/device/index">Selected Device : <?= $this->phone ?> (Not?)<span>&raquo;</span></a></li>
+                    <?php if ($this->themeMeta->WHITELABLE_APP_FILTER != 'FREE')  : ?>
+                        <?php $loggedIn = (isset(Zend_Auth::getInstance()->getIdentity()->id)) ? true : false;?>
+                        
+                        <?php if ($loggedIn) : ?>
+                            <li>
+                                <a href="<?php echo PROJECT_BASEPATH;?>app/purchased">My Apps<span>&raquo;</span></a>
+                            </li>
+                        <?php else : ?>
+                            <li>
+                                <a href="/user/register">Register<span>&raquo;</span></a>
+                            </li>
+                        <?php endif; ?>
+                        
+                        <li>
+                            <a href="<?=($loggedIn) ? '/user/logout' : '/user/login' ?>">
+                                <?=($loggedIn) ? 'Logout' : 'Login' ?> 
+                                <span>&raquo;</span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+
+                            <div class="menu padding-all">
+            <?php
+                                $menus = $this->menuLinks;
+                                $menus['Top']   = '#topPosition';
+                                
+                                $menuLinks = '';
+                                foreach ($menus as $title => $link): ?>
+            <?php
+                                    $menuLinks .= $this->partial('parts/mobile/link.phtml', array("item" => array($title, $link))) . ' | '; ?>
+            <?php endforeach; ?>
+            <?= substr($menuLinks, 0, -2) ?>
+                                </div>
+                                <div align="center" id="footer" class="padding-all">
+                                    <div>&copy; <?= date('Y') . ' ' . $this->footerSitename ?></div>
+                                    <div>
+                <?php
+                                    $footerLinks = '';
+                                    foreach ($this->legalLinks as $title => $link):
+                ?>
+                <?php
+                                        $footerLinks .= $this->partial('parts/mobile/link.phtml', array("item" => array($title, $link))) . ' | ';
+                ?>
+                <?php
+                                        endforeach;
+                ?>
+                <?= substr($footerLinks, 0, -2) ?>
+            </div>
+            <br clear="all" />
+            <?php if (isset($this->themeMeta->WHITELABLE_SHOW_POWERED_BY) && $this->themeMeta->WHITELABLE_SHOW_POWERED_BY) : ?>
+                <a href='http://nexva.mobi/page/view/slug/powered'>Powered by neXva</a>
+            <?php endif;?>
+        </div>
+    </body>
+</html>

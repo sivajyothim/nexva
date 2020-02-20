@@ -1,0 +1,35 @@
+<?php
+    $auth = Zend_Auth::getInstance();
+    $user     =   new Cpbo_Model_UserMeta();
+
+                $user->setEntityId($auth->getIdentity()->id);
+?>
+        <!-- Start Header -->
+        <div id="header">
+
+            <!-- Start Logo -->
+            <div class="logo">
+                <a href="/">
+                    <img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/logo.png" alt="logo"/>
+                </a>
+            </div>
+            <!-- End Logo -->
+
+            <!-- Start Info -->
+            <?php
+
+        $locale  =   Zend_Registry::get('Zend_Locale');
+
+        $date   =   new Zend_Date(Zend_Date::DATETIME_FULL,$locale);
+
+        ?>
+            <div class="info">
+                <div>
+                    <h2>Welcome back <span><?=$auth->getIdentity()->username?></span></h2>
+                     <small><?=$date;?> GMT+0</small> <!-- Last login <?//=$user->LAST_LOGIN; ?> -->
+                    <small><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/logout">Logout</a> </small>
+                </div>
+            </div>
+            <!-- End Info -->
+        </div>
+        <!-- End Header -->

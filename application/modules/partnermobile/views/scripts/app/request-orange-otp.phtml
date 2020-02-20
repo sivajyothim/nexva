@@ -1,0 +1,64 @@
+<?php 
+
+
+
+
+?>
+
+<script type="text/javascript">
+function freez(obj)
+{
+ if(obj.value=='')
+ {
+   obj.value='<?=$mobileNo;?>';
+ }else if(obj.value=='<?=$mobileNo;?>')
+ {
+   obj.value='';
+ }
+} 
+</script>
+<h2 class="font-size-16"><?php echo $this->translate("Merci de renseigner le code d'authentification re&ccedil;u par SMS");?></h2>
+
+    <div class="ui-grid-solo">
+    <?php
+    if($this->error)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php echo $this->translate($this->error);?>
+       </span></span>
+    </div>
+    <?php }
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->translate($this->escape($message));
+                };?>
+           </span></span>
+    </div>
+    <?php }
+    ?>
+
+<div class="ui-body ui-body-c">
+<form action="/app/process-orange-otp" method="post" data-ajax="false">
+
+	<fieldset data-role="fieldcontain"> 
+		<label for="mobile_no"><?php echo $this->translate("Auth Code");?>  <span style="font-size: 10px;">  </span> :</label>
+		<input  type="text" dir="ltr" name="confirmation_code" id="confirmation_code" class="required number" minlength="4" value=""  placeholder="" onfocus="freez(this)" onblur="freez(this)">
+	</fieldset>
+      
+            <input type="hidden" name="challnage_id" value="<?=$this->challengeId; ?>"/>
+            <input type="hidden" name="mobile_no" value="<?=$this->mobile_no; ?>"/>
+            <input type="hidden" name="app_id" value="<?=$this->appId; ?>"/>
+            <input type="hidden" name="build_id" value="<?=$this->buildId; ?>"/>
+            <input type="hidden" name="amount" value="<?=$this->amount; ?>"/>
+            <input type="hidden" name="currency" value="<?=$this->currency; ?>"/>
+            <input type="hidden" name="chap_id" value="<?=$this->chapId; ?>"/>
+
+            
+	<input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Authentifier le paiement");?>">
+
+</form>
+</div>
+

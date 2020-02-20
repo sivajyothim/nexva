@@ -1,0 +1,66 @@
+<?php $review = $this->review?>
+<div class='breadcrumb'>
+    <span>&laquo;</span>
+    <a href='/<?=$this->product['id']; ?>'>Back to app page</a> 
+</div>
+
+<div class='description'>
+    <div class='block eva full_review'>
+        <h1><?=$review['title']?></h1><br clear='all'>
+        <span class='meta'>
+            reviewed <?php echo date('jS M \'y', strtotime($review['date']))?>
+            <?php
+                $rating     = $review['rating']; 
+                while($rating > 0) : $rating--; 
+            ?>
+                <img src="<?=$this->Cdn('site_assets')?>/mobile/images/star_full.gif" alt="star" width="11" height="12" />
+            <?php endwhile;?>
+            <?php
+                $rating     = $review['rating']; 
+                while($rating < 5) : $rating++; 
+            ?>
+                <img src="<?=$this->Cdn('site_assets')?>/mobile/images/star_empty.png" alt="star" width="11" height="12" />
+            <?php endwhile;?>
+         </span>
+         
+         <?php 
+                $opts   = array(
+                    'url'   => 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/review/eva/id/{$review['id']}",
+                    'title' => "Eva reviews " . htmlspecialchars($this->product['name']),
+                    'description'   => htmlspecialchars(strip_tags($this->Wikimarkup($review['review']))) //trimming is done internally 
+                );
+                echo $this->partial('partials/addthis.phtml', $opts)
+            ?>
+         
+ 
+         <br><br>
+         <div class='textBody'>
+            <?=$this->Wikimarkup($review['review']); ?>
+         </div>
+         
+         
+         <p>
+            <a class='button' href='/<?=$this->product['id']; ?>'>Back to <?=$this->product['name']?>'s app page</a> 
+         </p>
+         
+         <?php 
+                $opts   = array(
+                    'url'   => 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/review/eva/id/{$review['id']}",
+                    'title' => "Eva reviews " . htmlspecialchars($this->product['name']),
+                    'description'   => htmlspecialchars(strip_tags($this->Wikimarkup($review['review']))), //trimming is done internally
+                    'disableScripts'    => true 
+                );
+                echo $this->partial('partials/addthis.phtml', $opts)
+            ?>
+            
+            
+         <div class='info'>
+            <img width='80' height='80' src='<?=$this->Cdn('site_assets')?>/mobile/images/eva.jpg' class='logo'>
+            <h4>Eva's Reviews</h4>
+            <?=$this->partial('partials/eva_text.phtml')?>
+            
+         </div>
+    </div>
+</div>
+
+ 

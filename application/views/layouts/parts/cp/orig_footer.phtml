@@ -1,0 +1,74 @@
+<div id="content" style="background-image: url(/common/footer/images/back1.gif);padding-top:12px;background-repeat:repeat-x;text-align: center;margin:0px 0px;">
+<?php  
+$chapSessionNs = new Zend_Session_Namespace('chap');
+$usernameChap = false;
+
+if(isset($chapSessionNs->chap->username) and $chapSessionNs->chap->username != 'nexva.mobi' )	{
+	$usernameChap = $chapSessionNs->chap->username;
+}
+
+if($usernameChap ==  false): ?>
+  <!--<div id="logs" style="margin-bottom:0px;">
+    <a title="3 Screens" href="http://www.3screens.tv/" target="_blank"><img src="<?php echo PROJECT_BASEPATH;?>common/footer/images/3screens_logo.jpg" /></a>
+    <a title="Amazon webservices" href="http://aws.amazon.com/s3/" target="_blank"><img src="<?php echo PROJECT_BASEPATH;?>common/footer/images/amazonss3logo.gif" /></a>
+    <a title="Paypal" href="http://www.paypal.com/" target="_blank"><img src="<?php echo PROJECT_BASEPATH;?>common/footer/images/btt_paypal.gif" /></a>
+    <a title="Mobileopen" href="http://www.mobilopen.org/" target="_blank"><img src="<?php echo PROJECT_BASEPATH;?>common/footer/images/mobilopen_logo.gif" /></a>
+    <a title="Paythru" href="http://www.paythru.com/" target="_blank"><img src="<?php echo PROJECT_BASEPATH;?>common/footer/images/paythru_logo.gif" /></a>
+    <a title="Silk" href="http://www.silk-outsourcing.com/" target="_blank"><img src="<?php echo PROJECT_BASEPATH;?>common/footer/images/silk_logo.jpg" /></a>
+  </div>-->
+  <div class="content" style="margin-bottom:2px;">
+    <p style="text-align: center;">
+      <a href="http://www.facebook.com/pages/neXva-Inc/189510615951" target="_blank">
+        <img width="32" height="32" class="imagefield imagefield-field_image" alt="Find Us on Facebook" title="Find Us on Facebook" src="/cp/assets/img/facebook.png">
+      </a>
+      <a href="http://twitter.com/nexva" target="_blank">
+        <img width="32" height="32" class="imagefield imagefield-field_image" alt="Follow Us on Twitter" title="Follow Us on Twitter" src="/cp/assets/img/twitter.png">
+      </a>
+      <a href="http://www.linkedin.com/companies/940580/neXva?trk=pp_icon" target="_blank">
+        <img width="32" height="32" class="imagefield imagefield-field_image" alt="LinkedIn" title="LinkedIn" src="/cp/assets/img/linkedin.png">
+      </a>
+      <a href="http://nexva.com/blog/" target="_blank">
+        <img width="32" height="32" class="imagefield imagefield-field_image" alt="Blogger" title="Blogger" src="/cp/assets/img/blogger.png"/>
+      </a>
+    </p>
+  </div>
+  <div id="footer_links" style="font-weight:normal;">
+    <a href="/">Home</a> |
+    <a href="http://www.nexva.com" >neXva</a> |
+    <a href="<?php echo CP_PROJECT_BASEPATH;?>index.php/what-we-do" target="_blank">About Us</a> |
+    <!--<a href="<?php echo CP_PROJECT_BASEPATH;?>content-providers" target="_blank">Content/Application Developers</a> |-->
+    <a href="<?php echo CP_PROJECT_BASEPATH;?>index.php#contact_usa" target="_blank">Contact Us</a>
+  </div>
+  <div id="copyright" style="font-size: 10px;font-weight: lighter;padding-top:5px;color:graytext">
+    <p> &copy;Copyright <?= date('Y'); ?> neXva . All rights reserved .
+      Products, logos and companies mentioned herein are trademarks or trade names of their respective owners and therefore copyright. </p>
+  </div>
+    
+<?php else: ?>
+    
+    <?php if(!empty($this->cpFooter)): ?>
+        <div id="copyright" style="font-size: 10px;font-weight: lighter;padding-top:5px;color:graytext">
+            
+            <div style="margin: 0 auto;width: 1024px;">
+                <p> &copy;Copyright <?= date('Y'); ?> 
+              <?= $this->cpFooter; ?>.<br />
+                Products, logos and companies mentioned herein are trademarks or trade names of their respective owners and therefore copyright. <br /></p></p>
+            </div>
+            
+    
+    <?php else :?>
+    
+            <div id="copyright" style="font-size: 10px;font-weight: lighter;padding-top:5px;color:graytext">
+            <div style="margin: 0 auto;width: 1024px;">
+                <p> &copy;Copyright <?= date('Y'); ?> <?= strtoupper($usernameChap); ?> . All rights reserved .<br />
+              Products, logos and companies mentioned herein are trademarks or trade names of their respective owners and therefore copyright. <br /></p>
+            </div>
+            
+    <? endif; ?>
+                <a href="http://nexva.com" target="_blank">
+                    <img style="border:0 ; float: right; height: 40px; position: relative; right: 30px; width: 72px; margin-top: -30px; margin-bottom: 10px" src="/pbo/images/logo_powered_by.png" alt="neXva logo" />
+                </a>
+
+          </div>
+<?php endif; ?>
+</div>

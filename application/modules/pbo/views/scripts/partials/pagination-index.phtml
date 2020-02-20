@@ -1,0 +1,52 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/17/13
+ * Time: 4:02 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php if ($this->pageCount): ?>
+
+    <div id="paginationControl" class="pagination">
+        <!-- Previous page link -->
+
+        <?php if (isset($this->previous)): ?>
+
+            <a href="<?php echo $this->url(array('page' => $this->previous,'chk_filter' => $this->chk_filter ,'platform' => $this->platform ,'search_key' => $this->search_key,'language' => $this->language, 'category' => $this->category, 'grade' => $this->grade)); ?>"> &lt;&lt; Previous</a>
+
+        <?php else: ?>
+
+            <span class="disabled">&lt;&lt; Previous</span>
+
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+
+            <?php if ($page != $this->current): ?>
+
+                <a class="number" href="<?php echo $this->url(array('page' => $page, 'chk_filter' => $this->chk_filter ,'platform' => $this->platform ,'search_key' => $this->search_key, 'language' => $this->language, 'category' => $this->category, 'grade' => $this->grade)); ?>"><?php echo $page; ?></a>
+
+            <?php else: ?>
+
+                <a class="number current"><?php echo $page; ?></a>
+
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+
+            <a href="<?php echo $this->url(array('page' => $this->next,'chk_filter' => $this->chk_filter ,'platform' => $this->platform ,'search_key' => $this->search_key,'language' => $this->language, 'category' => $this->category, 'grade' => $this->grade)); ?>">Next &gt;&gt;</a>
+
+        <?php else: ?>
+
+            <span class="disabled">Next &gt;&gt;</span>
+
+        <?php endif; ?>
+
+    </div>
+<?php endif; ?>

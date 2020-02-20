@@ -1,0 +1,51 @@
+<div class="title">
+    <h3 style="cursor: s-resize;">Manage Product <?= $this->product['name'] ?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php
+        if (is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+        ?>
+                <div class="message <?= key($value) ?>">
+            <?= $this->partial('partials/itemlist.phtml', array("item" => $value[$key])); ?>
+            </div>
+        <?php
+                endforeach;
+            endif;
+        ?>
+            <div id="content_box">
+                <div class="right">
+                          <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/editinapp/id/<?= $this->productId; ?>" target="_blank">
+                        <b><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" border="0"> Edit this product</b>
+                    </a>
+
+                </div>
+                <br/>
+                <!-- showing builds -->
+                <div class="tab-table">
+                
+                <div class="txt" style="text-align: center;background-color: white;">
+                
+                <strong>Your unique id is </strong> <?=$this->uniqId?>
+                 
+                </div>
+                
+                   
+                   
+                   
+                   
+                <div style="text-align: center">
+     
+                    <form id="product_basic_publish" enctype="application/x-www-form-urlencoded" method="post" action="/product/publish/id/<?= $this->productId ?>">
+                     <dt id="submit-label">&nbsp;</dt><dd id="submit-element">
+<input name="submit" id="submit" value="Publish Now" href="tab-category" class="txt-input small submit button" style="width: 200px;" type="submit"></dd>      
+                    </form>
+                   <span style="font-size: 10px;color: #477fcb;"> Click on Publish Now,  So neXva content managers get notification about your application to review and publish for inapp. Please use this id as your product id for your application  </span>
+                </div>
+                <!-- End Table -->
+            </div>
+        </div>
+    </div>
+</div>

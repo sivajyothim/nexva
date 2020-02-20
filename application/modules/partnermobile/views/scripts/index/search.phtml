@@ -1,0 +1,73 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 9/2/13
+ * Time: 8:03 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php $currency = $this->ChangeCurrency($this->partnerId);?>
+<h2 class="font-size-16" ><?php echo $this->pageTitle;?></h2>
+<?php /*echo count($this->products); */?>
+<ul data-role="listview" data-inset="true" class="ui-icon-alt">
+    <?php if(count($this->products) > 0) { ?>
+    <?php foreach($this->products as $product) { ?>
+    
+    <?php
+    /*if($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){
+        print_r($product); die();
+    }*/
+    ?>
+    
+        <li id="custom-li">
+            <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?php echo $product['id'];?>" rel="external">
+                <!--<img src="<?/*= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" */?>" />-->
+                <img src="<?php echo $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($product['thumb'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" />
+                <h3><?php echo $product['name'];?></h3>
+                <p><?php echo $this->trim($product['vendor'],18);?></p>
+                <div id="rating">
+                    <?php echo $this->partial('partials/rating_inner.phtml', array('product_id'=>$product['id'], 'avgRating'=>$product['avg_rating'], 'totalRatings'=>$product['total_ratings'], 'productRated'=>$product['product_rated'])); ?>
+                </div>
+               
+
+                    <span class="ui-li-count">
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '$';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$product['cost']),2, '.', ',');}else{ echo $product['cost']; } */?>
+                            <!-- to be change -->
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '₦';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$product['cost']),2, '.', ',');}else{ echo number_format(($product['cost'])*165,2); } */?>
+                            <?php /*echo (($product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(ceil($product['cost']*$this->currencyDetails["rate"]),2, '.', ',') : "Free" ;*/ ?>
+                            
+                            <?php 
+                            if($product['cost'] > 0){ 
+                            ?>
+                                <?php if($this->mtnIran){ ?>
+                                    <?php echo number_format($this->PricePoints(ceil($product['cost']*$this->currencyDetails["rate"])),0, '.', ',').' '.$this->translate($currency[0]['symbol']); ?>
+                                <?php } else { ?>
+                                    <?php echo $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($product['cost']*$this->currencyDetails["rate"])),2, '.', ','); ?>
+                                <?php } ?>
+                            
+                                <?php 
+                            } 
+                            else {    
+                                echo $this->translate('Free');
+                            } 
+                            ?> 
+    
+                            <?php 
+                            
+                            ////echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($this->product['cost']*$this->currencyDetails["rate"])),2, '.', ',') : $this->translate("Free") ;?>  
+                     
+                        </span>
+
+            </a>
+        </li>
+    <?php } ?>
+    <?php } else { ?>
+        <div style="text-align:center;">
+            <p><?php echo $this->translate("Sorry! Couldn't find Apps matching your search criteria");?>.</p>
+        </div>
+    <?php } ?>
+</ul>
+<?php /*echo $this->partial('/partials/pagination-category.phtml', array("baseUrlfo" => $this->baseUrlfo, 'products' => $this->products, 'pageNum' => $this->pageNum));*/?>
+<?php echo $this->paginationControl($this->products, 'Sliding', 'partials/pagination-search.phtml',array("keyword" => $this->keyword)); ?>
+<?/*= $this->paginationControl($this->catApps, 'Sliding', 'partials/pagination-category.phtml'); */?>

@@ -1,0 +1,106 @@
+<script type="text/javascript">
+	$(document).on("pageshow", "#page-home", function() {
+		$.validator.addMethod("passmatch", function(value) {
+		return value == $("#password").val();
+		}, 'Confirmation password must match.');
+		 
+		$("#registerForm").validate({
+		 
+		errorPlacement: function(error, element) {
+		if (element.attr("name") === "favcolor") {
+		error.insertAfter($(element).parent());
+		} else {
+		error.insertAfter(element);
+		}
+		}
+		});
+});
+
+jQuery.extend(jQuery.validator.messages, {
+    required: "<?= $this->translate("This field is required") ?>.",
+    remote: "Please fix this field.",
+    email: "<?= $this->translate("Please enter a valid Email address for your Email") ?>.",
+    url: "Please enter a valid URL.",
+    date: "Please enter a valid date.",
+    dateISO: "Please enter a valid date (ISO).",
+    number: "<?= $this->translate("Please enter a valid number") ?>.",
+    digits: "Please enter only digits.",
+    creditcard: "Please enter a valid credit card number.",
+    equalTo: "Please enter the same value again.",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("<?= $this->translate("Please enter no more than") ?> {0} <?= $this->translate("characters") ?>."),
+    minlength: jQuery.validator.format("<?= $this->translate("Please enter at least")?> {0} <?= $this->translate("characters") ?>."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
+</script>
+<style>
+.ui-body{
+background:#ffffff;
+}
+</style>
+<h2 class="font-size-16"><?php echo $this->translate("Update Profile");?></h2>
+
+<div class="ui-grid-solo">
+    <?php if($this->ErrorMessages)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+        <?php foreach($this->ErrorMessages as $key=>$value)
+            {
+                if(is_array($value))
+                {
+                    foreach($value as $one=>$two)
+                    {
+                        echo $this->translate($two);
+                    }
+                    echo '<br/>';
+                }
+                else
+                {
+                    echo $this->translate($value),'<br/>';
+                }
+            } ?>
+        </span></span>
+    </div>
+    <?php } ?>
+</div>
+
+<div class="ui-body ui-body-c">
+        <form action="/user/update-profile" method="post" id="registerForm" data-ajax="false">
+    
+        <fieldset data-role="fieldcontain">
+            <label for="first_name"><?php echo $this->translate("First Name");?> :</label>
+            <input type="text" name="first_name" id="first_name" class="required" minlength="" value="<?php echo $this->tempPassword; ?><?php if (isset($this->first_name) && $this->tempPassword) {echo $this->first_name;}?>" >
+        </fieldset>
+            
+        <fieldset data-role="fieldcontain">
+            <label for="last_name"><?php echo $this->translate("Last Name");?> :</label>
+            <input type="text" name="last_name" id="last_name" class="required" minlength="" value="<?php if (isset($this->last_name) && $this->tempPassword) {echo $this->last_name;}?>" >
+        </fieldset>
+    
+         <fieldset data-role="fieldcontain">
+            <label for="email"><?php echo $this->translate("Email");?> :</label>
+            <input type="email" name="email" id="email" class="required email" minlength="5" value="<?php if (isset($this->email) && $this->tempPassword) {echo $this->email;}?>" >
+        </fieldset>
+            
+        <!--fieldset data-role="fieldcontain">
+            <label for="phone_number"><?php echo $this->translate("Phone Number");?> :</label>
+            <input type="text" name="phone_number" id="phone_number" class="required number" minlength="10" value="<?php if (isset($this->phone_number)) {echo $this->phone_number;}?>" >
+        </fieldset>
+            
+        <fieldset data-role="fieldcontain">
+            <label for="password"><?php echo $this->translate("Password");?> :</label>
+            <input type="password" name="password" id="password" class="required" minlength="5">
+        </fieldset>
+    
+        <fieldset data-role="fieldcontain">
+            <label for="password2"><?php echo $this->translate("Confirm Password");?> :</label>
+            <input type="password" name="password2" id="password2" class="required" minlength="5">
+        </fieldset-->
+
+        <input type="submit" value="<?php echo $this->translate("Update");?>">
+    
+    </form>
+</div>

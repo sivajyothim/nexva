@@ -1,0 +1,147 @@
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+<?php $t = $this->t();?>
+<?php 
+/**
+ * This page needs to be CHAPS (whitelabel) ready. 
+ * 
+ * Right now, we're only taking the URL so the URL needs to be specific to the 
+ * chap and not nexva's
+ * 
+ * @todo Things that need to change according to chaps
+ * 1. URLs
+ * 2. Colors
+ * 3. ?
+ */
+
+$chapInfo   = $this->chapInfo;
+?>
+<?php $this->headLink()->appendStylesheet('/web/css/ui-lightness/jquery-ui-1.8.7.tab-blue.css'); ?>
+<?php //$this->headScript()->appendFile('/web/js/jquery-1.4.4.min.js'); //in layout now?>
+<?php $this->headScript()->appendFile('/web/nexlinker/script.js');?>
+<?php $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/tabs/jquery-ui-1.8.7.tabs.min.js');?>
+<?php 
+   // if (isset($chapInfo->WHITELABLE_NEXLINKER_STYLE) && !empty($chapInfo->WHITELABLE_NEXLINKER_STYLE)) {
+   //     $this->headLink()->appendStylesheet('/mobile/whitelables/' . $chapInfo->WHITELABLE_THEME_NAME . '/' . $chapInfo->WHITELABLE_NEXLINKER_STYLE);
+  //  }
+?>
+
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        $("#tabs").tabs();
+        $("#tabs-2").show();
+    });
+    var __CHAP_ID   = <?=($this->isChap) ? $this->chapId : 0; ?>;
+<?php $this->headScript()->captureEnd();?>
+
+<?php 
+    $ns = new Zend_Session_Namespace('translation'); //include this only if the translation utility is enabled
+    if (isset($ns->translatorEnabled) && $ns->translatorEnabled === true) : ?>
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/css/translator.css">
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript">
+           var __SECTION = '<?php echo $t->getSection()?>';
+        </script>
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/translateutil.js"></script>
+        
+    <?php endif; ?>
+
+<style>
+<!--
+
+body {
+    background: none repeat scroll 0 0 #ffffff;
+    font-family: Verdana,Arial,Tahoma;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+}
+
+#nl_window_close {
+    float:right;
+    margin : 3px 8px 0 0;
+}
+
+img {
+	border: 1px solid #6879aa;
+}
+
+
+#email_field {width: 95%;}
+
+-->
+</style>  
+
+<div id='nex-container'>
+    <div id='tabs'>
+    <!-- for the JS to pick up -->
+    <input type='hidden' id='appId' value='<?=$this->prod['id'];?>'>
+       <h2 class='ui-widget-header'><?=ucfirst($this->prod['name'])?></h2>
+        <div id='tabs-1'>
+            <p style="padding-left: 4px;"> 
+              <strong>
+              
+    
+            <? if(($this->userId == 'none') and ($this->productId == false)): ?>
+            To register you need to install the <?=ucfirst($this->prod['name'])?> on your Android device. Registration happens on your device. <br /><br /> Please download the App store app using the following methods.
+            <?endif;?>
+            
+            <? if(($this->userId == 'none') and ($this->productId != false)): ?>
+            To download this app you need to install the <?=ucfirst($this->prod['name'])?> on your Android device and sign in. If you have already registered please <a href='http://<?=$this->chapInfo->WHITELABLE_SITE_NAME.'.'.Zend_Registry::get('config')->nexva->application->base->url?>/info/login' target="_blank">Sign in here</a>. <br /> <br /> If you want to install the <?=ucfirst($this->prod['name'])?> on your phone use following methods.
+            <?endif;?>
+    
+           <? if(isset($this->userId) and ($this->userId != 'none') and isset($this->productId)): ?>
+           The app you have selected has been pushed directly to your device. Be sure to have the <?=ucfirst($this->prod['name'])?> installed on your phone first.  <br /> <br /> If you don't have <?=ucfirst($this->prod['name'])?> installed on your phone here is how to get it :
+           <?endif;?>
+           </strong></p><br>
+            <?php
+                $config = Zend_Registry::get("config");
+                $appUrl = "http://".$config->nexva->application->base->url . "/nt/" . $this->prod['id'];
+                if (isset($this->chapInfo->WHITELABLE_URL)) {
+                	// this should load dynamically
+                    $appUrl = "http://" . 'cca.nexva.mobi' . "/nt/" . $this->prod['id'];   
+                } 
+                  
+                $qrCode = $this->qr($appUrl, 120, 120); 
+            ?>
+            <div class='left'>
+                  <p><strong>1</strong>. <?= $temp->_('Type in your email address and we wll email it to you') ?><br /><br />
+                  <center>
+                   <?    
+                        $za     = Zend_Auth::getInstance()->getIdentity();
+                   ?>
+                   <?php $t->_h('your_email');?>
+                    <input value='<?=(isset ($za->email) ? $za->email : '')?>' type='text' size='30' title='<?= $temp->_('your email')?>' class='suggest' id='email_field'>
+                        <button id="send_mail" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                            <span class="ui-button-text"><?= $temp->_('send email')?></span>
+                        </button>
+                        <?php $t->_h('send_email');?> 
+                        <img class='display_none' width='12'  src="<?php echo PROJECT_BASEPATH;?>web/nexlinker/images/loading.gif" border="0" id="send_mail_loader" alt="loading" />
+                  </center>
+                </p>            
+            </div>
+            <div class='right'>
+                <p>
+                  <strong>2</strong>. <?= $temp->_('Point your mobile browser to the following link:')?> <br /><br />
+                    <center>
+                        <a target="_parent" href="<?=$appUrl?>"><?=$appUrl?></a>
+                    </center>
+                </p>
+            </div>
+            <div class='clear'></div>
+            <div class='center'>
+                <p><strong>3</strong>. <?= $temp->_('Scan the QR code using your phone to be directly taken to the app page')?><br /><br />
+                    
+                  <center>
+                    <img name="qr_code" src="<?=$qrCode?>" width="120" height="120" border="1" id="qr_code" alt="<?php $t->_('generating_qr', true);?>" />
+                    <?php $t->_h('generating_qr');?> 
+                    <br><br> <?= $temp->_('Do not have a QR code reader?')?> <a href="http://nexva.com/7990" target="_blank"> <?= $temp->_('Get one free')?> </a>
+                  </center>
+                </p>            
+            </div>
+            <div class='clear'></div>
+        </div>
+
+    </div>
+</div>
+ 

@@ -1,0 +1,63 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 2/18/14
+ * Time: 6:32 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<?php $flashMessenger = Zend_Controller_Action_HelperBroker::getStaticHelper('FlashMessenger'); ?>
+
+<?php if ($flashMessenger->setNamespace('success')->hasMessages()){ ?>
+    <div class="notification success png_bg">
+        <div>
+            <?php foreach ($flashMessenger->getMessages() as $msg){
+                 echo $msg;
+            } ?>
+        </div>
+    </div>
+<?php } ?>
+
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+    </div>
+    <div class="content-box-content">
+        <table style="width:97%; margin-left: 15px;" border="0">
+            <thead>
+                <tr>
+                    <th style="text-align: center">Name</th>
+                    <th style="text-align: center">Description</th>
+                    <th style="text-align: right">Created Date</th>
+                    <th style="text-align: right">Action</th>
+                </tr>
+            </thead>
+            <tbody id="sms-table">
+                <?php foreach($this->campaigns as $campaign){ ?>
+                    <tr>
+                        <td style="text-align: center"><a href="/campaign/edit-sms-campaign/id/<?php echo $campaign->id;?>"><?php echo $campaign->name; ?></a></td>
+                        <td style="text-align: center"><?php echo $campaign->description; ?></td>
+                        <td style="text-align: right"><?php echo $campaign->created_date; ?></td>
+                        <td style="text-align: right">
+                            <!--<a title="Send" href="#campaign" id="send_<?php /*echo $campaign->id; */?>">
+                                <img src="/pbo/images/icons/email-send-icon.png" style=" position:relative; top:4px; width:16px"  alt="Send" onclick="campaignBox(<?php /*echo $campaign->id; */?>);load_poup_box(<?php /*echo $campaign->id; */?>)"/>
+                            </a>
+                            <a title="View Stats" href="#" id="view_<?php /*echo $campaign->id; */?>">
+                                <img src="/pbo/images/icons/view-details.png" style="   position:relative; top:4px" alt="View Stats" />
+                            </a>-->
+                            <a title="Send" href="/campaign/send-sms/campaignId/<?php echo $campaign->id; ?>" >
+                                <img src="/pbo/images/icons/email-send-icon.png" style=" position:relative; top:4px; width:16px"  alt="Send" />
+                            </a>
+                            <a title="View Stats" href="/campaign/view-stats/id/<?php echo $campaign->id; ?>" id="view_<?php echo $campaign->id; ?>">
+                                <img src="/pbo/images/icons/view-details.png" style="   position:relative; top:4px" alt="View Stats" />
+                            </a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+        <?php echo $this->paginationControl($this->campaigns, 'Sliding', 'partials/pagination-campaign.phtml'); ?>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="prodListPage">
+    <div class="container">
+        <div class="contContent">
+
+
+            <div class="blockContent">
+                <div class="blkHead">
+                    <h2 id="pageTitle">Claim your account</h2>
+                     <div style="padding-left: 10px;">  You are about to claim <?=$this->email?>. Please enter a password and we'll make this account yours. </div>
+                </div>
+                <div class="blkList">
+                    <div class="prodListItem">
+                        <div class="block">
+                            <div class="blkContent">
+                                <form id="signup" name="signup" action="/user/claim" method="post">
+                                    <ul>
+                                        <?
+                                        $error = $this->messages;
+                                        if(is_array($error))
+                                            foreach ($error as $key=>$value):
+                                                
+                                            ?>
+                                        <li><?=$value?></li>
+                                            <?
+                                            endforeach;
+                                        ?>
+                                      
+                                    </ul>
+                                   <?php $request = Zend_Controller_Front::getInstance()->getRequest();?>
+                                   <?php if($this->valid_request) {?>
+                                    <div class="inputFld"><label>Password </label><input class="validate(required)" name="password" id="password" type="password" value=""/></div>
+                                   <div class="inputFld"><label>Confirm</label><input class="validate(required)" name="confirm" id="confirm" type="password" value=""/></div>
+                                    
+                                   
+                                    <input type="hidden" name ="otphash" value="<?=$request->otphash?>">
+                                    <input type="hidden" name ="id" value="<?=$request->id?>">
+                                    <input type="hidden" name="time" value="<?=$request->time?>">
+                                    
+                                    <ul class="btn">
+                                        <li><a href="#" id="submit">Claim</a></li>
+                                    </ul>
+                                    
+                                     <?php } ?>
+                                     
+                                </form>
+                                
+                             
+                                
+                            </div>
+                         
+                        </div>
+                            
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- product list page end -->

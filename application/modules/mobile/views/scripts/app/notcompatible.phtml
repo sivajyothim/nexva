@@ -1,0 +1,14 @@
+<div class="padding-all"><h1><?=$this->appName?></h1><?=$this->msg?></div>
+<? if (!empty($this->products)): ?>
+<? foreach ($this->products as $product): ?>
+<?= $this->partial('/partials/app.phtml', array("item" => $product)) ?>
+<? endforeach; ?>
+<? endif; ?>
+<!-- Recomendations -->
+<div class="recommendations padding-all">
+<? if (!empty($this->products)): ?>
+<img alt="Go to" src="<?=$this->cdn('site_assets')?>/mobile/images/arrow_skip.png"> <b><a href="<?php echo PROJECT_BASEPATH;?>app/cp/id/<?= $this->product['id'] ?>">More Apps By <?= $this->product['user_meta']->COMPANY_NAME ?></a></b><br/><br/>
+<? endif; ?>
+<img alt="Go to" src="<?=$this->cdn('site_assets')?>/mobile/images/arrow_skip.png"> <a href="<?php echo PROJECT_BASEPATH;?>app/recommended/id/<?= $this->product['id'] ?>">Discover More</a><br/><br/>
+<img alt="Go to" src="<?=$this->cdn('site_assets')?>/mobile/images/arrow_skip.png"> <a href="/app">All Apps</a>
+</div>

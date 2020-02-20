@@ -1,0 +1,261 @@
+<?php //$temp=Zend_Registry::get('browserLocale'); ?>
+<?php $t = $this->t();?>
+<?php
+/**
+ * This page needs to be CHAPS (whitelabel) ready.
+ *
+ * Right now, we're only taking the URL so the URL needs to be specific to the
+ * chap and not nexva's
+ *
+ * @todo Things that need to change according to chaps
+ * 1. URLs
+ * 2. Colors
+ * 3. ?
+ */
+
+$chapInfo   = $this->chapInfo;
+?>
+<?php $this->headLink()->appendStylesheet('/web/css/ui-lightness/jquery-ui-1.8.7.tab-blue.css'); ?>
+<?php //$this->headScript()->appendFile('/web/js/jquery-1.4.4.min.js'); //in layout now?>
+<?php $this->headScript()->appendFile('/web/nexlinker/script.js');?>
+<?php $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/tabs/jquery-ui-1.8.7.tabs.min.js');?>
+<?php
+// if (isset($chapInfo->WHITELABLE_NEXLINKER_STYLE) && !empty($chapInfo->WHITELABLE_NEXLINKER_STYLE)) {
+//     $this->headLink()->appendStylesheet('/mobile/whitelables/' . $chapInfo->WHITELABLE_THEME_NAME . '/' . $chapInfo->WHITELABLE_NEXLINKER_STYLE);
+//  }
+?>
+
+<?php $this->headScript()->captureStart();?>
+$(function() {
+$("#tabs").tabs();
+$("#tabs-2").show();
+});
+var __CHAP_ID   = <?=($this->isChap) ? $this->chapId : 0; ?>;
+<?php $this->headScript()->captureEnd();?>
+
+<?php
+$ns = new Zend_Session_Namespace('translation'); //include this only if the translation utility is enabled
+if (isset($ns->translatorEnabled) && $ns->translatorEnabled === true) : ?>
+    <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+    <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/css/translator.css">
+    <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+    <script type="text/javascript">
+        var __SECTION = '<?php echo $t->getSection()?>';
+    </script>
+    <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/translateutil.js"></script>
+
+<?php endif; ?>
+
+<style>
+    <!--
+
+    body {
+        background: none repeat scroll 0 0 #ffffff;
+        font-size: 12px;
+        line-height: 1;
+        text-align: center;
+    }
+
+    #nl_window_close {
+        float:right;
+        margin : 3px 8px 0 0;
+    }
+
+    img {
+        border: 1px solid #6879aa;
+    }
+
+
+    #email_field {
+        width: 95%;   
+        border: 1px solid #04618A;
+        padding: 3px;
+    }
+    .ui-widget-content{
+        border:none !important;
+    }
+    
+.nexlink-content{
+    background : #D5FFCE;    
+    border : 1px solid #9ADF8F;
+    -webkit-border-radius : 6px 6px 6px 6px;
+    border-radius : 6px 6px 6px 6px;   
+    margin: 0 auto;
+    padding: 10px;
+    width: 95%;
+    font-size: 13px !important;
+    font-weight: bold;
+}
+
+#tabs-1{
+    padding: 0px 10px 10px 10px;
+}
+
+.ui-widget{
+    font-family : Tahoma, Verdana, Arial !important;
+}
+
+.ui-widget-header{
+    background: #04618a !important;
+}
+
+    #send_mail{
+        width:120px !important;
+    }
+-->
+</style>
+<!-- At the moment we hard coded app-etite user id (36015) as they don't have a app store app download pop up will redirect download url to mobile site. -->
+
+<div id='nex-container'>
+        <div id='tabs'>
+            <!-- for the JS to pick up -->
+            <input type='hidden' id='appId' value='<?=$this->prod['id'];?>'>
+            <input type='hidden' id='buildId' value='<?=$this->buildId;?>'>
+            <input type='hidden' id='regType' value='<?=$this->regType;?>'>
+            <input type="hidden" name="chapId" id="chapId" value="<?=$this->chapId?>"/>
+            <h2 class='ui-widget-header'><?=ucfirst($this->prod['name'])?></h2>
+            <div id='tabs-1'>
+                <p style="padding-left: 4px;">
+                    <div class="nexlink-content">
+<?php
+/*if($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){
+    echo $this->translate("NEXLINKER_TXT_1").'###';
+    //echo $this->chapId; die();
+}*/
+?>
+                        <? if(($this->userId == 'none') and ($this->productId == false)): ?>
+                            <?php echo $this->translate("To register you need to install");?> "<?=ucfirst($this->prod['name'])?>" 
+                            
+                            
+                            <?php echo $this->translate("on your Android device. Registration happens on your device.");?> <br /><br /> <?php echo $this->translate("Please download the App store app using the following methods.");?>
+                        <?endif;?>
+
+                        <? if(($this->userId == 'none') and ($this->productId != false)): ?>
+                            <?php if($this->chapId == 23045): //MTN Iran ?>
+                                <?php echo $this->translate("NEXLINKER_TXT_1");?>
+                            <?php else: ?>
+                            
+                            
+                             <?php if($this->chapId != 585480 and $this->chapId != 585474 ): //MTN Iran ?>
+                            
+                                <?php echo $this->translate("To download this app you need to install");?>  <?=ucfirst($this->prod['name'])?>
+                                
+                                <?php echo $this->translate("on your Android device and sign in.");?>
+                                <?php else: ?>
+                                
+                                Pour t&eacute;l&eacute;charger cette application vous devez installer "<?=ucfirst($this->prod['name'])?>" sur votre appareil Android
+                                
+                                
+                                <?endif;?>
+                                
+                                 <!-- If you have already registered please <a href='http://<?=$this->chapInfo->WHITELABLE_SITE_NAME.'.'.Zend_Registry::get('config')->nexva->application->base->url?>/info/login' target="_blank">Sign in here</a>.  -->
+                            <?php endif; ?>
+                            <br /> <br /> 
+                            
+                            <?php if($this->chapId == 23045): //MTN Iran ?>
+                                <?php echo $this->translate("NEXLINKER_TXT_2");?>
+                            <?php else: ?>
+                            
+                            
+                             <?php if($this->chapId  != 585480 and $this->chapId  != 585474 ): //MTN Iran ?>
+                                <?php // echo  $this->chapId;  ?>  <?php echo $this->translate("If you want to install");?> "<?=ucfirst($this->prod['name'])?>" <?php echo $this->translate("on your phone use following methods.");?>
+                             <?php else: ?>
+                            
+                             <?php endif; ?>
+                            
+                            <?php endif; ?>
+                          
+                            <?endif;?>
+
+                        <? if(isset($this->userId) and ($this->userId != 'none') and isset($this->productId)): ?>
+                            <?php echo $this->translate("The app you have selected has been pushed directly to your device. Be sure to have the");?> <?=ucfirst($this->prod['name'])?> <?php echo $this->translate("installed on your phone first.");?>  <br /> <br /> <?php echo $this->translate("If you don't have");?> <?=ucfirst($this->prod['name'])?> <?php echo $this->translate("installed on your phone here is how to get it");?> 
+                        <?endif;?>
+                    </div></p><br>
+                <?php
+                $config = Zend_Registry::get("config");
+
+                $appUrl = "http://".$config->nexva->application->base->url . "/nt/" . $this->prod['id'];
+
+                if (isset($this->chapInfo->APPSTORE_APP_URL))
+                {
+                     if($this->chapId == 585474)
+                        $appUrl = "http://appstore.orange-guinee.com/" . $this->productId;
+                    elseif($this->chapId == 585480)
+                        $appUrl = "http://appstore.orange.cd/" . $this->productId;
+                    elseif($this->chapId == 283006)
+                    $appUrl = "http://store.mts.rs/" . $this->productId;
+                    elseif($this->chapId == 33644)
+                    $appUrl = "http://mtnapp.mtncongo.net/" . $this->productId;
+                    else 
+                        $appUrl = "http://" . $this->chapInfo->APPSTORE_APP_URL . "/nt/" . $this->prod['id'];
+                }
+                else
+                {
+                    $appUrl = "http://" . 'cca.nexva.mobi' . "/nt/" . $this->prod['id'];
+                }
+
+                $qrCode = $this->qr($appUrl, 120, 120);
+                ?>
+                    
+            <div class='center'>
+                   
+                <div class='center'>
+                    <p>
+                        <strong>1</strong>. <u> <?= $this->translate('Point your mobile browser to the following link:');?> <strong> (mobile browser) </strong> </u><br /><br />
+                    <center>
+                   <?=$appUrl?>
+                    </center>
+                    </p>
+                </div>
+                <div class='clear'></div>
+                <div class='center'>
+                    
+                    <p><strong>2</strong>. <?= $this->translate('Scan the QR code using your phone to be directly taken to the app page');?><br /><br />
+
+                    <center>
+                        <img name="qr_code" src="<?=$qrCode?>" width="120" height="120" border="1" id="qr_code" alt="<?php $t->_('generating_qr', true);?>" />
+                        <?php $t->_h('generating_qr');?>
+                        <br><br> 
+                        
+                        <?php if($this->chapId == 23045): //MTN Iran ?>
+                            <a href="http://<?= $this->chapInfo->WHITELABLE_URL_WEB ?>/app/mobiletag-barcodes-reader.7990" target="_blank"><?php echo $this->translate("NEXLINKER_TXT_3");?></a>
+                        <?php else: ?>
+                            <?= $this->translate('Do not have a QR code reader?');?> <a href="http://nexva.com/7990" target="_blank"> <?= $this->translate('Get one free');?> </a>
+                        <?php endif; ?>
+                    </center>
+                    </p>
+                </div>
+                <div class='clear'></div>
+                <?php if($this->chapId == 283006){ ?>
+                   
+                        <div class='center'>
+                            <p><strong>1</strong>. <?= $this->translate('Type in your email address and we will email it to you'); ?><br /><br />
+                            <center>
+                                <?
+                                $za     = Zend_Auth::getInstance()->getIdentity();
+                                ?>
+                                <?php $t->_h('your_email');?>
+                                    <input value='<?=(isset ($za->email) ? $za->email : '')?>' type='text' size='30' title='<?= $this->translate('your email');?>' class='suggest' id='email_field' dir="ltr">
+                                    <p> 
+                                    <label>Enter the security key you see inside the image</label>
+                                        <?php//$this->recaptcha;?>
+                                    <img src="/captcha.php" /><br><input type="text" name="captcha" id="capValue"/>
+                                    </p>
+
+                                    <button id="send_mail" class="ui-button ui-widget upi-state-default ui-corner-all ui-button-text-only">
+                                        <span class="ui-button-text"><?= $this->translate('send email')?></span>
+                                    </button>
+                                <?php $t->_h('send_email');?>
+                                <img class='display_none' width='12'  src="<?php echo PROJECT_BASEPATH;?>web/nexlinker/images/loading.gif" border="0" id="send_mail_loader" alt="loading" />
+                            </center>
+                            </p>
+                            
+                        </div>
+                <div class='clear'></div>
+                     <?php } ?>
+                
+            </div>
+        </div>
+</div>
+
+ 

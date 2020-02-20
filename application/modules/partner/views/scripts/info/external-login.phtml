@@ -1,0 +1,23 @@
+<script type='text/javascript'>
+	setTimeout(function(){document.getElementById('alt').style.display = 'block';},  5000);
+</script>
+
+    <div class='container' style='border: 2px solid #DE6800; padding: 10px; margin: 10px; width: 500px'>
+        <div class='textBlock'>
+
+        <h2>You are being redirected...</h2>
+       
+            <div id='alt' style='display:none;'>   
+                <br></br>
+                If you are not automatically redirected, please click on the button below to continue.
+                <br></br>
+                
+                <?php
+                echo $this->openIdForm;
+                ?>
+                <br></br>
+                If you do not see a button, your device may not support this login method. 
+                <a href='/user/login'>Click here to try an alternative login method.</a>
+            </div>
+        </div>
+    </div>

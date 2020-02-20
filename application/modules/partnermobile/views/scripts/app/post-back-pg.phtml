@@ -1,0 +1,310 @@
+<?php if (count($this->errorMsgApp)) : ?>    
+    <div class="ui-grid-solo">
+        <div class="ui-block-a">
+            <button type="v" data-theme="c">
+            <?php foreach ($this->errorMsgApp as $message) : ?>
+                <div style="white-space: normal" ><?= $this->escape($message); ?></div>
+            <?php endforeach; ?>
+            </button>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php 
+//Declared for different buy actions other than 'buy'
+$buyActionName = 'buy';
+if($this->ycoins || $this->qelasy) { 
+    $buyActionName = 'buy-app-by-redirection-pg';
+    $dataAjaxLoader = true;
+}
+else{
+    $dataAjaxLoader = false;
+}
+?>
+
+<ul data-role="listview" data-inset="true" data-theme="d">
+    
+    <?php /*if (count($this->errorMsgApp)) : ?>          
+
+        <li>
+            <div class="ui-grid-solo">
+                <div class="ui-block-a">        
+
+                    <?php foreach ($this->errorMsgApp as $message) : ?>
+
+                        <h5 class="font-size-12 ui-li-heading" style="white-space: normal"><?= $this->escape($message); ?></h5>
+
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </li>
+
+    <?php endif; */ ?>
+    
+                
+    <li>
+        <div class="ui-grid-a">
+            <div class="ui-block-a"><?= ($this->product['updates_available'] == 1) ? '<span class="update-available-details">Update Available!</span>' : ''; ?><img class="ui-li-thumb-inner-large" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->product['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /></div>
+            <div class="ui-block-b">
+                <h2 class="font-red-size-16" style="white-space:normal;"><?= $this->product['name']; ?></h2>
+                <h3 style="white-space: normal" class="blue-color" style="white-space:normal;"><?= $this->product['vendor']; ?> </h3>
+                    
+                <?php if($this->avgApproved): ?>
+                      <div><a href="http://www.avg.com" target="_blank"><img id="avg" src="/partner/default/assets/img/avg.png" style="width:60px; position:relative;top:2px;"/></a></div>
+                      <div class="avg-tagline">Protect your phone</div>
+                <?php endif; ?>
+                      
+                
+                <div id="rating">
+                    <?= $this->partial('partials/rating.phtml', array('product_id' => $this->product['id'], 'avgRating' => $this->product['avg_rating'], 'totalRatings' => $this->product['total_ratings'], 'productRated' => $this->product['product_rated'], 'page' => 'detail')); ?>
+                </div>
+                
+                <?php
+                if($this->product['google_id']){
+                    echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/12.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->product['google_id']).'</div></div>&nbsp;&nbsp;';
+                }
+
+                if($this->product['apple_id']){
+                    echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/10.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->product['apple_id']).'</div></div>';
+                }
+                ?>
+		
+            </div>	   
+        </div>
+
+        <div class="ui-grid-a">
+            <div class="ui-block-a" id="font-size-14">
+                <a style="white-space:normal !important;" href="#" data-role="button" data-icon="custom" id="priceicon" data-mini="true" data-iconpos="left" data-theme="a" class="price-btn">
+                    
+                        <?/*= ($this->product['cost']) > 0 ? ((!empty($currency) && !is_null($currency)) ? $currency[0]['symbol'].' '.number_format(ceil($currency[0]['rate']*$this->product['cost']),2, '.', ',') : '$ '.$this->product['cost']) : 'Free' */    /*number_format($number, 2, '.', '');*/  ?>
+                        <!-- to be change -->
+                        <?/*= ($this->product['cost']) > 0 ? ((!empty($currency) && !is_null($currency)) ? $currency[0]['symbol'].' '.number_format(ceil($currency[0]['rate']*$this->product['cost']),2, '.', ',') : '? '.number_format(($this->product['cost'])*165,2) ): 'Free' */?>
+                        <?php //echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(($this->product['cost']*$this->currencyDetails["rate"]),2) : $this->translate("Free") ;?>
+                        
+                        <?php /*echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(ceil($this->product['cost']*$this->currencyDetails["rate"]),2, '.', ',') : $this->translate("Free") ;*/ ?>
+                        
+                        <?php echo (($this->product['cost']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($this->product['cost']*$this->currencyDetails["rate"])),2, '.', ',') : $this->translate("Free") ;?>  
+                </a>
+            </div>
+            <div class="ui-block-b" id="font-size-14">
+                
+                <?php 
+                    //Get the chap platform type
+                    $chapPlatformType = $this->chapInfo->WHITELABLE_PLATEFORM;
+                    
+                    //if($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){ echo '123###'.Zend_Auth::getInstance()->getIdentity()->id.'###'.$this->headerEnrichment; die(); }
+                    
+                    if(Zend_Auth::getInstance()->hasIdentity() || $this->headerEnrichment) :
+                        
+                ?>
+                    <?php if($this->devicePlatform == 'Android' && ($chapPlatformType=='ANDROID_PLATFORM_CHAP_ONLY' || $chapPlatformType=='ANDROID_AND_MULTIPLE_PLATFORM_CHAP')) : ?>
+                    
+                    <?php
+                      $hrefUrl = '';
+                      if($this->airtelSriLanka){
+                          if($this->product['cost'] > 0){ 
+                              $buyActionName = 'buy';
+                          }
+                          else{
+                              $buyActionName = 'download';
+                          }
+
+                          $hrefUrl = "/app/".$buyActionName."/id/".$this->product['id']."/build/".$this->product['build_id'];
+     
+                      }
+                      else{
+                        
+                        if(($this->product['cost']) > 0 && !Zend_Auth::getInstance()->hasIdentity() && !$this->tempPassword){
+                            $hrefUrl = '/user/login';
+                        }
+                        elseif(($this->product['cost']) > 0 && !Zend_Auth::getInstance()->hasIdentity() && $this->tempPassword){
+                            $hrefUrl = '/user/register';
+                        }
+                        else{
+                            if($this->partnerId == '80184'){    // For mtn uganda there are more than one payment option
+                                $hrefUrl = '#popup-payment-selection';
+                            } else {
+                                $hrefUrl = '#popup-app-selection';
+                            }
+                        }
+                      }
+                    ?>
+                
+                <?php
+                $dataAjax = '';
+                if($this->airtelSriLanka){
+                    $dataAjax = 'data-ajax="false"';
+                }
+                elseif(($this->product['cost']) > 0  && !Zend_Auth::getInstance()->hasIdentity()){
+                    $dataAjax = 'data-ajax="false"';
+                }
+                ?>
+                        <a class="download-btn" <?= $dataAjax; ?> href="<?= $hrefUrl ?>" data-rel="popup" data-position-to="window"  id="buyicon" data-role="button" data-icon="custom" id="downloadheadericon" data-mini="true" data-iconpos="left" data-theme="c">
+                            <?= ($this->product['cost']) > 0 ? $this->translate("Buy") : $this->translate("Download") ?>
+                        </a>
+                    <?php else: ?>
+                    
+                        <a class="download-btn" data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->product['cost']) > 0  && ($this->buildType != 'urls' )) ? $buyActionName : 'download'?>/id/<?=$this->product['id']?>/build/<?=$this->product['build_id']?>" id="buyicon" rel="external" data-role="button" data-icon="custom" id="downloadheadericon" data-mini="true" data-iconpos="left" data-theme="c">
+                            <?= ($this->product['cost']) > 0 ? $this->translate("Buy") : $this->translate("Download") ?>
+                        </a>
+                    <?php endif; ?>
+                <?php 
+                
+                    else:
+                ?>                
+                    <a class="download-btn" data-ajax="false" href="<?= ($this->tempPassword) ? '/user/register' : '/user/login' ?>" data-position-to="window" data-role="button" data-iconshadow="false" data-corners="false" data-icon="custom" id="buyicon" data-mini="true" data-iconpos="left" data-theme="c">
+                        <?= ($this->product['cost']) > 0 ? $this->translate("Buy"): $this->translate("Download") ?>
+                    </a>
+                <?php 
+                
+                    endif;
+                ?>
+               
+          <?php /*if($this->ycoins){ ?>
+                <a data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->product['cost']) > 0  && ($this->buildType != 'urls' )) ? 'buy-ycoins-app' : 'download'?>/id/<?=$this->product['id']?>/build/<?=$this->product['build_id']?>" id="buyicon" rel="external" data-role="button" data-icon="custom" id="downloadheadericon" data-mini="true" data-iconpos="left" data-theme="c">
+                    <?= ($this->product['cost']) > 0 ? $this->translate("Buy Ycoins") : $this->translate("Download") ?>
+                </a>
+          <?php } */ ?>
+                
+                <?php //if($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){ }?>
+                
+            </div>	   
+        </div>                    
+    </li>
+    <li data-role="list-divider" data-theme="b"><?php echo $this->translate("Description");?></li>
+    <li>
+        <div class="ui-grid-solo">
+            <div class="ui-block-a">
+                <h5 style="white-space: normal" class="font-size-12"><?= $this->product['desc']; ?></h5>
+
+                <?php if($this->product['cost'] == 0 && $this->partnerId != '23045') { //MTN Iran doesn't want buzzcity ads ?> 
+                    <div id="add-display">
+                    <script type="text/javascript">
+                        var bcads_vars = {
+                            partnerid   : 12509,            // partner id
+                            get         : 'image',
+                            imgsize   : '320x50',   // ads type
+                            autorefresh : 30                // time interval (in seconds) the ad will be automatically refreshed
+                            //test : true, startts : (new Date()).getTime()
+                        };
+                    </script>
+                    <script type="text/javascript" src="http://js.buzzcity.net/bcads.js"></script>
+
+                    <noscript>
+
+                        <a href="http://click.buzzcity.net/click.php?partnerid=12509&label=ns">
+                            <img src="http://show.buzzcity.net/show.php?label=ns&partnerid=12509&get=image" alt="Advertisement" />
+                        </a>
+
+                    </noscript>
+                    </div>
+                <?php } ?>
+
+
+            </div>
+        </div>
+    </li>
+
+    <li data-role="list-divider" data-theme="b"><?php echo $this->translate("Screenshots");?></li>
+    <li>
+        <div id="screenshots-carousel-inner" class="owl-carousel" style="margin-top:10px;">
+
+                <?php
+                    $x = 0;
+                    foreach ($this->product['screenshots'] as $screenshot): 
+                    $x++; 
+                    
+                ?>
+                    <div class="item">
+                        <div class="allign-center">
+                            <a href="#popup-screenshot-<?= $x; ?>" data-rel="popup" data-position-to="window" data-transition="fade">
+                                <?php $htmlOpts = array('alt' => $this->product['name'], 'autoheight' => 0, 'id' => 'prod_poster'); ?>
+                                    <?= $this->thumbnail($screenshot, array('w' => 100, 'h' => 100, 'zc' => 1), $htmlOpts); ?>
+                            </a>
+                        </div>
+                    </div>               
+               <?php endforeach; ?>            
+                       
+        </div>
+        
+        <?php
+            $y = 0;
+            foreach ($this->product['screenshots'] as $screenshot): 
+            $y++; 
+        ?>
+            <!-- screenshot popup -->
+            <div data-role="popup" id="popup-screenshot-<?= $y; ?>" data-overlay-theme="b" data-theme="b" data-corners="false">
+                <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">
+                    Close
+                </a>
+                <img class="popphoto" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($screenshot)."&w=320&h=480&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>?>" alt="<?= $this->product['name']; ?>" title="<?= $this->product['name']; ?>">
+            </div>
+        
+        <?php endforeach; ?>
+
+
+        <?php if($this->product['cost'] == 0 && $this->partnerId != '23045') { //MTN Iran doesn't want buzzcity ads ?> 
+            <div id="add-display">
+            <script type="text/javascript">
+                var bcads_vars = {
+                    partnerid   : 12509,            // partner id
+                    get         : 'image',
+                    imgsize   : '320x50',   // ads type
+                    autorefresh : 30                // time interval (in seconds) the ad will be automatically refreshed
+                    //test : true, startts : (new Date()).getTime()
+                };
+            </script>
+            <script type="text/javascript" src="http://js.buzzcity.net/bcads.js"></script>
+
+            <noscript>
+                <a href="http://click.buzzcity.net/click.php?partnerid=12509&label=ns">
+                    <img src="http://show.buzzcity.net/show.php?label=ns&partnerid=12509&get=image&bn=1" alt="Advertisement" />
+                </a>
+
+            </noscript>
+            </div>
+        <?php } ?>
+    </li>
+
+</ul>
+
+<!--Popup if the if the user using android device to select the app or appstore app-->
+<div data-role="popup" id="popup-app-selection" data-overlay-theme="a" class="ui-corner-all">
+    <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">
+                    Close
+                </a>
+        <ul data-role="listview">
+          <li><!--Creating build URL-->
+                <?php 
+                    if(Zend_Auth::getInstance()->hasIdentity() || $this->allowFreeDownload) :
+                ?>
+                    <a data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->product['cost']) > 0  && ($this->buildType != 'urls' )) ? $buyActionName : 'download'?>/id/<?=$this->product['id']?>/build/<?=$this->product['build_id']?>">
+                        <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->product['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /><?= $this->product['name']; ?><?= ($this->product['cost']) > 0 ? $this->translate("Buy") : $this->translate("Download") ?>
+                    </a>
+                <?php 
+                    endif;
+                ?>
+          </li>
+          <?php if($this->appStoreAppDetails['id'] != $this->product['id']  ): ?>
+          <li><a data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->appStoreAppDetails['cost']) > 0 ) ? $buyActionName : 'download'?>/id/<?=$this->appStoreAppDetails['id']?>/build/<?=$this->appStoreAppDetails['supported_platforms'][0]->build_id ?>"><img class="ui-li-thumb-inner-small" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->appStoreAppDetails['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /><?= $this->appStoreAppDetails['name']; ?></a></li>
+          <?php endif; ?>
+    </ul>
+</div>
+
+<!-- this is only for MTN Uganda -->
+<?php if($this->partnerId == '80184') { ?>
+    <!-- Popup for payment method selection -->
+    <div data-role="popup" id="popup-payment-selection" data-overlay-theme="a" class="ui-corner-all">
+        <h5><?php echo $this->translate("Payment option")?></h5>
+        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"></a>
+        <ul data-role="listview">
+            <?php
+            foreach($this->defaultGateways as $row){
+                echo '<li><a data-ajax="false" href="'.PROJECT_BASEPATH.'app/buy/id/'.$this->product['id'].'/build/'.$this->product['build_id'].'/paymentGateway/'.$row->gateway_id.'"><img src="/partnermobile/images/payment_gateway/'.$row->name.'.png" width="50"/>'.$row->name.'</a></li>';
+            }
+            ?>
+        </ul>
+    </div>
+
+    <!--<a href="#popup-payment-selection" data-rel="popup" data-position-to="window">Payment option</a>-->
+<?php } ?>

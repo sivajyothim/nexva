@@ -1,0 +1,137 @@
+<!-- Start Content Box #1 -->
+
+<script type="text/javascript">
+
+    function getCategoriesTranslations(languageId){
+        $.ajax({
+            type: "POST",
+            url: "categories-translations-list",
+            data: "languageId="+languageId,
+            success: function(result){
+                $("#results").html(result);
+            },
+            error: function(){
+                //console.log('error');
+            },
+            complete: function(){
+                //console.log('complete');
+            }
+        });
+    }
+    
+    function submitForm()
+    {
+        var languageId = document.getElementById('language').value;
+        var url = "<?= $this->serverUrl().$this->baseUrl();?>/translation/categories-translations-list/language/"+languageId;
+        document.getElementById('langForm').action = url;
+        $('#langForm').submit();
+    }
+
+</script>
+
+<?php 
+//echo $this->selectedLanguage;
+?>
+<div class="title">
+    <h3 style="cursor: s-resize;">Translations - Categories <?php //echo $this->user[0]->username;?> | neXva.com</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php if(count($this->messages) > 0 ){?>
+            <div class="message info">
+                <p><?php foreach($this->messages as $message)
+                    {
+                        echo $this->escape($message);
+                    } ?>
+                </p>
+            </div>
+        <?php } ?>
+        <div class="content_box">
+            <form id="langForm" name="langForm" onchange="submitForm()" class="" method="post" accept-charset="UTF-8" action="">
+                <p>
+                    <label for='title'><strong>Language</strong></label>
+                    <select id="language" name="language" class="txt-input small validate(required)">
+                        <option value="">Select Language to translate</option>
+                        <?php foreach($this->languageList as $language)
+                        { ?>
+                            <option value="<?php if(!empty($language['id'])) {echo $language['id'];}?>" <?php if((!empty($this->selectedLanguage)) && ($this->selectedLanguage == $language['id'])) { echo 'selected="selected"';} ?>><?php echo $language['common_name']?> - <?php echo $language['name']?></option>
+                        <?php } ?>
+                    </select>
+                </p>
+            </form>
+        </div>
+    </div>
+    <div id="results"></div>
+
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-login">
+                <?= $this->render('partials/message.phtml'); ?>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+
+                            <th>Title</th>
+                               <th>Translation</th>
+
+                            <th align="center">Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach ($this->categoryList as $category): ?>
+                        
+                          <?php
+                          if($category->status == 1):
+                              $status_icon = "accept.png";
+                              $status = 0;
+                          else:
+                              $status_icon = "stop.png";
+                              $status = 1;
+                          endif;
+                          ?>
+                        
+                            <tr>
+                                <td><?= $category->name ; ?></td>
+                                <td> <?= (!empty($category->translation_title) ? $category->translation_title : '-') //$category->translation_title ; ?> </td>
+                                <td>
+                                   <?php if(!empty($category->translation_title)) : ?>
+                                    
+                                   <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/edit-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit Translation"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/delete-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>" ><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete Translation"  title="Delete Translation" onClick="return confirm('Are you sure?')"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/status-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>/status/<?= $status ?>" ><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/<?= $status_icon ?>" alt="Change status"  title="Change status"></a>
+                                     <?php else: ?>
+                                    
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/edit-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>" ><img alt="Add Translation" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/add.png" title="Add Translation"></a>
+                                    
+                                    <?php endif;?>
+                                </td>
+                            </tr>
+                        <? endforeach; ?>
+                        <? /*foreach ($this->categoryListNot as $category): ?>
+
+                            <tr>
+                                <td><?= $category->name ; ?></td>
+                                <td> - </td>
+                                <td>
+
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/edit-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>" ><img alt="Add Translation" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/add.png" title="Add Translation"></a>
+<!--                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/delete-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>" ><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete Translation"  title="Delete Translation" onClick="return confirm('Are you sure?')"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>translation/status-cat-translation/id/<?= $category->id; ?>/language/<?= $this->selectedLanguage;?>" ><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/accept.png" alt="Delete"  title="Delete" onClick="return confirm('Are you sure?')"></a>-->
+                                       
+                                </td>
+                            </tr>
+                        <? endforeach; */?>
+                    </tbody>
+                </table>
+
+            </div>
+
+            <?php echo $this->paginationControl($this->categoryList, 'Sliding', 'partials/paginator_translation.phtml',array("keyword" => $this->keyword)); ?>
+        </div>
+
+    </div>
+</div>
+
+<!-- End Content Box #1 -->

@@ -1,0 +1,61 @@
+<!-- Start Content Box #1 -->
+<div class="title">
+
+    <h3>Edit | Create country details</h3>
+
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-login">
+<?= $this->render('partials/message.phtml'); ?>
+                <!-- Start pagecreate Form -->
+                <form method="post" action="/country/save">
+                    <fieldset>
+
+                        <p><label>Name</label>
+                            <input type="text" id="countryName" name="countryName" class="txt-input medium" value="<?=$this->country['name']; ?>"/>
+                        </p>
+
+                        <p><label>Printable Name</label>
+                            <input type="text" id="countryPrintName" name="countryPrintName" class="txt-input medium" value="<?=$this->country['printable_name']; ?>"/>
+                        </p>
+
+                        <p><label>ISO</label>
+                            <input type="text" id="countryIso" name="countryIso" class="txt-input medium" value="<?=$this->country['iso']; ?>"/>
+                        </p>
+                        <p><label>Code</label>
+                            <input type="text" id="countryCode" name="countryCode" class="txt-input medium" value="<?=$this->country['numcode']; ?>"/>
+                        </p>
+                        <p><label>Default Currency</label>
+                            <select name="currency_id">
+                                <option value="">[SELECT]</option>
+                                <?php $selectedCurrency = isset($this->country['currency_id']) ? $this->country['currency_id'] : '';?>
+                                <?php foreach ($this->currencies as $currency) : ?>
+                                    <option value="<?=$currency->id?>" <?=($currency->id == $selectedCurrency) ? 'selected="selected"' : '' ?>>
+                                        <?=$currency->name?>
+                                    </option>
+                                <?php endforeach;?>
+                            </select>
+                            
+                        </p>
+                        
+                        <p style="float:left;"><input type="submit" class="button" name="submit" value="Save" /><input type="button" class="button" name="button" value="Cancel" onClick="location.href='/country'"/>
+                        </p>
+                     <!--<p  class="remember"><input type="checkbox" /> Remember Me</p>-->
+                    </fieldset>
+                    <input type="hidden" name="id" id="id" value="<?=$this->country['id']; ?>" />
+                </form>
+                <!-- End Login Form -->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- End Content Box #1 -->
+
+

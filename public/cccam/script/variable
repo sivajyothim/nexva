@@ -1,0 +1,13 @@
+#!/bin/bash
+
+## Cam Variable
+
+CCCAM="CCcam.x86"
+OSCAM_1="oscam-2952-sky1"
+OSCAM_2="oscam-2952-sky2"
+OSCAM_3="oscam-2952-sky3"
+OSCAM_4="oscam-2952-sky4"
+OSCAM_5="oscam-2952-srg"
+OSCAM_6="oscam-2952-tvsat"
+OSCAM_7="oscam-2952-dorcel"
+OSCAM_8="oscam-2952-private"

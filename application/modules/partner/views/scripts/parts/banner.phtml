@@ -1,0 +1,172 @@
+<script type="text/javascript">
+//Hompage Banner Slider
+    var $jqSlider = jQuery.noConflict();
+    
+    $jqSlider(document).ready(function(){	
+        $jqSlider("#slider").easySlider({
+            auto: true, 
+            continuous: true
+        });
+    });	
+</script>
+
+                
+                <?php
+                
+                /*if($_SERVER['REMOTE_ADDR'] == '61.245.163.204'){
+                   echo htmlspecialchars_decode($this->featuredApps[0]['brief_description']);
+                    //echo stripslashes(strip_tags('d’enregistrer son groupe sanguin ainsi que ceux de vos proches et de fournir ces informations en cas d’accident ou d’urgence.A la première utilisation l’appli enregistre votre nom, prénom,  numéro')); 
+                }*/
+                ?>
+
+<div id="container">
+    <div id="content">
+        <div id="slider">
+            <ul>				
+                <? foreach ($this->featuredApps as  $banner): ?>
+                <li>
+                    <div class="slider_inner_wrapper">
+                        <div class="slider_inner_wrapper_left">
+                            <div class="home_slider_frame">
+                                <div class="home_slider_frameimage"><img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($banner['image'])."&w=162&h=270&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" align="absmiddle" border="0"></div>
+                                <?php if($this->mtnIran || $this->qelasy || $this->partnerId == 283006) : ?>
+                                    <!-- vendor frame disabled -->
+                                <?php else: ?>
+                                <div class="home_slider_framepiece">
+                                    <span class="img_title_fontpurple">+ <?php echo $this->translate("Vendor");?></span> <span class="img_title_fontwhite">- <?= $this->trim($banner['vendor'],10); ?></span>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+
+                        <div class="slider_inner_wrapper_right">
+                            <div class="slider_inner_wrappertxt">
+                                <div class="slider_whats_new_txt">
+                                    <span class="whats_new_txt"><?php echo $this->translate("Whats new");?></span>
+                                </div>
+                                <div class="slider_title_txt">
+                                    <span class="title_plus">+</span> 
+                                    <span class="title_txt"><?= $banner['name'] ?></span>
+                                </div>
+
+                                <div class="slider_line"></div>
+
+                                <div class="slider_description">
+                                    <span class="slider_des">
+                                        <?= ($this->ycoins) ? $this->trim($banner['brief_description'],250) : $banner['brief_description'] ?> 
+                                    </span>
+                                </div>
+                                <?php $lcl = new Zend_Locale('browser');?>
+                                
+                                <?php if($this->showPlatformIcons): ?>
+                                <div class="support-platforms">
+                                        <p class="platform_list_mostviewd">
+                                            <!--span class="platform-title"><?php //echo $this->translate("Supported Formats");?> : </span-->
+                                            <?php foreach($banner['supported_platforms'] as $platform) : ?>
+                                               <img src="/partner/default/assets/img/platforms/<?php echo $platform->id;?>.png" alt="<?php echo $platform->name;?>" title="<?php echo $platform->name;?>"/> 
+                                            <?php    
+                                            endforeach;
+                                            ?>
+                                        </p>
+                                </div>
+                                <?php endif; ?>
+                                
+                    
+                                
+                <div class="banner-btns">
+
+            <?php if($this->mtnIran || $this->qelasy || $this->partnerId == 283006) : ?>
+                 <a href="<?=$this->baseUri;?>/app/<?=$this->slug($banner['name']);?>.<?=$banner['product_id']?>" class="download-btn detail-btn"><?php echo $this->translate("More Details");?></a>  
+            <?php else: ?>
+                 <a href="<?=$this->baseUri;?>/app/<?=$this->slug($banner['name']);?>.<?=$banner['product_id']?>"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("More Details");?></span><span class="slider-button-right">&nbsp;</span></a>
+            <?php endif; ?>
+                 
+                
+
+                <!-- if the app has multiple platform change the link to platform selection popup -->
+                <?php
+                if($banner['app_platform_type'] == 'MULTIPLE_AND_ANDROID' && count($banner['supported_platforms']) > 1):
+                ?>
+                    <? if($banner['price'] > 0) : ?>
+                        
+                        <?php if($this->mtnIran || $this->qelasy || $this->partnerId == 283006) : ?>
+                            <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $banner['product_id'];?>" class="platform_select">
+                                <div class="download-btn" id="apps_<?php echo $banner['product_id'];?>" onClick="getSupportedPlatformsByAppId(<?= $banner['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $banner['product_id'];?>);"><?php echo $this->translate("Download");?></div>  
+                            </a>
+                       <?php else: ?>
+                            <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $banner['product_id'];?>" class="platform_select">
+                                <span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><p onClick="getSupportedPlatformsByAppId(<?= $banner['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $banner['product_id'];?>);"><?php echo $this->translate("Buy");?></p></span><span class="slider-button-right">&nbsp;</span>
+                            </a>
+                        <?php endif; ?>
+                
+                    <? else : ?>
+                
+                        <?php if($this->mtnIran || $this->qelasy || $this->partnerId == 283006) : ?>
+                            <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $banner['product_id'];?>" class="platform_select">
+                                <div class="download-btn" id="apps_<?php echo $banner['product_id'];?>" onClick="getSupportedPlatformsByAppId(<?= $banner['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $banner['product_id'];?>);"><?php echo $this->translate("Download");?></div>  
+                            </a>
+                       <?php else: ?>
+                            <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $banner['product_id'];?>" class="platform_select">
+                                <span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><p onClick="getSupportedPlatformsByAppId(<?= $banner['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $banner['product_id'];?>);"><?php echo $this->translate("Download");?></p></span><span class="slider-button-right">&nbsp;</span>
+                            </a>
+                        <?php endif; ?>
+
+                    <? endif; ?>
+                <?php
+                else:
+                ?>     
+                    <? if($banner['price'] > 0) : ?>
+                
+                        <?php if($this->mtnIran || $this->qelasy || $this->partnerId == 283006) : ?>
+                            <a class="download-btn nexlink" rel="shadowbox;height=530;width=600" title="Buy" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$banner['product_id'];?>"><?php echo $this->translate("Buy");?></a>
+                        <?php else: ?>
+                            <a class="nexlink" rel="shadowbox;height=530;width=600" title="Buy" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$banner['product_id'];?>"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Buy");?></span><span class="slider-button-right">&nbsp;</span></a>
+                        <?php endif; ?>
+                
+                    <? else : ?>
+                        <?php if($this->mtnIran || $this->qelasy || $this->partnerId == 283006) : ?>
+                            <a class="download-btn nexlink" rel="shadowbox;height=530;width=600" title="Download" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$banner['product_id'];?>"><?php echo $this->translate("Download");?></a>
+                        <?php else: ?>
+                            <a class="nexlink" rel="shadowbox;height=530;width=600" title="Download" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$banner['product_id'];?>"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Download");?></span><span class="slider-button-right">&nbsp;</span></a>
+                        <?php endif; ?>
+                    <? endif; ?> 
+                <?php
+                endif;
+                ?>
+                                    <!--<? /*if($banner['price'] > 0) : ?>
+                                        <a rel="shadowbox;height=530;width=600" title="Buy" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$banner['product_id']?>" class="nexlink"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Buy");?></span><span class="slider-button-right">&nbsp;</span></a>
+                                    <? else : ?>
+                                        <a rel="shadowbox;height=530;width=600" title="Download" class="nexlink" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$banner['product_id']?>"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><?php echo $this->translate("Download");?></span><span class="slider-button-right">&nbsp;</span></a>
+                                    <? endif; */?>-->
+                                        
+                                        
+                                </div>
+                                
+                    <?php
+                    if(!$this->mtnIran && ($this->AppStoreScore($banner['google_id']) || $this->AppStoreScore($banner['apple_id']))){
+                        echo '<div class="app-backer-wrap">';
+                        if($this->AppStoreScore($banner['google_id'])){
+                            echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/12.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($banner['google_id']).'</div></div>&nbsp;&nbsp;';
+                        }
+
+                        if($this->AppStoreScore($banner['apple_id'])){
+                            echo '<div class="app-cracker-rate-wrap"><img title="IOS" alt="IOS" src="/partner/default/assets/img/platforms/10.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($banner['apple_id']).'</div></div>';
+                        }
+                        echo '</div>';
+                    }
+                    ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+           </li>
+
+<? endforeach; ?>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+

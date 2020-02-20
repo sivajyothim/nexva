@@ -1,0 +1,885 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2017-12-04 19:12+0530\n"
+"PO-Revision-Date: 2017-12-04 19:51+0530\n"
+"Last-Translator: nexva <nexva@gmail.com>\n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: index.phtml:1
+msgid "Click Here"
+msgstr "Klikni ovde"
+
+#: index.phtml:2
+msgid "Apps"
+msgstr "Aplikacije"
+
+#: index.phtml:3
+msgid "Categories"
+msgstr "Kategorije"
+
+#: index.phtml:4
+msgid "collection"
+msgstr "kolekcije"
+
+#: index.phtml:5
+msgid "Featured"
+msgstr "Istaknuto"
+
+#: index.phtml:6
+msgid "Free Collection"
+msgstr "Besplatna kolekcija"
+
+#: index.phtml:7
+msgid "Most"
+msgstr "Najviše"
+
+#: index.phtml:8
+msgid "Need Help?"
+msgstr "Potrebna ti je pomoć?"
+
+#: index.phtml:9 index.phtml:48
+msgid "Premium Collection"
+msgstr "Premijum kolekcije"
+
+#: index.phtml:10
+msgid "Top"
+msgstr "Najbolje"
+
+#: index.phtml:11
+msgid "Top Collection"
+msgstr "Najbolje kolekcije"
+
+#: index.phtml:12
+msgid "viewed collection"
+msgstr "Pogledane zbirke "
+
+#: index.phtml:14
+msgid "Search"
+msgstr "Pretraži "
+
+#: index.phtml:15
+msgid "Select Your Device"
+msgstr "Odaberi uređaj"
+
+#: index.phtml:16
+msgid ""
+"Selecting a device helps us filter apps that are compatible with your "
+"handset."
+msgstr ""
+"Izbor uređaja olakšava pronalaženje aplikacija kompatabilnih sa tvojim "
+"telefonom."
+
+#: index.phtml:17
+msgid "Start typing the name of your device"
+msgstr "Ukucaj ime svog uređaja"
+
+#: index.phtml:19
+msgid "No Device Selected"
+msgstr "Uređaj nije izabran"
+
+#: index.phtml:20
+msgid "Click To Select A Mobile Device"
+msgstr "Izaberi mobilni uređaj"
+
+#: index.phtml:22
+msgid "Click on thumbnail to zoom"
+msgstr "Klikni na sliku za uvećanje"
+
+#: index.phtml:23
+msgid "Screenshots"
+msgstr "Pozadine"
+
+#: index.phtml:25
+msgid "Nexva All Rights Reserved."
+msgstr "Nexva sva prava zadržana"
+
+#: index.phtml:26
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or  trade "
+"names of their respective owners and therefore copyrighted."
+msgstr ""
+"Proizvodi, logo i kompanije koje se pominju mogu biti zaštitni znakovi "
+"odgovarajućih vlasnika i nije dozvoljeno neovlašćeno kopiranje i korišćenje."
+
+#: index.phtml:27 index.phtml:49
+msgid "Register"
+msgstr "Registruj se"
+
+#: index.phtml:28
+msgid "Sign In"
+msgstr "Prijavi se"
+
+#: index.phtml:29
+msgid "Welcome"
+msgstr "Dobro došli"
+
+#: index.phtml:30
+msgid "You Are Here"
+msgstr "Ovde si"
+
+#: index.phtml:31
+msgid "Buy "
+msgstr "Kupi"
+
+#: index.phtml:32 index.phtml:84
+msgid "Buy"
+msgstr "Kupi"
+
+#: index.phtml:33
+msgid "Description"
+msgstr "Opis"
+
+#: index.phtml:34
+msgid "Free"
+msgstr "Besplatno"
+
+#: index.phtml:35
+msgid "Free Download"
+msgstr "Besplatno preuzimanje"
+
+#: index.phtml:36
+msgid "Price :"
+msgstr "Cena :"
+
+#: index.phtml:37
+msgid "Price : "
+msgstr "Cena :"
+
+#: index.phtml:38
+msgid "Rate :"
+msgstr "Ocena :"
+
+#: index.phtml:39
+msgid "Rate : "
+msgstr "Ocena :"
+
+#: index.phtml:40
+msgid "Vendor"
+msgstr "Proizvođač"
+
+#: index.phtml:41
+msgid "Vendor : "
+msgstr "Proizvođač :"
+
+#: index.phtml:42
+msgid "Whats new"
+msgstr "Novo"
+
+#: index.phtml:44
+msgid "Free Stuff"
+msgstr "Besplatne stvari"
+
+#: index.phtml:45
+msgid "Logout"
+msgstr "Odjavi se"
+
+#: index.phtml:46
+msgid "Most Viewed"
+msgstr "Najviše pregleda"
+
+#: index.phtml:47
+msgid "Newest"
+msgstr "Najnovije"
+
+#: index.phtml:50
+msgid "SEARCH"
+msgstr "Pretraži"
+
+#: index.phtml:51
+msgid "Staff Picks"
+msgstr "Naš izbor"
+
+#: index.phtml:52
+msgid "Price"
+msgstr "Cena"
+
+#: index.phtml:53
+msgid "Rating"
+msgstr "Rejting"
+
+#: index.phtml:54
+msgid "Supported Formats"
+msgstr "Podržani formati"
+
+#: index.phtml:55
+msgid "Latest Reviews"
+msgstr "Poslednji komentari"
+
+#: index.phtml:56
+msgid "No user reviews yet.."
+msgstr "Nema komentara korisnika.."
+
+#: index.phtml:57
+msgid "Please login to post a review."
+msgstr "Prijavi se da ostaviš komentar."
+
+#: index.phtml:58 index.phtml:107
+msgid "Name"
+msgstr "Naziv"
+
+#: index.phtml:59
+msgid "Title"
+msgstr "Naziv"
+
+#: index.phtml:60
+msgid "Review"
+msgstr "Komentar"
+
+#: index.phtml:61
+msgid "Home"
+msgstr "Početna"
+
+#: index.phtml:62 index.phtml:197
+msgid "To download this app you need to install"
+msgstr "Za preuzimanje ove aplikacije, prethodno instaliraj"
+
+#: index.phtml:63 index.phtml:198
+msgid "on your Android device and sign in."
+msgstr "aplikaciju na svoj Android uređaj i prijavi se."
+
+#: index.phtml:64
+msgid "To register you need to install"
+msgstr "Za registraciju treba da instaliraš"
+
+#: index.phtml:65
+msgid "on your Android device. Registration happens on your device."
+msgstr "Registracija se obavlja na tvom Android uređaju"
+
+#: index.phtml:66
+msgid "Please download the App store app using the following methods."
+msgstr "Preuzmi mMarket aplikaciju prema sledećem uputstvu."
+
+#: index.phtml:67
+msgid ""
+"The app you have selected has been pushed directly to your device. Be sure "
+"to have the"
+msgstr "Izabrana aplikacija pojaviće se direktno na tvom telefonu."
+
+#: index.phtml:68
+msgid "installed on your phone first."
+msgstr "prvo instaliraj aplikaciju na telefonu."
+
+#: index.phtml:69
+msgid "If you don't have"
+msgstr "Ukoliko nemaš"
+
+#: index.phtml:70
+msgid "installed on your phone here is how to get it"
+msgstr "prvo instaliraj aplikaciju na telefonu, a evo kako to možeš da uradiš"
+
+#: index.phtml:72 index.phtml:199
+msgid "If you want to install"
+msgstr "Ukoliko želiš da instaliraš"
+
+#: index.phtml:73 index.phtml:200
+msgid "on your phone use following methods."
+msgstr "potrebno je da ispratiš sledeće uputstvo."
+
+#: index.phtml:75
+msgid "Type in your email address and we will email it to you"
+msgstr "Unesi tvoju e-mail adresu i mi ćemo ti poslati kroz e-mail"
+
+#: index.phtml:76
+msgid "your email"
+msgstr "tvoj e-mail"
+
+#: index.phtml:77
+msgid "send email"
+msgstr "Pošalji e-mail"
+
+#: index.phtml:78
+msgid "Point your mobile browser to the following link:"
+msgstr "Preko pretraživača na svom telefonu, pristupi linku :"
+
+#: index.phtml:79
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr ""
+"Za direktan pristup stranici sa aplikacijama, skeniraj QR kod putem telefona"
+
+#: index.phtml:80
+msgid "Do not have a QR code reader?"
+msgstr "Nemaš QR kod čitač?"
+
+#: index.phtml:81
+msgid "Get one free"
+msgstr ""
+
+#: index.phtml:83
+msgid "Download"
+msgstr "Preuzmi"
+
+#: index.phtml:85
+msgid "More Details"
+msgstr "Više detalja"
+
+#: index.phtml:87
+msgid "Login"
+msgstr "Prijavi se"
+
+#: index.phtml:88 index.phtml:147
+msgid "Required infromation"
+msgstr "Tražena informacija"
+
+#: index.phtml:89
+msgid "User name"
+msgstr "Korisničko ime"
+
+#: index.phtml:90
+msgid "Password"
+msgstr "Lozinka"
+
+#: index.phtml:91
+msgid "Forgot your password"
+msgstr "Zaboravljena lozinka"
+
+#: index.phtml:93
+msgid "Please enter First Name"
+msgstr "Unesi ime"
+
+#: index.phtml:95
+msgid "Top Downloads"
+msgstr "Najpopularnije"
+
+#: index.phtml:96
+msgid "Top Free"
+msgstr "Najbolje besplatno"
+
+#: index.phtml:97
+msgid "Featured Apps"
+msgstr "Istaknute aplikacije"
+
+#: index.phtml:98
+msgid "Top Premium"
+msgstr "Najbolje premijum"
+
+#: index.phtml:99
+msgid "Top Paid"
+msgstr "Najbolje koje se plaća"
+
+#: index.phtml:100
+msgid "Your Device"
+msgstr "Tvoj uređaj"
+
+#: index.phtml:101
+msgid "Sign Up"
+msgstr "Registruj se"
+
+#: index.phtml:102
+msgid "Next"
+msgstr "Nastavi"
+
+#: index.phtml:103
+msgid "Previous"
+msgstr "Prethodno"
+
+#: index.phtml:105
+msgid "Most viewed collection"
+msgstr "Aplikacije sa najviše pregleda"
+
+#: index.phtml:106
+msgid "Contact Us"
+msgstr "Kontaktiraj nas"
+
+#: index.phtml:108
+msgid "Email"
+msgstr "e-mail"
+
+#: index.phtml:109
+msgid "Message"
+msgstr "Poruka"
+
+#: index.phtml:110
+msgid "SEND"
+msgstr "POŠALJI"
+
+#: index.phtml:111
+msgid "RESET"
+msgstr "RESETUJ"
+
+#: index.phtml:113
+msgid "Required Information"
+msgstr "Tražena informacija"
+
+#: index.phtml:114
+msgid "NO DEVICE SELECTED"
+msgstr "Uređaj nije izabran"
+
+#: index.phtml:115
+msgid "Feedback"
+msgstr "Povratne informacije"
+
+#: index.phtml:117
+msgid "SUPPORTED FORMATS"
+msgstr "Podržani formati"
+
+#: index.phtml:118
+msgid "ADD YOUR OWN REVIEW"
+msgstr "Ostavi komentar"
+
+#: index.phtml:119
+msgid "App"
+msgstr "Aplikacija"
+
+#: index.phtml:120
+msgid "Category"
+msgstr "Kategorija"
+
+#: index.phtml:121
+msgid "Newest Apps"
+msgstr "Najnovije aplikacije"
+
+#: index.phtml:122
+msgid "Free Apps"
+msgstr "Besplatne aplikacije"
+
+#: index.phtml:123
+msgid "Premium Apps"
+msgstr "Premijum aplikacije"
+
+#: index.phtml:124
+msgid "Top Downloaded Apps"
+msgstr "Najpopularnije aplikacije"
+
+#: index.phtml:125
+msgid "Most Viewed Apps"
+msgstr "Aplikacije sa najviše pregleda"
+
+#: index.phtml:128
+msgid "Please enter your username"
+msgstr "Unesi svoje korisničko ime"
+
+#: index.phtml:129
+msgid "Please enter your password"
+msgstr "Unesi lozinku"
+
+#: index.phtml:130
+msgid "The username or password you entered is incorrect"
+msgstr "Uneto je pogrešno korisničko ime ili lozinka"
+
+#: index.phtml:131
+msgid "Please enter a valid username"
+msgstr "Unesi ispravno korisničko ime"
+
+#: index.phtml:132
+msgid "Please enter your username and password"
+msgstr "Unesi svoje korisničko ime i lozinku"
+
+#: index.phtml:133
+msgid "Account"
+msgstr "Nalog"
+
+#: index.phtml:134
+msgid "Updates"
+msgstr "Ažuriranje"
+
+#: index.phtml:135
+msgid "Help"
+msgstr "Pomoć"
+
+#: index.phtml:136
+msgid "Premium"
+msgstr "Premijum"
+
+#: index.phtml:137
+msgid "Downloaded Apps"
+msgstr "Preuzete aplikacije"
+
+#: index.phtml:138
+msgid "Change Mobile"
+msgstr "Changer de téléphone"
+
+#: index.phtml:139
+msgid "Terms & Conditions"
+msgstr "Uslovi korišćenja"
+
+#: index.phtml:140
+msgid "Download Started"
+msgstr "Preuzimanje je započeto"
+
+#: index.phtml:141
+msgid "Later"
+msgstr "Kasnije"
+
+#: index.phtml:142
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr "U delu Ažurirano nalaze se nove, unapređene verzije aplikacija."
+
+#: index.phtml:143
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Za sva pitanja i probleme koji se jave prilikom rada aplikacije, preuzimanja "
+"ili ukoliko do kupovine dođe greškom, kontaktiraj nas na e-mail:"
+
+#: index.phtml:144
+msgid "We will get back to you within 48 hours."
+msgstr "Javićemo se u roku od 48 sati."
+
+#: index.phtml:145
+msgid "Payment was unsuceessful"
+msgstr "Neuspešno plaćanje"
+
+#: index.phtml:146
+msgid "Paid"
+msgstr "Plaćeno"
+
+#: index.phtml:148
+msgid "Info"
+msgstr "Info"
+
+#: index.phtml:149
+msgid "Feature"
+msgstr "Karakteristike"
+
+#: index.phtml:150
+msgid "Please download the"
+msgstr "Preuzmi"
+
+#: index.phtml:151
+msgid "App store app using the following methods."
+msgstr "aplikaciju, prema sledećem uputstvu."
+
+#: index.phtml:152
+msgid "FEEDBACK"
+msgstr "POVRATNE INFORMACIJE"
+
+#: index.phtml:153
+msgid "LOGIN HERE"
+msgstr "Prijavi se ovde"
+
+#: index.phtml:154
+msgid "To download this app you need to visit the following URL"
+msgstr "Za preuzimanje ove aplikacije, poseti sledeću adresu"
+
+#: index.phtml:155
+msgid "App Store All Rights Reserved."
+msgstr "Sva prava zadržana."
+
+#: index.phtml:156
+msgid "See all results for"
+msgstr "Vidi sve rezultate za"
+
+#: index.phtml:157
+msgid "No results found"
+msgstr "Nisu pronađeni rezultati"
+
+#: index.phtml:158
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr "Nisu pronađene aplikacije za izabrani kriterijum pretrage"
+
+#: index.phtml:159
+msgid "Have an Issue?"
+msgstr "Postoji problem?"
+
+#: index.phtml:160
+msgid "You are not signed in yet"
+msgstr "Još uvek nisi prijavljen"
+
+#: index.phtml:161
+msgid "No Match Found"
+msgstr "Nisu pronađeni rezultati"
+
+#: index.phtml:162
+msgid "Ok"
+msgstr "U redu"
+
+#: index.phtml:163
+msgid "You haven't log in yet ? Please log in."
+msgstr "Još uvek nisi prijavljen? Prijavi se. "
+
+#: index.phtml:164
+msgid "No Data Found"
+msgstr "Podaci nisu pronađeni"
+
+#: index.phtml:165
+msgid "Downloading"
+msgstr "Preuzimanje"
+
+#: index.phtml:166
+msgid "Login to add a ticket"
+msgstr "Uloguj se da prijaviš problem"
+
+#: index.phtml:167
+msgid "Search Results for"
+msgstr "Rezultat pretrage za "
+
+#: index.phtml:168
+msgid "Powered by"
+msgstr "Omogućio"
+
+#: index.phtml:169
+msgid "The security key wasn't entered correctly"
+msgstr "Sigurnosni kod/ključ nije ispravno unet. "
+
+#: index.phtml:170
+msgid "Please try again"
+msgstr "Pokušaj ponovo"
+
+#: index.phtml:171
+msgid "Add a ticket"
+msgstr "Prijavi problem"
+
+#: index.phtml:172
+msgid "View my ticket"
+msgstr "Moji zahtevi"
+
+#: index.phtml:173
+msgid "Subject"
+msgstr "Naslov"
+
+#: index.phtml:174
+msgid "Type"
+msgstr "Model"
+
+#: index.phtml:175
+msgid "Priority"
+msgstr "Prioritet"
+
+#: index.phtml:176
+msgid "Select Type"
+msgstr "Izaberi model"
+
+#: index.phtml:177
+msgid "Question"
+msgstr "Pitanje"
+
+#: index.phtml:178
+msgid "Incident"
+msgstr "Greška"
+
+#: index.phtml:179
+msgid "Problem"
+msgstr "Problem"
+
+#: index.phtml:180
+msgid "Select Priority"
+msgstr "Izaberi prioritet"
+
+#: index.phtml:181
+msgid "Low"
+msgstr "Nizak"
+
+#: index.phtml:182
+msgid "Medium"
+msgstr "Srednji"
+
+#: index.phtml:183
+msgid "High"
+msgstr ""
+
+#: index.phtml:184
+msgid "Urgent"
+msgstr "Hitno"
+
+#: index.phtml:185
+msgid "Your ticket submitted successfully"
+msgstr "Zahtev je uspešno evidentiran"
+
+#: index.phtml:186
+msgid "Your response submitted successfully"
+msgstr "Tvoj odgovor je uspešno evidentiran"
+
+#: index.phtml:187
+msgid "Responces"
+msgstr "Odgovori"
+
+#: index.phtml:188
+msgid "No Response found"
+msgstr "Odgovor nije pronađen"
+
+#: index.phtml:189
+msgid "Reply"
+msgstr "Odgovori"
+
+#: index.phtml:190
+msgid "Submit"
+msgstr "Potvrdi"
+
+#: index.phtml:191
+msgid "Platforms"
+msgstr "Platforme"
+
+#: index.phtml:192
+msgid "Please add your Commenst with more than 10 letters"
+msgstr "Ostavi komentar sa više od 10 karaktera"
+
+#: index.phtml:193
+msgid "No apps found under this category"
+msgstr "Nisu pronađene aplikacije za izabranu kategoriju"
+
+#: index.phtml:194
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+"Za sva pitanja i probleme koji se jave prilikom rada aplikacije, preuzimanja "
+"ili ukoliko do kupovine dođe greškom, prijavi problem. Javićemo se u roku od "
+"48 sati."
+
+#: index.phtml:195
+msgid "This app is only available in the following languages"
+msgstr "Aplikacija je dostupna samo na sledećim jezicima"
+
+#: index.phtml:196
+msgid "This app-store will be supported for subscribers only"
+msgstr "Ova aplikacija je dostupna samo mts korisnicima"
+
+#: index.phtml:201
+msgid "Do not have a QR code reader? Get one free"
+msgstr "Nemaš QR kod čitač? "
+
+#: index.phtml:202
+msgid "We're sorry, the keyword/s you searched for did not return any results"
+msgstr "Nisu pronađeni rezultati za datu ključnu reč/ključne reči "
+
+#: index.phtml:203
+msgid "Please fill the Name"
+msgstr "Popuni polje Naziv"
+
+#: index.phtml:204
+msgid "Page not found. (404 - Not Found)"
+msgstr "Stranica nije pronađena. (404 - Nije pronađeno)"
+
+#: index.phtml:205
+msgid "Please select a type"
+msgstr "Izaberi model"
+
+#: index.phtml:206
+msgid "ticket"
+msgstr "Prijava problema"
+
+#: index.phtml:207
+msgid "open"
+msgstr "Otvori"
+
+#: index.phtml:208
+msgid "Dashboard"
+msgstr ""
+
+#: index.phtml:209
+msgid "Please select a priority"
+msgstr "Izaberi prioritet"
+
+#: index.phtml:210
+msgid "Please add a subject"
+msgstr "Dodaj naslov"
+
+#: index.phtml:211
+msgid "COPYRIGHT_TXT"
+msgstr ""
+
+#: index.phtml:212
+msgid "About Us"
+msgstr "O nama"
+
+#: index.phtml:213
+msgid "Terms of Use"
+msgstr ""
+
+#: index.phtml:214
+msgid "Privacy Policy"
+msgstr ""
+
+#: index.phtml:215
+msgid "Developer"
+msgstr ""
+
+#: index.phtml:216
+msgid "RIGHTS_TXT_QELASY"
+msgstr ""
+
+#: index.phtml:217
+msgid "About"
+msgstr ""
+
+#: index.phtml:218
+msgid "Press"
+msgstr ""
+
+#: index.phtml:219
+msgid "Login here"
+msgstr ""
+
+#: index.phtml:220
+msgid "Login type"
+msgstr ""
+
+#: index.phtml:221
+msgid "Sign in as parents or university students"
+msgstr ""
+
+#: index.phtml:222
+msgid "Sign in as students"
+msgstr ""
+
+#: index.phtml:223
+msgid "Pin"
+msgstr ""
+
+#: index.phtml:224
+msgid "Student account not found"
+msgstr ""
+
+#: index.phtml:225
+msgid "Pin you entered is incorrect"
+msgstr ""
+
+#: index.phtml:226
+msgid "The student id or password you entered is incorrect"
+msgstr ""
+
+#: index.phtml:227
+msgid "The user name or password you entered is incorrect"
+msgstr ""
+
+#: index.phtml:228
+msgid "18 Years or Older"
+msgstr " 18 godina i stariji"
+
+#: index.phtml:229
+msgid "Content Warning"
+msgstr "Upozorenje"
+
+#: index.phtml:230
+msgid "Yes"
+msgstr "Da"
+
+#: index.phtml:231
+msgid "No"
+msgstr "Ne"
+
+#: index.phtml:232
+msgid "NO"
+msgstr "NE"
+
+#~ msgid "Add your own review"
+#~ msgstr "Ajoutez votre propre commentaire"
+
+#, fuzzy
+#~ msgid "MTN Developer Challenge"
+#~ msgstr "Portail développeur"
+
+#~ msgid "Top Payant"
+#~ msgstr "Top Payant"
+
+#~ msgid "Featured "
+#~ msgstr "Sélection"
+
+#~ msgid "You Are Here >"
+#~ msgstr "Vous êtes ici>"

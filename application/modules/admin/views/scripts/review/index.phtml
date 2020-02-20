@@ -1,0 +1,50 @@
+<div class="title">
+    <h3>Reviews by Type : <?=strtoupper($this->type)?></h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <?= $this->render('partials/message.phtml'); ?>
+        <div id="content_box">
+            <!-- Start tab tab-handsets -->
+
+            <div class="tab-handsets">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Title</th>
+                            <th>Reviewer</th>
+                            <th>Status</th>
+                            <th style="width:10px;">Operations</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->reviews as $review): ?>
+                        <tr>
+                            <td><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?= $review['product_id']; ?>" > <?= $review['name']; ?>  </a></td>
+                            <td><?= $review['title']; ?></td>
+                            <td><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/edit/id/<?= $review['user_id']; ?>"><?= $review['email']; ?></a></td>
+                            <td><?=$review['status']?></td>
+                            <td>
+                                <a href='/review/save/id/<?=$review['id'];?>'>
+                                    <img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" alt='edit'>
+                                </a>
+                                <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/delete/id/<?=$review['id'];?>/page/<?=$this->page?>/status/non-approved">
+                                <img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete"  title="Delete" onClick="return confirm('Are you sure?')"></a>
+                            </td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->reviews, 'Sliding', 'partials/paginator-reviews.phtml',array('status' => 'non-approved')); ?>
+            </div>
+            <!-- End handsets -->
+            
+        </div>
+    </div>
+</div>

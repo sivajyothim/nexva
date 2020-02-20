@@ -1,0 +1,110 @@
+<?php 
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/admin.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/autocomplete.js');
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css');
+?>
+
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){
+        _ac.init($('#user').eq(0), '/user/searchjson/type/reseller/mode/company_name/q/', function(event, ui){
+            $('#user_id').val(ui.item.id);
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+
+<?php $item  = $this->campaign;?>
+<div class="title">
+    <h3 style="cursor: s-resize;">Create Campaign</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$message ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <fieldset>
+                 <form class='form_validate' method="post" accept-charset="UTF-8" action="/promotion-campaign/index">
+                 <p>
+                    <label for="user">Reseller</label>
+                    <input type="text" name="user" id="user" style="width: 40%;" class='txt-input medium validate(required)' value="<?=isset($this->savedUser) ? $this->savedUser : ''?>" placeholder="start typing the company name">
+                    <input type="text" readonly="readonly" class='txt-input small' name="user_id" id="user_id">
+                 </p>
+                 
+                 <p>
+                    <label for='title'>Name</label>
+                    <input value='<?=$item->title?>' type='text' id='title' name='title' class='txt-input medium validate(required, rangelength(1,50))'>
+                 </p>
+                 
+                 <p>
+                    <label for='description'>Description</label>
+                    <input value='<?=$item->description?>' type='text' id='description' name='description' class='txt-input medium validate(required, rangelength(1,150))'>
+                 </p>
+                 
+                 <input type='hidden' value='<?php echo $item->id ?>' name='id'>
+                 <p><input type="submit" class="txt-input small" value="Save Campaign" id="submit" name="submit"></p>
+                 </form>
+            </fieldset>
+        </div>
+        </div>
+</div>    
+
+
+        <div class="title">
+            <h3>All Campaigns</h3>
+        </div>
+        <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>&nbsp</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>Unassigned</a></td>
+                <td>&nbsp;</td>
+                <td>
+                    <a href='/promotions/view-by-campaign/'>View Promotion Codes</a>
+                    &nbsp;&nbsp;&nbsp; 
+                </td>
+            </tr>
+        <?php if (count($this->campaigns)): $class = 'alt';?>    
+            <?php foreach ($this->campaigns as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+                <tr>
+                    <td class='<?=$class?>'><?=$item->id?></td>
+                    <td class='<?=$class?>'><?=$item->user_id?></td>
+                    <td class='<?=$class?>'><a href='/promotion-campaign/index/id/<?=$item->id?>'><?=$item->title?></a></td>
+                    <td class='<?=$class?>'><?=$item->description?></td>
+                    <td class='<?=$class?>'>
+                        <a href='/promotions/view-by-campaign/id/<?php echo $item->id ?>'>View Promotion Codes</a>
+                        &nbsp;&nbsp;&nbsp; 
+                        <a href='/promotion-campaign/delete/id/<?php echo $item->id ?>' class='del_conf'>Delete</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        <?php endif; ?>
+            </tbody>
+        
+        </table>
+    </div>
+</div>
+
+

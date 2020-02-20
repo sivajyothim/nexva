@@ -1,0 +1,29 @@
+<div id="main_right_pane">
+    <div class="inr_tabs_wrapper">
+        <div class="inr_tab_bar"><span class="inr_brdcrtxt_pur">+</span> 
+            <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Dashboard");?></span>
+            <span class="dashboard-username">Welcome, <?= $this->UserMeta($this->userId,'FIRST_NAME'); ?> | <a href="/info/logout"><?php echo $this->translate("Logout");?></a></span>
+        </div>
+            <div class="inrtab_selection_top inner_content" >
+                <div class="dashboard-icons">
+                    <div class="shortcut-button curve">
+                                    <span class="title">
+                                    <img src="/partner/default/assets/img/dashboard/ticketing.png" alt="icon" /><br />
+                                        Ticketing Management
+                                    </span>
+
+                                <ul class="cats"> 
+                                    <li><a href="<?php echo PROJECT_BASEPATH;?>ticket/view-tickets"><?php echo $this->translate("View my tickets");?></a></li>
+                                    <li><a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket"><?php echo $this->translate("Add ticket");?></a></li>
+                                </ul>
+                            <!-- End .shortcut-buttons-set -->
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    <!-- box one-->
+    <div style="clear: both;"></div>
+
+</div>
+

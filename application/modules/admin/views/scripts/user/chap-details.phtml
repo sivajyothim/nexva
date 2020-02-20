@@ -1,0 +1,283 @@
+<?php 
+    $chap   = $this->chap;
+    $theme  = $this->theme;
+    $whitlabelSettings = $this->whitelabelSettings;
+    //Zend_Debug::dump($whitlabelSettings);die();
+?>
+<div class="title">
+    <h3 style="cursor: s-resize;">CHAP Details</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <div class="message notice" style="display: block;">
+                    Be very very careful with this page. You could REALLY break something if you don't know what you're doing.
+            </div>
+        
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$message ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <?php //$this->placeholder('formHeadline')->set($this->getTranslation('Create New User'));?>
+            <fieldset>
+                <form class='form_validate' method="post" action="/user/chap-details">
+                 <p>
+                    <label for='sitename'>Site name </label>
+                    <input value='<?=$chap->WHITELABLE_SITE_NAME?>' type='text' id='sitename' name='wl[WHITELABLE_SITE_NAME]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='themename'>Theme name (folder name that contains the theme)</label>
+                    <input value='<?=$chap->WHITELABLE_THEME_NAME?>' type='text' id='themename' name='wl[WHITELABLE_THEME_NAME]' class='txt-input medium'>
+                 </p>
+                
+                 <p>
+                    <label for='domain'>Mobile Domain Name (without 'http://www')</label>
+                    <input value='<?=$chap->WHITELABLE_URL?>' type='text' id='domain' name='wl[WHITELABLE_URL]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='domain'>App-Store URL (without 'http://www')</label>
+                    <input value='<?=$chap->APPSTORE_APP_URL?>' type='text' id='domain' name='wl[APPSTORE_APP_URL]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='domain'>App-Store App Id</label>
+                    <input value='<?=$chap->APPSTORE_APP_ID?>' type='text' id='domain' name='wl[APPSTORE_APP_ID]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='domain'>Web Domain Name (without 'http://www')</label>
+                    <input value='<?=$chap->WHITELABLE_URL_WEB?>' type='text' id='domain' name='wl[WHITELABLE_URL_WEB]' class='txt-input medium'>
+                 </p>
+
+                 <p>
+                     <label for='dev-portal'>Developer Portal URL (without 'http://www')</label>
+                     <input value='<?=$chap->WHITELABLE_URL_DEV_PORTAL?>' type='text' id='dev-portal' name='wl[WHITELABLE_URL_DEV_PORTAL]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='fb_id'>FB App ID</label>
+                    <input value='<?=$chap->WHITELABLE_FB_APPID?>' type='text' id='fb_id' name='wl[WHITELABLE_FB_APPID]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='fb_secret'>FB App Secret</label>
+                    <input value='<?=$chap->WHITELABLE_FB_SECRET?>' type='text' id='fb_secret' name='wl[WHITELABLE_FB_SECRET]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='web_access_url'>Web Access URL (to show notice when mobile chap site is accessed on desktop. FULL URL REQUIRED - http://example.com)</label>
+                    <input value='<?=$chap->WHITELABLE_WEB_ACCESS_URL?>' type='text' id='web_access_url' name='wl[WHITELABLE_WEB_ACCESS_URL]' class='txt-input medium'>
+                 </p>
+                 
+                 <p>
+                    <label for='apptype'>Filter Apps. Show only</label>
+                    <select name='wl[WHITELABLE_APP_FILTER]' id='apptype'>
+                        <option <?php if ($chap->WHITELABLE_APP_FILTER == 'ALL') {echo 'selected="selected"';}?> value='ALL'>ALL</option>
+                        <option <?php if ($chap->WHITELABLE_APP_FILTER == 'FREE') {echo 'selected="selected"';}?> value='FREE'>FREE</option>
+                        <option <?php if ($chap->WHITELABLE_APP_FILTER == 'PAID') {echo 'selected="selected"';}?> value='PAID'>PAID</option>
+                        <option <?php if ($chap->WHITELABLE_APP_FILTER == 'NON') {echo 'selected="selected"';}?> value='NON'>NON</option>
+                    </select>
+                 </p>
+                 
+                 <p>
+                    <label for='accesstype'>Filter Access</label>
+                    <select name='wl[WHITELABLE_ACCESS_TYPE]' id='apptype'>
+                        <option <?php if ($chap->WHITELABLE_ACCESS_TYPE == 'OPEN') {echo 'selected="selected"';}?> value='OPEN'>OPEN</option>
+                        <option <?php if ($chap->WHITELABLE_ACCESS_TYPE == 'NETWORK') {echo 'selected="selected"';}?> value='NETWORK'>NETWORK</option>
+                    </select>
+                 </p>
+                 
+                 <p>
+                    <input value='0' type='hidden' name='wl[WHITELABLE_SHOW_POWERED_BY]' >
+                    <?php $selected = ($chap->WHITELABLE_SHOW_POWERED_BY == 1) ? "checked='checked'" : ''?>
+                    <input value='1' <?=$selected?> type='checkbox'  name='wl[WHITELABLE_SHOW_POWERED_BY]' >
+                    Show 'Powered by neXva' link? &nbsp;&nbsp;&nbsp;
+                 </p>
+                 
+                  <p>
+                    <label for='fb_key'><strong>Eva's Reviews</strong></label>
+                    <input value='0' type='hidden'  name='wl[WHITELABLE_EVA_SHOW_HOME]'>
+                    <?php $selected = ($chap->WHITELABLE_EVA_SHOW_HOME == 1) ? "checked='checked'" : ''?>
+                    <input value='1' <?=$selected?> type='checkbox' id='eva_show_home' name='wl[WHITELABLE_EVA_SHOW_HOME]' >
+                    
+                    Show on Home Page &nbsp;&nbsp;&nbsp;
+                    <input value='0' type='hidden' name='wl[WHITELABLE_EVA_SHOW_MENU]'  >
+                    <?php $selected = ($chap->WHITELABLE_EVA_SHOW_MENU == 1) ? "checked='checked'" : ''?>
+                    <input value='1' <?=$selected?> type='checkbox' id='eva_show_menu' name='wl[WHITELABLE_EVA_SHOW_MENU]'  >
+                    
+                    Show on Menu &nbsp;&nbsp;&nbsp;
+                    <input value='0' type='hidden' name='wl[WHITELABLE_EVA_SHOW_APP]' >
+                    <?php $selected = ($chap->WHITELABLE_EVA_SHOW_APP == 1) ? "checked='checked'" : ''?>
+                    <input value='1' <?=$selected?> type='checkbox' id='eva_show_app' name='wl[WHITELABLE_EVA_SHOW_APP]' >
+                    Show on App Page &nbsp;&nbsp;&nbsp;
+                 </p>
+                 
+                 <p>
+                    <label for='accesstype'>Select Platform</label>
+                    <select name='wl[WHITELABLE_PLATEFORM]' id='apptype'>
+                        <option value="">-&nbsp;Select&nbsp;-</option>
+                        <option <?php if ($chap->WHITELABLE_PLATEFORM == 'ANDROID_PLATFORM_CHAP_ONLY') {echo 'selected="selected"';}?> value='ANDROID_PLATFORM_CHAP_ONLY'>Android platform only (Android app)</option>
+                        <option <?php if ($chap->WHITELABLE_PLATEFORM == 'MULTIPLE_PLATFORM_CHAP_ONLY') {echo 'selected="selected"';}?> value='MULTIPLE_PLATFORM_CHAP_ONLY'>Multiple platform only (Mobile web)</option>
+                        <option <?php if ($chap->WHITELABLE_PLATEFORM == 'ANDROID_AND_MULTIPLE_PLATFORM_CHAP') {echo 'selected="selected"';}?> value='ANDROID_AND_MULTIPLE_PLATFORM_CHAP'>Android and multiple platforms (Android app + Mobile web)</option>
+                    </select>
+                 </p>
+
+                 <p>
+                     <label for='header-enrichment' >Header Enrichment Available</label>
+                     <input value='yes' type='radio' id='header-enrichment' name='wl[HEADER_ENRICHMENT]' <?php if($chap->HEADER_ENRICHMENT == 'yes') {echo 'checked';}?> >Yes &nbsp;&nbsp;&nbsp;
+                     <input value='no' type='radio' id='header-enrichment' name='wl[HEADER_ENRICHMENT]' <?php if(($chap->HEADER_ENRICHMENT == 'no') || ($chap->HEADER_ENRICHMENT == NULL)) {echo 'checked';}?> >No
+                 </p>
+
+                 <p>
+                     <label for='header-enrichment-identifier' >MSISDN Header Identifier</label>
+                     <input value='<?php echo $chap->WHITELABLE_IP_HDR_IDENTIFIER?>' type='text' id='hdr-identifier' name='wl[WHITELABLE_IP_HDR_IDENTIFIER]' class='txt-input medium'>
+                 </p>
+                 <p>
+                     <label for='header-enrichment-identifier' >MCC</label>
+                     <input value='<?php echo $chap->MCC?>' type='text' id='' name='wl[MCC]' class='txt-input medium'>
+                 </p>
+                 <p>
+                     <label for='header-enrichment-identifier' >MNC</label>
+                     <input value='<?php echo $chap->MNC?>' type='text' id='' name='wl[MNC]' class='txt-input medium'>
+                 </p>
+
+                 <p>
+                     <label for='site-alignment' >Site Content Alignment</label>
+                     <input value='yes' type='radio' id='site-alignment' name='wl[SITE_ALIGNMENT]' <?php if(($chap->SITE_ALIGNMENT == 'yes') || ($chap->SITE_ALIGNMENT == NULL)) {echo 'checked';}?> >Left -> Right &nbsp;&nbsp;&nbsp;
+                     <input value='no' type='radio' id='site-alignment' name='wl[SITE_ALIGNMENT]' <?php if($chap->SITE_ALIGNMENT == 'no') {echo 'checked';}?> >Right -> Left
+                 </p>
+
+                 <p>
+                     <label for='country-code'>Country Code (Telecommunication)</label>
+                     <input value='<?=$chap->COUNTRY_CODE_TELECOMMUNICATION?>' type='text' id='country-code' name='wl[COUNTRY_CODE_TELECOMMUNICATION]' class='txt-input medium'>
+                 </p>
+
+                 <div>
+                    <div class='title'>
+                        <h3>Theme Info</h3>
+                    </div>
+                    <br> 
+                        <p>
+                            <label for='basic_css'>Theme CSS filename (no path required)</label>
+                            <input value='<?=$theme->basic->css?>' type='text' id='basic_css' name='theme[basic][css]' class='txt-input medium'>
+                         </p>
+                         
+                         <p>
+                            <label for='basic_css'>Lowend Theme CSS filename (no path required)</label>
+                            <input value='<?=$theme->basic->lowendcss?>' type='text' id='lowend_css' name='theme[basic][lowendcss]' class='txt-input medium'>
+                         </p>
+                         
+                         <p>
+                            <label for='nex_style'>Nexlinker CSS filename (optional, only if you wanted a branded neXlinker)</label>
+                            <input value='<?=$chap->WHITELABLE_NEXLINKER_STYLE?>' type='text' id='nex_style' name='wl[WHITELABLE_NEXLINKER_STYLE]' class='txt-input medium'>
+                         </p>
+                         
+                         <p>
+                            <label for='header_logo'>Logo filename (no path required)</label>
+                            <input value='<?=$theme->header->logo->path?>' type='text' id='header_logo' name='theme[header][logo][path]' class='txt-input medium'>
+                         </p>
+                         
+                         <p>
+                            <label for='footer_sitename'>Footer Sitename</label>
+                            <input value='<?=$theme->footer->sitename?>' type='text' id='header_logo' name='theme[footer][sitename]' class='txt-input medium'>
+                         </p>
+                         
+                         <p>
+                            <label for='contentMenu'>Header Menus (one item per line in the format of [LINK NAME] => [LINK HREF] )</label>
+                            <textarea class='txt-input medium' id='contentMenu' name='theme[content][menu]'><?=$theme->content->menu?></textarea>
+                         </p>
+                         
+                         <p>
+                            <label for='footerMenu'>Footer Menus (one item per line in the format of [LINK NAME] => [LINK HREF] )</label>
+                            <textarea class='txt-input medium' id='footerMenu' name='theme[footer][menu]'><?=$theme->footer->menu?></textarea>
+                         </p>
+
+                     <div class='title'>
+                         <h3>Theme Info WEB</h3>
+                     </div>
+                     <br>
+                     <p>
+                         <label for='basic_css'>Custom CSS filename (no path required)</label>
+                         <input value='<?php echo $whitlabelSettings->{'custom_css'};?>' type='text' id='custom_css' name='custom_css' class='txt-input medium'>
+                     </p>
+                     
+                     <div class='title'>
+                         <h3>Theme Info CP Panel</h3>
+                     </div>
+                     <br>
+                     <p>
+                         <label for='cpCustomCss'>Custom Style Sheet (No path required)</label>
+                         <input value='<?=$chap->CP_CUSTOM_CSS?>' type='text' id='nex_style' name='wl[CP_CUSTOM_CSS]' class='txt-input medium'>
+                     </p>
+                     
+                     <div class='title'>
+                         <h3>Payment and SMS gateway options</h3>
+                     </div>
+                     <br>
+                     <p>
+                         <label for='paymentUrl'>Payment URL (without 'http://www')</label>
+                         <input value='<?=$chap->PAYMENT_URL?>' type='text' id='nex_style' name='wl[PAYMENT_URL]' class='txt-input medium'>
+                     </p>
+                     
+                     <p>
+                         <label for='smsUrl'>SMS URL (without 'http://www')</label>
+                         <input value='<?=$chap->SMS_URL?>' type='text' id='nex_style' name='wl[SMS_URL]' class='txt-input medium'>
+                     </p>
+                     
+                     <p>
+                         <label for='idPaymentOrSms'>ID</label>
+                         <input value='<?=$chap->ID_PAYMENT_SMS?>' type='text' id='nex_style' name='wl[ID_PAYMENT_SMS]' class='txt-input medium'>
+                     </p>
+                     
+                     <p>
+                         <label for='passwordPaymentOrSms'>Password</label>
+                         <input value='<?=$chap->PASSWORD_PAYMENT_SMS?>' type='text' id='nex_style' name='wl[PASSWORD_PAYMENT_SMS]' class='txt-input medium'>
+                     </p>
+                     
+                     <p>
+                         <label for='serviceId'>Service ID</label>
+                         <input value='<?=$chap->SERVICE_ID?>' type='text' id='nex_style' name='wl[SERVICE_ID]' class='txt-input medium'>
+                     </p>
+
+                     <div class='title'>
+                         <h3>App Store Details</h3>
+                     </div>
+                     <br>
+
+                     <p>
+                         <label for='symbian-url'>Symbian App Store URL</label>
+                         <input value='<?=$chap->SYMBIAN_URL?>' id="symbian-url" type='text' name='wl[SYMBIAN_URL]' class='txt-input medium'>
+                     </p>
+
+                     <p>
+                         <label for='bb10-url'>BlackBerry 10 App Store URL</label>
+                         <input value='<?=$chap->BB10_URL?>' id="bb10-url" type='text' name='wl[BB10_URL]' class='txt-input medium'>
+                     </p>
+
+                     <p>
+                         <label for='java-url'>java App Store URL</label>
+                         <input value='<?=$chap->JAVA_URL?>' id="java-url" type='text' name='wl[JAVA_URL]' class='txt-input medium'>
+                     </p>
+
+                 </div>
+                 
+                 
+                 <input type='hidden' value='<?=$chap->id?>' name='id'>
+                 <input value='<?=$chap->WHITELABLE_SITE_NAME?> logo' type='hidden' name='theme[header][logo][alt]'>
+                 <input value='<?=$chap->WHITELABLE_SITE_NAME?>' type='hidden' name='theme[basic][sitename]'>
+                 
+                 <p><input type="submit" class="txt-input small" value="Submit" id="submit" name="submit"></p>
+                 </form>
+                 
+                 
+            </fieldset>
+        </div>
+    </div>
+</div>

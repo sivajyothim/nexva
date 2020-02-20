@@ -1,0 +1,64 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 9/11/13
+ * Time: 6:29 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<style type="text/css">
+    #app_view #preloader_feature
+    {
+        position: relative;
+        top:10px;
+        left:142px;
+    }
+    #apps_feature img{
+        /*margin-left:50px;*/
+    }
+    #apps_feature .button{
+        margin-top: 25px;
+        margin-left: 120px;
+    }
+    #apps_feature #wrapper{
+        width:99.9%;
+    }
+    #apps_feature #wrapper p{
+        text-align:center;
+    }
+    #apps_feature .wrapper-left{
+        width:50%;
+        float:left;
+        height:32px;
+    }
+    #apps_feature .wrapper-left input{
+        float:right;
+        margin-top:8px;
+        margin-right:10px;
+    }
+    #apps_feature .wrapper-right{
+        width:50%;
+        float:right;
+        height:32px;
+        /*padding:5px;*/
+        /*vertical-align:middle;*/
+    }
+    #apps_feature .wrapper-right img{
+        float:left;
+    }
+
+</style>
+
+<div style="display:none;">
+    <div id="app_view">
+        <div class="pop_up_head pop_up_head_custom"><h3>Platforms.</h3></div>
+        <img id='preloader_feature' class='display_none' width='16'  src="<?= $this->cdn('site_assets') ?>/web/images/loading.gif" border="0" id="seach_loading" alt="loading" />
+        <div  style="overflow: auto">
+            <form id="apps_feature" action="/app/selected-platforms-for-featured">
+
+            </form>
+        </div>
+    </div>
+</div>

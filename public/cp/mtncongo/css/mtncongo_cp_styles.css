@@ -1,0 +1,180 @@
+
+body{
+/*    font-family: 'Yanone Kaffeesatz',arial,serif !important;*/
+}
+
+#header{
+   background: url('../img/cp_header.jpg') #000000 top center !important;
+   border-bottom : none !important;
+   height:110px !important;
+}
+
+#content #header-tabs h3 a, #content #header-tabs h3 span{
+    background: #000000 !important;
+}
+
+#content #header-tabs h3 span {
+    background: #000000 !important;
+}
+
+#tab-title {
+    background: #303030 !important;
+}
+
+#header-tabs{
+    margin-top: -51px;
+}
+
+#tab-cont{
+    border: none !important;
+}
+
+#tab-wrap{
+    /*border: 1px solid #dddddd !important;*/
+    border : none !important;
+    padding-left : 0 !important;
+    padding-right : 0 !important;
+    padding-bottom : 0 !important;
+    padding-top : 10px !important;
+}
+
+#content #header-tabs h3 span{
+    color: #FFC801 !important;
+}
+
+#content a:link, #content a:visited {
+    color: #FFC801;
+}
+
+#content a:hover{
+    color : #e77918;
+}
+
+input.submit, input.button{
+    background: #42484d !important;
+    border:none !important;
+    cursor: pointer;
+}
+#header .logo{
+    padding-top: 35px !important;
+}
+
+#top_nav{
+    background: #000000 !important;
+}
+
+#content{
+    margin-top: 10px;
+}
+
+.sf-menu{
+    position: relative;
+    top: 5px;
+}
+
+.sf-menu li ul{
+     background: #000000 !important;
+}
+
+.sf-menu li li:hover, .sf-menu li li.sfHover, .sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active{
+    background: #1b1b1b !important;
+    color: #FFC801 !important;
+}
+
+#content .title{
+/*    background: #5E5E5E !important;*/
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #A3A3A3),
+	color-stop(1, #474747),
+	color-stop(1, #A3A3A3)
+);
+background-image: -o-linear-gradient(bottom, #A3A3A3 0%, #474747 100%, #A3A3A3 100%);
+background-image: -moz-linear-gradient(bottom, #A3A3A3 0%, #474747 100%, #A3A3A3 100%);
+background-image: -webkit-linear-gradient(bottom, #A3A3A3 0%, #474747 100%, #A3A3A3 100%);
+background-image: -ms-linear-gradient(bottom, #A3A3A3 0%, #474747 100%, #A3A3A3 100%);
+background-image: linear-gradient(to bottom, #A3A3A3 0%, #474747 100%, #A3A3A3 100%);
+}
+.support_nav li{
+    background: #5e5e5e;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.support_nav a{
+    color:#ffffff;    
+}
+
+.support_nav a:hover{
+    text-decoration: none;
+    color: #000000;
+}
+
+.sf-menu a{
+    font-weight: bold;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover{
+    background: none !important;
+}
+
+li.sf-menu:hover a, .sfHover a, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active{
+    color: #FFC801 !important;
+}
+
+#header .info{
+/*    font-family: 'Yanone Kaffeesatz',arial,serif !important;
+    font-size: 18px !important;
+    width: 350px !important;*/
+    width: 220px;
+}
+
+#header .info small{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#header .info h2{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#header .chap_logo {
+    top: 20px;
+    width: 60px;
+}
+
+#div_heading h1{
+    position: relative;
+    top: 20px;
+    font-family: 'Yanone Kaffeesatz',arial,serif !important;
+    font-size: 22px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#content .selector a.active{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    background: none repeat scroll 0 0 #E37923;
+    border: 1px solid #FFFFFF;
+    color: #ffffff;
+}
+
+#content .box, #sidebar .box{
+    border-color: #cccccc;
+}
+
+#content table tbody tr td{
+    font: 11px Verdana;
+}
+
+#content table thead th {
+    font: 11px Verdana;
+    font-weight: bold;
+}

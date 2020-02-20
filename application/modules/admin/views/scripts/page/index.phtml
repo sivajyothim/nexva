@@ -1,0 +1,51 @@
+<!-- Start Content Box #1 -->
+
+<div class="title">
+
+    <h3>Pages</h3>
+
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-login">
+
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                           
+                            <th style="width:70%">Title</th>
+                            <th>Slug</th>
+                            <th>Status</th>
+                            
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <? foreach($this->pages as $page): ?>
+                            <tr>
+                                <td><?=$page['title']; ?></td>
+                                <td><?=$page['slug']; ?></td>
+                                <td><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/<?=($page['status'])?'approved.gif':'pending.gif'; ?>" border="0"></td>
+                                <td>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>page/view/id/<?=$page['id'];?>" rel="facebox"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/view.png" alt="View"  title="View"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>page/edit/id/<?=$page['id'];?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>page/delete/id/<?=$page['id'];?>" ><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete"  title="Delete" onClick="return confirm('Are you sure?')"></a>
+        
+                                </td>
+                            </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- End Content Box #1 -->
+
+

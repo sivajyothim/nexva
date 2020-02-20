@@ -1,0 +1,20 @@
+<?php $rule = $this->rule?>
+<?php if (isset($infoMessages) && is_array($infoMessages)) : ?>
+<div class="message info">
+    <?php foreach ($infoMessages as $key=>$value): ?>
+        <p><?=$value?></p>
+    <?endforeach;?>
+</div>
+<?php endif;?>
+
+<div class="title">
+    <h3>Add filter for rule : <?=$rule->name?></h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+        
+        </div>
+	</div>
+</div>

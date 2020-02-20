@@ -1,0 +1,22 @@
+<br><br>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;'>
+Hello <?=$this->username?>
+</p>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+    A new review has been approved for your 
+    <a href='http://<?=$this->baseurl?>/app/index/id/<?=$this->productId?>'><?=$this->productName?></a> application.
+</p>
+<br>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+<strong>Review Content : </strong> <?=$this->review['review']?>
+</p>
+
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+If you wish to dispute this review, please contact us on 
+<a href='mailto:contact@nexva.com?subject=Disputing Review added for <?=$this->productName?>'>contact@nexva.com</a>
+</p>
+<br><br>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+Thanks<br>
+Team Nexva
+</p>

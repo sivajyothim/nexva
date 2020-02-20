@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="ui-mobile" <?php if($this->partnerId == 23045) { echo 'xml:lang="fa" dir="rtl"'; } ?>>
+<head>
+    <title><?= !empty($this->siteTitle) ? $this->siteTitle : 'neXva - Mobile App Store' ?></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="<?= !empty($this->metaKeys) ? $this->metaKeys : 'nexva, Mobile App Store, Android' ?>" />
+    <meta name="description" content="<?= !empty($this->metaDes) ? $this->metaDes : 'nexva, Mobile App Store.' ?>" />
+    <link href="http://178.63.83.24/wl/favicons/<?= !empty($this->siteFavicon) ? $this->siteFavicon : '' ?>" rel="shortcut icon" type="image/vnd.microsoft.icon" />  
+  
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Jquery Mobile -->
+    <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/jquery.mobile.styles.low.end.css" />
+    <link rel="stylesheet" href="http://178.63.83.24/partnermobile/css/jquery.mobile.structure.low.end-1.3.2.css" />
+    <link rel="stylesheet" href="http://178.63.83.24/mobile/whitelables/<?= $this->folderPath; ?>/mobile/css/<?= $this->css; ?>" />
+    <link rel="stylesheet" href="http://178.63.83.24/mobile/whitelables/<?= $this->folderPath; ?>/mobile/css/<?= $this->lowendcss; ?>" />
+    <link href="http://178.63.83.24/partnermobile/css/style.carousel.low.end.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://178.63.83.24/partnermobile/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="http://178.63.83.24/partnermobile/js/jquery.flexisel.js"></script>
+    <script type="text/javascript" src="http://178.63.83.24/partnermobile/js/jquery-validate.js"></script>
+</head> 
+
+<body> 
+    <script type="text/javascript">	
+	jQuery(window).load(function() {
+                jQuery("#carousal-auto").flexisel({
+                visibleItems: 5,
+                animationSpeed: 1000,
+                autoPlay: false,
+                autoPlaySpeed: 3000,            
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: { 
+                    portrait: { 
+                        changePoint:480,
+                        visibleItems: 1
+                    }, 
+                    landscape: { 
+                        changePoint:640,
+                        visibleItems: 2
+                    },
+                    tablet: { 
+                        changePoint:768,
+                        visibleItems: 3
+                    }
+                }
+            });
+	});
+
+</script>
+
+<body class="ui-mobile-viewport ui-overlay-c">
+
+    <?php 
+        $sessionChapDetails = new Zend_Session_Namespace('partnermobile');
+    ?>
+      <div class="ui-panel-content-wrap ui-body-c ui-panel-animate ui-panel-content-wrap-closed">
+    
+      <div class="ui-header ui-bar-c">
+        
+      <div class="ui-grid-b">
+        <div class="ui-block-a ui-bar-a left-header-bg">
+          <div class="ui-btn-left ui-corner-all ui-controlgroup ui-controlgroup-horizontal">
+            <div class="ui-controlgroup-controls logo-low-end-div"> 
+            
+            <?php if($this->partnerId == 115189) { ?> 
+            <img src="http://178.63.83.24/wl/logos/ycoins_mobile_logo.png" class="ui-btn-left logo-low-end" width="30"/> 
+            <?php } elseif($this->partnerId == 136079) { ?> 
+            <?php } else { ?> 
+            <img src="http://178.63.83.24/wl/logos/<?= !empty($this->siteLogo) ? $this->siteLogo : ''; ?>" class="ui-btn-left logo-low-end"  width="30"/> 
+            <?php } ?> </div>
+          </div>
+          <h1 class="ui-title"></h1>
+          <div class="ui-btn-right ui-corner-all ui-controlgroup ui-controlgroup-horizontal">
+            <div class="ui-controlgroup-controls"> 
+            
+            <?php 
+            if($sessionChapDetails->id == 21134):?>
+            <a class="ui-btn ui-shadow ui-btn-icon ui-first-child ui-btn-up-a" title="Developer Challenge" href="<?php echo PROJECT_BASEPATH;?>app/mtn-developer-challenge" id=""><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Developer Challenge");?></span></span></a> 
+          <a class="ui-btn ui-shadow ui-btn-icon ui-first-child ui-btn-up-a" title="Developer Challenge" href="<?php echo PROJECT_BASEPATH;?>app/islamic" id=""><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Islamic");?></span></span></a>
+            <?php endif;?>
+            
+            <a class="ui-btn ui-shadow ui-btn-icon-notext ui-first-child ui-btn-up-a" title="Search" href="/index/search-low-end" id="searchicontop"><span class="ui-btn-inner"><span class="ui-btn-text">Search</span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a> 
+            
+                            <?php 
+                            if($this->airtelSriLanka && $this->isHeaderEnrichmentActive):
+                            
+                            else:
+                                if (Zend_Auth::getInstance()->hasIdentity()) :
+                                ?>
+                                    <a class="ui-btn ui-shadow ui-btn-icon-notext" href="/user/logout" id="logofficon"><span class="ui-btn-inner"><span class="ui-btn-text">Log out</span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a> 
+
+                                   <!-- <a rel="external" href="" id="loginicon"</a>-->
+                                <?php else: ?>
+                                      <?php   if($sessionChapDetails->id == 585480 or $sessionChapDetails->id == 585474):?>
+                                        
+                                      <?php else:?>
+                                       <a class="ui-btn ui-shadow ui-btn-icon-notext" title="Login" href="/user/login" id="loginicon"><span class="ui-btn-inner"><span class="ui-btn-text">Login</span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a>
+                                      <?php endif;?>
+                                <?php endif;
+                             endif;
+                             ?>
+                                
+                                
+            
+            
+             <a class="ui-btn ui-btn-up-a ui-shadow ui-btn-icon-notext" title="Categories" href="/category/menu" id="gridicon"><span class="ui-btn-inner"><span class="ui-btn-text">Categories</span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a> 
+            
+            <a class="ui-btn ui-shadow ui-btn-icon-notext ui-last-child ui-btn-up-a" title="Menu" href="/index/main-menu" id="menuicon"><span class="ui-btn-inner"><span class="ui-btn-text">Menu</span><span class="ui-icon ui-icon-custom">&nbsp;</span></span></a> </div>
+          </div>
+        </div>
+      </div>
+        
+        <?php
+        //check the url slug and highlight the current menu
+            $urlAdd = $this->url();
+            $arrUrl = explode('/',$urlAdd);
+            $count = count($arrUrl);
+            $slug = $arrUrl[$count-1];
+        ?>
+      
+     <div class="ui-navbar ui-mini" style="background:#d71918;">
+        <ul class="ui-grid-c">
+          <li class="ui-block-a" style=""><a class="ui-btn<?php echo ($slug=='newest')?' ui-btn-active':'';?> ui-btn-inline ui-btn-up-c" href="<?php echo PROJECT_BASEPATH;?>app/newest"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Newest");?></span></span></a></li>
+          <li class="ui-block-b" style=""><a class="ui-btn<?php echo ($slug=='top-free')?' ui-btn-active':'';?> ui-btn-up-c ui-btn-inline" href="<?php echo PROJECT_BASEPATH;?>app/top-free"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Free");?></span></span></a></li>
+          <li class="ui-block-c" style=""><a class="ui-btn<?php echo ($slug=='top-premium')?' ui-btn-active':'';?> ui-btn-inline ui-btn-up-c" href="<?php echo PROJECT_BASEPATH;?>app/top-premium"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Paid");?></span></span></a></li>
+          <li class="ui-block-d"><a class="ui-btn<?php echo ($slug=='top-downloads')?' ui-btn-active':'';?> ui-btn-inline ui-btn-up-c" href="<?php echo PROJECT_BASEPATH;?>app/top-downloads"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Download");?></span></span></a></li>
+        </ul>
+      </div>
+    </div>

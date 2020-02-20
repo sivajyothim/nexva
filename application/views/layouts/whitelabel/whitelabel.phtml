@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>
+
+    <meta content="text/html;charset=utf-8" http-equiv="content-type" />
+    
+    <title><?=$this->CHAP->WHITELABLE_SITE_NAME?> <?= $temp->_('App Store') ?> | <?=$this->PAGE_TITLE;?></title>
+    
+    <link rel="stylesheet" type="text/css" media="all" href="<?=$this->cdn('site_assets')?>/wl/css/colors.css<?=$this->VER?>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<?=$this->cdn('site_assets')?>/wl/css/styles.css<?=$this->VER?>" />
+    <?php echo $this->headLink() ?>
+        
+    <?php if (trim($this->SETTINGS->custom_css)) : ?>
+        <link rel="stylesheet" type="text/css" media="all" href="<?=$this->url()->wlCss($this->CHAP->WHITELABLE_THEME_NAME, $this->SETTINGS->custom_css);?>" />
+    <?php endif;?>
+    
+    <script type="text/javascript" src="<?=$this->cdn('jquiry')?>"></script>
+    <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/wl/js/nivo.slider.pack.js<?=$this->VER?>"></script>
+    <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/wl/js/jcarousel.min.js<?=$this->VER?>"></script>
+    <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/wl/js/common.js<?=$this->VER?>"></script>
+    <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/wl/js/custom.js<?=$this->VER?>"></script>
+     
+   
+     
+</head>
+
+<body>
+
+<?php echo $this->partial('partials/category_selector.phtml', array('CHAP_ID' => $this->CHAP_ID)); ?>
+    <div id="top_container">
+        <div class="container">
+            <div id="header">
+                <div id="logo">
+                    <a href="/">
+                        <img src="<?=$this->url()->wlImage($this->CHAP->WHITELABLE_THEME_NAME, $this->SETTINGS->large_logo_name);?>" 
+                            title="<?=$this->SETTINGS->site_title?>" alt="<?=$this->SETTINGS->site_title?> logo" />
+                    </a>
+                </div>
+                
+                <div id="header_right">
+                    <div id="top">
+                            <div id="currency_switcher" class="switcher">
+                                <span id='platform_selector' class="s_selected">
+                                    <?=$this->PLATFORM ? $this->PLATFORM->name : $temp->_('All Platforms') ?>
+                                </span>
+                                <ul class="option platform">
+                                    <?php asort($this->PLATFORMS); foreach ($this->PLATFORMS as $platformId => $platformName) : ?>
+                                    <li>
+                                        <a data-platform-id="<?=$platformId?>" href='#'><?=$platformName?></a>
+                                    </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div><!-- << currency switcher >> -->
+                            
+                        <?= $this->partial('partials/search.phtml') ?>
+                        
+                    </div><!-- << top >> -->
+                    
+                    <div id="bottom">
+                        <div class="links">
+                            <a href="#" class='close_open_category'><?= $temp->_('All Categories') ?></a>
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/recent"><?= $temp->_('All Apps') ?></a>
+   
+
+                        </div><!-- << links >> -->
+                    </div><!-- << bottom >> -->  
+                </div><!-- << header right >> -->
+                
+                <div id="header_bottom">
+                    <div id="menu">
+                        <ul>
+                         <?php
+                            $links   = explode("\n", $this->SETTINGS->main_menu);
+                            foreach ($links as $link) :
+                                if (trim($link)) :
+                                    $linkParts  = explode('=>', $link);
+                         ?>
+                         
+                                    <li>
+                                        <a href='<?=isset($linkParts[1]) ? trim($linkParts[1]) : '#'?>'>
+                                            <?=isset($linkParts[0]) ? $temp->_(trim($linkParts[0])) : ''?>
+                                        </a>
+                                    </li>
+                         <?php 
+                                endif;    
+                            endforeach; 
+                         ?>
+                         </ul>
+                    </div><!-- << menu >> -->
+                    
+                </div><!-- << header bottom >> -->
+            </div> <!--  end header -->
+            
+            <div id="header_bottom_shadow"></div>
+            
+            <div id="notification"></div>
+            
+        </div> <!-- << container >> -->
+        
+        <?php if ($this->SHOW_SLIDESHOW === TRUE) : ?>
+         <div class="container">
+            <div id="slideshow" class="nivoSlider" style="width: 960px; height: 330px;">
+                
+                <?php foreach($this->webBanners as $banners) : ?>
+                
+                    <a href="<?= $banners->url ?>"><img src="/wl/banners/<?= $banners->image ?>" alt="dsds" /></a>
+                
+                <?php endforeach; ?>
+                             
+                
+            </div><!-- << slideshow >> -->
+
+            <script type="text/javascript">
+            <!--
+            $(document).ready(function() 
+            {
+                $('#slideshow').nivoSlider();
+            });
+            -->
+            </script>
+        </div><!-- << container >> -->
+            <div class="container" style="height: 10px;"></div>
+        <?php endif; ?>
+        
+        
+    </div><!-- << top container >> -->
+    
+    <div id="content" class="clearfix">&nbsp;</div>
+    
+    <div class="section" id="page_content">
+        
+        <?=$this->layout()->content?>
+    </div><!-- << page content >> -->
+    
+    <div id="footer-border" class="section">&nbsp;</div>
+    <div id="footer-top-outside">
+        <div id="customHome" class="container">
+            <div id="about_us_footer" class="column grid">
+<!--                <h2>About <?=$this->CHAP->WHITELABLE_SITE_NAME?></h2>-->
+                <img align="left" class="about_us_image" alt="small logo" src="<?=$this->url()->wlImage($this->CHAP->WHITELABLE_THEME_NAME, $this->SETTINGS->small_logo_name);?>"/>
+                <p>
+                    <?=$this->SETTINGS->site_description?>
+                </p>
+            </div><!-- << about us footer >> -->
+  
+            <?php if (trim($this->SETTINGS->site_twitter)) : ?>
+                <div id="twitter_footer" class="column grid">
+                <h2>Latest tweets</h2>
+                <ul id="twitter_update_list">
+                    <li style="display: none;">&nbsp;</li>
+                </ul>
+<script type="text/javascript" src="//twitter.com/javascripts/blogger.js"></script> 
+<script type="text/javascript" src="//twitter.com/statuses/user_timeline/<?=trim($this->SETTINGS->site_twitter)?>.json?callback=twitterCallback2&amp;count=2"></script>
+            </div><!-- << twitter footer >> -->
+            <?php endif;?>
+            
+        </div><!-- << custom Home >> --> 
+    </div>
+ 
+    <div id="powered">
+        <div class="container">
+            <div id="powered_text">
+            <?php if (isset($this->CHAP->WHITELABLE_SHOW_POWERED_BY) && $this->CHAP->WHITELABLE_SHOW_POWERED_BY) : ?>
+                <? $temp->_('Powered by') ?><a href='http://nexva.com'>neXva</a>
+                <br />
+            <?php endif; ?>
+                <? $temp->_('All rights reserved') ?>&copy; <?=date('Y')?>
+            </div>
+            
+            <div class="clearfix">&nbsp;</div>
+        </div>
+    </div><!-- << powered >> -->
+    
+     <script type="text/javascript">
+        $(document).ready(function() {
+            var visible = 0;
+            if(visible == 1){
+                $("#category_list").data("visible", true);
+            } else {
+                $("#category_list").data("visible", false);
+            }
+        });
+    </script>
+    
+    <?php echo $this->headScript() ?>
+</body>
+
+</html>

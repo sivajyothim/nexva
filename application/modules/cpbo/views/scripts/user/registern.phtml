@@ -1,0 +1,308 @@
+    <!-- Start Wrap -->
+<div id="wrap" class="fixed">
+    <div id="content">
+        <div class="title">
+            <h3><?=$this->translate($this->window_title); ?></h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+
+                <div class="tab-table">
+
+
+                    <div class="tab-forms">
+
+                       
+                        
+                        <h4><i style="color: #FF0000">(<?php echo $this->translate("Fields with red borders are mandatory - thanks.");?>)</i></h4>
+
+                                <br />
+
+
+
+                                <!-- Start Form -->
+                                <form method="POST" action="" name="user_register" id="user_register">
+                                    <fieldset class="fieldsetClass">
+
+
+                                       <legend class="frm_legend"><?php echo $this->translate("Personal Details");?></legend>
+
+                                        <?php if($this->user_add_res != '') { ?>
+                                        <div class="message error">
+                                            <p><?php
+
+                                                    if(is_array($this->user_add_res)) {
+
+                                                        foreach($this->user_add_res as $key=>$res) {
+
+
+                                                            echo $res."<br />";
+
+
+                                                        }
+                                                    }else {
+
+                                                        echo $this->user_add_res;
+                                                    }
+
+
+                                                    ;?></p>
+                                        </div>
+                                            <?php } ?>
+
+
+                                        <?php if($this->user_add_msg != '') { ?>
+                                        <div class="message info">
+                                            <p><?= $this->translate($this->user_add_msg);?></p>
+                                        </div>
+                                            <?php } ?>
+
+
+                                       <div class="div_space"></div>
+
+                                       <div class="div_single_row">
+                                            <label><?php echo $this->translate("First name");?></label>
+                                            <input name="first_name" id="first_name"  type="text" class="txt-input_required small validate(required(First name field))" value="<?= $this->first_name; ?>"/>
+                                        </div>
+
+                                       <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Last name");?></label>
+                                            <input name="last_name" id="last_name"  type="text" class="txt-input_required small validate(required(Last name field))" value="<?= $this->last_name; ?>"/>
+                                        </div>
+                                      <!--
+                                        <p>
+                                            <label>Login name (Username)</label>
+                                            <input name="username" id="username"  type="text" class="txt-input_required small validate(required(Login name field),username(Username))" value="<?= $this->username; ?>" />
+                                        </p>
+                                        -->
+
+                                        <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("E-mail");?></label>
+                                            <small>This will be your login name.</small>
+                                            <input name="email" id="email" type="text" class="txt-input_required small validate(required(Email field),email)" value="<?= $this->email; ?>"/>
+
+                                        </div>
+
+                                        <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("password");?></label>
+                                            <input name="password" id="password"   type="password" class="txt-input_required small validate(required(Password field),rangelength(4,25))" value=""/>
+                                        </div>
+
+
+                                        <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Retype password");?></label>
+                                            <input name="retypepassword" id="retypepassword" type="password" class="txt-input_required small validate(required(Password retype field),match(#password),rangelength(4,25))" value="" />
+                                        </div>
+
+
+                                    </fieldset>           
+
+                                    <div class="div_space"></div>
+
+        <!--                             <div style="padding-left:50px;margin:30px;"><small>------------------------------  Company details  ------------------------------</small></div>-->
+
+                                    <fieldset class="fieldsetClass">
+
+                                        <legend class="frm_legend"><?php echo $this->translate("Company Details");?></legend>
+
+
+
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Company name");?></label>
+                                            <input name="company_name" id="company_name"  type="text" class="txt-input_required small validate(required(Company name field))" value="<?= $this->company_name; ?>"/>
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Department");?></label>
+                                            <input name="department" id="department"  type="text" class="txt-input small" value="<?= $this->department; ?>" />
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Designation");?></label>
+                                            <input name="designation" id="designation"  type="text" class="txt-input small" value="<?= $this->designation; ?>" />
+                                        </div>
+
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Street");?></label>
+                                            <input name="street" id="street"  type="text" class="txt-input small" value="<?= $this->street; ?>" />
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("City");?></label>
+                                            <input name="city" id="city"  type="text" class="txt-input small" value="<?= $this->city; ?>"/>
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Province/State");?></label>
+                                            <input name="province" id="province"  type="text" class="txt-input small" value="<?= $this->province; ?>" />
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("ZIP/Postal Code");?></label>
+                                            <input name="zip" id="zip"  type="text" class="txt-input small  )" value="<?= $this->zip; ?>"/>
+                                        </div>
+                                       
+                                        
+                                        <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+
+                                            <?
+                                            $options    =   $this->countries;
+                                            $country   = new Zend_Form_Element_Select('country');
+
+                                                    $country->setLabel('Country')
+                                                            ->setRequired(true)
+                                                            ->setOptions(
+                                                            array
+                                                            (
+                                                            "multioptions" => $options,
+                                                            "class" => "validate(required) select-input small",
+                                                            "Style" => "width:200px;",
+                                                            "value"      => array($this->country)
+                                                            )
+
+
+                                                    );
+                                                     echo "<div >".$country."</div>";
+                                                    ?>
+                                        </div>
+
+                                    </fieldset>
+                                    
+                                    <div class="div_space"></div>
+                                    
+                                      <fieldset class="fieldsetClass">
+
+                                    
+
+        <!--                            <div style="padding-left:50px;margin:30px;"><small>------------------------------  Contact details  ------------------------------</small></div>-->
+
+
+                                    <fieldset>
+
+                                        <legend class="frm_legend">Contact Details</legend>
+
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Phone");?></label>
+                                            <input name="telephone" id="telephone"  type="text" class="txt-input small )" value="<?= $this->telephone; ?>" />
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Fax");?></label>
+                                            <input name="fax" id="fax"  type="text" class="txt-input small" value="<?= $this->fax; ?>" />
+                                        </div>
+                                        
+                                        
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("URL");?></label>
+                                            <input name="web" id="web"  type="text" class="txt-input small validate(rangelength(0,50))" value="<?= $this->web; ?>" />
+                                        </div>
+
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                            <label><?php echo $this->translate("Customer support email");?></label>
+                                            <input name="support_email" id="support_email"  type="text" class="txt-input_required small validate(required(Customer support email ),email)" value="<?= $this->support_email; ?>" />
+                                        </div>
+
+
+
+                                         <div class="div_space"></div>
+
+                                        
+                                          <label><?php echo $this->translate("Enter the security key you see inside the image");?></label>
+                                          <div id="recaptcha" name="recaptcha" style="width: 60%" class="txt-input small"><?=$this->recaptcha;?></div>
+                                        
+
+                                         <div class="div_space"></div>
+
+                                        <div class="div_single_row">
+                                           <br />
+                                        <input type="checkbox" name="agree" id="agree" class="validate(required(Check box selection))" value="<?= $this->agree; ?>" />&nbsp;&nbsp;
+                                        
+                                       <p> 
+                                        <?php echo ($this->settings->WHITELABLE_SITE_AGREEMENT_TEXT)? $this->settings->WHITELABLE_SITE_AGREEMENT_TEXT:"Check the box to agree neXva"?>
+                                        </p>         
+                                               <!-- 
+                                                 <a href="/user/agreement/id/2<?php if(isset($this->r)): ?>/r/<?=strtolower($this->r)?> <?php endif; ?>" rel="facebox">
+                                                    terms and conditions.
+                                                </a>
+                                                 
+                                                   -->  
+                                                 <?php if(isset($this->r) and  $this->r == 'mtn' ): ?> 
+                                                 <a href="http://nextapps.mtnonline.com/index/page/id/30" target="_blank">
+                                                 <?php else: ?>
+                                                 <a href="/user/agreement/id/2<?php if(isset($this->r)): ?>/r/<?=strtolower($this->r)?> <?php endif; ?>" rel="facebox">
+                                                 <?php endif; ?>
+                                                    terms and conditions.
+                                                 </a>
+                                                
+                                                
+                                                <?php /*if($this->pageDetails->page_text)
+                                                { */?><!--
+                                                    <a href="/index/page/id/<?php /*echo $this->settings->WHITELABLE_SITE_AGREEMENT_LINK;*/?>" rel="facebox">
+                                                    terms and conditions.
+                                                </a>
+                                                <?php /*} else { */?>
+                                                    <a href="/user/agreement/id/2<?php /*if(isset($this->r)): */?>/r/<?/*=strtolower($this->r)*/?> <?php /*endif; */?>" rel="facebox">
+                                                        terms and conditions.
+                                                    </a>
+                                                --><?php /*} */?>
+                                            <!--<p><?php /*echo ($this->settings->WHITELABLE_SITE_AGREEMENT_TEXT);*/?></p>-->
+                                       
+
+                                            <small><?php echo $this->translate("If you have problems with the Terms and Conditions please");?> <a href="mailto:contact@nexva.com">talk to us.</a></small>
+                                        </div>
+
+                                        <span style="float:left;">
+                                            <input type="submit" class="button submit" name="submit" id="submit" value="<?=$this->translate($this->button_value); ?>" />
+                                            <?if(isset($this->r)): ?>                                    
+                                                <input type="hidden" name="r" value="<?=strtolower($this->r)?>">
+                                            <?endif;?>
+                                        </span>
+                                    </fieldset>
+                                    
+                                </form>
+                                <!-- End Form -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

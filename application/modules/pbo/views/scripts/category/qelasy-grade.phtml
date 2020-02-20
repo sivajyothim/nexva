@@ -1,0 +1,48 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/12/14
+ * Time: 7:28 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript" language="javascript">
+    //Validation
+    $(document).ready(function() {
+        $("#qelasy-grades").validate();
+    });
+</script>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+        <div id="icon_wrapper">
+            <a href="/category/qelasy-grades" alt="List Qelasy Grade" class="button">List Grades</a>
+        </div>
+    </div>
+    <div class="content-box-content">
+        <div style="width:99%;float: right;">
+            <form method="post" action="/category/<?php echo $this->action;?>/id/<?php echo $this->grade->id;?>" id="qelasy-grades" name="qelasy-grades" class="pbo-admin-form">
+
+                <p>
+                    <label>Grade Name<span class="mendatory_fileds">*</span></label>
+                    <input id="grade-name" name="grade-name" class="text-input small-input required" type="text" value="<?php echo isset($this->grade->name) ? $this->escape($this->grade->name) : '' ; ?>" />
+                </p>
+
+                <p>
+                    <label>Grade Description<span class="mendatory_fileds">*</span></label>
+                    <input id="grade-description" name="grade-description" class="text-input small-input required" type="text" value="<?php echo isset($this->grade->description) ? $this->grade->description : ''; ?>" />
+                </p>
+
+                <div style="float:left; width:60px; position: relative; left: 15px">
+                    <input style="position: relative; top: 5px" type="submit" value="Submit" class="button" name="add-all" id="add-all"/>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#1').addClass('current');
+</script>

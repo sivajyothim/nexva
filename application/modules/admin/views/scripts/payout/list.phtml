@@ -1,0 +1,57 @@
+<div class="title">
+
+    <h3>Payouts | Nexva.com</h3>
+
+    
+</div>
+<div class="box">
+    <div class="txt">
+<?= $this->render('partials/message.phtml'); ?>
+        <div id="content_box">
+            <!-- Start tab tab-handsets -->
+
+            <div class="tab-handsets">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Payout CP</th>
+                            <th>Payout Nexva</th>
+                            <th>Payout Chap</th>
+                            <th>Payout Super Chap</th>
+                            <th>CP Payout Description</th>
+                            <th>Edit</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->payout as $payout): ?>
+                        <tr>
+                            <!--<td><input type="checkbox" name="check" /></td>-->
+                            <td><?= $payout['name']; ?></td>
+                            <td><?= $payout['description']; ?></td>
+                            <td><?= $payout['payout_cp']; ?></td>
+                            <td><?= $payout['payout_nexva']; ?></td>
+                            <td><?= $payout['payout_chap']; ?></td>
+                            <td><?= $payout['payout_super_chap']; ?></td>
+                            <td><?= $payout['cp_payout_description']; ?></td>
+                            <td>
+                                    
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>payout/create/id/<?=$payout['id'];?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+                                  
+                            </td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->payout, 'Sliding', 'partials/paginator.phtml'); ?>
+            </div>
+            <!-- End handsets -->
+        </div>
+    </div>
+</div>

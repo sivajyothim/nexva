@@ -1,0 +1,146 @@
+#!/bin/bash
+## Script Creato By Sbarboff
+##
+## Auto sid update from vhannibal settings
+##
+## Scarico setting
+. /var/www/cccam-cms-new/script/variable
+cd /tmp
+
+rm index.htm
+rm path.txt
+rm *.tv
+rm *.radio
+rm lamedb
+rm *.xml
+rm *.sid
+rm *.zip
+
+sleep 2
+
+wget http://www.vhannibal.net/index.htm
+
+cat index.htm  | grep ".zip" | mawk '{print $2}' > path.txt
+sed -i '/href="settings/s/href="settings//g' path.txt
+sed -i '/">/s/">//g' path.txt
+
+link=`cat path.txt | grep "/Vhannibal%20E2%20Dual" | tr -d "/"`
+
+wget http://www.vhannibal.net/settings/$link
+
+unzip -oj '*.zip'
+
+
+mv /tmp/userbouquet.dbe01.tv /tmp/sid.sid
+
+### Ripulisco i sid da quello che non serve
+
+cat sid.sid | sed -e 's/#SERVICE 1:0:19:/#SERVICE 1:0:1:/g' | grep -v "#SERVICE 1:64" > filter_sid_1.sid
+cat filter_sid_1.sid | sed -e 's/#SERVICE 1:0:1://g' > filter_sid_2.sid
+cat filter_sid_2.sid | sed -e 's/:fbff:820000:0:0:0://g' > filter_sid_3.sid
+cat filter_sid_3.sid | sed -e 's/:.*// g' > new_sid.sid
+
+## Genero i file con i vari pacchetti (cinema, intrattenimento, ....)
+
+awk '/#DESCRIPTION/{n++}{print >"service" n ".txt" }' new_sid.sid 
+
+## Prendo i sid dai file generati e costruisco la stringa
+
+
+cinemaHD=( `cat service1.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+cinema=( `cat service2.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+intrattenimento=( `cat service3.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+sport=( `cat service4.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+cultura=( `cat service5.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+musica=( `cat service6.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+ragazzi=( `cat service7.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+notizie=( `cat service8.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+altri=( `cat service9.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+servizio=( `cat service10.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+hdtvpromo=( `cat service11.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+ppvHD=( `cat service12.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+ppv=( `cat service13.txt | grep -v "DESCRIPTION" | tr '\n' ',' | sed 's/\(.*\)./\1/' `)
+
+#echo ${cinemaHD[*]}
+
+###############################
+
+killall -9 $OSCAM_1 >/dev/null 2>&1 &
+killall -9 $OSCAM_2 >/dev/null 2>&1 &
+killall -9 $OSCAM_3 >/dev/null 2>&1 &
+killall -9 $OSCAM_4 >/dev/null 2>&1 &
+
+sleep 2
+
+cd /usr/local/etc/sky/1
+rm oscam.services
+
+touch oscam.services
+
+cat > oscam.services << EOF
+[sky1]
+CAID=0919
+provid=000000
+srvid=${cinemaHD[*]},${musica[*]}
+EOF
+################################
+
+cd /usr/local/etc/sky/2
+rm oscam.services
+
+touch oscam.services
+
+cat > oscam.services << EOF
+[sky2]
+CAID=0919
+provid=000000
+srvid=${intrattenimento[*]},${notizie[*]}
+EOF
+################################
+
+cd /usr/local/etc/sky/3
+rm oscam.services
+
+touch oscam.services
+
+cat > oscam.services << EOF
+
+[sky3]
+CAID=0919
+provid=000000
+srvid=${cultura[*]},${cinema[*]}
+EOF
+################################
+
+cd /usr/local/etc/sky/4
+rm oscam.services
+
+touch oscam.services
+
+cat > oscam.services << EOF
+
+[sky4]
+CAID=0919
+provid=000000
+srvid=${sport[*]},${ragazzi[*]}
+EOF
+
+sleep 2
+
+cd /usr/local/bin
+
+$OSCAM_1 >/dev/null 2>&1 &
+
+sleep 2
+
+$OSCAM_2 >/dev/null 2>&1 &
+
+sleep 2
+
+$OSCAM_3 >/dev/null 2>&1 &
+
+sleep 2
+
+$OSCAM_4 >/dev/null 2>&1 &
+
+sleep 2

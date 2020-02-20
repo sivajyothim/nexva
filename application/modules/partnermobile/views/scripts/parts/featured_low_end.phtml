@@ -1,0 +1,66 @@
+<?php //$currency = $this->ChangeCurrency($this->chap_id);?>
+<div class="ui-content ui-body-e padding-bottom-0"><h2 class="padding-bottom-0"><?php echo $this->translate('Staff Picks');?></h2></div>
+<div class="ui-content ui-body-e slider-wraper">
+      
+
+      <ul id="carousal-auto">
+          
+        <?php
+        $x = 0;
+        foreach($this->featuredApps as $app) :
+        $x++;
+        ?>
+          
+        <li>
+          <div class="ui-grid-a">
+            <div class="ui-block-a">
+                
+                <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external">
+                                <img class="ui-li-thumb-inner-large" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" />
+                </a>
+            </div>
+            <div class="ui-block-b">
+              <p class="ui-li-desc" style="white-space: normal"><?= $this->trim($app['brief_description'],80); ?></p>
+            </div>
+          </div>
+          <div class="clear-both-cls"></div>
+          <div class="ui-grid-solo">
+            <div class="ui-block-a">
+              <h2 class="ui-li-heading"><a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external" class="ui-link"><?= $app['name'] ?></a></h2>
+            </div>
+          </div>
+          <div class="ui-grid-solo">
+            <div class="ui-block-a">
+              <h3 class="ui-li-heading blue-color"><?= $this->trim($app['vendor'],18) ?></h3>
+            </div>
+          </div>
+          <div class="ui-grid-a">
+            <div class="ui-block-a"> <a class="ui-link" href="#">
+              <div id="rating">
+                <?= $this->partial('partials/rating.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'], 'page' => 'home')); ?>
+              </div>
+              </a> </div>
+            <div class="ui-block-b">
+                
+                <? if($app['price'] > 0) : ?>
+
+                                <a href="<?= !(Zend_Auth::getInstance()->hasIdentity()) ? '/user/login' : '/app/buy/id/'.$app['product_id'].'/build/'.$app['build_id']?>" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-left ui-btn-up-c" id="downloadheadericon"><span class="ui-btn-inner"><span class="ui-btn-text"><?echo $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($app['price']*$this->currencyDetails["rate"])),2, '.', ','); ?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a>
+
+                            <? else : ?>
+
+                                <a href="<?= (Zend_Auth::getInstance()->hasIdentity() || $this->allowFreeDownload) ? '/app/download/id/'.$app['product_id'].'/build/'.$app['build_id'] : '/user/login';?>" class="ui-btn ui-shadow ui-btn-corner-all ui-mini ui-btn-icon-left ui-btn-up-c" id="downloadheadericon"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Download");?></span><span class="ui-icon ui-icon-custom ui-icon-shadow">&nbsp;</span></span></a>
+
+
+                            <? endif; ?>
+            
+            
+            </div>
+          </div>
+          <?= ($app['updates_available'] == 1) ? '<span class="update-available">!</span>' : ''; ?>
+        </li>
+        
+         <? endforeach; ?>
+        
+      </ul>
+
+    </div>

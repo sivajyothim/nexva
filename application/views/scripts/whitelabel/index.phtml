@@ -1,0 +1,54 @@
+
+<div style="margin-top:50px;">
+<?= $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator_whitelabel.phtml', array('baseUrl' => $this->baseUrl)); ?>
+
+</div>
+<? foreach($this->userProductsForView  as $product): ?>
+<div class="productboxes">
+                    <!--<div> <?=$this->thumbnail($product['thumb'], array('w'=>50, 'h'=>50));?> </div> -->
+    <div><img src="<?=$this->cdn('product_images')?><?=$product['thumb'];?>" border="0" width="50" size="50" /> </div>
+
+    <div style="float:left;"> <h3><?=$this->trim($product['name'],40)?></h3> </div>
+    <div  style="display:block;clear:both;"> <p><?=$this->trim($product['desc'],100)?></p>  </div>
+
+    <div>
+        <div style="color:gray">Price (USD)<?=($product['cost']==0) ? "Free" : "$".$product['cost']?></div>
+        <div style="color:gray">Platform<?=$product['platform_name']?></div>
+    </div>
+    <div  class="productboxbuttons" >
+        <div class="productboxbuttons-moreinfo">
+            <a href="<?php echo PROJECT_BASEPATH;?>app/<?=$this->slug($product['name']."-for-".$this->slug($product['platform_name']))?>.<?=$product['id']?>.en" ><img src="<?=$this->cdn('site_assets')?>/custom/pink/images/moreinfo.jpg" border="0" /></a>
+        </div>
+
+            <?$config = Zend_Registry::get("config");?>
+            <?if($product['content_type'] == 'URL'):?>
+        <div style="float:left;height: 50px;">
+                    <?
+                    $download = '';
+                    foreach($product['file'] as $url): ?>
+                        <? if(preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url)): ?>
+                            <? $download = "<a href='" . $url . "'>" . $url ."</a><br clear='all'>";?>
+                        <? else: ?>
+                            <? $download = "<a href='" . $this->S3Url($product['id'] . '/' . $url) . "'>" . $url . "</a><br clear='all'>"; ?>
+
+                        <? endif; ?>
+                    <? endforeach; ?>
+                    <? $qrCode = $this->qr($download, 150, 150)?>
+                    <? $url = "http://".$config->nexva->application->mobile->url."/app/show/id/".$product['id']?>
+                    <?=$this->partial('partials/download.phtml', array('or_code'=>$qrCode, 'uri'=>$url, 'id'=>$product['id']));?>
+            <a href="javascript:viewDownload ('Download <?=$this->trim(str_replace("'", "", $product['name']), 50)?>', '<?=$product['id']?>');" id="prod_demo"><img src="<?=$this->cdn('site_assets')?>/custom/pink/images/download.jpg" border="0"/> </a>
+        </div>
+            <?elseif($product['cost']==0 || $product['is_purchased']): ?>
+
+        <div style="float:left;">
+            <a href="javascript:viewDownload ('Download <?=$this->trim(str_replace("'", "", $product['name']), 50)?>', '<?=$product['id']?>');" id="prod_demo"><img src="<?=$this->cdn('site_assets')?>/custom/pink/images/buy1.jpg" border="0"/> </a>
+                    <? $qrCode = $this->qr("http://".$config->nexva->application->mobile->url."/app/show/id/".$product['id'], 150, 150)?>
+                    <? $url = "http://".$config->nexva->application->mobile->url."/app/show/id/".$product['id']?>
+                    <?=$this->partial('partials/download.phtml', array('or_code'=>$qrCode, 'uri'=>$url, 'id'=>$product['id']));?>
+        </div>
+            <?else: ?>
+        <div><a href="<?php echo PROJECT_BASEPATH;?>app/buy/id/<?=$product['id']?>" ><img src="<?=$this->cdn('site_assets')?>/custom/pink/images/buy1.jpg" border="0"/></a></div>
+            <?endif;?>
+    </div>
+</div>
+<?endforeach;?>

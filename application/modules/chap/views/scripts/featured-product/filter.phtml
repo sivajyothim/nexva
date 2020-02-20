@@ -1,0 +1,212 @@
+<link rel="stylesheet" href="/chap/assets/css/ui-lightness/jquery-ui-1.8.custom.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/chap/assets/css/autocomplete.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js"></script>
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js"></script>
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js"></script>
+<script type="text/javascript" src="/chap/assets/js/jquery-ui-1.8.custom.min.js"></script>
+<script type="text/javascript" src="/chap/assets/js/chap.js"></script>
+
+
+<script type="text/javascript">
+    
+      $(document).ready(function(){
+			
+				
+				//attach autocomplete
+				$("#productName").autocomplete({
+					
+					//define callback to format results
+					source: function(req, add){
+					
+                                                var platform_id = $("#platformId").val();   
+                                                var product_name = $("#productName").val();
+                                                                                               
+						//pass request to server
+						$.getJSON('/featured-product/search-products/platformId/'+platform_id+'/q/'+product_name, req, function(data) {
+														
+                                                        
+                                                        add( data, function( item ) {
+							return {
+								label: item.name,
+								value: item.name,
+                                                                id: item.id
+							}
+                                                    });							
+							
+						});
+					},
+					
+					//define select handler
+					select: function(e, ui) {											
+                                               
+                                                $('#productName').val(ui.item.value);
+                                                $('#productId').val(ui.item.id);
+					}
+					
+				});			
+    
+    
+                                 $("#platformId").change(function()
+                                 {
+
+                                    $('#productName').val('');
+                                    $('#productId').val('');
+
+                                });
+	});
+        
+</script>
+
+
+
+<div class="title">
+    <h3 style="cursor: s-resize;">Filter Apps</h3>
+</div>
+
+
+    
+<?php if(!empty($this->messagesSuccess))
+{
+?>
+<div class="box">
+    <br /> 
+    <div style="display: block;" class="message success">
+                    <p><?php echo $this->messagesSuccess; ?></p>
+    </div>
+</div>
+<?php
+
+unset($this->messagesSuccess);
+}
+
+
+if(!empty($this->messagesError))
+{
+?>
+<div class="box">
+    <br /> 
+    <div style="display: block;" class="message error">
+                    <p><?php echo $this->messagesError; ?></p>
+    </div>
+</div>
+<?php
+
+unset($this->messagesError);
+}
+?>
+
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">            
+            
+            <form class="form_validate" id="fillterAppForm" style='width:auto;' name="fillterAppForm" action="/featured-product/filter/" method="post">
+                  
+                        <div class="div_single_row">
+                              <label for='platform'>Platform <span style = "color: #FF0000">*</span></label>
+                             <select class="select-input"  name="platformId" id="platformId" style="width: auto">
+                               <?php foreach($this->platforms as $platform) :?>
+                                  <option value="<?= $platform->id ?>" ><?= $platform->name ?></option>
+                              <?php endforeach; ?>      
+                            </select>
+
+                         </div>
+                
+                         <div class="div_space"></div> 
+                         <div class="div_space"></div>  
+                         
+                         <div class="div_single_row">
+                             <label for='amount'>App <span style = "color: #FF0000">*</span></label>
+                             
+                             <div id="products" style="width:45%">
+                                    <input type="text" style="width:40%" class="txt-input medium validate(required)" id="productName" name="productName" value="" placeholder="start typing the app name"/>
+                                    <input type="text" style="width:10%" class="txt-input small" id="productId" name="productId" value="" readonly="readonly" />
+                             </div>
+                             
+                         </div>   
+                         
+                         <div class="div_space"></div> 
+                         <div class="div_space"></div>  
+                         
+                         <div class="div_single_row">
+                            <input type="submit" value="Add" name="submit" class="button" />
+                         </div>
+                                                            
+            </form> 
+        </div>
+     </div>
+</div>
+    
+        
+<div class="title">
+    <h3 style="cursor: s-resize;">Featured Apps</h3>
+</div> 
+    
+<div class="content_box">  
+    
+    <div class="box">
+        <div class="txt">
+            
+            <div class="div_space"></div> 
+            <div class="div_space"></div> 
+            
+            <form id="SearchfillterdAppForm" style='width:auto;' name="SearchfillterdAppForm" action="/featured-product/view-featured-products/" method="post">
+                  
+                        <div class="div_single_row">
+                             <label for='amount'>Platform</label>
+                             <select class="select-input"  name="platformIdApps" id="platformIdApps" style="width: auto" >
+                               <?php foreach($this->platforms as $platform) :?>
+                                  <option value="<?= $platform->id ?>" <?php echo ($this->selectedPlatform == $platform->id)? 'selected= "selected"': '' ?> ><?= $platform->name ?> </option>
+                              <?php endforeach; ?>      
+                            </select>
+                            
+                            <input type="submit" value="View" name="submit" class="button" />
+                         </div>   
+               </form> 
+            
+            <?php if($this->isEmptyFeatureApps !== TRUE) :?>
+               <div class="div_space"></div> 
+                         
+                          <table cellpadding="0" cellspacing="0" style="width: 60%">
+                    
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>App</th>  
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php foreach($this->featuredApps as $apps) :?>
+                                                      
+                                <tr>
+                                    <td><?php echo $apps->product_id; ?></td>
+                                    <td><?php echo $apps->name; ?></td>
+                                    <td><a class='del_conf' href="/featured-product/delete/id/<?=$apps->id ?>"><img alt="Delete" src="/chap/assets/img/global/icons/delete.png" title="Delete"></a></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                    </table>
+               
+                    <?= $this->paginationControl($this->featuredApps, 'Sliding', 'partials/paginator-featured-apps.phtml',array("page_name" =>"featured_apps","search_caption" =>"search","search_value" => $this->search)); ?>
+        
+            <?php else :?>
+               
+                <div class="div_space"></div> 
+                <p>There are no featured apps for this platform. </p>
+                
+            <? endif ;?>
+                
+        </div>
+        
+        
+    </div>
+</div>
+
+    
+    
+        
+   

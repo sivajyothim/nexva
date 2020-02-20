@@ -1,0 +1,31 @@
+<div class="title">
+    <div><h3>All <?=$this->stats_title; ?> Stats</h3></div>
+    <div class="<?=($this->period== 'day')?"titlemanu_down":"titlemanu";?>" style=""><a   href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/<?=$this->csv_title;?>/period/day" style="color:white;">View by day</a></div>
+    <div class="<?=($this->period== 'week')?"titlemanu_down":"titlemanu";?>" style="<?=$this->extra_style;?>"><a   href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/<?=$this->csv_title;?>/period/week" style="color:white;">View by week</a></div>
+    <div class="<?=($this->period== 'month')?"titlemanu_down":"titlemanu";?>" style="<?=$this->extra_style;?>"><a   href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/<?=$this->csv_title;?>/period/month" style="color:white;">View by month</a></div>
+    <div class="<?=($this->period== 'year')?"titlemanu_down":"titlemanu";?>" style="<?=$this->extra_style;?>"><a   href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/<?=$this->csv_title;?>/period/year" style="color:white;">View by year</a></div>
+    <div class="titlemanu" style="border:solid 1px #99CC00"><a  target="_blank" href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/<?=$this->csv_title;?>/period/<?=$this->period;?>/export/csv" style="color:white">Export this as csv</a></div>
+</div>
+<div class="box" >
+    <div class="txt">
+       <div style="clear:both;"></div>
+        <div id="content_box">
+            <div class="tab-cps">
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td ><h3><?=$this->stats_title; ?> name</h3></td>
+                        <td><h3>Hits</h3></td>
+                    </tr>
+                    <?php foreach($this->stats as $stat): ?>
+                    <tr>
+                        
+                        <td ><?=$stat['name']; ?></td>
+                        <td><?=$stat['hits'];?></td>
+                        
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

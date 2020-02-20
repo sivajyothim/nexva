@@ -1,0 +1,129 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/12/13
+ * Time: 4:39 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets') . '/cp/assets/css/analytics.css'); ?>
+<?php $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/excanvas.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/jquery.flot.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/jquery.flot.pie.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets') . '/cp/assets/js/analytics/jquery.flot.stack.js'); ?>
+
+<?php $this->headScript()->captureStart(); ?>
+
+<style>
+    .error-message {
+    background: #ffcece url("../images/icons/cross_circle.png")  scroll 0 0;
+    border-color: #df8f8f;
+    color: #665252;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+</style>
+<script type="text/javascript">
+    
+  
+    $(document).ready(function() 
+    {
+        
+        $("#from").datepicker({ dateFormat: 'yy-mm-dd'});
+        $("#to").datepicker({ dateFormat: 'yy-mm-dd'});
+
+        });
+
+</script>
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <!--<h3 style="cursor: s-resize;">Statistics : <?php /*echo $this->deviceDetails[0]['brand'],' - ',$this->deviceDetails[0]['model'], ' Apps Downloaded';*/?></h3>-->
+        <h3 style="cursor: s-resize;">Statistics :</h3>
+        <div id="icon_wrapper">
+
+        </div>
+
+    </div> <!-- End .content-box-header -->
+    <div class="content-box-content">
+                <!-- Displays Message/s -->
+<?php
+if (is_array($this->flashMessenger->getMessages())):
+    
+    foreach ($this->flashMessenger->getMessages() as $class => $value):
+        $key = key($value);
+
+        ?>
+        <div class="message error-message">
+
+            <?= $this->partial('partials/itemlist.phtml', array("item" => $value[$key])); ?>
+
+        </div>
+        <?php
+    endforeach;
+endif;
+?>
+        
+          <form id="regUserForm" style='width:auto;' name="regUserForm" action="/statistic/user-wise-details/id/<?=$this->id?>" method="post">
+
+
+            <p style="text-align: center;"> 
+
+                <input type="text" class="text-input date" id="from" name="from" value="<?= $this->from ?>" placeholder="From" title="From"/>  <input  type="text" class="text-input date" id="to" name="to" placeholder="To" title="To"value="<?= $this->to ?>" />
+
+                <? if ($this->telcoDropdown): ?>
+
+                    <select id="chap" name="chap"> 
+                        <option value="all"> All Teleco</option>
+                        <?php foreach ($this->telcosDropDown as $telco): ?> 
+
+                            <option value="<?= $telco['id'] ?>" <?php if ($this->chapId == $telco['id']) {
+                        echo 'selected';
+                    } ?>><?= $telco['siteName'] ?></option>
+
+                    <?php endforeach; ?> 
+                    </select>
+<? endif; ?>
+                <input type="submit" value="Filter" name="submit" class="button" />
+            </p>               
+
+        </form>
+        <?php if( isset($this->downloads) ){ ?>
+        <table style="width: 97% !important; margin-left: 15px;" border="0">
+            <thead>
+                <tr>
+                    <th style="">Downloaded Date</th>
+                    <th style="">Name</th>
+                    <th style="text-align:right;">Price</th>
+                    <th style="text-align:right;">in native currency</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($this->downloads as $download) { ?>
+                    <tr>
+                        <td valign="top" ><?php echo $download['date']; ?></td>
+                        <td valign="top" ><?php echo $download['name']; ?></td>
+                        <td valign="top" style="text-align:right;"><?php echo '$ ',$download['price']; ?></td>
+                        <td valign="top" style="text-align:right;"><?php echo $this->CurrencyConvertPricePoints($download['price']); ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <br />
+        <div style ="width: 97% !important;">
+            <?php echo  $this->paginationControl($this->downloads, 'Sliding', 'partials/pagination-stats-device.phtml',array('from'=>$this->from,'to'=>$this->to)); ?>
+        </div>
+        <br />
+        <?php }else{ ?>
+         <p>There is no data for this critaria.</p>
+
+        <?php } ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#7').addClass('current');
+    $('#79').addClass('current');
+</script>

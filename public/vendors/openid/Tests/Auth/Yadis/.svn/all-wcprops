@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis
+END
+DiscoverData.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/DiscoverData.php
+END
+Yadis.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/Yadis.php
+END
+TestUtil.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/TestUtil.php
+END
+ParseHTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/ParseHTML.php
+END
+XRDS.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/XRDS.php
+END
+XRI.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/XRI.php
+END
+Discover_Yadis.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/Yadis/Discover_Yadis.php
+END

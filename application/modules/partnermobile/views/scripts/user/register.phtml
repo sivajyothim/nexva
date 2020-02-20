@@ -1,0 +1,203 @@
+<?php
+//Assigning mobile no formats
+$mobileNo = '';
+
+if(isset($this->mobileNo) && !empty($this->mobileNo)){
+    $mobileNo = $this->mobileNo;
+}
+
+elseif($this->chapId == 25022){
+    $mobileNo = 9475;
+}
+elseif($this->chapId == 33644){
+	$mobileNo = '24206xxxxxxx';
+}
+elseif($this->chapId == 80184){
+    $mobileNo = '256xxxxxxxxx';
+}
+elseif($this->chapId == 23045){
+    $mobileNo = 98;
+}
+elseif($this->chapId == 114306){
+    $mobileNo = '(e.g. 25073xxxxxxx)';
+}
+elseif($this->chapId == 81449){
+	$mobileNo = '(e.g. 2348022222222)';
+}
+elseif($this->chapId == 110721){
+    $mobileNo = '241xxxxxxxx';
+}
+elseif($this->chapId == 274515){
+    $mobileNo = '22xxxxxxxxxxx';
+}
+elseif($this->chapId == 163302){
+    $mobileNo = '(e.g. 265XXXXXXXXXX)';
+}
+elseif($this->chapId == 276531){
+	$mobileNo = '(e.g. 225XXXXXXXX)';
+}
+elseif($this->chapId == 320345){
+	$mobileNo = '(e.g. 229XXXXXXXX)';
+}elseif($this->chapId == 283006){
+	$mobileNo = '3816XXXXXXXX';
+}
+else{
+    
+}
+?>
+
+<script type="text/javascript">
+	$(document).on("pageshow", "#page-home", function() {
+		$.validator.addMethod("passmatch", function(value) {
+		return value == $("#password").val();
+		}, 'Confirmation password must match.');
+		 
+		$("#registerForm").validate({
+		 
+		errorPlacement: function(error, element) {
+		if (element.attr("name") === "favcolor") {
+		error.insertAfter($(element).parent());
+		} else {
+		error.insertAfter(element);
+		}
+		}
+		});
+});
+
+jQuery.extend(jQuery.validator.messages, {
+    required: "<?= $this->translate("This field is required") ?>.",
+    remote: "Please fix this field.",
+    email: "<?= $this->translate("Please enter a valid email address") ?>.",
+    url: "Please enter a valid URL.",
+    date: "Please enter a valid date.",
+    dateISO: "Please enter a valid date (ISO).",
+    number: "<?= $this->translate("Please enter a valid number") ?>.",
+    digits: "Please enter only digits.",
+    creditcard: "Please enter a valid credit card number.",
+    equalTo: "Please enter the same value again.",
+    accept: "Please enter a value with a valid extension.",
+    maxlength: jQuery.validator.format("<?= $this->translate("Please enter no more than") ?> {0} <?= $this->translate("characters") ?>."),
+    minlength: jQuery.validator.format("<?= $this->translate("Please enter at least")?> {0} <?= $this->translate("characters") ?>."),
+    rangelength: jQuery.validator.format("Please enter a value between {0} and {1} characters long."),
+    range: jQuery.validator.format("Please enter a value between {0} and {1}."),
+    max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
+    min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
+});
+
+function freez(obj)
+{
+ if(obj.value=='')
+ {
+   obj.value='<?=$mobileNo;?>';
+ }else if(obj.value=='<?=$mobileNo;?>')
+ {
+   obj.value='';
+ }
+} 
+</script>
+
+
+
+<style>
+.ui-body{
+background:#ffffff;
+}
+</style>
+
+<h2 class="font-size-16"><?php echo $this->translate("Sign Up");?></h2>
+
+<div class="ui-grid-solo">
+    <?php if($this->ErrorMessages)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+        <?php foreach($this->ErrorMessages as $key=>$value)
+            {
+                if(is_array($value))
+                {
+                    foreach($value as $one=>$two)
+                    {
+                        echo $this->translate($two);
+                    }
+                    echo '<br/>';
+                }
+                else
+                {
+                    echo $this->translate($value),'<br/>';
+                }
+            } ?>
+        </span></span>
+    </div>
+    <?php } ?>
+</div>
+
+
+<div class="ui-body ui-body-c">
+        <form action="/user/register" method="post" id="registerForm" data-ajax="false">
+        <?php if(!$this->headerEnrichment) : ?>
+        <fieldset data-role="fieldcontain">
+            <label for="first_name"><?php echo $this->translate("First Name");?> :</label>
+            <input type="text" name="first_name" id="first_name" class="required" minlength="" value="<?php if (isset($this->first_name)) {echo $this->first_name;}?>" >
+        </fieldset>
+            
+        <fieldset data-role="fieldcontain">
+            <label for="last_name"><?php echo $this->translate("Last Name");?> :</label>
+            <input type="text" name="last_name" id="last_name" class="required" minlength="" value="<?php if (isset($this->last_name)) {echo $this->last_name;}?>" >
+        </fieldset>
+    
+         <fieldset data-role="fieldcontain">
+            <label for="email"><?php echo $this->translate("Email");?> :</label>
+            <input type="email" name="email" id="email" class="required email" minlength="5" value="<?php if (isset($this->email)) {echo $this->email;}?>" >
+        </fieldset>
+        <?php endif;?>   
+        
+        <?php if($this->chapId == 33644) {
+              if(!isset($this->mobileNo)) 
+                 $this->phone_number = '24206';
+        
+        ?>
+        <fieldset data-role="fieldcontain">
+            <label for="phone_number"><?php echo $this->translate("Phone Number");?> : </label>
+            <input type="text" name="phone_number" id="phone_number" class="required number" minlength="12" maxlength="12" <?= (isset($this->mobileNo)) ? 'readonly = "readonly"' : '' ; ?> value="<?php if (isset($this->phone_number)) {echo $this->phone_number;}?>" >
+        </fieldset>
+        <?php } else { ?> 
+        
+            
+
+        <?php if($this->chapId != 935529){ ?>
+            
+        <fieldset data-role="fieldcontain">
+            <label for="phone_number"><?php echo $this->translate("Phone Number");?>   <span style="font-size: 10px;">  <?php  if($this->chapId == 280316) echo '(e.g. 243xxxxxxxxx)'; ?> </span> :</label>
+            <input type="text" name="phone_number" id="phone_number" class="required number" minlength="10" <?= (isset($this->mobileNo)) ? 'readonly = "readonly"' : '' ; ?> value="<?= $mobileNo ?>" onfocus="freez(this)" onblur="freez(this)" >
+        </fieldset>
+        <?php } ?>
+         <?php } ?> 
+        <?php if($this->chapId != 283006){ ?> <!-- hide only for telekomserbija-->   
+            <fieldset data-role="fieldcontain">
+                <label for="password"><?php echo $this->translate("Password");  ?> <span style="font-size: 10px;"> <?php  if($this->chapId == 280316) echo '(5 caract&#232;res minimum)'; ?> </span> :</label> 
+                <input type="password" name="password" id="password" class="required" minlength="5">
+            </fieldset>
+
+            <fieldset data-role="fieldcontain">
+                <label for="password2"><?php echo $this->translate("Confirm Password");?> :</label>
+                <input type="password" name="password2" id="password2" class="required" minlength="5">
+            </fieldset>
+        <?php } ?>
+        <input type="submit" value="<?php echo $this->translate("Sign Up");?>">
+        
+
+
+    <?php if($this->showForgotPasswordLink) { ?>
+    	<div class="ui-block-a">
+        <div style="text-align:right;">
+        
+        </div>
+    </div>
+	<div class="ui-block-b">
+        <div style="text-align:right;">
+            <a class="link-red" href="/user/forgot-password" style="text-align: right"><?php echo $this->translate("Forgot Password?");?></a>
+        </div>
+    </div>
+    <?php } ?>
+    
+    </form>
+</div>

@@ -1,0 +1,67 @@
+<tr>
+    <td>
+        <?= $this->product->id; ?>
+    </td>
+    <td style="width:20%">
+        <?= $this->product->name; ?>
+    </td>
+    <?php if(isset($this->product->email) && !empty($this->product->email)){ ?>
+    <td style="width:10%">
+        <?= $this->product->email; ?>
+    </td>
+    <?php } ?>
+    <td>
+        <?= $this->product->price; ?>
+    </td>
+    <td style="text-align:center;">
+        <?php if($this->product->price > '0')
+        {
+            $prices = $this->NewPriceCheck($this->product->price,$this->product->id);
+            if(count($prices) == 0)
+            { ?>
+                <img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/icon/new.png" />
+            <?php }
+        }?>
+    </td>
+    <td>
+        <?= $this->product->product_type; ?>
+    </td>
+    <td>
+        <?= str_replace("_"," ",$this->product->status); ?>
+    </td>
+    <td>
+        <?//=$this->GetCreatedDate($this->product->id, $this->product->created_date);?>
+        <?=(isset($this->product->updated_date) && !empty($this->product->updated_date))?$this->product->created_date.'/ '.$this->product->updated_date:$this->product->created_date?>
+    </td>
+    <td>
+    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/save/pid/<?= $this->product->id ?>" ><img alt="add review" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/user_go.png" title="Add review"></a>
+    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product-tag/tag/pro_id/<?= $this->product->id ?>" ><img alt="tag product" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/tag_blue_add.png" title="Tag product"></a>
+    <?php if($this->product->inapp != 1 ):  ?>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/edit/id/<?=$this->product->id ?>"><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?=$this->product->id ?>"><img alt="View" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/view.png" title="View"></a>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/show/id/<?=$this->product->id ?>"><img alt="Add builds" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/plugin_add.png" title="Add Builds"></a>
+        <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/delete/id/<?=$this->product->id ?><?=$this->deleteUriAppend ?>"><img alt="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" title="Delete"></a> 
+    <?php else:?>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/selectedit/id/<?= $this->product->id ?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?= $this->product->id ?>/inapp/1"><img alt="View" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/view.png" title="View"></a>
+        <a onclick="return confirm('Are you sure you want to delete?')" href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/delete/id/<?= $this->product->id ?>"><img alt="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" title="Delete"></a>    
+    <?php endif;?>
+    </td>
+    <td>
+      <?php  if($this->product->inapp != 1 ):  ?>
+        <div style="float:left;">
+            <div style="float:left;padding-top:5px;padding-left:35px;"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/viewed_stats.png"  alt="Product views" title="Product views"/></div><div style="float:left;width:40px;padding:4px;"><?= $this->ViewStats($this->product->id);?></div>
+            <div style="float:left;padding-top:5px;"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/download_stats.png" alt="Downloads count" title="Downloads count"/> </div><div style="float:left;width:40px;padding:4px;"><?= $this->DownloadStats($this->product->id);?></div>
+        </div>
+      <?php else:?>
+       
+        <div style="float:left;padding-left:35px;">
+        
+         N/A
+        
+        </div>
+        
+      <?php endif;?>   
+    </td>
+    
+</tr>

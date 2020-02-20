@@ -1,0 +1,47 @@
+<?php 
+    $review = $this->review->toArray();
+?>
+<div class="prodListPage">
+
+    <div class='container' style='border: 2px solid #DE6800;'>
+        <div class='textBlock review_full'>
+            <h2 id='pageTitle' style='font-weight: normal; '><?=$review['title']?></h2>
+            <span class='meta'>
+                reviewed <?php echo date('jS M \'y', strtotime($review['date']))?>
+                <?php
+                    $rating     = $review['rating']; 
+                    while($rating > 0) : $rating--; 
+                ?>
+                    <img src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                <?php endwhile;?>
+             </span>
+             <br><br>
+          <?php 
+                $opts   = array(
+                    'url'   => 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/review/eva/id/{$review['id']}",
+                    'title' => "Eva reviews " . htmlspecialchars($this->product['name']),
+                    'description'   => htmlspecialchars(strip_tags($this->Wikimarkup($review['review']))) //trimming is done internally 
+                );
+                echo $this->partial('partials/addthis.phtml', $opts)
+            ?>
+             <div class='textBody'>
+                <?=$this->Wikimarkup($review['review']); ?>
+             </div>
+             
+
+             
+             <div class='info'>
+                <img width='80' height='80' src='<?=$this->Cdn('site_assets')?>/web/images/eva.png' class='logo'>
+                <h4>Eva's Reviews</h4>
+                <?=$this->partial('partials/eva_text.phtml')?>
+                
+                <p class='all_reviews'>
+                    <a class='orangeButton' href="/<?=$this->product['id']?>"><?=$this->product['name']?>  app page</a>
+                    <a class='orangeButton' href="/review/eva-index">See other reviews by Eva</a>
+                    <div class='clear'></div>
+                </p>
+                
+             </div>
+        </div>
+    </div>
+</div>

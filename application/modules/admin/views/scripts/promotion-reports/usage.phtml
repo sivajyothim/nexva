@@ -1,0 +1,51 @@
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/common//js/jquery/plugins/tablesorter/jquery.tablesorter.min.js'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){ 
+        $(".sortTable").tablesorter(); 
+    }); 
+<?php  $this->headScript()->captureEnd();?>      
+
+<style>
+.sortTable th {
+    cursor:ns-resize;
+}
+</style>
+
+<div class="title">
+    <h3>Promotion Code Summary</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <table cellpadding="0" cellspacing="0"  class='sortTable'>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Email</th>
+                    <th>Product ID</th>
+                    <th>Product</th>
+                    <th>Created Codes</th>
+                    <th>Total Value ($)</th>
+                    <th>Number Used</th>
+                    <th>Used Total Value ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->data as $row) : ?>
+                <tr>
+                    <td><?=$row['user_id']?></td>
+                    <td title="<?=$row['user_email']?>"><?=$row['company_name']?></td>
+                    <td><?=$row['product_id']?></td>
+                    <td><?=$row['product_name']?></td>
+                    <td><?=$row['num_codes']?></td>
+                    <td><?=$row['total_amount']?></td>
+                    <td><?=$row['num_codes_used']?></td>
+                    <td><?=$row['total_amount_used']?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>

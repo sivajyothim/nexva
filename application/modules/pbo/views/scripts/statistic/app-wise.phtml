@@ -1,0 +1,54 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 6/25/13
+ * Time: 4:44 PM
+ * To change this template use File | Settings | File Templates.
+ */
+//Zend_Debug::dump($this->records);die();
+
+?>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title;?> <?php if(!empty($this->from) && !empty($this->to)) { echo ' From ',date('Y-m-d',$this->from),' To ',date('Y-m-d',$this->to); } if($this->vendor) { echo ' (',$this->vendor,')'; }?></h3>
+    </div>
+    <div class="content-box-content">
+        <div class="tab-content default-tab">
+            <table id="product_table">
+                <thead>
+                    <tr>
+                        <th>App</th>
+                        <th>No of Downloads</th>
+                        <th>Amount</th>
+                        <th>Developer Payout</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($this->records as $record) {?>
+                        <tr>
+                            <td><?php echo $record['name'];?></td>
+                            <td><?php echo $record['downloads'];?></td>
+                            <td><?php echo '$ ',number_format(round(($record['price']*$record['downloads']),2),2).' - '.$this->CurrencyConvert($record['price']*$record['downloads']);?></td>
+                            <td><?php
+                                if($this->payout > 0)
+                                {
+                                    echo '$ ',number_format(round((($record['price']*$record['downloads']*$this->payout/100)),2),2).' - '.$this->CurrencyConvert($record['price']*$record['downloads']*$this->payout/100);
+                                }
+                                else
+                                {
+                                    echo '$ ',number_format(round(($record['price']*$record['downloads']),2),2).' - '.$this->CurrencyConvert($record['price']*$record['downloads']);
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#7').addClass('current');
+    $('#72').addClass('current');
+</script>

@@ -1,0 +1,76 @@
+<?php
+$starRating = 1;
+$numRatings = $this->totalRatings;
+$totalStars = 5;
+$ratingInt = floor($this->avgRating);
+$ratingPart = $this->avgRating - $ratingInt;
+?>
+
+<?php
+$sessionChapDetails = new Zend_Session_Namespace('partner');
+$chapId = $sessionChapDetails->id;
+
+if(!in_array($chapId,array(585474,585480))){    
+
+$starEmpty = 'star_empty.gif';
+$starHalf = 'star_half.gif';
+$starFull = 'star_full.gif';
+
+switch($chapId){
+    case 23045:
+    $starHalf = 'star_half_right.gif';
+    break;
+
+    case 115189:
+    $starEmpty = 'rating-empty.png';
+    $starHalf = 'rating-half-filled.png';
+    $starFull = 'rating-full.png';
+    break;
+
+    case 81604:
+    $starEmpty = 'rating-empty.png';
+    $starHalf = 'rating-half-filled.png';
+    $starFull = 'rating-full.png';
+    break;
+}
+
+?>
+
+<? for ($count = 0; $count < $ratingInt; $count++) : ?>
+    <?php if (!$this->productRated) : ?> 
+        <a class='starLinks' rel='<?= $starRating ?>' data-ajax="false" 
+           href='/rating/rate/id/<?= $this->product_id ?>/rating/<?= $starRating++ ?>'> 
+           <?php endif; ?> 
+        <img src="<?= $this->Cdn('site_assets') .'/web/images/'.$starFull ?>" alt="star" width="11" height="12" />
+        <?php if (!$this->productRated) : ?>
+        </a>
+    <?php endif; ?>
+<? endfor; ?>
+
+<?php
+if ($ratingPart > 0) :
+    $totalStars = 4; //we're showing a halfstar already 
+    ?>
+    <?php if (!$this->productRated) : ?>
+        <a class='starLinks' rel='<?= $starRating ?>' data-ajax="false" 
+           href='/rating/rate/id/<?= $this->product_id ?>/rating/<?= $starRating++ ?>'>
+           <?php endif; ?>
+        <img src="<?= $this->Cdn('site_assets')  .'/web/images/'.$starHalf ?>" alt="star" width="11" height="12" />
+        <?php if (!$this->productRated) : ?>
+        </a>
+    <?php endif; ?>
+<?php endif; ?>
+
+<? for ($count = $ratingInt; $count < $totalStars; $count++) : ?>
+    <?php if (!$this->productRated) : ?>
+        <a class='starLinks' rel='<?= $starRating ?>' data-ajax="false" 
+           href='/rating/rate/id/<?= $this->product_id ?>/rating/<?= $starRating++ ?>'>
+           <?php endif; ?>
+        <img src="<?= $this->Cdn('site_assets') .'/web/images/'.$starEmpty ?>" alt="star" width="11" height="12" />
+        <?php if (!$this->productRated) : ?>
+        </a>
+    <?php endif; ?>
+<? endfor; ?>
+<?= ($this->page != 'home') ? '&nbsp;' : '<br/>'?>
+<span class="ui-li-count-slider"><?= $this->totalRatings ?></span>
+<?php } ?>

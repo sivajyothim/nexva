@@ -1,0 +1,65 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/2/13
+ * Time: 5:31 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js');
+    $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js');
+?>
+<style type="text/css">
+    select {width:300px;}
+</style>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#set-currency').ketchup();
+    });
+</script>
+<div class="title">
+    <h3 style="cursor: s-resize;">Assign Currency for <?php echo $this->user[0]->username;?> | neXva.com</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <?php if(count($this->messages) > 0 ){?>
+            <div class="message info">
+                <p><?php foreach($this->messages as $message)
+                    {
+                        echo $this->escape($message);
+                    } ?>
+                </p>
+            </div>
+        <?php } ?>
+        <div class="content_box">
+            <form id="set-currency" name="set-currency" class="" method="post" accept-charset="UTF-8" action="/user/save-currency/id/<?php echo $this->user[0]->id;?>">
+                <p>
+                    <label for='title'>Currency</label>
+                    <select id="currency" name="currency" class="txt-input small validate(required)">
+                        <option value="">Select Currency</option>
+                        <?php foreach($this->currencies as $currency)
+                        { ?>
+                            <option value="<?php if(!empty($currency['id'])) {echo $currency['id'];}?>" <?php if((!empty($this->currencyUser[0])) && ($this->currencyUser[0]['currency_id'] == $currency['id'])) { echo 'selected="selected"';} ?>><?php echo $currency['name']?></option>
+                        <?php } ?>
+                    </select>
+                </p>
+                <p>
+                    <label for='title'>Status</label>
+                    <select id="status" name="status" class="txt-input small validate(required)">
+                        <option value="">Select Status</option>
+                        <option value="1" <?php if((!empty($this->currencyUser[0])) && ($this->currencyUser[0]['status'] == 1)) { echo 'selected="selected"';} ?> >Active</option>
+                        <option value="0" <?php if((!empty($this->currencyUser[0])) && ($this->currencyUser[0]['status'] == 0)) { echo 'selected="selected"';} ?> >InActive</option>
+                    </select>
+                </p>
+                <p>
+                    <input type="submit" class="txt-input small" value="Save Details" id="submit" name="submit">
+                </p>
+
+            </form>
+        </div>
+    </div>
+</div>

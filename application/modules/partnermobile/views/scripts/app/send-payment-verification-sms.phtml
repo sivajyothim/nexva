@@ -1,0 +1,106 @@
+<?php
+/**
+ * User: Rooban
+ * Date: 9/6/13
+ * Time: 10:12 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $().ready(function(){
+        $("#sms-verification").validate();
+    });
+</script>
+
+<script type="text/javascript">
+    function sendSmsVerification(){
+        var mobileNo = document.getElementById('mobile_no').value;
+        $.ajax({
+            type : 'post',
+            url : '/app/send-otp',
+            data : 'msisdn='+mobileNo+'&id=<?= $this->appId ?>&build=<?= $this->buildId ?>',
+            success:function(interopId){
+                $('#msisdn-div').hide();
+                $('#otp-div').show();
+                //$('#payment-id').attr('value',$interopId);
+                $('#paymentid').val(Number(interopId));
+                $('#msisdn').val(mobileNo);
+                //alert(interopId);
+            },
+            error:function(error){
+                //$('#ajax-errors').html('<div class="ui-grid-solo"><div class="ui-block-a"><button type="v" data-theme="c"><div class="ajax-error-msg">Error</div></button></div></div>');
+            }
+        })
+    }
+</script>
+
+<h2 class="font-size-16"><?php echo $this->translate("SMS Authentication"); ?></h2>
+<div class="ui-grid-solo">
+    <?php
+    if ($this->success) {
+        ?>
+        <div class="ui-submit ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                    <?php echo $this->success; ?>
+                </span></span></div>
+    <?php
+    }
+    if ($this->ErrorMessages) {
+        ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                    <?php
+                    foreach ($this->ErrorMessages as $key => $value) {
+                        if (is_array($value)) {
+                            foreach ($value as $one => $two) {
+                                echo $this->translate($two);
+                            }
+                            echo '<br/>';
+                        } else {
+                            echo $this->translate($value), '<br/>';
+                        }
+                    }
+                    ?>
+                </span></span></div>
+                <?php } ?>
+</div>
+
+<?php
+$mobileNo = '';
+if($this->partnerId == 81449){
+    $mobileNo = '(e.g. 2348022222222)';
+}
+if($this->partnerId == 114306){
+	$mobileNo = '(e.g. 25073xxxxxxx)';
+}
+if($this->partnerId == 114306){
+	$mobileNo = '(e.g. 25073xxxxxxx)';
+}
+if($this->partnerId == 114306){
+	$mobileNo = '(e.g. 25073xxxxxxx)';
+}
+if($this->partnerId == 114306){
+	$mobileNo = '(e.g. 25073xxxxxxx)';
+}
+if($this->partnerId == 163302){
+	$mobileNo = '(e.g. 265xxxxxxxxx)';
+}
+if($this->partnerId == 280316){
+	$mobileNo = '(e.g. 243xxxxxxxxx)';
+}
+
+?>
+
+<div class="ui-body ui-body-c">
+        <form action="" method="post" id="sms-verification" data-ajax="false">
+            <fieldset data-role="fieldcontain">
+                <label for="phone"><?php echo $this->translate("Mobile Number"); ?> :</label>
+                <input type="text" name="msisdn" id="mobile_no" class="required number" value="<?= $mobileNo ?>"/>
+                <input type="hidden" name="appId" id="app-id" value="<?= $this->appId ?>"/>
+                <input type="hidden" name="buildId" id="biuld-id" value="<?= $this->buildId ?>"/>
+            </fieldset>
+            <input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Submit");?>">
+
+           <!-- <a class="buy-button"  onclick="sendSmsVerification()"><?php echo $this->translate("Submit"); ?></a> -->
+        </form>
+
+</div>
+

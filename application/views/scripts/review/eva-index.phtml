@@ -1,0 +1,49 @@
+
+<div class="prodListPage">
+    <div class='container'>
+        <div class='textBlock review_full'>
+            
+            <div class='info'>
+                <img width='80' height='80' src='<?=$this->Cdn('site_assets')?>/web/images/eva.png' class='logo'>
+                <h4>Eva's Reviews</h4>
+                <?=$this->partial('partials/eva_text.phtml')?>
+                <br><br>
+             </div>
+                <br>     
+            <h2 id='pageTitle'>All Reviews by Eva</h2>
+            
+            <br><br>
+            <?php foreach($this->reviews as $review): ?>
+                <div class="review_block">
+                     <h4 class='review_title' title='<?php echo $review['title']?>'>
+                        <?php echo $review['title'];?>
+                     </h4>
+                     <span class='meta'>
+                        reviewed <?php echo date('jS M \'y', strtotime($review['date']))?>
+                        <?php
+                            $rating     = $review['rating']; 
+                            while($rating > 0) : $rating--; 
+                        ?>
+                            <img src="<?=$this->Cdn('site_assets')?>/web/images/star_full.gif" alt="star" width="11" height="12" />
+                        <?php endwhile;?>
+                     </span>
+                     
+                     <p class='review_body'>
+                        <?php $htmlOpts = array('alt' => $review['name'], 'autoheight' => 1, 'class' => 'logo');?>
+                        <?php $path     = '/product_visuals/' . APPLICATION_ENV . '/'?>
+                        <?=$this->thumbnail($path . $review['thumbnail'], array('w' => 80, 'h' => 80, 'aoe' => 0), $htmlOpts); ?>
+                     
+                        <?php echo substr($this->Wikimarkup($review['review']), 0, 300) . '...';?>
+                     </p>
+                     
+                     <p class='more'>
+                       <a class='orangeButton' href="/review/eva/id/<?=$review['id']?>">Continue reading...</a>
+                     </p>
+                </div>
+            <?php endforeach;?>
+            
+            
+            <?php echo $this->paginationControl($this->reviews, 'Sliding','partials/paginator_review.phtml'); ?>
+        </div>
+    </div>
+</div>

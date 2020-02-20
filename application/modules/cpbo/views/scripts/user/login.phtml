@@ -1,0 +1,398 @@
+
+<?php
+$cpauth = Zend_Auth::getInstance();
+$user   = NULL;
+if ($cpauth->getIdentity()) {
+    $user     =   new Cpbo_Model_UserMeta();
+    $user->setEntityId($cpauth->getIdentity()->id);
+}
+?>
+
+<?php if(empty($this->cpDescription)) :?>
+
+<!--<h2>Who? What? Why? How?</h2>
+<p>
+<strong>Who :</strong> neXva
+</p>
+<p>
+<strong>What :</strong> A disruptive technology platform for mobile application delivery.  
+</p>
+<p>
+<strong>Why :</strong> Because the mobile space is confusing for developers and users alike. Too many OSs, too many app stores.. no control over delivery.
+</p>
+<p>
+<strong>How :</strong> neXva's patented solutions make downloading content simpler for the consumer. Our tools mean users never have to worry about their OS or phone version and can get content directly from their favorite web sites. neXva's tools allow app developers to simplify their work by managing device fragmentation and giving them elegant delivery and viral tools.
+</p>-->
+
+     <div class="content_left" <?=($user) ? 'style="width:980px;"' : ''; ?>">
+                <div class="info text-description">
+                    <h2 class="green"><?php echo $this->translate("New opportunities to publish your apps");?></h2>
+                    <p><?php echo $this->translate("The app ecosystem has been monopolized by the OS/OEM app stores. That means you publish your app on some HUGE store and hope it shines through or maybe you spend on getting it known and downloaded.");?></p>
+                    <br/>
+                    <h2 class="green"> <?php echo $this->translate("With neXva it is different.");?> </h2>
+                    <!--<p>neXva creates and operates app stores for telecom operators, OEMs and verticals. Our app stores have operator billing and are promoted directly by the carrier or OEM to their customers. All our stores are localized and curated. So what is listed as Staff Pick in Nigeria will be different than what is promoted in one of our stores in the USA, Sri Lanka or Lebanon.</p>-->
+                    <p class="text-123" ><?php echo $this->translate("neXva manages app stores for some of the top telcos in the world and some of the fastest growing markets too. The problem? In most of those markets there's no way to monetize  freemium apps. neXva has solved that problem!");?></p>
+                    <p><?php echo $this->translate("We have direct carrier billing connectivity in each of our app stores and now we've extended that to enable in-app and subscription billing too.");?></p>
+                    <p><?php echo $this->translate("Our recently launched neXpayer API enables monetization of freemium apps. neXpayer is a simple to use API that brings in-app and subscription capabilities to any app. You integrate the API once and it gives you in-app capabilities for ALL of the neXva run app stores.");?></p>
+                    <p><?php echo $this->translate("Join us today and start realizing your app's full potential.");?></p>
+                    <p><?php echo $this->translate("You may have questions about our opportunities or how to manage to all of this so please feel free to send us an email which we will answer :");?> <a href="mailto:contentadmins@nexva.com">contentadmins@nexva.com</a></p>
+                </div>
+            </div>
+
+
+<?php else :?>
+<div class="content_left" <?=($user) ? 'style="width:980px;"' : ''; ?>>
+    <div class="intro">
+        <?= $this->cpDescription; ?>
+    </div>
+</div>
+<? endif ;?>
+
+<?php if($user){?>
+
+<?php } else { ?>
+    
+              <div class="content_right">
+                    <div class="container">
+
+                    <?=$this->render ( 'partials/message.phtml' )?>
+
+                          <div class="flat-form">
+                            <ul class="tabs">
+                              <li> <a href="#login" class="<?= ($this->tab == "tab-login" || $this->tab == '') ? 'active': ''?>"><?php echo $this->translate("Login");?></a> </li>
+                              <!--<li> <a href="">Register</a> </li>-->
+                              <li> <a href="#reset" class="<?= ($this->tab == "tab-password") ? 'active': ''?>"><?php echo $this->translate("Reset Password");?></a> </li>
+                            </ul>
+                            <div id="login" class="form-action <?= ($this->tab == "tab-login" || $this->tab == '') ? 'show': 'hide'?>">
+                              <h1><?php echo $this->translate("Login on Developer Portal");?></h1>
+                              <? 
+                                              $chapSessionNs = new Zend_Session_Namespace('chap');
+                                              $meta = new Model_UserMeta();
+                                              $meta->setEntityId($chapSessionNs->chap->id);
+                                              ?>
+                    <p><?php
+                    $site=substr($_SERVER['REQUEST_URI'], 3); 
+                    if(isset($site) && !empty($site) && in_array($site, array('guinea_orange','drc_orange'))){ ?>
+                        <!-- "Reset" word use for only drc_orange-->
+                         <?php echo $this->translate("No developer account yet?");?>
+                        <?php }else{ ?> 
+                        Need a <?=$meta->COMPANY_NAME?> <?php echo $this->translate("Content Provider account?");?>
+                        <?php }?>
+                        <a href="<?PHP echo CP_PROJECT_BASEPATH; ?>user/register/r/<?=$chapSessionNs->chap->username?>"><?php echo $this->translate("Create an account for free.");?></a>
+
+                              <form method="post" action="">
+                                <ul>
+                                  <li>
+                                    <input type="text" placeholder="<?php echo $this->translate("Username");?>" name="username" id="username" value="<?php
+                            if (isset ( $_COOKIE ['username'] )) {
+                                    echo $_COOKIE ['username'];
+                            } else {
+                            if ($this->email)
+                                    echo $this->email;
+                            }	
+                            ?>"/>
+                                  </li>
+                                  <li>
+                                    <input type="password" placeholder="<?php echo $this->translate("password");?>" name="password" id="password" value="<?php
+                            if (isset ( $_COOKIE ['password'] )) {
+                                    echo $_COOKIE ['password'];
+                            }
+
+                            ?>"/>
+                                  </li>
+                                  <li>
+                                    <input type="submit" class="button" name="submit" value="<?php echo $this->translate("Login");?>" /> 
+                                                    <input type="reset" class="button" name="reset" value="<?php echo $this->translate("Reset");?>" /> 
+                                    <input type="hidden" name="operation" value="login">
+                                  </li>
+                                </ul>
+                              </form>
+
+                                <?php
+                                $chapSessionNs = new Zend_Session_Namespace('chap');
+                                //if( $chapSessionNs->chap->id == 136079 ){
+                                $fb = new Nexva_Facebook_FacebookConnect('web', '795172363840019', 'a86be10b6b07ac0787718c25920f2890');
+                                //$fb = new Nexva_Facebook_FacebookConnect('web', '658037680931620', '62d8c5e6995e633f84f0326722d9f58e');
+                                $baseUrl = 'cp.nexva.com';
+                                /*$fbLoginUrl = $fb->getLoginUrl(array('redirect_uri'=> "http://$baseUrl/user/login/facebook/1/",
+                                        'cancel_url' => "http://$baseUrl/user/login/facebook/1/",
+                                        'scope' => 'publish_stream,user_likes,email'
+                                    )
+                                ); */
+
+                                if(81604 == $chapSessionNs->chap->id){
+                                    //echo $chapSessionNs->chap->id;die();
+                                    $fb = new Nexva_Facebook_FacebookConnect('web', '274873269367132', '4250c2ca22f4fa15ef0b16cb22faec01');
+                                    $baseUrl = 'dev.qelasy.com';
+
+                                }              
+
+                                $fbLoginUrl = $fb->getLoginUrl(array('redirect_uri'=> "http://$baseUrl/user/login/facebook/1/chap_id/".$chapSessionNs->chap->id,
+                                        'cancel_url' => "http://$baseUrl/user/login/facebook/1/chap_id/".$chapSessionNs->chap->id,
+                                        'scope' => 'email'
+                                    )
+                                );
+
+                                ?>
+
+             <!--Temporaly removed from 04-07-2017-->                 
+            <!--<div class="login-facebook"><a href="<?sphp //echo $fbLoginUrl;?>"> <?sphp// echo $this->translate("Login with facebook");?></a></div>-->
+                              <div  class="login-gmail"><a href="<?php echo $this->googleUrl; ?>"><?php echo $this->translate("Login with gmail");?></a></div>
+
+                            </div>
+
+                            <!--/#register.form-action-->
+                            <div id="reset" class="form-action <?= ($this->tab == "tab-password") ? 'show': 'hide'?>">
+                              <h1><?php echo $this->translate("Reset Password");?></h1>
+                              <p> <?php echo $this->translate("Enter the email address you signed up with and we'll email you a link to reset your password or any issue contact/add on Skype id- cj19820508");?> </p>
+
+                              <form method="post" name="forgotpassword" action="">
+                                <ul>
+                                  <li>
+                                    <input type="text" placeholder="Email" value="<?=$this->email;?>" name="email" id="email"/>
+                                  </li>
+                                  <li>
+                                  <p> <?php echo $this->translate("Enter the security key you see inside the image");?></p> 
+                                    <?=$this->recaptcha;?>
+                                  </li>
+                                  <li><br />
+                                       <?php if(isset($site) && !empty($site) && in_array($site, array('guinea_orange','drc_orange'))){ ?>
+                                        <!-- "Reset" word use for only drc_orange-->
+                                            <input type="submit" class="button" name="cmdforgotpassword" value="<?php echo $this->translate("reset");?>" />
+                                       <?php }else{ ?> 
+                                            <input type="submit" class="button" name="cmdforgotpassword" value="<?php echo $this->translate("Reset Password");?>" />
+                                       <?php }?>
+
+                    <input type="hidden" name="operation" value="forgot_password"></fieldset>
+                                  </li>
+                                </ul>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!--<div class="container">
+                            <img src="img/powered_by.png"/>
+                        </div>-->
+                </div>
+    
+
+    <?php } ?>
+<?php /*
+<div id='rh-col'>
+<!-- Start Content Box #1 -->
+<div class="title">
+    <h3>Login</h3>
+    <div class="selector" title="content_box"><a
+    	class="tab <?php
+    	if ($this->tab == "tab-login")
+    		echo ' active'?>"
+    	href="tab-login" title="Login">Login</a> <a
+    	class="tab <?php
+    	if ($this->tab == "tab-password")
+    		echo ' active'?>"
+    	href="tab-password"
+    	title="Trouble accessing your account? Authenticate and recover your password.">Forgotten
+    Password </a>
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        
+        <div id="content_box">
+        <div class="tab-login" id="login">
+        
+                <?=$this->render ( 'partials/message.phtml' )?>
+        
+                <!-- Start Login Form -->
+        <form method="post" action="">
+        <fieldset>
+        <p><label>Email Address</label> <input name="username" id="username"
+        	type="text" class="txt-input large"
+        	value="<?php
+        	if (isset ( $_COOKIE ['username'] )) {
+        		echo $_COOKIE ['username'];
+        	} else {
+            	if ($this->email)
+            		echo $this->email;
+        	}	
+        	?>" /></p>
+        
+        
+        <p><label>Password</label> <input name="password" id="password"
+        	type="password" class="txt-input large"
+        	value="<?php
+        	if (isset ( $_COOKIE ['password'] )) {
+        		echo $_COOKIE ['password'];
+        	}
+        	
+        	?>" /></p>
+        
+        <p style="float: left;"><input type="submit" class="button" name="submit" value="Login" /> 
+        <input type="reset" class="reset"name="reset" value="Reset" /> 
+            <input type="hidden" name="operation" value="login"></p>
+        <p class="remember"><input type="checkbox" name="remember" id="remember"
+        	value="1" checked="checked" /> Remember Me</p>
+        
+        </fieldset>
+        <? 
+        	$chapSessionNs = new Zend_Session_Namespace('chap');
+        	$meta = new Model_UserMeta();
+
+        	$meta->setEntityId($chapSessionNs->chap->id);
+        ?>
+        <p>Need a <?=$meta->COMPANY_NAME?> Content Provider account? <a href="/user/register/r/<?=$chapSessionNs->chap->username?>">Create an account for free.</a> <br />
+        
+        </p>
+        
+        </form>
+        <!-- End Login Form --></div>
+        <div class="tab-password" id="forgot_password"><!-- Start Password Form -->
+        
+                <?=$this->render ( 'partials/message.phtml' )?>
+        
+                             <form method="post" name="forgotpassword"
+        	action="/user/login">
+        <fieldset>
+        <p><label>Email</label> <input name="email" id="email" type="text"
+        	class="txt-input large" value="<?=$this->email;?>" /> <small>Enter the email address you signed up
+        with and we'll email you a link to reset your password</small></p>
+        
+        <p> 
+         <label>Enter the security key you see inside the image</label>
+         <?=$this->recaptcha;?>
+        </p>
+        
+        <input type="submit" class="button" name="cmdforgotpassword"
+        	value="Request Password" /> <input type="hidden" name="operation"
+        	value="forgot_password"></fieldset>
+
+        </form>
+        <!-- End Password Form --></div>
+        </div>
+      
+    </div>
+</div>
+
+<!-- End Content Box #1 -->
+</div>    
+*/ ?>
+
+    <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>cp/assets/cp_front/js/script.js"></script>
+    
+    <!--script>
+        /**
+            Used for animation
+        **/
+        var __TAB_ANIM_TIMER    = null;
+
+       $(document).ready(function(){
+           
+
+           $('#header-tabs h3 a:not(.active)').mouseenter(stopJiggle);
+           
+           /** Bit of animation for people to notice the tabs**/
+           jiggleTab();
+           
+       });
+
+       function jiggleTab() {
+           var tabId   = Math.floor(Math.random() * 3); //remember to incrememnt according to num tabs
+           $('#header-tabs h3 a:not(.active)').eq(tabId)
+               .animate({marginTop: '-=5px'}, 100)
+               .animate({marginTop: '+=5px'}, 100)
+               .animate({marginTop: '-=5px'}, 100)
+               .animate({marginTop: '+=5px'}, 100);
+
+           __TAB_ANIM_TIMER = setTimeout ( "jiggleTab()", 6000 );
+       }
+
+       function stopJiggle() {
+           clearTimeout(__TAB_ANIM_TIMER);
+       }
+           
+</script-->
+    
+    <?php
+    //if($_SERVER['REMOTE_ADDR'] == '61.245.163.205'){
+        ?>
+    
+       <style type="text/css" media="screen">
+    
+    .slide-out-div {
+       padding: 20px;
+        width: 200px !important;
+        background: #f2f2f2;
+        border: #43484e 2px solid;
+    }
+    
+
+
+	</style>
+    <script src="<?php echo PROJECT_BASEPATH;?>cp/assets/js/jquery.tabSlideOut.v1.3.js" type="text/javascript" ></script>
+
+     <script>
+ 
+
+     </script>
+         
+    <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+
+
+    <div class="slide-out-div">
+        <a class="handle" href="#"><?php echo $this->translate("Online Support");?>t</a>
+        <div id="SkypeButton_Call_nexva_support_1">
+		  <script type="text/javascript">
+            Skype.ui({
+              "name": "dropdown",
+              "element": "SkypeButton_Call_nexva_support_1",
+              "participants": ["cj19820508"],
+              "imageSize": 24
+            });
+          </script>
+        </div>
+    </div>
+    
+    <?php
+    //}
+  
+    ?>
+
+    <?php if(isset($site) && !empty($site) && in_array($site, array('guinea_orange','drc_orange'))){ ?>
+            <!-- "Reset" word use for only drc_orange-->
+            <script>
+            setTimeout(function(){$("#recaptcha_response_field").attr('placeholder',"Insérer texte");}, 4000);
+                $(function(){
+                $('.slide-out-div').tabSlideOut({
+                    tabHandle: '.handle',                              //class of the element that will be your tab
+                    pathToTabImage: '<?php echo PROJECT_BASEPATH;?>cp/assets/img/online_support_fr.jpeg',          //path to the image for the tab (optionaly can be set using css)
+                    imageHeight: '140px',                               //height of tab image
+                    imageWidth: '28px',                               //width of tab image    
+                    tabLocation: 'right',                               //side of screen where tab lives, top, right, bottom, or left
+                    speed: 300,                                        //speed of animation
+                    action: 'click',                                   //options: 'click' or 'hover', action to trigger animation
+                    topPos: '200px',                                   //position from the top
+                    fixedPosition: true                               //options: true makes it stick(fixed position) on scroll
+                });
+            });
+            </script>
+    <?php }else{ ?> 
+            <script>
+                $(function(){
+                    $('.slide-out-div').tabSlideOut({
+                        tabHandle: '.handle',                              //class of the element that will be your tab
+                        pathToTabImage: '<?php echo PROJECT_BASEPATH;?>cp/assets/img/online_support.jpg',          //path to the image for the tab (optionaly can be set using css)
+                        imageHeight: '140px',                               //height of tab image
+                        imageWidth: '28px',                               //width of tab image    
+                        tabLocation: 'right',                               //side of screen where tab lives, top, right, bottom, or left
+                        speed: 300,                                        //speed of animation
+                        action: 'click',                                   //options: 'click' or 'hover', action to trigger animation
+                        topPos: '200px',                                   //position from the top
+                        fixedPosition: true                               //options: true makes it stick(fixed position) on scroll
+                    });
+                });
+            </script>
+                
+    <?php } ?>
+                                

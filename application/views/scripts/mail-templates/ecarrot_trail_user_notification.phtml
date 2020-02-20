@@ -1,0 +1,66 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 12/9/13
+ * Time: 1:13 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+
+
+<table style="background-color: #fd8d20;" border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+    <tbody>
+        <tr>
+            <td style="padding: 5px;" width="90%"><a href="#m_-3890040311074098547_m_-6161004088699011327_"><img class="m_-3890040311074098547m_-6161004088699011327logo_ecarrot CToWUd" style="max-width: 240px!important; width: 100%!important; float: left; height: auto!important; margin: 10px auto;" src="https://ci3.googleusercontent.com/proxy/OmWA3Nf2gbz2LPdztkWGuPwTnVHfAE9olXePhh0qYn2DPne24UwjzILeXmPEOP_VUaCD35bq1ebZ_TNx=s0-d-e1-ft#http://ecarrot.it/user/images/logo.png" alt="" border="0" /></a></td>
+            <td width="10"><img class="CToWUd" style="max-width: 93px!important; width: auto!important; height: auto!important; margin-right: 10px;" src="https://ci5.googleusercontent.com/proxy/NRDh830RVMi48YmqkLcTrm9z69NTiEW5NeBYSPpt_lEomiR415f69FUzAxBc9W3hO9toI4JCDYLeFA3MlP8hmaw6yg=s0-d-e1-ft#http://ecarrot.it/user/images/ecarrot_man.png" alt="" border="0" /></td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" width="100%" cellspacing="0" cellpadding="25" bgcolor="#FFFFFF">
+    <tbody>
+        <tr>
+            <td style="text-align: left;" bgcolor="#ffffff" width="100%">
+                <h1 style="font-size: 1.2em; font-family: Arial,Helvetica,sans-serif; color: #35a614; font-weight: normal; text-align: left; padding-right: 64px; margin-top: 0;">Hello,</h1>
+                <p style="color: #222222; font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 19px; margin-top: 0; margin-bottom: 10px; padding: 0; font-weight: normal;">
+                    <?php if (($this->date_Diff <= 3) && ($this->date_Diff > 0)) { ?>
+                        <strong>
+                            Your eCarrot Free 14-Day Trial subscription is expiring in <?php echo $this->date_Diff; ?>  days and we would hate for your child to no longer have access to eCarrot. So, please subscribe now for only AUD $22.00.
+
+                        </strong>
+                    <?php } elseif ($this->date_Diff == 0) { ?>
+                        <strong> 
+                           Your eCarrot Free 14-Day Trial subscription is expiring today and we would hate for your child to no longer have access to eCarrot. So, please subscribe now for only AUD $22.00.
+
+                        </strong>
+                    <?php } elseif ($this->date_Diff == -1) { ?>
+                        <strong> 
+                           Your eCarrot Free 14-Day Trial subscription has expired. So, please subscribe now for only AUD $22.00. 
+                        </strong>
+                    <?php } ?>
+                </p>
+
+                <br />
+                <ul>
+                    <li style="color: #747677; font-family: Arial,Helvetica,sans-serif; font-size: 14px; list-style-position: inside!important; list-style-type: disc!important;">User Id : <span style="color: #ff9009!important;">
+                            <a style="color: #ff9009; text-decoration: none;"><?php echo $this->email; ?></a></span></li>
+                </ul>
+                <p style="color: #222222; font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 19px; margin-top: 0; margin-bottom: 10px; padding: 0; font-weight: normal;">Thanks for your patronage and continued support of creating a new way of seeing smart devices.</p>
+                <p style="font-size: 14px; font-family: Arial,Helvetica,sans-serif; color: #6eb43f; font-weight: normal; margin-bottom: 0;">Warm Regards,<br /> <span style="color: #a2a3a2;">eCarrot Team</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="15" bgcolor="#FFFFFF">
+    <tbody>
+        <tr>
+            <td style="text-align: left;" bgcolor="#fd8d20" width="100%">
+                <p style="color: #fff; font-weight: bold; font-family: Arial,Helvetica,sans-serif; font-size: 14px; line-height: 20px; margin-top: 0; margin-bottom: 0px; padding: 0;">Warm Regards, <br /> <span style="color: #fff; font-weight: normal;">Linda, Patrick and the eCarrot team</span></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;</p>
+

@@ -1,0 +1,182 @@
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/cp/assets/css/analytics.css'); ?>
+<?php $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/excanvas.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.pie.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.stack.js'); ?>
+
+<?php $this->headScript()->captureStart();?>
+    var __DATA_DATE         = eval(<?php echo $this->appViewDateJson?>); //app views by date
+    var __DATA_DEVICE       = eval(<?php echo $this->appVisitsDeviceJson?>); //most popular products
+    var __DATA_APP          = eval(<?php echo $this->appViewJson?>);  // most popular apps
+    var __DATA_DOWNLOADS    = eval(<?php echo $this->appDownloadDateJson;?>); //downloads
+    var __DATA_TOP_DOWNLOAD = eval(<?php echo $this->appDownloadJson;?>); //most often downloaded
+    var __DATA_TOP_APP_COMPARISON   = eval(<?php echo $this->appViewComparisonJson?>);
+<?php $this->headScript()->captureEnd();?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/appview.js'); ?>
+
+
+
+<?php 
+    //lets do some calculations
+    $totalViews     = array_sum($this->appView);
+    $totalDownloads = array_sum($this->appDownloads);
+?>
+
+<div id='analytics_menu'>
+    <div class="title">
+        <h3>Date Range</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form class='date_filter' action='/analytics/index/' method='post'>
+                <input type='text' size='12' class='date txt-input texthint' data-hint='from date' name='from_view' value='<?=$this->startTimeView?>'> 
+                <input type='text' size='12' class='date txt-input texthint' data-hint='to date' name='to_view' value='<?=$this->endTimeView?>'>
+                <select class='select-input' id='date-range'>
+                    <option selected="selected" value=''>[SELECT RANGE]</option>
+                    <option value='86400'>Yesterday</option>
+                    <option value='604800'>Last Week</option>
+                    <option value='2678400'>Last Month</option>
+                    <option value='31536000'>Last Year</option>
+                </select>
+                <button class='button'>Filter</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="title">
+        <h3>Metrics</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <ul class="icon_list">
+                <li>
+                    <p>
+                        <img width='32' height='32' src="/cp/assets/img/content/icon_list/phone_touch.png" alt="mobile device"/>
+                        <a href="<?php echo PROJECT_BASEPATH;?>product/create">Devices</a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        <img width='32' height='32' src="/cp/assets/img/content/icon_list/ico_software.gif" alt="mobile device"/>
+                        <a href="<?php echo PROJECT_BASEPATH;?>product/create">OS</a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        
+                        <a href="<?php echo PROJECT_BASEPATH;?>product/create"><img width='32' height='32' src="/cp/assets/img/content/icon_list/download.png" alt="mobile device"/>Downloads</a>
+                    </p>
+                </li>
+            </ul>
+            <div class='clear'></div>
+        </div>
+    </div>
+    
+</div>
+
+<div id='visualizations'>
+
+<div class="title">
+    <h3>Analytics Home</h3>
+    <div class='filter'>
+        <input type='text' class='txt-input texthint' data-hint="type in an app name for filtering" id='app_search' name='app_search' size='40'>
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+        <ul class="icon_list wide">
+            <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($totalViews)?></span>
+                    <a href="#stats_view_by_date_cont">views</a>
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($totalDownloads)?></span>
+                    <a href="#stats_view_by_date_cont">downloads</a>
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <span class='large_text'>4.00</span>
+                    <a href="#stats_view_by_date_cont">$ earned</a>
+                </p>
+            </li>
+            
+            
+            
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<div id='stats_view_by_date_cont' class="title">
+    <h3>Overall App Views / Downloads</h3>
+    <div class='filter'>
+        
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class='full_block' id='stats_view_by_date'></div>
+    </div>
+</div>
+
+<div class="title">
+    <h3>Most Popular Products Comparison</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class='full_block' id='stats_view_app_comparison'></div>
+    </div>
+    <p id="app_filter"><span class='label'>Filter :</span></p>
+</div>
+
+
+<div id='stats_view_by_device_cont' class='chart_box_full'>
+    <div class="title">
+        <h3>Top Devices</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='full_block' id='stats_view_by_device'></div>
+        </div>
+    </div>
+</div>
+
+<div id='stats_view_by_app_cont' class='chart_box_full'>
+    <div class="title">
+        <h3>Most Viewed</h3>
+        <div class='filter'>
+            <a href='<?php echo PROJECT_BASEPATH;?>product/view' class='button'>See all</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='full_block' id='stats_view_by_app'></div>
+        </div>
+    </div>
+</div>
+
+
+<div id='stats_downloads_by_app_cont' class='chart_box_full'>
+    <div class="title">
+        <h3>Most Downloaded</h3>
+        <div class='filter'>
+            <a href='<?php echo PROJECT_BASEPATH;?>product/view' class='button'>See all</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='full_block' id='stats_downloads_by_app'></div>
+        </div>
+    </div>
+</div>
+ </div>

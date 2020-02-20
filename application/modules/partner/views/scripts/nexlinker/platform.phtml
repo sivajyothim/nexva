@@ -1,0 +1,144 @@
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+<?php $t = $this->t();?>
+<?php 
+/**
+ * This page needs to be CHAPS (whitelabel) ready. 
+ * 
+ * Right now, we're only taking the URL so the URL needs to be specific to the 
+ * chap and not nexva's
+ * 
+ * @todo Things that need to change according to chaps
+ * 1. URLs
+ * 2. Colors
+ * 3. ?
+ */
+
+$chapInfo   = $this->chapInfo;
+?>
+<?php $this->headLink()->appendStylesheet('/web/css/ui-lightness/jquery-ui-1.8.7.tab-blue.css'); ?>
+<?php //$this->headScript()->appendFile('/web/js/jquery-1.4.4.min.js'); //in layout now?>
+<?php $this->headScript()->appendFile('/web/nexlinker/script.js');?>
+<?php $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/jquery/plugins/tabs/jquery-ui-1.8.7.tabs.min.js');?>
+<?php 
+   // if (isset($chapInfo->WHITELABLE_NEXLINKER_STYLE) && !empty($chapInfo->WHITELABLE_NEXLINKER_STYLE)) {
+   //     $this->headLink()->appendStylesheet('/mobile/whitelables/' . $chapInfo->WHITELABLE_THEME_NAME . '/' . $chapInfo->WHITELABLE_NEXLINKER_STYLE);
+  //  }
+?>
+
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        $("#tabs").tabs();
+        $("#tabs-2").show();
+    });
+    var __CHAP_ID   = <?=($this->isChap) ? $this->chapId : 0; ?>;
+<?php $this->headScript()->captureEnd();?>
+
+<?php 
+    $ns = new Zend_Session_Namespace('translation'); //include this only if the translation utility is enabled
+    if (isset($ns->translatorEnabled) && $ns->translatorEnabled === true) : ?>
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/css/translator.css">
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript">
+           var __SECTION = '<?php echo $t->getSection()?>';
+        </script>
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/translateutil.js"></script>
+        
+    <?php endif; ?>
+        <script type="text/javascript">
+        function submitForm()
+        {
+            document.getElementById("platformsForm").submit();
+        }
+        </script>
+<style>
+<!--
+
+body {
+    background: none repeat scroll 0 0 #ffffff;
+    font-family: Verdana,Arial,Tahoma;
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+}
+
+#nl_window_close {
+    float:right;
+    margin : 3px 8px 0 0;
+}
+
+img {
+	border: 1px solid #6879aa;
+}
+
+
+#email_field {width: 95%;}
+
+-->
+</style>  
+
+<!--<div id='nex-container'>
+    <div id='tabs'>
+     for the JS to pick up 
+    <input type='hidden' id='appId' value='<?=$this->prod['id'];?>'>
+       <h2 class='ui-widget-header'><?=ucfirst($this->prod['name'])?></h2>
+        <div id='tabs-1'>
+            <p style="padding-left: 4px;"> 
+            <strong>
+            Please select a platform.
+            </strong></p><br>
+            <?php
+                $config = Zend_Registry::get("config");
+                
+                $appUrl = "http://".$config->nexva->application->base->url . "/nt/" . $this->prod['id'];
+               
+                if (isset($this->chapInfo->APPSTORE_APP_URL)) 
+                {
+                    // this should load dynamically
+                    $appUrl = "http://" . $this->chapInfo->APPSTORE_APP_URL . "/nt/" . $this->prod['id'];   
+                } 
+                else
+                {
+                    $appUrl = "http://" . 'cca.nexva.mobi' . "/nt/" . $this->prod['id']; 
+                }
+                  
+                $qrCode = $this->qr($appUrl, 120, 120); 
+            ?>
+            <div class='clear'></div>
+            <form action="partner/id/12" method="post" name="formPlatforms" id="platformsForm">
+            <div class='center'>
+                <p><strong>Select Platform</strong><br /><br />
+
+                    <select name='wl[WHITELABLE_PLATEFORM]' id='apptype' onchange="submitForm();">
+                        <option value='' selected="selected"></option>
+                        <option value='ANDROID_PLATFORM'>Android Platform</option>
+                        <option value='MULTIPLE_PLATFORM'>Multiple Platform</option>
+                    </select>
+
+                </p>            
+            </div>
+                <input type="hidden" name="platform" value="platformSelected"/>
+            </form>
+            <div class='clear'></div>
+        </div>
+    </div>
+</div>-->
+
+<div id="platforms_select">
+        <div class="success"><h3>Platforms</h3></div>
+        <div class="text_bg">
+            <p class="device_detection_text">            
+                Please select your platform.                
+            </p>
+        </div>
+        
+        <div id="all_platforms">
+            <?php foreach($this->appPlatforms as $appPlatform):?>
+            <a class="nexlink select_platform" rel="shadowbox;height=530;width=600" href="/nexlinker/partner/id/29297/p/21134/userid/none/productid/30892" title="Android">
+                <img src="/partner/default/assets/img/platforms/<?= $appPlatform->id; ?>.png" alt="Android" title="Android"></img>
+            </a>      
+            <?php 
+            endforeach;
+            ?>
+        </div>
+    </div>

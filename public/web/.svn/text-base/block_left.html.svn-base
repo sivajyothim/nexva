@@ -1,0 +1,10 @@
+<div class="block">
+  <div class="blkTop"></div>
+  <div class="blkContent">
+    <!-- user block / phone selection / language selection - include: block_user.html -->
+  </div>
+  <div class="blkBottom"></div>
+</div>
+<div class="leftBlock">
+  <!-- menus / block content - include (for each block): block_block.html -->
+</div>

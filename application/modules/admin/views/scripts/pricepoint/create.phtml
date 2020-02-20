@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Administrator
+ * Date: 4/29/13
+ * Time: 6:05 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="title">
+    <h3>Price Points.. Create </h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div id="content_box">
+            <div class="tab-login">
+                <?php echo $this->render('partials/message.phtml');?>
+                <form method="post" action="/pricepoint/save" id='price_point_create'>
+                    <fieldset>
+                        <p><label>Payment Gateway</label>
+                            <select id="payment_gateway" name="payment_gateway" class="validate() select-input small">
+                                <option value=""> -Select- </option>
+                                <?php foreach($this->paymentGateways as $paymentGateway){ ?>
+                                    <option value="<?php echo $paymentGateway['id'];?>" <?php echo ($this->pricePoint['gateway_id'] == $paymentGateway['id'])?'selected="selected"':'';?>><?php echo $paymentGateway['name'];?></option>
+                                <?php } ?>
+                            </select>
+                        </p>
+                        <p><label>Price</label>
+                            <input type="text" id="price" name="price" class="txt-input medium validate(number)" value="<?php echo $this->pricePoint['price'];?>"/>
+                        </p>
+                        <p><label>Price Point</label>
+                            <input type="text" id="price_point" name="price_point" class="txt-input medium validate(required)" value="<?php echo $this->pricePoint['price_point'];?>"/>
+                        </p>
+                        <p style="float:left;"><input type="submit" class="button" name="submit" value="Save" id="submit"/>
+                        </p>
+                    </fieldset>
+                    <input type="hidden" name="id" id="id" value="<?php echo $this->pricePoint['id']; ?>" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+<?php //$this->headScript()->appendFile('/reseller/js/analytics/applies.js'); ?>
+
+<?php $this->headScript()->captureStart();?>
+    var __DATA_APPLIES      = eval(<?php echo $this->appliesByDate?>); //app views by date
+    var __DATA_PURCHASES    = eval(<?php echo $this->purchasesByDate?>); //app views by date
+    
+    $(document).ready(function(){
+        showCodeApplies();
+        
+        $('#date-range').change(function(){
+            if ($(this).val() == '') {
+                return false;
+            }
+            var endTime     = new Date();
+            var startTime   = new Date(endTime.getTime() - (parseInt($(this).val(), 10) * 1000));
+            
+            $("[name='from_view']").val(getFormattedDate(startTime));
+            $("[name='to_view']").val(getFormattedDate(endTime));
+            
+            $(this).parent().submit();
+        });
+        
+        var previousPoint = null;
+        $(".chart").bind("plothover", function (event, pos, item) {
+            if (item) { 
+                if (previousPoint != item.datapoint) {
+                    previousPoint = item.datapoint;
+                    
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0],
+                        y = item.datapoint[1];
+                    showTooltip(item, 
+                                y + ' event(s) near ' + getFormattedMonth(x));
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;            
+            }
+        });
+        
+    });
+    
+    function getFormattedDate(dateObj) {
+        var year    = dateObj.getFullYear();
+        var month   = ((dateObj.getMonth() + 1) < 10) ?  '0' + (dateObj.getMonth() + 1) : dateObj.getMonth() + 1;
+        var date    = dateObj.getDate();
+        return year + '-' + month + '-' + date;
+    }
+    
+    function showCodeApplies() {
+        if (typeof __DATA_APPLIES == 'undefined') {return false;}
+        
+        var options = {
+            series: {
+                lines: { show: true},
+                points: { show: true }
+            },
+            grid: { hoverable: true, clickable: true },
+            xaxis: {
+                mode: "time",
+            },
+            yaxis : {
+                min : 0
+            },
+            selection: { mode: "x" },
+            colors : ['#E37923']
+        };
+        var plots       = [],
+            pointsApply      = [],
+            pointsPurchase  = [];
+        
+        
+        for (date in __DATA_APPLIES) {
+            pointsApply.push([date, __DATA_APPLIES[date]]);
+        }
+        plots.push({data: pointsApply, label: 'Code Applied'});
+        
+        for (date in __DATA_PURCHASES) {
+            pointsPurchase.push([date, __DATA_PURCHASES[date]]);
+        }
+        plots.push({data: pointsPurchase, label: 'App Purchased'});
+    
+        var plot    = $.plot($("#stats_code_applies_by_date"), plots, options);
+        
+        showOverview(plot, $("#stats_code_applies_by_date"), plots, $("#stats_code_applies_by_date_overview"), options);
+    }
+    
+    
+    /**
+     * Utility function to get the formatted date for a timestamp,
+     * @todo Extend to allow masks
+     * @param timestamp
+     * @returns
+     */
+    function getFormattedMonth(timestamp) {
+        var d = new Date(timestamp);
+        return d.toLocaleString();
+    }
+    
+    /**
+     * Generates the tooltip that is shown in line charts 
+     * @param item
+     * @param contents
+     */
+    function showTooltip(item, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: item.pageY + 5,
+            left: item.pageX + 15,
+            border: '1px solid #fff',
+            padding: '8px',
+            'background-color': item.series.color,
+            color : '#fff',
+            opacity: 1,
+            borderRadius: '5px'
+            
+        }).appendTo("body").fadeIn(200);
+    }
+    
+    
+    /**
+     * Shows the zoomable overlay that is below the charts.
+     * @param plot - Original chart object
+     * @param $chartDom - jQuery DOM object that contains the original chart
+     * @param plots - The datapoints shown on the chart
+     * @param $overviewDom - jQuery DOM object container for the zoomable overview
+     * @param chartOptions - Original chart options so we can reset  
+     */
+    function showOverview(plot, $chartDom, plots, $overviewDom, chartOptions) {
+        var overview = $.plot($overviewDom, plots, {
+            series: {
+                lines: { show: true, lineWidth: 1 },
+                shadowSize: 0
+            },
+            xaxis: { ticks: [], mode: "time" },
+            yaxis: { ticks: [], min: 0, autoscaleMargin: 0.1 },
+            selection: { mode: "x" },
+            legend: {show : false},
+            colors : ['#E37923']
+        });
+    
+        $chartDom.bind("plotselected", function (event, ranges) {
+            // do the zooming
+            plot = $.plot($chartDom, plots,
+                          $.extend(true, {}, chartOptions, {
+                              xaxis: { min: ranges.xaxis.from, max: ranges.xaxis.to }
+                          }));
+    
+            
+            // don't fire event on the overview to prevent eternal loop
+            overview.setSelection(ranges, true);
+        });
+        
+        $overviewDom.bind("plotselected", function (event, ranges) {
+            plot.setSelection(ranges);
+        });
+        
+        var points  = plots[0].data;
+     
+        //If the graph is large, zoom in just part of it at the start so it's not congested
+        if (points.length > 30) {
+            var ranges  = {
+                'xaxis': {
+                    'from'  : points[0][0] - 1209600000, //14 days in milisecs :)
+                    'to'    : points[0][0]
+                },
+                'yaxis': {
+                    'from': 0,
+                    'to' : 1
+                },
+            }
+            overview.setSelection(ranges);
+        }
+        return null;
+    }
+<?php $this->headScript()->captureEnd();?>
+
+
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView'   => $this->endTimeView,
+        'queryString'   => $this->queryString
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+
+<div id='visualizations'>
+    <div class='chart_box_full'>
+        <div class="title">
+            <h3>Promotion Codes Usage </h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <div class='message info'>
+                    <p>
+                        This graph shows the number apps purchased with a promotion code as opposed to the number of promotion codes applied. 
+                        The closer the two lines are, the better your conversion rate.
+                    </p>
+                </div>
+                <div class='full_block chart' id='stats_code_applies_by_date'>
+                    We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+                <div id="stats_code_applies_by_date_overview" style=";margin-top:20px;width:100%;height:50px"></div>
+            </div>
+        </div>
+    </div>
+</div>

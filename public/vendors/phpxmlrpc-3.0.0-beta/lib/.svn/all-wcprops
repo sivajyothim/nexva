@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/lib
+END
+xmlrpc.inc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/lib/xmlrpc.inc
+END
+xmlrpc_wrappers.inc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/lib/xmlrpc_wrappers.inc
+END
+xmlrpcs.inc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/lib/xmlrpcs.inc
+END

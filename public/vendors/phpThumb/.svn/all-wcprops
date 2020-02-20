@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/repos/nexva_v1/!svn/ver/24687/v2/trunk/public/vendors/phpThumb
+END
+index.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/nexva_v1/!svn/ver/23572/v2/trunk/public/vendors/phpThumb/index.php
+END
+phpThumb.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/nexva_v1/!svn/ver/24687/v2/trunk/public/vendors/phpThumb/phpThumb.php
+END
+phpThumb.config.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/nexva_v1/!svn/ver/8152/v2/trunk/public/vendors/phpThumb/phpThumb.config.php
+END
+phpthumb.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.class.php
+END
+phpthumb.gif.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.gif.php
+END
+phpThumb.config.php.default
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/7110/v2/trunk/public/vendors/phpThumb/phpThumb.config.php.default
+END
+phpthumb.filters.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.filters.php
+END
+phpthumb.functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.functions.php
+END
+phpthumb.ico.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.ico.php
+END
+phpthumb.bmp.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.bmp.php
+END
+phpthumb.unsharp.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/2137/v2/trunk/public/vendors/phpThumb/phpthumb.unsharp.php
+END

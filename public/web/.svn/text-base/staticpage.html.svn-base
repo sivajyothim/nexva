@@ -1,0 +1,223 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>neXva</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link type="text/css" rel="stylesheet" href="nexva.css">
+<link href="jquery-ui.nexva.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="libraries/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="libraries/jquery-ui-1.8.js"></script>
+<script type="text/javascript" src="nexva.js"></script>
+<script language="javascript">
+$(document).ready(function() {
+	alignPage();
+	searchSgHide ();
+	hideOverlays();
+	setBackground ();
+});
+</script>
+</head>
+<body>
+<div id="background">
+  <div id="page">
+    <!-- header start -->
+    <div id="title">
+      <div id="logo"><a href="index.html"><img alt="neXva.com" src="images/nexva_logo.gif"></a></div>
+      <div id="primaryLinks">
+        <ul class="btn" id="primary">
+          <li><a id="primary_about" href="#">about</a></li>
+          <li><a id="primary_adv" href="#">advertise</a></li>
+          <li><a id="primary_signup" href="#">sign up</a></li>
+          <li><a id="primary_contact" href="#">contact</a></li>
+        </ul>
+        <form id="search">
+          <div class="searchFldR">
+            <input class="searchFld" id="q">
+            <input type="button" value="search" id="searchBtn" name="search">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- header end -->
+    <div class="blkLeft">
+      <div class="block">
+        <div class="blkTop"></div>
+        <div class="blkContent">
+          <div id="#userBlock">
+            <div class="blockContent">
+              <div id="usrGreeting">Welcome to neXva.com.</div>
+              <ul id="usrPhones">
+              </ul>
+              <div id="usrPhoneSelect"><a id="usr_phone"><img alt="user phone" src="images/unknown_phone_icon.png"></a>
+                <p id="usr_phone_str">click to select a mobile device</p>
+              </div>
+              <div class="inputFld">
+                <ul id="langSelect">
+                  <li class="start"><a rel="de" href="#">De</a></li>
+                  <li class="mid"><a rel="en" href="#">En</a></li>
+                  <li class="mid"><a rel="es" href="#">Es</a></li>
+                  <li class="mid"><a rel="fr" href="#">Fr</a></li>
+                  <li class="end"><a rel="sv" href="#">Sv</a></li>
+                </ul>
+              </div>
+              <div class="inputFld">
+                <ul id="curSelect">
+                  <li class="start"><a rel="usd" href="#">USD</a></li>
+                  <li class="mid"><a rel="eur" href="#">EUR</a></li>
+                  <li class="end"><a rel="gbp" href="#">GBP</a></li>
+                </ul>
+              </div>
+              <form name="userForm" id="userForm">
+                <div class="inputFld">
+                  <label>username</label>
+                  <input type="text" value="" id="username" name="usernme">
+                </div>
+                <div class="inputFld">
+                  <label>password</label>
+                  <input type="password" value="" id="password" name="password">
+                </div>
+                <ul class="btn">
+                  <li><a id="usr_login" href="#">login</a></li>
+                  <li><a id="usr_signup" href="#">sign-up</a></li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="blkBottom"></div>
+      </div>
+      <div class="leftBlock">
+        <div class="block" id="left_menuListBlk_menu_0">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2>Menu: 0</h2>
+            <div class="blockContent">
+              <ul>
+                <li>
+                  <h4><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></h4>
+                  <ul>
+                    <li><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></li>
+                    <li><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a></li>
+                    <li><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a></li>
+                    <h4><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></h4>
+                    <ul>
+                      <li><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></li>
+                      <li><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a></li>
+                      <li><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a></li>
+                      <li><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a></li>
+                    </ul>
+                    <li><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a></li>
+                  </ul>
+                </li>
+                <li><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a></li>
+                <li><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a></li>
+                <li><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a></li>
+                <li><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a></li>
+                <li><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a></li>
+                <li><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a></li>
+                <li><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a></li>
+                <li><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a></li>
+                <li><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+        <div class="block" id="left_menuListBlk_nexva_rec">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2><img class="neXvaLogo" src="images/nexva_logo_small.png"> recommends</h2>
+            <div class="blockContent"><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a><a id="menu_item_root_1_0" href="javascript:loadPage('root_1_0', 'prod_list');" class="menuLink">Audio books</a><a id="menu_item_root_1_1" href="javascript:loadPage('root_1_1', 'prod_list');" class="menuLink">Comics / Manga</a><a id="menu_item_root_1_2" href="javascript:loadPage('root_1_2', 'prod_list');" class="menuLink">eBooks</a><a id="menu_item_root_1_3" href="javascript:loadPage('root_1_3', 'prod_list');" class="menuLink">Reference / Dictionaries</a><a id="menu_item_root_1_4" href="javascript:loadPage('root_1_4', 'prod_list');" class="menuLink">Religion</a></div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+      </div>
+    </div>
+    <div class="blkCenter innerPage">
+      <!-- product list page start -->
+      <div class="prodListPage staticPage">
+        <div class="container">
+          <div class="contTop"></div>
+          <div class="contContent">
+            <div class="blockContent">
+              <div class="blkHead">
+                <h2 id="pageTitle">Page Title</h2>
+                <ul id="breadcrumbs">
+                  <li><a href="javascript:loadPage('home', 'prod_list');">Home</a></li>
+                  <li><a href="javascript:loadPage('cat_01', 'prod_list');">Books &amp; References</a></li>
+                </ul>
+              </div>
+              <div class="blkList">
+                <div class="prodListItem">
+                  <div class="block">
+                    <div class="blkTop"></div>
+                    <div class="blkContent">
+                    <h3>Heading 1</h3>
+                      <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse   vulputate porta odio sit amet varius. Nam quis auctor tortor.   Pellentesque hendrerit sapien nec augue eleifend eu molestie purus   venenatis. Sed imperdiet elit metus. Phasellus feugiat elit sed purus   tempor quis blandit nisi aliquet. Quisque eget congue turpis. Vestibulum   dui augue, rhoncus non accumsan ac, suscipit ac augue. Cras est arcu,   condimentum ac cursus non, aliquet in dolor. Curabitur neque tellus,   consectetur ut malesuada eget, pharetra ut felis. Suspendisse rutrum   nunc vel neque iaculis dapibus. Donec sed ligula ultricies velit feugiat   placerat quis ut ante. Aenean id justo magna, in imperdiet tortor. Nam   placerat mi vitae nulla tincidunt nec ultricies orci ullamcorper.   Suspendisse potenti. In tempus interdum congue. In scelerisque dignissim   dolor quis vulputate. Etiam non lacus non leo condimentum blandit. </p>
+                      <p> Donec fringilla purus quis ipsum molestie sit amet pretium arcu   convallis. Vestibulum ante ipsum primis in faucibus orci luctus et   ultrices posuere cubilia Curae; Integer vel imperdiet mauris. Sed   vehicula blandit dui at accumsan. Phasellus lacus mi, mattis id placerat   at, aliquet sit amet est. Nullam felis lacus, tempus non bibendum sed,   tempor nec urna. Aliquam imperdiet ligula metus, quis gravida velit.   Praesent luctus fringilla accumsan. Nullam ante nibh, faucibus vel   fringilla in, scelerisque dictum lorem. </p>
+                      <ul>
+                        <li>Nunc varius, ante at molestie   pellentesque, lacus neque laoreet libero, sit amet faucibus odio lorem   ut nibh. </li>
+                        <li>Pellentesque ut augue quam. </li>
+                        <li>Pellentesque nec justo leo, eu   luctus elit. </li>
+                        <li>Etiam et metus ligula, vitae porttitor nisl. </li>
+                        <li>Fusce at   feugiat dolor. </li>
+                        <li>Sed enim nibh, sollicitudin id hendrerit vitae, tincidunt   a mi. </li>
+                        <li>Nullam sollicitudin est ac dui blandit tincidunt. </li>
+                        <li>Vestibulum nisl   ante, dignissim vitae dictum et, lobortis ac augue. </li>
+                        <li>Cras commodo,   turpis rhoncus eleifend porttitor, ante est lacinia eros, non ornare   augue tellus eget quam. </li>
+                        <li>Curabitur lorem est, laoreet non dignissim nec,   gravida eu sapien. </li>
+                      </ul>
+<h4> Nam tempus vehicula magna, quis vehicula odio commodo id. </h4>
+<p>Duis consequat   fringilla lectus, quis volutpat lacus gravida ut. Aenean ipsum ante,   interdum sit amet iaculis quis, malesuada ac ipsum. Donec viverra mollis   sapien, faucibus sodales nunc condimentum sit amet. Aenean ultrices   faucibus quam at faucibus. Maecenas nec erat sit amet mi faucibus   aliquet. Vestibulum ante ipsum primis in faucibus orci luctus et   ultrices posuere cubilia Curae; In a massa magna. Nam feugiat consequat   sodales. In dapibus neque nec lorem adipiscing at pellentesque urna   iaculis. Aliquam id augue consequat neque volutpat imperdiet. Nam a   magna libero, ut pellentesque tortor. Praesent nec mi in nisl convallis   ultrices et ut velit. Quisque tempor condimentum ipsum in blandit. Donec   imperdiet magna eget risus rutrum eleifend. Aenean venenatis ultrices   pharetra. Morbi hendrerit lectus a quam mollis quis dapibus purus   ullamcorper. In volutpat tristique urna, pharetra ultrices augue   tincidunt nec. Cras id odio ante, nec interdum magna. Nam sed orci eu   tellus eleifend eleifend. </p>
+                      <h5> Mauris vulputate blandit nisl, at tristique sapien iaculis sed. </h5>
+                      <p>Sed   dolor neque, blandit non ultrices a, commodo quis nisl. Pellentesque   habitant morbi tristique senectus et netus et malesuada fames ac turpis   egestas. Vestibulum pulvinar faucibus sem ut ullamcorper. Fusce   fermentum, magna ut malesuada placerat, nisi nisi semper erat, ac   condimentum metus risus sed nisl. Mauris dignissim eros vel tellus   laoreet dictum. Nam nunc augue, cursus vel tincidunt eu, eleifend eu   urna. Ut accumsan molestie odio, id faucibus velit aliquam convallis.   Nulla ipsum neque, auctor quis mollis et, interdum et leo. Nam elementum   tempus mauris ac rhoncus. </p>
+                      <h6> Nulla facilisi. Sed imperdiet lacus feugiat diam convallis condimentum   mollis tellus feugiat. </h6>
+                      <p>Sed et massa et erat suscipit dapibus. Integer   lobortis mauris sit amet diam porta sit amet faucibus leo semper.   Pellentesque habitant morbi tristique senectus et netus et malesuada   fames ac turpis egestas. Donec posuere pulvinar odio sed rhoncus. Mauris   non nisi erat, in vulputate enim. Phasellus in lectus elit. Aliquam et   tempor dolor. Fusce at dictum libero. Integer ut mollis risus. Donec id   viverra lectus. </p>
+                    </div>
+                    <div class="blkBottom"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contBottom"></div>
+        </div>
+      </div>
+      <!-- product list page end -->
+    </div>
+    <div class="blkRight">
+      <div class="rightBlock">
+        <div class="block" id="right_menuListBlk_notices">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2>notices</h2>
+            <div class="blockContent"><a id="menu_item_notice_0" href="javascript:loadPage('notice_0', 'prod_list');" class="menuLink">neXva version two. with jquery and ajax. this is a notice.</a><a id="menu_item_notice_1" href="javascript:loadPage('notice_1', 'prod_list');" class="menuLink">the second notice. will be some random message. blah blah blah blah blah.</a></div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+        <div class="block" id="right_menuListBlk_nexva_rec">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2><img class="neXvaLogo" src="images/nexva_logo_small.png"> recommends</h2>
+            <div class="blockContent"><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a></div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">Footer text | copyright notice | links | <a href="javascript:loadProdList (1);">test</a></div>
+    <div id="searchSg" style="visibility: hidden;"></div>
+    <div id="systemMsg" style="visibility: hidden;"></div>
+    <div id="phoneSelect" style="visibility: hidden;">
+      <p>what is the model of your phone?</p>
+      <form id="searchPhone">
+        <div class="searchFldR">
+          <input class="searchFld" id="q_phone">
+          <input type="button" value="search" id="searchBtnPhone" name="search">
+        </div>
+      </form>
+      <div id="searchSgPhone"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

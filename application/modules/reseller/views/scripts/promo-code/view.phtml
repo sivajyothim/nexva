@@ -1,0 +1,129 @@
+ 
+
+<?php $item    = $this->promotionCode;?>
+<div class="title">
+    <h3>View Promotion Code</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$message ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            
+            <fieldset>
+                 <form class='form_validate' method="post" accept-charset="UTF-8" action="#">
+                 
+                 <p>
+                    <label for="user">Reseller</label>
+                    <input type="text" name="user" id="user" style="width: 40%;" class='txt-input medium validate(required)' value="<?=isset($this->savedUser) ? $this->savedUser : ''?>" placeholder="start typing the company name">
+                    <input value="<?=$item->user_id?>" type="text" readonly="readonly" class='txt-input small' name="user_id" id="user_id">
+                 </p>
+                 
+                 <p>
+                    <label for="user">App</label>
+                    <input type="text" name="product" id="product" style="width: 40%;" class='txt-input medium validate(required)' value="<?=isset($this->savedProduct) ? $this->savedProduct : ''?>" placeholder="start typing the app name">
+                    <input value="<?=isset($item->products[0]->id) ? $item->products[0]->id : ''?>" type="text" readonly="readonly" class='txt-input small' name="product_id" id="product_id">
+                 </p>
+                 
+                 <p>
+                        <label for='payout_id'>Payout Type</label>
+                        <select name='payout_id' id='payout_id'>
+                            <?php foreach ($this->payouts as $payout) : ?>
+                                <option <?php if ($item->payout_id == $payout->id):?>selected='selected'<?php endif;?> 
+                                    value='<?=$payout->id?>'><?=$payout->name?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 
+                 <p>
+                        <label for='promo_campaign_id'>Promotion Campaign</label>
+                        <select name='promo_campaign_id' id='promo_campaign_id'>
+                            <option value=''>[SELECT]</option>
+                            <?php foreach ($this->campaigns as $campaign) : ?>
+                                <option <?php if ($item->promo_campaign_id == $campaign->id):?>selected='selected'<?php endif;?> 
+                                    value='<?=$campaign->id?>'><?=$campaign->title?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 
+                 <p>
+                    <label for='code'>Code</label>
+                    <input value='<?=$item->code?>' type='text' id='code' name='code' class='txt-input medium validate(required, rangelength(1,35))'>
+                 </p>
+                 
+                 <p>
+                    <label for='description'>Description</label>
+                    <textarea name="description" id="description" class="txt-input medium"><?=$item->description?></textarea>
+                 </p>
+                 
+                  <p>
+                    <label for='use_type'>Use Type</label>
+                    <select name='use_type' id='use_type'>
+                        <?php $opts = array('GENERAL', 'SINGLE', 'LIMITED');?>
+                        <?php foreach ($opts as $opt) : ?>
+                            <option <?php if ($item->use_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$opt?></option>
+                        <?php endforeach; ?>                    
+                    </select>
+                 </p>
+                 
+                 <p>
+                    <label for='use_limit'>Use Limit</label>
+                    <input value='<?=$item->use_limit?>' type='text' id='use_limit' name='amount' class='txt-input small '>
+                 </p>
+                 
+                  <p>
+                        <label for='discount_type'>Discount Type</label>
+                        <select name='discount_type' id='discount_type'>
+                            <?php $opts = array('ABSOLUTE', 'PERCENT');?>
+                            <?php foreach ($opts as $opt) : ?>
+                                <option <?php if ($item->discount_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$opt?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 <p>
+                    <label for='amount'>Amout</label>
+                    <input value='<?=$item->amount?>' type='text' id='amount' name='amount' class='txt-input medium validate(required)'>
+                 </p>
+                 
+                 
+                 <p>
+                        <label for='promo_type'>Code Type</label>
+                        <select name='promo_type' id='promo_type'>
+                            <?php $opts = array('STANDARD', 'CREDIT', 'DEBIT');?>
+                            <?php foreach ($opts as $opt) : ?>
+                                <option <?php if ($item->discount_type == $opt):?>selected='selected'<?php endif;?> value='<?=$opt?>'><?=$opt?></option>
+                            <?php endforeach; ?>                    
+                        </select>
+                 </p>
+                 
+                 
+                  <p>
+                    <label for='valid_from'>Valid From</label>
+                    <input value='<?=$item->valid_from?>' type='text' id='valid_from' name='valid_from' class='txt-input small date'>
+                 </p>
+                 
+                 <p>
+                    <label for='valid_from'>Valid To</label>
+                    <input value='<?=$item->valid_to?>' type='text' id='valid_to' name='valid_to' class='txt-input small date'>
+                 </p>
+                 <!--  
+                 <p>
+                    <label for='enabled'>Enabled</label>
+                    <input type="hidden" name="enabled" value="0">
+                    <input <?=$item->enabled == 1 ? "checked='checked'" : ''?> type='checkbox' value='1' id='enabled' name='enabled' >
+                 </p>
+                 -->
+                
+                  </form>
+            </fieldset>
+        </div>
+        </div>
+</div>    

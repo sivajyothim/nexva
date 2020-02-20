@@ -1,0 +1,9 @@
+<?php
+echo $this->partial('partials/paypal-btn.phtml', array(
+    'productId' => $this->appId,
+    'paypalUrl' => Zend_Registry::get('config')->paypal->mobile->sandbox->submit,
+    'productName' => $this->productName,
+    'amount' => $this->productPrice,
+    'currencyCode' => $this->currency));
+?>
+                       

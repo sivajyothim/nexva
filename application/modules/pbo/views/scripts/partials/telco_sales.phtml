@@ -1,0 +1,9 @@
+<tr>
+    <th><?=$this->paymentReceivedList->date;?></th>
+    <th style="width: 45%"><?=$this->paymentReceivedList->description;?></th>
+    <th><?=$this->paymentReceivedList->credit;?></th>
+        <th><?=$this->CurrencyConvert($this->paymentReceivedList->credit);?></th>
+    <th><?=$this->paymentReceivedList->total;?></th>
+        <th><?=$this->CurrencyConvert($this->paymentReceivedList->total);?></th>
+   <!-- <th><?//=$this->userTelephone($this->paymentReceivedList->paid_user_id);?></th> --> 
+</tr>

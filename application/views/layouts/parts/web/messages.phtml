@@ -1,0 +1,29 @@
+<?php
+    $errors = $this->errors;
+    if(is_array($errors) && !empty($errors)) :?>
+        <div class='message-error'>
+        <?php foreach ($errors as $error): ?>
+            <p><?=$error?></p>
+        <?endforeach;?>
+        </div>
+    <?endif;?>
+    
+    <?php
+        $messages = $this->messages;
+        if(is_array($messages) && !empty($messages)) : ?>
+            <div class='message-success'>
+            <?php foreach ($messages as $message): ?>
+                <p><?=$message?></p>
+            <?endforeach;?>
+            </div>
+    <?endif;?>
+
+    <?php
+        $messages = $this->notices;
+        if(is_array($messages) && !empty($messages)) : ?>
+            <div class='message-notice'>
+            <?php foreach ($messages as $message): ?>
+                <p><?=$message?></p>
+            <?endforeach;?>
+            </div>
+    	<?endif;?>

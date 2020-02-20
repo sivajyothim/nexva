@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+        
+            <title><?= isset($this->cpTitle) ? $this->cpTitle : 'neXva.com - mobile reloaded - CP Administration' ?></title> 
+
+        <!-- Core Stylesheet -->
+        <link href="<?php echo PROJECT_BASEPATH;?>/cp/assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo PROJECT_BASEPATH;?>/cp/assets/css/yellow.css" title="styles2" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<?php echo PROJECT_BASEPATH;?>/cp/assets/css/cp.css" title="styles2" media="screen" />
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+        <?php if(isset($this->customCss)): ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo PROJECT_BASEPATH;?>cp/assets/css/cp.css" media="screen"/>
+    <?php endif; ?>
+        <!-- Javascript Files -->
+        <!-- <script type="text/javascript" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/js/jquery.min.js"></script> -->
+        
+        <script type="text/javascript" src="<?=$this->cdn('jquiry')?>"></script> 
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>/cp/assets/js/hoverIntent.js"></script>
+        <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>/cp/assets/js/superfish.js"></script>
+        <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>/cp/assets/js/jquery.wysiwyg.js"></script>
+        <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>/cp/assets/js/jquery-stylesheetToggle.js"></script>
+        <script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>/cp/assets/js/forestcp.js"></script>
+
+        <!-- Adding dynamic libs and CSS Meta to the layout view -->
+        <?php
+        echo $this->headMeta();
+        echo $this->headScript();
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+        <!--[if IE 6]>
+        <link href="/cp/assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+        <script src="/cp/assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script>
+          /* EXAMPLE */
+          DD_belatedPNG.fix('.logo img, .message, table img');
+
+          /* string argument can be any CSS selector */
+        </script>
+        <![endif]-->
+        <script type='text/javascript'>
+        $(document).ready(function(){
+            $('a.del_conf').click(function(){
+                return confirm('Are you sure you want to delete this item?');
+            })
+        });
+        </script>
+    </head>
+    <body>
+        <!-- Dialogs -->
+        <div id="welcome" style="display: none" title="Welcome to ForestCP">
+            <p>ForestCP is an great and easy to customize backend administration user interface.</p>
+        </div>
+
+        <?php echo $this->render('parts/cp/header.phtml'); ?>
+        <?php echo $this->render('parts/cp/menu.phtml'); ?>
+
+        <!-- Start Wrap -->
+        <div id="wrap" class="fixed">
+            <div id="content">
+                <?php // error&messages displaying 
+                    $errorMessages      = $this->flashErrors;
+                    $infoMessages       = $this->flashMessages;
+                ?>
+                <?php if(!empty($errorMessages)) : ?>
+                    <div class="message error">
+                   <?php foreach ($errorMessages as $key=>$value): ?>
+                        <p><?=$value?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+                
+                <?php if(!empty($infoMessages)) :?>
+                    <div class="message info">
+                    <?php foreach ($infoMessages as $key=>$value): ?>
+                        <p><?=$value?></p>
+                    <?endforeach;?>
+                    </div>
+                <?endif;?>
+
+                <noscript>
+                    <!-- Show message when javascript is not enabled -->
+                    <div class="message error">
+                        <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+                    </div>
+                </noscript>
+                <?php echo $this->layout()->content ?>
+            </div>
+
+        </div>
+        <!-- End Wrap -->
+
+        <!-- Footer -->
+        <?= $this->render('/parts/cp/footer.phtml'); ?>
+        <!-- Footer -->
+       <?php echo $this->partial('/parts/analytics.phtml')?>   
+    </body>
+</html><!-- 

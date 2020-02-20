@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.example.org/e3/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="e3" targetNamespace="http://www.example.org/e3/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/e3/">
+	<xsd:element name="reverse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="reverseResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="sum">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="a" type="xsd:int"></xsd:element>
+				<xsd:element name="b" type="xsd:int"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="sumResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="out" type="xsd:int"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ping">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="in" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="pingResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="out" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element></xsd:schema></wsdl:types>
+    <wsdl:message name="reverseRequest">
+    	<wsdl:part name="parameters" element="tns:reverse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="reverseResponse">
+    	<wsdl:part name="parameters" element="tns:reverseResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="sumRequest">
+    	<wsdl:part name="parameters" element="tns:sum"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="sumResponse">
+    	<wsdl:part name="parameters" element="tns:sumResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="pingRequest">
+    </wsdl:message>
+    <wsdl:message name="pingResponse">
+    	<wsdl:part name="parameters" element="tns:pingResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="serviceSoap">
+    	<wsdl:operation name="reverse">
+    		<wsdl:input message="tns:reverseRequest"></wsdl:input>
+    		<wsdl:output message="tns:reverseResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="sum">
+    		<wsdl:input message="tns:sumRequest"></wsdl:input>
+    		<wsdl:output message="tns:sumResponse"></wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="ping">
+    		<wsdl:input message="tns:pingRequest"></wsdl:input>
+    		<wsdl:output message="tns:pingResponse"></wsdl:output>
+    	</wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WSSoap" type="tns:serviceSoap">
+    	<soap:binding style="document"
+    		transport="http://schemas.xmlsoap.org/soap/http">
+    	</soap:binding>
+    	<wsdl:operation name="reverse">
+    		<soap:operation
+    			soapAction="http://www.example.org/e3/reverse">
+    		</soap:operation>
+    		<wsdl:input>
+    			<soap:body use="literal"></soap:body>
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal"></soap:body>
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="sum">
+    		<soap:operation
+    			soapAction="http://www.example.org/e3/sum">
+    		</soap:operation>
+    		<wsdl:input>
+    			<soap:body use="literal"></soap:body>
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal"></soap:body>
+    		</wsdl:output>
+    	</wsdl:operation>
+    	<wsdl:operation name="ping">
+    		<soap:operation
+    			soapAction="http://www.example.org/e3/ping">
+    		</soap:operation>
+    		<wsdl:input>
+    			<soap:body use="literal"></soap:body>
+    		</wsdl:input>
+    		<wsdl:output>
+    			<soap:body use="literal"></soap:body>
+    		</wsdl:output>
+    	</wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WS">
+    	<wsdl:port name="WSSoap" binding="tns:WSSoap">
+    		<soap:address location="http://localhost/soap/ws.php" />
+    	</wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,18 @@
+#!/bin/bash
+# Script By Sbarboff
+
+LOCAL_DIR="-"
+FILE="CCcam.cfg"
+REMOTE_DIR="-"
+IP_DREAM="-"
+PORT="-"
+USERNAME="root"
+PASSOWRD="dreambox"
+ftp -pinv $IP_DREAM $PORT<<END_SCRIPT
+quote USER $USERNAME
+quote PASS $PASSOWRD
+delete $REMOTE_DIR/$FILE
+put $LOCAL_DIR/$FILE $REMOTE_DIR/$FILE
+quit
+END_SCRIPT
+

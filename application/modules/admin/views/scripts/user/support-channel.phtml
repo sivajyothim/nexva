@@ -1,0 +1,51 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/4/13
+ * Time: 2:50 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="title">
+    <h3>Support Channel . .  | neXva.com</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div id="content_box">
+            <div >
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th style="width:10%;">CHAP Name</th>
+                        <th style="width:20%;">Web URL</th>
+                        <th style="width:50%;">Payout Description</th>
+                        <th style="width:20%;text-align:center;">Subscribe</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($this->paginator as $channelDetail) { ?>
+                        <tr>
+                            <td><?php echo $channelDetail['username'];?></td>
+                            <td><a href="http://<?php echo $channelDetail['meta_value'];?>" target="_blank"><?php echo $channelDetail['meta_value'];?></a></td>
+                            <td><?php echo $channelDetail['cp_payout_description'];?></td>
+                            <td style="text-align:center;">
+                                <?php if($channelDetail['pcId']) { ?>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/set-channel/id/<?php echo $this->productId;?>/chap/<?php echo $channelDetail['id'];?>/status/unsubscribe" title="Unsubscribe">
+                                        <img style="border:none;" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/icon-default.png" alt="Unsubscribe" title="Unsubscribe"/>
+                                    </a>
+                                <?php } else { ?>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/set-channel/id/<?php echo $this->productId;?>/chap/<?php echo $channelDetail['id'];?>/status/subscribe" title="Subscribe">
+                                        <img style="border: none" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/icon-notdefault.png" alt="Subscribe" title="Subscribe"/>
+                                    </a>
+                                <?php } ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+                <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/simple-paginator.phtml'); ?>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,198 @@
+<script type="text/javascript" language="javascript">
+
+    function confirmDelete()
+    {
+        var confirmation = false;
+        var answer = confirm("Are sure you want to delete the ticket?")
+        if (answer){
+            confirmation = true;
+
+        }
+        else{
+            confirmation = false;
+        }
+        return confirmation;
+    }
+
+</script>
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+
+    </div>
+
+    <div class="content-box-content">
+        
+<!--        <div class="box" style="text-align: center" >
+            <div class="txt">
+                <ul class="icon_list wide">
+
+                    <li>
+                        <p>
+                            <span style="font-size: 12px">Open</span><br/>
+                            <span style="font-size: 24px; font-weight: bold">20</span> 
+                        </p>
+                    </li>
+
+                    <li>      
+                        <p>
+                            <span style="font-size: 12px">Closed Today</span><br/>
+                            <span style="font-size: 24px; font-weight: bold">10</span>                            
+                        </p>
+                    </li>
+
+
+                    <li>
+                        <p>
+                            <span style="font-size: 12px">Due Today</span><br/>
+                            <span style="font-size: 24px; font-weight: bold">5</span>                            
+                        </p>
+                    </li>
+
+                    <li>
+                        <p>
+                            <span style="font-size: 12px">Overdue</span><br/>
+                            <span style="font-size: 24px; font-weight: bold">8</span>                            
+                        </p>
+                    </li>
+
+                </ul>
+                <div class="clear"></div>
+            </div>
+        </div>-->
+        
+
+        <!-- Displays Message/s -->
+        <?php if (count($this->ticketMessages)) : ?>
+
+            <div class="notification success png_bg">
+                <div>
+
+                    <?php foreach ($this->ticketMessages as $message) : ?>
+
+                        <?php echo $this->escape($message); ?>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+
+        <?php if (count($this->tickets)) : ?>
+        
+        <table cellpadding="0" cellspacing="0" style="width: 99%">
+
+            <thead>
+                <tr>
+                    <th>Details</th>
+                    <th></th>
+                    <th>Priority</th>
+                    <th>Status</th>                    
+                    <th>Type</th>
+                    <th>Source</th>                    
+                    <th style="text-align:center">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach ($this->tickets as $ticket) : ?>
+                    <?php $dates = Date('d-m-Y H:i:s', strtotime($ticket->created_date)) ?>
+
+                    <tr>
+                        <td>
+                            <a href="<?php echo PROJECT_BASEPATH;?>ticket/details/id/<?= $ticket->id; ?>" style="color: #555555">
+                                <span style="font-size: 13px; font-weight: bold">
+                                    #<?= $ticket->id; ?> : 
+                                    <?= (strlen($ticket->subject) < 70)  ? $ticket->subject : substr($ticket->subject,0, 70).'...'; ?><br />                                
+                                </span>
+                            </a>
+                            From : <?= $ticket->email; ?><br />
+                            Created : <?= $dates; ?>
+                        </td>
+                        
+                        
+                        <?php 
+                        
+                        //Detemine due time based on the priority
+                        //Urgent - 12 hours (720 min), High - 24 hours (1440 min),  Medium - 36 hours (2160), Low - 2 days (2880 min)
+                        
+                        //Get current time
+                        $now = strtotime(date('d-m-Y H:i:s'));
+                        //Time fiff in mins
+                        $timeDiff = round(($now - strtotime($dates))/60);
+                        
+                        ?>
+                        
+                        <td>
+                            <?php  
+                            
+                            if($ticket->status == 'Closed' || $ticket->status == 'Resolved'){
+                                echo '<span class="new subject_style">'.$ticket->status.'</span>';
+                            }
+                            else{
+                                $this->TicketStatus($ticket->priority, $timeDiff);    
+                            }
+                            ?>
+                        </td>
+                        
+                        <td><?= $ticket->priority; ?></td>
+                        <td><?= $ticket->status; ?></td>
+                        <td><?= $ticket->type; ?></td>                        
+                                                
+                        <td>
+                            <?php $source = $ticket->source; 
+                            
+                                switch ($source) 
+                                {
+                                    case 'Partnerweb':
+                                         echo 'Web';
+                                         break;
+                                    case 'Partnermobile':
+                                         echo 'Mobile Web';
+                                        break;
+                                    case 'Androidapp':
+                                         echo 'Android App';
+                                        break;
+                                    case 'CP':
+                                         echo 'Developer Portal';
+                                        break;
+                                 }
+                            
+                            ?>
+                        </td>
+
+                        <td style="text-align:center">
+                            <a href="<?php echo PROJECT_BASEPATH;?>ticket/do-delete/id/<?= $ticket->id ?>" title="Delete ?" onclick="return confirmDelete()" >
+                                <img style="border: none" src="/pbo/images/icons/cross_circle.png" alt="Delete?" />
+                            </a>
+                        </td>
+                     
+
+                        </tr>
+                    <?php endforeach; ?>
+
+                    
+            </tbody>
+
+        </table>
+        <br />
+        <div style ="width : 99%">
+            <?= $this->paginationControl($this->tickets, 'Sliding', 'partials/pagination-ticket.phtml'); ?>
+        </div>
+        
+        <?php else : ?>
+        
+        <p>No Records Found.</p>
+        
+        <?php endif; ?>
+        
+        
+    </div>
+</div>
+
+<script type="text/javascript">        
+   $('#8').addClass('current');  
+   $('#82').addClass('current'); 
+</script>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/README
+END
+detect.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/detect.php
+END
+discover.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/examples/discover.php
+END

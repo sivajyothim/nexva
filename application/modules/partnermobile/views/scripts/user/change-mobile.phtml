@@ -1,0 +1,62 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 9/3/13
+ * Time: 5:46 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $().ready(function(){
+        $("#change_mobile_form").validate();
+    });
+</script>
+
+<h2 class="font-size-16"><?php echo $this->translate("Change Mobile Number");?></h2>
+<div class="ui-grid-solo">
+    <?php
+    if($this->success)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php echo $this->success;?>
+        </span></span></div>
+    <?php
+    }
+    if($this->ErrorMessages)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+        <?php foreach($this->ErrorMessages as $key=>$value)
+        {
+            if(is_array($value))
+            {
+                foreach($value as $one=>$two)
+                {
+                    echo $this->translate($two);
+                }
+                echo '<br/>';
+            }
+            else
+            {
+                echo $this->translate($value),'<br/>';
+            }
+        } ?>
+        </span></span></div>
+    <?php } ?>
+</div>
+<div class="ui-body ui-body-c">
+    <form action="/user/change-mobile" method="post" id="change_mobile_form" data-ajax="false">
+        <fieldset data-role="fieldcontain">
+            <label for="mobile_number"><?php echo $this->translate("Mobile Number");?> :</label>
+            <input type="text" name="mobile_number" id="mobile_number" class="required number" minlength="10" value="" >
+        </fieldset>
+
+        <fieldset data-role="fieldcontain">
+            <label for="mobile_number_confirm"><?php echo $this->translate("Confirm Mobile Number");?> :</label>
+            <input type="text" name="mobile_number_confirm" id="mobile_number_confirm" class="required number" minlength="10" value="" >
+        </fieldset>
+
+        <input type="submit" value="<?php echo $this->translate("Change Mobile Number");?>">
+
+    </form>
+</div>

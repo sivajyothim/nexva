@@ -1,0 +1,62 @@
+<div class="prodListPage">
+    <div class="container">
+        <div class="contTop"></div>
+        <div class="contContent">
+
+
+            <div class="blockContent">
+                <div class="blkHead">
+                    <h2 id="pageTitle">Feedback</h2>
+                </div>
+                <div class="blkList">
+                    <div class="prodListItem">
+                        <div class="block">
+                            <div class="blkTop"></div>
+                            <div class="blkContent">
+                                <form id="signup" name="signup" action="/feedback" method="post">
+                                    <ul>
+                                        <?
+                                        $error = $this->messages;
+                                        if(is_array($error))
+                                            foreach ($error as $key=>$value):
+                                                ?>
+                                        <li><?=$value?></li>
+                                            <?
+                                            endforeach;
+                                        ?>
+                                    </ul>
+                                    <div class="inputFld">
+                                        <label>Feedback type*</label>
+                                        <select id="type" name="type">
+                                            <option id="bug">Bug</option>
+                                            <option id="bug">Improvement</option>
+                                            <option id="bug">Business Query</option>
+                                        </select>
+                                    </div>
+                                    <div class="inputFld">
+                                        <label>E-Mail *</label>
+                                        <input class="validate(required)" name="email" id="email" type="text" value="<?=isset (Zend_Auth::getInstance()->getIdentity()->username)?Zend_Auth::getInstance()->getIdentity()->username:''?>"/>
+                                    </div>
+                                    <div class="inputArea">
+                                        <label>Message *</label>
+                                        <div class="textarea">
+                                            <textarea id="body" name="body"></textarea>
+                                        </div>
+                                    </div>
+                                    <ul class="btn">
+                                        <li><a href="#" id="submit">Send</a></li>
+                                    </ul>
+                                </form>
+                            </div>
+                            <div class="blkBottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="contBottom"></div>
+    </div>
+</div>
+<!-- product list page end -->

@@ -1,0 +1,68 @@
+<?php
+    //figure out colors
+    $bgColor    = isset($this->chapInfo['chap_bg_color']) ? $this->chapInfo['chap_bg_color'] : '#FFAA00';
+    $fgColor    = isset($this->chapInfo['chap_fg_color']) ? $this->chapInfo['chap_fg_color'] : '#FFFFFF';
+    $fontColor  = isset($this->chapInfo['chap_font_color']) ? $this->chapInfo['chap_font_color'] : '#FFAA00';   //for headers
+?>
+
+<?php 
+    $sessionChapDetails = new Zend_Session_Namespace('partner');
+    $chapId = $sessionChapDetails->id;
+
+    $translateObj = Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('view'); 
+?>
+
+<br>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;'>
+<?= $translateObj->translate('Hello') ?> <?=$this->email?>
+</p>
+
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+    <strong><?=$this->friend?></strong> thought you  might like this application on <?=$this->company_name?>.
+</p>
+
+<p>
+
+    <table border="0" bgcolor="eeeeee">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td width='2%'>&nbsp;</td>
+            <td colspan='4'>
+                 <p>
+                    <a style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 16px; color: <?=$fontColor?>; text-decoration:none;'
+                     href="http://<?=$this->baseurl?>/<?=$this->prod['id']?>" ><strong><?=$this->prod['name']?> </strong> - http://<?=$this->baseurl?>/<?=$this->prod['id']?></a>
+                </p> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr valign="top">
+            <td width='2%'>&nbsp;</td>
+            <td valign="top" width='95'>
+                <img style='border:3px solid #dadada'  width='90' src='http://<?=$this->baseurl?><?=$this->prod['thumb']?>'>
+            </td>
+            <td style='border-left: 1px dotted #DADADA;' width='2%'>&nbsp;</td>
+            <td valign="top">
+                <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+
+                    <?= ($chapId == 23045) ? $translateObj->translate('APP_STORE_DESC') : $translateObj->translate($this->prod['desc_brief']) ?>
+             
+                </p>    
+                <p>
+                    <a style='text-align:center;display:block;font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;background: <?=$bgColor?>;color: <?=$fgColor?>;margin-right: 2px; padding: 10px 6px; text-decoration: none;' 
+                        href="http://<?=$this->baseurl?>/<?=$this->prod['id']?>" class="button"><strong><?= $translateObj->translate('Click or Touch here to Download this Application') ?></strong></a>
+                </p>
+            </td>
+            <td width='2%'>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+    </table>
+</p>
+
+ 
+ 

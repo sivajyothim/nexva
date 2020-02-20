@@ -1,0 +1,21 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 10/7/13
+ * Time: 2:32 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div id="main_right_pane">
+
+    <?php $currency = $this->ChangeCurrency($this->chap_id);?>
+    <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/product_category_block.phtml', array('baseUrl' => $this->baseUrl));?>
+
+    <?php echo $this->partial('partials/product.phtml', array('products' => $this->products, 'partnerId' => $this->partnerId, 'appStoreAppid' => $this->appStoreAppid, 'nexLinkerUrl' => $this->nexLinkerUrl, 'loggedUser' => $this->loggedUser,'chap_id' => $this->chap_id) );?>
+
+    <div style="clear: both;"></div>
+
+    <?=$this->paginationControl($this->paginator, 'Sliding', 'partials/product_category_block.phtml', array('baseUrl' => $this->baseUrl)); ?>
+
+</div>

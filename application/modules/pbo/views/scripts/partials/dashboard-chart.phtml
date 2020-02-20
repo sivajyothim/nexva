@@ -1,0 +1,112 @@
+<h4 style="margin-top: 20px; margin-left: 20px; margin-bottom: 20px">Downloads - This Month</h4>
+
+<div id="placeholder" style="width:90%;height:250px; position: relative; left:30px;"></div>
+<?php  $endOfMonth = date('Y/m/t',$this->endOfMonth); ?>
+<script type="text/javascript">
+
+$(function () {  
+    var data = [  
+        {  
+            label: "Free Apps",  
+            data: [                
+                     <?php foreach($this->freeDownloadProcessed as $key=>$value) : ?>                   
+
+                        <?= '['.$key.',' .$value.'],' ?>
+
+                     <?php endforeach; ?>
+                  ]  
+        }
+        , 
+          
+        {  
+            label: "Premium Apps",  
+            data: [                
+                     <?php foreach($this->premiumDownloadProcessed as $key=>$value) : ?>                   
+
+                        <?= '['.$key.',' .$value.'],' ?>
+
+                     <?php endforeach; ?>
+                  ]  
+        }, 
+          
+        {  
+            label: "Total Apps",  
+            data: [                
+                     <?php foreach($this->allDownloadProcessed as $key=>$value) : ?>                   
+
+                        <?= '['.$key.',' .$value.'],' ?>
+
+                     <?php endforeach; ?>
+                  ]  
+        }          
+        
+    ];  
+      
+    var options = {  
+        legend: {  
+            show: true,  
+            margin: 3,  
+            backgroundOpacity: 0,
+            height: 70 
+        },  
+        points: {  
+            show: true,  
+            radius: 3  
+        },  
+        lines: {  
+            show: true  
+        },  
+        grid: { hoverable: true, clickable: true },
+        xaxis: { mode: "time",
+                minTickSize: [1, "day"],
+                timeformat: "%d %b, %y",
+//                min: (new Date("2012/08/01")).getTime(),
+//                max: (new Date("2013/05/31")).getTime()
+                max: (new Date('<?= $endOfMonth ?>')).getTime()
+}
+    };  
+      
+    var plotarea = $("#placeholder"); 
+    var plot = $.plot( plotarea , data, options );  
+    
+     function showTooltip(item, datax, datay,x, y, contents) {
+        $('<div id="tooltip">' + datay + ' - ' +(new Date(datax)).toUTCString() + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: y - 32,
+            left: x,
+            border: 'none',
+            padding: '4px',
+            'background-color': item.series.color,
+			'color':'#fff',
+            opacity: 0.80
+        }).appendTo("body").fadeIn(20);
+    }
+
+    var previousPoint = null;
+    $("#placeholder").bind("plothover", function (event, pos, item) {
+        $("#x").text(pos.x.toFixed(2));
+        $("#y").text(pos.y.toFixed(2));
+        if (item) {
+            if (previousPoint != item.datapoint) {
+                previousPoint = item.datapoint;
+                 $("#tooltip").remove();
+                var x = item.datapoint[0],
+                    y = item.datapoint[1];
+                    
+                 showTooltip(item, x, y, item.pageX, item.pageY, item.series.label[item.dataIndex]);
+            }
+        }
+        else {
+            $("#tooltip").remove();
+            previousPoint = null;
+        }
+	});
+});  
+</script>
+
+<br /><br /><br />
+</div>
+
+
+

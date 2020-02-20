@@ -1,0 +1,254 @@
+<?php
+    /*foreach($this->chaps as $chap){
+        echo $this->chap,' - ',$chap->id,'<br/>';
+        //if($this->chap == $chap->id){echo 'selected:selected';}
+    }
+    die();*/
+?>
+
+<div id='analytics_menu'>
+    <div class="title">
+        <h3>Filters</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form class='date_filter'  method='post'>
+                <?php 
+                 $controller = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+                 if($controller=='app-count'){
+                 ?>
+                    <div id="category-container">
+                        <select class="select-input" id="category_parent" name="category_parent" onchange="get_sub_categories()">
+                            <option selected="selected" value=''>[CATEGORIES]</option>
+                            <?php foreach($this->categories as $category){ 
+
+                                ?>
+                                <option value='<?php echo $category->id;?>' <?php if($this->categoryParent == $category->id){echo 'selected';}?>><?php echo $category->name;?></option>
+                            <?php } ?>
+                        </select><br>
+                        <select class="select-input" id="category_sub" name="category_sub">
+                            <?php foreach($this->subCategories as $category){  ?>
+                                    <option value='<?php echo $category->id;?>' <?php if($this->subCategoryId == $category->id){echo 'selected';}?>><?php echo $category->name;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                <?php
+                 }else{                 
+                ?>
+                <input type='text' size='12' class='date txt-input texthint' data-hint='from' name='from_view' id='from_view' value='<?=$this->startTimeView?>'> 
+                <input type='text' size='12' class='date txt-input texthint' data-hint='until' name='to_view' id='to_view'  value='<?=$this->endTimeView?>'>
+                <select class='select-input' id='date-range'>
+                    <option selected="selected" value=''>[SELECT RANGE]</option>
+                    <option value='604800'>Last Week</option>
+                    <option value='2678400'>Last Month</option>
+                    <option value='15768000'>Last 6 Months</option>
+                </select>
+                <?php
+               
+                $chapSession = new Zend_Session_Namespace('chapAnalytics');
+                //echo $chapSession->id;
+                if($controller == 'regions'){ ?>
+                    <select class="select-input" id="chap" name="chap">
+                        <option selected="selected" value=''>[SELECT CHAP]</option>
+                        <?php foreach($this->chaps as $chap){ ?>
+                            <option value='<?php echo $chap->id;?>' <?php if($chap->id == $chapSession->id){echo 'selected';}?>><?php echo $chap->username;?></option>
+                        <?php } ?>
+                    </select>
+                <?php } 
+                }
+                ?>
+                <button class='button'>Filter</button>
+            </form>
+        </div>
+    </div>
+    
+ 
+    <div class="box">
+        <div class="txt">
+           <!--  <input type='text' class='txt-input texthint' placeholder="type in an app name for filtering" id='app_search' name='app_search' size='33'>  -->
+            <ul class="icon_list">
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/dashboard/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/dashboard.png" alt="dashboard"/>
+                            <br>Dashboard
+                        </a>
+                    </p>
+                </li>
+            
+<!--                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/downloads/<?php //echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/download.png" alt="downloads"/>
+                            <br>Downloads
+                        </a>
+                    </p>
+                </li>-->
+            
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/all-downloads/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/all-download.png" alt="All downloads"/>
+                            <br>All Downloads
+                        </a>
+                    </p>
+                </li>
+            
+                 <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/most-downloads/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/download.png" alt="All downloads"/>
+                            <br>Most Downloads
+                        </a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/chap-downloads/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/cp.png" alt="All downloads"/>
+                            <br>Downloads by CHAP
+                        </a>
+                    </p>
+                </li>      
+               
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/devices/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/phone_touch.png" alt="mobile device"/>
+                            <br>Devices
+                        </a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/builds/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/ico_software.gif" alt="operating system"/>
+                            <br>OS
+                        </a>
+                    </p>
+                </li>
+                
+<!--                
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/views/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/view_icon.png" alt="views"/>
+                            <br>Views
+                        </a>
+                    </p>
+                </li>                -->
+                
+                 <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/all-views/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/all_view.png" alt="All Views"/>
+                            <br>All Views
+                        </a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/most-view/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/view_icon.png" alt="Most View"/>
+                            <br>Most View
+                        </a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/chap-views/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/view_chap.png" alt="Views by CHAP"/>
+                            <br>Views by CHAP
+                        </a>
+                    </p>
+                </li>
+                
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/regions/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/globe.png" alt="regions"/>
+                            <br>Regions
+                        </a>
+                    </p>
+                </li>
+                
+                  <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/app/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/app.png" alt="app"/>
+                            <br>App Stats
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/inapp-revenue/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/inapp_payment.png" alt="revenue"/>
+                            <br><?php echo $this->translate("Inapp Revenue");?>
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/premium-revenue/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/affilitate.png" alt="revenue"/>
+                            <br><?php echo $this->translate("Premium Revenue");?>
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/app-wall/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/stats.jpg" alt="traffic sources"/>
+                            <br>App Wall
+                        </a>
+                    </p>
+                </li>  
+                
+                <li class=''>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>analytics/app-count/<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/sources.png" alt="traffic sources"/>
+                            <br>App Count
+                        </a>
+                    </p>
+                </li>
+                
+                
+                <li class='coming_soon'>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>#<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/neXva.png" alt="neXpager"/>
+                            <br>neXpager
+                        </a>
+                    </p>
+                </li>
+                
+                
+                
+                <li class='coming_soon'>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>#<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/nexpage.jpg" alt="neXpager"/>
+                            <br>neXpager
+                        </a>
+                    </p>
+                </li>
+                
+                <li class='coming_soon'>
+                    <p>
+                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>#<?php echo $this->queryString?>">
+                            <img width='32' height='32' src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/sources.png" alt="traffic sources"/>
+                            <br>Sources
+                        </a>
+                    </p>
+                </li>
+            </ul>
+            <div class='clear'></div>
+        </div>
+    </div>
+</div>

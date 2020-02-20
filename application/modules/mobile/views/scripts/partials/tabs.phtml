@@ -1,0 +1,33 @@
+<?php $contentMode    = (isset($this->themeMeta->WHITELABLE_APP_FILTER) && !empty($this->themeMeta->WHITELABLE_APP_FILTER)) ? $this->themeMeta->WHITELABLE_APP_FILTER : 'ALL'?> 
+
+<div id="wap-wt">
+    <table align="center" cellspacing="0" cellpadding="0" border="0" class="wap-wt_tab_table">
+        <tbody>
+            <tr>
+                <?php if ($contentMode == 'ALL') : ?>
+                <td class="wap-wt_tab_td <?=($this->item == 'premium') ? 'wap-wt_tab_selected' : '';?> ">
+                    <span class="t_outer">
+                        <span class="t_inner">
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/premium/">Paid</a>
+                        </span>
+                    </span>
+                </td>
+                <td class="wap-wt_tab_td <?=($this->item == 'free') ? 'wap-wt_tab_selected' : '';?> ">
+                    <span class="t_outer">
+                        <span class="t_inner">
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/free/">Free</a>
+                        </span>
+                    </span>
+                </td>
+                <td class="wap-wt_tab_td <?=($this->item == 'all') ? 'wap-wt_tab_selected' : '';?> ">
+                    <span class="t_outer">
+                        <span class="t_inner">
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/index/">Categories</a>
+                        </span>
+                    </span>
+                </td>
+                <?php endif;?>
+            </tr>
+        </tbody>
+    </table>
+</div>

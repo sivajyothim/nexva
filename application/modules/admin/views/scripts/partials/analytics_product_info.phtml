@@ -1,0 +1,22 @@
+<?php if ($this->product) : $product = $this->product?>
+    <?php
+        $url   = 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/" . $product['id'];
+         
+    ?>
+    <div id='stats_view_by_date_cont' class="title">
+        <h3><?php echo $product['name']?></h3>
+        <div class='filter'>
+            <a href='/analytics/dashboard' class='button'>Remove filters</a>
+            <a href='<?php echo $url?>' class='button'>View on neXva</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='product_info'>
+
+                <?=$this->thumbnail(@$this->productInfo['screenshots'][0], array('w' => 60, 'h' => 60, 'aoe' => 0)); ?>
+                <p><?php  echo $product['desc_brief']?></p>
+            </div>
+        </div>
+    </div>
+<?php endif;?>

@@ -1,0 +1,33 @@
+   <table width="580" border="0" cellspacing="20" cellpadding="0">
+
+                     <tr>
+                        <td width="580" align="left" valign="top" class="mainbar">
+
+                           <h2>A New CP has Signed Up</h2>
+                           <p>
+                               <br/><br/> Hello Site Administrator(s) <br /> <br/><br/>
+
+                               This email is to inform you of a new CP who has just signed up with neXva <br/><br/>
+
+                               CP ID: <?=$this->id?> <br/>
+                               CP Email: <?=$this->email?> <br/>
+
+                               <br/><br/>
+
+                               <?
+                                $config  = Zend_Registry::get('config');
+                               ?>
+                               To view more details about this new CP, click on: 
+                                http://<?=$config->nexva->application->admin->url?>/user/edit/id/<?=$this->id?>
+
+                                <br/><br/>
+                             
+                               Thank you <br/><br/>
+
+                              neXva Mailer Agent.
+                           </p>
+
+
+                        </td>
+                     </tr>
+   </table>

@@ -1,0 +1,22 @@
+<!-- Showing Featured Applications as random 2 premium and one Free App -->
+<p>If you can't find your exact device, try searching for one that runs on the same platform.</p>
+<?=$this->partial('/partials/search_device_rca.phtml', array("item" => $this->searchValue))?>
+<br clear="all" />
+<hr class="t" />
+<br clear="all" />
+<?
+if(count($this->devices) == 0) {
+    ?>
+<div class="app">
+    <span class="mini-description">
+        No devices found.
+    </span>
+</div>
+    <?
+}
+if(!empty ($this->devices)) {
+    foreach($this->devices as $device): ?>
+        <?=$this->partial('/partials/device.phtml', array("item" => $device))?>
+    <?php endforeach; ?>
+    <?=$this->paginationControl($this->devices, 'Sliding', 'partials/paginator_devices.phtml', array('value' => $this->keyword, 'baseUrlfo' => $this->baseUrlfo))?>
+    <? } ?>

@@ -1,0 +1,107 @@
+<script type="text/javascript">
+    
+var $form_validation = jQuery.noConflict();
+
+$form_validation(document).ready(function(){
+    
+        $form_validation('#btn_submit').click(function() {
+            tinyMCE.triggerSave();
+        });
+        
+	//global vars	
+	var form = $form_validation("#frm_ticketing");
+        
+	var description = $form_validation("#txtDescription");
+        var descriptionInfo = $form_validation("#descriptionInfo");		
+	
+	//On blur
+	description.blur(validateDescription);
+        
+	//On key press
+	description.keyup(validateDescription);
+
+	//On Submitting
+	form.submit(function(){					 
+					
+		if(validateDescription())
+		{			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
+	
+	function validateDescription(){
+		//if it's NOT valid
+		if(description.val().length < 1){
+			description.addClass("error");
+			descriptionInfo.text("Please add the ticket description.");
+			descriptionInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			description.removeClass("error");
+			descriptionInfo.text("");
+			descriptionInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+});
+</script>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea"
+});
+</script>
+
+
+<form enctype="multipart/form-data" name="frm_response" id="frm_ticketing" method="post" action="/ticket/insert-response">
+    <!-- form col3-->	
+
+
+        <div align="right" class="required_wrapper">
+            <span class="required_txt_style"><?php echo $this->translate("Required Information");?> (</span><span class="form_font_red">*</span><span class="required_txt_style">)</span>
+        </div>
+
+        <br />
+
+        <div class="form_col3_class1">
+            <div class="form_col3_class1_left">
+                <span class="form_font_tel"><?php echo $this->translate("Description");?></span>
+                <span class="form_font_red">*</span>
+            </div>
+
+            <div class="form_col3_class1_right">
+                <textarea id="txtDescription" name="txtDescription" cols="80" rows="10" class="txt_area_innerform_calvalthe" style="width:100%"></textarea>
+                <br />
+                <span id="descriptionInfo"></span>
+            </div>
+        </div>	
+
+        <div class="form_col3_class1">
+            <div class="form_col3_class1_left">
+                <span class="form_font_tel"><?php echo $this->translate("Attach a file from your computer");?></span>
+                <span class="form_font_red"><?php echo $this->translate("File size");?> &lt; 2MB</span>
+            </div>
+
+            <div class="form_col3_class1_right">
+                <input type="file" name="txtAttachment"/>
+                <input type="hidden" name="MAX_FILE_SIZE" value="2048" />
+                <br />
+                <span id="nameInfo"></span>
+            </div>
+        </div>
+        <input type="hidden" name="ticketId" value ="<?= $this->tiketPartialId; ?>"/>
+        <div align="right" class="submit_btn_wrapper">
+            <input type="submit" id="btn_submit" name="btn_submit" value="<?= $this->translate("Submit");?>" class="partner_btn">
+            <input type="reset" id="btn_reset" name="btn_reset" value="<?= $this->translate("Reset");?>" class="partner_btn">
+
+       </div>
+
+
+</form>

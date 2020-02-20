@@ -1,0 +1,54 @@
+
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 12/9/13
+ * Time: 1:13 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<style type="text/css">
+    body{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    .content{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    .content-bold{
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .wraper{
+        background: #f1f1f1;
+    }
+
+    .wraper-inner{
+        padding: 10px;
+    }
+</style>
+<div style="background: #f1f1f1;"><div style="padding: 10px;">
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold;">Dear <?= $this->firstName; ?>,</p>
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif;">
+            <!--We would like to acknowledge that we have received your request and a ticket has been created with Ticket <strong>ID - #<?/*= $this->ticketId; */?></strong>.<br/>
+            A support representative will be reviewing your request and will send you a personal response.(usually within 48 hours).-->
+            un fournisseur de contenu connecté avec <?php echo $this->email; ?> a récemment modifié les détails de son produit  <strong>ID - <?php echo $this->productId; ?></strong>
+        </p>
+        <p style="font-family: Verdana, Arial, Helvllowing URL.etica, sans-serif;">
+            Pour modifier le statut de ce produit, cliquez sur l'URL suivant<br/>
+            <!--<a href="<?/*= $this->ticketUrl; */?>" target="_blank"><?/*= $this->ticketUrl; */?></a>-->
+            http://cp.nexva.com/product/edit/id/<?php echo $this->productId; ?>
+        </p>
+        <!--<p style="font-family: Verdana, Arial, Helvetica, sans-serif;">Thank you for your patience.</p>-->
+        <p style="font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold;">
+            Merci,<br/>
+            neXva System Generated mail
+        </p>
+    </div>
+</div>

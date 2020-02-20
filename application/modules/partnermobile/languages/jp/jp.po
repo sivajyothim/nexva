@@ -1,0 +1,1054 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-09-26 12:26+0530\n"
+"PO-Revision-Date: 2014-09-30 15:57+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <contentadmins@nexva.com>\n"
+"Language: farsi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: C:\\xampp\\htdocs\\nexva_new_server\\application\\modules"
+"\\partnermobile\\languages\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: jp\n"
+
+#: jp/index.phtml:1
+msgid "Please enter First Name"
+msgstr "名前を入力してください。"
+
+#: jp/index.phtml:2
+msgid "Please enter Last Name"
+msgstr "名字を入力してください。"
+
+#: jp/index.phtml:3
+msgid "Please enter your Email address"
+msgstr "メールアドレスを入力してください。"
+
+#: jp/index.phtml:4
+msgid "Please enter a valid Email address for your Email"
+msgstr "正しいメールアドレスを入力してください。"
+
+#: jp/index.phtml:5
+msgid "Please enter your Phone Number"
+msgstr "電話番号"
+
+#: jp/index.phtml:6
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr "Mobile Number cannot be less than 10 digits"
+
+#: jp/index.phtml:7
+msgid "Please enter your Password"
+msgstr "パスワードを入力してください。"
+
+#: jp/index.phtml:8
+msgid "Please confirm your Password"
+msgstr "パスワードを確認してください。"
+
+#: jp/index.phtml:9
+msgid "Password not Matching"
+msgstr "パスワードが一致しません。"
+
+#: jp/index.phtml:10
+msgid "This Email already exists"
+msgstr "そのメールアドレスはすでに登録されています。"
+
+#: jp/index.phtml:11
+msgid "You have completed your registration successfully"
+msgstr "登録が無事に完了しました。"
+
+#: jp/index.phtml:12
+msgid "This Phone Number already exists"
+msgstr "This Phone Number already exists"
+
+#: jp/index.phtml:13
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+
+#: jp/index.phtml:14
+msgid "Verification failed. verification code is incorrect"
+msgstr "認証が失敗しました。. 認証コードが間違っています。"
+
+#: jp/index.phtml:15
+msgid "You successfully completed the registration process"
+msgstr "登録手続きが無事に完了しました。"
+
+#: jp/index.phtml:16
+msgid "Already Verified User"
+msgstr "認証済みユーザー"
+
+#: jp/index.phtml:17
+msgid "The username or password you entered is incorrect"
+msgstr "ユーザーネームまたはパスワードが間違っています。"
+
+#: jp/index.phtml:18
+msgid ""
+"You have not verified your account. A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+msgstr ""
+"アカウントが認証されていません。.  A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+
+#: jp/index.phtml:19
+msgid "Please enter a valid username"
+msgstr "正しいユーザーネームを入力してください。"
+
+#: jp/index.phtml:20
+msgid "Please enter your username and password"
+msgstr "ユーザーネームとパスワードを入力してください。"
+
+#: jp/index.phtml:21
+msgid "Please enter your Mobile Number"
+msgstr "電話番号"
+
+#: jp/index.phtml:22
+msgid "Mobile Number not Matching"
+msgstr "Mobile Number not Matching"
+
+#: jp/index.phtml:23
+msgid "This number has already been used. Please try another"
+msgstr "This number has already been used. Please try another"
+
+#: jp/index.phtml:24
+msgid "Mobile number changed successfully"
+msgstr "Mobile number changed successfully"
+
+#: jp/index.phtml:25
+msgid "Please confirm your Mobile Number"
+msgstr "Please confirm your Mobile Number"
+
+#: jp/index.phtml:26
+msgid "Password reset successfully"
+msgstr "パスワードのリセットに成功しました。"
+
+#: jp/index.phtml:27
+msgid "Please enter your Email"
+msgstr "メールアドレスを入力してください。"
+
+#: jp/index.phtml:28
+msgid "User not found registered with this email"
+msgstr "このメールアドレスに該当するユーザーが見つかりません。"
+
+#: jp/index.phtml:29
+msgid "Mobile number not registered"
+msgstr "Mobile number not registered"
+
+#: jp/index.phtml:30
+msgid ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+msgstr ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+
+#: jp/index.phtml:31
+msgid "Please enter your Verification Code"
+msgstr "Please enter your Verification Code"
+
+#: jp/index.phtml:32
+msgid "Verification code is incorrect"
+msgstr "認証コードが間違っています。"
+
+#: jp/index.phtml:33
+msgid "Mobile Number not found for this user"
+msgstr "Mobile Number not found for this user"
+
+#: jp/index.phtml:34
+msgid "Email not found for this user"
+msgstr "このユーザーに該当するメールアドレスが見つかりません。"
+
+#: jp/index.phtml:35
+msgid ""
+"You have requested to resend verification code. A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+msgstr ""
+"You have requested to resend verification code.A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+
+#: jp/index.phtml:36
+msgid "Newest"
+msgstr "最新"
+
+#: jp/index.phtml:37
+msgid "Top Free"
+msgstr "無料"
+
+#: jp/index.phtml:38
+msgid "Top Paid"
+msgstr "有料"
+
+#: jp/index.phtml:39
+msgid "Top Downloads"
+msgstr "人気"
+
+#: jp/index.phtml:40
+msgid "Free"
+msgstr "無料"
+
+#: jp/index.phtml:41
+msgid "Download"
+msgstr "ダウンロード"
+
+#: jp/index.phtml:42
+msgid "Description"
+msgstr "説明"
+
+#: jp/index.phtml:43
+msgid "Screenshots"
+msgstr "スクリーンショット"
+
+#: jp/index.phtml:44
+msgid "Account"
+msgstr "アカウント"
+
+#: jp/index.phtml:45
+msgid "Updates"
+msgstr "アップデート"
+
+#: jp/index.phtml:46
+msgid "Help"
+msgstr "ヘルプ"
+
+#: jp/index.phtml:47
+msgid " HOME"
+msgstr "ホーム"
+
+#: jp/index.phtml:48
+msgid "Premium"
+msgstr "プレミアム"
+
+#: jp/index.phtml:49
+msgid "Login"
+msgstr "ログイン"
+
+#: jp/index.phtml:50
+msgid "Email"
+msgstr "メールアドレス"
+
+#: jp/index.phtml:51
+msgid "Password"
+msgstr "パスワード"
+
+#: jp/index.phtml:52
+msgid "Sign Up"
+msgstr "サインアップ"
+
+#: jp/index.phtml:53
+msgid "Sign In"
+msgstr "サインイン"
+
+#: jp/index.phtml:54
+msgid "Forgot Password?"
+msgstr "パスワードをお忘れですか？"
+
+#: jp/index.phtml:55
+msgid "Downloaded Apps"
+msgstr "ダウンロード済みアプリ"
+
+#: jp/index.phtml:56
+msgid "Reset Password"
+msgstr "パスワードをリセットする。"
+
+#: jp/index.phtml:57 jp/index.phtml:235
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr "検索条件に該当するアプリが見つかりませんでした。"
+
+#: jp/index.phtml:59
+msgid "Change Mobile"
+msgstr "Change Mobile"
+
+#: jp/index.phtml:60
+msgid "Terms & Conditions"
+msgstr "利用規約"
+
+#: jp/index.phtml:61
+msgid "Mobile Number"
+msgstr "電話番号"
+
+#: jp/index.phtml:62
+msgid "New Password"
+msgstr "新しいパスワード"
+
+#: jp/index.phtml:63
+msgid "Confirm Password"
+msgstr "パスワードを確認"
+
+#: jp/index.phtml:64
+msgid "Confirm Mobile Number"
+msgstr "Confirm Mobile Number"
+
+#: jp/index.phtml:65
+msgid "Staff Picks"
+msgstr "スタッフオススメ"
+
+#: jp/index.phtml:66
+msgid "Top Premium"
+msgstr "トッププレミアム"
+
+#: jp/index.phtml:67
+msgid "Buy"
+msgstr "購入"
+
+#: jp/index.phtml:68
+msgid "Download Started"
+msgstr "ダウンロードを開始しました。"
+
+#: jp/index.phtml:69
+msgid "Later"
+msgstr "あとで"
+
+#: jp/index.phtml:70
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr "アプリを新しいバージョンにアップデートする。機能が改善、追加されます。"
+
+#: jp/index.phtml:71
+msgid ""
+"Please use this verification code 888555 to complete your registration. "
+"\"MTN CONGO APP STORE\""
+msgstr "Please use this verification code 888555 to complete your registration"
+
+#: jp/index.phtml:72
+msgid ""
+"Please use this verification code 888666 to verify your mobile number. \"MTN "
+"CONGO APP STORE\""
+msgstr "Please use this verification code 888666 to verify your mobile number."
+
+#: jp/index.phtml:73
+msgid ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process. \"MTN CONGO APP STORE\""
+msgstr ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process."
+
+#: jp/index.phtml:74
+msgid ""
+"Please use this verification code 7878778 as you requested. \"MTN CONGO APP "
+"STORE\""
+msgstr "Please use this verification code 7878778 as you requested."
+
+#: jp/index.phtml:75
+msgid "Next"
+msgstr "次"
+
+#: jp/index.phtml:76
+msgid "Previous"
+msgstr "前"
+
+#: jp/index.phtml:77
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"アプリダウンロード時のバグ、ダウンロードが上手くいかない、間違って購入してし"
+"まった等、サービス上何かしらの問題があった場合はお問合せ下さい。48時間以内に"
+"ご連絡します。"
+
+#: jp/index.phtml:78
+msgid "We will get back to you within 48 hours."
+msgstr "We will get back to you within 48 hours."
+
+#: jp/index.phtml:79
+msgid "Verify"
+msgstr "認証する"
+
+#: jp/index.phtml:80
+msgid "Resend Verification Code"
+msgstr "Resend Verification Code"
+
+#: jp/index.phtml:81
+msgid "First Name"
+msgstr "名前"
+
+#: jp/index.phtml:82
+msgid "Last Name"
+msgstr "名字"
+
+#: jp/index.phtml:83
+msgid "Phone Number"
+msgstr "電話番号"
+
+#: jp/index.phtml:84
+msgid "Register"
+msgstr "登録"
+
+#: jp/index.phtml:85
+msgid "Verification Code"
+msgstr "認証コード"
+
+#: jp/index.phtml:86
+msgid "Change Mobile Number"
+msgstr "Change Mobile Number"
+
+#: jp/index.phtml:87
+msgid "Forgot Password"
+msgstr "パスワードをお忘れですか？"
+
+#: jp/index.phtml:88
+msgid "Request"
+msgstr "申請"
+
+#: jp/index.phtml:89
+msgid "Please use this verification code"
+msgstr "この認証コードを使ってください。"
+
+#: jp/index.phtml:90
+msgid "to complete your registration."
+msgstr "登録を完了してください。"
+
+#: jp/index.phtml:91
+msgid "to verify your mobile number."
+msgstr ""
+
+#: jp/index.phtml:92
+msgid "to complete the password resetting process."
+msgstr "パスワードのリセット手続きを完了してください。"
+
+#: jp/index.phtml:93
+msgid "as you requested."
+msgstr "ご要望通り"
+
+#: jp/index.phtml:94
+msgid "Payment was unsuceessful"
+msgstr "支払いに失敗しました。"
+
+#: jp/index.phtml:95 jp/index.phtml:181
+msgid "Have an Issue?"
+msgstr "お困りですか？"
+
+#: jp/index.phtml:96
+msgid "Featured Apps"
+msgstr "注目のアプリ"
+
+#: jp/index.phtml:97
+msgid "BOOKS & REFERENCE"
+msgstr "本・資料"
+
+#: jp/index.phtml:98
+msgid "eBooks"
+msgstr "電子ブック"
+
+#: jp/index.phtml:99
+msgid "Audio books"
+msgstr "オーディオブック"
+
+#: jp/index.phtml:100
+msgid "Reference/Dictionaries"
+msgstr "資料／辞書"
+
+#: jp/index.phtml:101
+msgid "Religion"
+msgstr "宗教"
+
+#: jp/index.phtml:102
+msgid "Comics/Manga"
+msgstr "コミック本／マンガ"
+
+#: jp/index.phtml:103
+msgid "GAMES"
+msgstr "ゲーム"
+
+#: jp/index.phtml:104
+msgid "Arcade"
+msgstr "アーケードゲーム"
+
+#: jp/index.phtml:105
+msgid "Cards"
+msgstr "カード"
+
+#: jp/index.phtml:106
+msgid "Action/Strategy"
+msgstr "アクション／戦略"
+
+#: jp/index.phtml:107
+msgid "Role Playing/Multiplayer"
+msgstr "ロールプレイング／マルチプレイヤー"
+
+#: jp/index.phtml:108
+msgid "Logic/Puzzle/Trivia"
+msgstr "ロジック／パズル／トリビア"
+
+#: jp/index.phtml:109
+msgid "Casino/Cards/Betting"
+msgstr "カジノ／カード／賭け"
+
+#: jp/index.phtml:110
+msgid "Sports"
+msgstr "スポーツ"
+
+#: jp/index.phtml:111
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "ツール・生産性"
+
+#: jp/index.phtml:112
+msgid "Utilities/Synchronization"
+msgstr "同期ツール"
+
+#: jp/index.phtml:113
+msgid "Organizers/Clocks/Desktop"
+msgstr "オーガナイザー／時計／デスクトップ画面"
+
+#: jp/index.phtml:114
+msgid "Internet/WAP"
+msgstr "インターネット／ＷＡＰ"
+
+#: jp/index.phtml:115
+msgid "Device Tools"
+msgstr "デバイスツール"
+
+#: jp/index.phtml:116
+msgid "Security/Backup"
+msgstr "セキュリティー／バックアップ"
+
+#: jp/index.phtml:117
+msgid "Developers/DB"
+msgstr "開発会社／ＤＢ"
+
+#: jp/index.phtml:118
+msgid "Office Productivity"
+msgstr "オフィス生産性"
+
+#: jp/index.phtml:119
+msgid "Graphic Tools"
+msgstr "グラフィックツール"
+
+#: jp/index.phtml:120
+msgid "BUSINESS & FINANCE"
+msgstr "ビジネス・ファイナンス"
+
+#: jp/index.phtml:121
+msgid "Accounts/Tax"
+msgstr "アカウント／税"
+
+#: jp/index.phtml:122
+msgid "Stocks/Finance"
+msgstr "在庫品／ファイナンス"
+
+#: jp/index.phtml:123
+msgid "Inventory/Sales"
+msgstr "在庫／売上"
+
+#: jp/index.phtml:124
+msgid "Currency/Convertors"
+msgstr "通貨／両替"
+
+#: jp/index.phtml:125
+msgid "TRAVEL & GPS"
+msgstr "トラベル・ＧＰＳ"
+
+#: jp/index.phtml:126
+msgid "GPS/Maps"
+msgstr "ＧＰＳ／地図"
+
+#: jp/index.phtml:127
+msgid "Weather"
+msgstr "天気"
+
+#: jp/index.phtml:128
+msgid "Search"
+msgstr "検索"
+
+#: jp/index.phtml:129
+msgid "Translation/Language"
+msgstr "翻訳／言語"
+
+#: jp/index.phtml:130
+msgid "NEWS & SPORTS"
+msgstr "ニュース・スポーツ"
+
+#: jp/index.phtml:131
+msgid "News/Magazines"
+msgstr "ニュース／雑誌"
+
+#: jp/index.phtml:132
+msgid "Sports/Teams"
+msgstr "スポーツ／チーム"
+
+#: jp/index.phtml:133
+msgid "RSS"
+msgstr "ＲＳＳ"
+
+#: jp/index.phtml:134
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "ソーシャルネットワーク・ メッセージ"
+
+#: jp/index.phtml:135
+msgid "IM/SMS/Email/VOIP"
+msgstr "IM／SMS／Email／VOIP"
+
+#: jp/index.phtml:136
+msgid "Social Networks"
+msgstr "ソーシャルネットワーク"
+
+#: jp/index.phtml:137
+msgid "Dating"
+msgstr "デート"
+
+#: jp/index.phtml:138
+msgid "Blogs/Images"
+msgstr "ブログ／写真"
+
+#: jp/index.phtml:139
+msgid "MUSIC & AUDIO"
+msgstr "音楽・オーディオ"
+
+#: jp/index.phtml:140
+msgid "Podcasts"
+msgstr "ポッドキャスト"
+
+#: jp/index.phtml:141
+msgid "MP3/Music"
+msgstr "ＭＰ３／音楽"
+
+#: jp/index.phtml:142
+msgid "Radios/Players"
+msgstr "ラジオ／プレイヤー"
+
+#: jp/index.phtml:143
+msgid "Lyrics/Bands"
+msgstr "歌詞／バンド"
+
+#: jp/index.phtml:144
+msgid "VIDEO & TV"
+msgstr "ビデオ・ テレビ"
+
+#: jp/index.phtml:145
+msgid "TV/Shows"
+msgstr "テレビ／番組"
+
+#: jp/index.phtml:146
+msgid "Movies/Trailers"
+msgstr "映画／予告編"
+
+#: jp/index.phtml:147
+msgid "players/Converters"
+msgstr "プレイヤー／コンバータ"
+
+#: jp/index.phtml:148
+msgid "LIFESTYLE & WELLNESS"
+msgstr "ライフスタイル・健康"
+
+#: jp/index.phtml:149
+msgid "Astro"
+msgstr "アストロ"
+
+#: jp/index.phtml:150
+msgid "Food/Recipes"
+msgstr "食べ物／レシピ"
+
+#: jp/index.phtml:151
+msgid "Art/Fashion"
+msgstr "芸術／ファッション"
+
+#: jp/index.phtml:152
+msgid "Hobbies/Pets"
+msgstr "趣味／ペット"
+
+#: jp/index.phtml:153
+msgid "Health/Diet/Fitness"
+msgstr "健康／ダイエット／フィットネス"
+
+#: jp/index.phtml:154
+msgid "Shopping/Brands"
+msgstr "ショッピング／ブランド"
+
+#: jp/index.phtml:155
+msgid "EDUCATION & ELEARNING"
+msgstr "教育・eラーニング"
+
+#: jp/index.phtml:156
+msgid "Medical"
+msgstr "医療"
+
+#: jp/index.phtml:157
+msgid "Language"
+msgstr "言語"
+
+#: jp/index.phtml:158
+msgid "Kids/Early learning"
+msgstr "子供／早期教育"
+
+#: jp/index.phtml:159
+msgid "University"
+msgstr "大学"
+
+#: jp/index.phtml:160
+msgid "Law"
+msgstr "法律"
+
+#: jp/index.phtml:161
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "楽しみ・エンターテインメント"
+
+#: jp/index.phtml:162
+msgid "Wallpaper/Screensavers"
+msgstr "壁紙／スクリーンセーバー"
+
+#: jp/index.phtml:163
+msgid "Personlization/Skins"
+msgstr "カスタマイズ／スキン"
+
+#: jp/index.phtml:164
+msgid "Humor/Jokes"
+msgstr "ユーモア／ジョーク"
+
+#: jp/index.phtml:165
+msgid "Ringtones"
+msgstr "着信音"
+
+#: jp/index.phtml:166
+msgid "THEMES"
+msgstr "テーマ"
+
+#: jp/index.phtml:167
+msgid "Techno"
+msgstr "テクノ"
+
+#: jp/index.phtml:168
+msgid "Rock"
+msgstr "ロック"
+
+#: jp/index.phtml:169
+msgid "Calm"
+msgstr "落ち着き"
+
+#: jp/index.phtml:170
+msgid "Arts & Crafts"
+msgstr "芸術・工芸"
+
+#: jp/index.phtml:171
+msgid "Animation"
+msgstr "アニメ"
+
+#: jp/index.phtml:172
+msgid "Category  Not Found"
+msgstr "このカテゴリーは見つかりませんでした。"
+
+#: jp/index.phtml:173
+msgid "You are not signed in yet"
+msgstr "サイインインがまだです。"
+
+#: jp/index.phtml:174
+msgid "No Match Found"
+msgstr "一致しません。"
+
+#: jp/index.phtml:175
+msgid "Ok"
+msgstr "ＯＫ"
+
+#: jp/index.phtml:176
+msgid "You haven't log in yet ? Please log in."
+msgstr "ログインがまだですか？ログインしてください。"
+
+#: jp/index.phtml:177
+msgid "Apps"
+msgstr "アプリ"
+
+#: jp/index.phtml:178
+msgid "No Data Found"
+msgstr "データが見つかりません。"
+
+#: jp/index.phtml:179
+msgid "Downloading"
+msgstr "ダウンロード中"
+
+#: jp/index.phtml:180
+msgid "You are here"
+msgstr "現在地"
+
+#: jp/index.phtml:182
+msgid "Login to add a ticket"
+msgstr "チケットを追加するにはログインしてください。"
+
+#: jp/index.phtml:183
+msgid "Please add a valid email"
+msgstr "正しいメールアドレスを入力してください。"
+
+#: jp/index.phtml:184
+msgid "Please add a valid password"
+msgstr "正しいパスワードを入力してください。"
+
+#: jp/index.phtml:185
+msgid "Click here to reset it"
+msgstr "リセットするならここをクリック。"
+
+#: jp/index.phtml:186
+msgid "Home"
+msgstr "ホーム"
+
+#: jp/index.phtml:187
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted."
+msgstr ""
+"ここにでてくる商品・ロゴ・会社はそれぞれ、所有者のトレードマークもしくはト"
+"レードネームであり、著作権に守られています。"
+
+#: jp/index.phtml:188
+msgid "Add your own review"
+msgstr "あなたのレビューを追加しよう。"
+
+#: jp/index.phtml:189
+msgid "MTN Iran App Store"
+msgstr "MTN イラン アプリストア"
+
+#: jp/index.phtml:190
+msgid "IRR"
+msgstr "IRR"
+
+#: jp/index.phtml:191
+msgid " APP"
+msgstr "APP"
+
+#: jp/index.phtml:192
+msgid "Paid"
+msgstr "支払い済"
+
+#: jp/index.phtml:193
+msgid "Mobile Number or password is incorrect"
+msgstr "メールアドレスまたはパスワードが間違っています。"
+
+#: jp/index.phtml:194
+msgid "Mobile"
+msgstr "電話番号"
+
+#: jp/index.phtml:195
+msgid "Newest Apps"
+msgstr "最新のアプリ"
+
+#: jp/index.phtml:196
+msgid "Search Results for"
+msgstr "次の言葉の検索結果を表示しています。"
+
+#: jp/index.phtml:197
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"登録時のメールアドレスを入力してください。パスワードリセット用のリンクを送り"
+"ます。"
+
+#: jp/index.phtml:198
+msgid "Reset your password"
+msgstr "パスワードをリセット。"
+
+#: jp/index.phtml:199
+msgid "Required infromation"
+msgstr "必要な情報"
+
+#: jp/index.phtml:200
+msgid "Enter Captcha"
+msgstr "キャプチャを入力してください。"
+
+#: jp/index.phtml:201
+msgid "Powered by"
+msgstr "Powered by"
+
+#: jp/index.phtml:202
+msgid "The security key wasn't entered correctly"
+msgstr "セキュリティキーの入力が間違っています。"
+
+#: jp/index.phtml:203
+msgid "Please try again"
+msgstr "再度お試し下さい。"
+
+#: jp/index.phtml:204
+msgid "Reset"
+msgstr "リセット"
+
+#: jp/index.phtml:205
+msgid "Info"
+msgstr "インフォメーション"
+
+#: jp/index.phtml:206
+msgid "The email you supplied was not found"
+msgstr "メールアドレスが見つかりませんでした。"
+
+#: jp/index.phtml:207
+msgid "Username or password is incorrect"
+msgstr "メールアドレスまたはパスワードが間違っています。"
+
+#: jp/index.phtml:208
+msgid "Add a ticket"
+msgstr "問い合わせを追加"
+
+#: jp/index.phtml:209
+msgid "View my ticket"
+msgstr "問い合わせ履歴を見る"
+
+#: jp/index.phtml:210
+msgid "Subject"
+msgstr "件名"
+
+#: jp/index.phtml:211
+msgid "Type"
+msgstr "タイプ"
+
+#: jp/index.phtml:212
+msgid "Priority"
+msgstr "優先順位"
+
+#: jp/index.phtml:213
+msgid "Select Type"
+msgstr "種類を選択"
+
+#: jp/index.phtml:214
+msgid "Question"
+msgstr "質問"
+
+#: jp/index.phtml:215
+msgid "Incident"
+msgstr "障害"
+
+#: jp/index.phtml:216
+msgid "Problem"
+msgstr "問題"
+
+#: jp/index.phtml:217
+msgid "Feature"
+msgstr "注目"
+
+#: jp/index.phtml:218
+msgid "Select Priority"
+msgstr "検索条件を選択"
+
+#: jp/index.phtml:219
+msgid "Low"
+msgstr "低い"
+
+#: jp/index.phtml:220
+msgid "Medium"
+msgstr "中間"
+
+#: jp/index.phtml:221
+msgid "High"
+msgstr "高い"
+
+#: jp/index.phtml:222
+msgid "Urgent"
+msgstr "緊急"
+
+#: jp/index.phtml:223
+msgid "Your ticket submitted successfully"
+msgstr "あなたの問い合わせが投稿されました。"
+
+#: jp/index.phtml:224
+msgid "Your response submitted successfully"
+msgstr "あなたの問い合わせが無事に送信されました。"
+
+#: jp/index.phtml:225
+msgid "Responces"
+msgstr "回答"
+
+#: jp/index.phtml:226
+msgid "No Response found"
+msgstr "回答が見つかりません。"
+
+#: jp/index.phtml:227
+msgid "Reply"
+msgstr "返信"
+
+#: jp/index.phtml:228
+msgid "Submit"
+msgstr "投稿"
+
+#: jp/index.phtml:229
+msgid "Platforms"
+msgstr "プラットフォーム"
+
+#: jp/index.phtml:230
+msgid "PLEASE SELECT YOUR PLATFORM"
+msgstr "あなたのプラットフォームを選択してください。"
+
+#: jp/index.phtml:231
+msgid "Register on"
+msgstr "登録"
+
+#: jp/index.phtml:232
+msgid "PLEASE SELECT"
+msgstr "選択してください。"
+
+#: jp/index.phtml:233
+msgid "Android App"
+msgstr "アンドロイドアプリ"
+
+#: jp/index.phtml:234
+msgid "Mobile Web"
+msgstr "モバイルウェブ"
+
+#: jp/index.phtml:236
+msgid "The mobile number or password you entered is incorrect"
+msgstr "メールアドレスまたはパスワードが間違っています。"
+
+#: jp/index.phtml:237
+msgid "Open"
+msgstr "Open"
+
+#: jp/index.phtml:238
+msgid "View my Tickets"
+msgstr "問い合わせ履歴を見る"
+
+#: jp/index.phtml:239
+msgid "ticket"
+msgstr "ticket"
+
+#: jp/index.phtml:240
+msgid "Please add a subject"
+msgstr "Please add a subject"
+
+#: jp/index.phtml:241
+msgid "Please select a type"
+msgstr "種類を選択"
+
+#: jp/index.phtml:242
+msgid "Please select a priority"
+msgstr "Please select a priority"
+
+#: jp/index.phtml:243
+msgid "dashboard"
+msgstr "dashboard"
+
+#: jp/index.phtml:244
+msgid "The email or password you entered is incorrect"
+msgstr "メールアドレスまたはパスワードが間違っています。"
+
+#: jp/index.phtml:245
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+"アプリダウンロード時のバグ、ダウンロードが上手くいかない、間違って購入してし"
+"まった等、サービス上何かしらの問題があった場合はお問合せ下さい。"
+
+#: jp/index.phtml:246
+msgid "Download Store"
+msgstr "ストアアプリ"
+
+#~ msgid "No apps found under this category"
+#~ msgstr "選択されたカテゴリーに該当するアプリはありませんでした。"
+
+#~ msgid " HOME "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "HOME"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Home "
+#~ msgstr "صفحه اصلی"
+
+#~ msgid " Home"
+#~ msgstr "صفحه اصلی"

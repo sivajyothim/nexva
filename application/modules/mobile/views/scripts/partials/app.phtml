@@ -1,0 +1,42 @@
+<?
+// get the device name
+$deviceSession = new Zend_Session_Namespace('Device');
+$deviceName = $deviceSession->deviceName;
+?>
+<div class="app">
+  <!-- <a href="/<?= $this->slug($this->item['name'] . ' for ' . $deviceName) . '.' . $this->item['id'] ?>/#content"> -->
+    <a href="<?php echo PROJECT_BASEPATH;?>app/show/id/<?= $this->item['id'] ?>/">
+        <span class="other">
+            <?= $this->thumbnail($this->item['thumb'], array('w' => 50, 'h' => 50)); ?>
+            <br/>
+
+            <!-- Adding some intial values to the download coun view counts -->
+            <? //= ($this->item['hits'] > 0 ) ? (strrev(substr(sprintf("%03d", $this->item['id']), 1)) + $this->item['hits']) . ' hits<br/>' : strrev(substr(sprintf("%03d", $this->item['id']), 1)) . ' hits<br/>' ?>
+            <!--
+            <span class="stars">
+                <img src="#" class="icon-star-4" alt="rating 4" />
+            </span>
+            -->
+        </span>
+        <strong><?= $this->trim($this->item['name'], 30) ?></strong>
+        <?= $this->trim($this->item['desc_brief'], 150);  ?><br/>
+        <span class="mini-description">
+            <?= isset($this->item['user_meta']) ? $this->item['user_meta']->COMPANY_NAME : '' ?><? //= $this->trim($this->item['desc'], 200)  ?>
+          
+            
+           | <b><?= ($this->item['cost'] == 0) ? 'Free' : '$' . $this->item['cost'] ?></b>
+            
+             <?// if($this->item['cost'] > 0 ) :  ?>  
+             
+                <?//=$this->downloadStats($this->item['id']) . ' downloads<br/>'?>  
+             
+             <?// else: ?>     
+            
+                <?//= ($this->item['hits'] > 0 ) ? (strrev(substr(sprintf("%03d", $this->item['id']), 1)) + $this->item['hits']) . ' downloads<br/>' : strrev(substr(sprintf("%03d", $this->item['id']), 1)) . ' downloads<br/>' ?>
+             
+             <?// endif;  ?>  
+       
+       
+        </span>
+    </a>
+</div>

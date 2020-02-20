@@ -1,0 +1,46 @@
+﻿/* @font-face {
+	font-family: 'QuicksandLight';
+	src: url('Quicksand_Light-webfont.eot');
+	src: local('☺'), url('Quicksand_Light-webfont.woff') format('woff'), url('Quicksand_Light-webfont.ttf') format('truetype'), url('Quicksand_Light-webfont.svg#webfontxOK7zMuM') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}*/
+
+
+/*@font-face {
+	font-family: 'Quicksand_Light-webfont';
+	src: url('Quicksand_Light-webfont.ttf');
+	src: local('☺'), url('Quicksand_Light-webfont.ttf') format('woff'), url('Quicksand_Light-webfont.ttf') format('truetype'), url('Quicksand_Light-webfont.svg#webfontxOK7zMuM') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}*/
+
+/*@font-face {  
+	  font-family: " Quicksand_Light-webfont ";  
+	  src: url( C:/Inetpub/wwwroot/Scripts/niceforms-v2.0/white/formimages/Quicksand_Light-webfont.ttf ); 
+	  src: local(" Quicksand_Light-webfont "), url( C:/Inetpub/wwwroot/Scripts/white/formimages/Quicksand_Light-webfont.ttf ) format("svg"); 
+	} */
+	
+	
+
+h1{
+	font:25px/1 'Quicksand book';
+	text-rendering: optimizelegibility;	
+	margin: 0 0 15px;
+	text-align: left;
+/*	font-weight:normal;*/
+	letter-spacing:-0.1em;
+	text-decoration : underline;
+}
+
+/* FOR IE */
+@font-face {
+	font-family: 'Quicksand book';
+/*	src: url('quicksand-book.eot');*/
+    src: url('Quicksand Book.otf');
+}
+/* FOR NON-IE */
+@font-face {
+	font-family: 'Quicksand';
+	src: local('☺'),  url('Quicksand Book.otf') format('truetype'), url('Quicksand Book.otf') format('woff'), url('Quicksand.svg#quicksand_book') format('svg'); }
+

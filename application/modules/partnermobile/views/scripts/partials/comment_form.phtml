@@ -1,0 +1,61 @@
+<script type="text/javascript">
+    
+var $form_validation = jQuery.noConflict();
+
+$form_validation(document).ready(function(){
+        
+	//global vars	
+	var form = $form_validation("#frm_ticketing");
+        
+	var description = $form_validation("#txtDescription");
+        var descriptionInfo = $form_validation("#descriptionInfo");		
+	
+	//On blur
+	description.blur(validateDescription);
+        
+	//On key press
+	description.keyup(validateDescription);
+
+	//On Submitting
+	form.submit(function(){					 
+					
+		if(validateDescription())
+		{			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
+	
+	function validateDescription(){
+		//if it's NOT valid
+		if(description.val().length < 1){
+			description.addClass("error");
+			descriptionInfo.text("Please add the ticket description.");
+			descriptionInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			description.removeClass("error");
+			descriptionInfo.text("");
+			descriptionInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+});
+</script>
+
+<form name="frm_response" id="frm_ticketing" method="post" action="/ticket/insert-response"  data-ajax="false">
+<!-- form col3-->	
+
+<fieldset data-role="fieldcontain">
+        <label for="txtDescription"><?php echo $this->translate("Description");?> :</label>
+        <textarea style="min-height: 150px;" rows="10" name="txtDescription" id="txtDescription"><?= (isset($this->txtDescription)) ? $this->txtDescription : ''; ?></textarea>
+        </fieldset>
+        <input type="hidden" name="ticketId" value ="<?= $this->tiketPartialId; ?>"/>
+        <input data-theme="c" type="submit" value="<?php echo $this->translate("Submit");?>"/>
+</form>

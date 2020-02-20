@@ -1,0 +1,208 @@
+<div class="title">
+    <h3><?php echo $this->translate("Content Submit and Confirm");?></h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+Showing error/info messages
+TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+            
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+           
+            
+            
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div class="info_title">
+            <h3><?php echo $this->translate("Basic content details");?> </h3><strong>
+            
+            <?php if($this->inapp ): ?>
+                <a href="<?php echo PROJECT_BASEPATH;?>product/editinapp/id/<?=$this->productid?>">[<?php echo $this->translate("EDIT");?>]</a>
+             <?php else: ?>
+                <a href="<?php echo PROJECT_BASEPATH;?>product/edit/id/<?=$this->productid?>/6/1/review/1">[<?php echo $this->translate("EDIT");?>]</a>
+            <?php endif; ?>
+                                              
+            </strong>
+        </div>
+        <div>
+            <table>
+                <?php
+                $basicInfo = $this->basicinfo;
+                unset($basicInfo['thumbnail']);
+                unset($basicInfo['registration_model']);
+                unset($basicInfo['product_type']);
+                // unset some unwanted variables
+                foreach($basicInfo as $key => $info) {
+                    if($key == 'content_provider')
+                        $info = '<a href="#">' . $info . '</a>';
+                    echo $this->partial('partials/row-details.phtml', array("info" => $info, 'name' => $key));
+                }
+                ?>
+            </table>
+        </div>
+
+
+     <?php if(!$this->inapp): ?>
+
+        <div class="info_title">
+            <h3>Content Visuals</h3><strong><a href="<?php echo PROJECT_BASEPATH;?>product/edit/id/<?=$this->productid?>/6/2/review/2">[<?php echo $this->translate("EDIT");?>]</a></strong>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <?php
+                        $viaualPath = Zend_Registry::get('config')->product->visuals->dirpath;
+                        $thumbnail = $this->basicinfo;
+                        ?>
+                        <?=!empty($thumbnail['thumbnail']) ? $this->thumbnail($viaualPath . '/' .$thumbnail['thumbnail'], array('w'=>80, 'h'=>80)) : '<p style="color: red">Warning! Please upload a thumbnail!.</p>';?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <?php
+                        $visuals = array();
+                        $visuals = $this->visuals;
+                        if(empty($visuals)):
+                            ?>
+                        <p style="color: red"><?php echo $this->translate("Warning! Please upload atleast one screenshot!");?>.</p>
+                        <? endif;
+                        if(is_array($visuals))
+                            foreach($visuals as $id => $image): ?>
+                                <?=$this->thumbnail($viaualPath . '/' . $image, array('w'=>128));?>
+                            <?php endforeach; ?>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+
+        <div class="info_title">
+            <h3><?php echo $this->translate("Content Categories");?></h3><strong> <a href="<?php echo PROJECT_BASEPATH;?>product/edit/id/<?=$this->productid?>/6/1/review/1">[<?php echo $this->translate("EDIT");?>]</a></strong>
+        </div>
+        <div>
+            <br/>
+     
+                <?php
+                $categories = null;
+                $categories = $this->categories;
+                $parent = $categories[0];
+                $selectedCategory = $this->categorySelected;
+//                print_r($selectedCategory);
+//                echo count($selectedCategory);
+                if(empty($selectedCategory)):
+                    ?>
+                <p style="color: red"><?php echo $this->translate("Warning! Please select at least one category!");?>.</p>
+                <? else: ?>
+
+                <?php foreach ($parent as $id => $name): ?>
+
+                        <?php
+//                        echo $id;
+                        if(is_array($selectedCategory))
+                            if(!key_exists($id, $selectedCategory))
+                                continue;
+                        $parent = new stdClass();
+                        $parent->id = $id;
+                        $parent->name = '<b>' . $name . '</b>' ;
+                        $parent->class = 'parent';
+                        if(is_array($selectedCategory))
+                            $parent->checked = (key_exists($id, $selectedCategory)) ? 'checked' : '';
+                        ?>
+                        <?//=$parent->name;?>
+                        <?//=$this->partial('partials/checkbox.phtml', array("checkbox" => $parent));?>
+                 
+                            <?php foreach ($categories[$id] as $id => $name): ?>
+           
+                                    <?php
+//                                    echo $id;
+                                    if(is_array($selectedCategory))
+                                    if(!key_exists($id, $selectedCategory))
+                                        continue;
+                                    $child = new stdClass();
+                                    $child->id = $id;
+                                    $child->name = $name;
+                                    $child->class = 'child';
+                                    $child->checked = (key_exists($id, $selectedCategory)) ? 'checked' : '';
+                                    ?>
+                                    
+                                    <?=$parent->name;?> - <?=$child->name;?>
+                                    <?//=$this->partial('partials/checkbox.phtml', array("checkbox" => $child));?>
+          
+                            <?php endforeach; ?>
+           
+   
+                <?php endforeach; ?>
+                <? endif; ?>
+
+            <br/>       <br/>
+        </div>
+
+        <div class="info_title">
+            <h3><?php echo $this->translate("Content Builds");?></h3>
+        </div>
+        <div>
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                                                        <th width="20%"><?php echo $this->translate("Build");?> </th>
+                                                        <th style="vertical-align: top"><?php echo $this->translate("Devices");?> </th>
+                                                        <th style="vertical-align: top" width="10%"><?php echo $this->translate("Status");?> </th>
+                                                        <th style="vertical-align: top" width="10%"><?php echo $this->translate("Operations");?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?
+                    $files = $this->files;
+                                                $devices = $this->devices;
+                                                foreach ($this->builds as $build):
+//                            echo $build->id;
+                        $file = $files[$build->id];
+                                                    $devies = $devices[$build->id];
+                        ?>
+                    <?= $this->partial('partials/build-row.phtml', array("row" => $build, "files" => $file, "devices" => $devices)); ?>
+                    <? endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="info_title">
+            <h3><?php echo $this->translate("Content Registration Details");?></h3><strong><a href="<?php echo PROJECT_BASEPATH;?>product/edit/id/<?=$this->productid?>/6/3/review/3">[<?php echo $this->translate("EDIT");?>]</a></strong>
+        </div>
+        <div>
+            <table>
+                <?php
+                $regInfo = $this->basicinfo;
+                $registration['product_type'] = $regInfo['product_type'];
+                $registration['registration_model'] = $regInfo['registration_model'];
+                foreach($registration as $key => $info) {
+                    if(empty($info))
+                        continue;
+                    echo $this->partial('partials/row-details.phtml', array("info" => $info, 'name' => $key));
+                }
+                ?>
+            </table>
+        </div>
+        <form action="/product/display/id/<?=$this->productid?>" method="post" name="save">
+            <fieldset>
+                <input type="hidden" value="<?=$this->productid?>" name="product_id" id="product_id">
+                <input type="submit" name="submit" id="submit" value="<?php echo $this->translate("Confirm and Save");?>" class="txt-input small confirm">
+            </fieldset>
+        </form>
+    </div>
+    <?php endif; ?>
+
+    
+    
+</div>

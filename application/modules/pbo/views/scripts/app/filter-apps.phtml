@@ -1,0 +1,372 @@
+<script type="text/javascript" src="<?php echo PBO_PROJECT_BASEPATH;?>js/jeditable.js"></script>
+<script type="text/javascript" language="javascript">
+
+    $(document).ready(function()
+    {
+        //Auto complete for search apps
+        /*$('#txtSearchKey').autocomplete({
+            //source:availableTags
+            source: function( request, response ) {
+                $.ajax({
+                    url: "/app/get-serialised-app-names-for-filter",
+                    dataType: "json",
+                    data: {q: $('#txtSearchKey').val(),platform: $('#platform').val(),language: $('#language').val(),price: $('#chkPriceFilter').val(),category: $('#chkCategory').val()},
+                    success: function(data) {
+                        if(data.length == 0)
+                        {  
+                            $('#txtSearchKey').val('No apps found');
+                            $('#txtSearchKey').removeClass('ui-autocomplete-loading');
+                            //$('.ui-autocomplete').hide();
+                            return false                                
+                        }
+                        else
+                        {
+                            response($.map(data, function(item) {
+                                return {
+                                    label: item.name,
+                                    id: item.id
+                                };
+                            }));
+                        }
+                        
+                    }
+                });
+            },
+            minLength: 1
+        });*/
+        
+        //When Filter dropdown value changes
+        $('#chkPriceFilter').change(function()
+        {
+            $('#frmFilterApps').submit();
+        });
+
+        //When Filter dropdown value changes
+        $('#chkCategory').change(function()
+        {
+            $('#frmFilterApps').submit();
+        });
+
+        //When button clicks
+        $('#btnSubmit').click(function()
+        {
+            $('#frmFilterApps').submit();
+        });
+
+        //inline edit
+        $(".edit").editable('/app/google-play-downloads',{
+            event: 'dblclick',
+            indicator : 'Saving...',
+            tooltip   : 'Double Click to edit...',
+            select : true
+        });
+
+        //platform select drop down
+        $("#platform").change(function(){
+            $('#frmFilterApps').submit();
+        });
+
+        $("#language").change(function(){
+            $('#frmFilterApps').submit();
+        });
+
+        $("#grade").change(function(){
+            $('#frmFilterApps').submit();
+        });
+
+
+
+    });
+    
+    // For single app
+    function confirmAddApps(appId, prams, curPage)
+    {
+        var answer = confirm("Are you sure want to add this app to your store?");
+        
+        if (answer){
+            //return true;
+            var link = '<?php echo PBO_PROJECT_BASEPATH;?>'+'/app/add-to-store/id/'+appId+'/'+prams+'/page/'+curPage;
+            //alert(link);
+            window.location.href = link;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    // For multiple apps
+    function confirmAddAllApps()
+    {
+        var atLeastOneIsChecked = $('input[name="chk[]"]:checked').length > 0;
+        
+        if (atLeastOneIsChecked){
+
+            var answer = confirm("Are you sure want to add the selected apps to your store?");
+
+            if (answer){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
+</script>
+<?php $currency = $this->ChangeCurrency($this->chap_id); //$this->chap_id?>
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+
+        <div id="icon_wrapper">
+            <a href="<?php echo PBO_PROJECT_BASEPATH;?>app" alt="Manage Apps"> <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/app-manager-small.png" alt="Manage Apps" /><br />
+                Manage Apps</a>
+        </div>
+
+    </div> <!-- End .content-box-header -->
+
+    <div class="content-box-content">
+
+        <div style="width:99%;float: right;">
+
+            <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>app/filter-apps" id="frmFilterApps" name="frmFilterApps" class="pbo-admin-form">
+                
+                <div class="form-block-2">
+                    <label>App :</label>
+                    <input id="txtSearchKey" name="txtSearchKey" class="text-input" type="text" name="small-input" value="<?= !isset($this->searchVal) ? '' : $this->escape($this->searchVal); ?>" />
+                    <input type="button" value="Search" class="button" name="btnSubmit" id="btnSubmit" />
+                </div>
+                
+                <div class="form-block-1">
+                    <label>Platforms:</label>
+                    <select name="platform" id="platform" class="chkbox">
+                        <option value="">All</option>
+                        <?php foreach($this->platforms as $platform)
+                        { ?>
+                            <option value="<?php echo $platform->id;?>" <?php echo ($this->platform == $platform->id)?'selected="selected"':'';?> ><?php echo $platform->name;?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <div class="form-block-1">
+                    <label for="language">Language:</label>
+                    <select name="language" id="language" >
+                        <option value="">All</option>
+                        <?php foreach($this->languages as $language)
+                        { ?>
+                            <option value="<?php echo $language->id;?>"  <?php echo ($this->language == $language->id)?'selected="selected"':'';?>><?php echo $language->common_name;?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
+                <!--<div style="float:left; width:10%; position: relative; left:15%;">
+                    <label style="position: relative; top: 30px">Filter:</label>
+                </div>-->
+
+                <div class="form-block-1">
+                    <label>Price :</label>
+                    <select name="chkPriceFilter" id="chkPriceFilter" class="chkbox">
+                        <option value="all" <?= ($this->priceFilterVal == 'all') ? 'selected = "selected"' : '' ?> >All</option>
+                        <option value="free" <?= ($this->priceFilterVal == 'free') ? 'selected = "selected"' : '' ?> >Free</option>
+                        <option value="premium" <?= ($this->priceFilterVal == 'premium') ? 'selected = "selected"' : '' ?> >Premium</option>
+                    </select>
+                </div>
+
+               <div class="form-block-1">
+                    <label>Category :</label>
+                    <select name="chkCategory" id="chkCategory" class="chkbox">
+                        <option value="all" <?= ($this->catFilterVal == 'all') ? 'selected= "selected"' : '' ?> >All</option>
+                        <?php /*foreach ($this->categories as $category) : */?><!--
+                            <option value="<?/*= $category->id */?>" <?/*= ($this->catFilterVal == $category->id) ? 'selected="selected"' : '' */?> ><?/*= $category->name */?></option>
+                        --><?php /*endforeach; */?>
+                        <?php $categoryModel = new Pbo_Model_ChapCategories();
+                        foreach($this->categories as $category) {
+                            if($category->parent_id == 0){ ?>
+                                <option value="<?php echo $category->id;?>" disabled="disabled"><?php echo $category->name;?></option>
+                                <?php $subCategories = $categoryModel->getSubCategoriesForParentCategory($category->id,$this->chap_id);
+                                foreach($subCategories as $subCategory){
+                                    if($subCategory->chap_category_status){ ?>
+                                        <option value="<?php echo $subCategory->id;?>" <?php echo ($this->catFilterVal == $subCategory->id)?'selected="selected"':'';  ?>>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo mb_convert_encoding($subCategory->name,"HTML-ENTITIES","UTF-8");?></option>
+                                    <?php }
+                                }
+                            }
+                        } ?>
+                    </select>
+                </div>
+
+                <?php if('81604' == $this->chap_id){ //grade filtering is only available for qelasy
+                    ?>
+                    <div class="form-block-1">
+                        <label for="grade">Grade:</label>
+                        <select name="grade" id="grade" >
+                            <option value="">All</option>
+                            <?php foreach($this->grades as $grade) { ?>
+                                <option value="<?php echo $grade->id;?>"  <?php echo ($this->grade == $grade->id)?'selected="selected"':'';?> ><?php echo utf8_decode($grade->name).' - '.(($grade->institiute_name) ? $grade->institiute_name : '[Standard Grade]') ;?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                <?php } ?>
+             
+            </form>
+        </div>
+
+        <div class="clear"></div>
+        <br /><br />
+
+        <!-- Displays Message/s -->
+
+        <?php if (count($this->messages)) : ?>
+
+            <div class="notification success png_bg">
+                <div>
+
+                    <?php foreach ($this->messages as $message) : ?>
+
+                        <li><?php echo $this->escape($message); ?></li>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+        <!--<div id="success-message">
+
+        <!-- Displays Error Message/s -->
+
+        <?php if (count($this->errorMessages)) : ?>
+
+            <div class="notification error png_bg">
+                <div>
+
+                    <?php foreach ($this->errorMessages as $message) : ?>
+
+                        <li><?php echo $this->escape($message); ?></li>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+        <!--<div id="success-message">
+        
+        </div>-->
+
+        <? if($this->showResults == 'true' ) : ?>
+        
+            <?php
+                $data = array(
+                    "price_filter" => ($this->priceFilterVal) ? $this->priceFilterVal : 'all',
+                    "cat_filter" => ($this->catFilterVal) ? $this->catFilterVal : 'all',
+                    "search_key" => ($this->searchVal) ? $this->searchVal : '',
+                    "platform" => ($this->platform) ? $this->platform: '',
+                    "language" => ($this->language) ? $this->language: '',
+                    "grade"  =>  ($this->grade) ? $this->grade : ''
+                );
+                
+               $prams =  $this->ImplodeAssociativeArray($data, '/', '/');
+               //echo $this->ImplodeAssociativeArray($data, '/', '/'); die();
+               //echo implode(',', array_keys($data)); die();
+            ?>
+
+        <form id="add-all-form" name="add-all-form" action="<?php echo PBO_PROJECT_BASEPATH;?>app/add-bulk/<?= $prams; ?>/page/<?= $this->currentPage; ?>" method="post" onsubmit="return confirmAddAllApps()">
+                <table style="width:97%; margin-left: 15px;" border="0">
+                    <thead>
+                    <tr>
+                        <th><input class="check-all" type="checkbox"></th>
+                        <th style="text-align: center">Image</th>
+                        <th>App</th>
+                        <th>Vendor</th>
+                        <th style="width:10%;">Platform</th>
+                        <th valign="top">Local Price</th>
+                        <th>Price ($)</th>
+                        <th>Category</th>
+                        <th>Date Created</th>
+                        <th>Add to Our Store</th>
+                        <?php if(81604 == $this->chap_id) { ?><th>Android Link</th><?php } ?>
+                        <th>Google Play Count</th>
+                    </tr>
+                    </thead>
+                    <tbody id="app-table">
+                    <?
+                    $url = $this->serverUrl();
+                    $url = substr($url,11);
+                    foreach ($this->apps as $app):
+                        ?>
+                        <tr id="app_<?php echo $app['id'];?>">
+                            <td><input id="chk" name="chk[]" value="<?php echo $app['id'];?>" type="checkbox" /></td>
+                            <td valign="center">
+                                <img src="<?= "http://thor.nexva.com/vendors/phpThumb/phpThumb.php?src=/product_visuals/production/" . $app['thumbnail'] . "&w=25&h=25&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" alt="app_image" />
+                            </td>
+                            <td valign="top"><a href="http://<?= $url.'/'.$app['id'] ?>" target="_blank"><?= $app->name ?></a></td>
+                            <td valign="top"><?= $this->vendor($app->user_id); ?></td>
+                            <td>
+                                <?php $platforms = $this->supportedPlatforms($app['id']);
+                                foreach($platforms as $platform)
+                                { ?>
+                                    <img src="<?php echo PBO_PROJECT_BASEPATH;?>images/platforms/<?php echo $platform->id;?>.png" title="<?php echo $platform->name;?>"/>
+                                <?php } ?>
+                            </td>
+                            <td valign="top"><?=$this->CurrencyConvertPricePoints($app->price); ?></td>
+                            <td valign="top"><?= $app->price ?></td>
+                            <td valign="top"><?= $app->cat_name ?></td>
+                            <td valign="top"><?= $app->created_date ?></td>
+                            <td valign="top" style="text-align: center">
+                               <?php /* commented for add the through js  <a href="<?php echo PROJECT_BASEPATH;?>app/add-to-store/id/<?= $app['id'] ?>/<?= $prams; ?>/page/<?= $this->currentPage; ?>" title="Add to store")"> */ ?>
+                                <a href="#" title="Add to store"  onclick="confirmAddApps('<?= $app['id'] ?>','<?= $prams; ?>','<?= $this->currentPage; ?>')">
+                                    <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH;?>images/icons/addto-store.png" alt="Add to store" />
+                                </a>
+                            </td>
+                        <?php if(81604 == $this->chap_id) { ?>
+                            <td valign="top" style="text-align:center;width:15%;">
+                        <?php
+                            //Get the S3 URL of the Relevant build
+                            $productDownloadCls = new Nexva_Api_ProductDownload();
+                            //$app['id'],'-',$app['build_id'];
+                            $buildUrl = $productDownloadCls->getBuildFileUrl($app['id'], $app['build_id']);
+
+                            $platforms = $this->supportedPlatforms($app['id']);
+                            foreach($platforms as $platform) {
+                                if(12 == $platform->id){ ?>
+                                    <a target="_blank" href="<?php echo $buildUrl;?>">Download</a>
+                            <?php  }
+                                }  ?>
+                            </td>
+                            <?php } ?>
+                            <td valign="top" style="text-align:center;width:15%;">
+                                <p id="<?php echo $app['id'];?>" class="edit"><?php echo $app->google_download_count;?></p>
+                            </td>
+                        </tr>
+                    <? endforeach; ?>
+                    </tbody>
+                </table>
+                <div style="float:left; width:60px; position: relative; left: 15px">
+                    <input style="position: relative; top: 25px" type="submit" value="Add All" class="button" name="add-all" id="add-all"/>
+                </div>
+            </form>
+
+            <br />
+
+            <?= $this->paginationControl($this->apps, 'Sliding', 'partials/pagination-filter-apps.phtml', $data); ?>
+
+            <br />
+
+        <? else : ?>
+
+            <p>No Records Found. </p>
+            <br /><br />
+
+        <? endif ; ?>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $('#2').addClass('current');
+    $('#22').addClass('current');
+</script>

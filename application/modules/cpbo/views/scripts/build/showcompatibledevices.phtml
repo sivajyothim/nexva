@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <link href="/web/nexva.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="prodView">
+      <div class="description">
+        <h3><?php echo $this->translate("Compatible Devices")?></h3>
+        <div class="table">
+          <?
+          $i = 0;
+          $count = count($this->productCompatibleDevices);
+          $currentDeviceBrand = "";
+          $models = "";
+          ?>
+          <table>
+            <? foreach ($this->productCompatibleDevices as $device): ?>
+              <tr class="<? if (0 == $i)
+                echo 'first' ?> <? if ($i == $count - 1)
+                  echo 'last' ?>"><th><?= $device->brand ?></th><td><?= $device->models ?></td></tr>
+                <? $i++; ?>
+                <? endforeach; ?>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

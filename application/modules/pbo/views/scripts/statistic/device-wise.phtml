@@ -1,0 +1,177 @@
+<script type="text/javascript" language="javascript">
+
+$(document).ready(function()
+{
+    //Auto complete for search devices
+    $('#txtSearchKey').autocomplete({
+        //source:availableTags
+        source: function( request, response ) {
+            $.ajax({
+                url: "/statistic/get-device-names",
+                dataType: "json",
+                data: {q: $('#txtSearchKey').val()},
+                success: function(data) {
+                    if(data.length == 0)
+                    {  
+                        $('#txtSearchKey').val('No devices found');
+                        $('#txtSearchKey').removeClass('ui-autocomplete-loading');
+                        //$('.ui-autocomplete').hide();
+                        return false                                
+                    }
+                    else
+                    {
+                        response($.map(data, function(item) {
+                            return {
+                                label: item.brand+' - '+item.model,
+                                id: item.id
+                            };
+                        }));
+                    }
+
+                }
+            });
+        },
+        minLength: 1
+    });
+ });
+</script>
+        
+<script type="text/javascript" language="javascript">
+function get_device_apps(contentId)
+{
+    $("#apps").html('');
+    $("#preloader").removeClass('display_none');
+
+             $.getJSON("/app/get-apps-by-device",
+             {
+                    id : contentId                    
+             },            
+             function(data) 
+             {                 
+                 if(data.length >0) 
+                 {
+                    var apps = '';
+                     
+                    $.each(data, function()
+                    {
+                        apps += "<p>"+this['date']+" - "+this['name']+"</p>";                       
+
+                    });                 
+                    
+                 }
+                 else
+                 {
+                    apps = "<p>No records found.</p>";
+                 }
+                 
+                    $("#preloader").addClass('display_none');
+                    $("#apps").html(apps);
+            });
+
+}
+
+function load_poup_box(contentId)
+{   
+    
+      $("#apps_"+contentId).fancybox({            
+                'titleShow'     : false,
+                'padding'	: 0,
+                'transitionIn'	: 'elastic',
+                'transitionOut'	: 'elastic',
+                'autoDimensions': false, 
+                'width'		: 300, 
+                'height'	: 550,
+                'showCloseButton' : true,
+                'hideOnOverlayClick' : false            
+            });
+}
+</script>
+
+
+<!-- Pop-up window for displaying apps downloaded by the users -->
+<?=$this->partial('partials/downloaded_apps_device.phtml')?>
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+        
+         <div id="icon_wrapper">
+            
+        </div>
+
+    </div> <!-- End .content-box-header -->
+
+<div class="content-box-content">
+    
+    <div style="width:99%;float: right;">
+
+    <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>statistic/device-wise/" id="frmManageApps" name="frmManageApps" class="pbo-admin-form">
+        <div class="form-block-2">
+            <label>Device :</label>
+            <input type="text" class="text-input" id="txtSearchKey" name="txtSearchKey" value="<?= isset($this->txtSearchKey) ? $this->txtSearchKey : '' ?>" />
+            <input type="submit" value="Search" name="btnSubmit" id="btnSubmit" class="button" />
+        </div>
+    </form>
+
+</div>
+
+<div class="clear"></div>
+<br /><br />
+
+        <? if($this->showResults == 'true' ) : ?>
+    
+    
+        <table style="width:60%; margin-left: 15px;" border="0">
+            <thead>
+                <tr>                    
+                    <th>Device</th>
+                    <th>Downloads</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <? foreach ($this->downloads as $download): ?>
+                    <tr>                        
+                        <td valign="top"><?= $download['brand'].' - '.$download['model']; ?></td>
+                        <td valign="top"><?= $download['download_count']; ?>
+                            
+                            <?php if($download['download_count']>0) : ?>
+                           
+                                 <!--<a title="View Apps" href="#app_view" id="apps_<?/*= $download['id'] */?>">
+                                    <img alt="View Apps" style="position: relative; top: 4px" src="/pbo/images/icons/view-details.png" onClick="get_device_apps(<?/*= $download['id'] */?>);load_poup_box(<?/*= $download['id'] */?>)"/>
+                                 </a>-->
+
+                                <a title="View Apps" href="/statistic/device-wise-details/id/<?php echo $download['id'];?>" >
+                                    <img alt="View Apps" style="position: relative; top: 4px" src="/pbo/images/icons/view-details.png" />
+                                 </a>
+
+
+                            <?php endif; ?>
+                            
+                        </td> 
+                        
+                    </tr>
+                <? endforeach; ?>
+            </tbody>
+        </table>
+            
+    <br />
+    <div style ="width : 60%">
+        <?= $this->paginationControl($this->downloads, 'Sliding', 'partials/pagination-stats-device.phtml'); ?>
+    </div>
+    <br />
+    
+    <? else : ?>
+        
+        <p>No Records Found. </p>
+        <br /><br />
+          
+   <? endif ; ?>
+</div>
+</div>
+
+
+<script type="text/javascript">        
+   $('#7').addClass('current');  
+   $('#72').addClass('current'); 
+</script>

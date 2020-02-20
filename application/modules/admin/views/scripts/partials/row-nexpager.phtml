@@ -1,0 +1,17 @@
+<tr>
+   
+    <td>
+        <?= $this->user->id ?>
+    </td>
+    <td>
+        <?= $this->UserMeta($this->user->id, 'COMPANY_NAME') ?>
+    </td>
+    <td>
+        <?= $this->user->email ?>
+    </td>
+    <td>
+     <a href="http://<?=str_replace('admin.', '', $_SERVER['SERVER_NAME']).'/np/'.$this->user->id; ?>" target='_blank'> http://<?=str_replace('admin.', '', $_SERVER['SERVER_NAME']).'/np/'.$this->user->id; ?> </a>
+       
+    </td>
+
+</tr>

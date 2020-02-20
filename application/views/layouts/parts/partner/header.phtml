@@ -1,0 +1,567 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" <?php if($this->mtnIran) { echo 'xml:lang="fa" dir="rtl"'; } ?>>
+    <head>
+        <title><?= !empty($this->siteTitle) ? utf8_decode($this->siteTitle) : 'neXva - Mobile App Store' ?></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="<?= !empty($this->metaKeys) ? $this->metaKeys : 'nexva, Mobile App Store, Android' ?>" />
+        <meta name="description" content="<?= !empty($this->metaDes) ? $this->metaDes : 'nexva, Mobile App Store.' ?>" />
+        <link href="http://178.63.83.24/wl/favicons/<?= !empty($this->siteFavicon) ? $this->siteFavicon : '' ?>" rel="shortcut icon" type="image/vnd.microsoft.icon" />  
+
+        <?php if ($this->headTitle() != '<title></title>') : ?>
+            <?= $this->headTitle(); ?>
+        <?php else : ?>
+            <title>neXva.com - mobile reloaded</title>
+        <?php endif; ?>
+
+        <?php echo $this->headScript(); ?>
+        <?php echo $this->headLink() ?>
+        <script type="text/javascript">
+
+            var d_names = new Array("Sunday", "Monday", "Tuesday",
+            "Wednesday", "Thursday", "Friday", "Saturday");
+       
+            var m_names = new Array("January", "February", "March",
+            "April", "May", "June", "July", "August", "September",
+            "October", "November", "December");
+       
+            var d = new Date();
+            var curr_day = d.getDay();
+            var curr_date = d.getDate();
+            var sup = "";
+            if (curr_date == 1 || curr_date == 21 || curr_date ==31)
+            {
+                sup = "st";
+            }
+            else if (curr_date == 2 || curr_date == 22)
+            {
+                sup = "nd";
+            }
+            else if (curr_date == 3 || curr_date == 23)
+            {
+                sup = "rd";
+            }
+            else
+            {
+                sup = "th";
+            }
+            var curr_month = d.getMonth();
+            var curr_year = d.getFullYear();
+       
+            var d = new Date();
+       
+            var curr_hour = d.getHours();
+            var curr_min = d.getMinutes();
+
+
+            if (window.location.hash && window.location.hash == '#_=_') {
+                if (window.history && history.pushState) {
+                    window.history.pushState("", document.title, window.location.pathname);
+                } else {
+                    // Prevent scrolling by storing the page's current scroll offset
+                    var scroll = {
+                        top: document.body.scrollTop,
+                        left: document.body.scrollLeft
+                    };
+                    window.location.hash = '';
+                    // Restore the scroll offset, should be flicker free
+                    document.body.scrollTop = scroll.top;
+                    document.body.scrollLeft = scroll.left;
+                }
+            }
+
+
+        </script>
+        <script type="text/javascript">
+    
+            //Device Detection
+    
+            var $deviceDetect = jQuery.noConflict();
+
+            $deviceDetect(document).ready(function()
+            {
+
+                $deviceDetect("#device_icon1").fancybox({
+                    'titleShow'     : false,
+                    'padding'		: 0,
+                    'transitionIn'	: 'elastic',
+                    'transitionOut'	: 'elastic',
+                    'autoDimensions':false,
+                    'width'			:490,
+                    'height'		:575,
+                    'showCloseButton' : true,
+                    'hideOnOverlayClick' : false
+                });
+
+            });
+
+
+            function setUserPhone (device_id)
+            {
+                document.location =  '/device/set/id/'+device_id;
+            }
+
+            function removeUserPhone (device_id) {
+                document.location = '/device/remove/id/'+device_id;
+            }
+
+
+        </script>
+
+      <script type='text/javascript'>
+          var $popUp = jQuery.noConflict();
+          $popUp(document).ready(function(){
+            $popUp('.popbox').popbox({
+               'open'          : '.open',
+               'box'           : '.box',
+               'arrow'         : '.arrow',
+               'arrow-border'  : '.arrow-border',
+               'close'         : '.close'
+              });
+          });
+      </script>
+
+        <script type="text/javascript">
+
+            var $search = jQuery.noConflict();
+
+            $search(document).ready(function(){
+                
+                <?php //if($this->qelasy || $this->ycoins || $this->caboapps) :?>
+                //Adding overlay for language changing
+                var target = $search('#main_wrapper');
+
+                $search('.toggle-loading').click(function () {
+                  if (target.hasClass('loading')) {
+                    target.loadingOverlay('remove');
+                  } else {
+                    target.loadingOverlay();
+                  };
+                });
+                <?php //endif; ?>
+                    
+                $search("#searchinput").live("blur", function(){
+                    var default_value = $search(this).attr("rel");
+                    if ($search(this).val() == ""){
+                        $search(this).val(default_value);
+                    }
+                }).live("focus", function(){
+                    var default_value = $search(this).attr("rel");
+                    if ($search(this).val() == default_value){
+                        $search(this).val("");
+                    }
+                });
+
+
+
+                $search(function() {
+                    var cache = {},
+                    lastXhr;
+
+                    $search("#searchinput").autocomplete({
+                        minLength: 3,
+                        source: function( request, response ) {
+                            var term = request.term;
+                            if ( term in cache ) {
+                                response( cache[ term ] );
+                                return;
+                            }
+
+                            lastXhr = $search.getJSON("/search/suggest/q/" + term,  function(data, status, xhr) {
+                                cache[term] = data;
+                                if ( xhr === lastXhr ) {
+                                    response(data);
+                                }
+                            });
+                        },
+                        select: function( event, ui ) {
+                            if (ui.item.id == 0) {
+                                window.location	= '/search/index/q/' + $search("#searchinput").val();
+                            }
+                            else if(ui.item.id == 1){
+                                
+                            }
+                            else {
+                                window.location	= '/' + ui.item.id;
+                            }
+
+                            return false;
+                        },
+                        open: function(event, ui) { $search(".ui-autocomplete.ui-menu").css("z-index", 100); },
+                        close: function(event, ui) { $search(".ui-autocomplete.ui-menu").css("z-index", -1); },
+                        delay: 500
+                    });
+                });
+
+            });
+
+
+    /**
+     * this is for select platforms which apps supports for more than one platform
+     * @param appId : productId
+     *
+     */
+
+
+    /*function getSupportedPlatformsByAppId(appId,appStoreAppid,partnerId,loggedUser)
+    {
+        var $neXva = jQuery.noConflict();
+
+        $neXva("#apps-feature-new").html('');
+        $neXva("#preloader_feature").removeClass('display_none');
+
+        var platforms = '';
+        $neXva.getJSON("/nexlinker/get-platform-for-app-json",
+            {
+                id : appId
+            })
+            .done(function(data)
+            {
+                Shadowbox.init({ skipSetup: true }); Shadowbox.setup();
+                if(data.length >0)
+                {
+                    $neXva.each(data, function()
+                    {
+                        platforms += '<a class="nexlink select_platform" rel="shadowbox;height=530;width=600" href="/nexlinker/partner/id/'+appStoreAppid+'/p/'+partnerId+'/userid/'+loggedUser+'/productid/'+appId+'/buildid/'+this['build_id']+'"><img src="/partner/default/assets/img/platforms/'+this["platform_id"]+'.png" title="'+this["name"]+'" /></a>';
+                    });
+                }
+                else
+                {
+                    platforms = '<p>No records found.</p>';
+                }
+               //alert(platforms);
+            });
+        $neXva("#preloader_feature").addClass('display_none');
+        $neXva("#apps-feature-new").html(platforms);
+
+        //var temp = $neXva("#apps-feature-new").html();
+        //alert(temp);
+    }*/
+
+
+
+        function getSupportedPlatformsByAppId(appId,appStoreAppid,partnerId,loggedUser)
+        {
+
+            var $nc = jQuery.noConflict();
+
+            $nc("#apps_feature").html('');
+            $nc("#preloader_feature").removeClass('display_none');
+                $nc.ajax({
+                type: "POST",
+                url: "/nexlinker/get-platform-for-app-ajax",
+                data: "id="+appId+"&appStoreAppid="+appStoreAppid+"&partnerId="+partnerId+"&loggedUser="+loggedUser,
+                success: function (platforms){
+                    document.getElementById('apps_feature').innerHTML = platforms;
+                    //$nc("#apps_feature").html(platforms);
+                },
+                error: function(){
+                    $nc("#apps_feature").html('No records found.');
+                }
+            });
+
+        $nc("#preloader_feature").addClass('display_none');
+        }
+
+        //Get the submenus list by passing parent cat id
+
+        /*$('.sub_menu_list').toggle(function(){
+            $(this).animate({'height': '100px'}, 100);
+        }, function(){
+            $(this).animate({'height': '80px'}, 100);
+        });*/
+
+        function getSubMenus(parentMenuId)
+        {
+            var $nc = jQuery.noConflict();
+            //$nc("#sub_menu_list_"+parentMenuId).html('');
+            $nc("#preloader_"+parentMenuId).removeClass('display_none');
+                $nc.ajax({
+                type: "POST",
+                url: "/category/get-sub-cat-menus-ajax",
+                data: "parentMenuId="+parentMenuId,
+                success: function (subMenus){
+                    //document.getElementById("sub_menu_list"+parentMenuId).innerHTML = subMenus;
+                    $nc("#sub_menu_list_"+parentMenuId).html(subMenus);
+                    $nc("#sub_menu_list_"+parentMenuId).show();
+                    $nc("#preloader_"+parentMenuId).addClass('display_none');
+                    $nc('.sub_menu_list').not("#sub_menu_list_"+parentMenuId).fadeOut( "slow" );
+                },
+                error: function(){
+                    $nc("#sub_menu_list_"+parentMenuId).html('No sub menus found.');
+                }
+            });
+        }
+
+        function loadPopupBoxFeature(appId)
+        {
+            var $ncon = jQuery.noConflict();
+
+            $ncon(".platform_select").fancybox({
+                'titleShow'         : false,
+                'padding'           : 0,
+                'transitionIn'      : 'elastic',
+                'transitionOut'     : 'elastic',
+                'autoDimensions'    : false,
+                'width'             : 300,
+                'height'            : 170,
+                'showCloseButton'   : true,
+                'hideOnOverlayClick': false
+            });
+
+            $ncon(".register_with_select").fancybox({
+                'titleShow'         : false,
+                'padding'           : 0,
+                'transitionIn'      : 'elastic',
+                'transitionOut'     : 'elastic',
+                'autoDimensions'    : false,
+                'width'             : 300,
+                'height'            : 170,
+                'showCloseButton'   : true,
+                'hideOnOverlayClick': false
+            });
+        }
+
+        </script>
+        <script type="text/javascript">
+            //<!--
+
+            var $shadow_box = jQuery.noConflict();
+
+            $shadow_box(function() {
+                Shadowbox.init({
+                    'troubleElements' : ["select", "object", "embed"]
+                }, function(){
+                    $shadow_box(".nexlink" ).each(function(){
+
+                        $shadow_box(this).attr('href', $shadow_box(this).attr('href'));//5945 is the nexva chap ID
+                        $shadow_box(this).removeClass('display_none');
+                    });
+                });
+            });
+            //-->
+
+        </script>
+
+        <script type="text/javascript">
+            function setlanguage(languageCode, languageId){
+
+                var $nc = jQuery.noConflict();
+                //$nc("#sub_menu_list_"+parentMenuId).html('');
+                //$nc("#preloader_"+parentMenuId).removeClass('display_none');
+                $nc.ajax({
+                type: "POST",
+                url: "/language/set-language-session",
+                data: "code="+languageCode+"&id="+languageId,
+                success: function (msg){
+                    //window.location.href = "/";
+                    location.reload();
+                },
+                error: function(){
+
+                }
+                });
+            }
+        </script>
+            
+        <style>
+            /*.ui-autocomplete-loading { background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat; }
+            #searchinput { }*/
+        </style>
+
+        <? if (!empty($this->googleAnalytic)) : ?>
+
+            <?= $this->googleAnalytic; ?>
+            <!-- Googgle Analytic Code comes here -->
+        <? endif; ?>
+    </head>
+
+    <body>
+        
+        <?= $this->partial('partials/platform_selection.phtml') ?>
+        <?/*= $this->partial('partials/select_download_platform.phtml') */?>
+        <?/*= $this->partial('partials/device_detection.phtml') */ ?>
+        <?= $this->partial('partials/register_with_selection.phtml',array('nexLinkerUrl' => $this->nexLinkerUrl,'appStoreAppid' => $this->appStoreAppid,'partnerId' => $this->partnerId,'loggedUser' => $this->loggedUser,'loggedUser' => $this->loggedUser, 'productId' => $this->product['id'])) ?>
+
+        <div id="main_wrapper">
+
+            <div id="main_wrapper_inner_top">
+                <div class="client_main_pane">
+
+                    <div class="template_row" id="header_area">
+                        <div id="our_logo">
+                            <?php if($this->showSiteTitle == 'yes' && $this->mtnIran) { echo '<div class="logo-text">'.utf8_decode($this->siteTitle).'</div>'; } ?>&nbsp;
+                                
+                            <?php if($this->chap_id != 283006):?>
+                            <img src="http://178.63.83.24/wl/logos/<?= !empty($this->siteLogo) ? $this->siteLogo : 'next_tech-logo.png'; ?>" alt="<?= $this->translate("Logo") ?>"/>
+                             <? else : ?>
+                             <img src="http://store.mts.rs/wl/logos/mtn_logo_cp.png" alt="Telekom Serbija"/>
+                             <? endif; ?>  
+                             
+                             
+                        </div>
+
+                        <?php if($this->showSiteTitle == 'yes' && !$this->mtnIran) { echo '<div class="logo-text">'.$this->siteTitle.'</div>'; } ?>
+                                           
+                        <?php if($this->chap_id == 401036):?>
+                            <div class="calle-icon">
+                                <a href="#"><img src="http://178.63.83.24/mobile/whitelables/telemetro/web/img/calle_icon.png"/></a>
+                            </div>
+                        <?php endif; ?>
+                       
+                        
+                        <div id="device_selection_wrapper" style="display: none;">
+                        <?php if($this->qelasy):?>
+                                <?php 
+                                foreach($this->multiLanguages as $language):
+                                    if($this->currentLanguageId != $language->id) :
+                                ?>
+                            <span class="lang_text"> <?= strtoupper($language->code) ?></span> &nbsp; <a href="#" class="toggle-loading" onclick="setlanguage('<?= $language->code ?>','<?= $language->id ?>')" ><img src="/partner/default/assets/img/flags/<?= $language->icon ?>"/></a>
+                                <?php 
+                                    endif;
+                                endforeach; 
+                                ?>
+
+                            
+                        <?php else: ?>
+                            <? if (isset($this->selectedDevice) && count($this->selectedDevice) > 0): ?>
+                                <div id="your_device"><h3><?php echo $this->translate("Your Device"); ?> :</h3></div>
+                                <a href="javascript:removeUserPhone('<?= $this->selectedDevice["id"] ?>');" class="closeBtn"></a>
+                                <div class="phoneInfo">
+                                    <img width="60px"  height="60px" alt="<?= $this->selectedDevice['phone'] ?>" src="<?= $this->selectedDevice['image'] ?>" />
+                                    <p><?= $this->selectedDevice['phone'] ?></p>
+                                </div>
+
+                            <? else : ?>
+                                <?php if(!$this->mtnIran) : ?>
+                            <!-- <a href="#platforms_select" id="platform_select">Testing</a>-->
+                                <div id="device_selection_text">
+                                    <a href=""><p><?php if($this->mtnIran == FALSE) {  echo $this->translate("No Device Selected"); } ?><br /><?php echo $this->translate("Click To Select A Mobile Device"); ?></p></a>
+                                </div>
+                                <a href="#device_detection" id="device_icon1"><div id="device_icon"></div></a>
+                                 <? endif; ?>            
+                            <? endif; ?>
+                        <? endif; ?>
+                        </div>
+                        
+                        <div id="device_selection_vsep"></div>
+                        <div id="search_area_wrapper">
+
+                            <div id="search_area_menu">
+                                <ul class="top-user-menu">
+                                    <li>
+                                        <?php
+                                        $auth = Zend_Auth::getInstance();
+                                        if (isset($auth->getIdentity()->id) and isset($auth)):
+                                            ?>  
+
+    <?php echo $this->translate("Welcome"); ?>&nbsp;<?php if($this->mtnIran == FALSE) { echo $auth->getIdentity()->email; } else { echo $auth->getIdentity()->username; } ?>
+                                            |</li>    
+                                        <li><a href="<?= $this->baseUri; ?>/info/logout" title="<?php echo $this->translate("Logout"); ?>"><?php echo $this->translate("Logout"); ?></a></li>
+<? else: ?>      
+<!--                                        <li>
+                                            <div class='popbox'>
+                                                <a class='open' href='#'>
+                                                  <img src='images/plus.png' style='width:14px;position:relative;'> Sign In
+                                                </a>
+                                                <div class='collapse'>
+                                                  <div class='box'>
+                                                    <div class='arrow'></div>
+                                                    <div class='arrow-border'></div>
+
+                                                    <?= $this->partial('partials/login_popup.phtml') ?>
+
+                                                  </div>
+                                                </div>
+                                              </div>
+                                        </li>-->
+                                        <?php if(($this->showLoginLink == 'yes')  && ($this->chap_id !=935529) ) { ?>
+                                                     <?php if($this->chap_id == 401036):?>
+                                            <li class="header-login">
+                                             <p onClick="loadPopupBoxFeature();">
+                                           <!--  <a href="<?= $this->baseUri; ?>/info/login" title="<?php echo $this->translate("Sign In"); ?>"> -->
+                                              <a href="#register_with_select" title=""  class="register_with_select">
+                                            <?= ($this->ycoins) ? $this->translate("Sign in with ¥Coins") : $this->translate("Sign In"); ?>
+                                            </p>
+                                             </a>
+                                            </li>
+                                              <?php endif; ?>
+                                        <?php } ?>
+                                        <?php if((($this->showLoginLink == 'yes') && ($this->showRegisterLink == 'yes'))  && ($this->chap_id !=935529)) { ?>
+                                                             <?php if($this->chap_id == 401036):?>
+                                            <li>|</li>
+                                               <?php endif; ?>
+                                        <?php } ?>
+                                        <?php if(($this->showRegisterLink == 'yes')  && ($this->chap_id !=935529)){ ?>
+                                                             <?php if($this->chap_id == 401036):?>
+                                            <li>
+                                                <a href="#register_with_select" title="" id="register_with_select" class="register_with_select">
+                                                    <p onClick="loadPopupBoxFeature();"><?php echo $this->translate("Register");?></p>
+                                                </a>
+                                            </li>
+                                                       <?php endif; ?>
+                                        <?php } ?>
+                                            
+                                          <?php if($this->qelasy) : ?>
+                                    <li>|</li>
+                                    <li><a href="/index/page/id/57">
+                                        <p><?php echo $this->translate("About");?></p>
+                                    </a></li>
+                                <?php endif; ?>   
+
+                                    <!--<li><a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?= $this->nexLinkerUrl; ?>/nexlinker/partner/id/<?= $this->appStoreAppid; ?>/p/<?= $this->partnerId; ?>/userid/<?= $this->loggedUser; ?>/productid/<?= $this->product['id']; ?>"><?php echo $this->translate("Register"); ?></a></li>-->
+                                    <!--<li><a class="nexlink"  href="http://<? /* =$this->nexLinkerUrl; */ ?>/nexlinker/partner/id/<? /* =$this->appStoreAppid; */ ?>/p/<? /* =$this->partnerId; */ ?>/userid/<? /* =$this->loggedUser; */ ?>/productid/<? /* =$this->product['id']; */ ?>">Register</a></li>-->
+
+<? endif; ?>  
+                                                                        
+                              <?php //if($this->ycoins  || $this->caboapps || $this->airtelNiger):
+                              if($this->multiLanguages && !$this->qelasy) :
+                              ?>
+                                    <div class="lang-icon-button" <?php if($this->chap_id == 276531){ ?> style="right: 1px;left: 100px" <?php } ?> >
+                               <?php 
+                                foreach($this->multiLanguages as $language):
+                               
+                                    if($this->currentLanguageId != $language->id) :
+                             
+                                ?>
+                                
+                                
+                                
+                                <span class="lang_text"> <?php if($this->chap_id != 276531) { ?>   <?=strtoupper($language->code) ?>  <?php } ?>  </span> &nbsp; <a href="#" class="toggle-loading" onclick="setlanguage('<?= $language->code ?>','<?= $language->id ?>')"><img src="/partner/default/assets/img/flags/<?= $language->icon ?>"/></a>
+                                <?php 
+                                    endif;
+                                endforeach;
+                                ?>
+                                    </div>
+                                <?php
+                                endif;
+                                ?>
+                            
+                                    
+
+                                </ul>
+                            </div>
+                            <div id="search_area_search">
+                                <input type="text"  name="searchinput" id="searchinput" value="<?php echo $this->translate('SEARCH'); ?>" onfocus="(this.value == '<?php echo $this->translate('SEARCH'); ?>') && (this.value = '')" onblur="(this.value == '') && (this.value = '<?php echo $this->translate('SEARCH'); ?>')" rel='<?php echo $this->translate('SEARCH'); ?>' />
+                            </div>
+
+                        </div>  
+
+                    </div>	
+
+                    <div class="template_row" id="menu_area"> 
+                        <div id="menu_main_menu" class="main_links_linktxt">
+<?= $this->render('parts/partner/main_nav.phtml') ?>
+                        </div>
+                        <div id="menu_share">
+                            <!--  AddThis Button BEGIN 
+                            <div class="addthis_toolbox addthis_default_style ">
+                            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                            <a class="addthis_button_tweet"></a>                                    
+                            </div>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fedcb83095dc569"></script>
+                            AddThis Button END -->
+                        </div>
+                    </div>	
+                </div>
+            </div>   
+             <input type="hidden" id="partnerIdHidden" name="partnerIdHidden" value="<?= $this->partnerId; ?>" />

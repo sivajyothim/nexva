@@ -1,0 +1,113 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 6/26/14
+ * Time: 4:26 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript" >
+    $(document).ready(function()
+    {
+        $("#user-apps").validate();
+
+        $("#from").datepicker({ dateFormat: 'yy-mm-dd'});
+        $("#to").datepicker({ dateFormat: 'yy-mm-dd'});
+
+        //When submit button clicks
+        $('#btnSubmit').click(function()
+        {
+            $('#user-apps').submit();
+        });
+
+    });
+</script>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+        <div id="icon_wrapper">
+
+        </div>
+    </div>
+
+    <div class="content-box-content">
+        <div style="width:99%;float: right;">
+            <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>app/user-apps" id="user-apps" name="user-apps" class="pbo-admin-form">
+
+                <div class="form-block-1">
+                    <label>From :</label>
+                    <input id="from" name="from" class="text-input" type="text" name="small-input" value="<?php echo !isset($this->from) ? '' : $this->escape($this->from); ?>" />
+                </div>
+
+                <div class="form-block-1">
+                    <label>To :</label>
+                    <input id="to" name="to" class="text-input" type="text" name="small-input" value="<?php echo !isset($this->to) ? '' : $this->escape($this->to); ?>" />
+                </div>
+
+                <div class="form-block-1">
+                    <label>Price :</label>
+                    <select name="price" id="price" class="chkbox">
+                        <option value="all" <?php echo ($this->price == 'all') ? 'selected = "selected"' : '' ?> >All</option>
+                        <option value="free" <?php echo ($this->price == 'free') ? 'selected = "selected"' : '' ?> >Free</option>
+                        <option value="premium" <?php echo ($this->price == 'premium') ? 'selected = "selected"' : '' ?> >Premium</option>
+                    </select>
+                </div>
+
+                <div class="form-block-1">
+                    <label>Mobile Number :</label>
+                    <input id="mobile" name="mobile" class="text-input required" type="text" name="small-input" value="<?php echo !isset($this->mobile) ? '' : $this->escape($this->mobile); ?>" />
+
+                </div>
+
+                <div class="form-block-2">
+                    <input style="margin-top:22px;" type="button" value="Search" class="button" name="btnSubmit" id="btnSubmit" />
+                </div>
+            </form>
+        </div>
+
+        <div class="clear"></div>
+        <br /><br />
+        <?php if($this->showResults) { ?>
+        <table style="width:97%; margin-left: 15px;" border="0">
+            <thead>
+                <tr>
+                    <th style="text-align:left;">App Name</th>
+                    <th style="text-align:right;">Count</th>
+                </tr>
+            </thead>
+            <tbody id="user-app-table">
+                <?php foreach($this->apps as $app) { ?>
+                    <tr>
+                        <td><?php echo $app->name;?></td>
+                        <td style="text-align:right;"><?php echo $app->count;?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+
+        <br />
+
+        <?php
+            $data = array(
+                "from" => ($this->from) ? $this->from : '',
+                "to" => ($this->to) ? $this->to : '',
+                "price" => ($this->price) ? $this->price : 'all',
+                "mobile" => ($this->mobile) ? $this->mobile: ''
+            );
+            echo $this->paginationControl($this->apps, 'Sliding', 'partials/pagination-user-apps.phtml', $data);
+        ?>
+
+        <br />
+
+        <?php } else { ?>
+            <p>No Records Found. </p>
+            <br /><br />
+        <?php } ?>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#2').addClass('current');
+    $('#87').addClass('current');
+</script>

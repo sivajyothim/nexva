@@ -1,0 +1,182 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/22/14
+ * Time: 1:10 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php
+
+//echo '--',$this->institute_value;
+//$page = '';if($this->page) { $page.= '/page/'.$this->page; }
+//echo $page;die();
+//Zend_Debug::dump($this->grades);die();
+
+?>
+<script type="text/javascript">
+    function confirm_delete_popup(gradeId){
+        $("#qelasy-grade-"+gradeId).fancybox({
+            'titleShow'     : false,
+            'padding'	: 0,
+            'transitionIn'	: 'elastic',
+            'transitionOut'	: 'elastic',
+            'autoDimensions': false,
+            'width'		: 300,
+            'height'	: 150,
+            'showCloseButton' : true,
+            'hideOnOverlayClick' : false,
+            onComplete : function(){
+                jQuery("#confirm-ok").click(function() {
+                    var page;
+                    page = '<?php echo $this->page;?>';
+                    $.ajax({
+                        url: "/qelasy/delete-qelasy-grade",
+                        data: { id: gradeId, page:page},
+                        success : function(result){
+                            //console.log(result);
+                            window.location = result;
+                        }
+                    })
+                    jQuery.fancybox.close();
+                })
+                jQuery("#confirm-cancel").click(function() {
+                    jQuery.fancybox.close();
+                })
+            },
+            onClosed : function() {
+                jQuery.fancybox.close();
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $("#institute").change(function(){
+            $('#qelasy-grades').submit();
+        });
+    });
+</script>
+
+<?php if (count($this->successMessages)) { ?>
+    <div class="notification success png_bg">
+        <div>
+
+            <?php foreach ($this->successMessages as $message) { ?>
+
+                <li><?php echo $this->escape($message); ?></li>
+
+            <?php } ?>
+
+        </div>
+    </div>
+<?php } ?>
+<?php /*echo $this->partial('partials/qelasy-confirm-delete.phtml');*/?>
+<?php /*echo $this->partial('partials/select-qelasy-grade.phtml');*/?>
+
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title;?></h3>
+
+        <ul class="content-box-tabs" style="display: block;">
+
+            <li class="active"><a class="active default-tab" href="#student">Students</a></li>
+            <li><a href="#uni-student">University Students</a></li>
+        </ul>
+
+    </div>
+    <div class="content-box-content">
+
+        <div style="width:99%;float: right;">
+            <form method="post" action="/qelasy/qelasy-grades" id="qelasy-grades" name="qelasy-grades" class="pbo-admin-form">
+                <div class="form-block-1">
+                    <label for="category">Institute:</label>
+                    <select name="institute" id="institute" >
+                        <option value="">All</option>
+                        <option value="standard" <?php echo ($this->institute_value == 'standard')?'selected="selected"':'';?> >[Standard Grades]</option>
+                        <?php
+                        foreach($this->institutes as $institute){ ?>
+                            <option value="<?php echo $institute->id;?>" <?php echo ($this->institute_value == $institute->id)?'selected="selected"':'';?>><?php echo $institute->name;?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <div class="clear"></div>
+        <br /><br />
+
+        <div id="student" class="tab-content default-tab" style="display: block;">
+
+            <!--<form method="post" action="/category/qelasy-grades" id="qelasy-grades" name="qelasy-grades" class="pbo-admin-form">-->
+                <?php if(count($this->grades)) { ?>
+                    <table style="width:97%; margin-left: 15px;" border="0">
+                        <thead>
+                        <tr>
+                            <th style="width:50%;">Grade</th>
+                            <th style="width:25%;">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody id="qelasy-grade-table">
+                        <?php
+                            $page = '';if($this->page) { $page.= '/page/'.$this->page; }
+                            $data = array(
+                                //"institute_value"  =>  ($this->institute_value) ? $this->institute_value : ''
+                            );
+
+                            if($this->institute_value){
+                                $data['institute_value'] = $this->institute_value;
+                            }
+                        ?>
+                        <?php foreach ($this->grades as $grade) {
+
+                            ?>
+                            <tr>
+                                <td><?php echo ($grade->name).' - '.(($grade->institiute_name) ? $grade->institiute_name : '[Standard Grade]') ; ?></td>
+                                <td><a href="/qelasy/edit-qelasy-grade/id/<?php echo $grade->id;?><?php echo $page;?>">Assign Categories for Grade</a></td>
+
+                                <!--<td>
+                                    <a href="/qelasy/edit-qelasy-grade/id/<?php /*echo $grade->id;*/?>" title="Edit"><img alt="Edit" src="/pbo/images/icons/pencil.png" style="border: none"></a>
+                                    <a href="#qelasy-grade-delete" id="qelasy-grade-<?php /*echo $grade->id;*/?>" >
+                                        <img alt="Delete" src="/pbo/images/icons/cross_circle.png" style="border: none" title="Assign For Qelasy" onclick="confirm_delete_popup(<?php /*echo $grade->id;*/?>);">
+                                    </a>
+                                </td>-->
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                    <br />
+
+                    <div style ="width : 99%">
+                        <?php /*Zend_Debug::dump($this->paginationControl());die();*/?>
+                        <?echo $this->paginationControl($this->grades, 'Sliding', 'partials/pagination-grades.phtml',$data);?>
+                    </div>
+                <?php } else { ?>
+                    <p>No Records Found.</p>
+                <?php } ?>
+            <!--</form>-->
+
+    </div>
+    <div id="uni-student" class="tab-content" style="display: block;">
+        <table style="width:97%; margin-left: 15px;" border="0">
+            <thead>
+                <tr>
+                    <th style="width:50%;">Type</th>
+                    <th style="width:50%;">Action</th>
+                </tr>
+            </thead>
+            <tbody id="qelasy-grade-table">
+                <tr>
+                    <td>University Students</td>
+                    <td><a href="/qelasy/edit-qelasy-user/user_type/2">Assign Categories for University Students</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $('#1').addClass('current');
+</script>

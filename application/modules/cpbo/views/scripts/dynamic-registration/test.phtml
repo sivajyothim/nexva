@@ -1,0 +1,101 @@
+<div class="title">
+    <h3><?php echo $this->translate("Dynamic Registration Sandbox");?></h3>
+</div>
+
+
+<?php if (!empty($this->products)) : ?>
+
+    <div class='box'>
+        <div class='txt'>
+            <?php if (!empty($this->message)) : ?>
+                <p class='message'><?=$this->translate($this->message); ?></p>
+            <?php endif; ?>
+        
+            <p><?php echo $this->translate("The following content have dynamic registration enabled");?></p>
+            
+            <form action="" method='post'>
+                <p>
+                    <label><?php echo $this->translate("Content");?></label>
+                    <select name='product' class="select-input ">
+                        <?php foreach ($this->products as $product) : ?>
+                          <option value="<?=$product->id?>"><?=$product->name?></option>  
+                        <?php endforeach; ?>
+                    </select>
+                </p>
+                
+                <p>
+                    <label><?php echo $this->translate("Callback URL");?></label>
+                    <input type="text" name='callback' value="<?=$this->callback?>" placeholder='the full URL of your callback script' class='txt-input small'>
+                </p>
+                
+                <p>
+                    <label>IMEI</label>
+                    <input type="text" name='imei' value="<?=$this->imei?>" placeholder='your test IMEI number e.g. - 355523019774902' class='txt-input small'>
+                </p>
+                
+                <p>
+                     <input type='submit' class='button' value ='Test'>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <?php if (!empty($this->request)) : ?>
+        <div class="title">
+            <h3><?php echo $this->translate("Request Parameters");?></h3>
+        </div>
+        <div class='box'>
+            <div class='txt'>
+            <br>
+                <pre>
+                <?php echo htmlspecialchars($this->request);?>
+                </pre>
+            </div>
+        </div>
+        
+        <div class="title">
+            <h3><?php echo $this->translate("Response");?></h3>
+        </div>
+        <div class='box'>
+            <div class='txt'>
+                
+                <?php if ($this->status == 200) : ?>
+                    <div class='message success'>
+                        <p><?php echo $this->translate("Callback returned a success response");?></p>
+                    </div>
+                <?php else : ?>
+                    <div class='message error'>
+                        <p><?php echo $this->translate("Callback returned a failure response");?></p>
+                    </div>
+                <?php endif;?>
+                
+                
+                <p>
+                    <label><strong><?php echo $this->translate("Return Code");?></strong></label><br>
+                    <?php echo $this->status;?>
+                </p>
+            
+                <p>
+                    <label><strong><?php echo $this->translate("Response");?></strong></label><br>
+                     <pre>
+                        <?php echo htmlspecialchars($this->response)?>
+                    </pre>
+                </p>
+                
+            </div>
+        </div>
+           
+    <?php endif;?>
+    
+    
+    
+
+<?php else : ?>
+
+    <div class='box'>
+        <div class='txt'>
+            <p><?php echo $this->translate("You don't have any apps with dynamic registration enabled.");?></p>
+        </div>
+    </div>
+
+<?php endif; ?>

@@ -1,0 +1,35 @@
+<div class="title">
+            <h3>Quick Links</h3>
+        </div>
+        
+        <?=$this->render('partials/quick_links_translate.phtml'); ?>
+
+
+        <div class="title">
+            <h3 style="cursor: s-resize;">All Sections</h3>
+        </div>
+        <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+        <?php if (count($this->sections)): $class = '';?>
+            <tbody>
+        <?php foreach ($this->sections as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+            <tr>
+                <td class='<?=$class?>'><?=$item->id?></td>
+                <td class='<?=$class?>'><a href='/translate/section/id/<?=$item->id?>'><?=$item->name?></a></td>
+                
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+    </div>
+</div>
+
+

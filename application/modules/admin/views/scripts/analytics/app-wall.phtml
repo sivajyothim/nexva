@@ -1,0 +1,64 @@
+<?php $this->headScript()->captureStart(); ?>
+
+var __DATA_DEVICE       = eval(<?php echo $this->getAppWallSummary ?>);
+var __DATA_APP_WALL       = eval(<?php echo $this->appWallJson ?>); //most popular products
+var __APP_WALL_CHAPS       = eval(<?php echo $this->appWallChaps ?>); 
+
+<?php $this->headScript()->captureEnd(); ?>
+<?php $this->headScript()->appendFile( PROJECT_BASEPATH.'admin/assets/js/analytics/appview.js'); ?>
+<?php echo $this->partial('partials/analytics_includes.phtml'); ?>
+
+
+
+<?php
+//lets do some calculations
+$totalViews = 0; //array_sum($this->appView);
+$totalDownloads = 0; //array_sum($this->appDownloads);
+?>
+
+<?php
+$opts = array(
+    'startTimeView' => $this->startTimeView,
+    'endTimeView' => $this->endTimeView,
+    'product' => $this->product,
+    'queryString' => $this->queryString
+);
+echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+<div id='visualizations'>
+    <?php
+    $opts = array(
+        'product' => $this->product
+    );
+    echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+    <div id='stats_view_by_device_cont' class='chart_box_full'>    
+
+        <div id='stats_view_by_date_cont' class="title">
+            <h3>App Wall</h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <div class='full_block' id='app_wall'>
+                    We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+
+                <div id="overview_app_wall" style=";margin-top:20px;width:100%;height:50px"></div>
+            </div>
+        </div>
+        <div class="title">
+            <h3>App Wall Summary</h3>
+            <div class='filter'>
+                <a href='<?php echo ADMIN_PROJECT_BASEPATH;?>product/view' class='button'>See all products</a>
+            </div>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <div class='full_block' id='stats_view_by_device'>
+                    We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

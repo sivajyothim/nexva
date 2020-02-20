@@ -1,0 +1,134 @@
+<!-- Start Content Box #1 -->
+<div class="title"><h3>Quick Actions | neXva.com</h3></div>
+<div class="box">
+    <div class="txt">
+        <ul class="icon_list">
+            <li>
+                <p><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/users.png" alt=""/>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/list/tab/tab-customers">Manage Customers</a></p>
+            </li>
+            <li>
+                <p><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/cp.png" alt=""/>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/list/tab/tab-cps">Manage Cp's</a></p>
+            </li>
+            <li>
+                <p><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/product.png" alt=""/>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/view">Manage Products</a></p>
+            </li>
+            <li>
+                <p><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/add_product.jpg" alt=""/>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/create">Add Product</a></p>
+            </li>
+
+            <li>
+                <p><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/payment_received.png" alt=""/>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>account/index">Received  Payments</a></p>
+            </li>
+            
+            
+            <li>
+                <p><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/content/icon_list/newspaper_32.png" alt=""/>
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/list/tab/tab-nexpager">neXpager url List</a></p>
+            </li>
+
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- End Content Box #1 -->
+
+<!-- Start Content Box #2 -->
+<div class="title">
+
+    <h3>Reports | neXva.com</h3>
+
+    <div class="selector" title="content_box">
+
+        <a class="tab active" href="tab-recent-signup">Recent Signup</a>
+        <a class="tab" href="tab-recent-uploads">Recent Uploads</a>
+<!--        <a class="tab" href="tab-recent-downloads">Recent Downloads</a>-->
+        <!--<a class="tab" href="tab-table">Forms</a>-->
+        <!--<a class="tab" href="tab-table">Recent Logs</a>-->
+        <!--<a class="tab" href="tab-forms">Create a TODO</a>-->
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+
+            <div class="tab-recent-signup">
+                <!-- Start Message -->
+                <!--                  <div class="message warning">
+                                    <p>This is an content box, you can place anything you want here. Just click this message to get it out of the way!</p>
+                                  </div>-->
+                <!-- End Message -->
+
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Type</th>
+                            <th>Operations</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        <? foreach ($this->users as $user): ?>
+
+                        <?= $this->partial('partials/row.phtml', array('user' => $user)); ?>
+
+                        <? endforeach; ?>
+                        </tbody>
+                    </table>
+
+
+                    <!-- End Table -->
+                </div>
+
+                 
+
+                <div class="tab-recent-uploads">
+
+                    <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Is New</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                                <th>Created / Updated on</th>
+                                <th>Operations</th>
+                                <th>Status views / downloads</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <? foreach ($this->last_ten_uploads as $uploads): ?>
+
+                        <?= $this->partial('partials/product_simple.phtml', array("product" => $uploads)); ?>
+                        <? endforeach; ?>
+                    </tbody>
+                </table>
+                <br/>
+                <!-- <a href="#">Go to Full List</a> -->
+                <!-- End Table -->
+            </div>
+
+             
+        </div>
+
+    </div>
+
+</div>
+<!-- End Content Box #2 -->

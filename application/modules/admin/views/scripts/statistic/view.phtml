@@ -1,0 +1,220 @@
+<div class="stats_wrapper">
+    <div class="title">
+
+        <h3>Top ten devices</h3>
+
+
+    </div>
+    <div class="box" >
+        <div class="txt">
+            <div style="margin-bottom: 5px;clear:both;" align="center">
+                <div id="dayselecter1" class="dayselecter">
+                    <div id="daystats"><a>Day</a></div><div id="weekstats"><a >Week</a></div><div id="monthstats"><a>Month</a></div><div id="yearstats"><a>Year</a></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div id="content_box">
+                <div class="tab-stats" style="" id="tab-stats">
+                    <!-- Start Table -->
+                    <table cellpadding="0" cellspacing="0" class="stats_list">
+
+
+                        <tbody class="tbody">
+                           
+                            <?foreach($this->devices as $device): ?>
+
+                            <tr><td style="width:85%"><?=$device['brand'].$device['model']; ?></td><td><?=$device['hits']; ?></td><td><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/graph/period/year/device/<?=$device['device_id'];?>" title="View graph" alt="View graph" id="<?=$device['device_id'];?>" rel="facebox"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/iconGraphGreen.gif" class="graph"  /></a></td></tr>
+
+                            <?endforeach; ?>
+                        </tbody>
+                    </table>
+                    <!-- End Table -->
+
+                </div>
+
+                <div class="dataexport">
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/device/period/year"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/map_go.png" /> More..</a>
+                </div>
+
+
+
+            </div>
+            <!-- tab -->
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div  class="stats_wrapper">
+    <div class="title">
+
+        <h3>Top ten freemium </h3>
+
+
+    </div>
+    <div class="box" >
+        <div class="txt">
+            <div style="margin-bottom: 5px;clear:both;" align="center">
+                <div id="dayselecter2" class="dayselecter">
+                    <div ><a>Day</a></div><div ><a >Week</a></div><div><a>Month</a></div><div ><a>Year</a></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div id="content_box">
+                <div class="tab-cps">
+                    <!-- Start Table -->
+                    <table cellpadding="0" cellspacing="0">
+
+
+                        <tbody class="tbody">
+                            <?foreach($this->contents_freemium as $content): ?>
+                            <tr><td><?=$content['name']; ?></td><td><?=$content['hits'] ?></td></tr>
+
+                            <?endforeach; ?>
+
+                        </tbody>
+                    </table>
+                    <!-- End Table -->
+
+                </div>
+
+
+
+                <div class="dataexport">
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/freemium/period/year"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/map_go.png" /> More..</a>
+                </div>
+
+            </div>
+            <!-- tab -->
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div  class="stats_wrapper">
+    <div class="title">
+
+        <h3>Top ten premium content</h3>
+
+
+    </div>
+
+    <div class="box" >
+        <div class="txt">
+            <div style="margin-bottom: 5px;clear:both;" align="center">
+                <div id="dayselecter3" class="dayselecter">
+                    <div><a>Day</a></div><div ><a >Week</a></div><div ><a>Month</a></div><div ><a>Year</a></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div id="content_box">
+                <div class="tab-cps">
+                    <!-- Start Table -->
+                    <table cellpadding="0" cellspacing="0">
+
+
+                        <tbody class="tbody">
+
+                            <?foreach($this->contents_premium as $content): ?>
+                            <tr><td><?=$content['name']; ?></td><td><?=$content['hits'] ?></td></tr>
+
+                            <?endforeach; ?>
+                        </tbody>
+                    </table>
+                    <!-- End Table -->
+
+                </div>
+
+
+                <div class="dataexport">
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/premium/period/year"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/map_go.png" /> More..</a>
+                </div>
+
+
+            </div>
+            <!-- tab -->
+
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<div  class="stats_wrapper">
+    <div class="title">
+
+        <h3>Actual downloads</h3>
+
+
+    </div>
+
+    <div class="box" >
+        <div class="txt">
+            <div style="margin-bottom: 5px;clear:both;" align="center">
+                <div id="dayselecter4" class="dayselecter">
+                    <div><a>Day</a></div><div ><a >Week</a></div><div ><a>Month</a></div><div ><a>Year</a></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div id="content_box">
+                <div class="tab-cps">
+                    <!-- Start Table -->
+                    <table cellpadding="0" cellspacing="0">
+
+
+                        <tbody class="tbody">
+
+                            <?foreach($this->contents_premium as $content): ?>
+                            <tr><td><?=$content['name']; ?></td><td><?=$content['hits'] ?></td></tr>
+
+                            <?endforeach; ?>
+                        </tbody>
+                    </table>
+                    <!-- End Table -->
+
+                </div>
+
+
+                <div class="dataexport">
+                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>statistic/more/type/actualdownloads/period/year"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/map_go.png" /> More..</a>
+                </div>
+
+
+            </div>
+            <!-- tab -->
+
+
+
+
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,27 @@
+<tr>
+
+    <td>
+        <?= $this->user->id ?>
+    </td>
+
+    <td>
+        <?= $this->user->email ?>
+    </td>
+
+    <td>
+        <?=$this->userMeta->FIRST_NAME."&nbsp". $this->userMeta->LAST_NAME ?>
+    </td>
+
+    <td>
+        <?=$this->userMeta->COMPANY_NAME?>
+    </td>
+    <td>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/edit/id/<?=$this->user->id ?>"><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/impersonate/id/<?=$this->user->id?>/type/reseller" target="_blank" onclick="res = confirm('You are about to impersonate this User.\n\nAny action taken during an impersonation session would look as if it was done by the User and not you. If you are already logged into a Reseller account or currently impersonating another CP, your session will automatically end.\n\n*Please proceed with caution* \n\n Press OK to begin impersonating <?=$this->user->email?>');  return res;">
+            <img alt="Impersonate" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/user_go.png" title="Impersonate">
+        </a>
+        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/manual-pay/id/<?=$this->user->id ?>/type/resell"><img alt="Manual Credit / Debit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/money_dollar.png" title="Manual Credit / Debit"></a>
+        
+        <a class='del_conf' href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/delete/id/<?=$this->user->id ?>"><img alt="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" title="Delete"></a>
+    </td>
+</tr>

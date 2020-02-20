@@ -1,0 +1,478 @@
+<script type="text/javascript">
+    
+    //var $light_box = jQuery.noConflict();
+    
+    $(function() {
+        $('#gallery a').lightBox();
+    });
+
+</script>
+
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>web/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+<script type="text/javascript">
+    var $no = jQuery.noConflict();
+    $no().ready(function(){
+        var content = 'This App has been checked by AVG for viruses and malware';
+        <?php
+                    foreach($this->product['supported_platforms'] as $platform)
+                    {
+                        if($platform->id != 12)
+                        { ?>
+                            content = 'Android Version of this App has been checked by AVG for viruses and malware';
+        <?php } } ?>
+        $no("#avg").qtip({
+            content: content,
+            show: 'mouseover',
+            hide: 'mouseout',
+            position: {
+                corner: {
+                    target: 'topLeft',
+                    tooltip: 'bottomRight'
+                }
+            },
+            style: {
+                width: 150,
+                padding: 5,
+                background: '#A5C63B',
+                color: 'white',
+                textAlign: 'center',
+                border: {
+                    width: 6,
+                    radius: 5,
+                    color: '#A5C63B'
+                },
+                tip: 'bottomRight',
+                name: 'red' // Inherit the rest of the attributes from the preset dark style
+            }
+        });
+        
+        $no("#add_review").click(function () {
+            $no("#form_wrapper").toggle("slow");
+        });
+
+        $no('#frm_feedback').validate({
+            rules: {
+                reviewer : "required",
+                title   : "required",
+                body    : "required"
+            },
+            messages: {
+                reviewer : "<?php echo $this->translate("Please enter the Name");?>",
+                title   : "<?php echo $this->translate("Please enter the Title");?>",
+                body   : "<?php echo $this->translate("Please enter the Review");?>"
+            }
+        });
+
+        /*$no('#google').click(function() {
+         alert('Hi');
+         });*/
+    });
+</script>
+
+<style type="text/css">
+</style>
+<?php $currency = $this->ChangeCurrency($this->chap_id); //$this->chap_id?>
+<!-- box one-->
+<div class="inr_tabs_wrapper">
+    <div class="inr_tab_bar"><?php if(!$this->mtnIran): ?><span class="inr_brdcrtxt_pur">+</span><?php endif; ?> <span class="inr_brdcrtxt_grey"><?= strtoupper($this->product['name']); ?></span>
+    </div>
+    <div class="box_content_top"></div>
+    <div class="box_content_middle">
+
+        <div class="detail_selection_top"><!-- db val here-->
+            <div class="detail_left_part">
+                <div class="details_frame_pic">
+                    <div class="details_frame_picdisplay">
+
+                        <?php $htmlOpts = array('alt' => $this->product['name'], 'autoheight' => 1, 'id' => 'prod_poster'); ?>
+                        <?= $this->thumbnail(@$this->product['screenshots'][0], array('w' => 150, 'h' => 150, 'zc' => 1), $htmlOpts); ?>
+
+                    </div>
+                </div>
+
+                <div class="details_zoom_wrapper_message" align="center">
+                    <span class="purple_text"><?php echo $this->translate("Screenshots");?></span> <br />
+                    <span class="generaltext_cat_des"><?php echo $this->translate("Click on thumbnail to zoom");?></span>
+                </div>
+
+                <div id="gallery" class="details_zoom_wrapper" align="center">
+                    <? foreach ($this->product['screenshots'] as $screenshot): ?>
+
+                        <!-- zoom img class-->
+                        <div class="zoom_img_frame">
+                            <a href="http://<?= Zend_Registry::get("config")->nexva->application->product_images_domain . $screenshot ?>" title="<?= $this->product['name']; ?>">	
+                                <?php $htmlOpts = array('alt' => $this->product['name'], 'autoheight' => 0, 'id' => 'prod_poster'); ?>
+                                <?= $this->thumbnail($screenshot, array('w' => 50, 'h' => 50, 'zc' => 1), $htmlOpts); ?>
+
+                            </a>
+                        </div>
+                    <? endforeach; ?>
+
+                </div>
+
+            </div>
+
+            <div class="detail_right_part">
+                <div class="detail_right_part_left"><!-- set one arrow-->
+                    <div class="arrow_class_wrap">
+                        <div class="dtl_arrow"></div>
+                        <div class="dtl_dtl">
+                            <!-- Condition partnerId added for change the currency position for MTN Iran -->
+                            <?php if($this->product['cost'] > 0) { ?>
+                                <span class="vendor_text"> <?php echo $this->translate("Price");?>: <?php if(!empty($currency) && $this->partnerId != 23045){ echo $this->translate($currency[0]['symbol']);} else {  if($this->partnerId != 23045){echo '$';}} ?></span>
+                            <?php } else { ?>
+                                <span class="vendor_text"> <?php echo $this->translate("Price");?>: </span>
+                            <?php } ?>
+                                    
+                            <span class="purple_text">
+                            <?php 
+                            
+                            if($this->product['cost'] > 0) {
+                                if(!empty($currency)){ 
+                                    if($this->mtnIran){
+                                        echo number_format($this->PricePoints(ceil($currency[0]['rate']*$this->product['cost'])),0, '.', ',');
+                                    }
+                                    else{
+                                        echo number_format($this->PricePoints(ceil($currency[0]['rate']*$this->product['cost'])),2, '.', ',');
+                                    }
+                                    
+                                }else{ 
+                                    echo $this->product['cost']; 
+                                } 
+                            }
+                            else{
+                                echo $this->translate("Free");
+                            }
+                            
+                            ?>
+                            <?php /*echo $this->product['cost'] */?></span>
+                            <?php if(!empty($currency) && $this->partnerId == 23045 && $this->product['cost'] > 0){ echo $this->translate($currency[0]['symbol']);} ?>
+                        </div>
+                    </div>
+                    <!-- set one arrow--> <!-- set one arrow-->
+                    <div class="arrow_class_wrap">
+                        <div class="dtl_arrow"></div>
+                        <div class="dtl_dtl">
+                            <span class="generaltext_cat_des"><b><?php echo $this->translate("Vendor");?>:</b></span>
+                            <a href="/cp/index/uid/<?php echo $this->product['uid']; ?>"  class="vender-text-color">
+                                <?= strtoupper($this->product['user_meta']->COMPANY_NAME); ?>
+                            </a>
+                        </div>
+                    </div>
+
+                    <?php if($this->showDownloadCount) { ?>  <!-- if showDownloadCount true in the MasterController-->
+                        <div class="arrow_class_wrap">
+                            <div class="dtl_arrow"></div>
+                            <div class="dtl_dtl">
+                                <span class="generaltext_cat_des"><b><?php echo $this->translate("Downloads");?>:</b></span>
+                                <?php echo $this->downloads; ?>
+                            </div>
+                        </div>
+
+                        <div class="arrow_class_wrap">
+                            <div class="dtl_arrow"></div>
+                            <div class="dtl_dtl">
+                                <span class="generaltext_cat_des"><b><?php echo $this->translate("Views");?>:</b></span>
+                                <?php echo $this->views; ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+
+                    <!-- set one arrow--> <!-- set one arrow-->
+                    <div class="arrow_class_wrap">
+                        <div class="dtl_arrow"></div>
+                        <div class="dtl_dtl"><span class="generaltext_cat_des"><b><?php 
+                        if(!in_array($this->chap_id, array(585474,585480))){
+                            echo $this->translate("Rating").' : ';
+                        }
+                        ?></b></span>
+
+                            <?= $this->partial('partials/rating.phtml', array('product_id' => $this->product['id'], 'avgRating' => $this->product['avg_rating'], 'totalRatings' => $this->product['total_ratings'], 'productRated' => $this->product['product_rated'], 'userHasRated' => $this->userHasRated)); ?>												
+
+                        </div>
+                    </div>
+                    <!-- set one arrow-->
+
+
+                    
+
+
+                    <div class="arrow_class_wrap">
+                        <?php if(!$this->mtnIran): ?>
+                        <div class="">
+                            <?php
+                            $opts = array(
+                                'url' => $this->baseUri . $_SERVER['REQUEST_URI'],
+                                'title' => $this->product['name'],
+                                'description' => $this->product['desc_brief'] //trimming is done internally 
+                            );
+                            echo $this->partial('partials/addthis.phtml', $opts)
+                            ?>
+                        </div>
+                        <?php endif; ?>
+                    </div>
+                    <!-- set one arrow--></div>
+
+                <div class="detail_right_part_right"><!-- set one arrow--> <!-- set one arrow-->
+
+                    <?php
+                    if($this->AppStoreScore($this->product['google_id'])){
+                        //echo '<div id="google" class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/12.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->product['google_id']).'</div></div>&nbsp;&nbsp;';
+                        echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/12.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->product['google_id']).'</div></div>&nbsp;&nbsp;';
+                        ?>
+                        <!--<script>
+                            appscoreID('google','<?php /*echo $this->product['google_id']; */?>',0,90);
+                        </script>-->
+                    <?php }
+
+                    if($this->AppStoreScore($this->product['apple_id'])){
+                        echo '<div class="app-cracker-rate-wrap"><img title="Android" alt="Android" src="/partner/default/assets/img/platforms/10.png">&nbsp;&nbsp;<div class="app-cracker-rate">'.$this->AppStoreScore($this->product['apple_id']).'</div></div>';
+                    }
+                    ?>
+                    
+                    <div class="scan_border_wrap">
+                        
+                        <?php
+                            if(!is_null($this->product))
+                            {
+                                if($this->avgApproved)
+                                { ?>
+                                	<div class="scan_border"> 
+                                    <a href="http://www.avg.com" target="_blank"><img id="avg" src="/partner/default/assets/img/avg.png" style="position:relative;right:20px;"/></a>
+                                    <div class="avg-tagline">Protect your phone</div>
+                                    </div>
+                                <?php 
+                                }
+                            }
+                        ?>       
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="detail_right_part">
+                <div class="detail_suported_formatswrap">
+                    <div class="detail_btndwn">
+                        
+                        <?php
+                        if($this->product['app_platform_type'] == 'MULTIPLE_AND_ANDROID' && count($this->product['supported_platforms']) > 1):
+                        ?>
+                            <?php if($this->partnerId == 23045) : ?>
+                                <!--<a onClick="getSupportedPlatformsByAppId(<?/*=$this->product['id'];*/?>,<?/*=$this->appStoreAppid; */?>,<?/*=$this->partnerId;*/?>,'<?/*=$this->loggedUser;*/?>');loadPopupBoxFeature(<?/*=$this->product['id'];*/?>);" href="#platform_select" id="apps_<?php /*echo $this->product['id'];*/?>" class="platform_select download-btn"><?php /*echo $this->translate("Download");*/?></a>-->
+                                <a href="#platform_select" title="Select Platforms" class="platform_select download-btn" id="apps_<?php echo $this->product['id'];?>">
+                                    <p onclick="getSupportedPlatformsByAppId(<?=$this->product['id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?=$this->product['id'];?>);"><?php echo $this->translate("Download");?></p>
+                                </a>
+                        <?php else: ?>
+                                <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $this->product['id'];?>" class="platform_select">
+                                    <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><p onClick="getSupportedPlatformsByAppId(<?=$this->product['id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?=$this->product['id'];?>);"><?php echo $this->translate("Download");?></p></span><span class="slider-button-right">&nbsp;</span></div>
+                                </a>
+                            <?php endif; ?>
+                        <?php
+                        else:
+                        ?>
+                            <?php if($this->partnerId == 23045) : ?>
+                                <a rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$this->product['id'];?>" class="download-btn nexlink"><?php echo $this->translate("Download");?></a>  
+                            <?php else: ?>
+                                <a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$this->product['id'];?>">
+        <!--                        <img src="<?= $this->baseUri; ?>/partner/default/assets/img/dtls_download.jpg" border="0" />-->
+                                    <div class="button-wraper"><span class="slider-button-left">&nbsp;</span><span class="slider-button-middle"><p><?php echo $this->translate("Download");?></p></span><span class="slider-button-right">&nbsp;</span></div>
+                                </a>
+                            <?php endif; ?>
+                        <?php
+                        endif;
+                        ?>
+    
+                    </div>
+                    <div class="sup_formts_txt"><?= ($this->showPlatformIcons) ? $this->translate("Supported Formats") : '';?></div>
+
+                    <div class="dtl_ico_wrap1"><!-- class-->
+
+                        <?php if($this->showPlatformIcons): ?>
+                            <?php
+                            if(!is_null($this->product))
+                            {
+                                foreach($this->product['supported_platforms'] as $platform){ ?>
+                                    <img src="/partner/default/assets/img/platforms/<?php echo $platform->id;?>.png" alt="<?php echo $platform->name;?>" title="<?php echo $platform->name;?>"/>
+                                <?php }
+                            /*if($this->avgApproved)
+                            { ?>
+                                <a href="http://www.avg.com" target="_blank"><img id="avg" src="/partner/default/assets/img/avg.png" style="width:30px;position:relative;top:2px;"/></a>
+                            <?php }*/
+                            }
+                            else
+                            {
+                                echo 'There are no Supported Platforms for this App';
+                            } 
+                            ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+
+                <div class="detail_right_part">
+                    <div class="dtl_des_wraptxt1"><!-- your description here--> <span
+                            class="inr_brdcrtxt_pur"><?php echo $this->translate("Description");?></span> <br /><br />
+                        <span class="generaltext_cat_des">
+                            <?= $this->product['desc']; ?>
+                        </span> <!-- your description here--></div>
+                </div>
+
+                </div>
+
+
+            <div class="detail_selection_top">
+                <div class="wrapper_comments_are" <?php if($this->chap_id == 585474 or $this->chap_id == 585480 ): ?> style="display: none;" <?php endif; ?>>
+                    <div class="reviews_bg">
+                        <div class="lts_rev_txt"><span class="inr_brdcrtxt_pur"><?php echo $this->translate("Latest Reviews");?></span></div>
+                        <div class="see_all_rev"><span class="generaltext_cat_des" style="display: none;">(5 of 318)</span>
+                            <span class="see_all_rev_txt_link" style="display: none;"><a href="#">See all Reviews</a></span>
+                        </div>
+                        <!--div class="add_btn_rev"><img id="add_review" src="<?= $this->baseUri; ?>/partner/default/assets/img/addyourbtn.gif" border="0" /></div-->
+                        <?php if($this->chap_id != 935529 ){ ?>
+                        <div style="display: none !important;" class="add_btn_rev add_own_review"><a id="add_review" onclick="addReview()"> + <?php echo $this->translate("Add your own review");?></a></div>
+                        <?php } ?>
+                    </div> 
+
+                    <?php if (is_array($this->reviews) && count($this->reviews)): ?>
+                        <? foreach ($this->reviews as $review): ?>
+
+
+                            <?php /*Zend_Debug::dump($review);*/?>
+
+                            <div class="main_loop_msgwrap1">
+                                <div class="main_loop_top"></div>
+                                <div class="main_loop_mid"><!-- mid contetn-->
+                                    <div class="mid_loopdtl_wrapper">
+                                        <div class="mid_loopdtl_wrapper_top">
+                                            <?php if($review['title']){ ?>
+                                                <div class="mid_hdr_txt"><?php if(!$this->mtnIran): ?><span class="inr_brdcrtxt_pur">+</span> <?php endif; ?><span
+                                                        class="inr_brdcrtxt_grey"><?php echo $this->trim(($review['title'] == '' ? $review['review'] : $review['title']), 60) ?></span>
+                                                </div>
+                                            <?php } ?>
+
+
+                                            <div class="mid_count_txt"><span class="generaltext_cat_des">(</span> <span
+                                                    class="rating_value"><?php echo date('jS M \'y', strtotime($review['date'])) ?></span>
+                                                <span class="generaltext_cat_des">)</span></div>
+                                        </div>
+
+                                        <div class="mid_loopdtl_wrapper_btm">
+                                            <span class="generaltext_cat_des">
+                                                <strong><?php echo $review['name'];?></strong>
+                                            </span>
+                                        </div>
+
+                                        <div class="mid_loopdtl_wrapper_btm"><span class="generaltext_cat_des">
+                                                <?php echo nl2br(htmlspecialchars(strip_tags($review['review']))); ?>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- mid contetn--></div>
+                                <div class="main_loop_btm"></div>
+                            </div>
+                        <? endforeach; ?>
+
+                    <? else: ?>
+
+                        <p style="text-align: center;padding-top: 60px;">  <?php echo $this->translate("No user reviews yet..");?> </p>
+                    <? endif; ?>
+                    <div>
+
+                        <div id="form_wrapper" style="display: none;">
+
+                            <?php
+                            $auth = Zend_Auth::getInstance();
+                            if (isset($auth->getIdentity()->id) and isset($auth)):
+                                ?>  
+                                <form name="frm_feedback" id="frm_feedback" method="post" action="<?= $this->_baseUrl ?>/app/review">
+                                    <!-- form col3-->	
+
+                                    <br /><br />
+
+                                    <div class="form_col3_class1">
+                                        <div class="form_col3_class1_left">
+                                            <span class="form_font_tel"><?php echo $this->translate("Name");?>: </span>
+                                            <span class="form_font_red">*</span>
+
+                                        </div>
+
+                                        <div class="form_col3_class1_right">
+                                            <input type="text" id="reviewer" name="reviewer" class="input_smallresult_form" style="width:100%">
+                                            <span id="nameInfo"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form_col3_class1">
+                                        <div class="form_col3_class1_left">
+                                            <span class="form_font_tel"><?php echo $this->translate("Title");?>: </span>
+                                            <span class="form_font_red">*</span>
+
+                                        </div>
+
+                                        <div class="form_col3_class1_right">
+                                            <input type="text" id="title" name="title" class="input_smallresult_form" style="width:100%">
+                                            <span id="nameInfo"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form_col3_class1" style="width: 100%;">
+                                        <div class="form_col3_class1_left">
+                                            <span class="form_font_tel"><?php echo $this->translate("Review");?>: </span>
+                                            <span class="form_font_red">*</span>
+
+                                        </div>
+
+                                        <div class="form_col3_class1_right">
+                                            <textarea id="body" class="txt_area_innerform_calvalthe" style="width:100%" rows="7" cols="50" name="body"></textarea>
+                                            <span id="nameInfo"></span>
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" name="product_id" id="product_id" value="<?= $this->product['id'] ?>" />
+                                    <div align="right" class="submit_btn_wrapper">
+
+                                        <span class="form_font_red">  <?= $this->error; ?>   </span>
+                                        <input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Add Review");?>" class="partner_btn" style="width: 170px;">
+
+                                    </div>
+
+
+                                </form>	<!-- form col6-->	
+<? else: ?>   
+
+                                <span class='warning_message'><?php echo $this->translate("Please login to post a review.");?></span>
+
+<? endif; ?>												
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="pagination_review">
+                        <div class="see_all_rev2"><span class="generaltext_cat_des" style="display: none;">(5 of 318)</span>
+                            <span class="see_all_rev_txt_link"  style="display: none;"><a href="#">See all Reviews</a></span>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                
+                
+                
+            </div>
+
+
+        </div>
+        <div class="box_content_footer"></div>
+    </div>
+</div>
+<!-- box one-->

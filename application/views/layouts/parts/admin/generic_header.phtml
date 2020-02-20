@@ -1,0 +1,27 @@
+        <!-- Start Header -->
+        <div id="header">
+
+            <!-- Start Logo -->
+            <div class="logo">
+                <a href="/">
+                    <img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/logo.png" alt="logo"/>
+                </a>
+            </div>
+            <!-- End Logo -->
+
+            <!-- Start Info -->
+            <?php
+
+        $locale  =   Zend_Registry::get('Zend_Locale');
+
+        $date   =   new Zend_Date(Zend_Date::DATETIME_FULL,$locale);
+
+        ?>
+            <div class="info">
+                <div>
+                    <h2><?php echo !empty($this->titleForLayout) ? $this->titleForLayout : ''?></h2>
+                </div>
+            </div>
+            <!-- End Info -->
+        </div>
+        <!-- End Header -->

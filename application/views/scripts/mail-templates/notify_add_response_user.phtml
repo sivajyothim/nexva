@@ -1,0 +1,37 @@
+<?php
+    $bgColor    = '#FFAA00';
+    $fgColor    = '#FFFFFF';
+    $fontColor  = '#FFAA00'; 
+?>
+<br><br>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;  font-weight: bold;'>
+Hello <?php echo $this->email; ?>
+</p>
+
+<p>
+    <table border="0" bgcolor="eeeeee">
+        <tr>
+            <td colspan="5">&nbsp;</td>
+        </tr>
+        <tr>
+            <td width='2%'>&nbsp;</td>
+            <td colspan='4'>
+                <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+                    A new Response has received to the Ticket <span style='font-family: Verdana, Arial, Helvetica, sans-serif; color: <?=$fontColor?>; text-decoration:none;'><strong>ID - #<?= $this->ticketId; ?></strong></span> that you have created.<br/>
+                </p>
+
+                <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+                To view the status of the ticket or add comments, please visit the following URL.<br/><br/>
+                <a style='text-align:center;display:block;font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;background: <?=$bgColor?>;color: <?=$fgColor?>;margin-right: 2px; padding: 10px 6px; text-decoration: none;' href="<?= $this->ticketUrl; ?>" class="button"><strong><?= $this->ticketUrl; ?></strong></a>
+                </p>
+                <br/>
+            </td>
+        </tr>
+    </table>
+</p>
+
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>Thank you for.</p>
+<p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px;'>
+Sincerely,<br/>
+<?= utf8_decode($this->siteName); ?> Support Team.
+</p>

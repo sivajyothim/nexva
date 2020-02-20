@@ -1,0 +1,66 @@
+<div id="free_apps" class="tab_selection_top content">
+    <div id="free_col">
+        <ul>
+            
+            <?php 
+            foreach ($this->freeApps as  $app): ?>
+            
+                <li>
+                    <a class="app_name_link" href="<?=$this->baseUri;?>/app/<?=$this->slug($app['name']);?>.<?=$app['product_id']?>">
+                        <div class="app_image_bg">
+
+                            <div class="app_ima_palce_holder">                            
+                                <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|10|10&q=100&f=png" ?>" alt="app_image" />
+                            </div>
+
+<!--                            <div class="app_ima_palce_holder">                            
+                                <img src="<?= "http://production.applications.nexva.com.s3.amazonaws.com/productimg/".$app['product_id']."/thumbnails/80x80/".basename($app['thumbnail']) ?>" alt="app_image" />
+                            </div>-->
+                        </div>
+                    </a>
+                    <a class="app_name_link" href="<?=$this->baseUri;?>/app/<?=$this->slug($app['name']);?>.<?=$app['product_id']?>"><p class="app_name"><?= $this->trim($app['name'],18) ?></p></a>
+                    <p class="vendor_name"><?= $this->trim($app['vendor'],18) ?></p>
+                    <?= $this->partial('partials/rating.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+                    
+                    <?php if($this->showPlatformIcons): ?>
+                    <p class="platform_list">
+                        <?php foreach($app['supported_platforms'] as $platform) : ?>
+
+                           <img width="16" height="16" src="/partner/default/assets/img/platforms/<?php echo $platform->id;?>.png" alt="<?php echo $platform->name;?>" title="<?php echo $platform->name;?>"/> 
+
+                        <?php    
+                        endforeach;
+                        ?>
+                    </p>
+                    <?php endif; ?>
+                        <?php
+                        if($app['app_platform_type'] == 'MULTIPLE_AND_ANDROID' && count($app['supported_platforms']) > 1):
+                        ?>
+                            <a href="#platform_select" title="Select Platforms" id="apps_<?php echo $app['product_id'];?>" class="platform_select">
+                            <!--<a href="#select-download-platform" title="Select Platforms" id="apps_<?php /*echo $app['product_id'];*/?>" class="select-download-platform">-->
+                                 <p class="downlaod_text" onClick="getSupportedPlatformsByAppId(<?= $app['product_id'];?>,<?=$this->appStoreAppid; ?>,<?=$this->partnerId;?>,'<?=$this->loggedUser;?>');loadPopupBoxFeature(<?php echo $app['product_id'];?>);"/><?php echo $this->translate("Free Download");?></p>
+                                 <!--<p class="downlaod_text" /><?php /*echo $this->translate("Free Download");*/?></p>-->
+                            </a>
+                            <!--<a href="#select-download-platform" class="default_popup">Default Inline</a>-->
+                        <?php
+                        else:
+                        ?>
+                            <?php if($app['price'] > 0) : ?>
+                                <p class="buy_text"><a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$app['product_id'];?>"><?php echo $this->translate("Buy ");?>(<?= $app['price'] ?>)</a></p>
+                            <?php else : ?>
+                                <p class="downlaod_text"><a class="nexlink" rel="shadowbox;height=530;width=600" href="http://<?=$this->nexLinkerUrl; ?>/nexlinker/partner/id/<?=$this->appStoreAppid; ?>/p/<?=$this->partnerId;?>/userid/<?=$this->loggedUser;?>/productid/<?=$app['product_id'];?>"><?php echo $this->translate("Free Download");?></a></p>
+                            <?php endif; ?>
+                        <?php
+                        endif;
+                        ?>
+                </li>
+
+            <?php endforeach; ?>
+
+        </ul>
+        <div class="clearfix"></div>
+        <a id="prev_free" class="prev_free" href="#">&lt;</a>
+        <a id="next_free" class="next_free" href="#">&gt;</a>
+        <div id="pager_free" class="pager_free"></div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="app">
+    
+    <?php if(!$this->buildInfo and !$this->buildVersionInfo): ?>
+    <span class="mini-description">
+        We're sorry but the content you were looking for was not found.
+    </span>
+
+    <?php elseif(!$this->buildVersionInfo): ?>
+    <span class="mini-description">
+        Sorry, it seems we don't have this app in the language you might be looking for (<?=$this->currentLanguage?>). 
+        However, you can download the app for the following languages:
+    </span>
+
+    <?php 
+    foreach ($this->buildInfo AS $buildInfo) : ?>
+   		<a href='/app/download/id/<?=$this->productId;?>/language_id/<?=$buildInfo['language_id'];?>'>
+   		<?=($buildInfo['language_common_name'])? $buildInfo['language_common_name'] : $buildInfo['language_name']; ?>
+   		<span>&raquo;</span>
+   		</a>    <br>
+    <?php endforeach; ?>
+
+<?php endif;
+if($this->buildVersionInfo):  
+?>
+ <span class="mini-description">
+ 
+ We're sorry, but it seems that this app is not compatible with your phone. <br /><br />
+<?php foreach ($this->buildVersionInfo AS $buildVersionInfo) : ?>
+Required OS version: <?=$buildVersionInfo['minOsVersion'];?> <?=($buildVersionInfo['or_better'])? 'or better' : ''; ?>  <br />
+ <?php endforeach; ?>
+
+<br />Detected OS version: <?=$this->osVersion; ?>. 
+
+
+</span>
+
+
+<?php 
+endif;
+?>
+
+</div>

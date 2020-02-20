@@ -1,0 +1,98 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: viraj
+ * Date: 7/31/14
+ * Time: 4:57 PM
+ */
+?>
+
+<?php
+$chapId = Zend_Auth::getInstance()->getIdentity()->id;
+?>
+
+<script type="text/javascript" language="javascript">
+    $(document).ready(function() {
+        $("#qelasy-users").validate();
+        $('#accordion-category').accordion({
+            collapsible: true,
+            heightStyle: "content",
+            active : 'none'
+        });
+
+        $('.category-chk').click(function(e){
+            var sub_chk = $(this).parent().next('div').find('.category-chk-sub');
+            if(this.checked) {                              //
+                sub_chk.each(function(){                    //
+                    this.checked = true;                    //
+                });                                         //
+            } else {                                        //  adds check all & deselect all functionality for parent category selector
+                sub_chk.each(function(){                    //
+                    this.checked = false;                   //
+                });                                         //
+            }
+            e.stopPropagation();
+        });
+
+        $('.category-chk-sub').click(function(e){
+            var parent_chk = $(this).parent().prev('h3').find('.category-chk');
+            if(this.checked) {                              //
+                parent_chk.each(function(){                 //
+                    this.checked = true;                    //  check the parent category selector if any of the sub-category is checked
+                });                                         //
+            }                                               //
+        });
+
+    });
+</script>
+
+<?php if (count($this->successMessages)) { ?>
+    <div class="notification success png_bg">
+        <div>
+
+            <?php foreach ($this->successMessages as $message) { ?>
+
+                <li><?php echo $this->escape($message); ?></li>
+
+            <?php } ?>
+
+        </div>
+    </div>
+<?php } ?>
+
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title;?></h3>
+        <div id="icon_wrapper">
+            <a href="/qelasy/qelasy-grades" alt="List User Types" class="button">List User Types</a>
+        </div>
+    </div>
+    <div class="content-box-content">
+        <div style="width:99%;float: right;">
+            <form method="post" action="/qelasy/edit-qelasy-user/user_type/2" id="qelasy-users" name="qelasy-users" class="pbo-admin-form">
+                <div id="accordion-category">
+                    <?php
+                        $categoryModel = new Pbo_Model_QelasyGradeCategories();
+                        foreach($this->categories as $category){ ?>
+                            <h3 class="category-header"><input name="category[]" class="category-chk" value="<?php echo $category->id;?>" type="checkbox" <?php if(isset($category['grade_category_status']) && ($category['grade_category_status'] == 1)){ echo 'checked'; }?> /><?php echo $category->name;?></h3>
+                            <div class="sub-category">
+                                <?php
+                                $subCategories = $categoryModel->getNonGradeSubCategoriesForParentCategory($category->id, $this->userType->id, $chapId);
+                                foreach($subCategories as $subCategory){
+                                if($subCategory->status){ ?>
+                                        <input name="category[]" class="category-chk-sub" value="<?php echo $subCategory->id;?>" type="checkbox" <?php if($subCategory->grade_category_status == 1){ echo 'checked'; } ?>/><?php echo $subCategory->name;?><br/>
+                                     <?php }
+                                } ?>
+                            </div>
+                        <?php } ?>
+                </div>
+                <div style="float:left; width:60px; position: relative; left: 15px">
+                    <input style="position: relative; top: 5px" type="submit" value="Submit" class="button" name="add-all" id="add-all"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#1').addClass('current');
+</script>

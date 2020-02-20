@@ -1,0 +1,47 @@
+<style>
+<!--
+    .content ul li {
+        margin-bottom: 10px;
+    }
+-->
+</style>
+<div class='blkCenter innerPage containerGap'>
+    <div class="container">
+        <div class='content'> 
+            <h2>Well, this is embarassing!</h2>
+            <h4>Looks like the page you're looking for doesn't exist. (404 - Not Found)</h4>
+            <p>
+                See if any of the steps below will help you out. <br>
+                <ul>
+                    <li><a href='/'>Click here</a> to be taken back to the home page.</li>
+                    <li>If you were expecting an app page, use the search bar on top to search for it.</li>
+                    <li>If you were browsing a category or expecting a category page, browse the category list on the left of the screen.</li>
+                </ul>
+            </p>
+            
+            <?php if (APPLICATION_ENV != 'production') : ?>
+            <br><br>
+                <hr>
+                
+                  <h2><?php echo $this->message ?></h2>
+                
+                  <?php if (isset($this->exception)): ?>
+                
+                  <h3>Exception information:</h3>
+                  <p>
+                      <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+                  </p>
+                
+                  <h3>Stack trace:</h3>
+                  <pre><?php echo $this->exception->getTraceAsString() ?>
+                  </pre>
+                
+                  <h3>Request Parameters:</h3>
+                  <pre><?php echo var_export($this->request->getParams(), true) ?>
+                  </pre>
+                  <?php endif ?>
+            <?php endif;?>
+    </div>
+  </div>
+</div>
+

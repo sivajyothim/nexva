@@ -1,0 +1,93 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Administrator
+ * Date: 4/29/13
+ * Time: 4:28 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="title">
+    <h3>Price Points | Nexva.com</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+
+        <?php echo $this->render('partials/message.phtml'); ?>
+        <div id="content_box">
+
+            <div class="tab-handsets price-point">
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <?php $filterGateway = Zend_Session::namespaceGet('filter_session');?>
+                            <div id="price_point_header">
+                            <form method="post" action="/pricepoint/list" id='price_point_filter'>
+                                <label for="filter_gateway" style="display:inline;">Gateway</label>
+                                <select id="filter_gateway" name="filter_gateway" class="select-input small">
+                                    <option value=""> -select- </option>
+                                    <?php foreach($this->paymentGateways as $paymentGateway){ ?>
+                                        <option value="<?php echo $paymentGateway['id'];?>" <?php if(isset($filterGateway['selected_gateway'])){echo ($filterGateway['selected_gateway'] == $paymentGateway['id'])?'selected="selected"':'';}?> ><?php echo $paymentGateway['name'];?></option>
+                                    <?php } ?>
+                                </select>
+                                <label for="filter_price_point" style="margin-left:25px;display:inline;">Price Point</label>
+                                <input type="text" class="txt-input medium" id="filter_price_point" name="filter_price_point" value="<?php if(!empty($filterGateway['filter_keyword'])) {echo $filterGateway['filter_keyword'];}?>"/>
+                                <input type="submit" id="price_point_submit" name="price_point_submit" class="button" value="Filter" />
+                                <!--<input type="submit" id="reset" name="reset" class="button" value="Reset" />-->
+                            </form>
+                            </div>
+                        </tr>
+                        <tr>
+                            <!--<th>Id</th>-->
+                            <th>Price</th>
+                            <th>Price Point</th>
+                            <th>Gateway</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->pricepoints as $pricepoint){ ?>
+                            <tr>
+                                <!--<td><?php /*echo $this->test;*/?></td>-->
+                                <!--<td><?php /*echo $pricepoint['price_point_id']; */?></td>-->
+                                <td><?php echo $pricepoint['price']; ?></td>
+                                <td><?php echo $pricepoint['price_point']; ?></td>
+                                <td><?php echo $pricepoint['name']; ?></td>
+                                <td><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>pricepoint/edit/id/<?php echo $pricepoint['price_point_id'];?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/edit.png" title="Edit"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>pricepoint/delete/id/<?php echo $pricepoint['price_point_id'];?>" ><img alt="Edit" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" title="Delete"></a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <?php echo $this->paginationControl($this->pricepoints, 'Sliding', 'partials/paginator.phtml'); ?>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--<script type="text/javascript">
+    $().ready(function(){
+       $('#reset').click(function(){
+            <?php /*Zend_Session::namespaceUnset('filter_gateway');*/?>
+       });
+    });
+</script>-->
+<!--<script type="text/javascript">
+    $().ready(function(){
+        $('#price_point_submit').click(function(){
+            var gateway = $('#filter_gateway').val();
+            if(gateway)
+            {
+                <?php /*Zend_Session::namespaceUnset('filter_gateway');*/?>
+            }
+            else
+            {
+                <?php /*$filterGateway['selected_gateway'] = NULL;*/?>
+                <?php /*Zend_Session::namespaceUnset('filter_gateway');*/?>
+            }
+        });
+    });
+</script>-->

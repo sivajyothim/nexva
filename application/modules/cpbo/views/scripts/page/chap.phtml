@@ -1,0 +1,58 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 1/2/14
+ * Time: 4:31 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="title">
+    <h3>neXpayer</h3>
+</div>
+<div class="box">
+    <table>
+        <thead>
+            <tr>
+                <th style="width:5%;">ID</th>
+                <th style="width:5%;">Logo</th>
+                <th style="width:10%;">CHAP Name</th>
+                <th style="width:5%;">Web URL</th>
+                <th style="width:10%;">Countries</th>
+                <th style="width:10%;">Subscriber Base</th>
+                <th style="width:55%;">Channel Description</th>
+                <th >Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($this->channelDetails as $channelDetail) {
+                $logo = $this->ThemeMeta($channelDetail['id'],'WHITELABLE_SITE_LOGO');
+                $country = $this->ThemeMeta($channelDetail['id'],'WHITELABLE_COUNTRY');
+                $subscriberBase = $this->ThemeMeta($channelDetail['id'],'WHITELABEL_SUBSCRIBER_BASE');
+                ?>
+            <tr>
+                <td style="width:5%;"><?php echo $channelDetail['id'];?></td>
+                <td style="width:5%;"><img alt="Logo" src="/wl/logos/<?php if($logo) { echo $logo[0]['meta_value']; }?>" style="height:50px;"></td>
+                <td style="width:10%;"><?php echo strtoupper($channelDetail['username']);?></td>
+                <td style="text-align:center;width:5%;">
+                    <?php if($channelDetail['meta_value']){ ?>
+                        <a href="http://<?php echo $channelDetail['meta_value'];?>" target="_blank"><?php echo $channelDetail['meta_value'];?></a>
+                    <?php } else { ?>
+                        N/A
+                    <?php } ?>
+                </td>
+                <td style="text-align:center;width:10%;"><?php if($country) { echo $country[0]['meta_value']; } ?></td>
+                <td style="text-align:center;width:10%;"><?php if($subscriberBase) { echo $subscriberBase[0]['meta_value']; } else { echo 'N/A';} ?></td>
+                <td style="width:55%;"><?php echo $channelDetail['cp_payout_description'];?></td>
+                <td style="text-align:center;">
+                    <?php if($channelDetail['nexpayer_support'] == 1){
+                        echo 'Nexpayer Support';
+                    } else {
+                        echo 'N/A';
+                    } ?>
+                </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+</div>

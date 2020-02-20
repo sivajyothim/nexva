@@ -1,0 +1,140 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/18/13
+ * Time: 12:47 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php               
+   $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+   $languageCode="";
+   if(in_array($chapId, array('585474','585480'))){
+       $languageCode="fr_FR";
+       
+   }                        
+?>
+<style type="text/css">
+    .required-star{
+        color:red;
+    }
+</style>
+<script type="text/javascript">
+    $().ready(function(){
+        $('#cancel').click(function(event){
+            event.preventDefault();
+            window.location.href = '/ticket/create/';
+        });
+
+        $('#submit').click(function() {
+            tinyMCE.triggerSave();
+        });
+
+        $('#submit-ticket').ketchup({
+            positionContainer: function(errorContainer, attach) {}
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        language : "<?=$languageCode?>"
+    });
+</script>
+
+<!-- Displays Success Message/s -->
+<?php if(count($this->successMessages)) { ?>
+<div class="message info">
+    <p>
+        <?php foreach ($this->successMessages as $message) {
+            echo $this->translate($this->escape($message));
+        } ?>
+    </p>
+</div>
+<?php } ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) { ?>
+<div class="message error" style="display: block;">
+    <p>
+        <?php foreach($this->errorMessages as $message) {
+            echo $this->translate($this->escape($message));
+        } ?>
+    </p>
+</div>
+<?php } ?>
+
+<div id="wrap" class="fixed" style="margin-top:20px;">
+    <div id="content">
+        <div class="title">
+            <h3><?php echo $this->translate("Create a Ticket");?></h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <div class="tab-table">
+                    <div class="tab-forms">
+                        <form id="submit-ticket" name="submit-ticket" action="/ticket/create" method="POST" enctype="multipart/form-data">
+                                <p>
+                                    <label><?php echo $this->translate("Subject");?><span class="required-star">*</span></label>
+                                    <input id="subject" class="txt-input small validate(required)" type="text" value="" autocomplete="off" name="subject">
+                                </p>
+                                <p>
+                                    <label><?php echo $this->translate("Type");?><span class="required-star">*</span></label>
+                                    <select id="type" class="validate(required) select-input small" style="width:200px;" name="type">
+                                        <option value="">-<?php echo $this->translate("Select Type");?>-</option>
+                                        <option value="Question"><?php echo $this->translate("Question");?></option>
+                                        <option value="Incident"><?php echo $this->translate("Incident");?></option>
+                                        <option value="Problem"><?php echo $this->translate("Problem");?></option>
+                                        <option value="Feature"><?php echo $this->translate("Feature");?></option>
+                                    </select>
+                                </p>
+                                <!--<p>
+                                    <label>Status<span class="required-star">*</span></label>
+                                    <select id="status" class="validate(required) select-input small" style="width:200px;" name="status">
+                                        <option value="">-Select Status-</option>
+                                        <option value="Open">Open</option>
+                                        <option value="Pending">Pending</option>
+                                        <option value="Resolved">Resolved</option>
+                                        <option value="Closed">Closed</option>
+                                    </select>
+                                </p>-->
+                                <p>
+                                    <label><?php echo $this->translate("Priority");?><span class="required-star">*</span></label>
+                                    <select id="priority" class="validate(required) select-input small" style="width:200px;" name="priority">
+                                        <option value="">-<?php echo $this->translate("Select Priority");?>-</option>
+                                        <option value="Low"><?php echo $this->translate("Low");?></option>
+                                        <option value="Medium"><?php echo $this->translate("Medium");?></option>
+                                        <option value="High"><?php echo $this->translate("High");?></option>
+                                        <option value="Urgent"><?php echo $this->translate("Urgent");?></option>
+                                    </select>
+                                </p>
+                                <!--<p>
+                                    <label>Source<span class="required-star">*</span></label>
+                                    <select id="source" class="validate(required) select-input small" style="width:200px;" name="source">
+                                        <option value="">-Select Source-</option>
+                                        <option value="Partnerweb">Partnerweb</option>
+                                        <option value="Partnermobile">Partnermobile</option>
+                                        <option value="Androidapp">Androidapp</option>
+                                        <option value="CP">CP</option>
+                                    </select>
+                                </p>-->
+                                <p>
+                                    <label><?php echo $this->translate("Description");?><span class="required-star">*</span></label>
+                                    <textarea id="description" class="txt-input medium validate(required) tinymce" cols="80" rows="5" name="description"></textarea>
+                                </p>
+                                <p>
+                                    <label><?php echo $this->translate("Attach a file from your computer (File size &lt; 5MB)");?></label>
+                                    <!--<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />-->
+                                    <input id="attach" class="txt-input medium" type="file" name="attach" />
+                                </p>
+                                <input id="submit" class="submit button" type="submit" value="<?php echo $this->translate("Submit");?>" name="submit"><!--href="<?php echo PROJECT_BASEPATH;?>ticket/create"-->
+                                <input id="cancel" class="submit button" type="submit" href="#" value="<?php echo $this->translate("View Content");?>" name="cancel">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

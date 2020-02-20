@@ -1,0 +1,155 @@
+#visualizations {
+	width: 75%;
+	float:right;
+	overflow: auto;
+}
+
+#analytics_menu {
+	float: left;
+	width: 24%;
+}
+
+#content #analytics_menu .icon_list li {
+	width: 68px;
+} 
+
+.title .filter {
+    float: right;
+    padding: 10px 15px 0;
+    color: #fff;
+}
+
+#content .title .filter button, #content .button  {
+    background: none repeat scroll 0 0 #E37923;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    padding: 2px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+#content a.button {
+	color: #fff;
+	
+}
+
+#content .title .filter .button {
+    display: block;
+    float: left;
+    margin: 1px 0 0 10px;
+    padding: 5px;
+}
+
+/** on index page **/
+.analytics_trends {
+	width: 150px;
+	float:right;
+}
+
+/* Product block */
+.product_info {
+	overflow: auto;
+}
+
+.product_info img {
+	float: left;
+	padding: 10px 15px 15px 0;
+}
+
+.product_info p {
+	margin: 10px;
+}
+
+
+/** date filter form **/
+#content form.date_filter select {
+	width: 77%;
+}
+
+#content form.date_filter input {
+	width: 43%;
+}
+
+
+.chart_box_full {
+	display:block;
+}
+
+.chart_box_half {
+	width: 49%;
+	float: left;
+	
+}
+
+.full_block {
+    width: 100%;
+    height: 200px;
+}
+
+
+.half_block {
+    width: 100%;
+    height: 200px;
+ }
+
+#stats_view_by_app_cont {
+    margin-left: 2%;    
+}
+
+#stats_view_by_app {
+}
+
+.stat_block, .stat_block_large {
+    float: left;
+    margin-right: 51px;
+    width: 30%;
+}
+
+.stat_block_large {
+	width: 65%;
+}
+
+.stat_block.last, .stat_block_large.last {
+    margin-right: 0px;
+}
+/** App fileter under the multi product chart **/
+#app_filter {
+	margin-top: 10px;
+	border-top: 2px solid #000;
+	background: #dadada;
+    opacity: 0.7;
+    overflow:auto;
+    padding-top: 10px;
+}
+
+#app_filter li {
+	padding: 5px 10px;
+	margin: 0px 5px;
+	float:left;
+}
+
+#app_filter span.label {
+    display:block;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+#app_filter span input[type="checkbox"]  {
+   vertical-align: middle;
+}
+
+#content .legend table {width: auto;}
+#content .legend table tbody tr td{padding: 0px; background: none;}
+
+/** Misc **/
+.coming_soon_overlay {
+    background: url("../img/content/icon_list/cs-small.png") no-repeat scroll 50% 30% transparent;
+    height: 75px;
+    width: 75px;
+}
+
+ 
+.sortTable th {
+    cursor: pointer;
+}
+ 

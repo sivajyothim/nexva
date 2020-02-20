@@ -1,0 +1,24 @@
+<form action='/converter/index/' method='get'>
+<textarea rows="5" cols="40" name='products'><?=$this->productIds?></textarea>
+
+<button type='submit'>Submit</button>
+</form>
+
+
+<?php if ($this->products) : ?>
+<br>
+<br>
+    <form action='/converter/convert/' method='post'>
+        
+        <?php foreach ($this->products as $id => $data) : ?>
+            <textarea rows="5" cols="40" name='products[<?=$id?>][name]'><?=$data['name']?></textarea>
+            <textarea rows="5" cols="40" name='products[<?=$id?>][BRIEF_DESCRIPTION]'><?=$data['BRIEF_DESCRIPTION']?></textarea>
+            <textarea rows="5" cols="40" name='products[<?=$id?>][FULL_DESCRIPTION]'><?=$data['FULL_DESCRIPTION']?></textarea>
+            <br><br>
+        <?php endforeach;?>
+    
+        <button type='submit'>Submit</button>
+    </form>
+
+    
+<?php endif;?>

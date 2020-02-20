@@ -1,0 +1,288 @@
+.tree {
+    text-align: left;
+}
+.tree li{
+    margin-left: 30px;
+    padding: 0;
+}
+
+.tree ul {
+    padding: 0;
+    margin: 0;
+}
+
+#upload_button{
+    margin:30px 200px; padding:8px 5px 8px 5px;
+    font-weight:normal; font-size:1em;
+    font-family:Georgia,Arial, Helvetica, sans-serif;
+    text-align:center;
+    background:#000000;
+    color:#ffffff;
+    border:2px solid #DADADA;
+    width:150px;
+    cursor:pointer !important;
+    -moz-border-radius:5px; -webkit-border-radius:5px;
+}
+
+#status_message{
+    font-family:Arial; padding:5px;
+    color:#b00000;
+    font-size:12px;
+    font-weight:bold;
+}
+ul#files_list{ list-style:none; padding:0; margin:0; }
+ul#files_list li{ padding:10px; margin-bottom:2px; width:200px; float:left; margin-right:10px; text-align:center;color:#ffffff;}
+ul#files_list li img{ max-width:180px; max-height:150px; }
+.success{ background:#000000; border:1px solid #cccccc; }
+.error{ background:#f0c6c3; border:1px solid #cc6622; }
+
+
+.hide_div{
+    display: none;
+}
+
+/* CP Announcements */
+
+#content .announcement{
+    background: #FFF;
+    border: 1px solid #E47924;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+    padding-top: 30px;
+    float: left;
+    margin-right: 10px;
+    /*  margin-left: 100px;*/
+    margin-bottom: 10px;
+    margin-top: 20px;
+    width: 570px;
+    height: 90px;
+}
+
+#content .announcement:hover{
+    background: #FFF url(../img/global/icon_holder_bg.jpg) repeat-x bottom;
+    color: #000;
+}
+
+#content .announcement li a{
+    display: block;
+    font-size: 11px;
+    color: #727272;
+    text-decoration: none;
+}
+
+#content .iannouncement li a:hover{
+    color: #000;
+}
+
+#content .announcement .head h3{
+    color: #000;
+    /*      text-decoration: underline;*/
+    padding-bottom: 10px;
+}
+
+#content .login_news{
+    margin-top: 10px;
+    margin-left: 0px;
+    width: 380px;
+    height: 75px;
+}
+
+
+/* CP slide show */
+
+.disabled{
+    display: none;
+}
+
+/* Add CSS to navigator of the file and url */
+
+.navigate_container{
+    padding: 10px;
+    background-image: url("../img/content/icon_list/title_bg.jpg");
+    width: 250px;
+    font-weight: bold;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    color: #FFFFFF;
+
+}
+
+.files_url{
+    border: 1px solid #939393;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-topleft: 0px;
+    overflow:auto;
+}
+
+.navigate_container_devices{
+    padding: 10px;
+    background-image: url("../img/content/icon_list/title_bg.jpg");
+    font-weight: bold;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    width: 400px;
+    color: #FFFFFF;
+}
+
+.devices_container{
+    border: 1px solid #939393;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -moz-border-radius-topleft: 0px;
+
+}
+
+/* contact us and suppor links */
+
+.support_nav{
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    margin-bottom:0;
+    margin-left:0;
+    margin-right:0;
+    margin-top:1px;
+    padding-bottom:0;
+    padding-left:0;
+    padding-right:0;
+    padding-top:0;
+    float: right;
+}
+
+.support_nav li{
+    padding: 10px;
+    -moz-background-clip:border;
+    -moz-background-origin:padding;
+    -moz-background-size:auto auto;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 5px;
+    background-attachment:scroll;
+    background-color:#FFFFFF;
+    background-image:none;
+    background-position:0 0;
+    background-repeat:repeat;
+    color:#4B4B4B !important;
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:0;
+    float: left;
+    margin-left: 10px;
+}
+
+.support_nav a{
+    /*padding-bottom:0.4em;
+    padding-left:0.5em;
+    padding-right:0.5em;
+    padding-top:0.4em;*/
+    padding-bottom:0.8em;
+    padding-left:1em;
+    padding-right:0.8em;
+    padding-top:1em;
+    font-weight: bold;
+    color: #000;
+}
+
+.support_nav a:hover{
+    color:#4B4B4B !important;
+}
+
+.support_nav li:hover{
+    -moz-background-clip:border;
+    -moz-background-origin:padding;
+    -moz-background-size:auto auto;
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 5px;
+    background-attachment:scroll;
+    background-color:#FFFFFF;
+    background-image:none;
+    background-position:0 0;
+    background-repeat:repeat;
+    color:#4B4B4B !important;
+    outline-color:-moz-use-text-color;
+    outline-style:none;
+    outline-width:0;
+}
+
+.secondary-buttons{
+    background: #939393;
+}
+
+#unreadMessageCount {
+	background: none repeat scroll 0 0 #FF0000;
+    border: 2px solid #000000;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 3px 7px;
+}
+
+/* added CP vieos on home page */
+.embede_video{
+    float:left;
+    text-align:center;
+    width:380px;
+     margin-top: 15px;
+}
+
+.future_devices{
+    -moz-border-radius-bottomleft:5px;
+    -moz-border-radius-bottomright:5px;
+    -moz-border-radius-topleft:5px;
+    -moz-border-radius-topright:5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #939393;
+    padding:10px;
+}
+
+.files .success{
+    background-color: #E5E5E5;
+}
+.files .failed{
+    background-color: #FF6666;
+}
+.files .queue{
+    background-color: #FFFF99;
+}
+.help_notices{
+    background-color:#E5E5E5;
+    float:right;
+    font-size:8pt;
+    padding:10px 20px;
+    width:30%;
+}
+.help_notices li{
+    list-style:square;
+    line-height: 22px;
+}
+
+.urls_mode textarea {
+    width: 60%;
+}
+
+.sortTable th{
+	cursor:s-resize;
+}
+
+#user-message
+{
+    /*margin-top:0px;*/
+}
+
+#user-message img{
+    vertical-align:top;
+    width:16px;
+}

@@ -1,0 +1,920 @@
+O:4:"wsdl":52:{s:4:"wsdl";s:53:"http://www.viamichelin.com/ws/services/Geocoding?wsdl";s:7:"schemas";a:4:{s:38:"http://localization.ws.viamichelin.com";a:1:{i:0;O:16:"nusoap_xmlschema":35:{s:6:"schema";s:0:"";s:3:"xml";s:0:"";s:19:"enclosingNamespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:10:"schemaInfo";a:5:{s:15:"targetNamespace";s:38:"http://localization.ws.viamichelin.com";s:5:"xmlns";s:32:"http://www.w3.org/2001/XMLSchema";s:13:"schemaVersion";b:0;s:18:"elementFormDefault";s:11:"unqualified";s:20:"attributeFormDefault";s:11:"unqualified";}s:21:"schemaTargetNamespace";s:38:"http://localization.ws.viamichelin.com";s:10:"attributes";a:0:{}s:12:"complexTypes";a:12:{s:5:"PoiId";a:6:{s:4:"name";s:5:"PoiId";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:3:{s:2:"id";a:4:{s:4:"name";s:2:"id";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:8:"language";a:4:{s:4:"name";s:8:"language";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:4:"type";a:4:{s:4:"name";s:4:"type";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}}}s:17:"PoiMetaStringList";a:6:{s:4:"name";s:17:"PoiMetaStringList";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:10:"metaString";a:4:{s:4:"name";s:10:"metaString";s:8:"nillable";s:4:"true";s:4:"type";s:65:"http://service.localization.ws.viamichelin.com:ArrayOf_xsd_string";s:4:"form";s:11:"unqualified";}}}s:12:"InputAddress";a:6:{s:4:"name";s:12:"InputAddress";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:5:{s:7:"address";a:4:{s:4:"name";s:7:"address";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:8:"cityName";a:4:{s:4:"name";s:8:"cityName";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:11:"countryCode";a:4:{s:4:"name";s:11:"countryCode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:10:"postalCode";a:4:{s:4:"name";s:10:"postalCode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:9:"stateName";a:4:{s:4:"name";s:9:"stateName";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}}}s:16:"GeocodingRequest";a:6:{s:4:"name";s:16:"GeocodingRequest";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:13:"addressesList";a:4:{s:4:"name";s:13:"addressesList";s:8:"nillable";s:4:"true";s:4:"type";s:72:"http://service.localization.ws.viamichelin.com:ArrayOf_tns2_InputAddress";s:4:"form";s:11:"unqualified";}}}s:7:"Address";a:6:{s:4:"name";s:7:"Address";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:12:{s:9:"cityLabel";a:4:{s:4:"name";s:9:"cityLabel";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:11:"countryCode";a:4:{s:4:"name";s:11:"countryCode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:12:"countryLabel";a:4:{s:4:"name";s:12:"countryLabel";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:13:"districtLabel";a:4:{s:4:"name";s:13:"districtLabel";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:20:"formattedAddressLine";a:4:{s:4:"name";s:20:"formattedAddressLine";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:24:"formattedCityAddressLine";a:4:{s:4:"name";s:24:"formattedCityAddressLine";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:14:"gatheringLabel";a:4:{s:4:"name";s:14:"gatheringLabel";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:19:"officialCountryCode";a:4:{s:4:"name";s:19:"officialCountryCode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:10:"stateLabel";a:4:{s:4:"name";s:10:"stateLabel";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:11:"streetLabel";a:4:{s:4:"name";s:11:"streetLabel";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:12:"streetNumber";a:4:{s:4:"name";s:12:"streetNumber";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:7:"zipCode";a:4:{s:4:"name";s:7:"zipCode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}}}s:12:"PoiDatasheet";a:6:{s:4:"name";s:12:"PoiDatasheet";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:10:{s:5:"email";a:4:{s:4:"name";s:5:"email";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:3:"fax";a:4:{s:4:"name";s:3:"fax";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:14:"geocodingLevel";a:3:{s:4:"name";s:14:"geocodingLevel";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:6:"iconId";a:3:{s:4:"name";s:6:"iconId";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:7:"intlFax";a:4:{s:4:"name";s:7:"intlFax";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:14:"intlTelephone1";a:4:{s:4:"name";s:14:"intlTelephone1";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:14:"intlTelephone2";a:4:{s:4:"name";s:14:"intlTelephone2";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:10:"telephone1";a:4:{s:4:"name";s:10:"telephone1";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:10:"telephone2";a:4:{s:4:"name";s:10:"telephone2";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:3:"web";a:4:{s:4:"name";s:3:"web";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}}}s:18:"PoiDescriptionList";a:6:{s:4:"name";s:18:"PoiDescriptionList";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:12:"descriptions";a:4:{s:4:"name";s:12:"descriptions";s:8:"nillable";s:4:"true";s:4:"type";s:65:"http://service.localization.ws.viamichelin.com:ArrayOf_xsd_string";s:4:"form";s:11:"unqualified";}s:14:"translatedName";a:4:{s:4:"name";s:14:"translatedName";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}}}s:14:"PoiMetaNumList";a:6:{s:4:"name";s:14:"PoiMetaNumList";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:7:"metaNum";a:4:{s:4:"name";s:7:"metaNum";s:8:"nillable";s:4:"true";s:4:"type";s:67:"http://service.localization.ws.viamichelin.com:ArrayOf_tns4_Integer";s:4:"form";s:11:"unqualified";}}}s:3:"Poi";a:6:{s:4:"name";s:3:"Poi";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:7:{s:9:"datasheet";a:4:{s:4:"name";s:9:"datasheet";s:8:"nillable";s:4:"true";s:4:"type";s:51:"http://localization.ws.viamichelin.com:PoiDatasheet";s:4:"form";s:11:"unqualified";}s:15:"descriptionList";a:4:{s:4:"name";s:15:"descriptionList";s:8:"nillable";s:4:"true";s:4:"type";s:57:"http://localization.ws.viamichelin.com:PoiDescriptionList";s:4:"form";s:11:"unqualified";}s:24:"distanceFromSearchCenter";a:3:{s:4:"name";s:24:"distanceFromSearchCenter";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:11:"metanumList";a:4:{s:4:"name";s:11:"metanumList";s:8:"nillable";s:4:"true";s:4:"type";s:53:"http://localization.ws.viamichelin.com:PoiMetaNumList";s:4:"form";s:11:"unqualified";}s:14:"metastringList";a:4:{s:4:"name";s:14:"metastringList";s:8:"nillable";s:4:"true";s:4:"type";s:56:"http://localization.ws.viamichelin.com:PoiMetaStringList";s:4:"form";s:11:"unqualified";}s:4:"name";a:4:{s:4:"name";s:4:"name";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:5:"poiID";a:4:{s:4:"name";s:5:"poiID";s:8:"nillable";s:4:"true";s:4:"type";s:44:"http://localization.ws.viamichelin.com:PoiId";s:4:"form";s:11:"unqualified";}}}s:8:"Location";a:6:{s:4:"name";s:8:"Location";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:5:{s:7:"address";a:4:{s:4:"name";s:7:"address";s:8:"nillable";s:4:"true";s:4:"type";s:46:"http://localization.ws.viamichelin.com:Address";s:4:"form";s:11:"unqualified";}s:14:"geoCoordinates";a:4:{s:4:"name";s:14:"geoCoordinates";s:8:"nillable";s:4:"true";s:4:"type";s:44:"http://geo.ws.viamichelin.com:GeoCoordinates";s:4:"form";s:11:"unqualified";}s:2:"id";a:4:{s:4:"name";s:2:"id";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:11:"unqualified";}s:3:"poi";a:4:{s:4:"name";s:3:"poi";s:8:"nillable";s:4:"true";s:4:"type";s:42:"http://localization.ws.viamichelin.com:Poi";s:4:"form";s:11:"unqualified";}s:4:"type";a:3:{s:4:"name";s:4:"type";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}}}s:12:"FindLocation";a:6:{s:4:"name";s:12:"FindLocation";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:4:{s:24:"addressIncoherenceDegree";a:3:{s:4:"name";s:24:"addressIncoherenceDegree";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:21:"cityIncoherenceDegree";a:3:{s:4:"name";s:21:"cityIncoherenceDegree";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:13:"foundLocation";a:4:{s:4:"name";s:13:"foundLocation";s:8:"nillable";s:4:"true";s:4:"type";s:47:"http://localization.ws.viamichelin.com:Location";s:4:"form";s:11:"unqualified";}s:5:"score";a:3:{s:4:"name";s:5:"score";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:double";s:4:"form";s:11:"unqualified";}}}s:13:"FindLocations";a:6:{s:4:"name";s:13:"FindLocations";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:4:{s:9:"errorCode";a:3:{s:4:"name";s:9:"errorCode";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:7:"results";a:4:{s:4:"name";s:7:"results";s:8:"nillable";s:4:"true";s:4:"type";s:72:"http://service.localization.ws.viamichelin.com:ArrayOf_tns2_FindLocation";s:4:"form";s:11:"unqualified";}s:4:"size";a:3:{s:4:"name";s:4:"size";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}s:8:"topScore";a:3:{s:4:"name";s:8:"topScore";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:double";s:4:"form";s:11:"unqualified";}}}}s:16:"complexTypeStack";a:0:{}s:18:"currentComplexType";N;s:8:"elements";a:0:{}s:12:"elementStack";a:0:{}s:14:"currentElement";N;s:11:"simpleTypes";a:0:{}s:15:"simpleTypeStack";a:0:{}s:17:"currentSimpleType";N;s:7:"imports";a:1:{s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:1:{i:0;a:2:{s:8:"location";s:0:"";s:6:"loaded";b:1;}}}s:6:"parser";N;s:8:"position";i:81;s:5:"depth";i:1;s:11:"depth_array";a:4:{i:0;i:0;i:1;i:75;i:2;i:76;i:3;i:80;}s:7:"message";a:81:{i:0;a:1:{s:5:"cdata";s:0:"";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:0:"";}i:3;a:1:{s:5:"cdata";s:0:"";}i:4;a:1:{s:5:"cdata";s:0:"";}i:5;a:1:{s:5:"cdata";s:0:"";}i:6;a:1:{s:5:"cdata";s:0:"";}i:7;a:1:{s:5:"cdata";s:0:"";}i:8;a:1:{s:5:"cdata";s:0:"";}i:9;a:1:{s:5:"cdata";s:0:"";}i:10;a:1:{s:5:"cdata";s:0:"";}i:11;a:1:{s:5:"cdata";s:0:"";}i:12;a:1:{s:5:"cdata";s:0:"";}i:13;a:1:{s:5:"cdata";s:0:"";}i:14;a:1:{s:5:"cdata";s:0:"";}i:15;a:1:{s:5:"cdata";s:0:"";}i:16;a:1:{s:5:"cdata";s:0:"";}i:17;a:1:{s:5:"cdata";s:0:"";}i:18;a:1:{s:5:"cdata";s:0:"";}i:19;a:1:{s:5:"cdata";s:0:"";}i:20;a:1:{s:5:"cdata";s:0:"";}i:21;a:1:{s:5:"cdata";s:0:"";}i:22;a:1:{s:5:"cdata";s:0:"";}i:23;a:1:{s:5:"cdata";s:0:"";}i:24;a:1:{s:5:"cdata";s:0:"";}i:25;a:1:{s:5:"cdata";s:0:"";}i:26;a:1:{s:5:"cdata";s:0:"";}i:27;a:1:{s:5:"cdata";s:0:"";}i:28;a:1:{s:5:"cdata";s:0:"";}i:29;a:1:{s:5:"cdata";s:0:"";}i:30;a:1:{s:5:"cdata";s:0:"";}i:31;a:1:{s:5:"cdata";s:0:"";}i:32;a:1:{s:5:"cdata";s:0:"";}i:33;a:1:{s:5:"cdata";s:0:"";}i:34;a:1:{s:5:"cdata";s:0:"";}i:35;a:1:{s:5:"cdata";s:0:"";}i:36;a:1:{s:5:"cdata";s:0:"";}i:37;a:1:{s:5:"cdata";s:0:"";}i:38;a:1:{s:5:"cdata";s:0:"";}i:39;a:1:{s:5:"cdata";s:0:"";}i:40;a:1:{s:5:"cdata";s:0:"";}i:41;a:1:{s:5:"cdata";s:0:"";}i:42;a:1:{s:5:"cdata";s:0:"";}i:43;a:1:{s:5:"cdata";s:0:"";}i:44;a:1:{s:5:"cdata";s:0:"";}i:45;a:1:{s:5:"cdata";s:0:"";}i:46;a:1:{s:5:"cdata";s:0:"";}i:47;a:1:{s:5:"cdata";s:0:"";}i:48;a:1:{s:5:"cdata";s:0:"";}i:49;a:1:{s:5:"cdata";s:0:"";}i:50;a:1:{s:5:"cdata";s:0:"";}i:51;a:1:{s:5:"cdata";s:0:"";}i:52;a:1:{s:5:"cdata";s:0:"";}i:53;a:1:{s:5:"cdata";s:0:"";}i:54;a:1:{s:5:"cdata";s:0:"";}i:55;a:1:{s:5:"cdata";s:0:"";}i:56;a:1:{s:5:"cdata";s:0:"";}i:57;a:1:{s:5:"cdata";s:0:"";}i:58;a:1:{s:5:"cdata";s:0:"";}i:59;a:1:{s:5:"cdata";s:0:"";}i:60;a:1:{s:5:"cdata";s:0:"";}i:61;a:1:{s:5:"cdata";s:0:"";}i:62;a:1:{s:5:"cdata";s:0:"";}i:63;a:1:{s:5:"cdata";s:0:"";}i:64;a:1:{s:5:"cdata";s:0:"";}i:65;a:1:{s:5:"cdata";s:0:"";}i:66;a:1:{s:5:"cdata";s:0:"";}i:67;a:1:{s:5:"cdata";s:0:"";}i:68;a:1:{s:5:"cdata";s:0:"";}i:69;a:1:{s:5:"cdata";s:0:"";}i:70;a:1:{s:5:"cdata";s:0:"";}i:71;a:1:{s:5:"cdata";s:0:"";}i:72;a:1:{s:5:"cdata";s:0:"";}i:73;a:1:{s:5:"cdata";s:0:"";}i:74;a:1:{s:5:"cdata";s:0:"";}i:75;a:1:{s:5:"cdata";s:0:"";}i:76;a:1:{s:5:"cdata";s:0:"";}i:77;a:1:{s:5:"cdata";s:0:"";}i:78;a:1:{s:5:"cdata";s:0:"";}i:79;a:1:{s:5:"cdata";s:0:"";}i:80;a:1:{s:5:"cdata";s:0:"";}}s:16:"defaultNamespace";a:81:{i:0;s:32:"http://www.w3.org/2001/XMLSchema";i:1;s:32:"http://www.w3.org/2001/XMLSchema";i:2;s:32:"http://www.w3.org/2001/XMLSchema";i:3;s:32:"http://www.w3.org/2001/XMLSchema";i:4;s:32:"http://www.w3.org/2001/XMLSchema";i:5;s:32:"http://www.w3.org/2001/XMLSchema";i:6;s:32:"http://www.w3.org/2001/XMLSchema";i:7;s:32:"http://www.w3.org/2001/XMLSchema";i:8;s:32:"http://www.w3.org/2001/XMLSchema";i:9;s:32:"http://www.w3.org/2001/XMLSchema";i:10;s:32:"http://www.w3.org/2001/XMLSchema";i:11;s:32:"http://www.w3.org/2001/XMLSchema";i:12;s:32:"http://www.w3.org/2001/XMLSchema";i:13;s:32:"http://www.w3.org/2001/XMLSchema";i:14;s:32:"http://www.w3.org/2001/XMLSchema";i:15;s:32:"http://www.w3.org/2001/XMLSchema";i:16;s:32:"http://www.w3.org/2001/XMLSchema";i:17;s:32:"http://www.w3.org/2001/XMLSchema";i:18;s:32:"http://www.w3.org/2001/XMLSchema";i:19;s:32:"http://www.w3.org/2001/XMLSchema";i:20;s:32:"http://www.w3.org/2001/XMLSchema";i:21;s:32:"http://www.w3.org/2001/XMLSchema";i:22;s:32:"http://www.w3.org/2001/XMLSchema";i:23;s:32:"http://www.w3.org/2001/XMLSchema";i:24;s:32:"http://www.w3.org/2001/XMLSchema";i:25;s:32:"http://www.w3.org/2001/XMLSchema";i:26;s:32:"http://www.w3.org/2001/XMLSchema";i:27;s:32:"http://www.w3.org/2001/XMLSchema";i:28;s:32:"http://www.w3.org/2001/XMLSchema";i:29;s:32:"http://www.w3.org/2001/XMLSchema";i:30;s:32:"http://www.w3.org/2001/XMLSchema";i:31;s:32:"http://www.w3.org/2001/XMLSchema";i:32;s:32:"http://www.w3.org/2001/XMLSchema";i:33;s:32:"http://www.w3.org/2001/XMLSchema";i:34;s:32:"http://www.w3.org/2001/XMLSchema";i:35;s:32:"http://www.w3.org/2001/XMLSchema";i:36;s:32:"http://www.w3.org/2001/XMLSchema";i:37;s:32:"http://www.w3.org/2001/XMLSchema";i:38;s:32:"http://www.w3.org/2001/XMLSchema";i:39;s:32:"http://www.w3.org/2001/XMLSchema";i:40;s:32:"http://www.w3.org/2001/XMLSchema";i:41;s:32:"http://www.w3.org/2001/XMLSchema";i:42;s:32:"http://www.w3.org/2001/XMLSchema";i:43;s:32:"http://www.w3.org/2001/XMLSchema";i:44;s:32:"http://www.w3.org/2001/XMLSchema";i:45;s:32:"http://www.w3.org/2001/XMLSchema";i:46;s:32:"http://www.w3.org/2001/XMLSchema";i:47;s:32:"http://www.w3.org/2001/XMLSchema";i:48;s:32:"http://www.w3.org/2001/XMLSchema";i:49;s:32:"http://www.w3.org/2001/XMLSchema";i:50;s:32:"http://www.w3.org/2001/XMLSchema";i:51;s:32:"http://www.w3.org/2001/XMLSchema";i:52;s:32:"http://www.w3.org/2001/XMLSchema";i:53;s:32:"http://www.w3.org/2001/XMLSchema";i:54;s:32:"http://www.w3.org/2001/XMLSchema";i:55;s:32:"http://www.w3.org/2001/XMLSchema";i:56;s:32:"http://www.w3.org/2001/XMLSchema";i:57;s:32:"http://www.w3.org/2001/XMLSchema";i:58;s:32:"http://www.w3.org/2001/XMLSchema";i:59;s:32:"http://www.w3.org/2001/XMLSchema";i:60;s:32:"http://www.w3.org/2001/XMLSchema";i:61;s:32:"http://www.w3.org/2001/XMLSchema";i:62;s:32:"http://www.w3.org/2001/XMLSchema";i:63;s:32:"http://www.w3.org/2001/XMLSchema";i:64;s:32:"http://www.w3.org/2001/XMLSchema";i:65;s:32:"http://www.w3.org/2001/XMLSchema";i:66;s:32:"http://www.w3.org/2001/XMLSchema";i:67;s:32:"http://www.w3.org/2001/XMLSchema";i:68;s:32:"http://www.w3.org/2001/XMLSchema";i:69;s:32:"http://www.w3.org/2001/XMLSchema";i:70;s:32:"http://www.w3.org/2001/XMLSchema";i:71;s:32:"http://www.w3.org/2001/XMLSchema";i:72;s:32:"http://www.w3.org/2001/XMLSchema";i:73;s:32:"http://www.w3.org/2001/XMLSchema";i:74;s:32:"http://www.w3.org/2001/XMLSchema";i:75;s:32:"http://www.w3.org/2001/XMLSchema";i:76;s:32:"http://www.w3.org/2001/XMLSchema";i:77;s:32:"http://www.w3.org/2001/XMLSchema";i:78;s:32:"http://www.w3.org/2001/XMLSchema";i:79;s:32:"http://www.w3.org/2001/XMLSchema";i:80;s:32:"http://www.w3.org/2001/XMLSchema";}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:0:"";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:14:"usedNamespaces";a:2:{s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}}}s:32:"http://object.ws.viamichelin.com";a:1:{i:0;O:16:"nusoap_xmlschema":35:{s:6:"schema";s:0:"";s:3:"xml";s:0:"";s:19:"enclosingNamespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:10:"schemaInfo";a:5:{s:15:"targetNamespace";s:32:"http://object.ws.viamichelin.com";s:5:"xmlns";s:32:"http://www.w3.org/2001/XMLSchema";s:13:"schemaVersion";b:0;s:18:"elementFormDefault";s:11:"unqualified";s:20:"attributeFormDefault";s:11:"unqualified";}s:21:"schemaTargetNamespace";s:32:"http://object.ws.viamichelin.com";s:10:"attributes";a:0:{}s:12:"complexTypes";a:1:{s:7:"Integer";a:6:{s:4:"name";s:7:"Integer";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:5:"value";a:3:{s:4:"name";s:5:"value";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:11:"unqualified";}}}}s:16:"complexTypeStack";a:0:{}s:18:"currentComplexType";N;s:8:"elements";a:0:{}s:12:"elementStack";a:0:{}s:14:"currentElement";N;s:11:"simpleTypes";a:0:{}s:15:"simpleTypeStack";a:0:{}s:17:"currentSimpleType";N;s:7:"imports";a:1:{s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:1:{i:0;a:2:{s:8:"location";s:0:"";s:6:"loaded";b:1;}}}s:6:"parser";N;s:8:"position";i:5;s:5:"depth";i:1;s:11:"depth_array";a:4:{i:0;i:0;i:1;i:2;i:2;i:3;i:3;i:4;}s:7:"message";a:5:{i:0;a:1:{s:5:"cdata";s:0:"";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:0:"";}i:3;a:1:{s:5:"cdata";s:0:"";}i:4;a:1:{s:5:"cdata";s:0:"";}}s:16:"defaultNamespace";a:5:{i:0;s:32:"http://www.w3.org/2001/XMLSchema";i:1;s:32:"http://www.w3.org/2001/XMLSchema";i:2;s:32:"http://www.w3.org/2001/XMLSchema";i:3;s:32:"http://www.w3.org/2001/XMLSchema";i:4;s:32:"http://www.w3.org/2001/XMLSchema";}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:0:"";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:14:"usedNamespaces";a:2:{s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}}}s:46:"http://service.localization.ws.viamichelin.com";a:1:{i:0;O:16:"nusoap_xmlschema":35:{s:6:"schema";s:0:"";s:3:"xml";s:0:"";s:19:"enclosingNamespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:10:"schemaInfo";a:5:{s:15:"targetNamespace";s:46:"http://service.localization.ws.viamichelin.com";s:5:"xmlns";s:32:"http://www.w3.org/2001/XMLSchema";s:13:"schemaVersion";b:0;s:18:"elementFormDefault";s:11:"unqualified";s:20:"attributeFormDefault";s:11:"unqualified";}s:21:"schemaTargetNamespace";s:46:"http://service.localization.ws.viamichelin.com";s:10:"attributes";a:0:{}s:12:"complexTypes";a:5:{s:18:"ArrayOf_xsd_string";a:7:{s:4:"name";s:18:"ArrayOf_xsd_string";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:5:"array";s:13:"simpleContent";s:5:"false";s:15:"restrictionBase";s:47:"http://schemas.xmlsoap.org/soap/encoding/:Array";s:5:"attrs";a:1:{s:41:"http://www.w3.org/2001/XMLSchema:string[]";a:3:{s:3:"ref";s:51:"http://schemas.xmlsoap.org/soap/encoding/:arrayType";s:42:"http://schemas.xmlsoap.org/wsdl/:arrayType";s:41:"http://www.w3.org/2001/XMLSchema:string[]";s:4:"form";s:11:"unqualified";}}s:9:"arrayType";s:39:"http://www.w3.org/2001/XMLSchema:string";}s:25:"ArrayOf_tns2_InputAddress";a:7:{s:4:"name";s:25:"ArrayOf_tns2_InputAddress";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:5:"array";s:13:"simpleContent";s:5:"false";s:15:"restrictionBase";s:47:"http://schemas.xmlsoap.org/soap/encoding/:Array";s:5:"attrs";a:1:{s:53:"http://localization.ws.viamichelin.com:InputAddress[]";a:3:{s:3:"ref";s:51:"http://schemas.xmlsoap.org/soap/encoding/:arrayType";s:42:"http://schemas.xmlsoap.org/wsdl/:arrayType";s:53:"http://localization.ws.viamichelin.com:InputAddress[]";s:4:"form";s:11:"unqualified";}}s:9:"arrayType";s:51:"http://localization.ws.viamichelin.com:InputAddress";}s:20:"ArrayOf_tns4_Integer";a:7:{s:4:"name";s:20:"ArrayOf_tns4_Integer";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:5:"array";s:13:"simpleContent";s:5:"false";s:15:"restrictionBase";s:47:"http://schemas.xmlsoap.org/soap/encoding/:Array";s:5:"attrs";a:1:{s:42:"http://object.ws.viamichelin.com:Integer[]";a:3:{s:3:"ref";s:51:"http://schemas.xmlsoap.org/soap/encoding/:arrayType";s:42:"http://schemas.xmlsoap.org/wsdl/:arrayType";s:42:"http://object.ws.viamichelin.com:Integer[]";s:4:"form";s:11:"unqualified";}}s:9:"arrayType";s:40:"http://object.ws.viamichelin.com:Integer";}s:25:"ArrayOf_tns2_FindLocation";a:7:{s:4:"name";s:25:"ArrayOf_tns2_FindLocation";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:5:"array";s:13:"simpleContent";s:5:"false";s:15:"restrictionBase";s:47:"http://schemas.xmlsoap.org/soap/encoding/:Array";s:5:"attrs";a:1:{s:53:"http://localization.ws.viamichelin.com:FindLocation[]";a:3:{s:3:"ref";s:51:"http://schemas.xmlsoap.org/soap/encoding/:arrayType";s:42:"http://schemas.xmlsoap.org/wsdl/:arrayType";s:53:"http://localization.ws.viamichelin.com:FindLocation[]";s:4:"form";s:11:"unqualified";}}s:9:"arrayType";s:51:"http://localization.ws.viamichelin.com:FindLocation";}s:26:"ArrayOf_tns2_FindLocations";a:7:{s:4:"name";s:26:"ArrayOf_tns2_FindLocations";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:5:"array";s:13:"simpleContent";s:5:"false";s:15:"restrictionBase";s:47:"http://schemas.xmlsoap.org/soap/encoding/:Array";s:5:"attrs";a:1:{s:54:"http://localization.ws.viamichelin.com:FindLocations[]";a:3:{s:3:"ref";s:51:"http://schemas.xmlsoap.org/soap/encoding/:arrayType";s:42:"http://schemas.xmlsoap.org/wsdl/:arrayType";s:54:"http://localization.ws.viamichelin.com:FindLocations[]";s:4:"form";s:11:"unqualified";}}s:9:"arrayType";s:52:"http://localization.ws.viamichelin.com:FindLocations";}}s:16:"complexTypeStack";a:0:{}s:18:"currentComplexType";N;s:8:"elements";a:0:{}s:12:"elementStack";a:0:{}s:14:"currentElement";N;s:11:"simpleTypes";a:0:{}s:15:"simpleTypeStack";a:0:{}s:17:"currentSimpleType";N;s:7:"imports";a:1:{s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:1:{i:0;a:2:{s:8:"location";s:0:"";s:6:"loaded";b:1;}}}s:6:"parser";N;s:8:"position";i:22;s:5:"depth";i:1;s:11:"depth_array";a:5:{i:0;i:0;i:1;i:18;i:2;i:19;i:3;i:20;i:4;i:21;}s:7:"message";a:22:{i:0;a:1:{s:5:"cdata";s:0:"";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:0:"";}i:3;a:1:{s:5:"cdata";s:0:"";}i:4;a:1:{s:5:"cdata";s:0:"";}i:5;a:1:{s:5:"cdata";s:0:"";}i:6;a:1:{s:5:"cdata";s:0:"";}i:7;a:1:{s:5:"cdata";s:0:"";}i:8;a:1:{s:5:"cdata";s:0:"";}i:9;a:1:{s:5:"cdata";s:0:"";}i:10;a:1:{s:5:"cdata";s:0:"";}i:11;a:1:{s:5:"cdata";s:0:"";}i:12;a:1:{s:5:"cdata";s:0:"";}i:13;a:1:{s:5:"cdata";s:0:"";}i:14;a:1:{s:5:"cdata";s:0:"";}i:15;a:1:{s:5:"cdata";s:0:"";}i:16;a:1:{s:5:"cdata";s:0:"";}i:17;a:1:{s:5:"cdata";s:0:"";}i:18;a:1:{s:5:"cdata";s:0:"";}i:19;a:1:{s:5:"cdata";s:0:"";}i:20;a:1:{s:5:"cdata";s:0:"";}i:21;a:1:{s:5:"cdata";s:0:"";}}s:16:"defaultNamespace";a:22:{i:0;s:32:"http://www.w3.org/2001/XMLSchema";i:1;s:32:"http://www.w3.org/2001/XMLSchema";i:2;s:32:"http://www.w3.org/2001/XMLSchema";i:3;s:32:"http://www.w3.org/2001/XMLSchema";i:4;s:32:"http://www.w3.org/2001/XMLSchema";i:5;s:32:"http://www.w3.org/2001/XMLSchema";i:6;s:32:"http://www.w3.org/2001/XMLSchema";i:7;s:32:"http://www.w3.org/2001/XMLSchema";i:8;s:32:"http://www.w3.org/2001/XMLSchema";i:9;s:32:"http://www.w3.org/2001/XMLSchema";i:10;s:32:"http://www.w3.org/2001/XMLSchema";i:11;s:32:"http://www.w3.org/2001/XMLSchema";i:12;s:32:"http://www.w3.org/2001/XMLSchema";i:13;s:32:"http://www.w3.org/2001/XMLSchema";i:14;s:32:"http://www.w3.org/2001/XMLSchema";i:15;s:32:"http://www.w3.org/2001/XMLSchema";i:16;s:32:"http://www.w3.org/2001/XMLSchema";i:17;s:32:"http://www.w3.org/2001/XMLSchema";i:18;s:32:"http://www.w3.org/2001/XMLSchema";i:19;s:32:"http://www.w3.org/2001/XMLSchema";i:20;s:32:"http://www.w3.org/2001/XMLSchema";i:21;s:32:"http://www.w3.org/2001/XMLSchema";}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:0:"";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:14:"usedNamespaces";a:2:{s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}}}s:29:"http://geo.ws.viamichelin.com";a:1:{i:0;O:16:"nusoap_xmlschema":35:{s:6:"schema";s:0:"";s:3:"xml";s:0:"";s:19:"enclosingNamespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:10:"schemaInfo";a:5:{s:15:"targetNamespace";s:29:"http://geo.ws.viamichelin.com";s:5:"xmlns";s:32:"http://www.w3.org/2001/XMLSchema";s:13:"schemaVersion";b:0;s:18:"elementFormDefault";s:11:"unqualified";s:20:"attributeFormDefault";s:11:"unqualified";}s:21:"schemaTargetNamespace";s:29:"http://geo.ws.viamichelin.com";s:10:"attributes";a:0:{}s:12:"complexTypes";a:1:{s:14:"GeoCoordinates";a:6:{s:4:"name";s:14:"GeoCoordinates";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:8:"latitude";a:3:{s:4:"name";s:8:"latitude";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:double";s:4:"form";s:11:"unqualified";}s:9:"longitude";a:3:{s:4:"name";s:9:"longitude";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:double";s:4:"form";s:11:"unqualified";}}}}s:16:"complexTypeStack";a:0:{}s:18:"currentComplexType";N;s:8:"elements";a:0:{}s:12:"elementStack";a:0:{}s:14:"currentElement";N;s:11:"simpleTypes";a:0:{}s:15:"simpleTypeStack";a:0:{}s:17:"currentSimpleType";N;s:7:"imports";a:1:{s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:1:{i:0;a:2:{s:8:"location";s:0:"";s:6:"loaded";b:1;}}}s:6:"parser";N;s:8:"position";i:6;s:5:"depth";i:1;s:11:"depth_array";a:4:{i:0;i:0;i:1;i:2;i:2;i:3;i:3;i:5;}s:7:"message";a:6:{i:0;a:1:{s:5:"cdata";s:0:"";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:0:"";}i:3;a:1:{s:5:"cdata";s:0:"";}i:4;a:1:{s:5:"cdata";s:0:"";}i:5;a:1:{s:5:"cdata";s:0:"";}}s:16:"defaultNamespace";a:6:{i:0;s:32:"http://www.w3.org/2001/XMLSchema";i:1;s:32:"http://www.w3.org/2001/XMLSchema";i:2;s:32:"http://www.w3.org/2001/XMLSchema";i:3;s:32:"http://www.w3.org/2001/XMLSchema";i:4;s:32:"http://www.w3.org/2001/XMLSchema";i:5;s:32:"http://www.w3.org/2001/XMLSchema";}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:0:"";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:14:"usedNamespaces";a:2:{s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}}}}s:13:"currentSchema";r:1227;s:7:"message";a:22:{i:0;a:1:{s:5:"cdata";s:49:"
+  
+    
+    
+    
+    
+      
+    
+    
+        ";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:3:"
+  ";}i:3;a:1:{s:5:"cdata";s:8:"
+  
+    ";}i:4;a:1:{s:5:"cdata";s:3:"
+  ";}i:5;a:1:{s:5:"cdata";s:5:"
+    ";}i:6;a:1:{s:5:"cdata";s:8:"
+  
+    ";}i:7;a:1:{s:5:"cdata";s:3:"
+  ";}i:8;a:1:{s:5:"cdata";s:8:"
+  
+    ";}i:9;a:1:{s:5:"cdata";s:7:"
+      ";}i:10;a:1:{s:5:"cdata";s:12:"
+    
+      ";}i:11;a:1:{s:5:"cdata";s:3:"
+  ";}i:12;a:1:{s:5:"cdata";s:5:"
+    ";}i:13;a:1:{s:5:"cdata";s:8:"
+  
+    ";}i:14;a:1:{s:5:"cdata";s:7:"
+      ";}i:15;a:1:{s:5:"cdata";s:7:"
+      ";}i:16;a:1:{s:5:"cdata";s:16:"
+      
+        ";}i:17;a:1:{s:5:"cdata";s:12:"
+    
+      ";}i:18;a:1:{s:5:"cdata";s:7:"
+      ";}i:19;a:1:{s:5:"cdata";s:1:"
+";}i:20;a:1:{s:5:"cdata";s:3:"
+  ";}i:21;a:1:{s:5:"cdata";s:5:"
+    ";}}s:12:"complexTypes";a:0:{}s:8:"messages";a:2:{s:24:"getLocationsListResponse";a:1:{s:22:"getLocationsListReturn";s:73:"http://service.localization.ws.viamichelin.com:ArrayOf_tns2_FindLocations";}s:23:"getLocationsListRequest";a:2:{s:7:"request";s:55:"http://localization.ws.viamichelin.com:GeocodingRequest";s:5:"check";s:39:"http://www.w3.org/2001/XMLSchema:string";}}s:14:"currentMessage";s:23:"getLocationsListRequest";s:16:"currentOperation";s:16:"getLocationsList";s:9:"portTypes";a:1:{s:9:"Geocoding";a:1:{s:16:"getLocationsList";a:4:{s:14:"parameterOrder";s:13:"request check";s:5:"input";a:1:{s:7:"message";s:23:"getLocationsListRequest";}s:6:"output";a:1:{s:7:"message";s:24:"getLocationsListResponse";}s:7:"binding";a:1:{s:7:"message";s:0:"";}}}}s:15:"currentPortType";s:9:"Geocoding";s:8:"bindings";a:1:{s:20:"GeocodingSoapBinding";a:7:{s:8:"portType";s:9:"Geocoding";s:6:"prefix";s:8:"wsdlsoap";s:5:"style";s:3:"rpc";s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:10:"operations";a:1:{s:16:"getLocationsList";a:9:{s:4:"name";s:16:"getLocationsList";s:7:"binding";s:20:"GeocodingSoapBinding";s:8:"endpoint";s:56:"http://webservices.viamichelin.com/ws/services/Geocoding";s:10:"soapAction";s:0:"";s:5:"input";a:5:{s:13:"encodingStyle";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:9:"namespace";s:46:"http://service.localization.ws.viamichelin.com";s:3:"use";s:7:"encoded";s:7:"message";s:23:"getLocationsListRequest";s:5:"parts";a:2:{s:7:"request";s:55:"http://localization.ws.viamichelin.com:GeocodingRequest";s:5:"check";s:39:"http://www.w3.org/2001/XMLSchema:string";}}s:6:"output";a:5:{s:13:"encodingStyle";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:9:"namespace";s:46:"http://service.localization.ws.viamichelin.com";s:3:"use";s:7:"encoded";s:7:"message";s:24:"getLocationsListResponse";s:5:"parts";a:1:{s:22:"getLocationsListReturn";s:73:"http://service.localization.ws.viamichelin.com:ArrayOf_tns2_FindLocations";}}s:5:"style";s:3:"rpc";s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}}s:11:"bindingType";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:8:"endpoint";s:56:"http://webservices.viamichelin.com/ws/services/Geocoding";}}s:14:"currentBinding";s:20:"GeocodingSoapBinding";s:5:"ports";a:1:{s:9:"Geocoding";a:3:{s:7:"binding";s:20:"GeocodingSoapBinding";s:8:"location";s:56:"http://webservices.viamichelin.com/ws/services/Geocoding";s:11:"bindingType";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}}s:11:"currentPort";s:9:"Geocoding";s:6:"opData";a:0:{}s:6:"status";s:7:"service";s:13:"documentation";b:0;s:8:"endpoint";s:0:"";s:6:"import";a:0:{}s:6:"parser";i:0;s:8:"position";i:22;s:5:"depth";i:-4;s:11:"depth_array";a:5:{i:0;i:18;i:1;i:1;i:-3;i:19;i:-2;i:20;i:-1;i:21;}s:9:"proxyhost";s:0:"";s:9:"proxyport";s:0:"";s:13:"proxyusername";s:0:"";s:13:"proxypassword";s:0:"";s:7:"timeout";i:0;s:16:"response_timeout";i:30;s:12:"curl_options";a:0:{}s:8:"use_curl";s:1:"0";s:8:"username";s:0:"";s:8:"password";s:0:"";s:8:"authtype";s:0:"";s:11:"certRequest";a:0:{}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:99126:"2013-03-19 08:30:58.463337 wsdl: ctor wsdl=http://www.viamichelin.com/ws/services/Geocoding?wsdl timeout=0 response_timeout=30
+2013-03-19 08:30:58.463398 wsdl: parse and process WSDL path=http://www.viamichelin.com/ws/services/Geocoding?wsdl
+2013-03-19 08:30:58.463437 wsdl: parse WSDL at path=http://www.viamichelin.com/ws/services/Geocoding?wsdl
+2013-03-19 08:30:58.463479 wsdl: getting WSDL http(s) URL http://www.viamichelin.com/ws/services/Geocoding?wsdl
+2013-03-19 08:30:58.463546 soap_transport_http: ctor url=http://www.viamichelin.com/ws/services/Geocoding?wsdl use_curl=0 curl_options:
+<pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=0)</i>
+  <i><font color='#888a85'>empty</font></i>
+</pre>2013-03-19 08:30:58.463640 soap_transport_http: parsed URL scheme = http
+2013-03-19 08:30:58.463688 soap_transport_http: parsed URL host = www.viamichelin.com
+2013-03-19 08:30:58.463725 soap_transport_http: parsed URL path = /ws/services/Geocoding
+2013-03-19 08:30:58.463765 soap_transport_http: parsed URL query = wsdl
+2013-03-19 08:30:58.463825 soap_transport_http: set header Host: www.viamichelin.com
+2013-03-19 08:30:58.463899 soap_transport_http: set header User-Agent: NuSOAP/0.9.5 (1.123)
+2013-03-19 08:30:58.463966 soap_transport_http: set header Accept-Encoding: gzip, deflate
+2013-03-19 08:30:58.464014 soap_transport_http: set header Connection: close
+2013-03-19 08:30:58.464070 soap_transport_http: entered send() with data of length: 0
+2013-03-19 08:30:58.464126 soap_transport_http: connect connection_timeout 0, response_timeout 30, scheme http, host www.viamichelin.com, port 80
+2013-03-19 08:30:58.464194 soap_transport_http: calling fsockopen with host www.viamichelin.com connection_timeout 0
+2013-03-19 08:30:58.805204 soap_transport_http: set response timeout to 30
+2013-03-19 08:30:58.805266 soap_transport_http: socket connected
+2013-03-19 08:30:58.805314 soap_transport_http: HTTP request: GET /ws/services/Geocoding?wsdl HTTP/1.1
+2013-03-19 08:30:58.805343 soap_transport_http: HTTP header: Host: www.viamichelin.com
+2013-03-19 08:30:58.805369 soap_transport_http: HTTP header: User-Agent: NuSOAP/0.9.5 (1.123)
+2013-03-19 08:30:58.805393 soap_transport_http: HTTP header: Accept-Encoding: gzip, deflate
+2013-03-19 08:30:58.805417 soap_transport_http: HTTP header: Connection: close
+2013-03-19 08:30:58.805516 soap_transport_http: wrote data to socket, length = 156
+2013-03-19 08:30:59.047235 soap_transport_http: read line of 17 bytes: HTTP/1.1 200 OK
+2013-03-19 08:30:59.047315 soap_transport_http: read line of 37 bytes: Date: Tue, 19 Mar 2013 08:30:57 GMT
+2013-03-19 08:30:59.047353 soap_transport_http: read line of 25 bytes: Server: IBM_HTTP_Server
+2013-03-19 08:30:59.047388 soap_transport_http: read line of 28 bytes: Transfer-Encoding: chunked
+2013-03-19 08:30:59.047421 soap_transport_http: read line of 43 bytes: Content-Type: text/xml;charset=ISO-8859-1
+2013-03-19 08:30:59.047454 soap_transport_http: read line of 25 bytes: Content-Language: en-US
+2013-03-19 08:30:59.047486 soap_transport_http: read line of 19 bytes: Connection: close
+2013-03-19 08:30:59.047519 soap_transport_http: read line of 2 bytes: 
+2013-03-19 08:30:59.047556 soap_transport_http: found end of headers after length 196
+2013-03-19 08:30:59.047658 soap_transport_http: want to read chunked content
+2013-03-19 08:30:59.049158 soap_transport_http: read chunk line of 6 bytes
+2013-03-19 08:30:59.049219 soap_transport_http: chunk length 8599
+2013-03-19 08:30:59.050616 soap_transport_http: read buffer of 2713 bytes
+2013-03-19 08:30:59.052328 soap_transport_http: read buffer of 1466 bytes
+2013-03-19 08:30:59.285867 soap_transport_http: read buffer of 1380 bytes
+2013-03-19 08:30:59.286038 soap_transport_http: read buffer of 50 bytes
+2013-03-19 08:30:59.290127 soap_transport_http: read buffer of 1448 bytes
+2013-03-19 08:30:59.295719 soap_transport_http: read buffer of 1542 bytes
+2013-03-19 08:30:59.295786 soap_transport_http: read chunk terminator of 2 bytes
+2013-03-19 08:30:59.295821 soap_transport_http: read chunk line of 3 bytes
+2013-03-19 08:30:59.295850 soap_transport_http: chunk length 0
+2013-03-19 08:30:59.295879 soap_transport_http: read body of length 8599
+2013-03-19 08:30:59.295910 soap_transport_http: received a total of 8795 bytes of data from server
+2013-03-19 08:30:59.295995 soap_transport_http: closed socket
+2013-03-19 08:30:59.296046 soap_transport_http: No Content-Encoding header
+2013-03-19 08:30:59.296076 soap_transport_http: end of send()
+2013-03-19 08:30:59.296118 wsdl: got WSDL URL
+2013-03-19 08:30:59.296148 wsdl: Parse WSDL
+2013-03-19 08:30:59.296623 wsdl: Parsing WSDL schema
+2013-03-19 08:30:59.296694 nusoap_xmlschema: nusoap_xmlschema class instantiated, inside constructor
+2013-03-19 08:30:59.296872 nusoap_xmlschema: <http://localization.ws.viamichelin.com> import namespace http://schemas.xmlsoap.org/soap/encoding/
+2013-03-19 08:30:59.296975 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType PoiId
+2013-03-19 08:30:59.297114 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element id of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.297162 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element id to complexType PoiId
+2013-03-19 08:30:59.297243 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element id
+2013-03-19 08:30:59.297394 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element language of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.297460 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element language to complexType PoiId
+2013-03-19 08:30:59.297553 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element language
+2013-03-19 08:30:59.297719 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element type of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.297785 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element type to complexType PoiId
+2013-03-19 08:30:59.297874 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element type
+2013-03-19 08:30:59.297980 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType PoiId
+2013-03-19 08:30:59.298182 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'PoiId'</font> <i>(length=5)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=3)</i>
+      'id' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'id'</font> <i>(length=2)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'language' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'language'</font> <i>(length=8)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'type' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'type'</font> <i>(length=4)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.298296 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType PoiMetaStringList
+2013-03-19 08:30:59.298526 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element metaString of type http://service.localization.ws.viamichelin.com:ArrayOf_xsd_string
+2013-03-19 08:30:59.298592 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element metaString to complexType PoiMetaStringList
+2013-03-19 08:30:59.298691 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element metaString
+2013-03-19 08:30:59.298798 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType PoiMetaStringList
+2013-03-19 08:30:59.298931 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'PoiMetaStringList'</font> <i>(length=17)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'metaString' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'metaString'</font> <i>(length=10)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://service.localization.ws.viamichelin.com:ArrayOf_xsd_string'</font> <i>(length=65)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.299039 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType InputAddress
+2013-03-19 08:30:59.299261 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element address of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.299322 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element address to complexType InputAddress
+2013-03-19 08:30:59.299411 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element address
+2013-03-19 08:30:59.299560 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element cityName of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.299615 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element cityName to complexType InputAddress
+2013-03-19 08:30:59.299695 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element cityName
+2013-03-19 08:30:59.299841 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element countryCode of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.299902 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element countryCode to complexType InputAddress
+2013-03-19 08:30:59.300000 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element countryCode
+2013-03-19 08:30:59.300146 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element postalCode of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.300203 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element postalCode to complexType InputAddress
+2013-03-19 08:30:59.300286 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element postalCode
+2013-03-19 08:30:59.300431 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element stateName of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.300525 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element stateName to complexType InputAddress
+2013-03-19 08:30:59.300696 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element stateName
+2013-03-19 08:30:59.300825 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType InputAddress
+2013-03-19 08:30:59.301091 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'InputAddress'</font> <i>(length=12)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=5)</i>
+      'address' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'address'</font> <i>(length=7)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'cityName' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'cityName'</font> <i>(length=8)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'countryCode' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'countryCode'</font> <i>(length=11)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'postalCode' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'postalCode'</font> <i>(length=10)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'stateName' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'stateName'</font> <i>(length=9)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.301298 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType GeocodingRequest
+2013-03-19 08:30:59.301540 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element addressesList of type http://service.localization.ws.viamichelin.com:ArrayOf_tns2_InputAddress
+2013-03-19 08:30:59.301618 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element addressesList to complexType GeocodingRequest
+2013-03-19 08:30:59.301729 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element addressesList
+2013-03-19 08:30:59.301835 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType GeocodingRequest
+2013-03-19 08:30:59.302016 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'GeocodingRequest'</font> <i>(length=16)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'addressesList' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'addressesList'</font> <i>(length=13)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://service.localization.ws.viamichelin.com:ArrayOf_tns2_InputAddress'</font> <i>(length=72)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.302142 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType Address
+2013-03-19 08:30:59.302409 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element cityLabel of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.302475 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element cityLabel to complexType Address
+2013-03-19 08:30:59.302568 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element cityLabel
+2013-03-19 08:30:59.302761 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element countryCode of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.302832 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element countryCode to complexType Address
+2013-03-19 08:30:59.302937 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element countryCode
+2013-03-19 08:30:59.303097 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element countryLabel of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.303188 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element countryLabel to complexType Address
+2013-03-19 08:30:59.303277 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element countryLabel
+2013-03-19 08:30:59.303434 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element districtLabel of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.303499 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element districtLabel to complexType Address
+2013-03-19 08:30:59.303607 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element districtLabel
+2013-03-19 08:30:59.303770 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element formattedAddressLine of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.303834 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element formattedAddressLine to complexType Address
+2013-03-19 08:30:59.303919 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element formattedAddressLine
+2013-03-19 08:30:59.304092 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element formattedCityAddressLine of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.304173 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element formattedCityAddressLine to complexType Address
+2013-03-19 08:30:59.304271 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element formattedCityAddressLine
+2013-03-19 08:30:59.304427 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element gatheringLabel of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.304490 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element gatheringLabel to complexType Address
+2013-03-19 08:30:59.304574 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element gatheringLabel
+2013-03-19 08:30:59.304715 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element officialCountryCode of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.304779 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element officialCountryCode to complexType Address
+2013-03-19 08:30:59.304870 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element officialCountryCode
+2013-03-19 08:30:59.305017 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element stateLabel of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.305082 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element stateLabel to complexType Address
+2013-03-19 08:30:59.305179 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element stateLabel
+2013-03-19 08:30:59.305336 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element streetLabel of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.305399 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element streetLabel to complexType Address
+2013-03-19 08:30:59.305487 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element streetLabel
+2013-03-19 08:30:59.305638 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element streetNumber of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.305697 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element streetNumber to complexType Address
+2013-03-19 08:30:59.305787 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element streetNumber
+2013-03-19 08:30:59.305938 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element zipCode of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.306001 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element zipCode to complexType Address
+2013-03-19 08:30:59.306087 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element zipCode
+2013-03-19 08:30:59.306191 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType Address
+2013-03-19 08:30:59.306656 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Address'</font> <i>(length=7)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=12)</i>
+      'cityLabel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'cityLabel'</font> <i>(length=9)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'countryCode' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'countryCode'</font> <i>(length=11)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'countryLabel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'countryLabel'</font> <i>(length=12)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'districtLabel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'districtLabel'</font> <i>(length=13)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'formattedAddressLine' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'formattedAddressLine'</font> <i>(length=20)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'formattedCityAddressLine' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'formattedCityAddressLine'</font> <i>(length=24)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'gatheringLabel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'gatheringLabel'</font> <i>(length=14)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'officialCountryCode' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'officialCountryCode'</font> <i>(length=19)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'stateLabel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'stateLabel'</font> <i>(length=10)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'streetLabel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'streetLabel'</font> <i>(length=11)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'streetNumber' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'streetNumber'</font> <i>(length=12)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'zipCode' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'zipCode'</font> <i>(length=7)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.306780 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType PoiDatasheet
+2013-03-19 08:30:59.307024 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element email of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.307105 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element email to complexType PoiDatasheet
+2013-03-19 08:30:59.307199 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element email
+2013-03-19 08:30:59.307368 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element fax of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.307433 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element fax to complexType PoiDatasheet
+2013-03-19 08:30:59.307521 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element fax
+2013-03-19 08:30:59.307631 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element geocodingLevel of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.307672 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element geocodingLevel to complexType PoiDatasheet
+2013-03-19 08:30:59.307723 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element geocodingLevel
+2013-03-19 08:30:59.307828 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element iconId of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.307889 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element iconId to complexType PoiDatasheet
+2013-03-19 08:30:59.307949 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element iconId
+2013-03-19 08:30:59.308050 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element intlFax of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.308088 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element intlFax to complexType PoiDatasheet
+2013-03-19 08:30:59.308158 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element intlFax
+2013-03-19 08:30:59.308270 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element intlTelephone1 of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.308314 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element intlTelephone1 to complexType PoiDatasheet
+2013-03-19 08:30:59.308377 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element intlTelephone1
+2013-03-19 08:30:59.308466 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element intlTelephone2 of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.308503 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element intlTelephone2 to complexType PoiDatasheet
+2013-03-19 08:30:59.308553 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element intlTelephone2
+2013-03-19 08:30:59.308643 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element telephone1 of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.308679 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element telephone1 to complexType PoiDatasheet
+2013-03-19 08:30:59.308730 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element telephone1
+2013-03-19 08:30:59.308817 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element telephone2 of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.308853 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element telephone2 to complexType PoiDatasheet
+2013-03-19 08:30:59.308904 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element telephone2
+2013-03-19 08:30:59.308995 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element web of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.309032 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element web to complexType PoiDatasheet
+2013-03-19 08:30:59.309082 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element web
+2013-03-19 08:30:59.309145 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType PoiDatasheet
+2013-03-19 08:30:59.309394 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'PoiDatasheet'</font> <i>(length=12)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=10)</i>
+      'email' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'email'</font> <i>(length=5)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'fax' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'fax'</font> <i>(length=3)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'geocodingLevel' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'geocodingLevel'</font> <i>(length=14)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'iconId' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'iconId'</font> <i>(length=6)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'intlFax' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'intlFax'</font> <i>(length=7)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'intlTelephone1' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'intlTelephone1'</font> <i>(length=14)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'intlTelephone2' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'intlTelephone2'</font> <i>(length=14)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'telephone1' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'telephone1'</font> <i>(length=10)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'telephone2' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'telephone2'</font> <i>(length=10)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'web' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'web'</font> <i>(length=3)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.309464 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType PoiDescriptionList
+2013-03-19 08:30:59.309595 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element descriptions of type http://service.localization.ws.viamichelin.com:ArrayOf_xsd_string
+2013-03-19 08:30:59.309633 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element descriptions to complexType PoiDescriptionList
+2013-03-19 08:30:59.309693 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element descriptions
+2013-03-19 08:30:59.309783 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element translatedName of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.309819 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element translatedName to complexType PoiDescriptionList
+2013-03-19 08:30:59.309870 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element translatedName
+2013-03-19 08:30:59.309929 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType PoiDescriptionList
+2013-03-19 08:30:59.310026 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'PoiDescriptionList'</font> <i>(length=18)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=2)</i>
+      'descriptions' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'descriptions'</font> <i>(length=12)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://service.localization.ws.viamichelin.com:ArrayOf_xsd_string'</font> <i>(length=65)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'translatedName' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'translatedName'</font> <i>(length=14)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.310088 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType PoiMetaNumList
+2013-03-19 08:30:59.310222 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element metaNum of type http://service.localization.ws.viamichelin.com:ArrayOf_tns4_Integer
+2013-03-19 08:30:59.310259 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element metaNum to complexType PoiMetaNumList
+2013-03-19 08:30:59.310309 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element metaNum
+2013-03-19 08:30:59.310368 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType PoiMetaNumList
+2013-03-19 08:30:59.310444 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'PoiMetaNumList'</font> <i>(length=14)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'metaNum' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'metaNum'</font> <i>(length=7)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://service.localization.ws.viamichelin.com:ArrayOf_tns4_Integer'</font> <i>(length=67)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.310505 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType Poi
+2013-03-19 08:30:59.310630 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element datasheet of type http://localization.ws.viamichelin.com:PoiDatasheet
+2013-03-19 08:30:59.310687 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element datasheet to complexType Poi
+2013-03-19 08:30:59.310765 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element datasheet
+2013-03-19 08:30:59.310871 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element descriptionList of type http://localization.ws.viamichelin.com:PoiDescriptionList
+2013-03-19 08:30:59.310908 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element descriptionList to complexType Poi
+2013-03-19 08:30:59.310959 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element descriptionList
+2013-03-19 08:30:59.311039 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element distanceFromSearchCenter of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.311073 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element distanceFromSearchCenter to complexType Poi
+2013-03-19 08:30:59.311124 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element distanceFromSearchCenter
+2013-03-19 08:30:59.311214 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element metanumList of type http://localization.ws.viamichelin.com:PoiMetaNumList
+2013-03-19 08:30:59.311251 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element metanumList to complexType Poi
+2013-03-19 08:30:59.311301 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element metanumList
+2013-03-19 08:30:59.311388 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element metastringList of type http://localization.ws.viamichelin.com:PoiMetaStringList
+2013-03-19 08:30:59.311424 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element metastringList to complexType Poi
+2013-03-19 08:30:59.311474 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element metastringList
+2013-03-19 08:30:59.311565 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element name of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.311602 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element name to complexType Poi
+2013-03-19 08:30:59.311656 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element name
+2013-03-19 08:30:59.311748 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element poiID of type http://localization.ws.viamichelin.com:PoiId
+2013-03-19 08:30:59.311785 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element poiID to complexType Poi
+2013-03-19 08:30:59.311834 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element poiID
+2013-03-19 08:30:59.311892 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType Poi
+2013-03-19 08:30:59.312068 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Poi'</font> <i>(length=3)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=7)</i>
+      'datasheet' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'datasheet'</font> <i>(length=9)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:PoiDatasheet'</font> <i>(length=51)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'descriptionList' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'descriptionList'</font> <i>(length=15)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:PoiDescriptionList'</font> <i>(length=57)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'distanceFromSearchCenter' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'distanceFromSearchCenter'</font> <i>(length=24)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'metanumList' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'metanumList'</font> <i>(length=11)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:PoiMetaNumList'</font> <i>(length=53)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'metastringList' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'metastringList'</font> <i>(length=14)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:PoiMetaStringList'</font> <i>(length=56)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'name' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'name'</font> <i>(length=4)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'poiID' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'poiID'</font> <i>(length=5)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:PoiId'</font> <i>(length=44)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.312132 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType Location
+2013-03-19 08:30:59.312272 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element address of type http://localization.ws.viamichelin.com:Address
+2013-03-19 08:30:59.312310 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element address to complexType Location
+2013-03-19 08:30:59.312367 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element address
+2013-03-19 08:30:59.312456 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element geoCoordinates of type http://geo.ws.viamichelin.com:GeoCoordinates
+2013-03-19 08:30:59.312493 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element geoCoordinates to complexType Location
+2013-03-19 08:30:59.312544 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element geoCoordinates
+2013-03-19 08:30:59.312635 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element id of type http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.312676 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element id to complexType Location
+2013-03-19 08:30:59.312726 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element id
+2013-03-19 08:30:59.312817 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element poi of type http://localization.ws.viamichelin.com:Poi
+2013-03-19 08:30:59.312853 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element poi to complexType Location
+2013-03-19 08:30:59.312903 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element poi
+2013-03-19 08:30:59.312985 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element type of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.313021 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element type to complexType Location
+2013-03-19 08:30:59.313070 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element type
+2013-03-19 08:30:59.313129 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType Location
+2013-03-19 08:30:59.313284 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Location'</font> <i>(length=8)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=5)</i>
+      'address' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'address'</font> <i>(length=7)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:Address'</font> <i>(length=46)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'geoCoordinates' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'geoCoordinates'</font> <i>(length=14)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://geo.ws.viamichelin.com:GeoCoordinates'</font> <i>(length=44)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'id' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'id'</font> <i>(length=2)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'poi' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'poi'</font> <i>(length=3)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:Poi'</font> <i>(length=42)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'type' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'type'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.313357 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType FindLocation
+2013-03-19 08:30:59.313478 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element addressIncoherenceDegree of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.313513 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element addressIncoherenceDegree to complexType FindLocation
+2013-03-19 08:30:59.313564 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element addressIncoherenceDegree
+2013-03-19 08:30:59.313653 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element cityIncoherenceDegree of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.313692 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element cityIncoherenceDegree to complexType FindLocation
+2013-03-19 08:30:59.313747 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element cityIncoherenceDegree
+2013-03-19 08:30:59.313835 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element foundLocation of type http://localization.ws.viamichelin.com:Location
+2013-03-19 08:30:59.313871 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element foundLocation to complexType FindLocation
+2013-03-19 08:30:59.313922 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element foundLocation
+2013-03-19 08:30:59.314002 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element score of type http://www.w3.org/2001/XMLSchema:double
+2013-03-19 08:30:59.314038 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element score to complexType FindLocation
+2013-03-19 08:30:59.314088 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element score
+2013-03-19 08:30:59.314152 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType FindLocation
+2013-03-19 08:30:59.314277 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'FindLocation'</font> <i>(length=12)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=4)</i>
+      'addressIncoherenceDegree' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'addressIncoherenceDegree'</font> <i>(length=24)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'cityIncoherenceDegree' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'cityIncoherenceDegree'</font> <i>(length=21)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'foundLocation' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'foundLocation'</font> <i>(length=13)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:Location'</font> <i>(length=47)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'score' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'score'</font> <i>(length=5)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:double'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.314341 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing named complexType FindLocations
+2013-03-19 08:30:59.314475 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element errorCode of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.314530 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element errorCode to complexType FindLocations
+2013-03-19 08:30:59.314605 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element errorCode
+2013-03-19 08:30:59.314746 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element results of type http://service.localization.ws.viamichelin.com:ArrayOf_tns2_FindLocation
+2013-03-19 08:30:59.314798 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element results to complexType FindLocations
+2013-03-19 08:30:59.314849 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element results
+2013-03-19 08:30:59.314934 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element size of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.314970 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element size to complexType FindLocations
+2013-03-19 08:30:59.315026 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element size
+2013-03-19 08:30:59.315108 nusoap_xmlschema: <http://localization.ws.viamichelin.com> processing typed element topScore of type http://www.w3.org/2001/XMLSchema:double
+2013-03-19 08:30:59.315153 nusoap_xmlschema: <http://localization.ws.viamichelin.com> add element topScore to complexType FindLocations
+2013-03-19 08:30:59.315207 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing element topScore
+2013-03-19 08:30:59.315266 nusoap_xmlschema: <http://localization.ws.viamichelin.com> done processing complexType FindLocations
+2013-03-19 08:30:59.315389 nusoap_xmlschema: <http://localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'FindLocations'</font> <i>(length=13)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=4)</i>
+      'errorCode' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'errorCode'</font> <i>(length=9)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'results' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=4)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'results'</font> <i>(length=7)</i>
+          'nillable' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'true'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://service.localization.ws.viamichelin.com:ArrayOf_tns2_FindLocation'</font> <i>(length=72)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'size' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'size'</font> <i>(length=4)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'topScore' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'topScore'</font> <i>(length=8)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:double'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.315444 wsdl: Parsing WSDL schema done
+2013-03-19 08:30:59.315481 wsdl: Parsing WSDL schema
+2013-03-19 08:30:59.315523 nusoap_xmlschema: nusoap_xmlschema class instantiated, inside constructor
+2013-03-19 08:30:59.315674 nusoap_xmlschema: <http://object.ws.viamichelin.com> import namespace http://schemas.xmlsoap.org/soap/encoding/
+2013-03-19 08:30:59.315767 nusoap_xmlschema: <http://object.ws.viamichelin.com> processing named complexType Integer
+2013-03-19 08:30:59.315888 nusoap_xmlschema: <http://object.ws.viamichelin.com> processing typed element value of type http://www.w3.org/2001/XMLSchema:int
+2013-03-19 08:30:59.315924 nusoap_xmlschema: <http://object.ws.viamichelin.com> add element value to complexType Integer
+2013-03-19 08:30:59.315974 nusoap_xmlschema: <http://object.ws.viamichelin.com> done processing element value
+2013-03-19 08:30:59.316033 nusoap_xmlschema: <http://object.ws.viamichelin.com> done processing complexType Integer
+2013-03-19 08:30:59.316105 nusoap_xmlschema: <http://object.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'Integer'</font> <i>(length=7)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'value' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'value'</font> <i>(length=5)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:int'</font> <i>(length=36)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.316163 wsdl: Parsing WSDL schema done
+2013-03-19 08:30:59.316200 wsdl: Parsing WSDL schema
+2013-03-19 08:30:59.316235 nusoap_xmlschema: nusoap_xmlschema class instantiated, inside constructor
+2013-03-19 08:30:59.316374 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> import namespace http://schemas.xmlsoap.org/soap/encoding/
+2013-03-19 08:30:59.316466 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> processing named complexType ArrayOf_xsd_string
+2013-03-19 08:30:59.316536 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> do nothing for element complexContent
+2013-03-19 08:30:59.316612 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> restriction http://schemas.xmlsoap.org/soap/encoding/:Array
+2013-03-19 08:30:59.316727 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> parsing attribute:
+<pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=2)</i>
+  'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+  'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string[]'</font> <i>(length=41)</i>
+</pre>2013-03-19 08:30:59.316864 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> done processing complexType ArrayOf_xsd_string
+2013-03-19 08:30:59.316941 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=7)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'ArrayOf_xsd_string'</font> <i>(length=18)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'array'</font> <i>(length=5)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'restrictionBase' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:Array'</font> <i>(length=47)</i>
+  'attrs' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'http://www.w3.org/2001/XMLSchema:string[]' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+          'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string[]'</font> <i>(length=41)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+  'arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:string'</font> <i>(length=39)</i>
+</pre>
+2013-03-19 08:30:59.317006 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> processing named complexType ArrayOf_tns2_InputAddress
+2013-03-19 08:30:59.317066 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> do nothing for element complexContent
+2013-03-19 08:30:59.317145 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> restriction http://schemas.xmlsoap.org/soap/encoding/:Array
+2013-03-19 08:30:59.317256 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> parsing attribute:
+<pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=2)</i>
+  'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+  'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:InputAddress[]'</font> <i>(length=53)</i>
+</pre>2013-03-19 08:30:59.317444 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> done processing complexType ArrayOf_tns2_InputAddress
+2013-03-19 08:30:59.317562 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=7)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'ArrayOf_tns2_InputAddress'</font> <i>(length=25)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'array'</font> <i>(length=5)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'restrictionBase' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:Array'</font> <i>(length=47)</i>
+  'attrs' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'http://localization.ws.viamichelin.com:InputAddress[]' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+          'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:InputAddress[]'</font> <i>(length=53)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+  'arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:InputAddress'</font> <i>(length=51)</i>
+</pre>
+2013-03-19 08:30:59.317670 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> processing named complexType ArrayOf_tns4_Integer
+2013-03-19 08:30:59.317773 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> do nothing for element complexContent
+2013-03-19 08:30:59.317905 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> restriction http://schemas.xmlsoap.org/soap/encoding/:Array
+2013-03-19 08:30:59.318087 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> parsing attribute:
+<pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=2)</i>
+  'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+  'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://object.ws.viamichelin.com:Integer[]'</font> <i>(length=42)</i>
+</pre>2013-03-19 08:30:59.318300 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> done processing complexType ArrayOf_tns4_Integer
+2013-03-19 08:30:59.318431 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=7)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'ArrayOf_tns4_Integer'</font> <i>(length=20)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'array'</font> <i>(length=5)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'restrictionBase' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:Array'</font> <i>(length=47)</i>
+  'attrs' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'http://object.ws.viamichelin.com:Integer[]' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+          'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://object.ws.viamichelin.com:Integer[]'</font> <i>(length=42)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+  'arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://object.ws.viamichelin.com:Integer'</font> <i>(length=40)</i>
+</pre>
+2013-03-19 08:30:59.318543 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> processing named complexType ArrayOf_tns2_FindLocation
+2013-03-19 08:30:59.318648 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> do nothing for element complexContent
+2013-03-19 08:30:59.318788 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> restriction http://schemas.xmlsoap.org/soap/encoding/:Array
+2013-03-19 08:30:59.318984 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> parsing attribute:
+<pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=2)</i>
+  'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+  'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:FindLocation[]'</font> <i>(length=53)</i>
+</pre>2013-03-19 08:30:59.319254 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> done processing complexType ArrayOf_tns2_FindLocation
+2013-03-19 08:30:59.319389 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=7)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'ArrayOf_tns2_FindLocation'</font> <i>(length=25)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'array'</font> <i>(length=5)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'restrictionBase' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:Array'</font> <i>(length=47)</i>
+  'attrs' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'http://localization.ws.viamichelin.com:FindLocation[]' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+          'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:FindLocation[]'</font> <i>(length=53)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+  'arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:FindLocation'</font> <i>(length=51)</i>
+</pre>
+2013-03-19 08:30:59.319500 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> processing named complexType ArrayOf_tns2_FindLocations
+2013-03-19 08:30:59.319601 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> do nothing for element complexContent
+2013-03-19 08:30:59.319868 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> restriction http://schemas.xmlsoap.org/soap/encoding/:Array
+2013-03-19 08:30:59.320066 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> parsing attribute:
+<pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=2)</i>
+  'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+  'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:FindLocations[]'</font> <i>(length=54)</i>
+</pre>2013-03-19 08:30:59.320308 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> done processing complexType ArrayOf_tns2_FindLocations
+2013-03-19 08:30:59.320432 nusoap_xmlschema: <http://service.localization.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=7)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'ArrayOf_tns2_FindLocations'</font> <i>(length=26)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'array'</font> <i>(length=5)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'restrictionBase' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:Array'</font> <i>(length=47)</i>
+  'attrs' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=1)</i>
+      'http://localization.ws.viamichelin.com:FindLocations[]' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'ref' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://schemas.xmlsoap.org/soap/encoding/:arrayType'</font> <i>(length=51)</i>
+          'http://schemas.xmlsoap.org/wsdl/:arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:FindLocations[]'</font> <i>(length=54)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+  'arrayType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://localization.ws.viamichelin.com:FindLocations'</font> <i>(length=52)</i>
+</pre>
+2013-03-19 08:30:59.320528 wsdl: Parsing WSDL schema done
+2013-03-19 08:30:59.320587 wsdl: Parsing WSDL schema
+2013-03-19 08:30:59.320657 nusoap_xmlschema: nusoap_xmlschema class instantiated, inside constructor
+2013-03-19 08:30:59.320900 nusoap_xmlschema: <http://geo.ws.viamichelin.com> import namespace http://schemas.xmlsoap.org/soap/encoding/
+2013-03-19 08:30:59.321042 nusoap_xmlschema: <http://geo.ws.viamichelin.com> processing named complexType GeoCoordinates
+2013-03-19 08:30:59.321233 nusoap_xmlschema: <http://geo.ws.viamichelin.com> processing typed element latitude of type http://www.w3.org/2001/XMLSchema:double
+2013-03-19 08:30:59.321301 nusoap_xmlschema: <http://geo.ws.viamichelin.com> add element latitude to complexType GeoCoordinates
+2013-03-19 08:30:59.321393 nusoap_xmlschema: <http://geo.ws.viamichelin.com> done processing element latitude
+2013-03-19 08:30:59.321546 nusoap_xmlschema: <http://geo.ws.viamichelin.com> processing typed element longitude of type http://www.w3.org/2001/XMLSchema:double
+2013-03-19 08:30:59.321617 nusoap_xmlschema: <http://geo.ws.viamichelin.com> add element longitude to complexType GeoCoordinates
+2013-03-19 08:30:59.321711 nusoap_xmlschema: <http://geo.ws.viamichelin.com> done processing element longitude
+2013-03-19 08:30:59.321817 nusoap_xmlschema: <http://geo.ws.viamichelin.com> done processing complexType GeoCoordinates
+2013-03-19 08:30:59.321951 nusoap_xmlschema: <http://geo.ws.viamichelin.com> <pre class='xdebug-var-dump' dir='ltr'>
+<b>array</b> <i>(size=6)</i>
+  'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'GeoCoordinates'</font> <i>(length=14)</i>
+  'typeClass' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'complexType'</font> <i>(length=11)</i>
+  'phpType' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'struct'</font> <i>(length=6)</i>
+  'simpleContent' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'false'</font> <i>(length=5)</i>
+  'compositor' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'sequence'</font> <i>(length=8)</i>
+  'elements' <font color='#888a85'>=&gt;</font> 
+    <b>array</b> <i>(size=2)</i>
+      'latitude' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'latitude'</font> <i>(length=8)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:double'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+      'longitude' <font color='#888a85'>=&gt;</font> 
+        <b>array</b> <i>(size=3)</i>
+          'name' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'longitude'</font> <i>(length=9)</i>
+          'type' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'http://www.w3.org/2001/XMLSchema:double'</font> <i>(length=39)</i>
+          'form' <font color='#888a85'>=&gt;</font> <small>string</small> <font color='#cc0000'>'unqualified'</font> <i>(length=11)</i>
+</pre>
+2013-03-19 08:30:59.322033 wsdl: Parsing WSDL schema done
+2013-03-19 08:30:59.322333 wsdl: msg getLocationsListResponse: found part (with type) getLocationsListReturn: getLocationsListReturn,http://service.localization.ws.viamichelin.com:ArrayOf_tns2_FindLocations
+2013-03-19 08:30:59.322612 wsdl: msg getLocationsListRequest: found part (with type) request: request,http://localization.ws.viamichelin.com:GeocodingRequest
+2013-03-19 08:30:59.322783 wsdl: msg getLocationsListRequest: found part (with type) check: check,http://www.w3.org/2001/XMLSchema:string
+2013-03-19 08:30:59.322996 wsdl: portType Geocoding operation: getLocationsList
+2013-03-19 08:30:59.323455 wsdl: current binding: GeocodingSoapBinding of portType: http://service.localization.ws.viamichelin.com:Geocoding
+2013-03-19 08:30:59.323687 wsdl: current binding operation: getLocationsList
+2013-03-19 08:30:59.324364 wsdl: current service: GeocodingService
+2013-03-19 08:30:59.324523 wsdl: current port: Geocoding
+2013-03-19 08:30:59.324747 wsdl: Parsing WSDL done
+2013-03-19 08:30:59.324897 wsdl: post-parse data gathering for getLocationsList
+";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:13:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"apachesoap";s:30:"http://xml.apache.org/xml-soap";s:4:"impl";s:46:"http://service.localization.ws.viamichelin.com";s:4:"intf";s:46:"http://service.localization.ws.viamichelin.com";s:7:"soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"tns1";s:38:"http://localization.ws.viamichelin.com";s:4:"tns2";s:32:"http://object.ws.viamichelin.com";s:4:"tns3";s:29:"http://geo.ws.viamichelin.com";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:8:"wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:14:"usedNamespaces";a:0:{}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}s:9:"wsdl_info";a:11:{s:15:"targetNamespace";s:46:"http://service.localization.ws.viamichelin.com";s:16:"xmlns:apachesoap";s:30:"http://xml.apache.org/xml-soap";s:10:"xmlns:impl";s:46:"http://service.localization.ws.viamichelin.com";s:10:"xmlns:intf";s:46:"http://service.localization.ws.viamichelin.com";s:13:"xmlns:soapenc";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:10:"xmlns:tns1";s:38:"http://localization.ws.viamichelin.com";s:10:"xmlns:tns2";s:32:"http://object.ws.viamichelin.com";s:10:"xmlns:tns3";s:29:"http://geo.ws.viamichelin.com";s:10:"xmlns:wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:14:"xmlns:wsdlsoap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:9:"xmlns:xsd";s:32:"http://www.w3.org/2001/XMLSchema";}s:20:"currentPortOperation";s:16:"getLocationsList";s:8:"opStatus";s:6:"output";s:11:"serviceName";s:16:"GeocodingService";}

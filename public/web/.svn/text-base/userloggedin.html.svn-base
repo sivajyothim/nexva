@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>neXva</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link type="text/css" rel="stylesheet" href="nexva.css">
+<link href="jquery-ui.nexva.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="libraries/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="libraries/jquery-ui-1.8.js"></script>
+<script type="text/javascript" src="nexva.js"></script>
+<script language="javascript">
+$(document).ready(function() {
+	alignPage();
+	searchSgHide ();
+	hideOverlays();
+	setBackground ();
+});
+</script>
+</head>
+<body>
+<div id="background">
+  <div id="page">
+    <!-- header start -->
+    <div id="title">
+      <div id="logo"><a href="index.html"><img alt="neXva.com" src="images/nexva_logo.gif"></a></div>
+      <div id="primaryLinks">
+        <ul class="btn" id="primary">
+          <li><a id="primary_about" href="#">about</a></li>
+          <li><a id="primary_adv" href="#">advertise</a></li>
+          <li><a id="primary_signup" href="#">sign up</a></li>
+          <li><a id="primary_contact" href="#">contact</a></li>
+        </ul>
+        <form id="search">
+          <div class="searchFldR">
+            <input class="searchFld" id="q">
+            <input type="button" value="search" id="searchBtn" name="search">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- header end -->
+    <div class="blkLeft">
+      <div class="block">
+        <div class="blkTop"></div>
+        <div class="blkContent">
+          <div id="#userBlock">
+            <div class="blockContent">
+              <div id="usrGreeting">Welcome to neXva.com.</div>
+              <ul id="usrPhones">
+              </ul>
+              <div id="usrPhoneSelect"><a id="usr_phone"><img alt="user phone" src="images/unknown_phone_icon.png"></a>
+                <p id="usr_phone_str">click to select a mobile device</p>
+              </div>
+              <div class="inputFld">
+                <ul id="langSelect">
+                  <li class="start"><a rel="de" href="#">De</a></li>
+                  <li class="mid"><a rel="en" href="#">En</a></li>
+                  <li class="mid"><a rel="es" href="#">Es</a></li>
+                  <li class="mid"><a rel="fr" href="#">Fr</a></li>
+                  <li class="end"><a rel="sv" href="#">Sv</a></li>
+                </ul>
+              </div>
+              <div class="inputFld">
+                <ul id="curSelect">
+                  <li class="start"><a rel="usd" href="#">USD</a></li>
+                  <li class="mid"><a rel="eur" href="#">EUR</a></li>
+                  <li class="end"><a rel="gbp" href="#">GBP</a></li>
+                </ul>
+              </div>
+              <div class="userBtn">
+                <ul class="btn">
+                  <li><a href="#">link 1</a></li>
+                  <li><a href="#">link 2</a></li>                
+                  <li><a href="#">link 3</a></li>
+                  <li><a href="#">link 4</a></li>                
+                  <li><a href="#">link 5</a></li>
+                  <li><a href="#">link 6</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blkBottom"></div>
+      </div>
+    </div>
+    <div class="blkRight">
+      <div class="rightBlock"></div>
+    </div>
+    <div id="footer">Footer text | copyright notice | links | <a href="javascript:loadProdList (1);">test</a></div>
+    <div id="searchSg" style="visibility: hidden;"></div>
+    <div id="systemMsg" style="visibility: hidden;"></div>
+    <div id="phoneSelect" style="visibility: hidden;">
+      <p>what is the model of your phone?</p>
+      <form id="searchPhone">
+        <div class="searchFldR">
+          <input class="searchFld" id="q_phone">
+          <input type="button" value="search" id="searchBtnPhone" name="search">
+        </div>
+      </form>
+      <div id="searchSgPhone"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

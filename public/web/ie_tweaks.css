@@ -1,0 +1,91 @@
+/** Login form and other forms **/
+#userForm .inputFld label {
+	height:22px;
+}
+
+#userForm .inputFld input {
+	float:left;
+}
+
+/** seach **/
+#search input.searchFld {
+	width:200px;
+}
+
+#page .rightInlineInput .button {
+    padding: 1px;
+    margin: 0;
+}
+
+#page #searchContainer #searchBtn {
+	margin-bottom: 3px;
+	margin-left: -82px;
+}
+
+.innerPage .blkContent form .inputFld label {
+    height:22px;
+}
+
+/** category menu **/
+
+.leftblock .blockcontent ul li {
+    height:100%;
+}
+
+.leftblock .blockcontent ul ul a.menulink {
+    padding-left: 15px !important
+}
+.leftblock .blockcontent ul ul ul a.menulink {
+    padding-left: 30px !important
+}
+
+
+
+/** blocks **/
+.blkLeft  {
+	margin-top: 5px;
+}
+.blkLeft .block .blkTop, .blkRight .block .blkTop  {
+	height:9px;
+	background-position: left bottom;
+}
+
+.blkLeft .block .blkContent, .blkRight .block .blkContent  {
+	margin-left:1px;
+	margin-top:0px;
+    width:181px;
+}
+
+/** app pages **/
+.innerPage .prodListPage .container .contTop {
+	background-position: -2px 2px;
+} 
+
+.innerPage .prodListPage .container .contContent {
+	width:570px;
+	background-position: left bottom;
+}
+
+.innerPage .prodListPage {
+	margin-top:8px;
+}
+
+.prodView .buttons ul.btn {
+	width:100%;
+}
+
+.FBConnectButton_Simple {
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+.FBConnectButton_Text_Simple {
+    display: block;
+    padding: 0px;
+    margin: 20px;
+}
+
+.apptitle a{
+	word-wrap: break-word;
+}
+

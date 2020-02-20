@@ -1,0 +1,217 @@
+<div class="title">
+
+    <h3>Contents belongs to this cp... | neXva.com</h3>
+
+     <div class="selector" title="content_box">
+        <a class="tab <? if($this->selected_tab == '' or $this->selected_tab == 'tab-all'){echo ' active';}?>" href="tab-all">All content</a>
+        <a class="tab <? if($this->selected_tab == 'tab-deleted' ){echo ' active';}?>" href="tab-deleted">Deleted content</a>
+    </div>
+    
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-all">
+		              <table cellpadding="0" cellspacing="0">
+		                <thead>
+		                    <tr>
+		                        <th>
+		                            Name
+		                        </th>
+		                        <th>
+		                            Content type
+		                        </th>
+		                        <th>
+		                            Price
+		                        </th>
+		                        <th>
+		                            Product type
+		                        </th>
+		                        <th>
+		                            Status
+		                        </th>
+		                        <th>
+		                            Deleted
+		                        </th>
+		                       <th> Stats  views / downloads </th>
+		                        <th> Operations </th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    <?foreach($this->apps as $app): ?>
+		                    
+		                    
+		                    <?php 
+		                    $style = '';
+		                    
+		                    if($app['deleted'])
+		                                $style =  "style='background-color: #ff8e89'"; 
+		      
+		                
+		                    ?>
+		                    
+		                    <tr>
+		                        <td <?=$style;?>> 
+		                            <?=$app['name'];?>
+		                        </td>
+		                        <td <?=$style;?>>
+		                            <?=$app['content_type'];?>
+		                        </td>
+		                        <td <?=$style;?>>
+		                            <?=$app['price'];?>
+		                        </td>
+		                        <td <?=$style;?>>
+		                            <?=$app['product_type'];?>
+		                        </td>
+		                        <td <?=$style;?>>
+		                            <?=$app['status'];?>
+		                        </td>
+		                        <td <?=$style;?>>
+		                            <? if($app['deleted'])
+		                                 echo 'Yes';
+		                               else
+		                                 echo 'No';
+		                                
+		                            ?>
+		                        </td>
+		                        <td>
+		                        <?php  if($app['inapp'] != 1 ):  ?>
+		                        <div style="float:left;">
+		                            <div style="float:left;padding-top:5px;padding-left:20px;"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/viewed_stats.png"  alt="Product views" title="Product views"/></div><div style="float:left;width:40px;padding:4px;"><?= $this->ViewStats($app['id']);?></div>
+		                            <div style="float:left;padding-top:5px;"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/download_stats.png" alt="Downloads count" title="Downloads count"/> </div><div style="float:left;width:40px;padding:4px;"><?= $this->DownloadStats($app['id']);?></div>
+		                        </div>
+		                        <?php else:?>
+		                        <div style="float:left;padding-left:20px;">
+		                        N/A
+		                        </div>
+		                       <?php endif;?>
+		                        </td>
+		                        <td <?=$style;?>>
+		                            <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?=$app['id']; ?>" ><img alt="View the content" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/view.png" title="View the content"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/support-channel/id/<?php echo $app['id'];?>"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/channel-icon.png" alt="Support Channel" title="Support Channel"/></a>
+		                        </td>
+		                    </tr>
+		                    <? endforeach; ?>
+		                    
+		               <?if($this->showProductsAllEmptyMsg == true):?>
+                        <tr>
+                            <td colspan="8">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+		                    
+		                </tbody>
+		            </table>
+                    <?= $this->paginationControl($this->apps, 'Sliding', 'partials/paginator.phtml', array("tab" => 'tab-all',"page_name" => 'page')); ?>
+            </div>
+
+             <!-- tab not-approved -->
+            <div class="tab-deleted">
+                              <table cellpadding="0" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Content type
+                                </th>
+                                <th>
+                                    Price
+                                </th>
+                                <th>
+                                    Product type
+                                </th>
+                                <th>
+                                    Status
+                                </th>
+                                <th>
+                                    Deleted
+                                </th>
+                               <th> Stats  views / downloads </th>
+                                <th> Operations </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?foreach($this->appsDeleted as $appsDeleted): ?>
+                            
+                            
+                            <?php 
+                            $style = '';
+                            
+                            if($appsDeleted['deleted'])
+                                        $style =  "style='background-color: #ff8e89'"; 
+              
+                        
+                            ?>
+                            
+                            <tr>
+                                <td <?=$style;?>> 
+                                    <?=$appsDeleted['name'];?>
+                                </td>
+                                <td <?=$style;?>>
+                                    <?=$appsDeleted['content_type'];?>
+                                </td>
+                                <td <?=$style;?>>
+                                    <?=$appsDeleted['price'];?>
+                                </td>
+                                <td <?=$style;?>>
+                                    <?=$appsDeleted['product_type'];?>
+                                </td>
+                                <td <?=$style;?>>
+                                    <?=$appsDeleted['status'];?>
+                                </td>
+                                <td <?=$style;?>>
+                                    <? if($appsDeleted['deleted'])
+                                         echo 'Yes';
+                                       else
+                                         echo 'No';
+                                        
+                                    ?>
+                                </td>
+                                <td>
+                                <?php  if($appsDeleted['inapp'] != 1 ):  ?>
+                                <div style="float:left;">
+                                    <div style="float:left;padding-top:5px;padding-left:20px;"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/viewed_stats.png"  alt="Product views" title="Product views"/></div><div style="float:left;width:40px;padding:4px;"><?= $this->ViewStats($app['id']);?></div>
+                                    <div style="float:left;padding-top:5px;"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/download_stats.png" alt="Downloads count" title="Downloads count"/> </div><div style="float:left;width:40px;padding:4px;"><?= $this->DownloadStats($app['id']);?></div>
+                                </div>
+                                <?php else:?>
+                                <div style="float:left;padding-left:20px;">
+                                N/A
+                                </div>
+                               <?php endif;?>
+                                </td>
+                                <td <?=$style;?>>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?=$appsDeleted['id']; ?>" ><img alt="View the content" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/view.png" title="View the content"></a>
+                                </td>
+                            </tr>
+                            <? endforeach; ?>
+                            
+                  <?if($this->showDeletedProductsEmptyMsg == true):?>
+                        <tr>
+                            <td colspan="8">
+                                <small>
+                                    <i>Content list is empty.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+                        </tbody>
+                    </table>
+                    <?= $this->paginationControl($this->appsDeleted, 'Sliding', 'partials/paginator.phtml', array("tab" => 'tab-deleted',"page_name" => 'page_deleted')); ?>
+            </div>
+            <!-- tab -->
+
+        
+
+            
+           
+        </div>
+    </div>
+</div>

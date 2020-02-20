@@ -1,0 +1,38 @@
+   <table width="580" border="0" cellspacing="20" cellpadding="0">
+
+                     <tr>
+                        <td width="580" align="left" valign="top" class="mainbar">
+
+                           <h2>Purchase Notification</h2>
+                           <p>
+                               <br/><br/> Hello <br /> <br/><br/>
+
+                               This email is to inform you that a copy of your app was sold on neXva. Details of the transaction are as follows: <br/><br/>
+
+                               App ID: <?=$this->product_id?> <br/>
+                               App Name: <?=$this->product_name?> <br/>
+
+                               <br/>
+
+                               Order ID: <?=$this->order->id?> <br/>
+                               Transaction ID: <?=$this->order->transaction_id?> <br/>
+                               Date: <?=$this->order->order_date?> <br/>
+                               
+
+                               <br/>
+
+                               Purchaser ID: <?=$this->user->id?><br/>
+                               Purchaser's Email: <?=$this->user->email?><br/>
+
+
+                               <br/><br/>                              
+
+                               Thank you <br/><br/>
+
+                              neXva Mailer Agent.
+                           </p>
+
+
+                        </td>
+                     </tr>
+   </table>

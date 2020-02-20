@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/repos/nexva_v1/!svn/ver/22700/v2/trunk/public/vendors/soapui
+END
+ws.wsdl
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/ws.wsdl
+END
+WS-soapui-project.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/WS-soapui-project.xml
+END
+ws.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/nexva_v1/!svn/ver/22014/v2/trunk/public/vendors/soapui/ws.php
+END

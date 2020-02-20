@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs
+END
+DomainKeys_notes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/DomainKeys_notes.txt
+END
+faq.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/faq.html
+END
+generatedocs.sh
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/generatedocs.sh
+END
+pop3_article.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/pop3_article.txt
+END
+Callback_function_notes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/Callback_function_notes.txt
+END
+Note_for_SMTP_debugging.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/Note_for_SMTP_debugging.txt
+END
+extending.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/29221/v2/trunk/public/vendors/php-mailer/docs/extending.html
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/cache
+END
+Google_Cache.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/cache/Google_Cache.php
+END
+Google_FileCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/cache/Google_FileCache.php
+END
+Google_MemcacheCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/cache/Google_MemcacheCache.php
+END
+Google_ApcCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/cache/Google_ApcCache.php
+END

@@ -1,0 +1,119 @@
+<?php   
+if(Zend_Auth::getInstance()->hasIdentity() == true) :
+?>
+<?php
+    $action = Zend_Controller_Front::getInstance()->getRequest()->getActionName();
+    if($action != 'confirm-agreement'){ ?>
+        <!-- Start Top Navigation -->
+        <div id="top_nav">
+            <!-- Start Drop Down Menu -->
+            <ul class="sf-menu">
+                <li>
+                    <a class="m" href="<?php echo CP_PROJECT_BASEPATH;?>"><?php echo $this->translate("Dashboard");?></a>
+                </li>
+                <li>
+                    <a class="m" href="<?php echo CP_PROJECT_BASEPATH;?>product/create"><?php echo $this->translate("Content");?></a>
+                    <ul>
+                        <li> <a href="<?php echo CP_PROJECT_BASEPATH;?>product/create"><?php echo $this->translate("Add Content");?></a></li>
+                        <li> <a href="<?php echo CP_PROJECT_BASEPATH;?>product/view"><?php echo $this->translate("View Content");?></a></li>
+                    </ul>
+
+                </li>
+                <?php                
+                $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+                if(!in_array($chapId, array('585474','585480'))){ ?>
+                    <li><a class="m" href="<?php echo CP_PROJECT_BASEPATH;?>promotion-code/"><?php echo $this->translate("Promotion Codes");?></a>
+                        <ul>
+                            <li><a href="<?php echo CP_PROJECT_BASEPATH;?>promotion-code/"><?php echo $this->translate("See All");?></a></li>
+                            <li><a href="<?php echo CP_PROJECT_BASEPATH;?>promotion-code/create"><?php echo $this->translate("Create new");?></a></li>
+                        </ul>
+                    </li>
+                <?php } ?>
+                <li><a class="m" href="<?php echo CP_PROJECT_BASEPATH;?>user/profile"><?php echo $this->translate("Account");?></a>
+                    <ul>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>agreement/view"><?php echo $this->translate("Agreement");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>user/details#tabs-1"><?php echo $this->translate("Details");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>user/logout"><?php echo $this->translate("Logout");?></a></li>
+                    </ul>
+                </li>
+
+
+                <!--<li><a href="/statistic">Statistics</a></li>-->
+                <li><a href="<?php echo CP_PROJECT_BASEPATH;?>payment/index/tab/#royalties"><?php echo $this->translate("Payments");?></a></li>
+
+
+                <li>
+                    <a class="m" href="<?php echo CP_PROJECT_BASEPATH;?>analytics/dashboard"><?php echo $this->translate("Analytics");?></a>
+                </li>
+
+                <li>
+                    <a class="m" href="#"><?php echo $this->translate("Tools");?></a>
+                    <ul>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>nexpage/"><?php echo $this->translate("neXpager");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>page/view/slug/nexpush"><?php echo $this->translate("neXpush");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>page/view/slug/nexlinker"><?php echo $this->translate("neXlinker");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>page/view/slug/neXpublisher"><?php echo $this->translate("neXpublish");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>page/view/slug/nexpayer"><?php echo $this->translate("neXpayer");?></a></li>
+                        <?php                        
+                        $session = new Zend_Session_Namespace('chap');
+                        if(115189 == $session->chap->id){ //this is only for ycoins
+                        ?>
+                                <li><a href="<?php echo CP_PROJECT_BASEPATH;?>page/ycoins"><?php echo $this->translate("Android Librar");?>y</a></li>
+                        <?php }
+                        ?>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>device/search/"><?php echo $this->translate("Device Database");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>dynamic-registration/test"><?php echo $this->translate("Dynamic Registration Test Page");?></a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a class="m" href="#"><?php echo $this->translate("Tickets");?></a>
+                    <ul>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>ticket/create"><?php echo $this->translate("Create Ticket");?></a></li>
+                        <li><a href="<?php echo CP_PROJECT_BASEPATH;?>ticket/list"><?php echo $this->translate("List Tickets");?></a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- End Drop Down Menu -->
+            <!--  support / contacts link -->
+            <ul class="support_nav">
+                <li>
+                    <a id="user-message" href="<?php echo CP_PROJECT_BASEPATH;?>messages/index">
+                        <?php echo $this->translate("Messages");?>
+                        <?php if ($this->unreadMessageCount > 0){
+                            echo '(',$this->unreadMessageCount,')';
+                            ?>
+                            <img src="<?php echo PROJECT_BASEPATH;?>cp/assets/img/message-xxl.png" style=""/>
+                            <script type="text/javascript">
+
+                                function blink(selector){
+                                    $(selector).fadeOut('slow', function(){
+                                        $(this).fadeIn('slow', function(){
+                                            blink(this);
+                                        });
+                                    });
+                                }
+                                $().ready(function(){
+                                    blink("#user-message");
+                                });
+                            </script>
+
+                        <?php } ?>
+                    </a>
+                    <!--<span title="You have <?php /*echo $this->unreadMessageCount;*/?> unread messages"
+                            id='unreadMessageCount'><?php /*echo $this->unreadMessageCount;*/?></span>-->
+                    <!--<button id="click-me">Click me</button>-->
+                </li>
+                <li>
+                    <a href="<?php echo CP_PROJECT_BASEPATH;?>index/help">
+                        <?php echo $this->translate("Support");?> <img src="<?php echo PROJECT_BASEPATH;?>cp/assets/img/global/skype-icon.png" style="width:32px;margin-top:-8px;"alt="skype" align="top"/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- End Top Navigation -->
+    <?php } ?>
+<?php 
+endif;
+?>

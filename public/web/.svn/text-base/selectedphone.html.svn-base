@@ -1,0 +1,199 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>neXva</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link type="text/css" rel="stylesheet" href="nexva.css">
+<link href="jquery-ui.nexva.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="libraries/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="libraries/jquery-ui-1.8.js"></script>
+<script type="text/javascript" src="nexva.js"></script>
+<script language="javascript">
+$(document).ready(function() {
+	alignPage();
+	searchSgHide ();
+	hideOverlays();
+	setBackground ();
+});
+</script>
+</head>
+<body>
+<div id="background">
+  <div id="page">
+    <!-- header start -->
+    <div id="title">
+      <div id="logo"><a href="index.html"><img alt="neXva.com" src="images/nexva_logo.gif"></a></div>
+      <div id="primaryLinks">
+        <ul class="btn" id="primary">
+          <li><a id="primary_about" href="#">about</a></li>
+          <li><a id="primary_adv" href="#">advertise</a></li>
+          <li><a id="primary_signup" href="#">sign up</a></li>
+          <li><a id="primary_contact" href="#">contact</a></li>
+        </ul>
+        <form id="search">
+          <div class="searchFldR">
+            <input class="searchFld" id="q">
+            <input type="button" value="search" id="searchBtn" name="search">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- header end -->
+    <div class="blkLeft">
+      <div class="block">
+        <div class="blkTop"></div>
+        <div class="blkContent">
+          <div id="#userBlock">
+            <div class="blockContent">
+              <div id="usrGreeting">Welcome to neXva.com.</div>
+              <ul id="usrPhones"><li class="usrPhoneBlk"><a href="javascript:removeUserPhone('nokia_5130_xpressmusic');" class="closeBtn"></a><a class="phoneInfo"><img src="phone_images/nokia_5130_xpressmusic.jpg" />Nokia 5130 XpressMusic</a></li><li class="usrPhoneBlk"><a href="javascript:removeUserPhone('motorola_e8_rokr');" class="closeBtn"></a><a class="phoneInfo"><img src="phone_images/motorola_e8_rokr.jpg" />Motorola E8 Rockr</a></li></ul>
+              <div id="usrPhoneSelect"><a id="usr_phone"><img src="images/add_phone.png" alt="user phone"></a>
+                <p id="usr_phone_str">click to select a mobile device</p>
+              </div>
+              <div class="inputFld">
+                <ul id="langSelect">
+                  <li class="start"><a rel="de" href="#">De</a></li>
+                  <li class="mid"><a rel="en" href="#">En</a></li>
+                  <li class="mid"><a rel="es" href="#">Es</a></li>
+                  <li class="mid"><a rel="fr" href="#">Fr</a></li>
+                  <li class="end"><a rel="sv" href="#">Sv</a></li>
+                </ul>
+              </div>
+              <div class="inputFld">
+                <ul id="curSelect">
+                  <li class="start"><a rel="usd" href="#">USD</a></li>
+                  <li class="mid"><a rel="eur" href="#">EUR</a></li>
+                  <li class="end"><a rel="gbp" href="#">GBP</a></li>
+                </ul>
+              </div>
+              <form id="userForm" name="userForm">
+                <div class="inputFld">
+                  <label>username</label>
+                  <input type="text" name="usernme" id="username" value="">
+                </div>
+                <div class="inputFld">
+                  <label>password</label>
+                  <input type="password" name="password" id="password" value="">
+                </div>
+                <ul class="btn">
+                  <li><a href="#" id="usr_login">login</a></li>
+                  <li><a href="#" id="usr_signup">sign-up</a></li>
+                </ul>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="blkBottom"></div>
+      </div>
+      <div class="leftBlock">
+        <div class="block" id="left_menuListBlk_menu_0">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2>Menu: 0</h2>
+            <div class="blockContent">
+              <ul>
+                <li>
+                  <h4><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></h4>
+                  <ul>
+                    <li><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></li>
+                    <li><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a></li>
+                    <li><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a></li>
+                    <h4><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></h4>
+                    <ul>
+                      <li><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a></li>
+                      <li><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a></li>
+                      <li><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a></li>
+                      <li><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a></li>
+                    </ul>
+                    <li><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a></li>
+                  </ul>
+                </li>
+                <li><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a></li>
+                <li><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a></li>
+                <li><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a></li>
+                <li><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a></li>
+                <li><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a></li>
+                <li><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a></li>
+                <li><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a></li>
+                <li><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a></li>
+                <li><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+        <div class="block" id="left_menuListBlk_nexva_rec">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2><img class="neXvaLogo" src="images/nexva_logo_small.png"> recommends</h2>
+            <div class="blockContent"><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a><a id="menu_item_root_1_0" href="javascript:loadPage('root_1_0', 'prod_list');" class="menuLink">Audio books</a><a id="menu_item_root_1_1" href="javascript:loadPage('root_1_1', 'prod_list');" class="menuLink">Comics / Manga</a><a id="menu_item_root_1_2" href="javascript:loadPage('root_1_2', 'prod_list');" class="menuLink">eBooks</a><a id="menu_item_root_1_3" href="javascript:loadPage('root_1_3', 'prod_list');" class="menuLink">Reference / Dictionaries</a><a id="menu_item_root_1_4" href="javascript:loadPage('root_1_4', 'prod_list');" class="menuLink">Religion</a></div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+      </div>
+    </div>
+    <div class="blkCenter innerPage">
+      <!-- product list page start -->
+      <div class="prodListPage">
+        <div class="container">
+          <div class="contTop"></div>
+          <div class="contContent">
+            <div class="blockContent">
+              <div class="blkHead">
+                <h2 id="pageTitle">Books &amp; References</h2>
+                <ul id="breadcrumbs">
+                  <li><a href="javascript:loadPage('home', 'prod_list');">Home</a></li>
+                  <li><a href="javascript:loadPage('cat_01', 'prod_list');">Books &amp; References</a></li>
+                </ul>
+              </div>
+              <div class="blkList">
+                <div class="prodListItem">
+                  <div class="block">
+                    <div class="blkTop"></div>
+                    <div class="blkBottom"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contBottom"></div>
+        </div>
+      </div>
+      <!-- product list page end -->
+    </div>
+    <div class="blkRight">
+      <div class="rightBlock">
+        <div class="block" id="right_menuListBlk_notices">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2>notices</h2>
+            <div class="blockContent"><a id="menu_item_notice_0" href="javascript:loadPage('notice_0', 'prod_list');" class="menuLink">neXva version two. with jquery and ajax. this is a notice.</a><a id="menu_item_notice_1" href="javascript:loadPage('notice_1', 'prod_list');" class="menuLink">the second notice. will be some random message. blah blah blah blah blah.</a></div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+        <div class="block" id="right_menuListBlk_nexva_rec">
+          <div class="blkTop"></div>
+          <div class="blkContent">
+            <h2><img class="neXvaLogo" src="images/nexva_logo_small.png"> recommends</h2>
+            <div class="blockContent"><a id="menu_item_root_0" href="javascript:loadPage('root_0', 'prod_list');" class="menuLink">Books &amp; Reference</a><a id="menu_item_root_1" href="javascript:loadPage('root_1', 'prod_list');" class="menuLink">Goodies &amp; Entertainment</a><a id="menu_item_root_2" href="javascript:loadPage('root_2', 'prod_list');" class="menuLink">Lifestyle &amp; Wellness</a><a id="menu_item_root_3" href="javascript:loadPage('root_3', 'prod_list');" class="menuLink">Music &amp; Audio</a><a id="menu_item_root_4" href="javascript:loadPage('root_4', 'prod_list');" class="menuLink">News &amp; Sports</a><a id="menu_item_root_5" href="javascript:loadPage('root_5', 'prod_list');" class="menuLink">Social Networks &amp; Messaging</a><a id="menu_item_root_6" href="javascript:loadPage('root_6', 'prod_list');" class="menuLink">Themes</a><a id="menu_item_root_7" href="javascript:loadPage('root_7', 'prod_list');" class="menuLink">Tools &amp; Productivity</a><a id="menu_item_root_8" href="javascript:loadPage('root_8', 'prod_list');" class="menuLink">Travel &amp; GPS</a><a id="menu_item_root_9" href="javascript:loadPage('root_9', 'prod_list');" class="menuLink">Video &amp; TV</a></div>
+          </div>
+          <div class="blkBottom"></div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">Footer text | copyright notice | links | <a href="javascript:loadProdList (1);">test</a></div>
+    <div id="searchSg" style="visibility: hidden;"></div>
+    <div id="systemMsg" style="visibility: hidden;"></div>
+    <div id="phoneSelect" style="visibility: hidden;">
+      <p>what is the model of your phone?</p>
+      <form id="searchPhone">
+        <div class="searchFldR">
+          <input class="searchFld" id="q_phone">
+          <input type="button" value="search" id="searchBtnPhone" name="search">
+        </div>
+      </form>
+      <div id="searchSgPhone"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<h2 class="font-size-16"><?= $this->translate("View my ticket");?></h2> 
+<div class="ui-grid-solo">
+    
+<!-- Displays Success Message/s -->
+<?php if (count($this->successMessages)) : ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php foreach ($this->successMessages as $message) : ?>
+                <?php echo $this->escape($this->translate($message)); ?>
+            <?php endforeach; ?>
+      </span></span>
+    </div>
+<?php endif; ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) : ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+            <?php foreach ($this->errorMessages as $message) : ?>
+                <?php echo $this->escape($this->translate($message)); ?>
+            <?php endforeach; ?>
+        </span></span>
+    </div>
+<?php endif; ?>
+</div>
+<?//=$this->paginationControl($this->paginator, 'Sliding', 'partials/ticket_pagination.phtml', array('baseUrl' => $this->baseUrl)); ?>
+    <ul data-role="listview" data-inset="true" class="ui-icon-alt">
+        <?php
+        foreach ($this->paginator as $ticket):
+        ?>
+        <li class="ticket-list">
+            <a href="<?php echo PROJECT_BASEPATH;?>ticket/view-single-ticket/id/<?= $ticket->id; ?>" rel="external">
+                <p class="ticket-date"><?= date("M jS Y", strtotime($ticket->created_date)); ?> <span class="ticket-days-ago"> <?= $this->DateTimeDiff($ticket->created_date);?> </span> </p>
+                <p><span class="response-count"><?= $ticket->response_count; ?> <?= $this->translate('Responses')?></span></p>
+                <p class="ui-li-aside"><span class="price-red-bg right-top">#<?= $ticket->id; ?></span></p>
+                <h3><?= $ticket->subject; ?></h3>
+                <p><?= (str_word_count($ticket->description) > 60) ? $this->LimitWords(strip_tags($ticket->description,'<strong><u>'),60).' ...' : strip_tags($ticket->description,'<strong><u>'); ?></p>
+                
+                <span class="status <?= strtolower($ticket->status); ?>"><?= $this->translate($ticket->status); ?></span>
+                <span class="type <?= strtolower($ticket->type); ?>"><?= $this->translate($ticket->type); ?></span>  
+                <span class="priority <?= strtolower($ticket->priority); ?>"><?= $this->translate($ticket->priority); ?></span>
+            </a>
+        </li>
+        <? endforeach; ?>
+    </ul>
+<?//=$this->paginationControl($this->paginator, 'Sliding', 'partials/ticket_pagination.phtml', array('baseUrl' => $this->baseUrl)); ?>

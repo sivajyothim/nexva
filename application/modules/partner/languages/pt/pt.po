@@ -1,0 +1,1227 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-07-24 10:33+0530\n"
+"PO-Revision-Date: 2014-07-24 14:40+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <contentadmins@nexva.com>\n"
+"Language: farsi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: E:\\projects\\Carbo Apps\\translations\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: Web\n"
+
+#: Web/index.phtml:1
+msgid "Click Here"
+msgstr "Clique Aqui"
+
+#: Web/index.phtml:2 Web/index.phtml:191
+msgid "Apps"
+msgstr "Apps"
+
+#: Web/index.phtml:3
+msgid "Categories"
+msgstr "Categorias"
+
+#: Web/index.phtml:4
+msgid "collection"
+msgstr "coleção"
+
+#: Web/index.phtml:5
+msgid "Featured"
+msgstr "Destacado"
+
+#: Web/index.phtml:6
+msgid "Free Collection"
+msgstr "Coleção dos Apps Grátis"
+
+#: Web/index.phtml:7
+msgid "Most"
+msgstr "Mais"
+
+#: Web/index.phtml:8
+msgid "Need Help?"
+msgstr "Precisa de Ajuda?"
+
+#: Web/index.phtml:9
+msgid "Premium Collection"
+msgstr "Coleção dos Apps Por Pago"
+
+#: Web/index.phtml:10
+msgid "Top"
+msgstr "Os Melhores"
+
+#: Web/index.phtml:11
+msgid "Top Collection"
+msgstr "Coleção dos Melhores Apps"
+
+#: Web/index.phtml:12
+msgid "viewed collection"
+msgstr "Vistos"
+
+#: Web/index.phtml:13 Web/index.phtml:142
+msgid "Search"
+msgstr "Pesquisa"
+
+#: Web/index.phtml:14
+msgid "Select Your Device"
+msgstr "Selecione Seu Dispositivo"
+
+#: Web/index.phtml:15
+msgid ""
+"Selecting a device helps us filter apps that are compatible with your "
+"handset."
+msgstr ""
+"Seleccionar um dispositivo que ajuda-nos a filtrar aplicativos que são "
+"compatíveis com o seu aparelho."
+
+#: Web/index.phtml:16
+msgid "Start typing the name of your device"
+msgstr "Comece encrevendo o nome do seu dispositivo"
+
+#: Web/index.phtml:17
+msgid "No Device Selected"
+msgstr "Nenhum Dispositivo Foi Selecionado"
+
+#: Web/index.phtml:18
+msgid "Click To Select A Mobile Device"
+msgstr "Clique Para Selecionar Um Dispositivo de Telemóvel"
+
+#: Web/index.phtml:19
+msgid "Click on thumbnail to zoom"
+msgstr "Clique na miniatura para ampliar"
+
+#: Web/index.phtml:20
+msgid "Screenshots"
+msgstr "Imagens"
+
+#: Web/index.phtml:21
+msgid "Nexva All Rights Reserved."
+msgstr "Nexva Todos Os Direitos Reservados."
+
+#: Web/index.phtml:22 Web/index.phtml:221
+msgid "Mobile Number or password is incorrect"
+msgstr "O número de telemóvel ou a palavra-passe está incorreto"
+
+#: Web/index.phtml:23 Web/index.phtml:222
+msgid "Mobile"
+msgstr "Telemóvel"
+
+#: Web/index.phtml:24
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted."
+msgstr ""
+"Produtos, logótipos e empresas mencionados neste documento são marcas "
+"comerciais ou nomes comerciais de seus respectivos proprietários e, "
+"portanto, protegido por direitos autoriais"
+
+#: Web/index.phtml:25
+msgid "Register"
+msgstr "Registrar"
+
+#: Web/index.phtml:26
+msgid "Sign In"
+msgstr "Iniciar Sessão"
+
+#: Web/index.phtml:27
+msgid "IRR"
+msgstr "IRR"
+
+#: Web/index.phtml:28
+msgid "Welcome"
+msgstr "Benvindo"
+
+#: Web/index.phtml:29
+msgid "You Are Here"
+msgstr "Você está aqui"
+
+#: Web/index.phtml:30
+msgid "Buy "
+msgstr "Comprar"
+
+#: Web/index.phtml:31
+msgid "Buy"
+msgstr "Comprar"
+
+#: Web/index.phtml:32
+msgid "Buy : "
+msgstr "Comprar :"
+
+#: Web/index.phtml:33
+msgid "Description"
+msgstr "Descrição"
+
+#: Web/index.phtml:34
+msgid "Free"
+msgstr "Grátis"
+
+#: Web/index.phtml:35
+msgid "Free Download"
+msgstr "Download Grátis"
+
+#: Web/index.phtml:36
+msgid "Price : "
+msgstr "Preço :"
+
+#: Web/index.phtml:37
+msgid "Price"
+msgstr "Preço"
+
+#: Web/index.phtml:38
+msgid "Rate"
+msgstr "Avaliar"
+
+#: Web/index.phtml:39
+msgid "Rate "
+msgstr "Avaliar"
+
+#: Web/index.phtml:40
+msgid "Rate : "
+msgstr "Avaliar :"
+
+#: Web/index.phtml:41
+msgid "Vendor"
+msgstr "Vendedor"
+
+#: Web/index.phtml:42
+msgid "Vendor : "
+msgstr "Vendedor :"
+
+#: Web/index.phtml:43
+msgid "Whats new"
+msgstr "O que é novo"
+
+#: Web/index.phtml:44
+msgid "Free Stuff"
+msgstr "Coisas Grátis"
+
+#: Web/index.phtml:45
+msgid "Logout"
+msgstr "Sair"
+
+#: Web/index.phtml:46
+msgid "Most Viewed"
+msgstr "Mais Vistos"
+
+#: Web/index.phtml:47
+msgid "Newest"
+msgstr "Mais recentes"
+
+#: Web/index.phtml:48
+msgid "SEARCH"
+msgstr "Pesquisa"
+
+#: Web/index.phtml:49
+msgid "Staff Picks"
+msgstr "Seleções do Editor"
+
+#: Web/index.phtml:50
+msgid "Rating"
+msgstr "Avaliação"
+
+#: Web/index.phtml:51
+msgid "Supported Formats"
+msgstr "Formatos Suportados"
+
+#: Web/index.phtml:52
+msgid "Latest Reviews"
+msgstr "Últimos Comentários"
+
+#: Web/index.phtml:53
+msgid "No user reviews yet.."
+msgstr "Não há comentários dos utilizadores ainda."
+
+#: Web/index.phtml:54
+msgid "Please login to post a review."
+msgstr "Faça login para escrever um comentário."
+
+#: Web/index.phtml:55
+msgid "Name"
+msgstr "Nome"
+
+#: Web/index.phtml:56
+msgid "Title"
+msgstr "Título"
+
+#: Web/index.phtml:57
+msgid "Review"
+msgstr "Crítica"
+
+#: Web/index.phtml:58
+msgid "Home"
+msgstr "INÍCIO"
+
+#: Web/index.phtml:59
+msgid "To download this app you need to install"
+msgstr "Para baixar esse aplicativo, você precisa instalar"
+
+#: Web/index.phtml:60
+msgid "on your Android device and sign in."
+msgstr "no seu dispositivo e depois fazer login."
+
+#: Web/index.phtml:61
+msgid "To register you need to install"
+msgstr "Para se inscrever é necessário instalar"
+
+#: Web/index.phtml:62
+msgid "on your Android device. Registration happens on your device."
+msgstr "no seu dispositivo. A inscrição acontece no seu dispositivo."
+
+#: Web/index.phtml:63
+msgid "Please download the App store app using the following methods."
+msgstr "Faça o download do aplicativo CaboApps usando os seguintes métodos."
+
+#: Web/index.phtml:64
+msgid ""
+"The app you have selected has been pushed directly to your device. Be sure "
+"to have the"
+msgstr ""
+"O aplicativo que você selecionou foi enviada diretamente para o dispositivo. "
+"Certifique-se de o ter"
+
+#: Web/index.phtml:65
+msgid "installed on your phone first."
+msgstr "instalado no seu dispositivo, em primeiro lugar."
+
+#: Web/index.phtml:66
+msgid "If you don't have"
+msgstr "Se você não tiver"
+
+#: Web/index.phtml:67
+msgid "installed on your phone here is how to get it"
+msgstr "instalado no seu telefone, é assim que você pode obtê-lo"
+
+#: Web/index.phtml:68
+msgid "If you want to install"
+msgstr "Se você quiser instalar"
+
+#: Web/index.phtml:69
+msgid "on your phone use following methods."
+msgstr "no seu dispositivo, use os seguintes métodos."
+
+#: Web/index.phtml:70
+msgid "Type in your email address and we will email it to you"
+msgstr "Preencha o seu e-mail e vamos enviar-lhe e-mail"
+
+#: Web/index.phtml:71
+msgid "your email"
+msgstr "Seu e-mail"
+
+#: Web/index.phtml:72
+msgid "send email"
+msgstr "Enviar e-mail"
+
+#: Web/index.phtml:73
+msgid "Point your mobile browser to the following link:"
+msgstr "Aponte seu navegador de internet para o seguinte link:"
+
+#: Web/index.phtml:74
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr ""
+"Para ser levado diretamente para a página do aplicativo, escaneie o código "
+"QR com a câmera do seu móvel"
+
+#: Web/index.phtml:75
+msgid "Do not have a QR code reader?"
+msgstr "Não tens um leitor de código QR?"
+
+#: Web/index.phtml:76
+msgid "Get one free"
+msgstr "Obter um leitor grátis"
+
+#: Web/index.phtml:77
+msgid "Download"
+msgstr "Baixar"
+
+#: Web/index.phtml:78
+msgid "More Details"
+msgstr "Mais Detalhes"
+
+#: Web/index.phtml:79
+msgid "Login"
+msgstr "Conectar"
+
+#: Web/index.phtml:80 Web/index.phtml:240
+msgid "Required infromation"
+msgstr "Informações necessárias"
+
+#: Web/index.phtml:81
+msgid "User name"
+msgstr "Utilizador"
+
+#: Web/index.phtml:82
+msgid "Password"
+msgstr "Palavra-passe"
+
+#: Web/index.phtml:83
+msgid "Forgot your password"
+msgstr "Esqueceu a palavra-passe?"
+
+#: Web/index.phtml:84
+msgid "Please enter First Name"
+msgstr "Insira o seu Nome"
+
+#: Web/index.phtml:85
+msgid "Top Downloads"
+msgstr "Mais Baixados"
+
+#: Web/index.phtml:86
+msgid "Top Free"
+msgstr "Principais Gratuítos"
+
+#: Web/index.phtml:87
+msgid "Featured Apps"
+msgstr "Apps Destacados"
+
+#: Web/index.phtml:88
+msgid "Top Premium"
+msgstr "Melhores Por Pago"
+
+#: Web/index.phtml:89
+msgid "Top Paid"
+msgstr "Mais Bem Pagos"
+
+#: Web/index.phtml:90
+msgid "Your Device"
+msgstr "O Seu Dispositivo"
+
+#: Web/index.phtml:91
+msgid "Sign Up"
+msgstr "Inscrever-se"
+
+#: Web/index.phtml:92
+msgid "Next"
+msgstr "Proximo"
+
+#: Web/index.phtml:93
+msgid "Previous"
+msgstr "Anterior"
+
+#: Web/index.phtml:94
+msgid "Most viewed collection"
+msgstr "As coleções mais vistas"
+
+#: Web/index.phtml:95
+msgid "Contact Us"
+msgstr "Fale Conosco"
+
+#: Web/index.phtml:96
+msgid "Email"
+msgstr "E-mail"
+
+#: Web/index.phtml:97
+msgid "Message"
+msgstr "Mensagem"
+
+#: Web/index.phtml:98
+msgid "SEND"
+msgstr "ENVIAR"
+
+#: Web/index.phtml:99
+msgid "RESET"
+msgstr "Restabelecer"
+
+#: Web/index.phtml:100
+msgid "NO DEVICE SELECTED"
+msgstr "Nenhum Dispositivo Foi Selecionado"
+
+#: Web/index.phtml:101 Web/index.phtml:216
+msgid "Feedback"
+msgstr "Comentários"
+
+#: Web/index.phtml:102
+msgid "SUPPORTED FORMATS"
+msgstr "Formatos Suportados"
+
+#: Web/index.phtml:103
+msgid "ADD YOUR OWN REVIEW"
+msgstr "Adicionar seus próprios comentários"
+
+#: Web/index.phtml:104
+msgid "App"
+msgstr "App"
+
+#: Web/index.phtml:105
+msgid "Category"
+msgstr "Categoria"
+
+#: Web/index.phtml:106
+msgid "Newest Apps"
+msgstr "Mais recentes"
+
+#: Web/index.phtml:107
+msgid "Free Apps"
+msgstr "Apps Grátis"
+
+#: Web/index.phtml:108
+msgid "Premium Apps"
+msgstr "Apps Por Pago"
+
+#: Web/index.phtml:109
+msgid "Top Downloaded Apps"
+msgstr "Apps Mais Baixados"
+
+#: Web/index.phtml:110
+msgid "Most Viewed Apps"
+msgstr "Apps Mais Vistos"
+
+#: Web/index.phtml:111
+msgid "BOOKS & REFERENCE"
+msgstr "LIVROS E REFERÊNCIAS"
+
+#: Web/index.phtml:112
+msgid "eBooks"
+msgstr "e-Books"
+
+#: Web/index.phtml:113
+msgid "Audio books"
+msgstr "Audiolivros"
+
+#: Web/index.phtml:114
+msgid "Reference/Dictionaries"
+msgstr "Referências/Dicionários"
+
+#: Web/index.phtml:115
+msgid "Religion"
+msgstr "Religião"
+
+#: Web/index.phtml:116
+msgid "Comics/Manga"
+msgstr "Banda desenhada/Manga"
+
+#: Web/index.phtml:117
+msgid "GAMES"
+msgstr "Jogos"
+
+#: Web/index.phtml:118
+msgid "Arcade"
+msgstr "Arcada"
+
+#: Web/index.phtml:119
+msgid "Cards"
+msgstr "Cartões"
+
+#: Web/index.phtml:120
+msgid "Action/Strategy"
+msgstr "Acção/Estratégia"
+
+#: Web/index.phtml:121
+msgid "Role Playing/Multiplayer"
+msgstr "Encenador/Multijogador"
+
+#: Web/index.phtml:122
+msgid "Logic/Puzzle/Trivia"
+msgstr "Lógica / Puzzle / Trivia"
+
+#: Web/index.phtml:123
+msgid "Casino/Cards/Betting"
+msgstr "Cassino/Cartas/Aposta"
+
+#: Web/index.phtml:124
+msgid "Sports"
+msgstr "Desporto"
+
+#: Web/index.phtml:125
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "Ferramentas & Produtividade"
+
+#: Web/index.phtml:126
+msgid "Utilities/Synchronization"
+msgstr "Serviços/Sincronização"
+
+#: Web/index.phtml:127
+msgid "Organizers/Clocks/Desktop"
+msgstr "Organizador/Relógio/ Ambiênte de Trabalho"
+
+#: Web/index.phtml:128
+msgid "Internet/WAP"
+msgstr "Internet/WAP"
+
+#: Web/index.phtml:129
+msgid "Device Tools"
+msgstr "Dispositivos de Ferramentas"
+
+#: Web/index.phtml:130
+msgid "Security/Backup"
+msgstr "Segurança/Cópia de Segunrança"
+
+#: Web/index.phtml:131
+msgid "Developers/DB"
+msgstr "Desenvolvedor/DB"
+
+#: Web/index.phtml:132
+msgid "Office Productivity"
+msgstr "Produtividade do escritório"
+
+#: Web/index.phtml:133
+msgid "Graphic Tools"
+msgstr "Ferramenta Gráfica"
+
+#: Web/index.phtml:134
+msgid "BUSINESS & FINANCE"
+msgstr "NEGÓCIOS & FINANÇAS"
+
+#: Web/index.phtml:135
+msgid "Accounts/Tax"
+msgstr "Contas/ Imposto"
+
+#: Web/index.phtml:136
+msgid "Stocks/Finance"
+msgstr "Acções/Finança"
+
+#: Web/index.phtml:137
+msgid "Inventory/Sales"
+msgstr "Inventários/Vendas"
+
+#: Web/index.phtml:138
+msgid "Currency/Convertors"
+msgstr "Moeda/Conversores"
+
+#: Web/index.phtml:139
+msgid "TRAVEL & GPS"
+msgstr "VIAGEM E GPS"
+
+#: Web/index.phtml:140
+msgid "GPS/Maps"
+msgstr "GPS/Mapas"
+
+#: Web/index.phtml:141
+msgid "Weather"
+msgstr "Tempo"
+
+#: Web/index.phtml:143
+msgid "Translation/Language"
+msgstr "Tradução/Idioma"
+
+#: Web/index.phtml:144
+msgid "NEWS & SPORTS"
+msgstr "NOTÍCIAS E DESPORTO"
+
+#: Web/index.phtml:145
+msgid "News/Magazines"
+msgstr "Notícias/Revistas"
+
+#: Web/index.phtml:146
+msgid "Sports/Teams"
+msgstr "Desporto/Equipa"
+
+#: Web/index.phtml:147
+msgid "RSS"
+msgstr "RSS"
+
+#: Web/index.phtml:148
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "REDES SOCIAIS E MENSAGEM"
+
+#: Web/index.phtml:149
+msgid "IM/SMS/Email/VOIP"
+msgstr "Mensagens/SMS/Email/VoIP"
+
+#: Web/index.phtml:150
+msgid "Social Networks"
+msgstr "Redes Sociais"
+
+#: Web/index.phtml:151
+msgid "Dating"
+msgstr "Encontros"
+
+#: Web/index.phtml:152
+msgid "Blogs/Images"
+msgstr "Blogs/Imagens"
+
+#: Web/index.phtml:153
+msgid "MUSIC & AUDIO"
+msgstr "MÚSICA E ÁUDIO"
+
+#: Web/index.phtml:154
+msgid "Podcasts"
+msgstr "Podcast"
+
+#: Web/index.phtml:155
+msgid "MP3/Music"
+msgstr "MP3/Música"
+
+#: Web/index.phtml:156
+msgid "Radios/Players"
+msgstr "Rádios/Aparelhos"
+
+#: Web/index.phtml:157
+msgid "Lyrics/Bands"
+msgstr "Letra/Bandas"
+
+#: Web/index.phtml:158
+msgid "VIDEO & TV"
+msgstr "VÍDEO E TV"
+
+#: Web/index.phtml:159
+msgid "TV/Shows"
+msgstr "TV/Series"
+
+#: Web/index.phtml:160
+msgid "Movies/Trailers"
+msgstr "Filmes/Trailers"
+
+#: Web/index.phtml:161
+msgid "players/Converters"
+msgstr "Aparelhos/Conversores"
+
+#: Web/index.phtml:162
+msgid "LIFESTYLE & WELLNESS"
+msgstr "ESTILO DE VIDA & BEM-ESTAR"
+
+#: Web/index.phtml:163
+msgid "Astro"
+msgstr "Astrologia"
+
+#: Web/index.phtml:164
+msgid "Food/Recipes"
+msgstr "Comida/Receita"
+
+#: Web/index.phtml:165
+msgid "Art/Fashion"
+msgstr "Arte/Moda"
+
+#: Web/index.phtml:166
+msgid "Hobbies/Pets"
+msgstr "Passtempos/Domésticos"
+
+#: Web/index.phtml:167
+msgid "Health/Diet/Fitness"
+msgstr "Saúde/Dieta/Exercício"
+
+#: Web/index.phtml:168
+msgid "Shopping/Brands"
+msgstr "Shopping/Marcas"
+
+#: Web/index.phtml:169
+msgid "EDUCATION & ELEARNING"
+msgstr "EDUCAÇÃO"
+
+#: Web/index.phtml:170
+msgid "Medical"
+msgstr "Médico"
+
+#: Web/index.phtml:171
+msgid "Language"
+msgstr "Idiomas"
+
+#: Web/index.phtml:172
+msgid "Kids/Early learning"
+msgstr "Crianças/Aprendizagem Precoce"
+
+#: Web/index.phtml:173
+msgid "University"
+msgstr "Universidade"
+
+#: Web/index.phtml:174
+msgid "Law"
+msgstr "Lei"
+
+#: Web/index.phtml:175
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "PRENDAS E DIVERTIMENTO"
+
+#: Web/index.phtml:176
+msgid "Wallpaper/Screensavers"
+msgstr "Papel de Parede/Proteção de Tela"
+
+#: Web/index.phtml:177
+msgid "Personlization/Skins"
+msgstr "Personalizações/Capas"
+
+#: Web/index.phtml:178
+msgid "Humor/Jokes"
+msgstr "Humor/Piadas"
+
+#: Web/index.phtml:179
+msgid "Ringtones"
+msgstr "Toques"
+
+#: Web/index.phtml:180
+msgid "THEMES"
+msgstr "TEMAS"
+
+#: Web/index.phtml:181
+msgid "Techno"
+msgstr "Tecno"
+
+#: Web/index.phtml:182
+msgid "Rock"
+msgstr "Rock"
+
+#: Web/index.phtml:183
+msgid "Calm"
+msgstr "Suave"
+
+#: Web/index.phtml:184
+msgid "Arts & Crafts"
+msgstr "Artesanato"
+
+#: Web/index.phtml:185
+msgid "Animation"
+msgstr "Animação"
+
+#: Web/index.phtml:186
+msgid "Category  Not Found"
+msgstr "Category  Not Found"
+
+#: Web/index.phtml:187
+msgid "You are not signed in yet"
+msgstr "Ainda não está iniciado"
+
+#: Web/index.phtml:188
+msgid "No Match Found"
+msgstr "Nada foi encontrado"
+
+#: Web/index.phtml:189
+msgid "Ok"
+msgstr "Ok"
+
+#: Web/index.phtml:190
+msgid "You haven't log in yet ? Please log in."
+msgstr "Ainda não iniciou uma sessão? Por favor, faça o login."
+
+#: Web/index.phtml:192
+msgid "No Data Found"
+msgstr "Dados não foram encontrados"
+
+#: Web/index.phtml:193
+msgid "Downloading"
+msgstr "Baixando"
+
+#: Web/index.phtml:194
+msgid "You are here"
+msgstr "Você está aqui"
+
+#: Web/index.phtml:195
+msgid "Have an Issue?"
+msgstr "Algum problema?"
+
+#: Web/index.phtml:196
+msgid "Login to add a ticket"
+msgstr "Login para criar um ticket"
+
+#: Web/index.phtml:197
+msgid "Please add a valid email"
+msgstr "Por favor, inclua um e-mail válido"
+
+#: Web/index.phtml:198
+msgid "Please add a valid password"
+msgstr "Por favor insira um email válido"
+
+#: Web/index.phtml:199
+msgid "Click here to reset it"
+msgstr "Clique aqui para redefini-la"
+
+#: Web/index.phtml:200
+msgid " HOME"
+msgstr "INÍCIO"
+
+#: Web/index.phtml:201
+msgid " HOME "
+msgstr "INÍCIO"
+
+#: Web/index.phtml:202
+msgid "HOME"
+msgstr "INÍCIO"
+
+#: Web/index.phtml:203
+msgid ""
+".Products, Logos and Companies mentioned herein are trademarks or trade "
+"names of their respective owners and therefore copyrighted"
+msgstr ""
+"Produtos, logótipos e empresas mencionados neste documento são marcas "
+"comerciais ou nomes comerciais de seus respectivos proprietários e, "
+"portanto, protegido por direitos autoriais"
+
+#: Web/index.phtml:204
+msgid "Add your own review"
+msgstr "Adicionar seus próprios comentários"
+
+#: Web/index.phtml:205
+msgid "MTN Iran App Store"
+msgstr "INOVEX «CaboApps» App Store"
+
+#: Web/index.phtml:206
+msgid " APP "
+msgstr " APP "
+
+#: Web/index.phtml:207
+msgid "Required Information"
+msgstr "Informações necessárias"
+
+#: Web/index.phtml:208
+msgid " FEEDBACK "
+msgstr "Comentários"
+
+#: Web/index.phtml:209
+msgid " INFO "
+msgstr "Informação"
+
+#: Web/index.phtml:210
+msgid " LOGIN HERE "
+msgstr "FAÇA LOGIN AQUI"
+
+#: Web/index.phtml:211
+msgid "Login here"
+msgstr "FAÇA LOGIN AQUI"
+
+#: Web/index.phtml:212
+msgid " APP"
+msgstr " APP "
+
+#: Web/index.phtml:213
+msgid "APP"
+msgstr " APP "
+
+#: Web/index.phtml:214
+msgid "FEEDBACK"
+msgstr "Comentários"
+
+#: Web/index.phtml:215
+msgid "INFO"
+msgstr "Informação"
+
+#: Web/index.phtml:217
+msgid "To download this app you need to visit the following URL"
+msgstr "Para baixar esse aplicativo, você precisa visitar o seguinte URL"
+
+#: Web/index.phtml:218
+msgid "MTN Iran App Store All Rights Reserved."
+msgstr "INOVEX «CaboApps» App Store Todos Os Direitos Reservados."
+
+#: Web/index.phtml:219
+msgid "See all results for"
+msgstr "Veja todos os resultados para"
+
+#: Web/index.phtml:220
+msgid "COPYRIGHT_TXT"
+msgstr ""
+"Produtos, logótipos e empresas mencionados neste documento são marcas "
+"comerciais ou nomes comerciais de seus respectivos proprietários e, "
+"portanto, protegido por direitos autoriais"
+
+#: Web/index.phtml:223
+msgid "No results found"
+msgstr "Nenhum resultado foi encontrado"
+
+#: Web/index.phtml:224
+msgid "Books & Reference"
+msgstr "LIVROS E REFERÊNCIAS"
+
+#: Web/index.phtml:225
+msgid "Games"
+msgstr "Jogos"
+
+#: Web/index.phtml:226
+msgid "Tools & Productivity"
+msgstr "Ferramentas & Produtividade"
+
+#: Web/index.phtml:227
+msgid "Business & Finance "
+msgstr "NEGÓCIOS & FINANÇAS"
+
+#: Web/index.phtml:228
+msgid "Travel & GPS"
+msgstr "VIAGEM E GPS"
+
+#: Web/index.phtml:229
+msgid "News & Sports"
+msgstr "NOTÍCIAS E DESPORTO"
+
+#: Web/index.phtml:230
+msgid "Social Networks & Messaging"
+msgstr "REDES SOCIAIS E MENSAGEM"
+
+#: Web/index.phtml:231
+msgid "Music & Audio"
+msgstr "MÚSICA E ÁUDIO"
+
+#: Web/index.phtml:232
+msgid "Video & TV"
+msgstr "VÍDEO E TV"
+
+#: Web/index.phtml:233
+msgid "Lifestyle & Wellness"
+msgstr "ESTILO DE VIDA & BEM-ESTAR"
+
+#: Web/index.phtml:234
+msgid "Education & eLearning"
+msgstr "EDUCAÇÃO"
+
+#: Web/index.phtml:235
+msgid "Goodies & Entertainment"
+msgstr "PRENDAS E DIVERTIMENTO"
+
+#: Web/index.phtml:236
+msgid "Themes"
+msgstr "TEMAS"
+
+#: Web/index.phtml:237
+msgid "Search Results for"
+msgstr "Resultado da pesquisa para"
+
+#: Web/index.phtml:238
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"Digite o e-mail que você se inscreveu e vamos enviar-lhe um link para "
+"redefinir sua palavra-passe"
+
+#: Web/index.phtml:239
+msgid "Reset your password"
+msgstr "Redefina sua palavra-passe"
+
+#: Web/index.phtml:241
+msgid "Enter Captcha"
+msgstr "Insira os caracteres"
+
+#: Web/index.phtml:242
+msgid "Powered by"
+msgstr "Facilitado pelo"
+
+#: Web/index.phtml:243
+msgid "The security key wasn't entered correctly"
+msgstr "A chave de segurança não foi digitado corretamente"
+
+#: Web/index.phtml:244
+msgid "Please try again"
+msgstr "Por favor, tente novamente"
+
+#: Web/index.phtml:245
+msgid "Reset"
+msgstr "Restabelecer"
+
+#: Web/index.phtml:246
+msgid "Info"
+msgstr "Informação"
+
+#: Web/index.phtml:247
+msgid "The email you supplied was not found"
+msgstr "O e-mail que você forneceu não foi encontrado"
+
+#: Web/index.phtml:248
+msgid "Username or password is incorrect"
+msgstr "O utilizador ou a palavra-passe está incorreto"
+
+#: Web/index.phtml:249
+msgid "Add a Ticket"
+msgstr "Criar um ticket"
+
+#: Web/index.phtml:250
+msgid "View my Ticket"
+msgstr "Ver o meu ticket"
+
+#: Web/index.phtml:251
+msgid "Subject"
+msgstr "Assunto"
+
+#: Web/index.phtml:252
+msgid "Type"
+msgstr "Tipo"
+
+#: Web/index.phtml:253
+msgid "Priority"
+msgstr "Prioridade"
+
+#: Web/index.phtml:254
+msgid "Select Type"
+msgstr "Selecionar o tipo"
+
+#: Web/index.phtml:255
+msgid "Question"
+msgstr "Questão"
+
+#: Web/index.phtml:256
+msgid "Incident"
+msgstr "Incidente"
+
+#: Web/index.phtml:257
+msgid "Problem"
+msgstr "Problema"
+
+#: Web/index.phtml:258
+msgid "Feature"
+msgstr "Destaque"
+
+#: Web/index.phtml:259
+msgid "Select Priority"
+msgstr "Selecionar a prioridade"
+
+#: Web/index.phtml:260
+msgid "Low"
+msgstr "Baixa"
+
+#: Web/index.phtml:261
+msgid "Medium"
+msgstr "Média"
+
+#: Web/index.phtml:262
+msgid "High"
+msgstr "Alta"
+
+#: Web/index.phtml:263
+msgid "Urgent"
+msgstr "Urgente"
+
+#: Web/index.phtml:264
+msgid "Your ticket submitted successfully"
+msgstr "O ticket foi enviado com sucesso"
+
+#: Web/index.phtml:265
+msgid "Your response submitted successfully"
+msgstr "Sua resposta foi enviado com sucesso"
+
+#: Web/index.phtml:266 Web/index.phtml:297
+msgid "Responses"
+msgstr "Respostas"
+
+#: Web/index.phtml:267 Web/index.phtml:298
+msgid "No Response found"
+msgstr "Nenhuma resposta foi encontrada"
+
+#: Web/index.phtml:268
+msgid "Reply"
+msgstr "Responder"
+
+#: Web/index.phtml:269
+msgid "Submit"
+msgstr "Submeter"
+
+#: Web/index.phtml:270
+msgid "Platforms"
+msgstr "Plataformas"
+
+#: Web/index.phtml:271
+msgid "PLEASE SELECT YOUR PLATFORM"
+msgstr "SELECIONE SUA PLATAFORMA"
+
+#: Web/index.phtml:272
+msgid "Register on"
+msgstr "Registe-se no"
+
+#: Web/index.phtml:273
+msgid "PLEASE SELECT"
+msgstr "SELECIONAR"
+
+#: Web/index.phtml:274
+msgid "Android App"
+msgstr "App Android"
+
+#: Web/index.phtml:275
+msgid "Mobile Web"
+msgstr "Website Telemóvel"
+
+#: Web/index.phtml:276
+msgid "app"
+msgstr "app"
+
+#: Web/index.phtml:277
+msgid "info"
+msgstr "Informação"
+
+#: Web/index.phtml:278
+msgid "feedback"
+msgstr "Comentários"
+
+#: Web/index.phtml:279
+msgid "Dashboard"
+msgstr "Painel de Bordo"
+
+#: Web/index.phtml:280 Web/index.phtml:296
+msgid "Open"
+msgstr "abrir"
+
+#: Web/index.phtml:281
+msgid "View my Tickets"
+msgstr "Ver o meu ticket"
+
+#: Web/index.phtml:282
+msgid "ticket"
+msgstr "ticket"
+
+#: Web/index.phtml:283
+msgid "Please add a subject"
+msgstr "Insira um assunto"
+
+#: Web/index.phtml:284
+msgid "Please select a type"
+msgstr "Selecione um tipo"
+
+#: Web/index.phtml:285
+msgid "Please select a priority"
+msgstr "Selecione uma prioridade"
+
+#: Web/index.phtml:286
+msgid "dashboard"
+msgstr "Painel de Bordo"
+
+#: Web/index.phtml:287
+msgid "TICKET_SYS"
+msgstr "TICKET_SYS"
+
+#: Web/index.phtml:288
+msgid "FEEDBACK_SYS"
+msgstr "Precisa de Ajuda? Clique Aqui"
+
+#: Web/index.phtml:289
+msgid "FEATURED_APPS"
+msgstr "Apps Destacados"
+
+#: Web/index.phtml:290
+msgid "MOSTVIEWED_APPS"
+msgstr "Mais Vistos"
+
+#: Web/index.phtml:291
+msgid "NEWEST_APPS"
+msgstr "Mais recentes"
+
+#: Web/index.phtml:292
+msgid "The email or password you entered is incorrect"
+msgstr "The email or password you entered is incorrect"
+
+#: Web/index.phtml:293
+msgid "No apps found under this category"
+msgstr "Nenhum aplicativo foi encontrado nesta categoria"
+
+#: Web/index.phtml:294
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours"
+msgstr ""
+"Para quaisquer questões de serviço ao cliente; bugs no aplicativo baixado, "
+"dificuldade de baixar ou compras feitas por engano, por favor crie um "
+"ticket. Nós entraremos em contato com você dentro de 48 horas."
+
+#: Web/index.phtml:295
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr ""
+"As actualizações são aplicativos que têm uma versão mais recente. Isto é "
+"tanto as funcionalidades acrescentadas, correções de bugs ou melhorias"
+
+#: Web/index.phtml:299
+msgid "My Tickets"
+msgstr "o meu ticket"
+
+#, fuzzy
+#~ msgid "Category "
+#~ msgstr "دسته‌بندی"
+
+#~ msgid " Home"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Home "
+#~ msgstr "صفحه اصلی"
+
+#, fuzzy
+#~ msgid "Buy: "
+#~ msgstr ":خرید"

@@ -1,0 +1,66 @@
+<?php
+    $buttonText = array(
+        'Proceed to my dashboard',
+        'Onwards!',
+        'Got it. Proceed to my dashboard'
+    );
+
+    $greetingText = array(
+        'Hey there',
+        'Hi',
+        'Hello',
+        'Hola',
+        'Greetings'
+    )
+?>
+<style>
+
+    h1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: large;
+        border-style: dotted;
+        border-color: red;
+        width: 400px;
+    }
+
+    h2 {
+        font-family: Tahoma, Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        
+        width: 400px;
+
+    }
+
+
+</style>
+<br/><br/>
+
+<h1><?=$greetingText[array_rand($greetingText,1)]?> <?=ucfirst($this->firstName)?>!</h1> <br/><br/>
+
+<?php echo $this->translate("Before you proceed further, take a minute to read this (it's probably important)");?>: <br/><br/><br/>
+
+<? foreach($this->announcements as $announcement) : ?>
+    
+    <h2><?=$this->translate($announcement->title)?> </h2> <br/>
+    
+    <?=$this->translate($announcement->message)?>
+    <br/><br/><br/><br/>
+    
+<? endforeach; ?>
+
+
+
+
+<hr style="border: 0.5px dotted gray;" />
+<br/><br/>
+
+<?php echo $this->translate("As always, you can read past announcements by going to the");?> <a href="#"> <?php echo $this->translate("archives");?> </a>
+
+ <br/><br/> <br/><br/> 
+
+
+ <input class="button" type="button" value="<?=$this->translate($buttonText[array_rand($buttonText,1)])?>" onclick="document.location.href='/'">
+ <br/><br/> <br/><br/> <br/><br/> <br/><br/>
+
+

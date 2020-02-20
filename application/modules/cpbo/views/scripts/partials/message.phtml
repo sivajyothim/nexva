@@ -1,0 +1,56 @@
+<? if( $this->message != ''):?>
+<div class="message info">
+<p><?=$this->translate($this->message)?></p>
+</div>
+<?endif;?>
+
+<?if('' !=$this->error):?>
+
+<div class="message error">
+<p><?=$this->translate($this->error);?></p>
+</div>
+<?endif;?>
+
+
+<?
+if ('' != $this->warningUnverifiedAccount) :
+	?>
+<div class="messagecp warning">
+<p>   
+   <?php echo $this->translate("We have sent an email to");?> <?=$this->email;?> <?php echo $this->translate("with details on how to verify your new account.");?>
+   <?php echo $this->translate("If you don't receive it within 5 minutes, please check your spam folder or ");?>
+   <a href="<?=$this->url;?>"> <?php echo $this->translate("click here");?> </a> <?php echo $this->translate("to resend the email.");?> <span style="color: red;"> <?php echo $this->translate("For any issue contact/add");?> Skype id- cj19820508</span></p>
+</div>
+
+<?endif;
+?>
+
+<?
+if ('' != $this->warningVerifyEmailRequest) :
+	?>
+<div class="messagecp warning">
+<p>   
+     <?php echo $this->translate("The account verify request is no longer valid for");?> <?=$this->email;?> <?php echo $this->translate("Please ");?>
+     <a href="<?=$this->url;?>"> click here </a> to verify again. <span style="color: red;"> <?php echo $this->translate("For any issue contact/add");?> Skype id- cj19820508</span></p>
+</div>
+
+<?endif;
+?>
+
+<?
+if ($this->warningUnverifiedAccount=='' and $this->warningVerifyEmailRequest=='' and  '' != $this->warningNotRegistred) :
+	?>
+<div class="messagecp warning">
+<p>   
+     Your account is not verified. You haven't registerd with us or, 
+        We have sent an email to <?=$this->email;?> with details on how to verify your new
+ account at the end of the registration process. If you don't receive it yet, please check your spam
+ folder or <a href="<?=$this->url;?>"> click here </a> to resend the
+email. <span style="color: red;"> For any issue contact/add Skype id- cj19820508</span></p>
+</div>
+
+
+<?endif;
+?>
+        
+

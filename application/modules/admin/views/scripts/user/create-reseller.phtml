@@ -1,0 +1,55 @@
+<?php $user = $this->user?>
+<div class="title">
+    <h3 style="cursor: s-resize;">Create Reseller</h3>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">
+            <?php if(isset($this->errors) && !empty($this->errors)) : ?>
+                <?php foreach ($this->errors as $message) : ?>
+                <div class="message error" style="display: block;">
+                    <p><?=$message ?></p>
+                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+
+            <?php //$this->placeholder('formHeadline')->set($this->getTranslation('Create New User'));?>
+            <fieldset>
+                <form class='form_validate' method="post" action="">
+               
+                 <p>
+                    <label for='email'>Email</label>
+                    <input autocomplete='off' type='text' id='email' name='email' class='txt-input medium validate(required, email, rangelength(5,80))'>
+                 </p>
+
+                 <p>
+                    <label for='first_name'>First Name</label>
+                    <input autocomplete='off' type='text' id='first_name' size="10" name='first_name' class='txt-input medium validate(required)'>                    
+                 </p>
+
+                 <p>
+                    <label for='last_name'>Last Name</label>
+                    <input autocomplete='off' type='text' id='last_name' name='last_name' class='txt-input medium validate(required)'>
+                 </p>
+
+                <p>
+                    <label for='company_name'>Company Name</label>
+                    <input  autocomplete='off' type='text' id='company_name' name='company_name' class='txt-input medium validate(required, rangelength(5,150))'>
+                 </p>
+                 
+                 <p>
+                    <label for='password'>Password</label>
+                    <input autocomplete='off'type='password' id='password' name='password' class='txt-input medium validate(required)'>
+                 </p>
+
+               
+
+                 <p><input type="submit" class="txt-input small" value="Create Reseller" id="submit" name="submit"></p>
+                 </form>
+
+
+            </fieldset>
+        </div>
+    </div>
+</div>

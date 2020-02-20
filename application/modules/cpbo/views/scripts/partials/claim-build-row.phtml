@@ -1,0 +1,26 @@
+<tr>
+    <td class="alt">
+        <b><?= $this->row->name ?></b>
+<dt style="padding-left: 20px">
+    <?
+    if ($this->files->count() > 0):
+        foreach ($this->files as $file): ?>
+        <li><?= $file->filename ?></li>
+    <?
+    endforeach;
+    else:
+    ?>
+            <p style="color: red"><?php echo $this->translate("Warning! Please select at least one file!");?>.</p>
+<? endif ?>
+</dt>
+</td>
+<td class="alt">
+                <FORM>
+                    <INPUT class="txt-input small" type="button" value="<?php echo $this->translate("Show Devices");?>" onClick="window.open('/build/showcompatibledevices/id/<?= $this->row->product_id ?>','Compatible Devices','scrollbars=yes, width=500')">
+                </FORM>
+</td>
+<td class="alt">
+    Active
+</td>
+
+</tr>

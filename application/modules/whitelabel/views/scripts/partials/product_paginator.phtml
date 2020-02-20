@@ -1,0 +1,37 @@
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+        
+        <?php 
+            $paging     = $this->paging;
+            $start      = max(1, ($paging['page'] - 1) * $paging['limit'] + 1);
+            $end        = $start + $paging['limit'] - 1;
+            $total      = $paging['count'];
+            $pages      = max(ceil($paging['count'] / $paging['limit']), 1);
+            
+            $pageNums   = range(1, $pages);
+            //if the number of pages is large, show only the start and end
+            if (count($pageNums) > 20) {
+                $startPage  = max(1, $paging['page'] - 8);
+                $endPage    = $paging['page'] + 9;
+                $pageNums   = range($startPage, $endPage);
+            }
+        ?>
+        
+        <div class="pagination">
+        <div class="results"><?= $temp->_('Showing') ?> <?=$start?> to <?=min($end, $paging['count'])?> of <?=$total?> (<?=$pages?> <?= $temp->_('Pages') ?>)</div></div>
+        <div class='paging-block'>
+            <ul class='paging'>
+                <?php if ($paging['page'] != 1) : ?>
+                    <li><a href='<?=$paging['baseUrl'] . '/page/' . ($paging['page'] - 1) ?>'><?= $temp->_('Previous')?></a></li>
+                <?php endif;?>
+            
+                <?php foreach ($pageNums as $i) : ?>
+                    <li class='<?=($i == $paging['page']) ? ' current ' : ''?>'>
+                        <a href='<?=$paging['baseUrl'] . '/page/' . $i ?>'><?=$i?></a>
+                    </li>
+                <?php endforeach;?>
+                
+                <?php if ($paging['page'] != $pages) : ?>
+                    <li><a href='<?=$paging['baseUrl'] . '/page/' . ($paging['page'] + 1) ?>'><?= $temp->_('Next')?></a></li>
+                <?php endif; ?>
+            </ul>
+        </div>

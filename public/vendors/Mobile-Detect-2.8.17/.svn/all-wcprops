@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/.gitignore
+END
+Mobile_Detect.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/Mobile_Detect.php
+END
+.travis.yml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/.travis.yml
+END
+Mobile_Detect.json
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/Mobile_Detect.json
+END
+.gitmodules
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/.gitmodules
+END
+.php_cs
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/.php_cs
+END
+README.md
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/README.md
+END
+composer.json
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/composer.json
+END
+LICENSE.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/LICENSE.txt
+END

@@ -1,0 +1,104 @@
+<?php 
+$fb = new Nexva_Facebook_FacebookConnect();
+?>
+
+
+<div class="prodListPage">
+
+    <div class='container' style='border: 2px solid #DE6800;'>
+        <div class='textBlock'>
+            <h2 id='pageTitle' style='font-weight: normal;'>Login to neXva</h2>
+        
+            <p>Do you already have an account on one of these sites? Click the logo to log in with that account</p>
+            
+            <div id='login_options'>
+                <?
+                    $fb = new Nexva_Facebook_FacebookConnect( );
+                    $baseUrl = Zend_Registry::get('config')->nexva->application->base->url;
+                    $fbLoginUrl = $fb->getLoginUrl(array('redirect_uri'=> "http://$baseUrl/user/login/facebook/1/",
+                                                         'cancel_url' => "http://$baseUrl/user/login/facebook/1/",
+                                                         'scope' => 'user_about_me'
+                                                    )
+                                                 );
+                ?>                                   
+                                
+              
+               <div class='option'>
+                    <a href='<?=$fbLoginUrl?>'>
+                        <img alt="login with Facebook" src="<?php echo PROJECT_BASEPATH;?>web/images/login_options/facebook_icon.gif" width='30' height='30'>
+                        Login with Facebook
+                    </a>
+               </div>
+               
+               <div class='option'>
+                    <a href='<?php echo PROJECT_BASEPATH;?>user/external-login/type/google/url/<?=base64_encode('https://www.google.com/accounts/o8/id')?>'>
+                        <img alt="login with Google" src="<?php echo PROJECT_BASEPATH;?>web/images/login_options/googleIcon.gif" width='30' height='30'>
+                        Login with Google
+                    </a>
+               </div>
+               
+                 <div class='clear'></div>
+            </div>
+        </div>
+    </div>
+    
+
+        <div class="container" style='width: 40%; clear:none; float: left'>
+               
+            <div class='textBlock'>
+                <h2 style='font-weight: normal;'>Don't have an account?</h2>
+                 
+                <form class='smallInputForm' id="create" style='width:auto;' name="create" action="<?php echo PROJECT_BASEPATH;?>user/login" method="post">
+                    <p>Sign up for your free account now, it's super easy!</p>
+                    <br><br>
+                        
+                        <div class="input">
+                            <a class='orangeButton' href='<?php echo PROJECT_BASEPATH;?>user/register'>Sign up now!</a>
+                        </div>
+                    </form>                                                                                                                                        
+            </div>
+        </div>
+    
+        <div class="container" style='width:55%; clear:none; float: right'>
+            <div class='textBlock'>
+                <h2 style='font-weight: normal;'>Already have a neXva account?</h2>
+                
+                    <form id="signup" class='smallInputForm'  style='width:auto;' name="signup" action="<?php echo PROJECT_BASEPATH;?>user/login" method="post">
+                            <?
+                            $error = $this->messages;
+                            if(is_array($error)) :?>
+                                <div class='message-error'>
+                                <?php foreach ($error as $key=>$value): ?>
+                                    <p><?=$value?></p>
+                                <?endforeach;?>
+                                </div>
+                            <?endif;?>
+                            <? if( Zend_Controller_Front::getInstance()->getRequest()->getParam('message') != "" ): ?>
+                                <div class='message-notice'>
+                                <p><?=Zend_Controller_Front::getInstance()->getRequest()->getParam('message')?></p>
+                                </div>
+                            <?endif;?>
+                        
+                        
+                        <div class="input">
+                            <label>E-Mail</label>
+                            <input class="validate(required)" name="email" id="email" type="text" value="<?=$this->formValues->email?>"/>
+                        </div>
+                        
+                        <div class="input">
+                            <label>Password</label>
+                            <input class="validate(required)" name="password" id="password" type="password" value=""/>
+                        </div>
+                        
+                        <div class="input">
+                            <button class='orangeButton' type='submit'>Log In</button>
+                        </div>
+                        
+                        <div style="float:left; margin-top:15px"><a href="<?php echo PROJECT_BASEPATH;?>/user/forgot-password" id="forgot" style="color: #c67700">Forgot password ?</a></div>
+                 
+                    </form>
+             </div>       
+         </div>
+    
+</div>
+<!-- product list page end -->

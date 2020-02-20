@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/30/13
+ * Time: 1:06 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="blkCenter innerPage containerGap">
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contContent">
+                <div class="blockContent">
+                    <div class="blkHead">
+                        <h2 id="pageTitle">Android Collection</h2>
+                        <ul id="breadcrumbs">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="<?php echo PROJECT_BASEPATH;?>items/android/">Android</a></li>
+                        </ul>
+                        <div style='text-align: center'>
+                            <?php echo $this->paginationControl($this->products, 'Sliding', 'partials/items_pagination.phtml'); ?>
+                        </div>
+                    </div>
+                    <ul id="selectTabs">
+
+                    </ul>
+                    <?php echo $this->render('partials/android.phtml'); ?>
+                </div>
+                <div style='text-align: center'>
+                    <?php echo $this->paginationControl($this->products, 'Sliding', 'partials/items_pagination.phtml'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

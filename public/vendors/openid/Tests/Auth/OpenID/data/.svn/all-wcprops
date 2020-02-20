@@ -1,0 +1,167 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data
+END
+test_discover_openid2_xrds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid2_xrds.xml
+END
+hmac-sha256.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/hmac-sha256.txt
+END
+dhpriv
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/dhpriv
+END
+test_discover_openid_1_and_2_xrds_bad_delegate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid_1_and_2_xrds_bad_delegate.xml
+END
+test_discover_openid_1_and_2_xrds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid_1_and_2_xrds.xml
+END
+test_discover_openid2.html
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid2.html
+END
+test_discover_yadis_idp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_idp.xml
+END
+test_discover_openid_1_and_2.html
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid_1_and_2.html
+END
+dhexch
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/dhexch
+END
+trustroot.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/trustroot.txt
+END
+test_discover_openid_no_delegate.html
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid_no_delegate.html
+END
+linkparse.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/linkparse.txt
+END
+urinorm.txt
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/urinorm.txt
+END
+test_discover_yadis_2entries_delegate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_2entries_delegate.xml
+END
+test_discover_yadis_2entries_idp.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_2entries_idp.xml
+END
+test_discover_openid2_xrds_no_local_id.xml
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid2_xrds_no_local_id.xml
+END
+test_discover_openid.html
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid.html
+END
+test_discover_yadis_0entries.xml
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_0entries.xml
+END
+test_discover_yadis_another_delegate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_another_delegate.xml
+END
+hmac-sha1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/hmac-sha1.txt
+END
+openid.html
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/openid.html
+END
+test_discover_yadis_2_bad_local_id.xml
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_2_bad_local_id.xml
+END
+test_discover_openid_and_yadis.html
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid_and_yadis.html
+END
+n2b64
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/n2b64
+END
+test_discover_openid_ssl.xml
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_openid_ssl.xml
+END
+test_discover_yadis_idp_delegate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_idp_delegate.xml
+END
+test_discover_yadis_no_delegate.xml
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/data/test_discover_yadis_no_delegate.xml
+END

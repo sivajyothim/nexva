@@ -1,0 +1,77 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/8/13
+ * Time: 11:14 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<style type="text/css">
+    .form-block-1{
+        width: 25% !important;
+        margin-left: 15px;
+    }
+
+    .form-block-2{
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+
+    .form-block-1 input{
+        width: 100px !important;
+
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#from_app").datepicker({ dateFormat: 'yy-mm-dd'});
+        $("#to_app").datepicker({ dateFormat: 'yy-mm-dd'});
+    });
+</script>
+<div style="display:none;">
+    <div id="app_wise_popup">
+        <div class="pop_up_head pop_up_head_custom"><h3>App Wise Downloads</h3></div>
+        <div  style="overflow: auto">
+            <form id="app_downloads" action="<?php echo PBO_PROJECT_BASEPATH;?>statistic/app-wise-statistics" method="POST" class="pbo-admin-form">
+                <div class="form-block-1">
+                    <label>From:</label>
+                    <input type="text" class="text-input date" id="from_app" name="from_app"  readonly="readonly"/>
+                </div>
+                <div class="form-block-1">
+                    <label>To:</label>
+                    <input type="text" class="text-input date" id="to_app" name="to_app"  readonly="readonly"/>
+                </div>
+                <div class="form-block-1">
+                    <label>Type:</label>
+                    <select id="app_type" name="app_type">
+                        <option value="all">All</option>
+                        <option value="free">Free</option>
+                        <option value="premium">Premium</option>
+                        <option value="flagged">Flagged</option>
+                    </select>
+                </div>
+                <div style="clear: both; margin-top: 25px;"></div>
+                <div class="form-block-1">
+                    <label>Limit:</label>
+                    <select id="app_limit" name="app_limit">
+                        <option value="all">All</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+                <div style="clear: both; margin-top: 15px;"></div>
+                <br/>
+                <div class="form-block">
+                    <input type="checkbox" name="duplicate" id="duplicate" value="omit"/>Omit Duplicates
+                </div>
+                <div class="form-block-2">
+                    <input type="submit" value="Submit" class="button">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

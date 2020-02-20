@@ -1,0 +1,136 @@
+<script type="text/javascript" language="javascript">
+
+    function confirmDelete()
+    {
+        var confirmation = false;
+        var answer = confirm("Are sure you want to delete the page?")
+        if (answer){
+            confirmation = true;
+
+        }
+        else{
+            confirmation = false;
+        }
+        return confirmation;
+    }
+
+</script>
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+
+        <div id="icon_wrapper">
+            <a href="<?php echo PBO_PROJECT_BASEPATH; ?>page/add-page" alt="Add New Page"> <img style="border: none" src="<?php echo PROJECT_BASEPATH; ?>pbo/images/icons/page-add-small.png" alt="Add New Page" /><br />
+            Add New Page</a>
+        </div>
+    </div>
+
+    <div class="content-box-content">
+        
+        <!-- Displays Message/s -->
+        <?php if (count($this->pageMessages)) : ?>
+
+        <div class="notification success png_bg">                
+                <div>
+
+                    <?php foreach ($this->pageMessages as $message) : ?>
+
+                        <li><?php echo $this->escape($message); ?></li>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+        
+        <?php if (count($this->pages)) : ?>
+        
+        <table cellpadding="0" cellspacing="0" style="width: 70%">
+
+            <thead>
+                <tr>
+                    <th>Title</th>                    
+                    <th>Category</th>                    
+                    <th>Date Created</th>
+                    <th>Language</th>
+                    <th style="text-align:center">Edit</th>
+                    <th style="text-align:center">Delete</th>
+                    <th style="text-align:center">Publish</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach($this->pages as $page) :?>
+                    <?php $dates=Date('Y-m-d',strtotime($page->date_added)) ?>
+
+                <tr>
+                    
+                    <td>
+                        <a class="page_link" href="/page/edit-page/id/<?= $page['id'] ?>" title="Edit">
+                            <?= ($page->title); ?>
+                        </a>
+                    </td>
+                    <td><?= $page->category; ?></td>                    
+                    <td><?= $dates; ?></td>
+                    <td><?php echo utf8_decode($page->language); ?></td>
+
+                    <td valign="top" style="text-align:center">
+                        <a href="/page/edit-page/id/<?= $page['id'] ?>" title="Edit">
+                            <img style="border: none" src="/pbo/images/icons/page-edit.png" alt="Edit" />
+                        </a>
+                    </td>
+                    
+                    <td valign="top" style="text-align:center">
+                        <a href="/page/do-delete/id/<?= $page['id'] ?>" title="Delete ?" onclick="return confirmDelete()" >
+                            <img style="border: none" src="/pbo/images/icons/cross_circle.png" alt="Delete?" />
+                        </a>
+                    </td>
+                    <td valign="top" style="text-align: center">
+                            <? if ($page['status'] == 1): ?>
+
+                        <a href="/page/do-publish/id/<?= $page['id'] ?>/status/0" title="Click to change the status as 'Unpublished'">
+                            <img style="border: none" src="/pbo/images/icons/tick.png" alt="Published Page" />
+                        </a>
+
+
+                            <? else: ?>
+
+                        <a href="/page/do-publish/id/<?= $page['id'] ?>/status/1" title="Click to change the status as 'Published'">
+
+                            <img style="border: none" src="/pbo/images/icons/publish_x.png" alt="Unpublished Page" />
+                        </a>
+
+                            <? endif; ?>
+
+
+
+                    </td>
+
+                </tr>
+                    <?php endforeach; ?>
+
+            </tbody>
+
+        </table>
+        <br />
+        
+        <div style ="width : 70%">
+            <?= $this->paginationControl($this->pages, 'Sliding', 'partials/pagination-page.phtml'); ?>
+        </div>
+    <br />
+    
+    <?php else : ?>
+        
+        <p>No Records Found.</p>
+        
+    <?php endif; ?>
+            
+</div>
+</div>   
+
+<script type="text/javascript">        
+   $('#4').addClass('current');  
+   $('#42').addClass('current'); 
+</script>

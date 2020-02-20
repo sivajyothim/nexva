@@ -1,0 +1,86 @@
+<?php $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+       $( ".date" ).datepicker({
+        'dateFormat' : 'dd-mm-yy'
+       });
+       
+       $('#totDownload').click(function(){
+            var data    = {
+                'from'   : $('[name="from"]').val(),
+                'to'     : $('[name="to"]').val(),
+                'chapId' : <?=$this->chapId?>
+            };
+            
+            $.post('/chap-statistics/get-total-data', data, function(data){
+                $('#usage').html(data);
+            });
+       });
+       
+       $('#csvDownload').click(function(){
+            var from    = ($('[name="from"]').val()) ? $('[name="from"]').val() : false;
+            var to      = ($('[name="to"]').val()) ? $('[name="to"]').val() : false;
+            if (from && to) {
+                url = '/chap-statistics/get-report/chapId/<?=$this->chapId?>/from/' + from + '/to/' + to;
+                window.location = url;
+            } else {
+                alert('Please select a date range');
+                return false;
+            }
+       });
+    });
+<?php $this->headScript()->captureEnd();?>
+
+<div id="content_box">
+<div id="box">
+<div style='text-align:center; margin:15px '>
+    <form action='/chap-statistics/index/id/<?=$this->chapId?>' method='get'>
+        <input type='text' class='date txt-input ' name='from' value='<?=$this->from?>'> -
+        <input type='text' class='date txt-input ' name='to' value='<?=$this->to?>'>
+        <input type='submit' value='Filter' class='button'>
+        <input type='button' id='csvDownload' value='Download CSV' class='button'> 
+        <input type='button' id='totDownload' value='Get Total Usage' class='button'>
+        <br>
+        <span id='usage'></span>
+    </form>
+</div>
+
+<table cellpadding="0" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Product Name</th>
+            <th>IP</th>
+            <th>Build</th>
+            <th>File Size (KB)</th>
+        </tr>
+    </thead>
+<?php if (count($this->paginator)): $class = '';?>
+    <tbody>
+<?php foreach ($this->paginator as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+    <tr>
+        <td class='<?=$class?>'><?=$item->date?></td>
+        <td class='<?=$class?>'><a href='<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?=$item->proId?>'><?=$item->name?></a></td>
+        <td class='<?=$class?>'><?=$item->ip?></td>
+        <td class='<?=$class?>'><?=$item->build_name?></td>
+        <?php
+            $size   =  isset($this->fileSizes[$item->id]) ? $this->fileSizes[$item->id] : 0;
+            $size   = ($size > 0) ? number_format(($size) / 1000, 2) : 0;
+        ?>
+        <td class='<?=$class?>'><?=$size?> Kb</td>
+    </tr>
+<?php endforeach; ?>
+    </tbody>
+<?php endif; ?>
+</table>
+<?php
+    //had to hack the paginator view because it's not built to handle custom params 
+    $data = ($this->from && $this->to) ? array('type_caption' => 'from', 'search_caption' => 'to', 'type'=> $this->from, 'search_value' => $this->to)  : array();
+?>
+<?php echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'partials/paginator.phtml',
+                                     $data  
+                                     ); ?>
+</div>
+</div>

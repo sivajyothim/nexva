@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests
+END
+UserAgentTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/UserAgentTest.php
+END
+bootstrap.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/bootstrap.php
+END
+VendorsTest_tmp.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/VendorsTest_tmp.php
+END
+phpunit.xml
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/phpunit.xml
+END
+ualist.json
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/ualist.json
+END
+BasicsTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/BasicsTest.php
+END
+UA_List.inc.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/UA_List.inc.php
+END
+UA_List.pending.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/repos/nexva_v1/!svn/ver/28728/v2/trunk/public/vendors/Mobile-Detect-2.8.17/tests/UA_List.pending.txt
+END

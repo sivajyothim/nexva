@@ -1,0 +1,81 @@
+               
+                    <div class="title" style="width: 550px;">
+
+                        <h3>Reseller Login | neXva.com</h3>
+                        
+                        <?if(!isset($this->tab ) || $this->tab  == "") $this->tab = 'tab-login'; ?>
+
+                        <div class="selector" title="content_box">
+                            <a class="tab <?php
+    										if ($this->tab == "tab-login")
+    										echo ' active'?>" 
+    						href="tab-login">Login</a>
+                            <!--
+                            <a class="tab <?php
+    										if ($this->tab == "tab-password")
+    										echo ' active'?>" 
+    						href="tab-password">Forgotten Password</a>
+                            -->
+                        </div>
+                    </div>
+
+                    <div class="box"  style="width: 550px;">
+                        <div class="txt">
+
+                            <div id="content_box">
+                                <div class="tab-login">
+
+                                    <? if( $this->error != '' ): ?>
+                                        <div class="message error">
+                                            <p><?=$this->error?></p>
+                                        </div>
+                                    <? else: ?>
+                                        <div class="message info">
+                                            <p>Please enter your email address and password to login.</p>
+                                        </div>
+                                    <?endif;?>
+                                    
+
+                                    
+
+
+                                    <!-- Start Login Form -->
+                                    <form method="post" action="/user/login" id="login">
+                                        <fieldset>
+                                            <p>
+                                            	<label>Email Address</label>
+                                                <input type="text" id="username" name="username" class="txt-input medium validate(required)" />
+                                            </p>
+
+
+                                            <p>
+                                            	<label>Password</label>
+                                                <input type="password" id="password" name="password" class="txt-input medium validate(required)" />
+                                            </p>
+
+                                            <p style="float:left;">
+                                            	<input type="submit" class="button" name="submit" value="Login" />
+                                                <input type="hidden" name="operation" value="login">
+                                             </p>
+                                            
+
+                                        </fieldset>
+
+                                    </form>
+                                    <script language="javascript">
+                                        $(document).ready(function() {
+                                            //$('#login').ketchup();
+                                        });
+                                    </script>
+
+                                    <!-- End Login Form -->
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+         
+
+

@@ -1,0 +1,150 @@
+#form_register select, #form_register file {
+
+    font-weight: normal;
+    width: 300px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    color: #231F20;
+    font-family: Arial;
+    font-size: 12px;
+    /*height: 29px;
+    line-height: 29px;*/
+    padding: 6px;
+    padding-left: 5px;
+}
+
+.ticket-description p {
+    padding: 10px 0 !important;
+}
+
+.form_col3_class1_right > input {
+    font-weight: normal;
+    width: 300px;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    color: #231F20;
+    font-family: Arial;
+    font-size: 12px;
+    height: 29px;
+    padding-left: 5px;
+}
+
+#form_register input.error {
+    background: none;
+    border-color: #DF8F8F;
+}
+
+#form_register select.error {
+    background: none repeat scroll 0 0 #FFCECE;
+    border-color: #DF8F8F;
+}
+
+#form_register span.error {
+    color: #FF635F;
+    margin: 0;
+}
+
+#form_register textarea.error {
+    background: none repeat scroll 0 0 #FFCECE;
+    border-color: #DF8F8F;
+}
+     /* Alerts styles */
+
+    .notification {
+        background-position: 10px 11px !important;
+        background-repeat: no-repeat !important;
+        border: 1px solid;
+        font-size: 13px;
+        margin: 0 0 15px;
+        padding: 0;
+        position: relative;
+        width: 96.8%;
+    }
+    .attention {
+        background: url("../img/icons/exclamation.png") no-repeat scroll 10px 11px #FFFBCC;
+        border-color: #E6DB55;
+        color: #666452;
+
+        display: block;
+        font-style: normal;
+        line-height: 1.5em;
+        padding-right: 10px;
+    }
+    .information {
+        background: url("../img/icons/information.png") no-repeat scroll 0 0 #DBE3FF;
+        border-color: #A2B4EE;
+        color: #585B66;
+
+        display: block;
+        font-style: normal;
+        line-height: 1.5em;
+        padding-right: 10px;
+    }
+    .success {
+        background: url("../img/icons/tick_circle.png") no-repeat scroll 0 0 #D5FFCE !important;
+        border-color: #9ADF8F;
+        color: #556652;
+        display: block;
+        font-style: normal;
+        line-height: 1.5em;
+        padding-right: 10px;
+    }
+    #form_register .error {
+        background: url("../img/icons/cross_circle.png") no-repeat scroll #fff;
+        /*border-color: #DF8F8F;
+        color: #ffffff;
+        display: block;
+        font-style: normal;
+        line-height: 1.5em;
+        padding-left: 25px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;*/
+    }
+
+.error {
+    background: url("../img/icons/cross_circle.png") no-repeat scroll #DF8F8F;
+    border-color: #DF8F8F;
+    color: #ffffff;
+    display: block;
+    font-style: normal;
+    line-height: 1.5em;
+    padding-left: 25px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    .notification div {
+        display: block;
+        font-style: normal;
+        line-height: 1.5em;
+        padding: 10px 10px 10px 35px;
+    }
+    .notification .close {
+        color: #990000;
+        font-size: 9px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
+    .input-notification {
+        background-color: rgba(0, 0, 0, 0);
+        background-position: left 2px;
+        background-repeat: no-repeat;
+        margin: 0 0 0 5px;
+        padding: 2px 0 2px 22px;
+    }
+
+
+    .reg-item{
+        display:inline-block;
+        text-align:center;
+        margin:10px;
+    }
+
+    #reg-all{
+        margin:0 auto;
+        text-align:center;
+    }

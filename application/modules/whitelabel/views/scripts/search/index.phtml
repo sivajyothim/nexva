@@ -1,0 +1,67 @@
+<?php
+    $this->headScript()->appendFile($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');
+    $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css');
+?>
+ 
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        Shadowbox.init({
+            'troubleElements' : ["select", "object", "embed"]
+        }, function(){
+            $( ".nexlink" ).each(function(){          
+                $(this).attr('href', $(this).attr('href') + '/<?=$this->CHAP_ID?>/1');
+                $(this).removeClass('display_none');
+            });
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+
+
+<div class="breadcrumb">
+    <div class="container">
+        <h1>Search Results</h1>
+    </div>
+    
+    <div id="breadcrumbs">
+        <div class="container">
+            <div class="bread-1">
+                <a href="/">Home</a>
+            </div>
+           <div class="bread-2">&nbsp;</div>
+           
+            <?php if (isset($this->breadcrumb[0])) : ?>
+            <div class="bread-1">
+                <a class='close_open_category' href="#">All Categories</a>
+            </div>
+            <div class="bread-2">&nbsp;</div>
+            <?php endif;?>
+            
+            <div class="bread-1">
+                <a href="#">Searched for <strong><?=$this->term?></strong></a>
+            </div>
+            <div class="bread-2">&nbsp;</div>
+            
+        </div><!-- << container >> -->
+    </div><!-- << breadcrumbs >> -->
+    
+</div>
+        
+<div class='container'>
+    <div id="content">
+        <?php echo $this->partial('partials/product_paginator.phtml', array('paging' => $this->paging))?>
+        <div class="product-list">
+            <?php 
+                foreach ($this->products as $product) {
+                    $params = array(
+                        'product'   => $product,
+                        'widget' =>'search'
+                    );
+                    echo $this->partial('partials/product_block.phtml', $params);
+                }
+            ?>
+        </div><!-- << product list >> -->
+        <?php echo $this->partial('partials/product_paginator.phtml', array('paging' => $this->paging))?>
+    </div>
+    
+    
+</div>

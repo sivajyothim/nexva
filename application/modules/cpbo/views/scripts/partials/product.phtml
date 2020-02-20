@@ -1,0 +1,464 @@
+<?php
+$active = (null === $this->active) ? 1 : $this->active;
+?>
+<div class="title">
+    <h3 style="cursor: s-resize;"><?php echo $this->translate("Create Content");?></h3>
+    <div title="content_box" class="selector hide_div">
+        <a href="tab-basic" class="tab <?=($active == 1) ? 'active' : '' ?>"><?php echo $this->translate("Basic Info");?></a>
+        <a href="tab-screenshots" class="tab <?=($active == 2) ? 'active' : '' ?>"><?php echo $this->translate("Visuals");?></a>
+        <!-- <a href="tab-category" class="tab <?//=($active == 3) ? 'active' : '' ?>">Category</a> -->
+        <a href="tab-registration" class="tab <?=($active == 3) ? 'active' : '' ?>"><?php echo $this->translate("Registration");?></a>
+        <?php if($this->show): ?>
+            <a href="tab-channel" class="tab <?=($active == 4) ? 'active' : '' ?>"><?php echo $this->translate("Channels");?></a>
+        <?php endif ?>
+        <!-- <a href="tab-language" class="tab">Language</a> -->
+        <!--<a class="tab active" href="tab-table-approve">Unapproved Product Queue</a>-->
+        <!--<a class="tab" href="tab-table">Approved Product List</a>-->
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+        Showing error/info messages
+        TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div id="content_box">
+            <!-- screenshots -->
+            <div class="tab-screenshots hide_div">
+                <form action="<?= $this->escape($this->form_visuals->getAction()) ?>" method="<?= $this->escape($this->form_visuals->getMethod()) ?>" enctype="<?= $this->escape($this->form_visuals->getAttrib('enctype')) ?>">
+                <input type="hidden" value="<?php echo $this->create; ?>" name="create"/>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td align="right" ></td>
+                                <td align="left" colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <?php
+                                $config = Zend_Registry::get('config');
+                                $visualPath = $config->nexva->application->cpbo->url;
+                                ?>
+                                <td valign="top" align="right"><?php echo $this->translate("Thumbnail Picture");?> : (256X256)</td>
+                                <td valign="top" align="left">
+                                    <?= $this->form_visuals->thumbnail ?>
+                                    <div class="thumbnail">
+                                        <? if(!empty ($this->thumbnail)): ?>
+                                            <?=$this->thumbnail($config->product->visuals->dirpath . '/' . $this->thumbnail, array('w'=>80, 'h'=>80));?>
+                                        <? endif; ?>
+                                        <!--
+                                        <img src="http://www.nexva.com/prod/productimg/AdvancedEnglishDictionaryThesaurusAndroid17Tw.net_100x100.jpg"/></img>
+                                        -->
+                                    </div>
+                                </td>
+                                <td width="20%" valign="top" align="left" rowspan="4">
+                                    <strong><?php echo $this->translate("Thumbnails");?> :</strong><br>
+                                    <?php echo $this->translate("Size should be more than 256w X 256h and it should be an exact square.");?><br>
+                                    <?php echo $this->translate("gif, jpeg or png only");?> <br><br>
+                                    <strong><?php echo $this->translate("Banner");?> :</strong><br>
+                                    <?php echo $this->translate("Size should be more than 1024w X 500h and it should be an exact square.");?><br>
+                                    <?php echo $this->translate("gif, jpeg or png only");?> <br><br>
+                                    <strong><?php echo $this->translate("Screenshots");?>:</strong><br>
+                                    <?php echo $this->translate("Size should be more than 320w X 480h.");?><br>
+                                    <?php echo $this->translate("gif, jpeg or png only");?> <br><br>
+                                    <?php echo $this->translate("Your Thumbnail will be displayed to the left of your short description  on the content listings pages (category pages, search results, etc).  You can check your content's presentation by clicking 'View' from your  main content Admin page.");?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <?php
+                                ?>
+                                <td valign="top" align="right"><?php echo $this->translate("Banner");?> : (500X1024)</td>
+                                <td valign="top" align="left">
+                                    <?= $this->form_visuals->banner ?>
+                                    <div class="thumbnail">
+                                        <? if(!empty ($this->banner)): ?>
+                                            <?=$this->thumbnail($config->product->visuals->dirpath . '/' . $this->banner, array('w'=>150));?>
+                                        <? endif; ?>
+                                    </div>
+                                </td>
+                                <td width="20%" valign="top" align="left" rowspan="4">
+                                  
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td valign="top" align="right"><?php echo $this->translate("Screenshots");?> : (320X480)</td>
+                                <td valign="top" align="left">
+                                    <?= $this->form_visuals->id ?>
+                                    <?= $this->form_visuals->review ?>
+                                    <?= $this->form_visuals->screenshots ?>
+                                    <div class="thumbnail">
+                                        <?php if(is_array($this->visualScreenshots)):
+                                            foreach($this->visualScreenshots as $id => $name) :?>
+                                                <?=$this->thumbnail($config->product->visuals->dirpath . '/' . $name, array('w'=>128));?>
+                                        <a href="<?php echo PROJECT_BASEPATH;?>product/visualdelete/prod/<?=$this->productId?>/id/<?=$id?>" onclick="return confirm(<?php echo $this->translate("Are you sure you want to delete?");?>)">
+                                            <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+                                        </a>
+                                            <?php
+                                            endforeach;
+                                        endif;
+                                        ?>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+
+                                <td align="right" colspan="2" style="padding-right: 20%">
+                                    <!--<input id="submit" class="small button" type="submit" value="Next" name="submit">-->
+                                    <?= $this->form_visuals->submit ?>
+                                    <?php /*Zend_Debug::dump($this->form_visuals->submit);die(); */?>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <!-- device selection -->
+            <div class="tab-device-selection"  style="display: none">
+                <div class="display_count"></div>
+                <input type="hidden" class="display_count_hid" value="0"></input>
+                <form action="<?= $this->escape($this->form_devices->getAction()) ?>" class="device_selector" method="<?= $this->escape($this->form_devices->getMethod()) ?>">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td valign="top" align="left">
+                                    <?= $this->form_devices->id ?>
+                                    <?= $this->form_visuals->review ?>
+                                    <?= $this->form_devices->build ?>
+                                    <?php
+                                    $checked = $this->selected;
+                                    $savedAttributes = $this->deviceAttributes;
+                                    ?>
+                                    <input type="radio" class="radio_all" name="radio" <?=($checked == 'ALL_DEVICES')? 'checked' : '' ?> id="radio" value="ALL_DEVICES"></input> <strong><?php echo $this->translate("Select All Devices");?></strong> <?php echo $this->translate("(Currently supporting 5430 devices and increasing)");?>
+                                    <small><?php echo $this->translate("Select this if your app support all devices (eg: a Web service)");?></small>
+                                    <ul class="radio_all_ul">
+                                        <li>
+                                            <input type="button" class="showall txt-input small" value="<?php echo $this->translate("Show All Devices");?>" ></input>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                    <input type="radio" name="radio" class="radio_attrib" id="radio" <?=($checked == 'BY_ATTRIBUTE')? 'checked' : '' ?> value="BY_ATTRIBUTE"></input> <strong><?php echo $this->translate("Device with attributes")?></strong>
+                                    <small><?php echo $this->translate("You can select devices with attributes such as MP3 payback and Java MIDP 2.0 or over support.");?></small>
+                                    <ul class="radio_attrib_ul">
+                                        <li><br/><strong><?php echo $this->translate("Playback Attributes");?></strong></li>
+                                        <li>
+                                            <input type="checkbox" class="mp3_playback" <?=(is_array($savedAttributes) && array_key_exists(4, $savedAttributes))? 'checked' : '' ?> name="mp3_playback" value="mp3_playback"></input> <?php echo $this->translate("Support MP3 Playback");?>
+                                        </li>
+                                        <li><br/><strong><?php echo $this->translate("Java Attributes");?></strong></li>
+                                        <li>
+                                            <input type="checkbox" class="java_midp_1"  <?=(is_array($savedAttributes) && array_key_exists(5, $savedAttributes))? 'checked' : '' ?>  value="java_midp_1" name="java_midp_1"></input> <?php echo $this->translate("Support MIDP 1.0");?>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="java_midp_2"  <?=(is_array($savedAttributes) && array_key_exists(6, $savedAttributes))? 'checked' : '' ?> value="java_midp_2" name="java_midp_2"></input> <?php echo $this->translate("Support MIDP 2.0 or Over");?>
+                                        </li>
+                                        <li><br/><strong><?php echo $this->translate("Display Attributes");?></strong></li>
+                                        <li>
+                                            <?php echo $this->translate("Minimum Resolution Width");?> <input type="text" class="device_width txt-input small" name="width"  <?=(is_array($savedAttributes) && array_key_exists(7, $savedAttributes))? 'value = ' . $savedAttributes[7] : '' ?> ></input>
+                                            <small><?php echo $this->translate("Leave this as a blank if you do not want to filter by width");?>.</small>
+                                        </li>
+                                        <li>
+                                            <?php echo $this->translate("Minimum Resolution Height");?> <input type="text" class="device_height txt-input small" name="height" <?=(is_array($savedAttributes) && array_key_exists(8, $savedAttributes))? 'value = ' . $savedAttributes[8] : '' ?>></input>
+                                            <small><?php echo $this->translate("Leave this as a blank if you do not want to filter by height");?>.</small>
+                                        </li>
+                                        <li><br/><strong><?php echo $this->translate("Navigation Attributes");?></strong></li>
+                                        <li>
+                                            <?php echo $this->translate("Poninting Method");?> <select class="device_pointing_method select-input small" name="navigation_method">
+                                                <option value="any">Any</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('touchscreen', $savedAttributes))? 'selected' : '' ?> value="touchscreen">Touchscreen</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('clickwheel', $savedAttributes))? 'selected' : '' ?> value="clickwheel">Clickwheel</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('joystick', $savedAttributes))? 'selected' : '' ?> value="joystick">Joystick</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('stylus', $savedAttributes))? 'selected' : '' ?> value="stylus">Stylus</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('mouse', $savedAttributes))? 'selected' : '' ?> value="mouse">Mouse</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <input type="button" class="attributes txt-input small" value="<?php echo $this->translate("Show Devices");?>" ></input>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left">
+                                    <input type="radio" class="manually_select" name="radio" id="radio"  <?=($checked == 'CUSTOM')? 'checked' : '' ?> value="CUSTOM"></input> <strong><?php echo $this->translate("Manually Select Devices");?></strong>
+                                    <small><?php echo $this->translate("Select devices manually");?>.</small>
+                                    <ul class="radio_manual_ul">
+                                        <li><br/><strong><?php echo $this->translate("Type Device Keywords to Search");?> :</strong></li>
+                                        <li>
+                                            <input type="text" class="suggest_devices txt-input medium" ></input>
+                                        </li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <? if(isset ($checked)): ?>
+                                    <input type="button" value="<?php echo $this->translate("Show Currently Selected Devices");?>" class="show_selected txt-input small">
+                                    <? endif; ?>
+                                    <div  class="phones_selected" style="height:400px;overflow-x:auto;overflow-y:auto;">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="operations" class="operations"><a href="#" class="select_none_all"><?php echo $this->translate("Select None");?></a></div>
+                                    <div  class = "phones">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><?= $this->form_devices->submit ?></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <!-- Language -->
+            <div class="tab-language" style="display: none">
+                <table width="100%" cellspacing="1" cellpadding="1" border="0" class="br1">
+                    <tbody><tr><td align="center" class="text-11-normal-orange" colspan="5"></td></tr>
+                        <tr>
+                            <td align="center" class="text-8-normal-black" colspan="5"><?php echo $this->translate("Add your content details in other languages of nexva site");?>. </td>
+                        </tr>
+                        <tr>
+                            <td align="left" class="text-8-normal-black" colspan="5"><a href="javascript:showContentLanguageAdd('LangAdd','A','2601')"><span class="text-8-normal-darkblue"><?php echo $this->translate("Add language");?> </span></a></td>
+                        </tr>
+                        <tr>
+                            <td width="9%" bgcolor="#feefb1" align="center" class="text-8-normal-black"><strong><?php echo $this->translate("Language");?></strong></td>
+                            <td width="31%" bgcolor="#feefb1" align="center" class="text-8-normal-black"><strong><?php echo $this->translate("Content name");?> </strong></td>
+                            <td width="40%" bgcolor="#feefb1" align="center" class="text-8-normal-black"><strong><?php echo $this->translate("Brief description");?> </strong></td>
+                            <td width="20%" bgcolor="#feefb1" align="center" class="text-8-normal-black">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#feefb1" align="center" class="text-8-normal-black"><?php echo $this->translate("English");?></td>
+                            <td valign="top" bgcolor="#feefb1" align="center" class="text-8-normal-black"><?php echo $this->translate("Advanced English Dictionary &amp; Thesaurus (Android)");?></td>
+                            <td valign="top" bgcolor="#feefb1" align="left" class="text-8-normal-black"><?php echo $this->translate("WordNet&reg; is a large lexical database of English with up to 140,000 entries and more than 1.4 million words, developed by the Cognitive Science Laboratory at Princeton University.");?></td>
+                            <td valign="top" bgcolor="#feefb1" align="left" class="text-8-normal-black">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#ffffff" align="center" class="text-8-normal-black" colspan="4">
+                                <div align="left" id="txtLangAdd"></div>
+                            </td>
+                        </tr>
+                        <tr><td valign="top" align="center" class="text-8-normal-black" colspan="5"><input type="button" value="<?php echo $this->translate("Save and Continue");?>" class="txt-input small" name="Submit"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- prodcut registration details -->
+            <div class="tab-registration hide_div">
+                <?=$this->form_registration?>
+                <?php /*Zend_Debug::dump($this->form_registration);*/?>
+            </div>
+
+            <!-- Category -->
+            <div class="tab-category hide_div">
+                
+                <form action="<?=$this->escape($this->form_category->getAction()) ?>" method="<?= $this->escape($this->form_category->getMethod()) ?>">
+                    <?=$this->form_category->id ?>
+                    <strong><?php echo $this->translate("Please select only one sub category which is most suitable for your content.");?></strong>
+                    <?= $this->form_visuals->review ?>
+                    
+                    <ul id="checkchildren" class="tree">
+                        <?php
+                        $categories = null;
+                        $categories = $this->categories;
+                        $parent = $categories[0];
+                        ?>
+                        <?php foreach ($parent as $id => $name): ?>
+                        <li>
+                                <?php
+                                $selectedCategory = $this->categorySelected;
+                                $parent = new stdClass();
+                                $parent->id = $id;
+                                $parent->name = '<b>' . $name . '</b>' ;
+                                $parent->class = 'parent';
+                                $parent->checked = '';
+                                if(is_array($selectedCategory))
+                                    $parent->checked = (array_key_exists($id, $selectedCategory)) ? 'checked' : '';
+                                ?>
+                                <?=$this->partial('partials/checkbox.phtml', array("checkbox" => $parent));?>
+                            <ul>
+                                    <?php foreach ($categories[$id] as $id => $name): ?>
+                                <li>
+                                            <?php
+                                            $child = new stdClass();
+                                            $child->id = $id;
+                                            $child->name = $name;
+                                            $child->class = 'child';
+                                            $child->checked = '';
+                                            if(is_array($selectedCategory))
+                                                $child->checked = (array_key_exists($id, $selectedCategory)) ? 'checked' : '';
+                                            ?>
+                                            <?=$this->partial('partials/checkbox.phtml', array("checkbox" => $child));?>
+                                </li>
+                                    <?php endforeach; ?>
+                            </ul>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <ul>
+                        <li>
+                            <?= $this->form_category->submit ?>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+       <div class="tab-files" style="display: none">
+                <form action="<?= $this->escape($this->form_files->getAction()) ?>" method="<?= $this->escape($this->form_files->getMethod()) ?>" enctype="<?= $this->escape($this->form_files->getAttrib('enctype')) ?>">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td align="right"><strong><?php echo $this->translate("Files/URL");?></strong>  </td>
+                                <td align="left" colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="right"><?php echo $this->translate("Content : (Files/URL)");?></td>
+                                <td width="31%" valign="top" align="left">
+                                    <!-- Upload Button to select files to upload-->
+                                    <!-- <div id="upload_button" >Upload File</div><span id="status_message" ></span> -->
+                                    <!--List Files-->
+                                    <!-- <ul id="files_list" ></ul> -->
+                                    <?= $this->form_files->id ?>
+                                    <?= $this->form_visuals->review ?>
+                                    <label><?php echo $this->translate("Build Name");?> :</label>
+                                    <input name="build_name" id="build_name" type="text" class="txt-input medium"/>
+                                    <small>Eg: Java, MIDP 1.0</small>
+                                    <?=$this->form_files->file ?>
+                                    <!--
+                                    <input type="file" name="files[]" class="txt-input medium"/>
+                                    <input type="file" name="files[]" class="txt-input medium"/>
+                                    <input type="file" name="files[]" class="txt-input medium"/>
+                                    -->
+                                    <ul>
+                                        <? //if(is_array($this->builds)):
+                                        foreach($this->builds as $build): ?>
+                                        <li>
+                                                <?=$build->name?>
+                                            <a href="<?php echo PROJECT_BASEPATH;?>product/builddelete/prod/<?=$this->productId?>/id/<?=$build->id?>" onclick="return confirm('Are you sure you want to delete?')">
+                                                <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+                                            </a>
+                                        </li>
+                                        <? endforeach;
+                                        //endif;
+                                        ?>
+                                    </ul>
+                                </td>
+                                <td width="36%" valign="top" align="left" rowspan="4">Jar or Jad<br>
+                                    <?php echo $this->translate("2MB max file size");?>
+                                    <strong><?php echo $this->translate("Important Note");?>:</strong>
+                                    <?php echo $this->translate("Instructions of upload. TODO : Add instruction by file types.");?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td valign="top" align="left" colspan="2">
+                                    <?= $this->form_files->submit ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <!-- Basic product details -->
+            <div class="tab-basic hide_div">
+                <?=$this->form_basic?>
+            </div>
+           
+            <div class="tab-channel hide_div">
+                <form action="/product/channel/id/<?php echo $this->productId;?>" method="POST">
+                    <!--<input type="hidden" value="<?php /*echo $this->edit;*/?>" id="is-edit" name="is-edit"/>-->
+                    <table>
+                        <tr>
+                            <th style="width:5%;"><?php echo $this->translate("Logo");?></th>
+                            <th style="width:10%;"><?php echo $this->translate("CHAP Name");?></th>
+                            <th style="width:5%;"><?php echo $this->translate("Web URL");?></th>
+                            <th style="width:10%;"><?php echo $this->translate("Countries");?></th>
+                            <th style="width:10%;"><?php echo $this->translate("Subscriber Base");?></th>
+                            <th style="width:55%;"><?php echo $this->translate("Channel Description");?></th>
+                            <!--<th >Description</th>-->
+                            <th style="width:5%;">Authorize</th>
+                        </tr>
+                        <?php foreach($this->paginator as $channelDetail) {
+                            $logo = $this->ThemeMeta($channelDetail['id'],'WHITELABLE_SITE_LOGO');
+                            $country = $this->ThemeMeta($channelDetail['id'],'WHITELABLE_COUNTRY');
+                            $subscriberBase = $this->ThemeMeta($channelDetail['id'],'WHITELABEL_SUBSCRIBER_BASE');
+                            //Zend_Debug::dump($subscriberBase);die();
+                            ?>
+                            <tr>
+                                <!--<td><?php /*if($logo) { */?><img alt="Logo" src="/wl/logos/<?php /*if($logo) { echo $logo[0]['meta_value']; }*/?>" style="height:50px;"><?php /*} */?></td>-->
+                                <td style="width:5%;"><img alt="Logo" src="/wl/logos/<?php if($logo) { echo $logo[0]['meta_value']; }?>" style="height:50px;"></td>
+                                <td style="width:10%;"><?php echo strtoupper($channelDetail['username']);?></td>
+                                <td style="text-align:center;width:5%;">
+                                    <?php if($channelDetail['meta_value']){ ?>
+                                        <a href="http://<?php echo $channelDetail['meta_value'];?>" target="_blank"><?php echo $channelDetail['meta_value'];?></a>
+                                    <?php } else { ?>
+                                        N/A
+                                    <?php } ?>
+                                </td>
+                                <td style="text-align:center;width:10%;"><?php if($country) { echo $country[0]['meta_value']; } ?></td>
+                                <td style="text-align:center;width:10%;"><?php if($subscriberBase) { echo $subscriberBase[0]['meta_value']; } else { echo 'N/A';} ?></td>
+                                <td style="width:55%;"><?php echo $channelDetail['cp_payout_description'];?></td>
+                                <!--<td><?php /*if($chapDescription) { echo $chapDescription[0]['meta_value']; }*/?></td>-->
+                                <td style="text-align:center;width:5%;">
+                                    <?php if($channelDetail['pcId']) { ?>
+                                        <a href="<?php echo PROJECT_BASEPATH;?>product/set-channel/id/<?php echo $this->productId;?>/chap/<?php echo $channelDetail['id'];?>/status/unsubscribe" title="<?php echo $this->translate("Unsubscribe");?>">
+                                            <img style="border:none;width:16px;" src="/cp/assets/img/global/icons/tick-box.png" alt="Unsubscribe" title="<?php echo $this->translate("Unsubscribe");?>"/>
+                                        </a>
+                                    <?php } else { ?>
+                                        <a href="<?php echo PROJECT_BASEPATH;?>product/set-channel/id/<?php echo $this->productId;?>/chap/<?php echo $channelDetail['id'];?>/status/subscribe" title="<?php echo $this->translate("Subscribe");?>">
+                                            <img style="border:none;width:16px;" src="/cp/assets/img/global/icons/untick-box.png" alt="Subscribe" />
+                                        </a>
+                                    <?php } ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        <tr>
+                            <td align="right">&nbsp;</td>
+                            <td align="right" colspan="6" style="padding-right: 20%">
+                                <input id="submit" class="small button" type="submit" value="<?php echo $this->translate("Next");?>" name="submit">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <?php /*echo $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator.phtml'); */?>
+            </div>
+        </div>
+    </div>
+</div>

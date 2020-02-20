@@ -1,0 +1,87 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;">
+    <tr>
+        <td colspan="3" style="font-size: 12px;">Thanks for your payment.  Here is your receipt.</td>
+    </tr>
+    <tr>
+        <td style="width: 40%">&nbsp;</td>
+        <td style="width: 20%">&nbsp;</td>
+        <td style="width: 40%">&nbsp;</td>
+    </tr>
+    <tr>
+        <td style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px;  font-weight: bold;">Billed To:</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  style="vertical-align: top">
+    <?=! empty ( $this->name ) ? $this->name . '<br>' : ''?>
+    <?=! empty ( $this->address ) ? $this->address . '<br>' : ''?>
+    <?=! empty ( $this->city ) ? $this->city . '<br>' : ''?>
+    <?=! empty ( $this->country ) ? $this->country . '<br>' : ''?>
+    <?=! empty ( $this->mobile ) ? $this->mobile . '<br>' : ''?>
+    <a target="_blank" href="mailto:<?=$this->email?>"><span
+            class="il"><?=$this->email?></span></a><br><br>
+            
+          <span style="font-size: 11px;"> Paid Via: <?=$this->paymentgateway; ?></span>  
+            
+        </td>
+        <td colspan="2" style="vertical-align: top; width: 40%"><span style="font-size: 11px;font-weight: bold;">Invoice Number:</span> #CP-<?=strtotime(date("Y-m-d"))."-".str_pad($this->invoice_id, 6, "0", STR_PAD_LEFT) //to make order id look pretty ?> <br> 
+        <?=! empty ( $this->transid ) ? '<br><span style="font-size: 11px;font-weight: bold;">Transaction Number:</span> #' . $this->transid . '<br>' : ''?>
+        <span style="font-size: 11px; font-weight: bold;">Receipt Date:</span> <?=date ( "F j, Y, g:i a" );?><br>
+        <span style="font-size: 11px; font-weight: bold;">Total Amount:</span> $<?=number_format($this->amount, 2, '.', '')?><br>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="3">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0"
+            id='subtable_1'>
+
+            <tr>
+                <td style="height: 5px;border-top: 1px solid #000000;" colspan="3"></td>
+            </tr>
+            <tr style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold;">
+                <td style="width: 20%; height: 15px; font-weight: bold;" >Item Number</td>
+                <td style="font-weight: bold;">Description</td>
+                <td style="width: 35%; font-weight: bold;">Amount</td>
+            </tr>
+            <tr>
+                <td style="height: 5px;border-top: 1px solid #000000;" colspan="3"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="height: 50px;">1</td>
+                <td> Deposit made via <?=$this->paymentgateway; ?>  </td>
+                <td> $<?=number_format($this->amount, 2, '.', '')?></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="background-color: #999999; height: 2px;border-top: 1px solid #000000;" colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;font-weight: bold;"> 
+                Total: </td>
+                <td> $<?=number_format($this->amount, 2, '.', '')?></td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="height: 15px"></td>
+
+    </tr>
+
+</table>

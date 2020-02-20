@@ -1,0 +1,188 @@
+
+<?php
+    //echo count($this->cpMessages);
+    //echo count($this->appErrorMessages);
+    //die();
+?>
+
+<script type="text/javascript" language="javascript">
+    
+    //Validation
+    $(document).ready(function() {
+	$("#frmWebSettings").validate();
+        $("#frmCpSettings").validate();
+    });
+    
+</script>
+
+
+<!--<div id="web_settings">-->
+<div class="tab-content default-tab" id="web_settings"> 
+
+     <!-- Displays Message/s -->
+        <?php if (count($this->cpMessages)) : ?>
+
+        <div class="notification success png_bg">                
+                <div>
+
+                    <?php foreach ($this->cpMessages as $message) : ?>
+
+                        <li><?php echo $this->escape($message); ?></li>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+
+    <!-- Displays Message/s -->
+    <?php if (count($this->appErrorMessages)) : ?>
+
+        <div class="notification error png_bg">
+            <div>
+
+                <?php foreach ($this->appErrorMessages as $message) : ?>
+
+                    <li><?php echo $this->escape($message); ?></li>
+
+                <?php endforeach; ?>
+
+            </div>
+        </div>
+
+    <?php endif; ?>
+    
+    <form enctype="multipart/form-data" method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>setting/" id="frmWebSettings" name="frmWebSettings">
+                 
+        <p>Settings of the Web Site</p>
+        
+            <p>
+                <label>Site Title <span class="mendatory_fileds">*</span></label>
+                <input id="txtTitle" name="txtTitle" class="text-input small-input required" type="text" value="<?= isset($this->webTitle) ? $this->webTitle : utf8_decode($this->settings->WHITELABLE_SITE_TITLE); ?>" />
+            </p>
+            
+            
+            <p>
+                <label>Site Meta Key Words</label>
+                <textarea id="txtMetaKey" name="txtMetaKey"  class="textarea" rows="3" cols="79" style="width:30% !important;"><?= isset($this->metaKey) ? $this->metaKey : $this->escape($this->settings->WHITELABLE_SITE_META_KEYS); ?></textarea>
+            </p>
+            
+            <p>
+                <label>Site Meta Description</label>
+                <textarea id="txtMetaDescription" name="txtMetaDescription"  class="textarea" rows="3" cols="79" style="width:30% !important;"><?= isset($this->metaDescription) ? $this->metaDescription : $this->escape($this->settings->WHITELABLE_SITE_META_DES); ?></textarea>
+            </p>
+            
+            
+            <p>
+                <label>Google Analytic Code</label>
+                <textarea id="txtGoogleAnalytic" name="txtGoogleAnalytic"  class="textarea" rows="3" cols="79" style="width:30% !important;"><?= isset($this->googleAnalytic) ? $this->googleAnalytic : $this->escape($this->settings->WHITELABLE_SITE_GOOGLE_ANALYTIC); ?></textarea>
+            </p>
+
+            <p>
+                <label>Contact Us E-mail <span class="mendatory_fileds">*</span></label>
+                <input id="txtContact" name="txtContact" class="text-input small-input required email" type="text" value="<?= isset($this->contactUs) ? $this->contactUs : $this->escape($this->settings->WHITELABLE_SITE_CONTACT_US_EMAIL); ?>" />
+            </p>
+            <p>
+                <label>Advertising Category (Keyword)</label>
+                <textarea id="advertising" name="advertising" class="textarea" rows="3" cols="79" style="width:30% !important;"><?= isset($this->advertising) ? $this->advertising : $this->escape($this->settings->WHITELABLE_SITE_ADVERTISING); ?></textarea>
+            </p>
+            <p>
+                <label>Latest Appstore App Version</label>
+                <input id="appstore_version" name="appstore_version" class="text-input small-input" type="text" value="<?= isset($this->appstore_version) ? $this->appstore_version : $this->escape($this->settings->WHITELABLE_SITE_APPSTORE_VERSION); ?>" />
+            </P>
+            <p>
+                <label>Latest Appstore App ID / Build ID</label>
+                <input id="appstoreAppId" name="appstoreAppId" class="text-input small-input" type="text" value="<?= isset($this->appstoreAppId) ? $this->appstoreAppId : $this->escape($this->settings->WHITELABLE_SITE_APPSTORE_APP_ID); ?>" />
+                <input id="appstoreBuildId" name="appstoreBuildId" class="text-input small-input" type="text" value="<?= isset($this->appstoreBuildId) ? $this->appstoreBuildId : $this->escape($this->settings->WHITELABLE_SITE_APPSTORE_BUILD_ID); ?>" />
+            </P>
+            <p>
+                <label>Add Rotating Interval</label>
+                <input id="interval" name="interval" class="text-input small-input" type="text" value="<?= isset($this->interval) ? $this->interval : $this->escape($this->settings->WHITELABLE_SITE_INTERVAL); ?>" />
+            </P>
+            <p>
+                <label>No of. Banners <span class="mendatory_fileds">* </span><span style="font-weight: normal;font-size: 10px">(Max - 6)</span></label>
+                <select name="banners" id="banners" class="chkbox required">
+                    <?  for($i = 2; $i <= 12; $i++) : ?>
+                    <option value="<?= $i ?>" <?= ((isset($this->banners) && $this->banners == $i) || (isset($this->settings->WHITELABLE_SITE_BANNER_COUNT) && $this->settings->WHITELABLE_SITE_BANNER_COUNT == $i)) ? 'selected= "selected"' : '' ?> ><?= $i ?></option>
+                    <? endfor; ?>
+                </select>                 
+            </p>
+            
+            <p>
+                <label>No of. Featured Apps <span class="mendatory_fileds">* </span><span style="font-weight: normal;font-size: 10px">(Max - 15)</span></label>
+                <select name="feturedApps" id="feturedApps" class="chkbox required">
+                    <?php  for($i = 5; $i <= 15; $i++) : ?>
+                    <option value="<?= $i ?>" <?= ((isset($this->feturedApps) && $this->feturedApps == $i) || (isset($this->settings->WHITELABLE_SITE_FETURED_APPS) && $this->settings->WHITELABLE_SITE_FETURED_APPS == $i))? 'selected= "selected"' : '' ?> ><?= $i ?></option>
+                    <? endfor; ?>
+                </select>                 
+            </p>           
+             
+            <p>
+                <label>Favicon <span style="font-weight: normal;font-size: 10px">(Width - 16px, Height - 16px, File Type - .ico)</span></label>
+                <input type="file" name="siteFavicon" id="siteFavicon" class="chkbox"/> 
+            </p>
+            
+            <? if(!empty($this->settings->WHITELABLE_SITE_FAVICON)) : ?>
+             <p>   
+                <label>Current Icon</label>
+                <img src="/wl/favicons/<?= $this->settings->WHITELABLE_SITE_FAVICON; ?>" alt="No Icon" />
+             </p>   
+            <? endif; ?>
+            
+            <p>
+                <label>Logo <span class="mendatory_fileds">* </span><span style="font-weight: normal;font-size: 10px">(Max Width - 325px, Max Height - 65px, File Type - .png, .jpg, .gif)</span></label>
+                <input type="file" name="siteLogo" id="siteLogo" class="chkbox"/> 
+            </p>
+            
+            <? if(!empty($this->settings->WHITELABLE_SITE_LOGO)) : ?>
+               <p> 
+                <label>Current Logo</label>
+                <img src="/wl/logos/<?= $this->settings->WHITELABLE_SITE_LOGO; ?>" alt="No Image" />
+               </p>
+            <? endif; ?>
+
+            <?php  $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+            if($chapId == 81604) { ?>
+                <p>
+                    <label>Qelasy App Banner <span style="font-weight: normal;font-size: 10px">(Width - 1000px, Height - 220px, File Type - .png, .jpg, .gif)</span></label>
+                    <input type="file" name="qelasy-app-banner" id="qelasy-app-banner" class="chkbox"/>
+                </p>
+
+                <?php if(!empty($this->settings->WHITELABLE_SITE_QELASY_BANNER)) { ?>
+                    <p>
+                        <label>Current Banner</label>
+                        <img width="400px" src="/wl/qelasy/<?php echo $this->settings->WHITELABLE_SITE_QELASY_BANNER; ?>" alt="No Image" />
+                    </p>
+                <?php } ?>
+            <?php } ?>
+
+                <p>
+                    <label for="agreement_text">Agreement Text</label>
+                    <input id="agreement_text" name="agreement_text" class="text-input small-input" type="text" value="<?php echo isset($this->interval) ? $this->interval : $this->escape($this->settings->WHITELABLE_SITE_AGREEMENT_TEXT); ?>"/>
+                    <!--<input id="interval" name="interval" class="text-input small-input" type="text" value="<?/*= isset($this->interval) ? $this->interval : $this->escape($this->settings->WHITELABLE_SITE_INTERVAL); */?>" />-->
+                </p>
+
+                <p>
+                    <label for="agreement_link">Agreement Link ID</label>
+                    <input id="agreement_link" name="agreement_link" class="text-input small-input" type="text" value="<?= isset($this->interval) ? $this->interval : $this->escape($this->settings->WHITELABLE_SITE_AGREEMENT_LINK);?>" />
+                </p>
+
+                <p>
+                    <label for="agreement_link">CopyRight Text</label>
+                    <input id="copyright_text" name="copyright_text" class="text-input small-input" type="text" value="<?= isset($this->interval) ? $this->interval : $this->escape($this->settings->WHITELABLE_SITE_COPYRIGHT_TEXT);?>" />
+                </p>
+            <br/>
+                <input id="btnSubmit" name="btnSubmit" class="button" type="submit" value="<?= isset($this->menuId) ? 'Save' : 'Submit' ?>">
+                <input id="btnReset" name="btnReset" class="button" type="reset" value="Reset">
+                <input id="menuId" name="menuId" class="button" type="hidden" value="<?= isset($this->menuId) ? $this->menuId : '' ?>">
+                <input id="settingType" name="settingType" class="button" type="hidden" value="web">
+                <input id="webLogo" name="webLogo" class="button" type="hidden" value="<?= isset($this->settings->WHITELABLE_SITE_LOGO) ? $this->settings->WHITELABLE_SITE_LOGO : '' ?>">
+                <input id="webFavicon" name="webFavicon" class="button" type="hidden" value="<?= isset($this->settings->WHITELABLE_SITE_FAVICON) ? $this->settings->WHITELABLE_SITE_FAVICON : '' ?>">
+                <input id="qelasyBanner" name="qelasyBanner" class="button" type="hidden" value="<?= isset($this->settings->WHITELABLE_SITE_QELASY_BANNER) ? $this->settings->WHITELABLE_SITE_QELASY_BANNER : '' ?>">
+            </p>
+        </form>
+        <br />
+    </div>
+    
+

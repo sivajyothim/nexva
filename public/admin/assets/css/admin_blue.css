@@ -1,0 +1,72 @@
+/*
+
+-----------------------------
+ForestCP | Administration
+-----------------------------
+A theme by Philo Hermans
+Available at ThemeForest
+-----------------------------
+http://www.philohermans.com
+http://forum.philohermans.com
+-----------------------------
+
+*/
+
+#header .info a{
+	color: #a8b6d8;
+}
+
+#header .info h2 span{
+	color: #4675cb;
+}
+
+#top_nav{
+	background: url(../img/top_nav/blue/bg.jpg) repeat-x;
+}
+
+#content a:link,
+#content a:visited{
+	color: #1d469a;
+}
+
+#sidebar ul.todo li ul.links li a{
+	color: #4772cb;
+}
+
+.sf-menu li ul{
+	background:	#cb4747 url(../img/top_nav/blue/sub_nav_bg.jpg) repeat-y;
+	border-bottom: 1px solid #4772cb;
+} 
+
+.sf-menu li li {
+	border-bottom: 1px solid #82a2dc;
+}
+
+.sf-menu li li ul{
+	background:	#477fcb url(../img/top_nav/blue/sub_nav_bg.jpg) repeat-y;
+	border-bottom: 1px solid #4782cb;
+	border-top: 1px solid #4782cb;
+}
+
+.sf-menu li li:hover, .sf-menu li li.sfHover,
+.sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active {
+	background:	#477fcb url(../img/top_nav/blue/sub_nav_bg.jpg) repeat-y;
+}
+
+#sidebar ul li{
+	background: url(../img/global/blue_dot.jpg) no-repeat;
+}
+
+#sidebar ul.todo li{
+		background: url(../img/global/blue_dot.jpg) no-repeat top left;
+}
+
+.button,
+.reset{
+	background: #477fcb;
+}
+
+.reset{
+	background: #a5a5a5;
+}
+

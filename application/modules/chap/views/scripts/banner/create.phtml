@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/css/jquery.ketchup.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.js"></script>
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.messages.js"></script>
+<script type="text/javascript" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/ketchup-plugin/js/jquery.ketchup.validations.basic.js"></script>
+<script type="text/javascript" src="/chap/assets/js/chap.js"></script>
+
+<div class="title">
+    <h3 style="cursor: s-resize;">Add a New Banner</h3>
+</div>
+
+<?php if(!empty($this->messagesSuccess))
+{
+?>
+<div class="box">
+    <br /> 
+    <div style="display: block;" class="message success">
+                    <p><?php echo $this->messagesSuccess; ?></p>
+    </div>
+</div>
+<?php
+
+unset($this->messagesSuccess);
+}
+
+
+if(!empty($this->messagesError))
+{
+?>
+<div class="box">
+    <br /> 
+    <div style="display: block;" class="message error">
+                    <p><?php echo $this->messagesError; ?></p>
+    </div>
+</div>
+<?php
+
+unset($this->messagesError);
+}
+?>
+
+
+<div class="box">
+    <div class="txt">
+        <div class="content_box">            
+            
+            <form class="form_validate" id="fillterAppForm" style='width:auto;' name="fillterAppForm" action="/banner/create/" method="post" enctype="multipart/form-data">
+                  
+                        <div class="div_single_row">
+                              
+                            <label for='platform'>Type <span style = "color: #FF0000">*</span></label>
+                            <select class="select-input validate(required)"  name="bannerType" id="bannerType" style="width: auto">                               
+                                  <option value="WEB">Web</option>
+                                  <option value="MOBILE">Mobile</option>                                
+                            </select>
+
+                         </div>
+                
+                         <div class="div_space"></div> 
+                         <div class="div_space"></div> 
+                         
+                         
+                         <div class="div_single_row">
+                              
+                            <label for='platform'>Caption</label>
+                            <input type="text" style="width:40%" class="txt-input medium" id="caption" name="caption" value="" />
+                            
+                         </div>
+                
+                         <div class="div_space"></div> 
+                         <div class="div_space"></div>
+                         
+                         
+                         <div class="div_single_row">
+                              
+                            <label for='platform'>URL</label>
+                            <input type="text" style="width:40%" class="txt-input medium" id="bannerUrl" name="bannerUrl" />
+                            
+                         </div>
+                
+                         <div class="div_space"></div> 
+                         <div class="div_space"></div>
+                         
+                         <div class="div_single_row">
+                              
+                            <label for='platform'>Image <span style = "color: #FF0000">*</span></label>
+                            <input type="file" style="width:auto" class="txt-input medium validate(required)" name="bannerImage" id="bannerImage"/>
+                            
+                         </div>
+                
+                         <div class="div_space"></div> 
+                         <div class="div_space"></div>
+                         
+                         <div class="div_single_row">
+                            <input type="submit" value="Add" name="submit" class="button" />
+                         </div>
+                                                            
+            </form> 
+        </div>
+     </div>
+</div>

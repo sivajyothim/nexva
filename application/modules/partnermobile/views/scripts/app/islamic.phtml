@@ -1,0 +1,60 @@
+<?php //$currency = $this->ChangeCurrency($this->chap_id);
+
+$sessionChapDetails = new Zend_Session_Namespace('partnermobile');
+
+if($sessionChapDetails->id == 276531) {?>
+<h2 class="font-size-16"><?php echo $this->translate("Application Day");?></h2> 
+<?php } else { ?>
+<h2 class="font-size-16"><?php echo $this->translate("Islamic Apps");?></h2> 
+<?php  } ?>
+
+<?php //$currency = $this->ChangeCurrency($this->chap_id);
+
+if($this->showResults == TRUE) :
+?>
+
+    <ul data-role="listview" data-inset="true" class="ui-icon-alt">
+
+        <?php
+        $x = 0;
+        foreach($this->developerChallengeApps as $app) :  
+            $x++;
+            ?>
+        <li>
+            <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external">
+                <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" />
+                <h3><?= $app['name'] ?></h3>
+                <p><?= $this->trim($app['vendor'],18) ?></p>
+                <div id="rating">
+                     <?= $this->partial('partials/rating_inner.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+                </div>
+            </a>
+            <? if($app['price'] > 0) : ?>
+                        
+                        <span class="ui-li-count">
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '$';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo $app['price']; } */?>
+                            <!-- to be change -->
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '₦';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo number_format(($app['price'])*165,2); } */?>
+                            <?php echo (($app['price']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(($app['price']*$this->currencyDetails["rate"]),2) : $this->translate("Free") ;?>
+                        </span>
+            
+                    <? else : ?>
+                        
+                        <span class="ui-li-count"><?php echo $this->translate("Free");?></span>
+                        
+                    <? endif; ?>
+            
+        </li>
+
+        <? endforeach; ?>
+    </ul>
+    
+    <?= $this->paginationControl($this->developerChallengeApps, 'Sliding', 'partials/pagination-category.phtml'); 
+        else :
+            ?>
+        
+<p><?php echo $this->translate("No apps found under this category");?></p>
+
+<?php
+        endif;
+        ?>

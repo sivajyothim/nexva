@@ -1,0 +1,55 @@
+<?php 
+$sessionAdultsContent = new Zend_Session_Namespace('content');
+if(!isset($sessionAdultsContent->content)) {
+?>
+
+<script type="text/javascript">
+    var $noCon = jQuery.noConflict();
+    $noCon(document).ready(function(){
+        $noCon.colorbox({
+            inline:true, 
+            href:"#adult-content-warning-wrap",
+            width:"60%", 
+            height:"60%",  
+            overlayClose: false
+        });
+    });
+    /*function openWarningPopupBox(){
+        $noCon.colorbox({
+            inline:true, 
+            href:"#adult-content-warning-wrap",
+            width:"60%", 
+            height:"60%",  
+            overlayClose: false
+        });
+    }
+    openWarningPopupBox();*/
+    function goToUrl(type){
+        if(type == 1){
+            window.location.href = 'http://<?=$_SERVER['SERVER_NAME'];?>/app/adult/content/1';
+        } else {
+            window.location.href = 'http://<?=$_SERVER['SERVER_NAME'];?>/app/adult/content/0';
+        }
+    }
+        
+</script>
+
+
+<div style="display:none;">
+    <div id="adult-content-warning-wrap">
+        <div class="warning-heading"><p><?php echo $this->translate("Content Warning");?></p></div>
+        <div class="warning-content">
+            <p>            
+                <?php echo $this->translate("18 Years or Older");?>?  
+            </p>
+        </div>
+        <div class="warning-buttons">
+            <input type="button" class="yes-btn btns-y-n" onclick="goToUrl(1)" value="<?php echo $this->translate("Yes");?>"/>
+            <input type="button" class="no-btn btns-y-n" onclick="goToUrl(2)" value="<?php echo $this->translate("No");?>"/>
+        </div>
+    </div>
+</div>
+
+<?php 
+}
+?>

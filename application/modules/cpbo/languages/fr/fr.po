@@ -1,0 +1,3890 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2017-03-09 17:26+0530\n"
+"PO-Revision-Date: 2017-03-09 17:26+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: fr.po\n"
+"X-Poedit-SearchPath-1: index.phtml\n"
+
+#: index.phtml:1 index.phtml:440
+msgid "Login"
+msgstr "se connecter"
+
+#: index.phtml:2
+msgid "Localization"
+msgstr "Localisation"
+
+#: index.phtml:3
+msgid "Developer Pane"
+msgstr "Portail Développeur"
+
+#: index.phtml:4
+msgid "New opportunities to publish your apps"
+msgstr "De nouvelles façons de publier vos applications"
+
+#: index.phtml:5
+msgid ""
+"The app ecosystem has been monopolized by the OS/OEM app stores. That means "
+"you publish your app on some HUGE store and hope it shines through or maybe "
+"you spend on getting it known and downloaded."
+msgstr ""
+
+#: index.phtml:6
+msgid "With neXva it is different."
+msgstr "C'est différent avec neXva"
+
+#: index.phtml:7
+msgid ""
+"neXva manages app stores for some of the top telcos in the world and some of "
+"the fastest growing markets too. The problem? In most of those markets "
+"there's no way to monetize freemium apps. neXva has solved that problem!"
+msgstr ""
+
+#: index.phtml:8 index.phtml:59
+msgid ""
+"We have direct carrier billing connectivity in each of our app stores and "
+"now we've extended that to enable in-app and subscription billing too."
+msgstr ""
+"Nous proposons un système de paiement d'applications dans chacun de nos App "
+"Store, nous étendons cette solution avec le paiement intra-application et la "
+"possibilité de souscrire."
+
+#: index.phtml:9
+msgid ""
+"Our recently launched neXpayer API enables monetization of freemium apps. "
+"neXpayer is a simple to use API that brings in-app and subscription "
+"capabilities to any app. You integrate the API once and it gives you in-app "
+"capabilities for ALL of the neXva run app stores."
+msgstr ""
+
+#: index.phtml:10
+msgid "Join us today and start realizing your app's full potential."
+msgstr "Rejoignez-nous aujourd'hui et publiez votre application !"
+
+#: index.phtml:11
+msgid ""
+"You may have questions about our opportunities or how to manage to all of "
+"this so please feel free to send us an email which we will answer : "
+msgstr ""
+"Vous avez des questions? Ecrivez-nous, nous vous répondrons avec plaisir "
+
+#: index.phtml:12 index.phtml:19
+msgid "Reset Password"
+msgstr "Mot de passe oublié ?"
+
+#: index.phtml:13
+msgid "Login on Developer Portal"
+msgstr "se connecter au portail développeur"
+
+#: index.phtml:14
+msgid "Create an account for free."
+msgstr "Créez le votre gratuitement !"
+
+#: index.phtml:15
+msgid "Username"
+msgstr "identifiant"
+
+#: index.phtml:16
+msgid "password"
+msgstr "mot de passe"
+
+#: index.phtml:17
+msgid "Reset"
+msgstr "réinitialiser"
+
+#: index.phtml:18
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password or any issue contact/add on Skype id- cj19820508"
+msgstr ""
+"Entrez votre adresse e-mail, nous vous enverrons un lien pour réinitialiser "
+"votre mot de passe. Pour tout problème, contactez via Skype cj19820508"
+
+#: index.phtml:20 index.phtml:49
+msgid "Enter the security key you see inside the image"
+msgstr "Entrez la clé de sécurité que vous voyez dans l'image"
+
+#: index.phtml:21
+msgid "Register a new account"
+msgstr "créer un nouveau compte"
+
+#: index.phtml:22
+msgid "Register a new account."
+msgstr "créer un nouveau compte."
+
+#: index.phtml:23 index.phtml:446
+msgid "Fields with red borders are mandatory - thanks."
+msgstr "Les champs avec astérisques en rouge sont obligatoires, merci."
+
+#: index.phtml:24 index.phtml:447
+msgid "Personal Details"
+msgstr "données personnellesdonnées personnelles"
+
+#: index.phtml:25
+msgid "First name"
+msgstr "Prénom"
+
+#: index.phtml:26
+msgid "First name field"
+msgstr "Champ \"Prénom\""
+
+#: index.phtml:27
+msgid "Last name"
+msgstr "Nom de Famille"
+
+#: index.phtml:28
+msgid "Last name field"
+msgstr "Champ \"Nom de Famille\""
+
+#: index.phtml:29
+msgid "E-mail"
+msgstr "e-mail"
+
+#: index.phtml:30
+msgid "Email field"
+msgstr "Champ \"e-mail"
+
+#: index.phtml:31
+msgid "Password field"
+msgstr "Champ correspondant"
+
+#: index.phtml:32
+msgid "Retype password"
+msgstr "Retaper mot de passe"
+
+#: index.phtml:33
+msgid "Retype password field"
+msgstr "Ecrivez dans le champ \"mot de passe\""
+
+#: index.phtml:34
+msgid "Company Details"
+msgstr "détails de l'entreprise"
+
+#: index.phtml:35
+msgid "Company name"
+msgstr "nom de l'entreprise"
+
+#: index.phtml:36
+msgid "Company Name"
+msgstr "nom de l'entreprise"
+
+#: index.phtml:37
+msgid "Company name field"
+msgstr "champ de raison sociale"
+
+#: index.phtml:38
+msgid "Department"
+msgstr "Département"
+
+#: index.phtml:39
+msgid "Designation"
+msgstr "Dénomination / appellation ?"
+
+#: index.phtml:40
+msgid "Street"
+msgstr "rue"
+
+#: index.phtml:41
+msgid "City"
+msgstr "Ville"
+
+#: index.phtml:42
+msgid "Province/State"
+msgstr "département/pays"
+
+#: index.phtml:43
+msgid "ZIP/Postal Code"
+msgstr "Code Postal"
+
+#: index.phtml:44
+msgid "Contact Details"
+msgstr "détails du contact"
+
+#: index.phtml:45
+msgid "Phone"
+msgstr "Téléphone"
+
+#: index.phtml:46
+msgid "Fax"
+msgstr "Fax"
+
+#: index.phtml:47
+msgid "URL"
+msgstr "URL"
+
+#: index.phtml:48
+msgid "Customer support email"
+msgstr "contact assistance client"
+
+#: index.phtml:50
+msgid "Check box selection"
+msgstr "Sélection de la case"
+
+#: index.phtml:51
+msgid "Check the box to agree neXva"
+msgstr "Cocher la case pour accepter neXva"
+
+#: index.phtml:52
+msgid "talk to us."
+msgstr "Dites nous"
+
+#: index.phtml:53
+msgid "terms and conditions."
+msgstr "Termes et conditions."
+
+#: index.phtml:54
+msgid "If you have problems with the Terms and Conditions please"
+msgstr ""
+"Si vous avez des problèmes avec la partie \"Termes et Conditions\", veuillez "
+"s'il vous plait"
+
+#: index.phtml:55 index.phtml:455
+msgid "Login with facebook"
+msgstr "s’authentifier avec facebook"
+
+#: index.phtml:56 index.phtml:456
+msgid "Login with gmail"
+msgstr "s’authentifier avec gmail"
+
+#: index.phtml:57
+msgid "Monetize your apps ! In app and subscription billing."
+msgstr ""
+"Rendez vos apps payantes ! Dans \"application et facturation d'abonnement\"."
+
+#: index.phtml:58
+msgid ""
+"neXva distributes your apps with some of the top telcos in the world and "
+"some of the fastest growing markets too. The problem? In most of those "
+"markets there's no way to monetize your freemium apps. neXva has solved that "
+"problem for you!"
+msgstr ""
+
+#: index.phtml:60
+msgid ""
+"Our recently launched neXpayer API enables you to use any of our carrier "
+"billing platforms to monetize your freemium apps. neXpayer is a simple to "
+"use API that brings in-app and subscription capabilities to your app. You "
+"integrate the API once and it gives you in-app capabilities for ALL of the "
+"neXva run app stores. It's a great way to make more money and get further "
+"exposure for your apps."
+msgstr ""
+
+#: index.phtml:61
+msgid ""
+"We have direct carrier billing connectivity in each of our app stores and "
+"now we've extended that to enable in-app and subscription billing too. Our "
+"recently launched neXpayer API enables you to use any of our carrier billing "
+"platforms to monetize your freemium apps. neXpayer is a simple to use API "
+"that brings in-app and subscription capabilities to your app. You integrate "
+"the API once and it gives you in-app capabilities for ALL of the neXva run "
+"app stores. It's a great way to make more money and get further exposure for "
+"your apps."
+msgstr ""
+"Nous proposons un système de paiement d'applications dans chacun de nos App "
+"Store, nous étendons cette solution avec le paiement intra-application et la "
+"possibilité de souscrire. L'API neXpayer vous permet de monétiser vos "
+"applications. Cette solution vous permet d'intégrer les fonctionnalités de "
+"paiement ou d'abonnement au sein de votre application."
+
+#: index.phtml:62
+msgid ""
+"Our revolutionary neXpayer API is simple to use and best of all as we add "
+"telcos you will be able to bill those clients without having to change your "
+"code."
+msgstr ""
+
+#: index.phtml:63
+msgid "Contact us today to learn more!"
+msgstr "Contactez-nous pour en savoir plus !"
+
+#: index.phtml:64
+msgid "Delivery Solved"
+msgstr ""
+
+#: index.phtml:65
+msgid ""
+"neXlinker patented technology allows you to control the journey of your "
+"users and manage multi OS builds."
+msgstr ""
+"la technologie brevetée neXlinker  vous permet de contrôler les usages des "
+"utilisateurs et publier votre applications sur plusieurs OS"
+
+#: index.phtml:66
+msgid "How it works"
+msgstr "Comment ça marche"
+
+#: index.phtml:67
+msgid ""
+"In a few clicks create a neXlinker badge linking to all the builds/OSs of "
+"your app. Place that badge on your web page, email signature or even on "
+"print material. The consumer clicks on the badge and gets a whole suite of "
+"ways to get the app delivered to his mobile"
+msgstr ""
+"En quelques clics créez un badge neXlinker se connectant à votre "
+"application. Placez ce badge sur votre page Web, dans votre signature mail "
+"ou sur tout support physique. Le consommateur clique sur le badge et peut "
+"ainsi télécharger l'application."
+
+#: index.phtml:68
+msgid ""
+"neXlinker gives only the correct build for the end user's mobile device. "
+"Presto! Click on the badge below to see it in action:"
+msgstr ""
+"neXlinker ne propose que des APK de qualité aux utilisateurs finaux. Cliquez "
+"sur le badge ci-dessous pour en savoir plus :"
+
+#: index.phtml:69
+msgid "Spread the love"
+msgstr "Répandre l'amour"
+
+#: index.phtml:70
+msgid ""
+"neXpager gives you a free mobile and web page that can be customized and "
+"displays all your compatible apps and gives direct download links. Placing a "
+"link in app to this customized download page allows your satisfied clients "
+"to download your other apps. Up selling : Each user sees all your content "
+"compatible with his/her device and thus can download your other apps Viral : "
+"Facebook 'Like' button and other viral techniques like 'Send a friend' "
+msgstr ""
+
+#: index.phtml:71
+msgid ""
+"Professional : Many App stores (such as iTunes) ask for a customer service "
+"page. neXpager does just that as well as links to your other apps"
+msgstr ""
+
+#: index.phtml:72
+msgid "Click to upload all your apps"
+msgstr "Cliquez pour télécharger toutes vos applications"
+
+#: index.phtml:73
+msgid ""
+"neXva brings you a simple but very useful tool to send us your apps and to "
+"update them."
+msgstr ""
+"neXva propose un outil très simple et utile pour envoyer vos applications et "
+"les mettre à jour."
+
+#: index.phtml:74
+msgid ""
+"Rather than manually uploading your apps to our app ecosystem, neXva allows "
+"you to automate that process along with all the compatibilities and "
+"marketing material. Once set up it is as simple as a click of a button to "
+"send us new apps and updates. This service is designed for app developers "
+"who have lots of apps and/or do frequent updates."
+msgstr ""
+"Plutôt que de publier manuellement vos apps sur notre plateforme, neXva vous "
+"facilite en automatisant ce process. Une fois que vous avez soumis l'APK, en "
+"un clic vous pouvez nous envoyer vos nouvelles apps et mises à jour. Ce "
+"service est créé pour les développeurs qui proposent souvent des mises à "
+"jours."
+
+#: index.phtml:75
+msgid "Get started with neXpush API"
+msgstr "Commencez avec l'API neXpush"
+
+#: index.phtml:76
+msgid "HighTech Passport ? Mobile App Localization"
+msgstr ""
+
+#: index.phtml:77
+msgid "Broaden your market reach, localize your app!"
+msgstr "Elargissez votre présence sur le marché, localisez votre application !"
+
+#: index.phtml:78
+msgid ""
+"Let us help you maximize your revenue potential by localizing your app for "
+"global markets. Key is the ability to communicate in your users’ native "
+"language, offering them a locale-specific user experience."
+msgstr ""
+"Nous vous aidons à maximiser votre potentiel de revenu en positionnant votre "
+"application sur des marchés mondiaux. Votre app communiquer dans la langue "
+"maternelle de vos utilisateurs et répondre à leur besoin, en local."
+
+#: index.phtml:79
+msgid ""
+"With 20+ years of software localization and internationalization experience, "
+"we know how to do it! The products we have localized are used by millions of "
+"users worldwide from mobile apps to leading web, e-commerce portals, social "
+"media platforms to game consoles, and more. The mobile apps are running on "
+"all major mobile platforms (Android, iOS, PlayStation Vita, and Blackberry)."
+msgstr ""
+"Nous avons plus de 20 ans d'expérience à l'internationale dans les logiciels "
+"informatiques. Nos produits sont utilisés par des millions d'utilisateurs "
+"dans le Monde. Des applications mobile au sites de e-commerce en passant par "
+"des plateformes de réseaux sociaux. Les applications mobile que nous "
+"développons sont compatibles avec tous les OS (Android, iOS, Playstation "
+"Vita ou encore Blackberry)"
+
+#: index.phtml:80
+msgid ""
+"Natural Sounding, Expert Translation and Quality Deliverables. Our linguists "
+"are native language speakers tested in and experienced with mobile "
+"localization. Each localized asset is verified for linguistic quality and "
+"technical integrity before delivery. Combined with a testing cycle to "
+"validate the translation on mobile screens, your users will never guess the "
+"app was developed in a different language."
+msgstr ""
+
+#: index.phtml:81
+msgid "Scalability and Ongoing Support"
+msgstr "Assistance suivi"
+
+#: index.phtml:82
+msgid ""
+"We offer comprehensive, yet scalable localization for any software product "
+"of any size and any development team, and provide you with continuous "
+"support for your localization needs with each iteration and release."
+msgstr ""
+
+#: index.phtml:83
+msgid "Mobile Localization Checklist"
+msgstr "Liste de localisation de téléphones"
+
+#: index.phtml:84
+msgid ""
+"Our experts have compiled a checklist (PDF) to identify key aspects of "
+"international mobile software and facilitate mobile app localization."
+msgstr ""
+
+#: index.phtml:85
+msgid "Special rates"
+msgstr "Tarifs spéciaux"
+
+#: index.phtml:86
+msgid "Contact us through NeXva to enjoy preferential rates!"
+msgstr "Contactez-nous pour bénéficier de tarifs préférentiels !"
+
+#: index.phtml:87
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: index.phtml:88
+msgid "Content"
+msgstr "Contenu"
+
+#: index.phtml:89 index.phtml:123
+msgid "Add Content"
+msgstr "Ajouter Contenu"
+
+#: index.phtml:90 index.phtml:145 index.phtml:238
+msgid "View Content"
+msgstr "Voir Contenu"
+
+#: index.phtml:91
+#, fuzzy
+msgid "Promotion Codes"
+msgstr "Codes Promotionnels"
+
+#: index.phtml:92
+msgid "See All"
+msgstr "Voir Tout"
+
+#: index.phtml:93
+msgid "Create new"
+msgstr "Créer nouveau"
+
+#: index.phtml:94
+msgid "Account"
+msgstr "Compte"
+
+#: index.phtml:95 index.phtml:518
+msgid "Agreement"
+msgstr "Accord"
+
+#: index.phtml:96
+msgid "Details"
+msgstr "Détails"
+
+#: index.phtml:97
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: index.phtml:98
+msgid "Payments"
+msgstr "Paiements"
+
+#: index.phtml:99
+msgid "Analytics"
+msgstr "Analyses"
+
+#: index.phtml:100
+msgid "Tools"
+msgstr "Outils"
+
+#: index.phtml:101
+msgid "neXpager"
+msgstr "neXpager"
+
+#: index.phtml:102
+msgid "neXpush"
+msgstr "neXpush"
+
+#: index.phtml:103
+msgid "neXlinker"
+msgstr "neXlinker"
+
+#: index.phtml:104
+msgid "neXpublish"
+msgstr "neXpublish"
+
+#: index.phtml:105
+msgid "neXpayer"
+msgstr "neXpayer"
+
+#: index.phtml:106
+msgid "Android Librar"
+msgstr "Bibliothèque Android"
+
+#: index.phtml:107
+msgid "Device Database"
+msgstr "Liste terminaux"
+
+#: index.phtml:108
+msgid "Dynamic Registration Test Page"
+msgstr "Test d'enregistrement dynamique sur une page"
+
+#: index.phtml:109
+msgid "Tickets"
+msgstr "Réclamations"
+
+#: index.phtml:110
+msgid "Create Ticket"
+msgstr "Déposer une réclamation"
+
+#: index.phtml:111
+msgid "List Tickets"
+msgstr "Archives réclamations"
+
+#: index.phtml:112
+msgid "Messages"
+msgstr "messagerie"
+
+#: index.phtml:113
+msgid "Support"
+msgstr " aide"
+
+#: index.phtml:114
+msgid "Welcome back"
+msgstr "Heureux de vous revoir"
+
+#: index.phtml:115
+msgid "View Website"
+msgstr "avis sur le site"
+
+#: index.phtml:116
+msgid "Log out"
+msgstr "Se déconnecter"
+
+#: index.phtml:117
+msgid "GMT. Last login"
+msgstr "dernière heure de connexion GMT"
+
+#: index.phtml:118
+msgid "Overall App Views / Downloads"
+msgstr "Téléchargements/visites Global"
+
+#: index.phtml:119
+msgid "Downloads"
+msgstr "Téléchargements"
+
+#: index.phtml:120
+msgid "Views"
+msgstr "Visites"
+
+#: index.phtml:121
+msgid "Please wait while we load the data."
+msgstr "merci de patienter durant le téléchargement"
+
+#: index.phtml:122
+msgid "Administration Options"
+msgstr "Options"
+
+#: index.phtml:124
+msgid "Profile"
+msgstr "profil"
+
+#: index.phtml:125
+msgid "Featured Video : neXlinker in 45 seconds"
+msgstr "Sélection de vidéos : neXlinker en 45 secondes"
+
+#: index.phtml:126
+msgid "Latest News"
+msgstr "Dernières Nouvelles"
+
+#: index.phtml:127
+msgid "Read All"
+msgstr "tout lire"
+
+#: index.phtml:128
+msgid "Last ten uploaded content."
+msgstr "10 derniers contenus implémentés"
+
+#: index.phtml:129
+msgid "Content name"
+msgstr "Nom du contenu"
+
+#: index.phtml:130
+msgid "Price"
+msgstr "Prix"
+
+#: index.phtml:131
+msgid "Type"
+msgstr "Type"
+
+#: index.phtml:132
+msgid "Status"
+msgstr "Statut"
+
+#: index.phtml:133
+msgid "Created / Updated"
+msgstr "Créé/Mis à jour"
+
+#: index.phtml:134
+msgid "Operations"
+msgstr "Opérations"
+
+#: index.phtml:135
+msgid "views / downloads"
+msgstr "visites/téléchargements"
+
+#: index.phtml:136
+msgid "You don't have any content uploaded yet."
+msgstr ""
+"Vous n’avez pas encore publié de contenu. Publier un contenu dès maintenant"
+
+#: index.phtml:137
+msgid "Upload a new content now"
+msgstr "Téléchargez de nouveaux contenus"
+
+#: index.phtml:138
+msgid "Create Content"
+msgstr "Publier un contenu"
+
+#: index.phtml:139
+msgid "Basic Info"
+msgstr "Info basiques"
+
+#: index.phtml:140
+msgid "Visuals"
+msgstr "Visuels"
+
+#: index.phtml:141
+msgid "Registration"
+msgstr "Enregistrement"
+
+#: index.phtml:142
+msgid "Channels"
+msgstr "Canaux"
+
+#: index.phtml:143
+msgid ""
+"Please fill the basic info then press 'Save and Continue' to continue "
+"filling other information."
+msgstr ""
+"merci de remplir la partie informations générales, puis cliquez sur "
+"\"enregistrer et continuer\""
+
+#: index.phtml:144
+msgid "Content Name:"
+msgstr "Nom du contenu:"
+
+#: index.phtml:146
+msgid ""
+"Your content name can only contain letters, numbers and underscores (_)."
+msgstr ""
+"Le nom doit contenir des lettres, chiffres et des underscores (tiret du "
+"\"8\")"
+
+#: index.phtml:147
+msgid "Category:"
+msgstr "Catégorie:"
+
+#: index.phtml:148
+msgid "Content Version:"
+msgstr "Version du contenu:"
+
+#: index.phtml:149
+msgid "Suggested Retail Price (SRP) in USD :"
+msgstr "Prix de vente (SRP) in USD :"
+
+#: index.phtml:150
+msgid "If your content is for free then enter 0 as the amount."
+msgstr "Si votre application est gratuite, mettez « 0 » comme montant"
+
+#: index.phtml:151
+msgid "Keywords"
+msgstr "Mots clés"
+
+#: index.phtml:152
+msgid "Keywords :"
+msgstr "Mots clés :"
+
+#: index.phtml:153
+msgid ""
+"This is used for internal search purposes, Please keep your keyworks "
+"relevant to your content. Separate each keyword by comma (,). Not case "
+"sensitive."
+msgstr ""
+"Concerne les recherches internes . Merci de choisir des  mots clés  "
+"pertinents. Séparez chaque mot clé par une virgule. Pas sensible à la casse."
+
+#: index.phtml:154
+msgid "Brief Description (500 characters):"
+msgstr "Description (500 caractères):"
+
+#: index.phtml:155
+msgid "Description (500 characters):"
+msgstr "Description (500 caractères):"
+
+#: index.phtml:156
+msgid "A brief description of your content."
+msgstr "Brève description de votre contenu."
+
+#: index.phtml:157
+msgid "Detail Description :"
+msgstr "Description détaillée :"
+
+#: index.phtml:158
+msgid "More detailed description of your content."
+msgstr "description plus détaillée de votre contenu"
+
+#: index.phtml:159
+msgid "Notification of Purchase email address :"
+msgstr "Adresse mail de notification d'achat : "
+
+#: index.phtml:160
+msgid "We will email you an alert, when your content is purchased."
+msgstr ""
+"Vous serez averti par e-mail dès que votre application est achetée par un "
+"utilisateur."
+
+#: index.phtml:161
+msgid "Is this a desktop content?:"
+msgstr "Est-ce un contenu de bureau?"
+
+#: index.phtml:162
+msgid "In-app payments?:"
+msgstr "Paiements intra-application"
+
+#: index.phtml:163
+msgid "Google Play App id :"
+msgstr "Identifiant GooglePlay de l'application"
+
+#: index.phtml:164
+msgid "iTunes App Store App id :"
+msgstr ""
+
+#: index.phtml:165
+msgid "neXpayer Enable:"
+msgstr "neXpayer permet :"
+
+#: index.phtml:166
+msgid "Show In Nexpager"
+msgstr "Voir dans neXpager"
+
+#: index.phtml:167
+msgid "Show in neXpager?:"
+msgstr "Voir dans neXpager?:"
+
+#: index.phtml:168
+msgid "Next"
+msgstr "Suivant"
+
+#: index.phtml:169
+msgid "Remove the search value and hit search to get the full list."
+msgstr ""
+"Ne rien inscrire et cliquer sur « rechercher  » pour avoir la liste entière"
+
+#: index.phtml:170
+msgid "You don't have any contents uploaded yet."
+msgstr "Vous n'avez pas encore téléchargé de contenu"
+
+#: index.phtml:171
+msgid "All Promotion Codes"
+msgstr "Tous les codes  promotionnels"
+
+#: index.phtml:172
+msgid "ID"
+msgstr "identité"
+
+#: index.phtml:173
+msgid "Product"
+msgstr "Produit"
+
+#: index.phtml:174
+msgid "Enabled"
+msgstr "Actif"
+
+#: index.phtml:175
+msgid "Usage Type"
+msgstr "Type d’usage"
+
+#: index.phtml:176
+msgid "Discount"
+msgstr "Remise"
+
+#: index.phtml:177
+msgid "From"
+msgstr "A partir de"
+
+#: index.phtml:178 index.phtml:481
+msgid "To"
+msgstr "Jusqu’à"
+
+#: index.phtml:179
+msgid "used"
+msgstr "En usage"
+
+#: index.phtml:180
+msgid "Create Promotion Code"
+msgstr "Créer un code promotionnel"
+
+#: index.phtml:181
+msgid "App"
+msgstr ""
+
+#: index.phtml:182
+msgid "Description"
+msgstr "Description"
+
+#: index.phtml:183
+msgid "Usage Type (?)"
+msgstr "Type d'usage"
+
+#: index.phtml:184
+msgid "GENERAL"
+msgstr "GENERALITES"
+
+#: index.phtml:185
+msgid "SINGLE"
+msgstr "Unique"
+
+#: index.phtml:186
+msgid "Allows the code to be used multiple times within the given time period."
+msgstr "Permet au code d'être utilisé plusieurs fois sur une période donnée"
+
+#: index.phtml:187
+msgid "Ideal for general discounts for apps."
+msgstr "idéal pour les promotions d'applications"
+
+#: index.phtml:188
+msgid "Promtion code is valid only for the first to redeem it."
+msgstr "le code promotionnel est valable uniquement pour le premier acheteur"
+
+#: index.phtml:189
+msgid "The code is automatically disabled after a single use"
+msgstr ""
+"Le code est à usage unique, il est automatiquement hors-service ensuite"
+
+#: index.phtml:190
+msgid "Discount Amount"
+msgstr "Montant de la promotion"
+
+#: index.phtml:191
+msgid "Valid From"
+msgstr "valable du"
+
+#: index.phtml:192
+msgid "Valid To"
+msgstr "valable pour"
+
+#: index.phtml:193
+msgid "Payout options"
+msgstr "options de paiement"
+
+#: index.phtml:194
+msgid "Support details"
+msgstr "détails d'aide"
+
+#: index.phtml:195
+msgid "Address"
+msgstr "Adresse"
+
+#: index.phtml:196
+msgid "Company information"
+msgstr "informations sur l'entreprise"
+
+#: index.phtml:197
+msgid "Account settings"
+msgstr "Paramètres du Compte"
+
+#: index.phtml:198
+msgid "Paypal address"
+msgstr "adresse Paypal"
+
+#: index.phtml:199
+msgid ""
+"Require a different payout solution? We might be able to help - contact us on"
+msgstr ""
+"Vous souhaitez une autre solution de paiement? Nous pouvons vous aider - "
+"contactez-nous via"
+
+#: index.phtml:200
+msgid "Support email"
+msgstr "Adresse mail assistance"
+
+#: index.phtml:201
+msgid "Support text"
+msgstr "Aide sur le texte"
+
+#: index.phtml:202
+msgid ""
+"This text will be attached to the bottom of the email when receipts are sent "
+"to users who purchase your content."
+msgstr ""
+"ce texte figurera dans le mail quand les confirmations de paiement seront "
+"envoyées aux clients qui achètent votre application"
+
+#: index.phtml:203
+msgid "Country"
+msgstr "Pays"
+
+#: index.phtml:204
+msgid "Skype ID"
+msgstr "Identifiant Skype"
+
+#: index.phtml:205
+msgid "Facebook URL"
+msgstr "Lien Facebook"
+
+#: index.phtml:206
+msgid "Twitter ID"
+msgstr "Identifiant Twitter"
+
+#: index.phtml:207
+msgid "Linkedin  URL"
+msgstr "Lien linkedIn"
+
+#: index.phtml:208
+msgid "Google Maps location URL"
+msgstr "Lien de localisation Google Maps"
+
+#: index.phtml:209
+msgid "Brief description of your company"
+msgstr "Description de votre société"
+
+#: index.phtml:210
+msgid "Company Logo"
+msgstr "logo de l'entreprise"
+
+#: index.phtml:211
+msgid "Logo image should be an exact square. gif, jpeg or png only"
+msgstr ""
+"Le logo de l'image doit être un carré, en format : gif, jpeg ou png "
+"seulement."
+
+#: index.phtml:212
+msgid "Save name and company details"
+msgstr "sauvegarder nom et détails de la compagnie"
+
+#: index.phtml:213
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: index.phtml:214
+msgid "Are you sure you want to reset your account ID?"
+msgstr "Êtes-vous sûr(e) de vouloir réinitialiser votre compte?"
+
+#: index.phtml:215
+msgid "Account ID"
+msgstr "Identifiant du compte"
+
+#: index.phtml:216
+msgid "Reset Account ID"
+msgstr "Réinitialiser les identifiants du compte"
+
+#: index.phtml:217
+msgid "Save login details"
+msgstr "sauvegarder les détails de connexion"
+
+#: index.phtml:218
+msgid "Invoices"
+msgstr "Factures"
+
+#: index.phtml:219
+msgid "My Funds"
+msgstr "Mon argent"
+
+#: index.phtml:220
+msgid "Transactions"
+msgstr "Transactions"
+
+#: index.phtml:221
+msgid "Royalties"
+msgstr "Redevances"
+
+#: index.phtml:222
+msgid ""
+"Your payment is been successfully completed. An invoice has been sent to "
+"your email address."
+msgstr ""
+"Votre paiement a bien été effectué. Une facture a été envoyée à votre "
+"adresse e-mail."
+
+#: index.phtml:223
+msgid "Your payment has failed. No funds were transfered. Please try again"
+msgstr ""
+"Votre paiement a échoué. Aucune transaction n'a été réalisée. Veuillez "
+"réessayer s'il vous plaît"
+
+#: index.phtml:224
+msgid "Invoice no"
+msgstr "Facture n°"
+
+#: index.phtml:225
+msgid "Date"
+msgstr "Date"
+
+#: index.phtml:226
+msgid "Amount"
+msgstr "Montant"
+
+#: index.phtml:227
+msgid "Payment gateway"
+msgstr "Passerelle de paiement"
+
+#: index.phtml:228
+msgid "Transaction id"
+msgstr "Identifiant de transaction"
+
+#: index.phtml:229
+msgid "Funds available"
+msgstr "Argent disponible"
+
+#: index.phtml:230
+msgid "Save payout options"
+msgstr "sauvegarder options de versement"
+
+#: index.phtml:231
+msgid "Credited"
+msgstr "Crédité"
+
+#: index.phtml:232
+msgid "Debited"
+msgstr "Débité"
+
+#: index.phtml:233
+msgid "Total"
+msgstr "Total"
+
+#: index.phtml:234
+msgid "Thanks for your payment.  Here is your receipt."
+msgstr "Merci pour votre achat. Voici votre facture"
+
+#: index.phtml:235
+msgid "Billed To"
+msgstr "Facturé à"
+
+#: index.phtml:236
+msgid "Receipt Date"
+msgstr "date de réception"
+
+#: index.phtml:237
+msgid "Total Amount"
+msgstr "Montant total"
+
+#: index.phtml:238
+msgid "Item Number"
+msgstr "numéro de l'article"
+
+#: index.phtml:239
+msgid "Print this page"
+msgstr "imprimer cette page"
+
+#: index.phtml:240
+msgid "Filters"
+msgstr "Filtres"
+
+#: index.phtml:241
+msgid "Last Week"
+msgstr "Semaine dernière"
+
+#: index.phtml:242
+msgid "Last Month"
+msgstr "Mois dernier"
+
+#: index.phtml:243
+msgid "Last 6 Months"
+msgstr "6 derniers mois"
+
+#: index.phtml:244
+msgid "Filter"
+msgstr "Filtre"
+
+#: index.phtml:245
+msgid "Devices"
+msgstr "Terminaux"
+
+#: index.phtml:246
+msgid "OS"
+msgstr "OS"
+
+#: index.phtml:247
+msgid "Revenue"
+msgstr "Revenus"
+
+#: index.phtml:248
+msgid "Sources"
+msgstr "Sources"
+
+#: index.phtml:249
+msgid "Remove filters"
+msgstr "Supprimer les filtres"
+
+#: index.phtml:250
+msgid "View on neXva"
+msgstr "avis sur Nexva"
+
+#: index.phtml:251
+msgid "earned"
+msgstr "gagné"
+
+#: index.phtml:252
+msgid "neXpage views"
+msgstr "consultations de neXpage"
+
+#: index.phtml:253
+msgid "neXpager views"
+msgstr "visites de neXpager"
+
+#: index.phtml:254
+msgid ""
+"We haven't collected enough data to display analytics for this app. Check "
+"back soon!"
+msgstr "Nous n’avons pas  assez de données pour ce contenu."
+
+#: index.phtml:255
+msgid "Most Popular Products Comparison"
+msgstr "Comparaison des applications les plus populaires"
+
+#: index.phtml:256
+msgid "Filter Apps"
+msgstr "Filtrer applications"
+
+#: index.phtml:257
+msgid "neXpager Status"
+msgstr "statut de neXpager"
+
+#: index.phtml:258
+msgid "Your neXpage status is"
+msgstr "Votre statut neXpage est"
+
+#: index.phtml:259
+msgid "Update Information"
+msgstr "Mettre à jour vos informations"
+
+#: index.phtml:260 index.phtml:398
+msgid "Preview"
+msgstr "Aperçu"
+
+#: index.phtml:261
+msgid "image in any content listing page"
+msgstr "des applications"
+
+#: index.phtml:262
+msgid "neXpager is available for single apps as well. Simply click the"
+msgstr "neXpager est disponible pour les applications. Cliquez sur"
+
+#: index.phtml:263
+msgid "New"
+msgstr "Nouveau"
+
+#: index.phtml:264
+msgid "neXpager Introduction"
+msgstr "Présentation de neXpager"
+
+#: index.phtml:265
+msgid "Dynamic Registration Sandbox"
+msgstr "Enregistrement dynamique d'une andbox"
+
+#: index.phtml:266
+msgid "The following content have dynamic registration enabled"
+msgstr ""
+
+#: index.phtml:267
+msgid "Callback URL"
+msgstr "URL de rappel"
+
+#: index.phtml:268 index.phtml:290
+msgid "Request Parameters"
+msgstr "Paramètres de requête"
+
+#: index.phtml:269
+msgid "Response"
+msgstr "Réaction / Intervention"
+
+#: index.phtml:270
+msgid "Callback returned a success response"
+msgstr "Le rappel automatique a réussi"
+
+#: index.phtml:271
+msgid "Callback returned a failure response"
+msgstr "Le rappel automatique a échoué"
+
+#: index.phtml:272
+msgid "Return Code"
+msgstr "code de retour"
+
+#: index.phtml:273
+msgid "You don't have any apps with dynamic registration enabled."
+msgstr "Vous n'avez pas d'application avec enregistrement dynamique"
+
+#: index.phtml:274
+msgid "Create a Ticket"
+msgstr "Déposer une réclamation"
+
+#: index.phtml:275
+msgid "Subject"
+msgstr "Sujet"
+
+#: index.phtml:276
+msgid "Priority"
+msgstr "Degré de criticité"
+
+#: index.phtml:277
+msgid "Attach a file from your computer (File size &lt; 5MB)"
+msgstr "Joindre un  fichier à partir de votre ordinateur (Taille < 5MB)"
+
+#: index.phtml:278
+msgid "Submit"
+msgstr "Soumettre"
+
+#: index.phtml:279
+msgid "Cancel"
+msgstr "Annuler"
+
+#: index.phtml:280
+msgid "My Tickets"
+msgstr "Mes réclamations"
+
+#: index.phtml:281
+msgid "Responses"
+msgstr "Réponses"
+
+#: index.phtml:282
+msgid "Looks like something is broken."
+msgstr "Cette page ne répond pas"
+
+#: index.phtml:283
+msgid "Oops! Well this is embarassing"
+msgstr "Oups ! C'est embarrassant …"
+
+#: index.phtml:284
+msgid "Click on the back button on your browser and try to continue"
+msgstr "Cliquez sur le bouton \"précédent\" dans votre navigateur et continuez"
+
+#: index.phtml:285
+msgid "what you were doing."
+msgstr "ce que vous étiez en train de faire."
+
+#: index.phtml:286
+msgid ""
+"If this error happens again, please click on the link below to report this "
+"issue."
+msgstr ""
+"Si cette erreur survient encore, cliquez sur le lien ci-dessous pour nous "
+"avertir."
+
+#: index.phtml:287
+msgid "Report this issue"
+msgstr "Remonter ce problème"
+
+#: index.phtml:288
+msgid "Exception information:"
+msgstr "information d'anomalie / information sur les conditions d'exception"
+
+#: index.phtml:289
+msgid "Stack trace"
+msgstr "Trace de pile"
+
+#: index.phtml:291
+msgid "Top Platforms"
+msgstr "Top OS"
+
+#: index.phtml:292
+msgid "See all products"
+msgstr "Voir tous les contenus"
+
+#: index.phtml:293
+msgid "All Platforms"
+msgstr "Tous les OS"
+
+#: index.phtml:294
+msgid "Device Name"
+msgstr "Nom du terminal"
+
+#: index.phtml:295
+msgid "All Devices"
+msgstr "Tous Terminaux"
+
+#: index.phtml:296
+msgid "Visits"
+msgstr "consultations"
+
+#: index.phtml:297
+msgid "App Views / Downloads"
+msgstr "Visites/Téléchargements"
+
+#: index.phtml:298
+msgid "App Downloads by CHAP"
+msgstr "Téléchargements d’apps par ???"
+
+#: index.phtml:299
+msgid "Most Downloaded"
+msgstr "Les plus téléchargées"
+
+#: index.phtml:300
+msgid "All Downloads"
+msgstr "Tous les téléchargements"
+
+#: index.phtml:301
+msgid "App Name"
+msgstr "Nom de l’App"
+
+#: index.phtml:302
+msgid "Conversion Rate"
+msgstr "Taux de Conversion"
+
+#: index.phtml:303
+msgid "of total (downloads)"
+msgstr "Pourcentage du Total (téléchargements)"
+
+#: index.phtml:304
+msgid "Coming soon!"
+msgstr "Bientôt disponible !"
+
+#: index.phtml:305
+msgid "Check back soon"
+msgstr "Revenez plus tard s'il vous plaît"
+
+#: index.phtml:306
+msgid "Looks like you've stumbled across our upcoming analytics page."
+msgstr "Oups ! Vous êtes sur une page qui affichera bientôt les statistiques"
+
+#: index.phtml:307
+msgid ""
+"We'll soon be giving you access to a suite of tools to help you get <br> "
+"better insight and quickly pinpoint trends about your application."
+msgstr ""
+"Vous aurez bientôt accès à un aperçu plus détaillé de votre application et "
+"ses tendances d'usage"
+
+#: index.phtml:308
+msgid "Revenue per Channel"
+msgstr "Revenus par Canal"
+
+#: index.phtml:309
+msgid "Channel Partner"
+msgstr "Partenaire"
+
+#: index.phtml:310
+msgid "Sales"
+msgstr "Ventes"
+
+#: index.phtml:311
+msgid "Credit"
+msgstr "Crédit"
+
+#: index.phtml:312
+msgid "App Views by CHAP"
+msgstr "Consultations d'apps par opérateur"
+
+#: index.phtml:313
+msgid "Most Viewed"
+msgstr "Les plus consultées"
+
+#: index.phtml:314
+msgid "All Views"
+msgstr "Tous les avis / toutes les consultations"
+
+#: index.phtml:315
+msgid "of total (views)"
+msgstr "du total (des vues)"
+
+#: index.phtml:316
+msgid ""
+"Before you proceed further, take a minute to read this (it's probably "
+"important)"
+msgstr "Avant d'aller plus loin, prenez le temps de lire ceci"
+
+#: index.phtml:317
+msgid "As always, you can read past announcements by going to the"
+msgstr "Vous pouvez toujours lire les informations en vous rendant sur"
+
+#: index.phtml:318
+msgid "archives"
+msgstr "Archives"
+
+#: index.phtml:319
+msgid "Warning! Please select at least one file!"
+msgstr "Attention ! Merci de sélectionner au moins un fichier !"
+
+#: index.phtml:320
+msgid "Calendar"
+msgstr "calendrier"
+
+#: index.phtml:321
+msgid "Add Reply"
+msgstr "Répondre"
+
+#: index.phtml:322
+msgid "We have sent an email to"
+msgstr "Nous avons envoyé un e-mail à"
+
+#: index.phtml:323
+msgid "with details on how to verify your new account."
+msgstr "avec des informations liées à votre nouveau compte"
+
+#: index.phtml:324
+msgid ""
+"If you don't receive it within 5 minutes, please check your spam folder or "
+msgstr ""
+"Si vous ne recevez rien dans les 5 minutes, merci de vérifier dans vos spams"
+
+#: index.phtml:325
+msgid "click here"
+msgstr "Cliquez ici"
+
+#: index.phtml:326
+msgid "to resend the email."
+msgstr "renvoyer l'e-mail"
+
+#: index.phtml:327 index.phtml:330
+msgid "For any issue contact/add"
+msgstr "Pour tout problème, contactez/ajoutez"
+
+#: index.phtml:328
+msgid "The account verify request is no longer valid for"
+msgstr "Cette demande de vérification de compte n'est plus valable pour"
+
+#: index.phtml:329
+msgid "Please"
+msgstr "S'il vous plaît"
+
+#: index.phtml:331
+msgid "Previous"
+msgstr "précédent"
+
+#: index.phtml:332
+msgid "Thumbnails"
+msgstr "Miniatures"
+
+#: index.phtml:333
+msgid "Size should be more than 256w X 256h and it should be an exact square."
+msgstr ""
+"La taille doit être comprise entre 256w x 256h et doit correspondre à un "
+"carré"
+
+#: index.phtml:334
+msgid "gif, jpeg or png only"
+msgstr "seulement gif, jpeg ou png"
+
+#: index.phtml:335 index.phtml:338
+msgid "Screenshots"
+msgstr "Captures d’écrans"
+
+#: index.phtml:336
+msgid "Size should be more than 320w X 480h."
+msgstr "La taille doit être comprise entre 320w X 480h"
+
+#: index.phtml:337
+msgid ""
+"Your Thumbnail will be displayed to the left of your short description  on "
+"the content listings pages (category pages, search results, etc).  You can "
+"check your content's presentation by clicking 'View' from your  main content "
+"Admin page."
+msgstr ""
+"L’apercu image sera affiché à gauche de votre description (catégories "
+"d’applications, résultats de recherche, etc). \n"
+"Vous pouvez vérifier la description du contenu que vous avez publié en "
+"cliquant sur « voir » via la page d’accueil Admin."
+
+#: index.phtml:339
+msgid "Are you sure you want to delete?"
+msgstr "Êtes-vous sûr(e) de vouloir supprimer ceci?"
+
+#: index.phtml:340
+msgid "Select this if your app support all devices (eg: a Web service)"
+msgstr ""
+
+#: index.phtml:341
+msgid ""
+"You can select devices with attributes such as MP3 payback and Java MIDP 2.0 "
+"or over support."
+msgstr ""
+"Vous pouvez sélectionner des terminaux selon des caractéristiques ( ex : "
+"MP3, Java)"
+
+#: index.phtml:342
+msgid "Playback Attributes"
+msgstr "attributs de reproduction"
+
+#: index.phtml:343
+msgid "Support MP3 Playback"
+msgstr "Aide sur MP3 Playback"
+
+#: index.phtml:344
+msgid "Java Attributes"
+msgstr "caractéristiques Java"
+
+#: index.phtml:345
+msgid "Support MIDP 1.0"
+msgstr "Aide sur MIDP 1.0"
+
+#: index.phtml:346
+msgid "Support MIDP 2.0 or Over"
+msgstr "Aide sur MIDP 2.0 ou plus"
+
+#: index.phtml:347
+msgid "Display Attributes"
+msgstr "Caractéristiques d'affichage"
+
+#: index.phtml:348
+msgid "Minimum Resolution Width"
+msgstr "Largeur de résolution minimum"
+
+#: index.phtml:349
+msgid "Leave this as a blank if you do not want to filter by width"
+msgstr "Laissez un blanc si vous ne souhaitez pas filtrer par \"largeur\""
+
+#: index.phtml:350
+msgid "Minimum Resolution Height"
+msgstr "Taille de résolution minimum"
+
+#: index.phtml:351
+msgid "Leave this as a blank if you do not want to filter by height"
+msgstr "Laissez un blanc si vous ne souhaitez pas filtrer par \"hauteur\""
+
+#: index.phtml:352
+msgid "Navigation Attributes"
+msgstr "Paramètres de Navigation"
+
+#: index.phtml:353
+msgid "Poninting Method"
+msgstr "procédé de pointage"
+
+#: index.phtml:354
+msgid "Manually Select Devices"
+msgstr "Sélectionner manuellement terminaux"
+
+#: index.phtml:355
+msgid "Select devices manually"
+msgstr "Sélection manuelle des terminaux"
+
+#: index.phtml:356
+msgid "Type Device Keywords to Search"
+msgstr "Mots clés type de device à rechercher"
+
+#: index.phtml:357
+msgid "Show Currently Selected Devices"
+msgstr "Montrer les devices sélectionnés"
+
+#: index.phtml:358
+msgid "Select None"
+msgstr "Aucune sélection"
+
+#: index.phtml:359
+msgid "Add your content details in other languages of nexva site"
+msgstr ""
+"Ajouter plus de détails sur votre applications en d'autres langues sur le "
+"site de neXva"
+
+#: index.phtml:360
+msgid "Add language"
+msgstr "Ajouter Langue"
+
+#: index.phtml:361
+msgid "Language"
+msgstr "Langue"
+
+#: index.phtml:362
+msgid "Brief description"
+msgstr "Brève description"
+
+#: index.phtml:363
+msgid "Brief Description"
+msgstr "Brève description"
+
+#: index.phtml:364
+msgid "English"
+msgstr "Anglais"
+
+#: index.phtml:365
+msgid "Advanced English Dictionary &amp; Thesaurus (Android)"
+msgstr ""
+
+#: index.phtml:366
+msgid ""
+"WordNet&reg; is a large lexical database of English with up to 140,000 "
+"entries and more than 1.4 million words, developed by the Cognitive Science "
+"Laboratory at Princeton University."
+msgstr ""
+
+#: index.phtml:367
+msgid ""
+"Please seect only one sub category which is most suitable for your content."
+msgstr ""
+
+#: index.phtml:368
+msgid "Files/URL"
+msgstr "Fichiers/URL"
+
+#: index.phtml:369
+msgid "Content : (Files/URL)"
+msgstr "Contenus : (Fichiers/Liens URL)"
+
+#: index.phtml:370
+msgid "Build Name"
+msgstr "Nom de l'APK"
+
+#: index.phtml:371
+msgid "2MB max file size"
+msgstr "Taille fichier max : 2MB"
+
+#: index.phtml:372
+msgid "Important Note"
+msgstr "Important"
+
+#: index.phtml:373
+msgid "Instructions of upload. TODO : Add instruction by file types."
+msgstr ""
+"Notice de téléchargement. Astuce : ajouter une notice en fonction du type de "
+"fichier"
+
+#: index.phtml:374
+msgid "Logo"
+msgstr "Logo"
+
+#: index.phtml:375
+msgid "CHAP Name"
+msgstr "Opérateur partenaire"
+
+#: index.phtml:376
+msgid "Web URL"
+msgstr "Lien URL Web"
+
+#: index.phtml:377
+msgid "Countries"
+msgstr "Pays"
+
+#: index.phtml:378
+msgid "Subscriber Base"
+msgstr "Base des abonnés"
+
+#: index.phtml:379
+msgid "Channel Description"
+msgstr "Description du canal"
+
+#: index.phtml:380 index.phtml:410
+msgid "Manage Content"
+msgstr "Gestion des applications"
+
+#: index.phtml:381
+msgid ""
+"Click on Publish Now,  if you have completed uploading your application. So "
+"neXva content managers get notification about your application to review and "
+"publish."
+msgstr ""
+"Cliquez sur \"publier maintenant\" si vous avez terminé le process de "
+"publication de votre application. neXva sera alors notifié et pourra "
+"vérifier puis procéder à la publication."
+
+#: index.phtml:382
+msgid "Edit"
+msgstr "Modifier"
+
+#: index.phtml:383
+msgid "View"
+msgstr "avis"
+
+#: index.phtml:384
+msgid "Add Build"
+msgstr "Ajouter fichier APK"
+
+#: index.phtml:385
+msgid "Add Translation"
+msgstr "Ajouter des traductions"
+
+#: index.phtml:386
+msgid "neXpager app page"
+msgstr "page neXpager"
+
+#: index.phtml:387
+msgid "White-label name"
+msgstr "Nom développeur"
+
+#: index.phtml:388
+msgid "This would be your white-label name"
+msgstr "Cela doit être le nom : votrenom.nexva.com"
+
+#: index.phtml:389
+msgid "Basic content details"
+msgstr "Détails"
+
+#: index.phtml:390
+msgid ""
+"By claiming this application, I hereby certify that I am the copyright owner "
+"for this application or I am acting on behalf of the organization which is "
+"the copyright holder of this application."
+msgstr ""
+"Je certifie par la présente que je suis propriétaire de cette application, "
+"ayant tous droits réservés ou que j'agis pour le compte de l'organisation "
+"qui est le détenteur de cette application."
+
+#: index.phtml:391
+msgid "Content Submit and Confirm"
+msgstr "Soumettre le contenu et confirmer"
+
+#: index.phtml:392
+msgid "EDIT"
+msgstr "MODIFIER"
+
+#: index.phtml:393
+msgid "Content Categories"
+msgstr "Catégories"
+
+#: index.phtml:394
+msgid "Warning! Please upload atleast one screenshot!"
+msgstr "Attention ! Merci de sélectionner au moins une capture d'écran !"
+
+#: index.phtml:395
+msgid "Warning! Please select at least one category!"
+msgstr "Attention ! Merci de sélectionner au moins une catégorie !"
+
+#: index.phtml:396
+msgid "Content Builds"
+msgstr "contenu de l'APK"
+
+#: index.phtml:397
+msgid "Build"
+msgstr "APK"
+
+#: index.phtml:399
+msgid "HTML With Link"
+msgstr "lien HTML"
+
+#: index.phtml:400
+msgid "Large"
+msgstr "Grand/grande"
+
+#: index.phtml:401 index.phtml:890
+msgid "Medium"
+msgstr "Élevée"
+
+#: index.phtml:402
+msgid "Small"
+msgstr "Petit"
+
+#: index.phtml:403
+msgid "QR-Code"
+msgstr "QR Code"
+
+#: index.phtml:404
+msgid "Show Logo"
+msgstr "Montrer logo"
+
+#: index.phtml:405
+msgid "Follow the instructions below"
+msgstr "Suivez les instructions ci-dessous"
+
+#: index.phtml:406
+msgid "Copy the code (see above)"
+msgstr "Copier le code (voir ci-dessus)"
+
+#: index.phtml:407
+msgid "Paste the code into your Web page."
+msgstr "Collez le code dans votre page web"
+
+#: index.phtml:408
+msgid "Save and refresh the page to see your changes."
+msgstr "sauvegarder et actualiser la page pour voir les mises à jour"
+
+#: index.phtml:409
+msgid "Download From S3"
+msgstr "télécharger à partir de S3"
+
+#: index.phtml:411
+msgid "Edit this content"
+msgstr "Modifier ce contenu"
+
+#: index.phtml:412
+msgid "Your unique Application id is"
+msgstr "Votre identifiant unique d'application est"
+
+#: index.phtml:413
+msgid ""
+"Click on Publish Now,  So neXva content managers get notification about your "
+"application to review and publish for inapp. Please use this id as your "
+"product id for your application"
+msgstr ""
+"Cliquez sur \"publier maintenant\". neXva sera alors notifié et pourra "
+"vérifier puis procéder à la publication de l'application payante. Veuillez "
+"utiliser cet identifiant comme identifiant de votre application"
+
+#: index.phtml:414
+msgid "Your payout scheme is"
+msgstr "Votre schéma de paiement est"
+
+#: index.phtml:415
+msgid "You earn"
+msgstr "Vous gagnez"
+
+#: index.phtml:416
+msgid "minus payment gateway costs"
+msgstr "Passerelle de paiement moins coûts"
+
+#: index.phtml:417
+#, php-format
+msgid "and neXva keeps 25% under this scheme."
+msgstr ""
+
+#: index.phtml:418
+msgid ""
+"Your earnings will vary depending on the payment gateway that the user "
+"decides to use."
+msgstr ""
+"Vos revenus varieront en fonction de la passerelle de paiement que "
+"l'utilisateur souhaite utiliser"
+
+#: index.phtml:419
+msgid ""
+"The information below describes in detail how much you will earn depending "
+"on the payment gateway that is used.t"
+msgstr ""
+"Les informations ci-dessous expliquent en détails les revenus que vous "
+"pouvez générer en fonction de la plateforme de paiement utilisée"
+
+#: index.phtml:420
+msgid "Gateway charges description"
+msgstr "Description de la passerelle de facturation"
+
+#: index.phtml:421
+msgid "Your earning"
+msgstr "votre gain"
+
+#: index.phtml:422
+msgid "fixed cost"
+msgstr "Frais fixe"
+
+#: index.phtml:423
+msgid "Publish Content"
+msgstr "Publier"
+
+#: index.phtml:424
+msgid "Select this option if you want to publish your application in neXva"
+msgstr ""
+"Choisissez cette option si vous souhaitez publier votre application sur neXva"
+
+#: index.phtml:425
+msgid "neXpayer Integration"
+msgstr "intégration de neXpayer"
+
+#: index.phtml:426
+msgid "Select this option if you want to use only"
+msgstr "Choisissez cette option si vous souhaitez seulement utiliser"
+
+#: index.phtml:427
+msgid "nexPayer for your application"
+msgstr "neXpayer pour votre application"
+
+#: index.phtml:428
+msgid "Edit Content"
+msgstr "Modifier contenu"
+
+#: index.phtml:429
+msgid "Add Translations"
+msgstr "Ajouter traduction"
+
+#: index.phtml:430
+msgid "Content Summary"
+msgstr "Sommaire"
+
+#: index.phtml:431
+msgid "Content Description"
+msgstr "Description"
+
+#: index.phtml:432
+msgid "All Translations"
+msgstr "Toutes les traductions"
+
+#: index.phtml:433
+msgid "Name"
+msgstr "Nom"
+
+#: index.phtml:434
+msgid "Last Updated"
+msgstr "Dernière mise à jour"
+
+#: index.phtml:435
+msgid "Delete"
+msgstr "Supprimer"
+
+#: index.phtml:436
+msgid ""
+"You can use our neXlinker tool to promote the promotion codes you create."
+msgstr "Utilisez neXlinker pour communiquer sur vos codes promotionnels"
+
+#: index.phtml:437
+msgid "Simply copy and paste the code below to create a neXlinker widget."
+msgstr ""
+
+#: index.phtml:438
+msgid "Share Promotion Code"
+msgstr "Partager le code promotionnel"
+
+#: index.phtml:439
+msgid "User Login"
+msgstr "session de l'utilisateur"
+
+#: index.phtml:441
+msgid "Forgotten Password"
+msgstr "Mot de passe oublié"
+
+#: index.phtml:442
+msgid "Click here to reset your password"
+msgstr "Cliquez ici pour réinitialiser votre mot de passe"
+
+#: index.phtml:443
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"Entrez votre adresse e-mail, nous vous enverrons un lien pour réinitialiser "
+"votre mot de passe"
+
+#: index.phtml:444
+msgid "Request Password"
+msgstr "Demander un mot de passe"
+
+#: index.phtml:445
+msgid "Remember Me"
+msgstr "Se souvenir de moi"
+
+#: index.phtml:448
+msgid "Thanks, we'll take a look at it"
+msgstr "Merci, nous allons regarder cela"
+
+#: index.phtml:449
+msgid "Thank you for taking time to report this issue."
+msgstr "Merci d'avoir pris du temps pour nous remonter ce problème"
+
+#: index.phtml:450
+msgid "We'll have a look at it as soon as we can."
+msgstr "Nous regarderons cela dès que possible"
+
+#: index.phtml:451
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: index.phtml:452
+msgid "Confirm New Password"
+msgstr "Confirmer nouveau mot de passe"
+
+#: index.phtml:453
+msgid "Login name (Username)"
+msgstr "Nom d'utilisateur"
+
+#: index.phtml:454
+msgid "Content Provider account?"
+msgstr "compte du fournisseur de contenu?"
+
+#: index.phtml:457
+msgid "Online Support"
+msgstr "Aide"
+
+#: index.phtml:458
+msgid "Please enter your username and password."
+msgstr "Veuillez inscrire votre identifiant et votre mot de passe"
+
+#: index.phtml:459
+msgid "Get Help via Skype"
+msgstr "Avoir de l'aide via Skype"
+
+#: index.phtml:460
+msgid "Write to us"
+msgstr "Ecrivez-nous"
+
+#: index.phtml:461
+msgid "Updated on"
+msgstr "Mis à jour le"
+
+#: index.phtml:462
+msgid "Created"
+msgstr "Créé"
+
+#: index.phtml:463
+msgid "Does this app have in-app payments?"
+msgstr "Votre contenu inclue t-il la fonctionnalité de paiement?"
+
+#: index.phtml:464
+msgid "Successfully saved."
+msgstr "Bien enregistré  !"
+
+#: index.phtml:465
+msgid "Thumbnail Picture"
+msgstr "Aperçu image"
+
+#: index.phtml:466
+msgid "Commercial"
+msgstr "Payant"
+
+#: index.phtml:467
+msgid "Free"
+msgstr "Gratuit"
+
+#: index.phtml:468
+msgid "Product Type :"
+msgstr "Type"
+
+#: index.phtml:469
+msgid "Product Type"
+msgstr "Type"
+
+#: index.phtml:470
+msgid "Search"
+msgstr "Rechercher"
+
+#: index.phtml:471
+msgid "Snapshot"
+msgstr "paiements"
+
+#: index.phtml:472
+msgid "SELECT RANGE"
+msgstr "Sélection"
+
+#: index.phtml:473
+msgid "Top Devices"
+msgstr "Top Terminaux"
+
+#: index.phtml:474
+msgid "Select Type"
+msgstr "Sélectionner Motif"
+
+#: index.phtml:475
+msgid "Open"
+msgstr "Ouvert"
+
+#: index.phtml:476 index.phtml:885
+msgid "Incident"
+msgstr "Incident"
+
+#: index.phtml:477 index.phtml:891
+msgid "High"
+msgstr "Haute"
+
+#: index.phtml:478
+msgid "Your ticket submited successfully."
+msgstr "Votre réclamation a été prise  en compte"
+
+#: index.phtml:479
+msgid "Attach a file from your computer (File size < 5MB)"
+msgstr "Joindre un  fichier à partir de votre ordinateur (Taille < 5MB)"
+
+#: index.phtml:480
+msgid "Code"
+msgstr "Code"
+
+#: index.phtml:482
+msgid "Update your details"
+msgstr "Mettre à jour vos informations"
+
+#: index.phtml:483
+msgid "This would be your white-label name.eg: yourname.nexva.com"
+msgstr "Cela doit être le nom : votrenom.nexva.com"
+
+#: index.phtml:484
+msgid "No activities found."
+msgstr "Aucune information."
+
+#: index.phtml:485
+msgid "Total amount payable"
+msgstr "Montant total  dû"
+
+#: index.phtml:486
+msgid "Show details"
+msgstr "Afficher les détails"
+
+#: index.phtml:487
+msgid "Year"
+msgstr "Année / an"
+
+#: index.phtml:488
+msgid "Months"
+msgstr "Mois"
+
+#: index.phtml:489
+msgid "Pay via Payal"
+msgstr "Payer via Paypal"
+
+#: index.phtml:490
+msgid ""
+"You have not create an Application Profile to Preview it please create it "
+"now."
+msgstr ""
+"Vous n'avez pas créé de profil d'application pour prévisualiser ceci. Créez-"
+"le maintenant."
+
+#: index.phtml:491
+msgid ""
+"Product visuals are not found!. Please upload atleast one screenshot and "
+"thumbnail."
+msgstr ""
+"Les images sont introuvables ! Merci d'insérer au moins une capture d'écran "
+"et une vignette"
+
+#: index.phtml:492
+msgid ""
+"Product visuals are not found!. Please upload atleast one thumbnail  and a "
+"screenshot."
+msgstr ""
+"Visuels de l'application non trouvés ! Veuillez télécharger au moins une "
+"capture d'écran et une image miniature"
+
+#: index.phtml:493
+msgid "Successfully Uploaded to Local Server!."
+msgstr "Bien été téléchargé sur le serveur local !"
+
+#: index.phtml:494
+msgid "Successfully Add the  URL filed!."
+msgstr ""
+
+#: index.phtml:495
+msgid "Successfully Added to Categories!."
+msgstr "La catégorie a bien été ajoutée"
+
+#: index.phtml:496
+msgid "Successfully Saved Selected Devices!."
+msgstr "Les terminaux sélectionnés ont bien été ajoutés !"
+
+#: index.phtml:497
+msgid "Successfully saved selected devices"
+msgstr "Les terminaux sélectionnés ont bien été ajoutés"
+
+#: index.phtml:498
+msgid "Please enter values for registration keys."
+msgstr "merci de saisir les valeurs pour les clés d'enregistrement"
+
+#: index.phtml:499
+msgid "Entered URL"
+msgstr "URL sasi"
+
+#: index.phtml:500
+msgid "for the registration script is Invalid."
+msgstr "l'inscription n'est pas valide"
+
+#: index.phtml:501
+msgid "Please enter value for registration key."
+msgstr "merci de saisir la valeur pour les clés d'enregistrement"
+
+#: index.phtml:502
+msgid "Successfully Saved!"
+msgstr "Bien enregistré !"
+
+#: index.phtml:503
+msgid "S3 file upload failled!."
+msgstr "Le téléchargement du fichier S3 a échoué !"
+
+#: index.phtml:504
+msgid "Product deleted successfully"
+msgstr "Cela a bien été supprimé"
+
+#: index.phtml:505
+msgid "File deleted successfully"
+msgstr "Le fichier a bien été supprimé"
+
+#: index.phtml:506
+msgid "Error occured while saving data, please re-try."
+msgstr "Une erreur est survenue durant le téléchargement, veuillez réessayer."
+
+#: index.phtml:507
+msgid "Selected ticket(s) deleted successfully."
+msgstr "Les réclamations sélectionnées ont bien été supprimées"
+
+#: index.phtml:508
+msgid "Your response submited successfully."
+msgstr "Votre réponse a été publiée"
+
+#: index.phtml:509
+msgid "Error on adding your response."
+msgstr "Une erreur est survenue lors de la saisie de votre réponse."
+
+#: index.phtml:510
+msgid "Error downloading file."
+msgstr "erreur de chargement"
+
+#: index.phtml:511
+msgid "An error occurred, please try again."
+msgstr "Une erreur est survenue, veuillez réessayer"
+
+#: index.phtml:512
+msgid "Your neXva Account ID was reset successfully"
+msgstr "Votre identifiant de compte neXva a bien été réinitialisé"
+
+#: index.phtml:513
+msgid "Your profile details have been updated."
+msgstr "Les informations de votre profil ont été mises à jour"
+
+#: index.phtml:514
+msgid "Your contact details have been updated."
+msgstr "Vos coordonnées ont été mises à jour"
+
+#: index.phtml:515
+msgid "Support details have been saved."
+msgstr "les détails d'aide ont bien été enregistés"
+
+#: index.phtml:516
+msgid "Payout options details have been saved."
+msgstr "les options de paiement ont bien été enregistrées."
+
+#: index.phtml:517
+msgid ""
+"User Agreement Between Developers & neXva Inc. has been change recently. "
+"Please read the new terms & conditions put the tick to Agree it."
+msgstr ""
+"Les conditions et accord entre développeurs et neXva Inc. Ont changé "
+"récemment. Merci de lire ce nouveau document et cocher la case \"approuver\"."
+
+#: index.phtml:519
+msgid "Check the box to agree neXva terms and conditions."
+msgstr "Cocher la case pour accepter les Termes et Conditions de neXva"
+
+#: index.phtml:520
+msgid ""
+"Build name will help you to identify your files associate with devices, Eg: "
+"Java, MIDP 1.0"
+msgstr ""
+"Le nom de l'APK vous aidera à identifier vos fichiers selon le type de "
+"terminaux (ex : Java, MIDP 1.0)"
+
+#: index.phtml:521
+msgid "Build Name must contain only numbers, characters, space, '-' and '_'"
+msgstr ""
+"Le nom de l'APK doit contenir uniquement : chiffres, lettres, \"espace\", \"-"
+"\", \"_\""
+
+#: index.phtml:522
+msgid "Recent Messages"
+msgstr "Messages récents"
+
+#: index.phtml:523
+msgid "Confirm"
+msgstr "Confirmer"
+
+#: index.phtml:524
+msgid "agree"
+msgstr "confirmer"
+
+#: index.phtml:525
+msgid "Create Build"
+msgstr "Soumettre APK"
+
+#: index.phtml:526
+msgid "Remove All Devices"
+msgstr "Supprimer tous les terminaux"
+
+#: index.phtml:527
+msgid "Save Build"
+msgstr "enregistrer l'APK"
+
+#: index.phtml:528
+msgid "Show All Devices"
+msgstr "Montrer tous les Devices"
+
+#: index.phtml:529
+msgid "Show Devices"
+msgstr "Montrer les devices"
+
+#: index.phtml:530
+msgid "Publish Now"
+msgstr "Publier maintenant"
+
+#: index.phtml:531
+msgid "Create"
+msgstr "Créer"
+
+#: index.phtml:532
+msgid "Filter Transactions"
+msgstr "Filtrer transactions"
+
+#: index.phtml:533
+msgid "Claim this Application"
+msgstr "la présente application"
+
+#: index.phtml:534
+msgid "Confirm and Save"
+msgstr "Confirmer et sauvegarder"
+
+#: index.phtml:535
+msgid "Save Translation"
+msgstr "Sauvegarder traduction"
+
+#: index.phtml:536
+msgid "Generate Code"
+msgstr "Générer un code"
+
+#: index.phtml:537
+msgid "Change Password"
+msgstr "Changer mot de passe"
+
+#: index.phtml:538
+msgid "File Not Found"
+msgstr "Fichier non trouvé"
+
+#: index.phtml:539
+msgid "Unsubscribe"
+msgstr "Se désabonner"
+
+#: index.phtml:540
+msgid "Subscribe"
+msgstr "s'abonner"
+
+#: index.phtml:541
+msgid "View Invoice"
+msgstr "relevé de facture"
+
+#: index.phtml:542
+msgid "Downloads count"
+msgstr "Nombre de téléchargements"
+
+#: index.phtml:543
+msgid "Product views"
+msgstr "Visites"
+
+#: index.phtml:544
+msgid "Support Channel"
+msgstr "Aide sur les canaux"
+
+#: index.phtml:545
+msgid "Share"
+msgstr "Partager"
+
+#: index.phtml:546
+msgid "Trouble accessing your account? Authenticate and recover your password."
+msgstr ""
+"Vous n'accédez pas à votre compte? Authentifiez-vous et récupérez votre mot "
+"de passe"
+
+#: index.phtml:547
+msgid "Screenshots successfully saved"
+msgstr "Les captures d'écrans ont bien été enregistrées"
+
+#: index.phtml:548
+msgid "Thumbnail successfully saved"
+msgstr "Les aperçus d'images ont bien été enregistrés"
+
+#: index.phtml:549
+msgid "Build Platform"
+msgstr "Plateforme de l'APK"
+
+#: index.phtml:550
+msgid "Build Language"
+msgstr "Langue de l'APK"
+
+#: index.phtml:551
+msgid "Upload Files"
+msgstr "Téléchargement de fichier"
+
+#: index.phtml:552
+msgid "Your content should not exceed"
+msgstr "Votre contenu ne doit pas excéder"
+
+#: index.phtml:553
+msgid "You may select up-to 20 files at a time for upload."
+msgstr ""
+"Vous pouvez sélectionner jusqu’à 20 fichiers à télécharger simultanément"
+
+#: index.phtml:554
+msgid "Please upload all files relevant for a"
+msgstr "Merci de télécharger les fichiers nécéssaires à l’"
+
+#: index.phtml:555
+msgid "If your content only supports"
+msgstr "Si votre contenu supporte seulement"
+
+#: index.phtml:556
+msgid "over-the-air"
+msgstr "en direct"
+
+#: index.phtml:557
+msgid ""
+"installation. Do not upload content such as license file or user manuals."
+msgstr "Ne téléchargez pas de licence, ni manuel d’utilisation"
+
+#: index.phtml:558
+msgid ""
+"Please upload all files relevant for a OTA installation. Do not upload "
+"content such as license file or user manuals."
+msgstr ""
+"Veuillez télécharger tous les contenus utiles pour une installation OTA. Ne "
+"téléchargez pas de licence ni manuel d'utilisation."
+
+#: index.phtml:559
+msgid "side-loading"
+msgstr "le chargement latéral"
+
+#: index.phtml:560
+msgid "and not OTA installs,"
+msgstr "et non l’installation OTA,"
+
+#: index.phtml:561 index.phtml:703
+msgid "please"
+msgstr "s'il vous plaît"
+
+#: index.phtml:562
+msgid "contact us"
+msgstr "Contactez-nous"
+
+#: index.phtml:563
+msgid "for assistance"
+msgstr "pour aide"
+
+#: index.phtml:564
+msgid ""
+"If you find any problems with uploading file, upgrade your flash player "
+"plugin."
+msgstr ""
+"Si vous rencontrez des problèmes de téléchargement, mettez à jour votre "
+"outil FlashPlayer"
+
+#: index.phtml:565
+msgid "Browse"
+msgstr "Parcourir"
+
+#: index.phtml:566
+msgid "Drop Here"
+msgstr "déposer ici"
+
+#: index.phtml:567
+msgid "Preferably, point your URLs directly to the content"
+msgstr "Redirigez vos URLs directement vers votre contenu"
+
+#: index.phtml:568
+msgid "Make sure you prefix 'http://' to your URL."
+msgstr "Assurez vous que votre URL contient le préfixe \"http://\""
+
+#: index.phtml:569
+msgid "If you have multiple URLs, enter each of them in a new line."
+msgstr ""
+"Si vous avez des URLs multiples, entrez chacunes d'entre elles sur une "
+"nouvelle ligne."
+
+#: index.phtml:570
+msgid ""
+"Please ensure your URLs work. neXva periodically runs a link-bot to check "
+"for broken URLs and may suspend your content automatically if the URLs are "
+"broken for more than 24 hours."
+msgstr ""
+"Assurez-vous s'il vous plait que vos URLs fonctionnent. neXva dispose d'un "
+"robot qui va ponctuellement vérifier le statut de chaque URL. Votre contenu "
+"pourrait être automatiquement suspendu pendant plus de 24h si vos URLs ne "
+"fonctionnent pas."
+
+#: index.phtml:571
+msgid "Selected Devices"
+msgstr "Terminaux sélectionnés"
+
+#: index.phtml:572
+msgid "Filter by Attributes"
+msgstr "Filtrer selon caractéristiques des terminaux"
+
+#: index.phtml:573
+msgid "How to deal with future devices"
+msgstr "comment procéder avec les terminaux à venir"
+
+#: index.phtml:574
+msgid "Alert me"
+msgstr "M'avertir"
+
+#: index.phtml:575
+msgid ""
+"Send me an email alert when new devices that are compatible with my content "
+"is added to the system."
+msgstr ""
+"M'alerter par email quand de nouveaux terminaux compatibles avec mes "
+"applications sont disponibles sur la plateforme"
+
+#: index.phtml:576
+msgid "Alert me and update automatically"
+msgstr "M'alerter et mettre à jour automatiquement"
+
+#: index.phtml:577
+msgid ""
+"Automatically mark the new devices are compatible with my content. Only "
+"recommended if your content is specific to a certain device capability (e.g. "
+"MP3 playback or input method). You will still receive an email alert telling "
+"you what devices were marked."
+msgstr ""
+"Sélectionner automatiquement les nouveaux terminaux compatibles avec mes "
+"applications. Recommandé uniquement si votre contenu est spécifique à un "
+"type de terminal. Vous serez toujours alerté par mail."
+
+#: index.phtml:578
+msgid "Do nothing."
+msgstr "Ne rien faire."
+
+#: index.phtml:579
+msgid ""
+"Select this option if you're sure that future devices will not be compatible "
+"with your content. Email alerts will not be sent."
+msgstr ""
+"cocher cette option si vous n'êtes pas sûr(e) que de nouveaux terminaux "
+"seront compatibles avec vos applications. Les alertes e-mails ne seront pas "
+"envoyées."
+
+#: index.phtml:580
+msgid "Select devices with attributes"
+msgstr "Sélectionner terminaux selon caractéristiques"
+
+#: index.phtml:581
+msgid "Device Platform Attributes"
+msgstr "Caractéristiques terminaux"
+
+#: index.phtml:582
+msgid "Minimum Version"
+msgstr "Version min."
+
+#: index.phtml:583
+msgid "Learn More."
+msgstr "En savoir plus."
+
+#: index.phtml:584
+msgid "or better"
+msgstr "ou mieux"
+
+#: index.phtml:585
+msgid "Support MIDP 2.0"
+msgstr "Aide MIDP 2.0"
+
+#: index.phtml:586
+msgid " Minimum Resolution Width"
+msgstr "Largeur de résolution minimum"
+
+#: index.phtml:587
+msgid "Leave this as a blank if you do not want to filter by width."
+msgstr "Laissez un blanc si vous ne voulez pas filtrer par largeur"
+
+#: index.phtml:588
+msgid "Leave this as a blank if you do not want to filter by height."
+msgstr "Laissez un blanc si vous ne voulez pas filtrer par longueur"
+
+#: index.phtml:589
+msgid "Pointing Method"
+msgstr "Dispositif de pointage"
+
+#: index.phtml:590
+msgid "Mouse"
+msgstr "souris"
+
+#: index.phtml:591
+msgid "Stylus"
+msgstr "stylet"
+
+#: index.phtml:592
+msgid "Joystick"
+msgstr "manette"
+
+#: index.phtml:593
+msgid "Clickwheel"
+msgstr "molette"
+
+#: index.phtml:594
+msgid "Touchscreen"
+msgstr "écran tactile"
+
+#: index.phtml:595
+msgid "Tags"
+msgstr "onglet"
+
+#: index.phtml:596
+msgid ""
+"Eg: You can use two keywords separated by plus(+) eg. 'Bold+Curve' to search "
+"Blackberry Bold and Blackberry Curve both"
+msgstr ""
+"Vous pouvez utiliser deux mots clés séparés d'un \"+\" ex \"bold+curve\" "
+"pour rechercher Blackberry Bold et Blackberry Curve"
+
+#: index.phtml:597
+msgid "Search Devices"
+msgstr "Recherche Terminaux"
+
+#: index.phtml:598
+msgid "Manage Build for"
+msgstr "Gestion de l'architecture pour"
+
+#: index.phtml:599
+msgid "Add New Build"
+msgstr "Ajouter nouvel APK"
+
+#: index.phtml:600
+msgid "Preview this content"
+msgstr "Aperçu du contenu"
+
+#: index.phtml:601
+msgid "Your product"
+msgstr "Votre produit"
+
+#: index.phtml:602
+msgid "is waiting to approve."
+msgstr "est en attente de validation"
+
+#: index.phtml:603
+msgid "Successfully Saved!."
+msgstr "bien enregistré !"
+
+#: index.phtml:604
+msgid "File"
+msgstr "Fichier"
+
+#: index.phtml:605
+msgid "Saved on S3!."
+msgstr "Enregistré sur S3!"
+
+#: index.phtml:606
+msgid "S3 file"
+msgstr "Fichier S3"
+
+#: index.phtml:607
+msgid "upload failled!."
+msgstr "le téléchargement a échoué"
+
+#: index.phtml:608
+msgid "message"
+msgstr "message"
+
+#: index.phtml:609
+msgid "You have successfully claimed"
+msgstr "Votre demande a été prise en compte"
+
+#: index.phtml:610
+msgid "Claim your App"
+msgstr "certifier votre application"
+
+#: index.phtml:611
+msgid "The application"
+msgstr "L'application"
+
+#: index.phtml:612
+msgid "Promotion code created successfully"
+msgstr "Le code promotionnel a bien été créé"
+
+#: index.phtml:613
+msgid "The following error occured"
+msgstr "L'erreur suivante est survenue"
+
+#: index.phtml:614
+msgid "Promotion code deleted"
+msgstr "Code promotionnel supprimé"
+
+#: index.phtml:615
+msgid "This promotion code cannot be deleted because it has already been used."
+msgstr "Ce code promotionnel ne peut être supprimé car il a déjà été utilisé"
+
+#: index.phtml:616
+msgid "The following error occured while trying to delete this promotion code"
+msgstr ""
+"L'erreur suivante est survenue durant la tentative de suppression du code "
+"promotionnel"
+
+#: index.phtml:617
+msgid ""
+"In order to claim your application, you must first login to your Content "
+"Provider (CP) account. If you don't have an account, please <a href='/user/"
+"register' target='_blank'> click here </a>  to register (once you have "
+"registered and verified your email address, you can try to claim your "
+"application again)."
+msgstr ""
+"Pour certifier votre application, vous devez d'abord vous connecter via "
+"votre compte développeur. Si vous n'avez pas encore de compte, veuillez "
+"cliquer ici pour vous inscrire (une fois que vous êtes inscrit, vous pouvez "
+"réessayer)"
+
+#: index.phtml:618
+msgid "Unknown operation attempted"
+msgstr "tentative incorrecte"
+
+#: index.phtml:619
+msgid "You dont have any white label name."
+msgstr "Vous n'avez pas de marque"
+
+#: index.phtml:620
+msgid "Click here to add"
+msgstr "cliquer ici pour ajouter"
+
+#: index.phtml:621
+msgid "template"
+msgstr "modèle"
+
+#: index.phtml:622
+msgid "You have successfully selected"
+msgstr "Vous avez bien sélectionné"
+
+#: index.phtml:623
+msgid "Header details have been saved."
+msgstr "Les détails du haut de page ont bien été enregistrés"
+
+#: index.phtml:624
+msgid "Footer details have been saved."
+msgstr "Les détails du bas de page ont bien été enregistrés"
+
+#: index.phtml:625
+msgid "header"
+msgstr "en-tête"
+
+#: index.phtml:626
+msgid "footer"
+msgstr "pied de page"
+
+#: index.phtml:627
+msgid "social"
+msgstr "social"
+
+#: index.phtml:628
+msgid "You have successfully changed your Logo"
+msgstr "vous avez bien changé votre Logo"
+
+#: index.phtml:629
+msgid "Css Saved"
+msgstr "CSS bien enregistrés"
+
+#: index.phtml:630
+msgid "Css file has been deleted.Please upload a new one"
+msgstr "le fichier CSS a été supprimé. Veuillez en télécharger un nouveau"
+
+#: index.phtml:631
+msgid "Css file has been saved"
+msgstr "le fichier CSS a bien été enregistré"
+
+#: index.phtml:632
+msgid "Passwords you entered are not same."
+msgstr "Les mots de passe que vous avez inscrits ne sont pas les même"
+
+#: index.phtml:633
+msgid "Please select a Device Operating System"
+msgstr "Veuillez sélectionner l'OS du terminal"
+
+#: index.phtml:634
+msgid "Please add content to continue"
+msgstr "Veuillez ajouter un contenu pour continuer"
+
+#: index.phtml:635
+msgid "Content Type"
+msgstr "Type de contenu"
+
+#: index.phtml:636
+msgid "Device Selection Type"
+msgstr "Sélection du type de terminal"
+
+#: index.phtml:637
+msgid "Prix"
+msgstr "Prix"
+
+#: index.phtml:638
+msgid "Is Featured"
+msgstr "est mis en avant"
+
+#: index.phtml:639
+msgid "is featured"
+msgstr ""
+
+#: index.phtml:640
+msgid "Is Suggested"
+msgstr "est suggéré"
+
+#: index.phtml:641
+msgid "Created Date"
+msgstr "Date créée"
+
+#: index.phtml:642
+msgid "Inapp"
+msgstr "intra-application"
+
+#: index.phtml:643
+msgid "Deleted Date"
+msgstr "Date supprimée"
+
+#: index.phtml:644
+msgid "Nexpush Id"
+msgstr "identifiant neXpush"
+
+#: index.phtml:645
+msgid "Google Download Count"
+msgstr "Compte de téléchargement Google"
+
+#: index.phtml:646
+msgid "Google Id"
+msgstr "Identifiant  Google"
+
+#: index.phtml:647
+msgid "Apple Id"
+msgstr "Identifiant Apple"
+
+#: index.phtml:648
+msgid "Inapp Payment"
+msgstr "Paiement intra-application"
+
+#: index.phtml:649
+msgid "Product Version"
+msgstr "Version du produit"
+
+#: index.phtml:650
+msgid "Full Description"
+msgstr "Description entière"
+
+#: index.phtml:651
+msgid "Notify Email"
+msgstr "e-mail par notification"
+
+#: index.phtml:652
+msgid "Desktop Product"
+msgstr "application bureautique"
+
+#: index.phtml:653
+msgid "Content Registration Details"
+msgstr "Détails d'authentification"
+
+#: index.phtml:654
+msgid "Password Reset Request"
+msgstr "Demande de réinitialisation de mot de passe"
+
+#: index.phtml:655
+msgid ""
+"A request to reset your password was recently requested. Please click the "
+"link below to verify your account and securely reset password. Please note "
+"that this link would only be valid for 1 hour for security reasons"
+msgstr ""
+"Une demande de changement de mot de passe a été effectuée.\n"
+"Pour se faire, veuillez cliquer sur le lien ci-dessous. Pour des raisons de "
+"sécurité, le lien sera valide 1 heure. "
+
+#: index.phtml:656
+msgid ""
+"If you did not make this request, you can safely ignore this email and no "
+"further action is required from you."
+msgstr ""
+"Si vous n'êtes pas auteur de cette requête, ignorez ce mail en toute "
+"sécurité. Plus aucune autre action ne vous sera demandée."
+
+#: index.phtml:657
+msgid "Thank you"
+msgstr "Merci"
+
+#: index.phtml:658
+msgid "Hi Content Administrator"
+msgstr "Hello Admin"
+
+#: index.phtml:659
+msgid "has claimed application."
+msgstr "a certifié cette application."
+
+#: index.phtml:660
+msgid "Details are as follows"
+msgstr "les détails sont les suivants"
+
+#: index.phtml:661
+msgid "Contact Person/Designation/Email"
+msgstr "Contact/dénomination/e-mail"
+
+#: index.phtml:662
+msgid "Originating IP Address"
+msgstr "Adresse IP"
+
+#: index.phtml:663
+msgid "Click here to view details about this CP"
+msgstr "cliquez ici pour voir les détails de ce développeur"
+
+#: index.phtml:664
+msgid "or"
+msgstr "ou"
+
+#: index.phtml:665
+msgid "Click here to view the content in question"
+msgstr "Cliquez ici pour voir le contenu"
+
+#: index.phtml:666
+msgid "To Review the status of the Product, please visit the following URL"
+msgstr "Pour modifier le statut de ce produit, cliquez sur l'URL suivant"
+
+#: index.phtml:667
+msgid "A Content Provider registered with"
+msgstr ""
+
+#: index.phtml:668
+msgid "has changed his Product details recently, Product"
+msgstr ""
+
+#: index.phtml:669
+msgid "neXva System Generated mail"
+msgstr "e-mail neXva généré par le systèmes"
+
+#: index.phtml:670
+msgid "Hello"
+msgstr "Bonjour"
+
+#: index.phtml:671
+msgid ""
+"We would like to acknowledge that we have received your request and a ticket "
+"has been created with Ticke"
+msgstr "Nous accusons réception de votre requête, un ticket a été ouvert avec"
+
+#: index.phtml:672
+msgid ""
+"A support representative will be reviewing your request and will send you a "
+"personal response.(usually within 48 hours)"
+msgstr ""
+"Un membre de l'Assistance va étudier votre requête et vous répondra (dans "
+"les 48h)"
+
+#: index.phtml:673
+msgid ""
+"To view the status of the ticket or add comments, please visit the following "
+"URL"
+msgstr ""
+"Pour voir le statut de cette réclamation ou ajouter un commentaire, veuillez "
+"cliquer sur le lien suivant"
+
+#: index.phtml:674
+msgid "Thank you for your patience"
+msgstr "Merci de patienter"
+
+#: index.phtml:675
+msgid "Sincerely"
+msgstr "Cordialement"
+
+#: index.phtml:676
+msgid "Support Team"
+msgstr "Assistance"
+
+#: index.phtml:677
+msgid "Your neXva.com profile is successfully updated."
+msgstr "Votre profil neXva a bien été mis à jour."
+
+#: index.phtml:678
+msgid "Hi"
+msgstr "Salut"
+
+#: index.phtml:679
+msgid "Team neXva"
+msgstr "Equipe neXva"
+
+#: index.phtml:680
+msgid ""
+"You have successfully updated your customer support details on neXva.com."
+msgstr "Vous avez bien mis à jour vos détails client sur neXva.com"
+
+#: index.phtml:681
+msgid "An application error was reported"
+msgstr "Une erreur liée à l'application a été signalée"
+
+#: index.phtml:682
+msgid "Welcome to neXva"
+msgstr "Bienvenue sur neXva"
+
+#: index.phtml:683
+msgid "Your account is now verified and is ready to be used."
+msgstr "Votre compte a été vérifié, il est maintenant disponible"
+
+#: index.phtml:684
+msgid "To get started uploading content"
+msgstr "Pour télécharger des contenus"
+
+#: index.phtml:685
+msgid "Click here"
+msgstr "Cliquez ici"
+
+#: index.phtml:686
+msgid ""
+"If you were not the one who created this account, please write to us at "
+"abuse@nexva.com."
+msgstr "Si vous n'avez pas créé ce compte, écrivez-nous à abuse@nexva.com"
+
+#: index.phtml:687
+msgid "A New CP has Signed Up"
+msgstr "Un nouveau développeur s'est inscrit"
+
+#: index.phtml:688
+msgid "Hello Site Administrator(s)"
+msgstr "Bonjour les admins"
+
+#: index.phtml:689
+msgid ""
+"This email is to inform you of a new CP who has just signed up with neXva"
+msgstr ""
+"Cet email pour vous informer qu'un nouveau développeur s'est inscrit sur "
+"neXva"
+
+#: index.phtml:690
+msgid "CP ID"
+msgstr "Identifiant développeur"
+
+#: index.phtml:691
+msgid "CP Email"
+msgstr "E-mail développeur"
+
+#: index.phtml:692
+msgid "To view more details about this new CP, click on"
+msgstr "Pour voir plus de détails à propos de ce développeur, cliquez sur"
+
+#: index.phtml:693
+msgid "No devices to display"
+msgstr "Aucun terminal à afficher"
+
+#: index.phtml:694
+msgid "Brand"
+msgstr "Marque"
+
+#: index.phtml:695
+msgid "Model"
+msgstr "Modèle"
+
+#: index.phtml:696
+msgid "(Currently supporting 5430 devices and increasing)"
+msgstr ""
+
+#: index.phtml:697
+msgid ""
+"Eg: Type 'Bold' for 'Blackberry Bold', 'N70' for 'Nokia N70'. You can use "
+"two keywords separated by space eg. 'Bold Curve' to search"
+msgstr ""
+
+#: index.phtml:698
+msgid "Blackberry Bold and Blackberry Curve both"
+msgstr ""
+
+#: index.phtml:699
+msgid "Select All Devices"
+msgstr ""
+
+#: index.phtml:700
+msgid "Device with attributes"
+msgstr ""
+
+#: index.phtml:701
+msgid "Edit Build"
+msgstr "Modifier fichier APK"
+
+#: index.phtml:702
+msgid "Create New Build"
+msgstr "Créer nouveau fichier APK"
+
+#: index.phtml:704
+msgid "No Tickets Found"
+msgstr "Aucun billet trouvé"
+
+#: index.phtml:705
+msgid "The security key wasn't entered correctly. Please try again."
+msgstr ""
+
+#: index.phtml:706
+msgid "Instructions on how to reset your password has been emailed to"
+msgstr ""
+
+#: index.phtml:707
+msgid "Successfully deleted item"
+msgstr ""
+
+#: index.phtml:708
+msgid "This URL is your neXpager mobile app page for this content."
+msgstr ""
+
+#: index.phtml:709
+msgid "No developer account yet?"
+msgstr "Pas encore de compte développeur?"
+
+#: index.phtml:710
+msgid "reset"
+msgstr "Réinitialiser"
+
+#: index.phtml:711
+msgid "January"
+msgstr "janvier"
+
+#: index.phtml:712
+msgid "February"
+msgstr "février"
+
+#: index.phtml:713
+msgid "March"
+msgstr "mars"
+
+#: index.phtml:714
+msgid "April"
+msgstr "avril"
+
+#: index.phtml:715
+msgid "May"
+msgstr "mai"
+
+#: index.phtml:716
+msgid "June"
+msgstr "juin"
+
+#: index.phtml:717
+msgid "July"
+msgstr "juillet"
+
+#: index.phtml:718
+msgid "August"
+msgstr "août"
+
+#: index.phtml:719
+msgid "September"
+msgstr "septembre"
+
+#: index.phtml:720
+msgid "October"
+msgstr "octobre"
+
+#: index.phtml:721
+msgid "November"
+msgstr "novembre"
+
+#: index.phtml:722
+msgid "December"
+msgstr "décembre"
+
+#: index.phtml:723
+msgid "Add Builds"
+msgstr "Ajouter APK"
+
+#: index.phtml:724
+msgid "Books & Reference"
+msgstr ""
+
+#: index.phtml:725
+msgid "Games"
+msgstr "123tryr"
+
+#: index.phtml:726
+msgid "Tools & Productivity"
+msgstr ""
+
+#: index.phtml:727
+msgid "Business & Finance"
+msgstr ""
+
+#: index.phtml:728
+msgid "Travel & GPS"
+msgstr ""
+
+#: index.phtml:729
+msgid "News & Sports"
+msgstr ""
+
+#: index.phtml:730
+msgid "Social Networks & Messaging"
+msgstr ""
+
+#: index.phtml:731
+msgid "Music & Audio"
+msgstr ""
+
+#: index.phtml:732
+msgid "Video & TV"
+msgstr ""
+
+#: index.phtml:733
+msgid "Lifestyle & Wellness"
+msgstr ""
+
+#: index.phtml:734
+msgid "Education & eLearning"
+msgstr ""
+
+#: index.phtml:735
+msgid "Goodies & Entertainment"
+msgstr ""
+
+#: index.phtml:736
+msgid "Themes"
+msgstr ""
+
+#: index.phtml:737
+msgid "School & Extracurricular"
+msgstr ""
+
+#: index.phtml:738
+msgid "Advanced Studies"
+msgstr ""
+
+#: index.phtml:739
+msgid "School Utilities"
+msgstr ""
+
+#: index.phtml:740
+msgid "Books - Children"
+msgstr ""
+
+#: index.phtml:741
+msgid "Books - All Public"
+msgstr ""
+
+#: index.phtml:742
+msgid "MTN's Application"
+msgstr ""
+
+#: index.phtml:743
+msgid "Airtel Apps"
+msgstr ""
+
+#: index.phtml:744
+msgid "Orange Apps"
+msgstr ""
+
+#: index.phtml:745
+msgid "Adult/Mature Content"
+msgstr ""
+
+#: index.phtml:746
+msgid "eBooks"
+msgstr ""
+
+#: index.phtml:747
+msgid "Audio books"
+msgstr ""
+
+#: index.phtml:748
+msgid "Reference/Dictionaries"
+msgstr ""
+
+#: index.phtml:749
+msgid "Religion"
+msgstr ""
+
+#: index.phtml:750
+msgid "Comics/Manga"
+msgstr ""
+
+#: index.phtml:751 index.phtml:847
+msgid "History"
+msgstr ""
+
+#: index.phtml:752
+msgid "Arcade"
+msgstr ""
+
+#: index.phtml:753
+msgid "Cards"
+msgstr ""
+
+#: index.phtml:754
+msgid "Action/Strategy"
+msgstr ""
+
+#: index.phtml:755
+msgid "Role Playing/Multiplayer"
+msgstr ""
+
+#: index.phtml:756
+msgid "Logic/Puzzle/Trivia"
+msgstr ""
+
+#: index.phtml:757
+msgid "Casino/Cards/Betting"
+msgstr ""
+
+#: index.phtml:758
+msgid "Sports"
+msgstr ""
+
+#: index.phtml:759
+msgid "Educational Games"
+msgstr ""
+
+#: index.phtml:760
+msgid "Utilities/Synchronization"
+msgstr ""
+
+#: index.phtml:761
+msgid "Organizers/Clocks/Desktop"
+msgstr ""
+
+#: index.phtml:762
+msgid "Internet/WAP"
+msgstr ""
+
+#: index.phtml:763
+msgid "Device Tools"
+msgstr ""
+
+#: index.phtml:764
+msgid "Security/Backup"
+msgstr ""
+
+#: index.phtml:765
+msgid "Developers/DB"
+msgstr ""
+
+#: index.phtml:766
+msgid "Office Productivity"
+msgstr ""
+
+#: index.phtml:767
+msgid "Accounts/Tax"
+msgstr ""
+
+#: index.phtml:768
+msgid "Stocks/Finance"
+msgstr ""
+
+#: index.phtml:769
+msgid "Inventory/Sales"
+msgstr ""
+
+#: index.phtml:770
+msgid "Currency/Convertors"
+msgstr ""
+
+#: index.phtml:771
+msgid "GPS/Maps"
+msgstr ""
+
+#: index.phtml:772
+msgid "Weather"
+msgstr ""
+
+#: index.phtml:773
+msgid "Rechercher"
+msgstr ""
+
+#: index.phtml:774
+msgid "POI/Guides"
+msgstr ""
+
+#: index.phtml:775
+msgid "Translation/Language"
+msgstr ""
+
+#: index.phtml:776
+msgid "News/Magazines"
+msgstr ""
+
+#: index.phtml:777
+msgid "Sports/Teams"
+msgstr ""
+
+#: index.phtml:778
+msgid "RSS"
+msgstr ""
+
+#: index.phtml:779
+msgid "IM/SMS/Email/VOIP"
+msgstr ""
+
+#: index.phtml:780
+msgid "Social Networks"
+msgstr ""
+
+#: index.phtml:781
+msgid "Blogs/Images"
+msgstr ""
+
+#: index.phtml:782
+msgid "Podcasts"
+msgstr ""
+
+#: index.phtml:783
+msgid "MP3/Music"
+msgstr ""
+
+#: index.phtml:784
+msgid "Radios/Players"
+msgstr ""
+
+#: index.phtml:785
+msgid "Lyrics/Bands"
+msgstr ""
+
+#: index.phtml:786
+msgid "TV/Shows"
+msgstr ""
+
+#: index.phtml:787
+msgid "Movies/Trailers"
+msgstr ""
+
+#: index.phtml:788
+msgid "Players/Converters"
+msgstr ""
+
+#: index.phtml:789
+msgid "Astro"
+msgstr ""
+
+#: index.phtml:790
+msgid "Food/Recipes"
+msgstr ""
+
+#: index.phtml:791
+msgid "Art/Fashion"
+msgstr ""
+
+#: index.phtml:792
+msgid "Hobbies/Pets"
+msgstr ""
+
+#: index.phtml:793
+msgid "Health/Diet/Fitness"
+msgstr ""
+
+#: index.phtml:794
+msgid "Shopping/Brands"
+msgstr ""
+
+#: index.phtml:795
+msgid "Medical"
+msgstr ""
+
+#: index.phtml:796
+msgid "Languages"
+msgstr ""
+
+#: index.phtml:797
+msgid "Kids/Early learning"
+msgstr ""
+
+#: index.phtml:798 index.phtml:832
+msgid "University"
+msgstr ""
+
+#: index.phtml:799
+msgid "Law"
+msgstr ""
+
+#: index.phtml:800
+msgid "Wallpaper/Screensavers"
+msgstr ""
+
+#: index.phtml:801
+msgid "Personlization/Skins"
+msgstr ""
+
+#: index.phtml:802
+msgid "Humor/Jokes"
+msgstr ""
+
+#: index.phtml:803
+msgid "Ringtones"
+msgstr ""
+
+#: index.phtml:804
+msgid "Techno"
+msgstr ""
+
+#: index.phtml:805
+msgid "Rock"
+msgstr ""
+
+#: index.phtml:806
+msgid "Calm"
+msgstr ""
+
+#: index.phtml:807
+msgid "Arts & Crafts"
+msgstr ""
+
+#: index.phtml:808
+msgid "Animation"
+msgstr ""
+
+#: index.phtml:809
+msgid "French"
+msgstr ""
+
+#: index.phtml:810
+msgid "Mathematics"
+msgstr ""
+
+#: index.phtml:811
+msgid "Living Languages"
+msgstr ""
+
+#: index.phtml:812
+msgid "Languages and Antiquity"
+msgstr ""
+
+#: index.phtml:813
+msgid "History and Geography"
+msgstr ""
+
+#: index.phtml:814
+msgid "Civic Education"
+msgstr ""
+
+#: index.phtml:815
+msgid "Life and Earth Sciences"
+msgstr ""
+
+#: index.phtml:816
+msgid "Physics and Chemistry"
+msgstr ""
+
+#: index.phtml:817
+msgid "Technology"
+msgstr ""
+
+#: index.phtml:818
+msgid "Business and Management"
+msgstr ""
+
+#: index.phtml:819
+msgid "Writing"
+msgstr ""
+
+#: index.phtml:820
+msgid "Marketing and Trade"
+msgstr ""
+
+#: index.phtml:821
+msgid "Reading"
+msgstr ""
+
+#: index.phtml:822
+msgid "Building and Public Works"
+msgstr ""
+
+#: index.phtml:823
+msgid "Other Teaching Resources"
+msgstr ""
+
+#: index.phtml:824
+msgid "Music and Painting Learning"
+msgstr ""
+
+#: index.phtml:825
+msgid "Sport and Physical Education"
+msgstr ""
+
+#: index.phtml:826
+msgid "Arts History"
+msgstr ""
+
+#: index.phtml:827
+msgid "Informatic and Internet"
+msgstr ""
+
+#: index.phtml:828
+msgid "World Discovring"
+msgstr ""
+
+#: index.phtml:829
+msgid "Social Sciences"
+msgstr ""
+
+#: index.phtml:830
+msgid "Economy and Finance"
+msgstr ""
+
+#: index.phtml:831
+msgid "Medecine"
+msgstr ""
+
+#: index.phtml:833
+msgid "BTS"
+msgstr ""
+
+#: index.phtml:834
+msgid "DUT"
+msgstr ""
+
+#: index.phtml:835
+msgid "Prep class and Grandes Ecoles"
+msgstr ""
+
+#: index.phtml:836
+msgid "Exams and Test"
+msgstr ""
+
+#: index.phtml:837
+msgid "Other Resources for Advanced Studies"
+msgstr ""
+
+#: index.phtml:838
+msgid "Human Sciences"
+msgstr ""
+
+#: index.phtml:839
+msgid "Technologies"
+msgstr ""
+
+#: index.phtml:840
+msgid "Tourism and Travel"
+msgstr ""
+
+#: index.phtml:841
+msgid "Wellness and Health"
+msgstr ""
+
+#: index.phtml:842
+msgid "SF & Horror"
+msgstr ""
+
+#: index.phtml:843
+msgid "Police and Suspense"
+msgstr ""
+
+#: index.phtml:844
+msgid "Nature and Animals"
+msgstr ""
+
+#: index.phtml:845
+msgid "Computers and Internet"
+msgstr ""
+
+#: index.phtml:846
+msgid "Actuality"
+msgstr ""
+
+#: index.phtml:848
+msgid "Religion and Spirituality"
+msgstr ""
+
+#: index.phtml:849
+msgid "businesses and Scholarships"
+msgstr ""
+
+#: index.phtml:850
+msgid "Right"
+msgstr ""
+
+#: index.phtml:851
+msgid "Dictionaries, Languages â€‹â€‹and Encyclopedia"
+msgstr ""
+
+#: index.phtml:852
+msgid "Kitchen and Wines"
+msgstr ""
+
+#: index.phtml:853
+msgid "Comics, Manga, Humor"
+msgstr ""
+
+#: index.phtml:854
+msgid "Arts & Photography"
+msgstr ""
+
+#: index.phtml:855
+msgid "Litterature"
+msgstr ""
+
+#: index.phtml:856
+msgid "Calculator"
+msgstr ""
+
+#: index.phtml:857
+msgid "Atlas and World Map"
+msgstr ""
+
+#: index.phtml:858
+msgid "Reminder"
+msgstr ""
+
+#: index.phtml:859
+msgid "Office and Rating"
+msgstr ""
+
+#: index.phtml:860
+msgid "Games, Arts and Design"
+msgstr ""
+
+#: index.phtml:861
+msgid "Audio Books"
+msgstr ""
+
+#: index.phtml:862
+msgid "Tales and Legends"
+msgstr ""
+
+#: index.phtml:863
+msgid "Comics"
+msgstr ""
+
+#: index.phtml:864
+msgid "Knowledge and Discoveries"
+msgstr ""
+
+#: index.phtml:865
+msgid "Songs and Rhymes"
+msgstr ""
+
+#: index.phtml:866
+msgid "Apps"
+msgstr ""
+
+#: index.phtml:867
+msgid "Appstore"
+msgstr ""
+
+#: index.phtml:868
+msgid "Orange"
+msgstr ""
+
+#: index.phtml:869
+msgid "Nudity"
+msgstr ""
+
+#: index.phtml:870
+msgid "Sex"
+msgstr ""
+
+#: index.phtml:871
+msgid "Sex Education"
+msgstr ""
+
+#: index.phtml:872
+msgid "Lingerie and Swimsuits"
+msgstr ""
+
+#: index.phtml:873
+msgid "Yes"
+msgstr "Oui"
+
+#: index.phtml:874
+msgid "No"
+msgstr "Non"
+
+#: index.phtml:875
+msgid "-Select Platform-"
+msgstr "Sélection de l’OS"
+
+#: index.phtml:876
+msgid "Edit APK Publishing Package"
+msgstr "Modifier package de publication de l’APK"
+
+#: index.phtml:877
+msgid "contact us for assistance"
+msgstr "veuillez nous contacter pour que nous vous aidions"
+
+#: index.phtml:878
+msgid "Device Operating System"
+msgstr "OS"
+
+#: index.phtml:879
+msgid "Select"
+msgstr "sélectionner"
+
+#: index.phtml:880
+msgid "Pending Approval"
+msgstr "en attente de validation"
+
+#: index.phtml:881
+msgid "FREEWARE"
+msgstr "application gratuite"
+
+#: index.phtml:882
+msgid "Approved"
+msgstr "validé"
+
+#: index.phtml:883
+msgid "COMMERCIAL"
+msgstr "Payant"
+
+#: index.phtml:884
+msgid "Question"
+msgstr "Question"
+
+#: index.phtml:886
+msgid "Problem"
+msgstr "Difficulté"
+
+#: index.phtml:887
+msgid "Feature"
+msgstr "Autre"
+
+#: index.phtml:888
+msgid "Select Priority"
+msgstr "Sélectionner criticité"
+
+#: index.phtml:889
+msgid "Low"
+msgstr "Moyenne"
+
+#: index.phtml:892
+msgid "Urgent"
+msgstr "Urgente"
+
+#: index.phtml:893
+msgid "Reply"
+msgstr "Réponse"
+
+#: index.phtml:894
+msgid "DESABLED"
+msgstr "désactivé"
+
+#: index.phtml:895
+msgid "ENABLED"
+msgstr "ACTIVÉE"
+
+#: index.phtml:896
+msgid "Activate Now"
+msgstr "Activer"
+
+#: index.phtml:897
+msgid "Deactivate"
+msgstr "Désactiver"
+
+#~ msgid "No Tickets Found "
+#~ msgstr "Aucun billet trouvé"
+
+#~ msgid "Device Operating System "
+#~ msgstr "OS"
+
+#~ msgid "Successfully Saved Selected Devices"
+#~ msgstr "Les terminaux sélectionnés ont bien été ajoutés"
+
+#~ msgid ""
+#~ "Please select only one sub category which is most suitable for your "
+#~ "content."
+#~ msgstr ""
+#~ "merci de sélectionner une sous-catégorie qui convient le mieux au type "
+#~ "d'application que vous souhaitez publier"
+
+#~ msgid "Show In NeXpager"
+#~ msgstr "Voir dans neXpager"
+
+#~ msgid "Show in NeXpager"
+#~ msgstr "Voir dans neXpager"
+
+#~ msgid "Show in neXpager"
+#~ msgstr "Voir dans neXpager"
+
+#~ msgid "Show in neXpager?"
+#~ msgstr "Voir dans neXpager?"
+
+#~ msgid "Device Selection Type "
+#~ msgstr "Sélection du type de terminal"
+
+#~ msgid "is featured "
+#~ msgstr "est mis en avant"
+
+#~ msgid "Is Suggested "
+#~ msgstr "est suggéré"
+
+#~ msgid "Created Date "
+#~ msgstr "Date créée"
+
+#~ msgid "Inapp "
+#~ msgstr "intra-application"
+
+#~ msgid "Deleted Date "
+#~ msgstr "Date supprimée"
+
+#~ msgid "Is Featured "
+#~ msgstr "est mis en avant"
+
+#~ msgid "Please "
+#~ msgstr "S'il vous plaît"
+
+#~ msgid "Please enter First Name"
+#~ msgstr "Veuillez inscrire votre prénom"

@@ -1,0 +1,128 @@
+<?php $t = $this->t();//translator?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link rel="shortcut icon" href="<?=$this->cdn('site_assets')?>/images/favicon.ico" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<?php if ($this->headTitle() != '<title></title>') : ?>
+    <?=$this->headTitle();?>
+<?php else : ?>
+    <title>neXva.com - neXpage</title>
+<?php endif; ?>
+<?=$this->headMeta()?>
+
+
+<link rel="shortcut icon" href="<?=$this->cdn('site_assets')?>/images/favicon.ico" />
+<!-- ////////////////////////////////// -->
+<!-- //      Start Stylesheets       // -->
+<!-- ////////////////////////////////// -->
+<link href="<?=$this->cdn('site_assets')?>/web/nexpage/default/css/style.css" rel="stylesheet" type="text/css" />
+<link href="<?=$this->cdn('site_assets')?>/web/nexpage/default/css/jquery.selectbox.css" rel="stylesheet" type="text/css" />
+
+<?php echo $this->headLink() ?>
+
+<!-- ////////////////////////////////// -->
+<!-- //      Javascript Files        // -->
+<!-- ////////////////////////////////// -->
+<script type="text/javascript" src="<?=$this->cdn('jquirymin')?>"></script>
+<script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/js/jquery.selectbox-0.1.2.min.js"></script>
+<script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/js/contact.js"></script>
+<script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/js/cufon-yui.js"></script>
+<script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/js/Palatino_Linotype_400-Palatino_Linotype_700-Palatino_Linotype_italic_400.font.js"></script>
+
+<?php 
+    $ns = new Zend_Session_Namespace('translation'); //include this only if the translation utility is enabled
+    if (isset($ns->translatorEnabled) && $ns->translatorEnabled === true) : ?>
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/css/translator.css">
+        <link type="text/css" rel="stylesheet" href="<?=$this->cdn('site_assets')?>/web/jquery-ui.nexva.css">
+        <script type="text/javascript" src="<?=$this->cdn('jquiryui')?>"></script>
+        <script type="text/javascript">
+           var __SECTION = '<?php echo $t->getSection()?>';
+           var __PHRASE_TAGS    = {};
+           <?php foreach ($t->getPhraseTags() as $key => $tag) : ?>
+                 __PHRASE_TAGS.<?=$key?> = '<?=addslashes($tag)?>';
+           <?php endforeach;?>
+        </script>
+        <script type="text/javascript" src="<?=$this->cdn('site_assets')?>/web/js/translateutil.js"></script>
+    <?php endif; ?>
+
+
+<script type="text/javascript">
+<?php if ($this->cpid): ?>
+     __CP_ID    = <?=$this->cpid?>;
+<?php endif; ?>
+
+<?php if ($this->isDefaultLang) : ?>
+     Cufon.replace('h1') ('h1 a') ('h2') ('h3') ('h4') ('h5') ('h6') ;
+<?php endif;?>
+
+     $(function () {
+         $("#langlist").selectbox({
+             'effect' : 'slide'
+         });
+
+         $('#langlist').change(function(){$(this).parent('form').submit();})
+     });
+</script>
+<?php echo $this->headScript() ?>
+ 
+
+</head>
+<body>
+<div id="wrapper">
+
+<div id="wrapper2">
+    <div id="container">
+ <div id='language_sel_top'>
+ <form action='/nexpage/changelang' method='post'>
+    <input type='hidden' value='<?=$this->cpid?>' name='cpid'>
+    <button type='submit' class='button'>
+        &#187; 
+    </button>
+    <select name='lang' id='langlist'>
+       <? foreach ($this->language as $language ): ?>
+            <option value="<?=$language->id ?>" <?= ($language->id == $this->selectedLanguage) ? 'selected' : '' ?>>
+                <?=$language->common_name ?> <?=(!empty($language->common_name)) ?  ' &mdash; ' . $language->name : $language->name?>
+            </option>
+       <? endforeach; ?>
+    </select>
+    
+    <div class='sbLabel'>
+        <span><?php $t->_('current_lang');?></span>
+    </div>
+</form>
+</div>
+       
+        
+        <div id="content-box">
+            <div id="content-bgtop">
+                <div id="content-bgbottom">
+                    <?php if (isset($this->flashMessages) && !empty($this->flashMessages)) : ?>
+                        <div id='messageContainer'>
+                            <ul id='messages_top' class='messages'>
+                                <?php
+                                if(is_array($messages)) :
+                                    foreach ($messages as $key=>$value): ?>
+                                        <li><?=$value?></li>
+                                    <?endforeach;?>
+                                <?endif;?>
+                            </ul>
+                        </div>
+                    <?php endif; ?>
+                    
+                    <?=$this->layout()->content;?>
+                    <div class="clear"></div><!-- end clear float -->
+                </div><!-- end #content-bgbottom -->
+            </div><!-- end #content-bgtop -->
+        </div><!-- end #content-box -->
+        
+        
+        <div id="footer">
+        <?php $t->_('copyright');?> &copy; <?=date('Y')?> <?php $t->_('footer_all_rights');?>
+        </div>  <!-- end #footer-->
+    </div><!-- end #container-->    
+</div>
+</div>
+
+</body>
+</html>

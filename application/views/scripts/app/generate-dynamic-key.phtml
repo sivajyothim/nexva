@@ -1,0 +1,68 @@
+
+    <div class="blkCenter innerPage containerGap">
+        <div class="container">
+            <div class="content">
+
+                <?if( !$this->has_purchased) : ?>
+                    <h1>Houston, we have a problem</h1>
+                    <p> Our records indicate that you not bought this app with this account.</p>
+                <?endif;?>
+                    
+                <?if( $this->has_purchased): ?>
+                    <? if( is_null($this->product_key)): ?>
+
+                        <h1>Generate license key</h1><br/>
+
+                        <form id="dynamic_licensing" method="post" action="" name="dynamic_licensing">
+                            <?if($this->request_error != ""):?>
+                                <ul>
+                                    <li style="font-weight:bolder; color:red"><?=$this->request_error?></li>
+                                </ul>
+                            <?endif;?>
+                            
+
+                        Please enter your IMEI code or your Blackberry PIN and press 'Generate' (<a href="">show me how</a>).
+
+                        <br>
+                        <br>
+                        <div class="leftInlineInput">
+                            <label class="leftRounded medium">IMEI/Blacberry PIN *</label>
+                            <input id="imei" class="validate(required) rightRounded large" type="text" value="" name="imei">
+                        </div>
+                        <small>* You can only generate this once per app, so please double-check your IMEI/PIN before generating.</small>
+                        <br/><br/>
+                        <input type="submit" align="center" value="Generate">
+
+
+                        </form>
+                    <?else:?>
+                        <h1>Your License Key</h1><br/>
+                        The license key for your app is: <strong><?=$this->product_key->key?>.</strong>
+                        <br/><br/>Please use it to register/activate your purchase.
+
+                        <br/><br/>
+
+                        <small>
+                            <?
+                                $body = "I'm having problems activating my purchase:";
+                                $body .= "Order # ".$this->order->id."\n";
+
+                            ?>
+                            Trouble getting this to work? <a href="mailto:support@nexva.com?subject=Problems activating purchase&body=<?=$body?>">Contact us </a>
+                        </small>
+
+                        <br/><br/><br/><br/>
+
+                        <a href="<?php echo PROJECT_BASEPATH;?>app/purchased/"> << Back to My Apps </a>
+
+
+
+
+                        
+                    <?endif;?>
+
+                <?endif;?>
+
+            </div>
+        </div>
+    </div>

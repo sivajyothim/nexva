@@ -1,0 +1,392 @@
+
+<link href="<?php echo ADMIN_PROJECT_BASEPATH;?>cp/assets/css/fileupload/style.css" rel="stylesheet" />
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+
+
+<style>
+    /** You don't want all these styles going to the main css file **/
+    .txt-input.small, .select-input.small, .textarea-input.small {
+        display:block;
+        margin-top: 5px;
+    }
+
+</style>
+
+<div class="title">
+    <h3 style="cursor: s-resize;"><?= isset($this->builbname) ? 'Edit Build ' . $this->builbname : 'Create New Build ' ?></h3>
+</div>
+<div class="box">
+<div class="txt">
+<?php
+if (is_array($this->flashMessenger->getMessages())):
+    foreach ($this->flashMessenger->getMessages() as $class => $value):
+        $key = key($value);
+        ?>
+        <div class="message <?= key($value) ?>">
+
+            <?= $this->partial('partials/itemlist.phtml', array("item" => $value[$key])); ?>
+
+        </div>
+    <?php
+    endforeach;
+endif;
+?>
+<div id="content_box">
+<form action="/build/save" method="post" enctype="multipart/form-data" id="build">
+<table>
+<tbody>
+<tr>
+    <td valign="top" align="left">
+        <label>Build Name :</label>
+
+        <?php   $filter = new Zend_Filter_Alnum(array('allowwhitespace' => true));?>
+
+        <input name="build_name" id="build_name" type="text" class="txt-input medium validate(buildname,required)" value="<?php echo $filter->filter($this->builbname); ?>"/>
+        <small>Build name will help you to identify your files associate with devices, Eg: Java, MIDP 1.0 <span style="color:red;">(Build Name must contain only numbers, characters, space, "-" and "_" )</span></small>
+
+        <label>Build Platform :</label>
+        <select class="select-input small validate(required)" name="device_platform">
+            <option value="">-Select Platform-</option>
+            <? foreach ($this->platforms as $id => $name):
+                if($id != 0){ ?>
+                    <option value="<?= $id ?>" <?= ($id == $this->selectedPlatform && ($this->selectedPlatform != -1)) ? 'selected' : '' ?> ><?= $name ?></option>
+                <?php }
+            endforeach; ?>
+        </select>
+
+        <label>Build Language :</label>
+        <select class="select-input small validate(required)" name="build_language" style='width: 100px;'>
+            <? foreach ($this->language as $language ): ?>
+                <option value="<?=$language->id ?>" <?= ($language->id == $this->selectedLanguage) ? 'selected' : '' ?>>
+                    <?=$language->common_name ?> <?=(!empty($language->common_name)) ?  ' &mdash; ' . $language->name : $language->name?>
+                </option>
+
+            <? endforeach; ?>
+        </select>
+
+        <?= $this->formFiles->id ?>
+        <?= $this->formFiles->build_id ?>
+
+        <!-- Hide if build id is not set -->
+        <? if (!empty($this->build_id)) : ?>
+            <div id="navigate_container" class="navigate_container">
+                <input type="radio" class="navigate_file_url" name="navigate_file_url" value="files" <?= ($this->buildType == 'files' || empty($this->buildType)) ? 'checked="checked" ' : '' ?>/> Upload Files
+                <input type="radio" class="navigate_file_url" name="navigate_file_url" value="urls" <?= ($this->buildType == 'urls') ? 'checked="checked" ' : '' ?> <?= ($this->buildType == 'files') ? 'disabled="disabled" ' : '' ?>/> URL
+                <input type="hidden" name="url_file" id="url_file" value="<?= $this->buildType ?>">
+            </div>
+            <div class="files_url">
+                <div id="files_mode" class="files_mode">
+                    <div class="help_notices">
+                        <ul>
+                            <!--<li style="color:red;font-size:30px;">We have been reported some issues that this uploader doesn't work Firefox, IE please use only chrome until we fix this error. It works perfectly on chrome.</li>-->
+                            <li>Your content should not exceed <?= ini_get('post_max_size') ?>B</li>
+                            <li>You may select up-to 20 files at a time for upload.</li>
+                            <li>Please upload all files relevant for a <a href='http://en.wikipedia.org/wiki/Over-the-air_programming' target='_blank'>OTA </a>(over-the-air) installation. Do not upload content such as license file or user manuals.</li>
+                            <li>If your content only supports <a href='http://en.wikipedia.org/wiki/Sideloading' target='_blank'>side-loading</a> and not OTA installs, please <mailto:contact@appeteh.com> contact us</a> for assistance.</li>
+                            <li style="color:red;">If you find any problems with uploading file, upgrade your flash player plugin.</li>
+
+                        </ul>
+                    </div>
+
+
+                    <div id="drop">
+                        Drop Here
+
+                        <a>Browse</a>
+                        <input type="file" name="upl" multiple/>
+                        <input type="hidden" name="product_id" value="<?php echo $this->product_id;?>" />
+                        <input type="hidden" name="build_id" value="<?php echo $this->build_id;?>" />
+                        <input type="hidden" name="build_name" value="<?php echo $this->builbname;?>" />
+                    </div>
+
+                    <ul id="preview-upload">
+                        <!-- The file uploads will be shown here -->
+                    </ul>
+                    <br/>
+                    <div id='error-message' class='message error' style="display: none;"></div>    
+
+
+
+                </div>
+                <div id="urls_mode"  style="display: none"  class="urls_mode">
+                    <div class="help_notices">
+                        <ul>
+                            <li>Preferably, point your URLs directly to the content (e.g. http://domain.com/awesome-app/application-ota-install.jad). Make sure you prefix 'http://' to your URL.</li>
+                            <li>If you have multiple URLs, enter each of them in a new line.</li>
+                            <li>Please ensure your URLs work. Zoha periodically runs a link-bot to check for broken URLs and may suspend your content automatically if the URLs are broken for more than 24 hours.</li>
+                        </ul>
+                    </div>
+                    <div style="width: 70%">
+                        <?= $this->formUrl->url ?>
+                    </div>
+                </div>
+                <div class="progress"></div>
+                <ul class="files">
+                    <?
+                    if (!empty($this->files)):
+                        foreach ($this->files as $build): ?>
+                            <li>
+                                <?
+                                //                                                    $fileExists = $this->S3FileCheck($this->product_id . '/' . $build->filename);
+                                //                                                    $config = Zend_Registry::get('config');
+                                //                                                    if ($fileExists) {
+                                $class = 'success';
+                                $message = 'Completed';
+                                //                                                    } else {
+                                //                                                        $class = 'queue';
+                                //                                                        $message = 'In Queue';
+                                //                                                        $filePath = $config->zoha->applicaiton->fileUploadDirectory . '/' . $this->product_id . '/' . $build->filename;
+                                //                                                        if (!file_exists($filePath)) {
+                                //                                                            $class = 'failed';
+                                //                                                            $message = 'Failed';
+                                //                                                        }
+                                //                                                    }
+                                //                                                    $filesExists = false;
+                                ?>
+                                <div class="uploadifyQueueItem completed <?= $class ?>">
+                                    <div class="cancel">
+                                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/filedelete/pid/<?= $this->product_id ?>/bid/<?= $this->build_id ?>/id/<?= $build->id ?>" onclick="return confirm('Are you sure you want to delete?')">
+                                            <img border="0" src="<?php echo PROJECT_BASEPATH;?>common/js/jquery/plugins/uploadify/cancel.png">
+                                        </a>
+                                    </div>
+                                    <span class="fileName"><?= $build->filename ?> <?= !empty($build->filesize) ? ' (' . round($build->filesize / 1024, 2) . 'KB)' : '' ?></span>
+                                    <span class="percentage"> - <?= $message ?></span>
+                                </div>
+                            </li>
+                        <?
+                        endforeach;
+                    endif;
+                    ?>
+                </ul>
+            </div>
+            <!-- end if checking build id -->
+        <? endif; ?>
+        <? if (empty($this->build_id)) : ?>
+            <input type="submit" class="submit button" href="tab-screenshots" value="Create Build" id="submit" name="submit">
+        <? endif; ?>
+    </td>
+</tr>
+<? if (!empty($this->build_id)) : ?>
+    <?
+    $checked = $this->selected;
+    $savedAttributes = $this->deviceAttributes;
+    ?>
+    <? if (isset($checked) && $checked == 'CUSTOM'): ?>
+        <tr>
+            <td class="selected_container">
+                <div class="navigate_container_devices">
+                    Selected Devices
+                </div>
+                <div class="devices_container">
+                    <input type="button" value="Show Currently Selected Devices" class="show_selected txt-input button ">
+                    <input type="button" value="Remove All Devices" class="txt-input button remove_all">
+                    <div class="loading_bar"></div>
+                    <div  class="phones_selected" style="max-height:350px;overflow-x:auto;overflow-y:auto;">
+                    </div>
+                </div>
+            </td>
+        </tr>
+    <? endif; ?>
+
+    <!-- end file upload -->
+    <!-- device selection -->
+    <tr>
+        <td valign="top" align="left">
+            <div class="navigate_container_devices">
+                <!--                            <input type="radio" class="radio_all" name="radio" <?= ($checked == 'ALL_DEVICES') ? 'checked' : '' ?> id="radio" value="ALL_DEVICES"/> Select All Devices-->
+                <input type="radio" name="radio" class="radio_attrib" id="radio" <?= ($checked == 'BY_ATTRIBUTE' || empty($checked)) ? 'checked' : '' ?> value="BY_ATTRIBUTE"/> Filter by Attributes
+                <input type="radio" class="manually_select" name="radio" id="radio"  <?= ($checked == 'CUSTOM') ? 'checked' : '' ?> value="CUSTOM"/> Manually Select Devices
+            </div>
+            <div class="devices_container">
+                <!-- select all devices -->
+                <ul class="radio_all_ul">
+                    <small>Select this if your app support all devices (eg: a Web service)</small>
+                    <li>
+                        <!-- <input type="button" class="showall txt-input small" value="Show All Devices" /> -->
+                    </li>
+                </ul>
+                <!-- devices with attributes -->
+                <ul class="radio_attrib_ul">
+                    <!-- Future device options -->
+                    <fieldset class="future_devices">
+                        <?
+                        $deviceUpdate = isset($this->device_update_service) ? $this->device_update_service : 'UPDATE';
+                        ?>
+
+                        <legend><strong>How to deal with future devices</strong></legend>
+                        <p>
+                            <input type="radio" name="future_dev" id="future_dev" <?= ($deviceUpdate == 'NOTIFY') ? 'checked' : '' ?> value="NOTIFY"/>
+                            Alert me<small>Send me an email alert when new devices that are compatible with my content is added to the system.</small>
+                        </p>
+                        <p>
+                            <input type="radio" name="future_dev" id="future_dev" <?= ($deviceUpdate == 'UPDATE') ? 'checked' : '' ?> value="UPDATE">
+                            Alert me and update automatically<small>Automatically mark the new devices are compatible with my content. Only recommended if your content is specific to a certain device capability (e.g. MP3 playback or input method). You will still receive an email alert telling you what devices were marked.</small>
+                        </p>
+
+                        <p>
+                            <input type="radio" name="future_dev" id="future_dev" <?= ($deviceUpdate == 'NONE') ? 'checked' : '' ?> value="NONE">
+                            Do nothing. <small>Select this option if you're sure that future devices will not be compatible with your content. Email alerts will not be sent.</small>
+                        </p>
+                    </fieldset>
+                    <br/>
+                    <fieldset class="future_devices">
+                        <legend><strong>Select devices with attributes</strong></legend>
+                        <li class='title'>Device Platform Attributes</li>
+                        <li>Device Operating System
+
+                            <select class="device_pointing_method select-input small" name="device_os" style="width: 200px;display: inline;" id="device_os">
+                                <option value="">[Select]</option>
+                                <!--<option value="any">Any</option>-->
+                                <option <?= (is_array($savedAttributes) && in_array('Android', $savedAttributes)) ? 'selected' : '' ?> value="Android">Android</option>
+                                <option <?= (is_array($savedAttributes) && in_array('iPhone OS', $savedAttributes)) ? 'selected' : '' ?> value="iPhone OS">Apple</option>
+                                <option <?= (is_array($savedAttributes) && in_array('Windows Mobile OS', $savedAttributes)) ? 'selected' : '' ?> value="Windows Mobile OS">Windows Mobile OS</option>
+                                <option <?= (is_array($savedAttributes) && in_array('RIM OS', $savedAttributes) && in_array('10.0', $savedAttributes)) ? 'selected' : '' ?> value="BB OS">BlackBerry 10 or above </option>
+                                <option <?= (is_array($savedAttributes) && in_array('RIM OS', $savedAttributes) && !in_array('10.0', $savedAttributes)) ? 'selected' : '' ?> value="RIM OS">RIM OS (BlackBerry)</option>
+                                <option <?= (is_array($savedAttributes) && in_array('Symbian OS', $savedAttributes)) ? 'selected' : '' ?> value="Symbian OS">Symbian OS</option>
+                                <option <?= (is_array($savedAttributes) && in_array('Java', $savedAttributes)) ? 'selected' : 'Java' ?> value="Java">Java</option>
+                                <option <?= (is_array($savedAttributes) && in_array('Palm OS', $savedAttributes)) ? 'selected' : '' ?> value="Palm OS">Palm OS</option>
+                                <option <?= (is_array($savedAttributes) && in_array('Hiptop OS', $savedAttributes)) ? 'selected' : '' ?> value="Palm OS">Hiptop OS</option>
+                                <option <?= (is_array($savedAttributes) && in_array('Linux Smartphone OS', $savedAttributes)) ? 'selected' : '' ?> value="Linux Smartphone OS">Linux Smartphone OS</option>
+                            </select>
+
+
+                                                                <span id='build_supported_versions_1'>
+
+                                                                    &nbsp; &nbsp; &nbsp;
+                                                                    <input type="checkbox" class="mp3_playback"  name="minimum_version" id="minimum_version" value="1"
+
+                                                                        <?=(($this->buildSupportedVersions) and ($this->buildSupportedVersions->min_version)) ? 'checked' : '' ?>
+                                                                        />  &nbsp;   Minimum Version
+
+                                                                    <span id='build_supported_versions_2' style="display: inline;">
+
+                                                                      		&nbsp; &nbsp; &nbsp;
+                                                                     		<input type="text" class="txt-input small" name="minimum_version_value" id="minimum_version_value"
+                                                                                   value="<?=(($this->buildSupportedVersions) and ($this->buildSupportedVersions->min_version)) ? $this->buildSupportedVersions->min_version : '' ?>" style="display: inline;width: 50px;" />
+                                                                       		&nbsp; &nbsp; &nbsp;
+                                                                      		<input type="checkbox" class="mp3_playback"  name="or_better" id="or_better" value="1"
+                                                                                <?=(($this->buildSupportedVersions) and ($this->buildSupportedVersions->or_better)) ? 'checked' : '' ?>
+
+                                                                                />  &nbsp; or better  &nbsp; &nbsp; &nbsp;
+                                                                      		 <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/learnmore" rel="facebox">
+                                                                                 <img border="0" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/help.png"> </a>  Learn More.
+                                                           					<input type="hidden"  name="build_supported_versions_id" id="build_supported_versions_id" value="<?=(($this->buildSupportedVersions) and ($this->buildSupportedVersions->id)) ? $this->buildSupportedVersions->id : '' ?>" />
+
+                                                           			</span>
+                                                           		</span>
+
+
+
+                        </li>
+
+
+
+                        <li class='title'>Playback Attributes</li>
+                        <li>
+                            <input type="checkbox" class="mp3_playback" <?= (is_array($savedAttributes) && array_key_exists(4, $savedAttributes)) ? 'checked' : '' ?> name="mp3_playback" value="mp3_playback"/> Support MP3 Playback
+                        </li>
+                        <li class='title'>Java Attributes</li>
+                        <li>
+                            <input type="checkbox" class="java_midp_1"  <?= (is_array($savedAttributes) && array_key_exists(5, $savedAttributes)) ? 'checked' : '' ?>  value="java_midp_1" name="java_midp_1"/> Support MIDP 1.0
+                        </li>
+                        <li>
+                            <input type="checkbox" class="java_midp_2"  <?= (is_array($savedAttributes) && array_key_exists(6, $savedAttributes)) ? 'checked' : '' ?> value="java_midp_2" name="java_midp_2"/> Support MIDP 2.0
+                        </li>
+                        <li class='title'>Display Attributes</li>
+                        <li>
+                            Minimum Resolution Width <input type="text" class="device_width txt-input small" name="width"  <?= (is_array($savedAttributes) && array_key_exists(7, $savedAttributes)) ? 'value = ' . $savedAttributes[7] : '' ?> />
+                            <small>Leave this as a blank if you do not want to filter by width.</small>
+                        </li>
+                        <li>
+                            Minimum Resolution Height <input type="text" class="device_height txt-input small" name="height" <?= (is_array($savedAttributes) && array_key_exists(8, $savedAttributes)) ? 'value = ' . $savedAttributes[8] : '' ?> />
+                            <small>Leave this as a blank if you do not want to filter by height.</small>
+                        </li>
+                        <li class='title'>Navigation Attributes</li>
+                        <li>
+                            Pointing Method <select class="device_pointing_method select-input small" name="navigation_method">
+                                <option value="any">Any</option>
+                                <option <?= (is_array($savedAttributes) && in_array('touchscreen', $savedAttributes)) ? 'selected' : '' ?> value="touchscreen">Touchscreen</option>
+                                <option <?= (is_array($savedAttributes) && in_array('clickwheel', $savedAttributes)) ? 'selected' : '' ?> value="clickwheel">Clickwheel</option>
+                                <option <?= (is_array($savedAttributes) && in_array('joystick', $savedAttributes)) ? 'selected' : '' ?> value="joystick">Joystick</option>
+                                <option <?= (is_array($savedAttributes) && in_array('stylus', $savedAttributes)) ? 'selected' : '' ?> value="stylus">Stylus</option>
+                                <option <?= (is_array($savedAttributes) && in_array('mouse', $savedAttributes)) ? 'selected' : '' ?> value="mouse">Mouse</option>
+                            </select>
+                        </li>
+                        <li><br>
+                            <input type="button" class="attributes txt-input button " value="Show Devices" />
+                        </li>
+
+                        <li class='title'>Tags</li>
+                        <li>
+
+                            <?php
+                            foreach($this->availableTags as $tags)
+                            {
+                                ?>
+
+                                <span class="tag_class"> <input type="checkbox" name="tags[]" value="<?php echo $tags->tag; ?>"
+
+                                        <?php
+                                        if(!empty($this->selectedTags))
+                                        {
+                                            foreach($this->selectedTags as $key => $value)
+                                            {
+                                                echo ($tags->tag == $value)? 'checked="checked"':'';
+
+                                            }
+                                        }
+                                        ?>
+                                        /> <?php echo $tags->tag; ?></span>
+
+                            <?php
+                            }
+
+                            ?>
+
+                        </li>
+                        <br />
+                    </fieldset>
+                </ul>
+                <!-- manually select devices  -->
+                <ul class="radio_manual_ul">
+                    <li><br/><strong>Type Device Keywords to Search :</strong></li>
+                    <li>
+                        <input type="text" class="suggest_devices txt-input medium" />
+                        <small>Eg: You can use two keywords separated by plus(+) eg. 'Bold+Curve' to search Blackberry Bold and Blackberry Curve both</small>
+                        <input type="button" class="search txt-input button " value="Search" />
+                    </li>
+                </ul>
+                <!-- Search Devices -->
+                <div  class = "search_phones">
+                    Search Devices
+                </div>
+                <!-- Show devices -->
+                <!--                      <div id="operations" class="operations"><a href="#" class="select_none_all">Select None</a></div>-->
+                <div  class = "phones">
+                    <p align="center" class=""><b>Selected Devices</b></p>
+                </div>
+            </div>
+        </td>
+    </tr>
+<? endif; ?>
+<!--  end if checking build id -->
+</tbody>
+</table>
+</form>
+<? if (!empty($this->build_id)) : ?>
+    <input type="submit" class="txt-input  submit device_submit button" href="tab-registration" value="Save Build" id="submit" name="submit">
+    <input type="button" class="txt-input  submit" value="Cancel" id="cancel" name="cancel" onclick="javascript:window.location='/build/show/id/<?= $this->product_id ?>'">
+<? endif; ?>
+</div>
+<!-- end device selection -->
+</div>
+</div>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+<!--<script src="/cp/assets/js/jquery-1.6.4.min.js"></script>-->
+<script src="/cp/assets/js/fileupload/jquery.knob.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.ui.widget.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.iframe-transport.js"></script>
+<script src="/cp/assets/js/fileupload/jquery.fileupload.js"></script>
+<script src="/cp/assets/js/fileupload/script.js"></script>

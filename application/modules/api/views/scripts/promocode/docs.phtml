@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+      <style type="text/css">
+        body {
+            margin: 3em auto;
+            width: 80%;
+            max-width: 150em;
+            font-family: "Lucida Grande","Trebuchet MS", sans-serif;
+        }
+
+        h1, h2, h3, dt, dd, .status, .subtitle {
+            color: #2d2d2d;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        ol li {
+            list-style: none;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            padding: .5em; margin-right: 1px; background: #bbb;
+        }
+
+        td {
+            padding: .5em; margin-right: 1px; background: #ddd;
+        }
+
+        .subtitle, .status {
+            font-size: 130%;
+        }
+
+
+
+      </style>
+
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+      <h1>neXva Promocode Redeemer API </h1>
+      <h2></h2>
+
+      <p><b>Method</b>: <code>redeem</code> </p>
+      <p><b>API Endpoint:</b>:  http://api.nexva.com/promocode/ </p>
+      <p><b>HTTP Verb</b>: POST </p>
+      <p>
+          <b>Parameters</b><br/>
+          
+          <br/> id (required): The app IDentifer. Content providers are required to look this value up via their content provider panel (http://cp.nexva.com)
+          <br/> code (required): The promotion code to be redeemed
+          <br/> simulate (optional): <b>SUCCESS</b> if you wish the API to simulate success regardless of the code entered or <b>FAIL</b> if you wish the API to simulate failure regardless of the code entered
+      </p>
+
+      <p>
+        <b>Return Values</b>
+        
+        <br/><br/> The return 'status' will always be 0 if your request was accepted (along with a HTTP 200), otherwise the return 'status' will be a non 0 value
+      
+      </p>
+
+      <p>
+          <b>Examples:</b>
+
+          <br/><br/> Redeeming a promo code (live mode):
+            <pre>
+            curl -X POST http://api.nexva.com/redeem/promocode/id/2312/code/FCSW664D
+           </pre>
+           
+           <pre>
+            {"status":0,"message":"Code 1121 was redeemed successfully"}
+           </pre>
+
+
+          <br/>Redeeming a promo code (simulating success):
+            <pre>
+            curl -X POST http://api.nexva.com/promocode/redeem/id/2312/code/ABC123/simulate/success
+           </pre>
+
+           <pre>
+            {"status":0,"message":"Code 1121 was redeemed successfully"}
+           </pre>
+          
+          <br/>Redeeming a promo code (simulating failure):
+            <pre>
+            curl -X POST http://api.nexva.com/promocode/redeem/id/2312/code/ABC123/simulate/fail
+           </pre>
+
+           <pre>
+            {"status":-1,"message":"Unable to redeem code ABC123"}
+           </pre>
+
+      </p>
+      <hr>
+
+
+  </body>
+</html>

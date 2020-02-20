@@ -1,0 +1,48 @@
+        <div class='reviews'>
+            <h2 class='title_alt'>Recent Reviews by Eva</h2>
+            
+            <?php if (empty($this->reviews)) :  ?>
+                <p class='padding-all '>Looks like Eva hasn't reviewed any apps for this device yet. Check back soon!</p>
+                <br>
+            <?php endif; ?>
+            
+            <?php foreach($this->reviews as $review) : $review  = $review->toArray();?>
+                <div class='app'>
+                    <h3><?=$review['title']?></h3>
+                    <span class='reviewer'>
+                        <a href='/<?=$review['product_id']?>'><?=$review['product_name']?></a> 
+                        (<?=date('d-m-Y', strtotime($review['date']))?>)
+                    </span>
+                    <span class='rating'>
+                        <?php
+                            $rating     = $review['rating']; 
+                            while($rating > 0) : $rating--; 
+                        ?>
+                            <img src="<?=$this->Cdn('site_assets')?>/mobile/images/star_full.gif" alt="star" width="11" height="12" />
+                        <?php endwhile;?>
+                    </span>
+                    <p>
+                    <?php 
+                        $thumb  = Zend_Registry::get('config')->product->visuals->dirpath . '/' . $review['thumbnail'];
+                        echo $this->thumbnail($thumb, array('w' => 50, 'h' => 50), array('class'=>'app_image'))
+                    ?>
+                        <?php echo substr(strip_tags($this->Wikimarkup($review['review'])), 0, 300) . '...';?>
+                    </p>
+                    
+                    <p class='more'>
+                       <a class='button' href="/review/eva/id/<?=$review['id']?>">Read full review</a>
+                     </p>
+                </div>
+            <?php endforeach;?>
+        </div> 
+        
+    <div class="pagination b-b"><!-- Previous page link -->
+        <?php if ($this->page > 0)  :?>
+            <a class="p-left" href="/review/index/page/<?=($this->page - 1)?>">Previous</a>
+        <?php endif;?>
+        
+        <?php if (count($this->reviews) == $this->limit)  : ?>
+            <a class="p-right" href="/review/index/page/<?=($this->page + 1)?>">Next</a>
+        <?php endif; ?>
+        <br clear="all">
+    </div>

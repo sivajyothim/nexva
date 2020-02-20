@@ -1,0 +1,160 @@
+<!--<script type="text/javascript">
+    $().ready(function(){
+        $("#non-approved").click(function(){
+            var url = window.location.href;
+            //url += '/status/non-approved';
+            //window.location.href = url;
+            var status = url.indexOf("status");
+            //alert(status);
+        });
+        $("#approved").click(function(){
+            var url = window.location.href;
+            //url += '/status/approved';
+            //window.location.href = url;
+            var status = url.indexOf("status");
+            //alert(status);
+        });
+    });
+</script>-->
+
+<div class="title">
+
+    <h3>Reviews | Nexva.com</h3>
+       <div class="selector" title="content_box">
+        <?php if( $this->status =='') { ?>           
+           <a id="non-approved" class="tab active" href="tab-handsets">Non-Approved</a>
+           <a id="approved" class="tab" href="tab-handsets-non">Approved</a>
+        <?php } ?>
+        <?php if( $this->status =='non-approved') { ?>           
+           <a id="non-approved" class="tab active" href="tab-handsets">Non-Approved</a>
+           <a id="approved" class="tab" href="tab-handsets-non">Approved</a>
+        <?php } ?>
+        <?php if( $this->status == 'approved') { ?>    
+           <a id="non-approved" class="tab" href="tab-handsets">Non-Approved</a>
+           <a id="approved" class="tab active" href="tab-handsets-non">Approved</a>
+        <?php } ?>
+        
+        
+       </div>
+
+</div>
+<?php /*Zend_debug::dump($this->reviews);die();*/?>
+<div class="box">
+    <div class="txt">
+    <div style="font-size:18px;padding-bottom: 10px;text-align: center">
+Total Non-Approved reviews <span style="color:olive;padding-left:20px;"><?=$this->unApprovedlistReview; ?></span></div>
+<?= $this->render('partials/message.phtml'); ?>
+        <div id="content_box">
+            <!-- Start tab tab-handsets -->
+
+            <div class="tab-handsets">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Review</th>
+                            <th>Reviewer</th>
+                            <th>Status</th>
+                            <th style="width:10px;">Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->reviews as $review): ?>
+                        <tr>
+                            <!--<td><input type="checkbox" name="check" /></td>-->
+                            <td> <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?= $review['product_id']; ?>" > <?= $review['name']; ?>  </a></td>
+                            <td><?php echo strip_tags($review['review']); ?></td>
+                            <td><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/edit/id/<?= $review['user_id']; ?>"><?= $review['email']; ?></a></td>
+                            
+                            <td><?php 
+                            if($review['status']=='NOT_APPROVED')
+                            {
+                            			echo  "Not Approved";
+                            }
+                            else
+                            {
+                            			echo  "Approved";
+                            	
+                            }
+                        
+                        ?></td>
+                          
+
+
+                            <td>
+
+                                   
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/update/id/<?=$review['id'];?>/page/<?=$this->page?>"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/thumb_up.png" alt="Approve"  title="Approve"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/delete/id/<?=$review['id'];?>/page/<?=$this->page?>/status/non-approved"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete"  title="Delete" onClick="return confirm('Are you sure?')"></a>
+                            </td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->reviews, 'Sliding', 'partials/paginator-reviews.phtml',array('status' => 'non-approved')); ?>
+            </div>
+            <!-- End handsets -->
+            
+            <!-- Start tab tab-handsets -->
+
+            <div class="tab-handsets-non">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>Product</th>
+                            <th>Review</th>
+                            <th>Reviewer</th>
+                           
+                            <th>Status</th>
+                            
+                            <th style="width:10px;">Operations</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->reviewsNonApproved as $review): ?>
+                        <tr>
+                            <!--<td><input type="checkbox" name="check" /></td>-->
+                            <td> <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/display/id/<?= $review['product_id']; ?>" > <?= $review['name']; ?>  </a></td>
+                            <td><?php echo strip_tags($review['review']); ?></td>
+                            <td><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/edit/id/<?= $review['user_id']; ?>"><?= $review['email']; ?></a></td>
+                            
+                            <td><?php 
+                            if($review['status']=='NOT_APPROVED')
+                            {
+                            			echo  "Not Approved";
+                            }
+                            else
+                            {
+                            			echo  "Approved";
+                            	
+                            }
+                        
+                        ?></td>
+                          
+
+
+                            <td>
+
+                                   
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/reject/id/<?=$review['id'];?>/page/<?=$this->page?>"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/thumb_down.png" alt="Reject"  title="Reject"></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/delete/id/<?=$review['id'];?>/page/<?=$this->page?>/status/approved"><img src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete"  title="Delete" onClick="return confirm('Are you sure?')"></a>
+                            </td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->reviewsNonApproved, 'Sliding', 'partials/paginator-reviews.phtml',array('status' => 'approved')); ?>
+            </div>
+            <!-- End handsets -->
+            
+        </div>
+    </div>
+</div>

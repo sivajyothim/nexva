@@ -1,0 +1,63 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: viraj
+ * Date: 10/13/14
+ * Time: 3:50 PM
+ */
+?>
+
+<?php if ($this->pageCount):
+    $urlData = array();
+    if($this->from) { $urlData['from'] = $this->from; }
+    if($this->to) { $urlData['to'] = $this->to; }
+    if($this->user) { $urlData['user'] = $this->user; }
+    ?>
+
+    <div id="paginationControl" class="pagination">
+        <!-- Previous page link -->
+
+        <?php if (isset($this->previous)):
+            $urlData['page'] = $this->previous;?>
+
+            <a href="<?php echo $this->url($urlData); ?>"> &lt;&lt; Previous</a>
+
+        <?php else: ?>
+
+            <span class="disabled">&lt;&lt; Previous</span>
+
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+
+            <?php if ($page != $this->current):
+                $urlData['page'] = $page;
+                ?>
+
+                <a class="number" href="<?php echo $this->url($urlData); ?>"><?php echo $page; ?></a>
+
+            <?php else: ?>
+
+                <a class="number current"><?php echo $page; ?></a>
+
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)):
+            $urlData['page'] = $this->next;
+            ?>
+
+            <a href="<?php echo $this->url($urlData); ?>">Next &gt;&gt;</a>
+
+        <?php else: ?>
+
+            <span class="disabled">Next &gt;&gt;</span>
+
+        <?php endif; ?>
+
+    </div>
+
+<?php endif; ?>

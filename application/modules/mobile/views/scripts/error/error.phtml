@@ -1,0 +1,33 @@
+<div class="app">
+    <h2>Oops! Page Not Found (404)</h2>
+    <br><br>
+    <span class="mini-description">
+        <p>We're sorry but the content you were looking for was not found.</p>
+        <p><a href='/'>Click here to go back to the home page</a></p>
+        
+    </span>
+</div>
+
+<?php if (APPLICATION_ENV != 'production') : ?>
+
+<br><br><hr>
+  <h1>An error occurred</h1>
+  <h2><?php echo $this->message ?></h2>
+
+  <?php if (isset($this->exception)): ?>
+
+  <h3>Exception information:</h3>
+  <p>
+      <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+  </p>
+
+  <h3>Stack trace:</h3>
+  <pre><?php echo $this->exception->getTraceAsString() ?>
+  </pre>
+
+  <h3>Request Parameters:</h3>
+  <pre><?php echo var_export($this->request->getParams(), true) ?>
+  </pre>
+  <?php endif ?>
+<?php endif ?>
+

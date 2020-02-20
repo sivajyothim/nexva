@@ -1,0 +1,471 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+	/*font-family: 'Open Sans', 'sans-serif' !important;*/
+	font-weight: 400 !important;
+/*    font-family: 'Yanone Kaffeesatz',arial,serif !important;*/
+}
+
+.intro{
+	font-size:14px !important;
+	font-family: 'Open Sans', 'sans-serif' !important;
+	font-weight: 400 !important;
+}
+
+.company-name {
+    color: #FFFFFF;
+    float: left;
+    font-size: 16px;
+    left: -10px;
+    position: relative;
+    text-transform: capitalize;
+    top: 24px;
+	font-family: 'Open Sans', 'sans-serif' !important;
+}
+
+.copyright_message{
+	margin-top:0 !important;
+	font-family: 'Open Sans', 'sans-serif' !important;
+	color:#f1f1f1;
+}
+
+.header-logo{
+	top:10px !important;
+}
+
+.menubtn-active{
+	background:#00498D !important;
+	font-family: 'Open Sans', 'sans-serif' !important;
+	cursor:pointer;
+	border: 2px solid #ffffff;
+}
+
+.admin-name{
+	font-size:18px !important;
+	top : 0 !important;
+}
+
+#contentwrapper h2 a {
+    font-size: 34px !important;
+}
+
+.flat-form{
+	font-family: 'Open Sans', 'sans-serif' !important;
+	background:#003A74 !important;
+}
+
+.tabs a.active{
+	background:#001846 !important;
+}
+
+.form-action h1{
+	font-size: 26px !important;
+}
+
+#header{    
+    background: url("/cp/spederi/img/slider-bg-pattern.png") no-repeat !important; 
+/*    background: #232323 !important;*/
+    border-bottom: 0px solid #3d3d3d;
+    height: 150px;
+}
+
+.green, .green a{
+	color: #001846;
+}
+
+#content #header-tabs h3 a, #content #header-tabs h3 span{
+    background: #000000 !important;
+}
+
+#content #header-tabs h3 span {
+    background: #000000 !important;
+}
+
+#tab-title {
+    background: #303030 !important;
+}
+
+#header-tabs{
+    margin-top: -51px;
+}
+
+#tab-cont{
+    border: none !important;
+}
+
+#tab-wrap{
+    /*border: 1px solid #dddddd !important;*/
+    border : none !important;
+    padding-left : 0 !important;
+    padding-right : 0 !important;
+    padding-bottom : 0 !important;
+    padding-top : 10px !important;
+}
+
+#content #header-tabs h3 span{
+    color: #FFC801 !important;
+}
+
+#content a:link, #content a:visited {
+    color: #0C5EA3;
+}
+
+#content a:hover{
+    color : #e77918 !important;
+}
+
+input.submit, input.button{
+    background: #001846 !important;
+    border:none !important;
+    cursor: pointer;
+	border-radius:0;
+}
+#header .logo{
+    padding-top: 35px !important;
+}
+
+#top_nav{
+    background: #003A74 !important;
+}
+
+#content{
+    margin-top: 10px;
+}
+
+.sf-menu{
+    position: relative;
+    top: 5px;
+}
+
+.sf-menu li ul{
+     background: #003A74 !important;
+}
+
+.sf-menu li li:hover, .sf-menu li li.sfHover, .sf-menu li li a:focus, .sf-menu li li a:hover, .sf-menu li li a:active{
+    background: #1b1b1b !important;
+    color: #FFC801 !important;
+}
+
+#content .title{
+/*    background: #5E5E5E !important;*/
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #1178C5),
+	color-stop(1, #001846),
+	color-stop(1, #1178C5)
+);
+background-image: -o-linear-gradient(bottom, #1178C5 0%, #001846 100%, #1178C5 100%);
+background-image: -moz-linear-gradient(bottom, #1178C5 0%, #001846 100%, #1178C5 100%);
+background-image: -webkit-linear-gradient(bottom, #1178C5 0%, #001846 100%, #1178C5 100%);
+background-image: -ms-linear-gradient(bottom, #1178C5 0%, #001846 100%, #1178C5 100%);
+background-image: linear-gradient(to bottom, #1178C5 0%, #001846 100%, #1178C5 100%);
+}
+.support_nav li{
+    background: #03285B;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.support_nav a{
+    color:#ffffff;    
+}
+
+.support_nav a:hover{
+    text-decoration: none;
+    color: #000000;
+}
+
+.sf-menu a{
+    font-weight: bold;
+}
+
+.sf-menu li:hover, .sf-menu li.sfHover{
+    background: none !important;
+}
+
+li.sf-menu:hover a, .sfHover a, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active{
+    color: #FFC801 !important;
+}
+
+#header .info{
+/*    font-family: 'Yanone Kaffeesatz',arial,serif !important;
+    font-size: 18px !important;
+    width: 350px !important;*/
+    width: 220px;
+
+}
+
+#header .info small{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#header .info h2{
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/*#header .chap_logo {
+    top: 20px;
+    width: 60px;
+}*/
+
+#div_heading h1{
+ font-family: 'Yanone Kaffeesatz',arial,serif !important;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    left: 126px;
+    position: relative;
+    top: 25px;
+}
+
+#content .selector a.active{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    
+    background: none repeat scroll 0 0 #003a74;
+    border: 1px solid #FFFFFF;
+    color: #ffffff;
+}
+
+#content .box, #sidebar .box{
+    border-color: #cccccc;
+}
+
+#content table tbody tr td{
+    font: 11px Verdana;
+}
+
+#content table thead th {
+    font: 11px Verdana;
+    font-weight: bold;
+}
+
+form input[type="text"], form input[type="password"]{
+	color:#383838 !important;
+}
+
+::-webkit-input-placeholder {
+  color: #383838;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #383838;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #383838;
+}
+:-ms-input-placeholder {
+  color: #383838;
+}
+
+#copyright_wrapper{
+	background:#003A74;
+}
+
+.form-action a{
+	color:#f1f1f1;
+}
+
+.form-action a:hover{
+	color:#ffffff;
+}
+
+iframe{
+	display:none;
+}
+
+.intro a{
+	color:#3d3d3d;
+}
+
+.menu-select{
+	margin-top:50px;
+}
+
+.company-name{
+	display:none;
+}
+
+.support_nav li img {
+    margin-top: 0 !important;
+    width: 15px !important;
+}
+
+.content{
+	padding:15px;
+}
+
+.download-library, .download-doc {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:35px;
+	line-height:35px;
+	width:auto;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+	padding: 5px 10px;
+	margin-right:15px;
+}
+
+
+.download-library:hover, .download-doc:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+	cursor:pointer;
+}
+
+.download-library:active, .download-doc:active {
+	position:relative;
+	top:1px;
+}
+
+#accordion h2{
+    font-family: arial;
+    font-size: 14px;
+    line-height: 35px;
+	padding-left:10px;
+}
+
+.content-accordian {
+    margin-bottom: 10px;
+
+}
+
+.ui-accordion .ui-accordion-content-active{
+	background:#ffffff;
+	border:1px solid #fbd850;	
+}
+
+.header-logo img, .chap_logo img {
+/*    border: 2px solid #ffffff;
+    width: 100%;*/
+}
+
+/* Inner CP styles */
+.inner_cp{
+	height:100px !important;
+}
+
+
+.tabs {
+  background: #003A74 !important;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+.tabs li {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.tabs a {
+  background: #003A74 !important;
+  display: block;
+  float: left;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 12px 22px 12px 22px;
+  /*border-right: 1px solid @tab-border;*/
+
+}
+.tabs li:last-child a {
+  border-right: none;
+  width: 174px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+}
+.tabs a.active {
+  background: #AAAAAA;
+  border-right: none;
+  -webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	transition: all 0.5s linear;
+}
+#content .ui-tabs .ui-tabs-nav.ui-widget-header {
+    background: #003A74 none repeat scroll 0 0 !important;
+}
+
+#content .ui-tabs .ui-tabs-nav li a {    
+    background-image: linear-gradient(to bottom, #1178c5 0%, #001846 100%, #1178c5 100%) !important;
+    color: #fff;
+}
+
+#content .ui-tabs .ui-tabs-nav li a:hover, #content .ui-tabs .ui-tabs-nav li.ui-state-active a {
+    background-color: #fff;
+    border-radius: 4px;
+    color: #FFC801 !important;
+}
+
+#content .title .filter button, #content .button {
+    background: #003a74 none repeat scroll 0 0 !important;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 2px;
+}
+
+.pagination a.current {
+   background-image: linear-gradient(to bottom, #1178c5 0%, #001846 100%, #1178c5 100%) !important;
+    border-color: #cc4748;
+    color: #ffffff;
+}
+
+#header .info {
+    color: #003a74 !important;
+    float: right;
+    margin-right: 25px;
+    margin-top: 15px;
+    width: 300px;
+}
+
+#content button.orangeButton, #content a.orangeButton:link, #content a.orangeButton:visited {
+    background: #003a74 none repeat scroll 0 0 !important;
+    border: medium none;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 3px 5px;
+}
+

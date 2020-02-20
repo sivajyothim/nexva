@@ -1,0 +1,52 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/27/13
+ * Time: 6:20 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<?php if ($this->pageCount){ ?>
+
+    <div id="paginationControl" class="pagination">
+        <!-- Previous page link -->
+
+        <?php if (isset($this->previous)){ ?>
+
+            <a href="<?php echo $this->url(array('page' => $this->previous,'chap_id' => $this->chap_id, 'priority'=>$this->priority, 'status'=>$this->status, 'source'=>$this->source)); ?>"> &lt;&lt; Previous</a>
+
+        <?php } else { ?>
+
+            <span class="disabled">&lt;&lt; Previous</span>
+
+        <?php } ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page){ ?>
+
+            <?php if ($page != $this->current){ ?>
+
+                <a class="number" href="<?php echo $this->url(array('page' => $page,'chap_id' => $this->chap_id,'priority'=>$this->priority,'status'=>$this->status,'source'=>$this->source)); ?>"><?php echo $page; ?></a>
+
+            <?php } else { ?>
+
+                <a class="number current"><?php echo $page; ?></a>
+
+            <?php } ?>
+
+        <?php } ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)) { ?>
+
+            <a href="<?php echo $this->url(array('page' => $this->next,'chap_id' => $this->chap_id, 'priority'=>$this->priority, 'status'=>$this->status, 'source'=>$this->source)); ?>">Next &gt;&gt;</a>
+
+        <?php } else { ?>
+
+            <span class="disabled">Next &gt;&gt;</span>
+
+        <?php } ?>
+
+    </div>
+<?php } ?>

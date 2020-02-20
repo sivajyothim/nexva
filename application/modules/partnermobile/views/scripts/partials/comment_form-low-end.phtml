@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    
+var $form_validation = jQuery.noConflict();
+
+$form_validation(document).ready(function(){
+        
+	//global vars	
+	var form = $form_validation("#frm_ticketing");
+        
+	var description = $form_validation("#txtDescription");
+        var descriptionInfo = $form_validation("#descriptionInfo");		
+	
+	//On blur
+	description.blur(validateDescription);
+        
+	//On key press
+	description.keyup(validateDescription);
+
+	//On Submitting
+	form.submit(function(){					 
+					
+		if(validateDescription())
+		{			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
+	
+	function validateDescription(){
+		//if it's NOT valid
+		if(description.val().length < 1){
+			description.addClass("error");
+			descriptionInfo.text("Please add the ticket description.");
+			descriptionInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			description.removeClass("error");
+			descriptionInfo.text("");
+			descriptionInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+});
+</script>
+
+<form name="frm_response" id="frm_ticketing" method="post" action="/ticket/insert-response">
+<!-- form col3-->	
+    <fieldset data-role="fieldcontain" class="ui-field-contain ui-body ui-br"><label for="txtDescription" class="ui-input-text"><?php echo $this->translate("Description");?> :</label><textarea id="txtDescription" name="txtDescription" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset"></textarea></fieldset>
+    <div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="c" data-disabled="false" class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all" aria-disabled="false"><span class="ui-btn-inner"><span class="ui-btn-text"><?php echo $this->translate("Submit");?></span></span><input type="submit" value="Submit" class="ui-btn-hidden" data-disabled="false"></div>
+    <input type="hidden" name="ticketId" value ="<?= $this->tiketPartialId; ?>"/>
+</form>

@@ -1,0 +1,42 @@
+<div class="description">
+  <!-- Start Login Form -->
+  <form method="post" action="">
+    <label>E-mail</label>
+    <input name="username" id="username" type="text" class="utility-text" value="<?= $this->formValues->username ?>"/>
+    <br clear="all" />
+    <label>Password </label>
+    <input name="password" id="password" type="password" class="utility-text"  value="<?= $this->formValues->password ?>"/>
+    <br clear="all" />
+    <input type="submit" class="button" name="submit" value="Login" />
+    <?
+    //get the FB vars for the 
+    $deviceSession  = new Zend_Session_Namespace('Device');
+    $baseUrl    = Zend_Registry::get('config')->nexva->application->mobile->url;
+    
+    $appId      = (isset($this->themeMeta->WHITELABLE_FB_APPID) && !empty($this->themeMeta->WHITELABLE_FB_APPID)) ? $this->themeMeta->WHITELABLE_FB_APPID : null;
+    $appSecret  = (isset($this->themeMeta->WHITELABLE_FB_SECRET) && !empty($this->themeMeta->WHITELABLE_FB_SECRET)) ? $this->themeMeta->WHITELABLE_FB_SECRET : null;
+    $baseUrl    = (isset($this->themeMeta->WHITELABLE_URL) && !empty($this->themeMeta->WHITELABLE_URL)) ? $this->themeMeta->WHITELABLE_URL : $baseUrl;
+    
+    
+    $fb             = new Nexva_Facebook_FacebookConnect('mobile', $appId, $appSecret);
+    $fbLoginUrl     = $fb->getLoginUrl(array('next' => "http://$baseUrl/user/login/facebook/1/",
+          'cancel_url' => "http://$baseUrl/user/login/facebook/1/",
+          'req_perms' => 'publish_stream,user_likes,email',
+          'display' => ($deviceSession->inputMethod == 'touchscreen') ? 'touch' : 'wap'
+            )
+    );
+    ?>
+
+
+    <div style="padding: 10px 5px 0 0">
+      Or, if you're on Facebook you can use your Facebook account to login: <br/> <br/>
+      <a href="<?= $fbLoginUrl ?>" >
+        <img style="border:none" align="center" src="http://static.ak.fbcdn.net/rsrc.php/zB6N8/hash/4li2k73z.gif">
+      </a>
+    </div>
+    <p>
+      Don't have an account yet? <a href="/user/register-unclaim">Create an account for free.</a>
+
+    </p>
+  </form>
+</div>

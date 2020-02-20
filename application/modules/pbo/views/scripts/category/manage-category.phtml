@@ -1,0 +1,126 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/12/14
+ * Time: 12:37 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#accordion-category').accordion({
+            collapsible: true,
+            heightStyle: "content",
+            active : 'none'
+        });
+
+        $('.category-chk').click(function(e){
+            var sub_chk = $(this).parent().next('div').find('.category-chk-sub');
+            if(this.checked) {                              //
+                sub_chk.each(function(){                    //
+                    this.checked = true;                    //
+                });                                         //
+            } else {                                        //  adds check all & deselect all functionality for parent category selector
+                sub_chk.each(function(){                    //
+                    this.checked = false;                   //
+                });                                         //
+            }                                               //
+            e.stopPropagation(); // stops firing the accordion expand effect when clicks on the parent category check box
+        });
+
+        $('.category-chk-sub').click(function(e){
+            var parent_chk = $(this).parent().prev('h3').find('.category-chk');
+            if(this.checked) {                              //
+                parent_chk.each(function(){                 //
+                    this.checked = true;                    //  check the parent category selector if any of the sub-category is checked
+                });                                         //
+            }                                               //
+        });
+
+        /*var allChecked = 0;var count = 0;
+         var iparent = $(this).parent().find('.category-chk-sub');
+         if(this.checked) {
+         iparent.each(function(){
+         count++;
+         if(this.checked){
+         allChecked++;
+         }
+         });
+         }
+         console.log(allChecked);
+         console.log(count);
+         if((allChecked == 0 || count == 0) && (allChecked == count)){
+         parent_chk.each(function(){
+         this.checked = true;
+         });
+         }*/
+
+    });
+</script>
+
+<?php if (count($this->successMessages)) { ?>
+    <div class="notification success png_bg">
+        <div>
+
+            <?php foreach ($this->successMessages as $message) { ?>
+
+                <li><?php echo $this->escape($message); ?></li>
+
+            <?php } ?>
+
+        </div>
+    </div>
+<?php } ?>
+
+<?php if (count($this->errorMessages)) { ?>
+    <div class="notification information png_bg">
+        <div>
+
+            <?php foreach ($this->errorMessages as $message) { ?>
+
+                <li><?php echo $this->escape($message); ?></li>
+
+            <?php } ?>
+
+        </div>
+    </div>
+<?php } ?>
+
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+    </div>
+    <div class="content-box-content">
+        <div style="width:99%;float: right;">
+            <form method="post" action="<?php echo PBO_PROJECT_BASEPATH;?>category/add-chap-categories" id="manage-category" name="manage-category" class="pbo-admin-form">
+
+                <div id="accordion-category">
+                    <?php
+                    $categoryModel = new Pbo_Model_ChapCategories();
+                        foreach($this->categories as $category){ ?>
+                        <h3 class="category-header">
+                            <input name="category[]" class="category-chk" value="<?php echo $category->id;?>" type="checkbox" <?php if($category->chap_category_status == 1){ echo 'checked'; };?> /><?php echo $category->name;?>
+                        </h3>
+                        <div class="sub-category">
+                            <?php
+                            $subCategories = $categoryModel->getSubCategoriesForParentCategory($category->id,$this->chapId);
+                            foreach($subCategories as $subCategory){ ?>
+                                <input name="category[]" class="category-chk-sub" value="<?php echo $subCategory->id;?>" type="checkbox" <?php if($subCategory->chap_category_status == 1){ echo 'checked'; };?> /><?php echo mb_convert_encoding($subCategory->name,"HTML-ENTITIES","UTF-8");?><br/>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
+                </div>
+
+                <div style="float:left; width:60px; position: relative; left: 15px">
+                    <input style="position: relative; top: 5px" type="submit" value="Submit" class="button" name="add-all" id="add-all"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('#10').addClass('current');
+    $('#86').addClass('current');
+</script>

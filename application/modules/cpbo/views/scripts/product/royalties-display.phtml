@@ -1,0 +1,66 @@
+
+<div style='height: 30px; 
+background-color: #000000; 
+text-align: center; 
+font-size: 12px; 
+font-weight: bold; 
+color: #ffffff; 
+width: 500px;
+vertical-align: middle;
+padding-top: 7px;'>
+<?php echo $this->translate("Your earning");?> </div>
+<br />
+
+
+<div style="margin-top: -5px;"><b><?php echo $this->translate("Your payout scheme is");?> <?=$this->name;?> </b> <br /><br />
+
+<?php echo $this->translate("You earn");?> <?=$this->payoutCp;?>% (<?php echo $this->translate("minus payment gateway costs");?>) <?php echo $this->translate("and neXva keeps 25% under this scheme.");?>
+<?php echo $this->translate("Your earnings will vary depending on the payment gateway that the user decides to use.");?> <br /><br />
+<?php echo $this->translate("The information below describes in detail how much you will earn depending on the payment gateway that is used.t");?></div>
+<br />
+
+
+<table cellpadding='0' cellspacing='0' width='500px'>
+	<thead>
+		<tr>
+			<th><?php echo $this->translate("Payment gateway");?></th>
+			<th><?php echo $this->translate("Gateway charges description");?></th>
+
+			<th><?php echo $this->translate("Your earning");?></th>
+			<th></th>
+
+		</tr>
+	</thead>
+	<tbody>
+                    
+<?php
+foreach ( $this->paymentGateways as $paymentGateway ) {
+	
+	$userModel = new Model_User();
+	
+	$paymentGatewayCharges = $userModel->getPaymentGatewayCharges($paymentGateway->id, $this->amount);
+	
+	$nexvaCharges = ($this->amount * ($this->payoutNexva / 100));
+	
+	
+	
+	
+	$total = $this->amount - ($paymentGatewayCharges + $nexvaCharges);
+	
+	$currency = new Zend_Currency ( 'en_US' );
+	$total = $currency->toCurrency ( $total );
+	
+	?>
+                    <tr>
+			<td><?=$paymentGateway->name;?></td>
+			<td><?=$paymentGateway->charge;?>% + <?php echo $this->translate("fixed cost");?> <?=$paymentGateway->fixed_cost?></td>
+	
+			<td> USD <?=$total?></td>
+
+		</tr>
+      <?php
+
+}
+
+?>      </tbody>
+</table>

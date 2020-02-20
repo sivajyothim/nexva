@@ -1,0 +1,286 @@
+<script type="text/javascript">
+    
+var $form_validation = jQuery.noConflict();
+
+
+$form_validation(document).ready(function(){
+	//global vars	
+	$form_validation('#btn_submit').click(function() {
+            tinyMCE.triggerSave();
+        });
+        
+	var form = $form_validation("#frm_ticketing");
+        
+	var subject = $form_validation("#txtSubject");
+        var subjectInfo = $form_validation("#subjectInfo");
+        
+	var description = $form_validation("#txtDescription");
+        var descriptionInfo = $form_validation("#descriptionInfo");		
+        
+	var type = $form_validation("#selectType");
+        var typeInfo = $form_validation("#typeInfo");
+        
+	var priority = $form_validation("#selectPriority");
+        var priorityInfo = $form_validation("#priorityInfo");
+
+	
+	//On blur
+	subject.blur(validateSubject);
+	description.blur(validateDescription);
+	type.blur(validateType);
+	priority.blur(validatePriority);
+        
+	//On key press
+	subject.keyup(validateSubject);
+	description.keyup(validateDescription);
+	type.keyup(validateType);
+	priority.keyup(validatePriority);
+
+	//On Submitting
+	form.submit(function(){					 
+					
+		if(validateSubject() & validateDescription() & validateType() & validatePriority())
+		{			
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	});
+	
+	function validateSubject(){
+		//if it's NOT valid
+		if(subject.val().length < 4){
+			subject.addClass("error");
+			subjectInfo.text("<?= $this->translate("Please add a subject");?>!");
+			subjectInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			subject.removeClass("error");
+			subjectInfo.text("");
+			subjectInfo.removeClass("error");
+			return true;
+		}
+	}
+        
+        function validateType(){
+		//if it's NOT valid
+		if(type.val().length < 1){
+			type.addClass("error");
+			typeInfo.text("<?= $this->translate("Please select a type");?>!");
+			typeInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			type.removeClass("error");
+			typeInfo.text("");
+			typeInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+        function validatePriority(){
+		//if it's NOT valid
+		if(priority.val().length < 1){
+			priority.addClass("error");
+			priorityInfo.text("<?= $this->translate("Please select a priority");?>!");
+			priorityInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			priority.removeClass("error");
+			priorityInfo.text("");
+			priorityInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+	function validateDescription(){
+		//if it's NOT valid
+		if(description.val().length < 1){
+			description.addClass("error");
+			descriptionInfo.text("<?= $this->translate("Please add the ticket description");?>.");
+			descriptionInfo.addClass("error");
+			return false;
+		}
+		//if it's valid
+		else{
+			description.removeClass("error");
+			descriptionInfo.text("");
+			descriptionInfo.removeClass("error");
+			return true;
+		}
+	}
+	
+});
+</script>
+
+<script type="text/javascript">
+tinymce.init({
+    selector: "textarea"
+});
+</script>
+
+<div id="main_right_pane">
+
+    <div class="inr_tabs_wrapper">
+        <div class="inr_tab_bar"><span class="inr_brdcrtxt_pur">+</span> 
+            <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Add a ticket");?></span><br/>
+            <!--span class="dashboard-username">Welcome, <?= $this->UserMeta($this->userId,'FIRST_NAME'); ?> | <a href="/info/logout"><?php echo $this->translate("Logout");?></a></span-->
+        </div>
+            <div class="inrtab_selection_top inner_content" >
+<!-- Displays Success Message/s -->
+<?php if (count($this->successMessages)) : ?>
+
+    <div class="notification success png_bg">
+        <div>
+
+            <?php foreach ($this->successMessages as $message) : ?>
+
+                <?php echo $this->escape($message); ?>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) : ?>
+
+    <div class="notification error png_bg">
+        <div>
+
+            <?php foreach ($this->errorMessages as $message) : ?>
+
+                <?php echo $this->escape($message); ?>
+
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+
+<?php endif; ?>
+                <div id="form_wrapper">
+                    
+                    <?php if(!empty($this->messages_sent)) : ?>
+                        <div class="text_bg"> 
+                            <p><?= $this->messages_sent ?></p>
+                        </div> 
+                    <?php endif; ?>
+                    <form enctype="multipart/form-data" name="frm_ticketing" id="frm_ticketing" method="post" action="/ticket/insert-ticket">
+                        <!-- form col3-->	
+                        
+
+                            <div align="right" class="required_wrapper">
+                                <span class="required_txt_style"><?php echo $this->translate("Required Information");?> (</span><span class="form_font_red">*</span><span class="required_txt_style">)</span>
+                            </div>
+
+                            <br /><br />
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel"><?php echo $this->translate("Subject");?></span>
+                                    <span class="form_font_red">*</span>
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                    <input type="text" id="txtSubject" name="txtSubject" class="input_smallresult_form" style="width:100%" value="<?= (isset($this->txtSubject)) ? $this->txtSubject : ''; ?>">
+                                    <br />
+                                    <span id="subjectInfo"></span>
+                                </div>
+                            </div>
+
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel"><?php echo $this->translate("Type");?></span>
+                                    <span class="form_font_red">*</span>
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                    <select name="selectType" id="selectType">
+                                        <option value="">- <?php echo $this->translate("Select Type");?> -</option>
+                                        <?php foreach($this->optTypes as $optType) : ?>
+                                            <option value="<?= $optType ?>" <?= (isset($this->selectType) && ($this->selectType == $optType)) ? 'selected' : ''; ?>><?= $this->translate($optType) ?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                    <br />
+                                    <span id="typeInfo"></span>
+                                </div>
+                            </div>	
+
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel"><?php echo $this->translate("Priority");?></span>
+                                    <span class="form_font_red">*</span>
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                    <select name="selectPriority" id="selectPriority">
+                                        <option value="">- <?php echo $this->translate("Select Priority");?> -</option>
+                                        <?php foreach($this->optPrioritys as $optPriority) : ?>
+                                            <option value="<?= $optPriority ?>" <?= (isset($this->selectPriority) && ($this->selectPriority == $optPriority)) ? 'selected' : ''; ?>><?= $this->translate($optPriority) ?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                    <br />
+                                    <span id="priorityInfo"></span>
+                                </div>
+                            </div>
+                           
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel"><?php echo $this->translate("Description");?></span>
+                                    <span class="form_font_red">*</span>
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                    <textarea id="txtDescription" name="txtDescription" cols="35" rows="7" class="txt_area_innerform_calvalthe" style="width:90%"><?= (isset($this->txtDescription)) ? $this->txtDescription : ''; ?></textarea>
+                                    <br />
+                                    <span id="descriptionInfo"></span>
+                                </div>
+                            </div>	
+
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel"><?php echo $this->translate("Attach a file from your computer");?></span>
+                                    <span class="form_font_red">File size &lt; 2MB</span>
+                                </div>
+
+                                <div class="form_col3_class1_right">
+                                    <input type="file" name="txtAttachment"/>
+                                    <br />
+                                    <span id="nameInfo"></span>
+                                </div>
+                            </div>
+
+                            <div align="right" class="submit_btn_wrapper">
+
+                                <input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Submit");?>" class="partner_btn">
+                                <input type="reset" id="btn_reset" name="btn_reset" value="<?php echo $this->translate("Reset");?>" class="partner_btn">
+                                
+                           </div>
+
+                        
+                    </form>	<!-- form col6-->	
+
+                </div>
+
+
+
+            </div>
+
+
+    </div>
+    <!-- box one-->
+
+
+    <div style="clear: both;"></div>
+
+</div>
+

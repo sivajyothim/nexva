@@ -1,0 +1,133 @@
+<style>
+    #outer_wrapper tbody tr.alt-row{
+    background: none;
+}
+</style>
+
+<div id="inner_main_wrapper"><!-- Start Content Box -->
+   
+<br />
+
+<div id="outer_wrapper">
+    
+    <div class="inner_wrapper_common">
+        <h4>Sales: <span class="blue_text">&dollar; <?= $this->totalAllSales; ?> - <?=$this->CurrencyConvert($this->totalAllSales)?>(Total)</span></h4>
+        <hr>
+        <table class="no-style full">
+            <tbody>
+                <tr>
+                    <td>Sales This Week (Mon - Sun)</td>
+                    <td class="ta-right">&dollar; <?= $this->thisWeekSales; ?> - <?=$this->CurrencyConvert($this->thisWeekSales)?></td>
+                   
+                </tr>
+                <tr>
+                    <td>Sales This Month</td>
+                    <td class="ta-right">&dollar; <?= $this->thisMonthSlaes; ?> - <?=$this->CurrencyConvert($this->thisMonthSlaes)?></td>
+                   
+                </tr>
+                <tr>
+                    <td>Sales Previous Month</td>
+                    <td class="ta-right">&dollar; <?= $this->preMonthSlaes; ?> - <?=$this->CurrencyConvert($this->preMonthSlaes)?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Sales Total</td>
+                    <td class="ta-right">&dollar; <?= $this->totalAllSales; ?> - <?=$this->CurrencyConvert($this->totalAllSales)?></td>                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <div class="inner_wrapper_common">
+        <h4>Downloads: <span class="blue_text"><?= $this->totalAllDownloadCount; ?> (Total)</span></h4>
+        <hr>
+        <table class="no-style full">
+            <tbody>
+                <tr>
+                    <td>Premium Apps This Month</td>
+                    <td class="ta-right"><?= $this->premiumDownloadCount; ?></td>
+                   
+                </tr>
+                <tr>
+                    <td>Free Apps This Month</td>
+                    <td class="ta-right"><?= $this->freeDownloadCount; ?></td>
+              
+                </tr>
+                <tr>
+                    <td>Premium Apps Total</td>
+                    <td class="ta-right"><?= $this->totalPremiumDownloadCount; ?></td>
+                 
+                </tr>
+                <tr>
+                    <td>Free Apps Total</td>
+                    <td class="ta-right"><?= $this->totalFreeDownloadCount; ?></td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <div class="inner_wrapper_common">
+        <h4>Uploads: <span class="blue_text"><?= $this->totalAllUploadCount; ?> (Total)</span></h4>
+        <hr>
+        <table class="no-style full">
+            <tbody>
+                <tr>
+                    <td>Premium Apps This Month</td>
+                    <td class="ta-right"><?= $this->premiumUploadCount; ?></td>
+                   
+                </tr>
+                <tr>
+                    <td>Free Apps This Month</td>
+                    <td class="ta-right"><?= $this->freeUploadCount; ?></td>
+              
+                </tr>
+                <tr>
+                    <td>Premium Apps Total</td>
+                    <td class="ta-right"><?= $this->totalPremiumUploadCount; ?></td>
+                 
+                </tr>
+                <tr>
+                    <td>Free Apps Total</td>
+                    <td class="ta-right"><?= $this->totalFreeUploadCount; ?></td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="inner_wrapper_common">
+        <h4>Users / Developers: <span class="blue_text"><?= $this->totalAllUserCount; ?> (Total)</span></h4>
+        <hr>
+        <table class="no-style full">
+            <tbody>
+                <tr>
+                    <td>User This Month</td>
+                    <td class="ta-right"><?= $this->monthUserCount; ?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Developers This Month</td>
+                    <td class="ta-right"><?= $this->monthCPCount; ?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Users Total</td>
+                    <td class="ta-right"><?= $this->totalUserCount; ?></td>
+                    
+                </tr>
+                <tr>
+                    <td>Developers Total</td>
+                    <td class="ta-right"><?= $this->totalCPCount; ?></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+<div class="clear"></div>
+

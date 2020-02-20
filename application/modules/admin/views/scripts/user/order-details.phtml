@@ -1,0 +1,74 @@
+<div class="title">
+    <h3 style="cursor: s-resize;">Order Details</h3>
+</div>
+    
+<div class="box">
+    <div class="content_box">       
+        <div class="txt">
+            
+      <?php if($this->isOrdersEmpty === FALSE)
+            {
+                
+            
+            ?>
+                <br />
+            <table cellpadding="0" cellspacing="0">
+                    
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>  
+                            <th>Promo Code</th>
+                            <th>App ID</th>
+                            <th>App Name</th>
+                            <th>Price US</th> 
+                            <th>Payment Via</th>
+                            <th>Payment Gateway</th>
+                            <th>Transaction ID</th>
+                            <th>Order Date</th>                          
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <?php foreach($this->orderDetails as $orders)
+                        {
+                        ?>                        
+                        <tr>
+                            <td><?php echo $orders->order_id; ?></td>   
+                            <td>
+                                <a class="vtip" href="#" title="<?php echo "<strong>Description : </strong>".$orders->description." <br /> ".
+                                                                            "<strong>Use Type : </strong>".$orders->use_type." <br /> ".
+                                                                            "<strong>Use Limit : </strong>".$orders->use_limit." <br /> ".
+                                                                            "<strong>Amount : </strong>".$orders->amount." $ <br /> ".
+                                                                            "<strong>Promo Type : </strong>".$orders->promo_type; ?>" >
+                                        <?php echo $orders->promo_id; ?>
+                                </a>
+                            </td> 
+                            <td><?php echo $orders->product_id; ?></td>
+                            <td><?php echo $orders->name; ?></td>
+                            <td><?php echo $orders->price ." $"; ?></td>
+                            <td><?php echo $orders->payment_method; ?></td>
+                            <td><?php echo $orders->merchant_id; ?></td>
+                            <td><?php echo $orders->transaction_id; ?></td>
+                            <td><?php echo $orders->order_date; ?></td>
+                            
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+            </table>
+            
+            <?= $this->paginationControl($this->orderDetails, 'Sliding', 'partials/paginator_order_details.phtml',array("page_name" =>"order_details","search_caption" =>"search","search_value" => $this->search)); ?>
+            
+       <?php 
+            }
+            else
+            {
+                echo "No records found";
+            }
+       ?>
+                
+        </div>
+    </div>
+</div>

@@ -1,0 +1,207 @@
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/cp/assets/css/analytics.css'); ?>
+<?php $this->headLink()->appendStylesheet(PROJECT_BASEPATH.'/admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/excanvas.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.pie.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.stack.js'); ?>
+
+<?php $this->headScript()->captureStart();?>
+
+  var __DATA_DATE = eval(<?=$this->appViewDateJson;?>); //app views by date
+  var __DATA_DOWNLOADS = eval(<?=$this->appDownloadDateJson;?>); //downloads 
+
+<?php $this->headScript()->captureEnd();?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/pbo/js/analytics/appview.js'); ?>
+
+<script type="text/javascript"><!--
+    
+  
+   $(document).ready(function() 
+       {
+
+	    $("#from").datepicker({ dateFormat: 'yy-mm-dd'});
+    	$("#to").datepicker({ dateFormat: 'yy-mm-dd'});
+    	
+    	
+    	var freePremiumViewRatiodata = [];
+
+    	var pieSliceColors = [];
+    	pieSliceColors['free'] = '#D07FF6';
+    	pieSliceColors['premium'] = '#98c359';
+
+
+        <?if($this->freePremiumViewsRatio): ?>
+    	
+    	jsonFreePremiumViewRatio = <?=$this->freePremiumViewsRatio;?>;
+    	
+    	k = 0;
+	    $.each(jsonFreePremiumViewRatio, function(i, item) {
+	    	freePremiumViewRatiodata.push({ label: i, data: item, color: pieSliceColors[i]});
+	
+	      });
+
+
+	    $.plot($("#views_free_premium"), freePremiumViewRatiodata,
+	    		{
+	    		        series: {
+	    		            pie: {
+	    		                show: true,
+	    		                radius: 1,
+	    		                label: {
+	    		                    show: true,
+	    		                    radius: 1,
+	    		                    formatter: function(label, series){
+	    		                        return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+	    		                    },
+	    		                    background: { opacity: 0.8 }
+	    		                },
+	    		            }
+	    		        },
+	    		        legend: {
+	    		            show: false
+	    		        }
+	    		});
+
+     <?endif;?>  
+
+     <?if($this->freePremiumDownloadRatio): ?>
+	    
+    	jsonFreePremiumDownloadRatio = <?=$this->freePremiumDownloadRatio;?>;
+
+    	var freePremiumDownloadRatiodata = [];
+    	
+	    $.each(jsonFreePremiumDownloadRatio, function(i, item) {
+	    	freePremiumDownloadRatiodata.push({ label: i, data: item, color: pieSliceColors[i] });
+	      });
+   
+    $.plot($("#downloads_free_premium"), freePremiumDownloadRatiodata,
+    		{
+    		        series: {
+    		            pie: {
+    		                show: true,
+    		                radius: 1,
+    		                label: {
+    		                    show: true,
+    		                    radius: 1,
+    		                    formatter: function(label, series){
+    		                        return '<div style="font-size:8pt;text-align:center;padding:2px;color:white;">'+label+'<br/>'+Math.round(series.percent)+'%</div>';
+    		                    },
+    		                    background: { opacity: 0.8 }
+    		                }
+    		            }
+    		        },
+    		        legend: {
+    		            show: false
+    		        }
+    		});
+    <?endif;?>  
+});
+
+</script>
+ 
+           
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?>   
+Sales  </h3>
+</div> <!-- End .content-box-header -->
+
+<div class="content-box-content">
+
+<form id="regUserForm" style='width:auto;' name="regUserForm" action="<?php echo PBO_PROJECT_BASEPATH;?>statistic/purchases" method="post">
+          
+
+<p style="text-align: center;"> 
+           
+   <input type="text" class="text-input date" id="from" name="from" value="<?=$this->startDate?>" />  <input type="text" class="text-input date" id="to" name="to" value="<?=$this->endDate?>" />
+  
+<? if($this->telcoDropdown): ?>
+  
+   <select id="chap" name="chap"> 
+          <option value="all"> All Teleco</option>
+  <?php foreach($this->telcosDropDown as $telco): ?> 
+
+       <option value="<?=$telco['id']?>" <?php if($this->chapId == $telco['id']) { echo 'selected'; }?>><?=$telco['siteName']?></option>
+   
+  <?php endforeach; ?> 
+   </select>
+<? endif; ?>
+
+ <!--  <select id="status" name="status"> 
+          <option value="all"> All</option>
+
+       <option value="Pending" <?php if($this->status == 'Pending') { echo 'selected'; }?>>Pending</option>
+       <option value="Success" <?php if($this->status == 'Success') { echo 'selected'; }?>>Success</option>
+   
+   </select>  --> 
+ <select id="report" name="report"> 
+
+       <option value="Web" <?php if($this->status == 'Web') { echo 'selected'; }?>>Web</option>
+       <option value="Excel" <?php if($this->status == 'Excel') { echo 'selected'; }?>>Excel</option>
+   
+   </select> 
+    <input type="text" name="transaction_id" value="<?=$this->transaction_id?>" class="text-input" placeholder="Transaction Id" title="Transaction Id"/>
+   <input type="submit" value="Filter" name="submit" class="button" />
+</p>               
+        
+</form>
+
+
+
+<div class="content-box-header">
+        <h3 style="cursor: s-resize;">Payouts:- You-<?php echo $this->payoutInfo->payout_chap?>% - CP-<?php echo $this->payoutInfo->payout_cp?>% neXva-<?php echo $this->payoutInfo->payout_nexva?>%
+</h3>
+        </div>
+
+<div class="content-box-content">
+<div style="">
+
+        <table cellspacing="0" cellpadding="0" style="width:100%; margin-left: 15px;">
+            <thead>
+                <tr>
+                        <th>App Id</th>
+                        <th>Build Id</th>
+                        <th>Mobile No</th>
+                        <th>Price(USD)</th>
+                        <th>Price(Native)</th>
+                        <th>Date Transaction</th>
+                        <th>Timestamp</th>
+                        <th>Transaction Id</th>
+                        <th>Status</th>
+                        <th>Payment Geteway</th>
+                </tr>
+            </thead>
+            <? $items = count($this->paymentList); if($items > 0): ?>
+            <?php foreach ($this->paymentList as $paymentList) : ?>
+            <?=$this->partial('partials/payment_list.phtml', array("paymentList" => $paymentList, "payout_chap" => $this->payoutInfo->payout_chap)); ?>
+            <? endforeach; ?>
+            <? else:  ?>
+               <tr>
+                    <td colspan = "8"  style="text-align: center;">No Sales </td>           
+                </tr>
+            <? endif; ?>
+            
+         </table>
+         
+
+</div>
+
+
+
+
+
+    <div style="clear: both;"></div>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+ <script type="text/javascript">        
+   $('#7').addClass('current');  
+   $('#74').addClass('current'); 
+</script>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="content-type" content="application/xhtml+xml;charset=utf-8" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name='HandheldFriendly' content='True' />
+        <meta content="en" http-equiv="content-language"/>
+        <meta name="google-site-verification" content="hJ1cHVj4q3Rjg9JxFGpEAhYhDNT66v5Id2cIwgBb4BQ" />
+        <title>
+            <?php 
+                //The legacy system has tied page titles directly to the main html title.
+                //I'm just decoupling it by using $htmlTitle. 
+            ?>
+            <?= isset($this->pageTitle) ? $this->pageTitle . ' | ' : '' ?>
+            <?= isset($this->htmlTitle) ? $this->htmlTitle . ' | ' : '' ?>
+            <?= $this->title ?> | <?= $this->phone ?> | Mobile
+        </title>
+        <link href="<?=$this->cdn('site_assets')?>/mobile/css/style.css<?=$this->VER?>" rel="stylesheet" type="text/css"></link>
+		<!-- Adding style sheet used for iPhone safari to set the page as homepage -->
+		<link href="<?=$this->cdn('site_assets')?>/mobile/css/add2home.css" rel="stylesheet" type="text/css"></link>
+        <!-- Add JS and CSS dynamically -->
+        <?php
+        echo $this->headMeta();
+        //echo $this->headScript();
+		//Adding script used for iPhone safari to set the page as homepage
+		echo $this->headScript()->appendFile('/mobile/js/add2home.js');
+        echo $this->headStyle();
+        echo $this->headLink();
+        ?>
+    </head>
+    <body>
+        <div id='topPosition' class="header padding-all">
+            <a href="/">
+                <?= $this->partial('parts/mobile/image.phtml', array("item" => $this->logo)) ?>
+            </a>
+            
+            <a class='image_link' href='#q'><img src='/mobile/images/search.png'></a>
+            
+        </div>
+        <div id="content" class="content rounded">
+                <?php if (isset($this->DEVICE_EXACT_MATCH) && !$this->DEVICE_EXACT_MATCH && $this->userId != 21677) : ?>
+                <div class='message_notice'>
+                    We had trouble detecting your device. <a href='/device'>Please set it manually</a>.          
+                </div>
+                
+                <?php endif;?>
+            
+                
+                <? if ($this->showPageTitle && !empty($this->pageTitle)): ?>
+                                
+                     <div class='breadcrumb'>
+                          <h2 class='title_alt'><?= $this->pageTitle ?></h2>
+                                
+                     </div>
+            
+                
+                <? endif; ?>
+            
+
+            
+            <?=$this->layout()->content ?>
+         </div><!-- content ends -->
+
+                   <?php if($this->hideFooter == FALSE){ ?>
+                            <div class="utility padding-all">
+                                <!-- Search and Category Start -->
+            <?=$this->partial('parts/mobile/rca-utility.phtml',
+                                            array("item" => array(
+                                                'search' => $this->searchKeyword,
+                                                'search_on' => $this->enableSearch,
+                                            )));
+            ?>
+                            </div>
+                            <?php } ?>
+
+            <div class='padding-all' style="">
+                <ul class='catlist alternate'>
+                  
+                    <li><a href="/rca-app/device">Selected Device : <?= $this->phone ?> (Not?)<span>&raquo;</span></a></li>
+                </ul>
+            </div>
+
+                            <div class="menu padding-all">
+            <?php
+                                $menus = $this->menuLinks;
+                                $menus['Top']   = '#topPosition';
+                                
+                                $menuLinks = '';
+                                foreach ($menus as $title => $link): ?>
+            <?php
+                                    $menuLinks .= $this->partial('parts/mobile/link.phtml', array("item" => array($title, $link))) . ' | '; ?>
+            <?php endforeach; ?>
+            <?= substr($menuLinks, 0, -2) ?>
+                                </div>
+                                <div align="center" id="footer" class="padding-all">
+                                    <div>&copy; <?= date('Y') . ' ' . $this->footerSitename ?></div>
+                                    <div>
+                <?php
+                                    $footerLinks = '';
+                                    foreach ($this->legalLinks as $title => $link):
+                ?>
+                <?php
+                                        $footerLinks .= $this->partial('parts/mobile/link.phtml', array("item" => array($title, $link))) . ' | ';
+                ?>
+                <?php
+                                        endforeach;
+                ?>
+                <?= substr($footerLinks, 0, -2) ?>
+            </div>
+            <br clear="all" />
+            <?php if (isset($this->themeMeta->WHITELABLE_SHOW_POWERED_BY) && $this->themeMeta->WHITELABLE_SHOW_POWERED_BY) : ?>
+                <a href='http://nexva.mobi/page/view/slug/powered'>Powered by neXva</a>
+            <?php endif;?>
+        </div>
+    </body>
+</html>

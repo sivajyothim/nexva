@@ -1,0 +1,56 @@
+<!-- Start Content Box #1 -->
+<div class="title">
+
+    <h3>Edit | Create category translation details</h3>
+
+
+</div>
+<div class="box">
+    <div class="txt">
+        <?php if(count($this->messages) > 0 ){?>
+            <div class="message info">
+                <p><?php foreach($this->messages as $message)
+                    {
+                        echo $this->escape($message);
+                    } ?>
+                </p>
+            </div>
+        <?php } ?>
+        <div id="content_box">
+            <div class="tab-login">
+<?= $this->render('partials/message.phtml'); ?>
+                <!-- Start pagecreate Form -->
+                <form method="post" action="/translation/save-cat-translation">
+                    <fieldset>
+                        <p><label>Category name</label>
+                            <input type="text" id="" name="" readonly="readonly" class="txt-input medium" value="<?=$this->catName; ?>"/>
+                        </p>
+                        <p><label>Translation (in <?= $this->selectedLanguage; ?>)</label>
+                            <input type="text" id="categoryTranslation" name="categoryTranslation" class="txt-input medium" value="<?=$this->category['translation_title']; ?>"/>
+                        </p>
+
+                        <p><label>Status</label>
+                            <select class="select-input small" name="categoryStatus" id="categoryStatus"  >
+                                <option value="1">Yes</option>
+                                <option value="0" <?if($this->category['status'] != 1 )echo 'selected=selected'; ?>>No</option>
+                            </select>
+                        </p>
+                        
+                        <p style="float:left;"><input type="submit" class="button" name="submit" value="Save" />
+                            <input type="button" class="button" name="button" value="Cancel" onClick="location.href='/translation/categories-translations-list/language/<?=$this->category['langId']; ?>'"/>
+                        </p>
+                     <!--<p  class="remember"><input type="checkbox" /> Remember Me</p>-->
+                    </fieldset>
+                    <input type="hidden" name="catId" id="catId" value="<?=$this->category['id']; ?>" />
+                    <input type="hidden" name="langId" id="language" value="<?=$this->category['langId']; ?>" />
+                </form>
+                <!-- End Login Form -->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- End Content Box #1 -->

@@ -1,0 +1,109 @@
+<div class="blkCenter innerPage containerGap">
+  <!-- product list page start -->
+  <div class="prodListPage">
+    <div class="container">
+      <div class="contContent">
+        <div class="blockContent">
+          <div class="blkHead">
+            <h2 id="pageTitle"><?= $this->cpname ?></h2>
+            <ul id="breadcrumbs">
+
+              <li><a href="/">Home</a></li>
+              <li><a href="#"><?= $this->cpname ?></a></li>
+            </ul>
+
+            <div style='text-align: center'>
+
+              <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator.phtml', array('baseUrlfo' => $this->baseUrl, 'cpid' => $this->cpid)); ?>
+
+            </div>
+          </div>
+          <div class="blkList">
+
+            <? foreach ($this->products as $product): ?>
+
+                <div class="prodListItem">
+                  <div class="block productLongBlock">
+                    <div class="blkContent">
+                      <div class="blkHead">
+                        <img src="<?=$this->cdn('product_images')?><?= $product['thumb'] ?>" alt="<?= $product['name'] ?>">
+                        <h3>
+                            <a class="moreinfo" href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product['name']) . "." . $product['id'] ?>">
+                            <?= $product['name'] ?>
+                            </a>
+                        </h3>
+                        <div class="priceTag"><label>Price: </label><span class="prod_price"><?= ($product['cost'] == 0) ? "Free" : "$" . $product['cost'] ?></span></div>
+                        <ul>
+
+                          <li><a class="moreinfo" href="<?php echo PROJECT_BASEPATH;?>app/<?= $this->slug($product['name']) . "." . $product['id'] ?>">More&nbsp;Info</a></li>
+                     
+                    
+                     
+                      <? $config = Zend_Registry::get("config"); ?>
+                      <? if ($product['content_type'] == 'URL'): ?>
+                        <li>
+
+                        <?
+                        $download = '';
+                        foreach ($product['file'] as $url): ?>
+                        <? if (preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url)): ?>
+                        <? $download = "<a href='" . $url . "'>" . $url . "</a><br clear='all'>"; ?>
+                        <? else: ?>
+                        <? $download = "<a href='" . $this->S3Url($product['id'] . '/' . $url) . "'>" . $url . "</a><br clear='all'>"; ?>
+
+                        <? endif; ?>
+                        <? endforeach; ?>
+                        <? $qrCode = $this->qr($download, 150, 150) ?>
+                        <? $url = "http://" . $config->nexva->application->mobile->url . "/app/show/id/" . $product['id'] ?>
+                        <?= $this->partial('partials/download.phtml', array('or_code' => $qrCode, 'uri' => $url, 'id' => $product['id'])); ?>
+                              <a href="javascript:viewDownload ('Download <?= $this->trim(str_replace("'", "", $product['name']), 50) ?>', '<?= $product['id'] ?>');" id="prod_demo">Download </a>
+                            </li>
+                      <? elseif ($product['cost'] == 0 || $product['is_purchased']): ?>
+
+                                <li>
+                                  <a href="javascript:viewDownload ('Download <?= $this->trim(str_replace("'", "", $product['name']), 50) ?>', '<?= $product['id'] ?>');" id="prod_demo">Download </a>
+                        <? $qrCode = $this->qr("http://" . $config->nexva->application->mobile->url . "/app/show/id/" . $product['id'], 150, 150) ?>
+                        <? $url = "http://" . $config->nexva->application->mobile->url . "/app/show/id/" . $product['id'] ?>
+                        <?= $this->partial('partials/download.phtml', array('or_code' => $qrCode, 'uri' => $url, 'id' => $product['id'])); ?>
+                              </li>
+                      <? else: ?>
+                                  <li><a href="javascript:viewDownload ('Buy <?= $this->trim(str_replace("'", "", $product['name']), 50) ?> (for <?= $product['platform_name'] ?>)', '<?= $product['id'] ?>');" class="buy">Buy</a></li>
+                      <?= $this->partial('partials/buy.phtml', array('id' => $product['id'], 'paymentGateways' => $this->paymentGateways)); ?>
+
+                      <? endif; ?>
+                                </ul>
+                              </div>
+                              <div class="prodListSpecsheet">
+                                <div class="speclist">
+                                  <div><label>Supported Platforms</label>
+              <? foreach ($product['supported_platforms'] as $platform): ?>
+                          <span class="prod_platform">
+                            <img src="<?=$this->cdn('site_assets')?>/web/images/platforms/<?= $platform->id ?>.png" alt="<?= $platform->name ?>" />&nbsp;<?= $platform->name ?>
+                          </span>
+              <? endforeach; ?>
+                        </div>
+                                </div>
+                              </div>
+                              <p>  <?= ($product['desc_brief']) ?> </p>
+                            </div>
+                          </div>
+                        </div>
+
+            <? endforeach; ?>
+        	
+          </div>
+          
+            <div style='text-align: center'>
+
+              <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator.phtml', array('baseUrlfo' => $this->baseUrl, 'cpid' => $this->cpid)); ?>
+
+            </div>
+          
+   
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- product list page end -->
+</div>

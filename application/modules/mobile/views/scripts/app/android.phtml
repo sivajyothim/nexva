@@ -1,0 +1,31 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 7/30/13
+ * Time: 10:17 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class='breadcrumb'>
+    <a href='/app'>All Apps</a>
+    <span>&raquo;</span>
+    <span class='last'>Recent Apps</span>
+</div>
+<div class="padding-all">
+    <h1>Apps for <?=$this->phone?></h1>
+</div>
+<?
+if(count($this->products) == 0) {
+    ?>
+    <div class="app">
+    <span class="mini-description">
+        Sorry, we couldn't find any recent apps.
+    </span>
+    </div>
+<?
+}
+foreach($this->products as $product): ?>
+    <?=$this->partial('/partials/android.phtml', array("item" => $product))?>
+<?php endforeach; ?>
+<?= $this->paginationControl($this->products,'Sliding','partials/paginator.phtml', array( 'baseUrlfo' => $this->baseUrlfo))?>

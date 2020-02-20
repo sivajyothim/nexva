@@ -1,0 +1,253 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/26/13
+ * Time: 1:32 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<style type="text/css">
+    .icon_list p{
+        margin:5px 0px;
+    }
+</style>
+
+<script type="text/javascript">
+    $().ready(function(){
+        $('#check-all').click(function(){
+            $('.ticket').find("input[type='checkbox']").attr('checked', $(this).is(':checked'));
+        });
+
+        $('#delete').click(function(){
+            $('#ticket-list').attr('action','/ticket/delete');
+            $('#ticket-list').submit();
+        });
+
+        $('#close').click(function(){
+            $('#ticket-list').attr('action','/ticket/close');
+            $('#ticket-list').submit();
+        });
+
+    });
+</script>
+
+<!-- Displays Success Message/s -->
+<?php if(count($this->successMessages)) { ?>
+    <div class="message info">
+        <p>
+            <?php foreach ($this->successMessages as $message) {
+                echo $this->escape($message);
+            } ?>
+        </p>
+    </div>
+<?php } ?>
+
+<!-- Displays Error Message/s -->
+<?php if (count($this->errorMessages)) { ?>
+    <div class="message error" style="display: block;">
+        <p>
+            <?php foreach($this->errorMessages as $message) {
+                echo $this->escape($message);
+            } ?>
+        </p>
+    </div>
+<?php } ?>
+
+<div id='analytics_menu'>
+    <div class="title">
+        <h3>Filter Tickets</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form class='date_filter' method='post' action="/ticket/index">
+                <select class='select-input' id="chap_id" name="chap_id">
+                    <option value="all" <?php if(($this->chapId) == 'all') { echo 'selected="selected"';} ?> >All</option>
+                    <?php foreach($this->chaps as $chap) { ?>                        
+                        <option value="<?php echo $chap->id;?>" <?php if(($this->chapId) == ($chap->id)) { echo 'selected="selected"';} ?> ><?php echo $chap->username;?></option>
+                    <?php } ?>
+                </select>
+                <select class='select-input' id="priority" name="priority">
+                    <option value="">-Select Priority-</option>
+                    <option value="Low" <?php if($this->priority == 'Low'){ echo 'selected="selected"';}?> >Low</option>
+                    <option value="Medium" <?php if($this->priority == 'Medium'){ echo 'selected="selected"';}?> >Medium</option>
+                    <option value="High" <?php if($this->priority == 'High'){ echo 'selected="selected"';}?> >High</option>
+                    <option value="Urgent" <?php if($this->priority == 'Urgent'){ echo 'selected="selected"';}?> >Urgent</option>
+                </select>
+                <select class='select-input' id="status" name="status">
+                    <option value="">-Select Status-</option>
+                    <option value="Open" <?php if($this->status == 'Open'){ echo 'selected="selected"';}?> >Open</option>
+                    <option value="Pending" <?php if($this->status == 'Pending'){ echo 'selected="selected"';}?> >Pending</option>
+                    <option value="Resolved" <?php if($this->status == 'Resolved'){ echo 'selected="selected"';}?> >Resolved</option>
+                    <option value="Closed" <?php if($this->status == 'Closed'){ echo 'selected="selected"';}?> >Closed</option>
+                </select>
+                <select class='select-input' id="source" name="source">
+                    <option value="">-Select Source-</option>
+                    <option value="Partnerweb" <?php if($this->source == 'Partnerweb'){ echo 'selected="selected"';}?> >Web</option>
+                    <option value="Partnermobile" <?php if($this->source == 'Partnermobile'){ echo 'selected="selected"';}?> >Mobile Web</option>
+                    <option value="Androidapp" <?php if($this->source == 'Androidapp'){ echo 'selected="selected"';}?> >Android App</option>
+                    <option value="CP" <?php if($this->source == 'CP'){ echo 'selected="selected"';}?> >CP</option>
+                </select>
+                <br/>
+                <button class='button'>Filter</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="tickets">
+
+    <div class="title">
+        <h3>All Tickets Dashboard</h3>
+    </div>
+
+    <div class="box">
+        <div class="txt">
+            <ul class="icon_list wide">
+                <li>
+                    <p>
+                        <span style="font-size: 12px;">Open</span>
+                        <span class="large_text"><?php echo $this->openTickets;?></span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span style="font-size: 12px;">Closed Today</span>
+                        <span class="large_text"><?php echo $this->closedToday;?></span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span style="font-size: 12px;">Due Today</span>
+                        <span class="large_text"><?php echo $this->overdueToday;?></span>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <span style="font-size: 12px;">Overdue</span>
+                        <span class="large_text"><?php echo $this->overdueCount;?></span>
+                    </p>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="title">
+        <h3>Manage Tickets</h3>
+    </div>
+
+    <div class="box">
+        <div class="txt">
+            <input type="checkbox" id="check-all" style="margin-left:14px;"/>
+            <input type="submit" id="delete" value="Delete" class="button" style="margin-left:25px;"/>
+            <input type="submit" id="close" value="Close" class="button" />
+            <?php if (count($this->tickets)) { ?>
+            <form id="ticket-list" name="ticket-list" method="post" action="/ticket/delete">
+                <input id="chap" name="chap" type="hidden" value="<?php echo $this->chapId;?>"/>
+                <input id="priority" name="priority" type="hidden" value="<?php echo $this->priority;?>"/>
+                <input id="status" name="status" type="hidden" value="<?php echo $this->status;?>"/>
+                <input id="source" name="source" type="hidden" value="<?php echo $this->source;?>"/>
+                <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <th style="width:5%;"></th>
+                    <th>Details</th>
+                    <th></th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Source</th>
+                    <!--<th>Delete</th>-->
+                </thead>
+                <tbody>
+                    <?php foreach ($this->tickets as $ticket) {
+                        $dates = Date('d-m-Y H:i:s', strtotime($ticket->created_date)) ?>
+                        <tr class="ticket">
+                            <td>
+                                <input style="float:left;" type="checkbox" name="tickets[]" id="tickets" value="<?php echo $ticket->id; ?>"/>
+                            </td>
+                            <td>
+                                <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>ticket/single-ticket/id/<?php echo $ticket->id; ?>" style="color: #555555">
+                                <span style="font-size: 13px; font-weight: bold">
+                                    #<?php echo $ticket->id; ?> :
+                                    <?php echo (strlen($ticket->subject) < 70)  ? $ticket->subject : substr($ticket->subject,0, 70).'...'; ?><br />
+                                </span>
+                                </a>
+                                From : <?php echo $ticket->email; ?><br />
+                                Created : <?php echo $dates;?>
+                            </td>
+                            <?php
+                            //Determine due time based on the priority
+                            //Urgent - 12 hours (720 min), High - 24 hours (1440 min),  Medium - 36 hours (2160), Low - 2 days (2880 min)
+
+                            //Get current time
+                            $now = strtotime(date('d-m-Y H:i:s'));
+
+                            //Time diff in mins
+                            $timeDiff = round(($now - strtotime($dates))/60);?>
+                            <td>
+                                <?php
+                                    $this->TicketStatus($ticket->priority, $timeDiff);
+                                ?>
+                            </td>
+                            <td><?php echo $ticket->priority; ?></td>
+                            <td><?php echo $ticket->status; ?></td>
+                            <td><?php echo $ticket->type; ?></td>
+                            <td>
+                                <?php $source = $ticket->source;
+                                switch ($source)
+                                {
+                                    case 'Partnerweb':
+                                        echo 'Web';
+                                        break;
+                                    case 'Partnermobile':
+                                        echo 'Mobile Web';
+                                        break;
+                                    case 'Androidapp':
+                                        echo 'Android App';
+                                        break;
+                                    case 'CP':
+                                        echo 'Developer Portal';
+                                        break;
+                                }
+                                ?>
+                            </td>
+                            <!--<td style="text-align:center">
+                                <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>ticket/delete/id/<?php /*echo $ticket->id */?>" title="Delete ?" >
+                                    <img style="border: none" src="/pbo/images/icons/cross_circle.png" alt="Delete?" />
+                                </a>
+                            </td>-->
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            </form>
+            <br />
+            <div style ="width : 99%">
+                <?php
+                $data = array();
+                if(!empty($this->chapId)){
+                    $data['chap_id'] = $this->chapId;
+                }
+                if(!empty($this->priority)){
+                    $data['priority'] = $this->priority;
+                }
+                if(!empty($this->status)){
+                    $data['status'] = $this->status;
+                }
+                if(!empty($this->source)){
+                    $data['source'] = $this->source;
+                }
+                echo $this->paginationControl($this->tickets, 'Sliding', 'partials/pagination-ticket.phtml',$data); ?>
+            </div>
+            <?php } else { ?>
+                <div style="margin-top:20px;">
+                    <p>No Tickets Found.</p>
+                </div>
+            <?php } ?>
+
+        </div>
+    </div>
+
+</div>

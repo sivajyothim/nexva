@@ -1,0 +1,244 @@
+<?php
+$mobilePlaceHolder = null;
+switch($this->chapId){
+    case 23045:
+        $url = '/info/remote-login';
+        $mobilePlaceHolder = '(98xxxxxxxxxx)';
+        break;
+    case 115189:
+    case 81604:
+        $url = '/info/remote-login';
+        break;
+
+    default:
+        $url = '';
+        break;
+}
+?>
+
+<script type="text/javascript">
+
+function checkType(){
+    var checkedValue = document.querySelector('.login_type:checked').value;
+  
+    if(checkedValue == 0){
+        $('#parent').hide();
+        $('#student').show();
+    }
+    else{
+        $('#parent').show();
+        $('#student').hide();
+    }
+}
+
+function showForgotPwdTxt() {
+    $("#forgot_password_txt").toggle("slow");
+}
+
+</script>
+ <div id="main_right_pane">
+
+	
+	<div class="inr_tabs_wrapper">
+		<div class="inr_tab_bar"><?php if(!$this->mtnIran): ?><span class="inr_brdcrtxt_pur">+</span><?php endif; ?> 
+			<span class="inr_brdcrtxt_grey">   <?php echo $this->translate("Login");?>     </span>
+		</div>
+	<div class="box_content_top"></div>
+	<div class="box_content_middle">
+	<div class="inrtab_selection_top inner_content">
+
+        <?php $this->translate();?>
+	
+<div id="form_wrapper">
+
+
+    
+                    <form name="frm_feedback" id="frm_feedback" method="post" action="<?= $url ?>">
+                        <!-- form col3-->	
+                        
+     <?php
+// login for carbo apps
+if($this->chapId  != 136079) : ?>     
+                            <div align="right" class="required_wrapper">
+                                <span class="required_txt_style"><?php echo $this->translate("Required infromation");?> (</span><span class="form_font_red">*</span><span class="required_txt_style">)</span>
+                            </div>
+
+                            <br /><br />
+                            <?php if( $this->headerEnrichment == 'yes' || $this->chapId == 23045) { ?>
+
+                                <div class="form_col3_class1">
+                                    <div class="form_col3_class1_left">
+                                        <span class="form_font_tel"><?php echo $this->translate("Mobile");?></span>
+                                        <span class="form_font_red">*</span>
+                                    </div>
+                                    <div class="form_col3_class1_right">
+                                        <input type="text" id="mobile" name="mobile" dir="ltr" class="input_smallresult_form" style="width:40%" placeholder="<?= $mobilePlaceHolder ?>">
+                                        <span id="nameInfo"></span>
+                                    </div>
+                                </div>
+
+                            <?php } else { ?>
+                            
+                            <?php if($this->qelasy){ ?>
+                            
+                            <?php //if($_SERVER['REMOTE_ADDR'] == '220.247.236.99') { echo $this->loginType; die(); } ?>
+                            
+                            <div class="form_col3_class1">
+                                    <div class="form_col3_class1_left">
+                                        <span class="form_font_tel"><?php echo $this->translate("Login type");?></span>
+                                        <span class="form_font_red">*</span>
+
+                                    </div>
+
+                                    <div class="form_col3_class1_right">
+                             
+                                        <label>
+                                            <input type="radio" name="login_type" value="1" id="login_type" class="login_type" <?= ($this->loginType == 1) ? 'checked="checked"' : ''; ?> onclick="checkType()"/>
+                                          <?php echo $this->translate("Sign in as parents or university students");?></label>
+                                        <br />
+                                        <label>
+                                          <input type="radio" name="login_type" value="0" id="login_type" class="login_type" <?= ($this->loginType == 0) ? 'checked="checked"' : ''; ?> onclick="checkType()"/>
+                                          <?php echo $this->translate("Sign in as students");?></label>
+                                        <br />
+
+                                        <span id="nameInfo"></span>
+                                    </div>
+                                </div>
+                            
+                            <?php } ?>
+                            <div class="form_col3_class1">
+                                    <div class="form_col3_class1_left">
+                                        <span class="form_font_tel" id="parent"><?php echo $this->translate("User name");?></span>
+                                        <span class="form_font_tel" id="student" style="display: none;"><?php echo $this->translate("Student ID");?></span>
+                                        <span class="form_font_red">*</span>
+
+                                    </div>
+
+                                    <div class="form_col3_class1_right">
+                                        <input type="text" id="username" name="username" class="input_smallresult_form" style="width:40%">
+                                        <span id="nameInfo"></span>
+                                    </div>
+                                </div>
+
+                            <?php } ?>
+
+
+                            <div class="form_col3_class1">
+                                <div class="form_col3_class1_left">
+                                    <span class="form_font_tel"><?= ($this->qelasy) ? $this->translate("Pin") : $this->translate("Password");?></span>
+                                    <span class="form_font_red">*</span>
+                                </div>
+
+								 <div class="form_col3_class1_right">
+                                    <input type="password"  dir="ltr" id="password" name="password" class="input_smallresult_form" style="width:40%">
+                                    <span id="nameInfo"></span>
+                                </div>
+
+                            </div>
+                            
+                            <?php if($this->mtnIran) { ?>
+                            <div class="form_col3_class1_right">
+                                <div style="float: right">
+                                     <a style="cursor: pointer;" dir="ltr" id="forgot_password" class="category_heading" onclick="showForgotPwdTxt()"> <?php echo $this->translate("Forgot your password");?> </a>
+                                </div><br/>
+                                <div id="forgot_password_txt" style="display: none;float: right; clear: both"><?php echo $this->translate("FORGOT_PASSWORD_TXT");?></div>
+                            </div>	
+                            <?php } ?>
+                            
+
+                            <div style="clear: both;">                
+                            <?php
+                            /*if($this->flashError){
+                                foreach($this->flashError as $message)
+                                    { ?>
+                                    <span class="form_font_red">
+                                        <?php echo $this->escape($message); ?>
+                                    </span>
+                            <?php } 
+                            
+                            }*/
+                            if($this->error){
+                                ?>
+                                <span class="form_font_red">
+                                        <?= $this->escape($this->error); ?>
+                                    </span>
+                                <?php
+                            }
+                            ?>
+                            
+                            </div>
+                            
+                            <div>
+                                <input type="submit" id="btn_submit" name="btn_submit" value="<?php echo $this->translate("Login");?>" class="partner_btn">
+                                <span id="nameInfo">     </span>  
+                           </div>
+
+                        <?php if($this->showForgotPasswordLink == 'yes') { ?>
+                             <div class="form_col3_class1">
+                                <div class="">
+                                     <a href="<?=$this->baseUri;?>/info/reset" class="category_heading"> <?php echo $this->translate("Forgot your password");?>? </a>
+                                </div>
+                            </div>	
+                        <?php } ?>
+                            
+                            
+                                  
+<?php else: ?>  
+
+            <div class="login-gmail"><a class="" href="<?php echo $this->gooleUrl; ?>">Login with gmail </a></div>
+
+
+<?php if($this->partnerId == 136079) {
+                                                    $fb = new Nexva_Facebook_FacebookConnect('web', '840862629279829', '617e486288a6718bf8554c8813120109');
+                    $baseUrl = 'unitelapps.nexva.com';
+                    $fbLoginUrl = $fb->getLoginUrl(array('redirect_uri'=> "http://$baseUrl/info/login/facebook/1/",
+                                                         'cancel_url' => "http://$baseUrl/info/login/facebook/1/",
+                                                         'scope' => 'publish_stream,user_likes,email'
+                                                    )
+                                                 );
+                            ?>
+            
+            <div class="login-facebook"><a class="" href="<?php echo $fbLoginUrl;?>">Login with facebook </a></div>
+                                <!--div class="form_col3_class1">
+                                    <a href='<?php echo $fbLoginUrl;?>'>
+                                  
+                                        <img alt="login with Facebook" src="/web/images/login_options/facebook_icon.gif" width='30' height='30'>
+                                        Login with Facebook
+                                    </a>
+                                </div-->
+                            <?php } ?>
+
+                            <div align="right" class="submit_btn_wrapper">
+
+					
+							
+							<? if($this->error): ?>
+						    <span class="form_font_red">  
+						        <?=$this->error; ?>
+						    </span>
+						    <? else: ?>
+						    <span class="category_heading">  
+						        <?=$this->message; ?>   
+						    </span>
+						    <?endif; ?>
+<?php endif; ?> 
+                    </form>	<!-- form col6-->	
+
+                </div>
+
+
+	</div>
+	
+	<!--                                                    <div class="tab_selection_bottom"></div>-->
+	
+	</div>
+	
+	</div>
+	<!-- box one-->
+
+	
+	<div style="clear: both;"></div>
+
+	
+</div>
+

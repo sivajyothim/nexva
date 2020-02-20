@@ -1,0 +1,127 @@
+<script type="text/javascript" language="javascript">
+
+    function confirmDelete()
+    {
+        var confirmation = false;
+        var answer = confirm("Are sure you want to delete the menu?")
+        if (answer){
+            confirmation = true;
+
+        }
+        else{
+            confirmation = false;
+        }
+        return confirmation;
+    }
+
+</script>
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+
+        <div id="icon_wrapper">
+            <a href="<?php echo PBO_PROJECT_BASEPATH; ?>menu/add-menu" alt="Add New Menu Item"> <img style="border: none" src="<?php echo PBO_PROJECT_BASEPATH; ?>images/icons/add-menu-small.png" alt="Add New Menu Item" /><br />
+            Add New Menu Item</a>
+        </div>
+    </div>
+
+    <div class="content-box-content">
+
+        <!-- Displays Message/s -->
+        <?php if (count($this->menuMessages)) : ?>
+
+            <div class="notification success png_bg">
+                <div>
+
+                    <?php foreach ($this->menuMessages as $message) : ?>
+
+                        <?php echo $this->escape($message); ?>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+
+        <?php endif; ?>
+
+        <?php if (count($this->menus)) : ?>
+        
+        <table cellpadding="0" cellspacing="0" style="width: 90%">
+
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Ordering</th>
+                    <th>Date Created</th>
+                    <th style="text-align:center">Edit</th>
+                    <th style="text-align:center">Delete</th>
+                    <th style="text-align:center">Publish</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php foreach ($this->menus as $menu) : ?>
+                    <?php $dates = Date('Y-m-d', strtotime($menu->date_added)) ?>
+
+                    <tr>
+                        <td><?= $menu->title; ?></td>
+                        <td><?= $menu->type; ?></td>
+                        <td><?= $menu->order; ?></td>
+                        <td><?= $dates; ?></td>
+
+                        <td valign="top" style="text-align:center">
+                            <a href="<?php echo PBO_PROJECT_BASEPATH;?>menu/edit-menu/id/<?= $menu->id ?>" title="Edit">
+                                <img style="border: none" src="<?php echo PROJECT_BASEPATH;?>pbo/images/icons/page-edit.png" alt="Edit" />
+                            </a>
+                        </td>
+                        <td valign="top" style="text-align:center">
+                            <a href="<?php echo PBO_PROJECT_BASEPATH;?>menu/do-delete/id/<?= $menu->id ?>" title="Delete ?" onclick="return confirmDelete()" >
+                                <img style="border: none" src="<?php echo PROJECT_BASEPATH;?>pbo/images/icons/cross_circle.png" alt="Delete?" />
+                            </a>
+                        </td>
+
+                        <td valign="top" style="text-align: center">
+                            <? if ($menu['status'] == 1): ?>
+
+                                <a href="/menu/do-publish/id/<?= $menu->id ?>/status/0" title="Click to change the status as 'Unpublished'">
+                                    <img style="border: none" src="<?php echo PROJECT_BASEPATH;?>pbo/images/icons/tick.png" alt="Published Page" />
+                                </a>
+
+                            <? else: ?>
+
+                                <a href="/menu/do-publish/id/<?= $menu->id ?>/status/1" title="Click to change the status as 'Published'">
+                                    <img style="border: none" src="<?php echo PROJECT_BASEPATH;?>pbo/images/icons/publish_x.png" alt="Unpublished Page" />
+                                </a>
+
+                            <? endif; ?>
+
+                        </td>
+
+                        </tr>
+                    <?php endforeach; ?>
+
+                    
+            </tbody>
+
+        </table>
+        <br />
+        <div style ="width : 90%">
+            <?= $this->paginationControl($this->menus, 'Sliding', 'partials/pagination-menu.phtml'); ?>
+        </div>
+        
+        <?php else : ?>
+        
+        <p>No Records Found.</p>
+        
+        <?php endif; ?>
+        
+        
+    </div>
+</div>
+
+<script type="text/javascript">        
+   $('#5').addClass('current');  
+   $('#52').addClass('current'); 
+</script>

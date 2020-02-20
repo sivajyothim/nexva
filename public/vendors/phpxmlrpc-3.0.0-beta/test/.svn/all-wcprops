@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/test
+END
+parse_args.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/test/parse_args.php
+END
+phpunit.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/test/phpunit.php
+END
+verify_compat.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/test/verify_compat.php
+END
+testsuite.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/test/testsuite.php
+END
+benchmark.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/21018/v2/trunk/public/vendors/phpxmlrpc-3.0.0-beta/test/benchmark.php
+END

@@ -1,0 +1,30 @@
+<div id="login-content">
+
+    <form action="<?php echo PBO_PROJECT_BASEPATH;?>user/login" method="post" id="frmLogin" name="frmLogin">
+
+        <div class="notification information png_bg">
+            <div>
+               Please enter you email address and password to login to your admin panel
+            </div>
+        </div>
+
+        <p>
+            <label>Username</label>
+            <input class="text-input" type="text" id="username" name="username"/>
+        </p>
+        <div class="clear"></div>
+        <p>
+            <label>Password</label>
+            <input class="text-input" type="password" id="password" name="password"/>
+        </p>
+        <div class="clear"></div>
+        <p id="remember-password">
+            <input type="checkbox" id="remember" name="remember"/>Remember me
+        </p>
+        <div class="clear"></div>
+        <p>
+            <input class="button" type="submit" value="Sign In" />
+        </p>
+
+    </form>
+</div> <!-- End #login-content -->

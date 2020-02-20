@@ -1,0 +1,41 @@
+<h2 class="font-size-16"><?php echo $this->translate("Help");?></h2> 
+
+<!--p>
+<?php /*echo $this->translate("For any customer service issues, bugs in the app downloaded, difficulty downloading or purchases made by mistake please contact us at this email :"). 
+        $this->escape($this->chapHelp()).' '. $this->translate("We will get back to you within 48 hours.")*/?>
+</p-->
+
+<p>
+   
+   <a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket" data-ajax="false">
+   
+   <?php if($this->partnerId != 585480 and $this->partnerId != 585474 ): ?>
+   
+        <?= $this->translate("For any customer service issues, bugs in the app downloaded, difficulty downloading or purchases made by mistake please add a ticket. We will get back to you within 48 hours.") ?>
+   
+   <?php else: ?>
+   
+    <?php if($this->partnerId == 585480): ?>
+      L&#39;Orange Appstore  vous propose une s&eacute;lection des meilleures applications Orange et applications mondiales rien que pour vous.
+Vous avez un probl&egrave;me? Contactez-nous via +243849559582  ou par e-mail via  serviceclients.rdc@orange.com
+       <?php endif; ?>
+       
+       <?php if($this->partnerId == 585474): ?>
+   L&#39;Orange Appstore  vous propose une s&eacute;lection des meilleures applications Orange et applications mondiales rien que pour vous.
+Vous avez un probl&egrave;me? Contactez nous via : +224623737373
+
+      <?php endif; ?>
+ 
+   <?php endif; ?>
+   
+   
+
+   
+   </a>
+    <?php /*if($this->mtnIran || $this->ycoins) : ?>
+        <a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket" data-ajax="false"><?= $this->translate("For any customer service issues, bugs in the app downloaded, difficulty downloading or purchases made by mistake please add a ticket. We will get back to you within 48 hours.") ?></a>
+    <?php else: ?>
+        <?php echo $this->translate("For any customer service issues, bugs in the app downloaded, difficulty downloading or purchases made by mistake please "). 
+        '<a href="<?php echo PROJECT_BASEPATH;?>ticket/add-ticket" data-ajax="false">'.$this->translate("add a ticket").'</a>.&nbsp;'. $this->translate("We will get back to you within 48 hours.")?>
+    <?php endif;*/ ?>
+</p>

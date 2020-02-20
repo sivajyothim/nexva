@@ -1,0 +1,116 @@
+<!-- Start Content Box #2 -->
+<div class="title">
+
+    <h3>Received Payments | neXva.com</h3>
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-table">
+
+
+                <?php if(!empty($this->admin_account_data)){ ?>
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <td colspan="6"><div style="margin-top:10px;margin-bottom: 100px;">
+                                    <legend>
+                                        <form name="form1" id="form1" action="/account" method="POST">
+                                            <?
+                                            $year   = new Zend_Form_Element_Select('year');
+                                            $options = $this->year;
+                                            $year->setLabel('Year')
+                                                    ->setRequired(true)
+                                                    ->setOptions(
+                                                    array
+                                                    (
+                                                    "multioptions" => $options,
+                                                    "class" => "validate(required) select-input small",
+                                                    "Style" => "width:200px;",
+                                                    "value"      => array($this->selected_year)
+                                                    )
+
+
+                                            );
+                                            echo "<div style='float:left;'>".$year."</div>";
+
+                                            $month   = new Zend_Form_Element_Select('month');
+                                            $months = $this->month;
+                                            $month->setLabel('Months')
+                                                    ->setRequired(true)
+                                                    ->setOptions(
+                                                    array
+                                                    (
+                                                    "multioptions" => $months,
+                                                    "class" => "validate(required) select-input small",
+                                                    "Style" => "width:200px;",
+                                                    "value"      => array($this->selected_month)
+
+
+                                                    )
+
+
+
+                                            );
+                                            echo "<div style='float:left;margin-left:5px;'>".$month."</div>";
+
+
+                                            ?>
+                                            <div style="float:left;padding-top:30px;padding-left:10px;"><input type="submit" class="button" name="submit" value="Show details" /></div>
+                                        </form>
+                                    </legend>
+                                </div></td>
+
+                        </tr>
+                        <tr><td colspan="5" align="center" style="font-size:18px;padding-bottom: 20px;">Total amount Received <span style="color:olive;padding-left:20px;">$<?=$this->account_datax; ?></span></td></tr>
+                        <tr>
+
+                            <th>Description </th>
+                            <th>Date</th>
+                            <th>Credited</th>
+                            <th>Debited</th>
+                            <th>Total</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach($this->admin_account_data as $data): ?>
+                        <tr>
+
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>><?=$data['description']; ?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>><?=$data['date'];?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['credit']; ?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['debit']; ?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['total'];?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>><?=$data['payment_method'];?> Payment </td>
+
+                        </tr>
+                        <?php endforeach; ?>
+                       
+                        <tr>
+                            <td></td>
+                            <td colspan="5"><?= $this->paginationControl($this->admin_account_data, 'Sliding', 'partials/paginator.phtml'); ?></td>
+                        </tr>
+                         <?if($this->empty_msg != ''):?>
+                        <tr style="visibility: hidden"></tr>
+                        <tr><td colspan="5" style='text-align: center;'><small><i><?=$this->empty_msg; ?></i></small></td></tr>
+                         <?endif; ?>
+                    </tbody>
+                </table>
+                <!-- End Table -->
+                <?php   } 
+                       else
+                       {
+                           echo $this->empty_msg;
+                       }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content Box #2 -->

@@ -1,0 +1,829 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2015-12-15 21:08+0530\n"
+"PO-Revision-Date: 2016-01-26 19:47+0530\n"
+"Last-Translator: nexva <nexva@gmail.com>\n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: D:\\web_sites\\nexva_v2\\application\\modules"
+"\\partnermobile\\languages\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: fr\n"
+
+#: fr/index.phtml:1
+msgid "Please enter First Name"
+msgstr "Veuillez inscrire votre prénom"
+
+#: fr/index.phtml:2
+msgid "Please enter Last Name"
+msgstr "Veuillez inscrire votre nom"
+
+#: fr/index.phtml:3
+msgid "Please enter your Email address"
+msgstr "Veuillez inscrire votre adresse email"
+
+#: fr/index.phtml:4
+msgid "Please enter a valid Email address for your Email"
+msgstr "Veuillez inscrire une adresse email valide pour votre Email"
+
+#: fr/index.phtml:5
+msgid "Please enter your Phone Number"
+msgstr "Veuillez inscrire votre numéro de téléphone"
+
+#: fr/index.phtml:6
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr "Le numéro de téléphine ne peut avoir moins de 10 caractères"
+
+#: fr/index.phtml:7
+msgid "Please enter your Password"
+msgstr "Veuillez entrer votre mot de passe"
+
+#: fr/index.phtml:8
+msgid "Please confirm your Password"
+msgstr "Veuillez confirmer votre mot de passe"
+
+#: fr/index.phtml:9
+msgid "Password not Matching"
+msgstr "Le mot de passe ne correspond pas"
+
+#: fr/index.phtml:10
+msgid "This Email already exists"
+msgstr "Cet Email existe déjà"
+
+#: fr/index.phtml:11
+msgid "You have completed your registration successfully"
+msgstr "Vous avez terminé votre inscription"
+
+#: fr/index.phtml:12
+msgid "This Phone Number already exists"
+msgstr "Ce numéro de téléphone existe déjà"
+
+#: fr/index.phtml:13
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+"Un SMS de vérification vous a été envoyé sur votre mobile. Veuillez utiliser "
+"ce code pour compléter votre inscription"
+
+#: fr/index.phtml:14
+msgid "Verification failed. verification code is incorrect"
+msgstr "Echec vérification. Le code de vérification est incorrect"
+
+#: fr/index.phtml:15
+msgid "You successfully completed the registration process"
+msgstr "Le processus d'enregistrement a été effectué avec succès"
+
+#: fr/index.phtml:16
+msgid "Already Verified User"
+msgstr "Utilisateur déjà identifié"
+
+#: fr/index.phtml:17 fr/index.phtml:96
+msgid "The username or password you entered is incorrect"
+msgstr "Le nom d'utilisateur ou le mot de passe est incorrect"
+
+#: fr/index.phtml:18
+msgid ""
+"You have not verified your account. A verification SMS has been sent to your "
+"mobile . Please use the given verification code or get it resent by clicking "
+"below \"Resend verification code\" to verify your account"
+msgstr ""
+"Vous n'avez pas vérifié votre compte. Un message de verification a été "
+"envoyé sur votre portable. Veuillez utiliser le code de vérification ou "
+"demander son renvoi en cliquant ci-dessous  \"Renvoyer le code de "
+"vérification  \"pour vérifier votre compte"
+
+#: fr/index.phtml:19 fr/index.phtml:97
+msgid "Please enter a valid username"
+msgstr "Veuillez entrer un nom d'utilisateur valide"
+
+#: fr/index.phtml:20 fr/index.phtml:98
+msgid "Please enter your username and password"
+msgstr "Veuillez entrer vos nom d'utilisateur et mot de passe"
+
+#: fr/index.phtml:21
+msgid "Please enter your Mobile Number"
+msgstr "Veuillez inscrire votre numéro de mobile"
+
+#: fr/index.phtml:22
+msgid "Mobile Number not Matching"
+msgstr "Le numéro de téléphone ne correspond pas"
+
+#: fr/index.phtml:23
+msgid "This number has already been used. Please try another"
+msgstr "Ce numéro a déjà été utilisé. Veuillez en essayer un autre"
+
+#: fr/index.phtml:24
+msgid "Mobile number changed successfully"
+msgstr "Le numéro de téléphone a bien été modifié"
+
+#: fr/index.phtml:25
+msgid "Please confirm your Mobile Number"
+msgstr "Veuillez confirmer votre numéro de mobile"
+
+#: fr/index.phtml:26
+msgid "Password reset successfully"
+msgstr "Le mot de passe a bien été réinitialisé"
+
+#: fr/index.phtml:27
+msgid "Please enter your Email"
+msgstr "Veuillez inscrire votre email"
+
+#: fr/index.phtml:28
+msgid "User not found registered with this email"
+msgstr "Aucun utilisateur avec cette adresse email n'a été trouvé"
+
+#: fr/index.phtml:29
+msgid "Mobile number not registered"
+msgstr "Le numéro de téléphone n'est pas enregistré"
+
+#: fr/index.phtml:30
+msgid ""
+"You have requested to change password. A verification SMS has been sent to "
+"your mobile. Please use the given verification code to verify"
+msgstr ""
+"Vous avez demandé le changement de mot de passe. Un message de vérification "
+"a été envoyé sur votre portable. Veuillez utiliser ce code."
+
+#: fr/index.phtml:31
+msgid "Please enter your Verification Code"
+msgstr "Veuillez inscrire votre code de vérification"
+
+#: fr/index.phtml:32
+msgid "Verification code is incorrect"
+msgstr "Le code de vérification est incorrect"
+
+#: fr/index.phtml:33
+msgid "Verification code is incorrect."
+msgstr "Code de vérification incorrect"
+
+#: fr/index.phtml:34
+msgid "Mobile Number not found for this user"
+msgstr "Aucun numéro de téléphone trouvé pour cet utilisateur"
+
+#: fr/index.phtml:35
+msgid "Email not found for this user"
+msgstr "Adresse email non trouvée pour cet utilisateur"
+
+#: fr/index.phtml:36
+msgid ""
+"You have requested to resend verification code. A verification SMS has been "
+"sent to your mobile. Please use the given verification code to verify your "
+"account"
+msgstr ""
+"Vous avez demandé le renvoi de votre code de vérification. Un messagea été "
+"envoyé sur votre portable. Veuillez utiliser ce code pour vérifier votre "
+"compte."
+
+#: fr/index.phtml:37
+msgid "Newest"
+msgstr "Récents"
+
+#: fr/index.phtml:38
+msgid "Top Free"
+msgstr "Top Gratuit"
+
+#: fr/index.phtml:39
+msgid "Top Paid"
+msgstr "Top Payant"
+
+#: fr/index.phtml:40
+msgid "Top Downloads"
+msgstr "Top Téléchargements"
+
+#: fr/index.phtml:41
+msgid "Free"
+msgstr "Gratuit"
+
+#: fr/index.phtml:42
+msgid "Download"
+msgstr "Télécharger"
+
+#: fr/index.phtml:43
+msgid "Description"
+msgstr "Description"
+
+#: fr/index.phtml:44
+msgid "Screenshots"
+msgstr "Captures d'écrans"
+
+#: fr/index.phtml:45 fr/index.phtml:99
+msgid "Account"
+msgstr "Mon Compte"
+
+#: fr/index.phtml:46 fr/index.phtml:100
+msgid "Updates"
+msgstr "Mises à jour"
+
+#: fr/index.phtml:47 fr/index.phtml:101
+msgid "Help"
+msgstr "Aide"
+
+#: fr/index.phtml:48
+msgid "Home"
+msgstr "Accueil"
+
+#: fr/index.phtml:49 fr/index.phtml:102
+msgid "Premium"
+msgstr "Payant"
+
+#: fr/index.phtml:50
+msgid "Login"
+msgstr "Connexion"
+
+#: fr/index.phtml:51
+msgid "Email"
+msgstr "Email"
+
+#: fr/index.phtml:52
+msgid "Password"
+msgstr "Mot de passe"
+
+#: fr/index.phtml:53
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: fr/index.phtml:54
+msgid "Sign In"
+msgstr "Se connecter"
+
+#: fr/index.phtml:55
+msgid "Forgot Password?"
+msgstr "Mot de passe oublié?"
+
+#: fr/index.phtml:56 fr/index.phtml:103
+msgid "Downloaded Apps"
+msgstr "Applications téléchargées"
+
+#: fr/index.phtml:57
+msgid "Reset Password"
+msgstr "Reinitialiser le mot de passe"
+
+#: fr/index.phtml:58 fr/index.phtml:104
+msgid "Change Mobile"
+msgstr "Changer de mobile"
+
+#: fr/index.phtml:59 fr/index.phtml:105
+msgid "Terms & Conditions"
+msgstr "Termes et conditions"
+
+#: fr/index.phtml:60
+msgid "Mobile Number"
+msgstr "Numéro de téléphone"
+
+#: fr/index.phtml:61
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
+#: fr/index.phtml:62
+msgid "Confirm Password"
+msgstr "Confirmer le mot de passe"
+
+#: fr/index.phtml:63
+msgid "Confirm Mobile Number"
+msgstr "Confirmer le numéro de téléphone"
+
+#: fr/index.phtml:64 fr/index.phtml:65
+msgid "Staff Picks"
+msgstr "Coups de coeur"
+
+#: fr/index.phtml:66
+msgid "Top Premium"
+msgstr "Top Payant"
+
+#: fr/index.phtml:67
+msgid "Buy"
+msgstr "Payer"
+
+#: fr/index.phtml:68 fr/index.phtml:106
+msgid "Download Started"
+msgstr "Début du téléchargement"
+
+#: fr/index.phtml:69 fr/index.phtml:107
+msgid "Later"
+msgstr "Plus tard"
+
+#: fr/index.phtml:70 fr/index.phtml:108
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr ""
+"Les mises à jour concernent les applications dotées d'une nouvelle version "
+"qui présente soit de nouvelles fonctionnalités, soit des correctifs ou des "
+"améliorations."
+
+#: fr/index.phtml:71
+msgid ""
+"Please use this verification code 888555 to complete your registration. "
+"\"MTN CONGO APP STORE\""
+msgstr ""
+"Utilisez le code de vérification 888555 pour terminer votre enregistrement. "
+"\"MTN CONGO APP STORE\""
+
+#: fr/index.phtml:72
+msgid ""
+"Please use this verification code 888666 to verify your mobile number. \"MTN "
+"CONGO APP STORE\""
+msgstr ""
+"Veuillez utiliser le code de vérification 888555 pour vérifier votre numéro "
+"de téléphone. \"MTN CONGO APP STORE\""
+
+#: fr/index.phtml:73
+msgid ""
+"Please use this verification code 8886656 to complete the password resetting "
+"process. \"MTN CONGO APP STORE\""
+msgstr ""
+"Svp utilisez le code de vérification 888555 pour terminer la "
+"réinitialisation de votre mot de passe. \"MTN CONGO APP STORE\""
+
+#: fr/index.phtml:74
+msgid ""
+"Please use this verification code 7878778 as you requested. \"MTN CONGO APP "
+"STORE\""
+msgstr ""
+"Svp, utilisez le code de vérification 7878778 comme vous avez demandé .\"MTN "
+"CONGO APP STORE\""
+
+#: fr/index.phtml:75
+msgid "Next"
+msgstr "Suivant"
+
+#: fr/index.phtml:76
+msgid "Previous"
+msgstr "Précédent"
+
+#: fr/index.phtml:77 fr/index.phtml:109
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Pour toute question relative au service client : dysfonctionnements ou "
+"difficultés de téléchargement, veuillez contacter l’assistance. Nous "
+"reviendrons vers vous dans 48 heures. Vous avez besoin d’aide? Veuillez "
+"contacter l’assistance via contentadmin@nexva.com"
+
+#: fr/index.phtml:78 fr/index.phtml:110
+msgid "We will get back to you within 48 hours."
+msgstr "Nous reviendrons vers vous dans les 48h"
+
+#: fr/index.phtml:79
+msgid "Verify"
+msgstr "Vérifier"
+
+#: fr/index.phtml:80
+msgid "Resend Verification Code"
+msgstr "Renvoyer code de vérification"
+
+#: fr/index.phtml:81
+msgid "First Name"
+msgstr "Prénom"
+
+#: fr/index.phtml:82
+msgid "Last Name"
+msgstr "Nom de famille"
+
+#: fr/index.phtml:83
+msgid "Phone Number"
+msgstr "Numéro de téléphone "
+
+#: fr/index.phtml:84
+msgid "Register"
+msgstr "S'inscrire"
+
+#: fr/index.phtml:85
+msgid "Verification Code"
+msgstr "Code de vérification"
+
+#: fr/index.phtml:86
+msgid "Change Mobile Number"
+msgstr "Changer de numéro de mobile"
+
+#: fr/index.phtml:87
+msgid "Forgot Password"
+msgstr "Mot de passe oublié"
+
+#: fr/index.phtml:88
+msgid "Request"
+msgstr "demander"
+
+#: fr/index.phtml:89
+msgid "Please use this verification code"
+msgstr "Veuillez utiliser votre code de vérification"
+
+#: fr/index.phtml:90
+msgid "to complete your registration."
+msgstr "Terminer votre inscription"
+
+#: fr/index.phtml:91
+msgid "to verify your mobile number."
+msgstr "Pour vérifier votre numéro de téléphone"
+
+#: fr/index.phtml:92
+msgid "to complete the password resetting process."
+msgstr "Compléter le processus de réinitialisation de mot de passe."
+
+#: fr/index.phtml:93
+msgid "as you requested."
+msgstr "Comme vous l'avez demandé"
+
+#: fr/index.phtml:94
+msgid "Please enter your username"
+msgstr "Veuillez entrer votre nom d'utilisateur"
+
+#: fr/index.phtml:95
+msgid "Please enter your password"
+msgstr "Veuillez entrer votre mot de passe"
+
+#: fr/index.phtml:111
+msgid "Payment was unsuccessful"
+msgstr "Le paiement a échoué"
+
+#: fr/index.phtml:112
+msgid "Paid"
+msgstr "Payé"
+
+#: fr/index.phtml:113
+msgid "Required infromation"
+msgstr "Information demandée"
+
+#: fr/index.phtml:114
+msgid "Info"
+msgstr "Information demandée"
+
+#: fr/index.phtml:115
+msgid "Feature"
+msgstr "Notre Sélection"
+
+#: fr/index.phtml:116
+msgid "Please download the"
+msgstr "Svp, téléchargez"
+
+#: fr/index.phtml:117
+msgid "App store app using the following methods."
+msgstr "l'application App en suivant les méthodes suivantes."
+
+#: fr/index.phtml:118
+msgid "FEEDBACK"
+msgstr "Commentaire"
+
+#: fr/index.phtml:119
+msgid "LOGIN HERE"
+msgstr "CONNECTEZ-VOUS ICI"
+
+#: fr/index.phtml:120
+msgid "To download this app you need to visit the following URL"
+msgstr ""
+"Pour télécharger cette application, vous devez vous connecter à l'URL suivant"
+
+#: fr/index.phtml:121
+msgid "App Store All Rights Reserved."
+msgstr "App Store Tous Droits Réservés"
+
+#: fr/index.phtml:122
+msgid "See all results for"
+msgstr "Voir tous les résultats pour"
+
+#: fr/index.phtml:123
+msgid "No results found"
+msgstr "Aucun résultat trouvé"
+
+#: fr/index.phtml:124
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr ""
+"Désolé ! Aucune application trouvée correspondant à vos critères de recherche"
+
+#: fr/index.phtml:125
+msgid "Have an Issue?"
+msgstr "Vous avez un problème?"
+
+#: fr/index.phtml:126
+msgid "You are not signed in yet"
+msgstr "Vous n'êtes pas encore inscrit"
+
+#: fr/index.phtml:127
+msgid "No Match Found"
+msgstr "Aucune correspondance trouvée"
+
+#: fr/index.phtml:128
+msgid "Ok"
+msgstr "Ok"
+
+#: fr/index.phtml:129
+msgid "You haven't log in yet ? Please log in."
+msgstr "Vous n'êtes pas encore connecté(e )? Veuillez vous connecter"
+
+#: fr/index.phtml:130
+msgid "No Data Found"
+msgstr "Aucune donnée trouvée"
+
+#: fr/index.phtml:131
+msgid "Downloading"
+msgstr "Téléchargement en cours"
+
+#: fr/index.phtml:132
+msgid "Login to add a ticket"
+msgstr "Connectez-vous pour contacter l'Assistance"
+
+#: fr/index.phtml:133
+msgid "Search Results for"
+msgstr "Recherche de résultats pour"
+
+#: fr/index.phtml:134
+msgid "Powered by"
+msgstr "Powered by"
+
+#: fr/index.phtml:135
+msgid "The security key wasn't entered correctly"
+msgstr "La clé de sécurité est incorrecte"
+
+#: fr/index.phtml:136
+msgid "Please try again"
+msgstr "Veuillez réessayer"
+
+#: fr/index.phtml:137
+msgid "Add a ticket"
+msgstr "Ajoutez une réclamation"
+
+#: fr/index.phtml:138
+msgid "View my ticket"
+msgstr "Voir ma réclamation"
+
+#: fr/index.phtml:139
+msgid "Subject"
+msgstr "Sujet"
+
+#: fr/index.phtml:140
+msgid "Type"
+msgstr "Saisissez"
+
+#: fr/index.phtml:141
+msgid "Priority"
+msgstr "Priorité"
+
+#: fr/index.phtml:142
+msgid "Select Type"
+msgstr "Selectionner type"
+
+#: fr/index.phtml:143
+msgid "Question"
+msgstr "Question"
+
+#: fr/index.phtml:144
+msgid "Incident"
+msgstr "Incidence"
+
+#: fr/index.phtml:145
+msgid "Problem"
+msgstr "Problème"
+
+#: fr/index.phtml:146
+msgid "Select Priority"
+msgstr "Selectionner la priorité"
+
+#: fr/index.phtml:147
+msgid "Low"
+msgstr "Bas"
+
+#: fr/index.phtml:148
+msgid "Medium"
+msgstr "Moyen"
+
+#: fr/index.phtml:149
+msgid "High"
+msgstr "Haut"
+
+#: fr/index.phtml:150
+msgid "Urgent"
+msgstr "Urgent"
+
+#: fr/index.phtml:151
+msgid "Your ticket submitted successfully"
+msgstr "Votre réclamation a bien été transmise"
+
+#: fr/index.phtml:152
+msgid "Your response submitted successfully"
+msgstr "Votre réponse a bien été transmise"
+
+#: fr/index.phtml:153
+msgid "Responces"
+msgstr "Réponses"
+
+#: fr/index.phtml:154
+msgid "No Response found"
+msgstr "Aucune réponse trouvée"
+
+#: fr/index.phtml:155
+msgid "Reply"
+msgstr "Répondre"
+
+#: fr/index.phtml:156
+msgid "Submit"
+msgstr "Soumettre"
+
+#: fr/index.phtml:157
+msgid "Platforms"
+msgstr "Plateformes"
+
+#: fr/index.phtml:158
+msgid "Please add your Commenst with more than 10 letters"
+msgstr "Svp, ajouter vos commentaires contenant plus de 10 lettres"
+
+#: fr/index.phtml:159
+msgid "No apps found under this category"
+msgstr "Aucune application trouvée dans cette catégorie"
+
+#: fr/index.phtml:160
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+"Pour toute question relative au service client : dysfonctionnements, "
+"difficultés de téléchargements, veuillez contacter l'assistance. Nous "
+"reviendrons vers vous dans 48 heures."
+
+#: fr/index.phtml:161
+msgid "This app is only available in the following languages"
+msgstr "Cette application est disponible uniquement dans les langues suivantes"
+
+#: fr/index.phtml:162
+msgid "This app-store will be supported for subscribers only"
+msgstr "Cette app-store sera proposé aux abonnés seulement"
+
+#: fr/index.phtml:163
+msgid "To download this app you need to install"
+msgstr "Pour télécharger cette application vous devez installer"
+
+#: fr/index.phtml:164
+msgid "on your Android device and sign in."
+msgstr "sur votre appareil Android et inscrivez-vous"
+
+#: fr/index.phtml:165
+msgid "If you want to install"
+msgstr "Si vous souhaitez installer"
+
+#: fr/index.phtml:166
+msgid "on your phone use following methods."
+msgstr "sur votre téléphone suivez les instructions suivantes"
+
+#: fr/index.phtml:167
+msgid "Do not have a QR code reader? Get one free"
+msgstr "Vous n'avez pas de lecteur de Code QR? Obtenez-en un gratuitement"
+
+#: fr/index.phtml:168
+msgid "We're sorry, the keyword/s you searched for did not return any results"
+msgstr "Désolé, le mot clé que vous cherchez n'a donné aucun résultat"
+
+#: fr/index.phtml:169
+msgid "Please fill the Name"
+msgstr "Veuillez remplir le champ  \"nom\""
+
+#: fr/index.phtml:170
+msgid "Page not found. (404 - Not Found)"
+msgstr "Page non trouvée. (404 - Non Trouvé)"
+
+#: fr/index.phtml:171
+msgid "Please select a type"
+msgstr "Veuillez sélectionner un type"
+
+#: fr/index.phtml:172
+msgid "ticket"
+msgstr "Réclamation"
+
+#: fr/index.phtml:173
+msgid "open"
+msgstr "Ouvrir"
+
+#: fr/index.phtml:174
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+#: fr/index.phtml:175
+msgid "Please select a priority"
+msgstr "sélectionner une priorité"
+
+#: fr/index.phtml:176
+msgid "Please add a subject"
+msgstr "Veuillez ajouter un sujet"
+
+#: fr/index.phtml:177
+msgid "Login here"
+msgstr "Se connecter ici"
+
+#: fr/index.phtml:178
+msgid "Login type"
+msgstr "Type de connection"
+
+#: fr/index.phtml:179
+msgid "Sign in as parents or university students"
+msgstr "Se connecter en tant que Parent d'élève ou Etudiant"
+
+#: fr/index.phtml:180
+msgid "Sign in as students"
+msgstr "Se connecter en tant qu'élève"
+
+#: fr/index.phtml:181
+msgid "Pin"
+msgstr "Code de confidentialité"
+
+#: fr/index.phtml:182
+msgid "Student account not found"
+msgstr "Compte étudiant introuvable"
+
+#: fr/index.phtml:183
+msgid "Pin you entered is incorrect"
+msgstr "Code confidentiel incorrect"
+
+#: fr/index.phtml:184
+msgid "The student id or password you entered is incorrect"
+msgstr "Votre id ou code confidentiel est incorrect"
+
+#: fr/index.phtml:185
+msgid "The user name or password you entered is incorrect"
+msgstr "Votre nom d'utilisateur ou mot de passé est incorrect"
+
+#: fr/index.phtml:186
+msgid "Privacy"
+msgstr "Règles de confidentialité"
+
+#: fr/index.phtml:187
+msgid "The mobile number or password you entered is incorrect"
+msgstr "Le numero ou le mot de passe renseigné est incorrect"
+
+#: fr/index.phtml:188
+msgid "Featured Apps"
+msgstr "Notre Sélection"
+
+#: fr/index.phtml:189
+msgid "Please enter a valid mobile number"
+msgstr "Numero ou code incorrect"
+
+#: fr/index.phtml:190
+msgid "Please enter your mobile number and password"
+msgstr "Entrez votre numero de telephone et votre mot de passe"
+
+#: fr/index.phtml:191
+msgid "Please enter a valid number"
+msgstr "Numero ou code incorrect"
+
+#: fr/index.phtml:192
+msgid "User not found registered with this phone number"
+msgstr "Aucun utilisateur trouvé enregistré avec cette numéro de téléphone"
+
+#: fr/index.phtml:193
+msgid "This field is required"
+msgstr "Ce champ est obligatoire"
+
+#: fr/index.phtml:194
+msgid "Please enter at least 5 characters"
+msgstr "Un minimum de 5 caracteres est requit"
+
+#: fr/index.phtml:195
+msgid "This Phone Number already exists. Please try using forgot password"
+msgstr "Ce numero existe deja. clique sur Mot de passe oublié"
+
+#: fr/index.phtml:196
+msgid "Please enter at least"
+msgstr "Un minimum de"
+
+#: fr/index.phtml:197
+msgid "characters"
+msgstr "caracteres est requit"
+
+#: fr/index.phtml:198
+msgid "Update Profile"
+msgstr ""
+
+#: fr/index.phtml:199
+#, fuzzy
+msgid "Update"
+msgstr "Mises à jours"
+
+#: fr/index.phtml:200
+#, fuzzy
+msgid "Please fill all the required fields"
+msgstr "Renseigner le nom"
+
+#: fr/index.phtml:201
+msgid "Open"
+msgstr "Ouvrir"
+
+#: fr/index.phtml:202
+#, fuzzy
+msgid "My Tickets"
+msgstr "Ticket"
+
+#: fr/index.phtml:203
+msgid "Responses"
+msgstr "Résultat de Recherche"
+
+#: fr/index.phtml:204
+#, fuzzy
+msgid "Response"
+msgstr "Réponses"

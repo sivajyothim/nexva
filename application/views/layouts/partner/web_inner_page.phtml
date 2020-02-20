@@ -1,0 +1,345 @@
+<?= $this->render('parts/partner/header.phtml') ?>
+
+
+<div id="main_catwrapper_inner_middle">
+
+    <div id="inrhorizontal_dotted_line"></div>		 
+
+
+    <div class="client_main_pane">
+        <div id="cli_main_content_pane"> 
+
+            <div class="space_div"></div>
+
+            <div class="template_row" id="inrbanner_area_wrapper">
+
+                <!-- Bread Crumbs-->
+                <div id="bread_crumbs_inrwrap1">
+                    <?php if($this->mtnIran) { //MTN Iran
+                    ?>
+                    <span class="purple_txt_link"><a>
+                            
+                            <?php if ($this->pageName && ($this->controllerName != 'search')) {
+                                echo $this->translate($this->pageName);
+                            } ?>
+                            
+                        </a></span>
+                    <?php
+                    }
+                    else{
+                    ?>
+                    <span class="purple_txt_link"><a href="#"> <?= ($this->ycoins || $this->qelasy) ? '' : '<span class="inr_brdcrtxt_pur"> > </span> '.$this->translate(ucwords($this->controllerName)).'</a></span> <span class="inr_brdcrtxt_pur">> </span>'; ?> 
+                    <span class="purple_txt_link"><a href="#">
+                            
+                            <? if ($this->pageName) {
+                                
+                                //Get dynamic translation for categories and others for static string
+                               //s echo $this->translate($this->escape($this->CategoryTranslation($this->pageName, $this->currentLanguageId)));
+                                /*if($this->translate($this->escape($this->pageName))){
+                                    echo $this->translate($this->escape($this->pageName));
+                                }
+                                else{
+                                    echo $this->CategoryTranslation($this->escape($this->pageName), $this->currentLanguageId);
+                                }*/
+                                
+                                echo $this->pageName;
+
+                            } ?>
+                            
+                        </a></span>
+                    <?php } ?>
+                </div>
+                <!-- Bread Crumbs-->
+
+            </div> 	                 
+
+            <div class="template_row" id="main_content_pane">            
+                <div class="height_beem" style="height:300px;">&nbsp;</div> 
+
+                <div class="template_row" id="banner_nav"> </div> 
+
+                <div class="template_row" id="widgets_div"> 
+<?php if(!$this->mtnIran) :?>
+
+                    <div id="home_bcrumbs">
+
+                        <?php /*if($_SERVER['REMOTE_ADDR'] == '220.247.236.99'){
+                            echo $this->CategoryTranslation($this->escape($this->pageName), $this->currentLanguageId);
+                        }*/
+                        ?>
+                        
+                        <p><span class="first-heading">
+                        
+                        <?php echo $this->translate("You Are Here");?></span> > <span class="title_bar_heading"> <?= ($this->mtnIran || $this->ycoins || $this->qelasy) ? '' : $this->translate($this->controllerName).' > '; ?>  <? if ($this->pageName) {
+    echo $this->translate($this->pageName);
+    
+ 
+} ?>
+                            </span></p>
+                    </div>
+
+                    <div id="home_time_area">
+
+                        <div id="local_time_div">
+                            <p>      
+                            <!-- 
+                                <script>
+                                       	
+                                    document.write(d_names[curr_day] + " " + curr_date + "<SUP>"
+                                        + sup + "</SUP> " + m_names[curr_month] + " " + curr_year+ " ");
+                                 		       
+                                    document.write(curr_hour + " : " + curr_min);
+                                           
+                                 
+                                </script>     
+                                 -->                                                                          
+                                <!-- time--> </p>
+                        </div>
+                       <!--a href="/feedback/" title="Need Help"><div id="nead_help_icon"></div>
+                            <div id="nead_help_text">
+                                <p><span class="category_heading"><?php echo $this->translate("Need Help?");?></span> <?php echo $this->translate("Click Here");?></p>
+                            </div>
+                        </a-->
+
+<?php if($this->loggedUser == 'none') : ?>
+        <div class="ticket-link inner-ticket-link">
+             <!--    <div id="nead_help_icon"></div>
+                <span class="category_heading_home"><?= ($this->mtnIran) ? '' : $this->translate("Have an Issue?");?></span>
+                    <div class='popbox'>
+                        <a class='<?= ($this->qelasy || $this->ycoins || $this->caboapps) ? 'qelasy-open' : 'open' ?>' href='<?= ($this->qelasy || $this->ycoins || $this->caboapps) ? '/dashboard' : '#' ?>'>
+                           <?= ($this->mtnIran) ? $this->translate("TICKET_SYS") : $this->translate("Click Here");?>
+                        </a>
+                <div class='collapse'>
+                  <div class='box'>
+                    <div class='arrow'></div>
+                    <div class='arrow-border'></div>
+
+                    <?= $this->partial('partials/login_popup.phtml',array('partnerId' =>$this->partnerId)) ?>
+
+                  </div>
+                </div>
+
+
+            </div>
+             -->
+        </div>
+<?php else: ?>
+    <a href="/dashboard/" title="Dashboard">
+        <div class="dashboard-wrap">
+                <div class="dashboard-icon"></div>
+                <div id="nead_help_text">
+                    <p><span class="dashboard-text"><?php echo $this->translate("Dashboard");?></span></p>
+                </div>
+        </div>
+    </a>
+<?php endif; ?>
+                    </div>
+<?php endif; ?>
+                </div> 
+
+                <!--                        <div id="horizontal_dotted_line"></div>-->
+                <div class="space_div"></div>
+                <div class="template_row" id="middle_area_top_wrapper"> 
+
+                    <div id="main_left_pane">
+
+                        <div class="space_div"></div>
+
+                        <div id="category_wrapper">
+
+                            <div id="category_top">
+                                <h1><span class="category_heading"><?php echo ($this->partnerId == 23045) ? '' : $this->translate("Top"); //MTN IRan ?></span> <?php echo $this->translate("Categories");?></h1>
+                            </div>
+                            <div id="category_middle">
+
+                                <ul>                                       			
+<? 
+$sessionAdultsContent = new Zend_Session_Namespace('content');
+//echo $this->selectedCategory;
+$parents = $this->categories;
+foreach ($parents as $parent): ?>
+
+<?php 
+
+if($sessionAdultsContent->content != 'adults' && $parent['main_cat'] == 201) 
+    continue;
+?>
+<?php //Zend_Debug::dump($parent); //echo $parent['main_cat'].'##'.$this->selectedCategory ?>
+                                    
+                                        <? 
+                                        //if ($this->selectedCategory == $parent['main_cat']): 
+                                        if ($this->parentCategoryId == $parent['main_cat']):
+                                        ?>
+                                            <li> <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($parent['name']); ?>/<?= $parent['main_cat']; ?>"> <?= $parent['name']; ?>  </a> </li>
+
+                                            <ul>
+                                                <div class="sub_menu_list" id="sub_menu_list_<?= $parent['main_cat']; ?>">
+                                                <? foreach ($parent['sub_cat'] as $child): ?>
+                                                    <li> 
+                                                        <a class="<?= ($this->selectedCategory == $child['cat_id']) ? 'active-cat' : '' ?>" href="<?= $this->baseUri; ?>/category/<?= $this->slug($child['name']); ?>/<?= $child['cat_id']; ?>"> <?= $child['name']; ?> </a>
+                                                    </li>
+                                        <? endforeach; ?>
+                                            </div></ul>
+                                            <div class="category_li_hsep"></div> 
+                                        <? else: ?> 
+                                          <!--li> 
+                                                <a href="<?= $this->baseUri; ?>/category/<?= $this->slug($parent['name']); ?>/<?= $parent['main_cat']; ?>"> <?= $parent['name']; ?>  </a> 
+                                          </li>  
+                                            <div class="category_li_hsep"></div--> 
+
+<li> 
+    <a style="cursor: pointer;" onclick="getSubMenus(<?= $parent['main_cat']; ?>);"  class="top-category"> <?= $parent['name']; ?>  </a> 
+    <div id="preloader_<?= $parent['main_cat']; ?>" class="display_none" style="float: right;"><span class="ui-autocomplete-loading"></span></div> 
+</li>        
+<div class="sub_menu_list" id="sub_menu_list_<?= $parent['main_cat']; ?>"></div>
+<div class="category_li_hsep"></div>
+    <? endif; ?>
+
+<? endforeach; ?>
+
+                                </ul>
+
+                            </div>
+                            <div id="category_bottom"></div>
+
+                            <div class="space_div"></div>
+                            <div class="space_div"></div>
+                        </div>
+
+                        <?php if(!$this->mtnIran): ?>
+                        <div id="need_help_text_wrapper">
+                            <p><?php echo $this->translate("Need Help?");?><a href="/feedback/" title="Need Help"> <?php echo $this->translate("Click Here");?></a></p>
+                            <?php /*if($this->mtnIran) { ?>
+                                <p><a href="/feedback/" title="Need Help"> <?php echo $this->translate("FEEDBACK_SYS");?></a></p>
+                            <?php } else { ?>
+                                <p><?php echo $this->translate("Need Help?");?><a href="/feedback/" title="Need Help"> <?php echo $this->translate("Click Here");?></a></p>
+                            <?php }*/ ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <div class="space_div"></div>
+<!--
+                        <div id="social_plugins_wrapper">
+                            <div id="plugin_container">
+
+<?php $this->render('parts/addthis_widget.phtml') ?>
+                            </div>
+                        </div>-->
+
+                    </div>
+
+
+<?= $this->layout()->content ?>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div id="main_wrapper_inner_bottom">
+    <div class="client_main_pane">
+
+        <div class="template_row" id="footer_area_wrapper"> 
+            <div class="space_div"></div>
+
+
+            <div id="footer_menu_div">
+
+                <div id="footer_quick_links">
+
+                    <?= $this->render('parts/partner/footer_nav.phtml') ?>
+                   
+
+                </div>
+                <div id="footer_vsep"></div>
+                <div id="footer_right_div">
+
+                     <?php if($_SERVER['HTTP_HOST']=='ecarrot.nexva.com'){ ?>
+                        <div id="specteri_logo"> 
+                        </div>
+                    <?php }else{?>
+                        <div id="footer_logo"> 
+                        </div>
+                    <?php } ?>
+                    
+                    <?php if($this->mtnIran) { ?>
+                    <div id="footer_copy_left">
+                        <p><b><?php echo date('Y')?></b> <span class="mark_orange">&copy;</span> <?php echo $this->translate("MTN Iran App Store All Rights Reserved.");?></p>
+                    </div>
+                    <?php } ?>
+                    
+                    <?php if(!$this->mtnIran) { ?>
+                    <div id="quick_links">
+                        <ul>
+                            <li> 
+                                <?php
+                                $auth = Zend_Auth::getInstance();
+                                if (isset($auth->getIdentity()->id) and isset($auth)):
+                                    ?>
+
+                                <?php echo $this->translate("Welcome");?><?php if($this->partnerId != '23045') { echo $auth->getIdentity()->email; } else { echo $auth->getIdentity()->username; } ?>
+                                <li>|</li>
+<? else: ?>
+                                <?php if($this->showLoginLink == 'yes') { ?>
+                                    <li><a href="<?= $this->baseUri; ?>/info/login" title="Login"><?php echo $this->translate("Sign In");?></a></li>
+                                <?php } ?>
+                                <?php if($this->showRegisterLink == 'yes'){ ?>
+                                <li>|</li>
+                                <!--<li><a class="nexlink" rel="shadowbox;height=530;width=600" href="http://www.nexva.com/nexlinker/partner/id/13862"><?php /*echo $this->translate("Register");*/?></a></li>-->
+                                <li><a class="register_with_select" id="register_with_select" title="Register" href="#register_with_select">
+                                        <p style="display:inline;" onclick="loadPopupBoxFeature();"><?php echo $this->translate("Register");?></p>
+                                </a></li>
+                                
+                                <?php if($this->qelasy) : ?>
+                                    <li>|</li>
+                                    <li><a href="/index/page/id/57">
+                                        <p><?php echo $this->translate("About");?></p>
+                                    </a></li>
+                                <?php endif; ?>
+                                <?php } ?>
+                                <?php if($this->qelasy) : ?>
+                                    <li>|</li>
+                                    <li><a href="/index/page/id/57">
+                                        <p><?php echo $this->translate("About");?></p>
+                                    </a></li>
+                                <?php endif; ?>
+<? endif; ?>      
+                        </ul>
+                    </div>
+                    <?php } ?>
+                    
+                </div>
+
+            </div>
+<!-- partner id checked for detect MTN Iran for do some style changes -->
+            <div id="footer_copy">
+                <div id="copy_right_inner">
+                     <?php if($this->mtnIran || $this->ycoins) { ?>
+                    <p><?php echo $this->translate("COPYRIGHT_TXT");?></p>
+                    <?php } else { ?>
+                    <p><?php echo $this->translate($this->copyRightText);?></p>
+                    <!--<p><?php /*echo $this->translate('Products, Logos and Companies mentioned herein are trademarks or trade names of their respective owners and therefore copyrighted.');*/?></p>-->
+                    <?php } ?>
+                </div>
+                <?php if($this->mtnIran == FALSE) { ?>
+                <div id="footer_copy_left">
+                    <p><b><?php echo date('Y')?></b> <span class="mark_orange">&copy;</span> <?= ($this->qelasy) ? $this->translate("RIGHTS_TXT_QELASY") : $this->translate("Nexva All Rights Reserved.");?> </p>
+                </div>
+                <?php } ?>
+            </div>
+        </div> 
+    </div>
+</div> 
+
+</div>
+</body>
+</html>
+<?php 
+//End output buffering and send HTML to the browser as a whole
+ob_end_flush(); 
+?>

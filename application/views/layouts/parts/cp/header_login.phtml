@@ -1,0 +1,177 @@
+<?php
+
+$locale  =   Zend_Registry::get('Zend_Locale');
+
+$date   =   new Zend_Date(Zend_Date::DATETIME_FULL,$locale);
+
+?>
+
+<?php
+$cpauth = Zend_Auth::getInstance();
+$user   = NULL;
+if ($cpauth->getIdentity()) {
+    $user     =   new Cpbo_Model_UserMeta();
+    $user->setEntityId($cpauth->getIdentity()->id);
+}
+
+        $chapSessionNs = new Zend_Session_Namespace('chap');
+        //Zend_Debug::dump($chapSessionNs->chap);die();
+        $userName ='';
+        $logout = PROJECT_BASEPATH.'/user/logout';
+
+                //Default logo - nexva logo
+        	$logo = PROJECT_BASEPATH.'/cp/assets/img/global/logo.png';
+                //Default URL
+                $url = '/';
+                //Default Div class=
+        	$divClass = 'logo';
+                
+                if(!empty($chapSessionNs->chap->username))
+                {
+                   if($chapSessionNs->chap->username == 'nexva.mobi')	
+                   {
+                       $userName = ''; 
+                   }                       
+                   else 
+                   {
+                       
+                        $logout = PROJECT_BASEPATH.'/user/logout/r/'.$chapSessionNs->chap->username;
+
+                        //Check if Chap logo exists
+                        //if( file_exists(APPLICATION_PATH."/../public/cp/".$chapSessionNs->chap->username."/img/logo.png") )  
+                        //{        	
+                            //override default logo with custom logo
+                        $logo =  !empty($this->cpLogo) ? '/cp/assets/logos/'.$this->cpLogo : "/cp/".$chapSessionNs->chap->username."/img/logo.png";                        
+                        $url = '/r/'.$chapSessionNs->chap->username;
+                        $divClass = 'chap_logo';
+                        //}                    
+                       $headerColour =  !empty($this->cpHeaderColour) ? 'background:'.$this->cpHeaderColour : 'background:#A5A5A5';
+                       $userName = $chapSessionNs->chap->username;
+                   }
+                }    
+                else 
+                {
+                	
+                   $userName = ''; 
+                }	
+        ?>
+
+ <!-- Start Header -->
+<?php //echo $this->customCss; die();?>
+ 
+<!-- top menu -->
+<noscript>
+<!-- Show message when javascript is not enabled -->
+<div class="message error">
+    <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+</div>
+</noscript>
+
+<?php 
+//build tab array. done in view since this is the only page
+
+    $chapSessionNs = new Zend_Session_Namespace('chap');
+
+    $tabFile = '';
+    if(!empty($chapSessionNs->chap->username))
+    {
+       $tabFile = APPLICATION_PATH. '/../public/cp/'.$chapSessionNs->chap->username.'/tabs.php'; 
+    }
+
+
+$tabs   = array();
+$tabs['Login']  = array('URL' => CP_PROJECT_BASEPATH.'user/login', 'LABEL' => 'Sign up with neXva and start enjoying a host of tools crafted to make your job easier ss');
+
+if( file_exists($tabFile)) require_once $tabFile;
+$currentTab             = isset($this->currentTab) ? $this->currentTab : 'Login';
+
+?>
+<!--div id='header-tabs'>
+<?php foreach ($tabs as $name => $tab) : ?>
+    <h3>
+        <?php if ($name == $currentTab) : ?>
+            <span title='<?=htmlspecialchars($tab['LABEL'], ENT_QUOTES);?>'><?=$name?></span>
+        <?php else : ?>
+            <a href='<?=$tab['URL']?>' title='<?=htmlspecialchars($tab['LABEL'], ENT_QUOTES);?>'><?=$name?></a>
+        <?php endif; ?>
+    </h3>
+<?php endforeach;?>
+</div-->
+<!-- end menu -->
+
+<div class="parentContainer container" id="header">
+  <div class="header-container">
+    <div class="content-logo" style="<?= ($this->cpTitle) ? 'width:90% !important;' : '' ; ?>">
+      <div class="header-logo"><a href="<?= $url ?>"><img src="<?= $logo ?>"/></a></div>
+      <div class="title-block">
+      <?php if($this->cpTitle): ?>
+            <div class="company-name">
+                <?php 
+                    if($this->cpTitle){
+                        $arrTitle = explode(' ',$this->cpTitle);
+                        $x = 1;
+                        foreach($arrTitle as $title){
+                            echo '<span class="cp_heading_part_'.$x.'">'.$title.'</span>&nbsp';
+                            $x++;
+                        }
+                        
+                    }
+                    else{
+                        echo 'Developer Panel' ; 
+                    }
+                ?>
+            </div>
+      <? else: ?>
+            <div class="admin-name">Developer Panel</div>
+      <? endif; ?>
+
+
+    </div>
+
+<?php if ($user) : ?>
+          
+<div class="user-info">
+        <p>Welcome back <span><?php echo ucfirst($user->FIRST_NAME);?></span>
+        <!--small><?=$date;?> GMT. Last login : <?=$user->LAST_LOGIN;?></small-->
+        <span class="span-bg-color"><a href="http://www.nexva.com" target="_blank">View Website</a></span><span class="span-bg-color"><a href="<?=$logout;?>">Log out</a></span></p>
+</div>
+<?php endif;?>
+          
+            
+ </div>
+    <div class="menu-select">
+      <nav>
+        <ol class="contentMenu">
+            
+            <?php foreach ($tabs as $name => $tab) : ?>
+                <li>
+                    <?php /*Zend_Debug::dump($currentTab.'='.$name);*/?>
+                    <?php if ($name == $currentTab) : ?>
+                        <span title='<?=htmlspecialchars($tab['LABEL'], ENT_QUOTES);?>'><div class="menubtn menubtn-active"><div class="contentbtn"><?=$this->translate($name)?></div></div></span>
+                    <?php else : ?>
+                        <a href='<?=$tab['URL']?>' title='<?=htmlspecialchars($tab['LABEL'], ENT_QUOTES);?>'><div class="menubtn"><div class="contentbtn"><?=$this->translate($name)?></div></div></a>
+                    <?php endif; ?>
+                </li>
+            <?php endforeach;?>
+        </ol>
+      </nav>
+    </div>
+          
+  </div>
+    
+</div>
+
+
+
+<? if(!empty($chapSessionNs->chap->username)) : ?>
+
+    <? if($chapSessionNs->chap->username == 'nexva.mobi') : ?>
+
+            <div id="nexva_logo"></div>
+
+    <? endif;?>
+
+<? else :?>
+
+<? endif;?>
+

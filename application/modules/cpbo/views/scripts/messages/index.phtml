@@ -1,0 +1,74 @@
+<script type='text/javascript'>
+$(document).ready(function(){
+    var currentMessage  = 0;
+	
+	$("#message").dialog({
+	    autoOpen: false,
+	    width: 500,
+	    height: 300,
+	    buttons : {
+		   'Close'    : function(){
+		       $(this).dialog("close");
+		   },
+		   'Next'     : function(){
+			   if ((currentMessage + 1) < $('.message_open').length) {
+				   $('.message_open').eq(++currentMessage).trigger('click');			    
+			   }
+		   },
+		   'Previous' : function(){
+			   if ((currentMessage - 1) >= 0) {
+                   $('.message_open').eq(--currentMessage).trigger('click');              
+               }  
+		   },
+		}
+	});
+
+	$('.message_open').click(function(){
+		var title     = $(this).html();
+		var message   = $(this).parent().next().html();
+		$('#message').find('div:first').html(message);
+		$("#message").dialog('option', 'title', title).dialog("open");
+		return false;
+	});
+});
+</script>
+
+
+<div class="title">
+    <h3><?php echo $this->translate("Recent Messages");?></h3>
+</div>
+<div class="box">
+        <div class="txt">
+      
+        <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th><?php echo $this->translate("From");?></th>
+                            <th><?php echo $this->translate("Subject");?></th>
+                            <th style='display:none'><?php echo $this->translate("Body");?></th>
+                            <th><?php echo $this->translate("Date");?></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <? foreach($this->announcements as $announcement): ?>
+                        <tr>
+                           <td width="15%"><?php echo $this->translate("Team neXva");?></td>
+                           <td width="65%"><a class='message_open' href='#'><?=$this->translate($announcement['title']); ?></a></td>
+                           <td style="display:none"><?php echo $this->translate($announcement['message']);?></td>
+                           <td width="20%"><?= date('h:ia jS M-y', strtotime($announcement['created'])); ?></td>
+                        </tr>
+                        <?endforeach; ?>
+                    </tbody>
+                   
+                </table>            
+            
+        </div>
+</div>
+
+
+<div id="message" title="<?php echo $this->translate("Messages");?>">
+    <div style='margin: 10px; padding: 10px;'>
+        
+    </div>
+</div>

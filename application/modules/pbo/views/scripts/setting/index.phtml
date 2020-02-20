@@ -1,0 +1,46 @@
+
+
+
+<div class="content-box"><!-- Start Content Box -->
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?= $this->title; ?></h3>
+        
+<!--    <ul id="menu" class="menu" style="display: block;">-->
+    <ul class="content-box-tabs" style="display: block;">
+  
+        <li class="active"><a class="active default-tab" href="#web_settings">Web</a></li>
+        <li><a href="#cp_settings">Developer Panel</a></li>
+    </ul>
+             
+    </div> <!-- End .content-box-header -->
+
+<div class="content-box-content">
+<?php
+    $data_web = array(                
+                'settings' =>$this->settings,                
+                'webTitle' =>$this->webTitle,
+                'metaKey' =>$this->metaKey,
+                'metaDescription' =>$this->metaDescription,
+                'googleAnalytic' =>$this->googleAnalytic,
+                'banners' =>$this->banners,
+                'feturedApps' =>$this->feturedApps, 
+                'cpMessages' => $this->cpMessages
+              );
+              
+   $data_cp = array(                
+                'settings' =>$this->settings,        
+                'cpTitle' =>$this->cpTitle,
+                'homeDes' =>$this->homeDes,
+                'headeColour' =>$this->headeColour,
+                'cpMessages' => $this->cpMessages
+              );
+
+?>
+
+    <?= $this->partial('partials/web-settings.phtml',$data_web); ?>
+    <?= $this->partial('partials/cp-settings.phtml',$data_cp); ?>
+    
+</div>
+
+</div>
+		

@@ -1,0 +1,175 @@
+ 
+     
+    <?php 
+        /**
+         *|-----------------------------------------|
+         *|----------------READ THIS!---------------|
+         *|-----------------------------------------|
+         * Due to various legacy coding decisions, the whole build/language system is a bit of a mess
+         * There's no easy way to even show the buy/download butt. What I want to do is NOT show the 
+         * button if the 'Build avaialble in other languages option is available'. So I have a small
+         * trigger inside the code to see whether we actually went there.
+         * 
+         * Change this code at your own peril and put a comment here explaining why/what you did
+         * =John (July 2011)
+         *|-----------------------------------------|
+         *|----------------READ ABOVE!--------------|
+         *|-----------------------------------------|
+         */
+    
+    ?> 
+    
+    <?php 
+        $hasOtherLanguageBuilds  = false; 
+    ?> 
+    <?php if ($this->warningMessage): ?>
+        <?php if ($this->buildsInOtherLanguage) : ?>
+                <div class="message_notice">
+                This app is only available in the following languages <br><br>
+                
+                <?php foreach ($this->buildDetails as $buildInfo) : ?>
+                    <?php $hasOtherLanguageBuilds  = true; ?>
+                    <a href='/app/download/np/1/id/<?=$this->product['id'];?>/language_id/<?=$buildInfo['language_id'];?>'>
+                        <?=($buildInfo['language_common_name'])? $buildInfo['language_common_name'] : $buildInfo['language_name']; ?>
+                            <span>&raquo;</span>
+                    </a>    
+                <?php endforeach; ?>
+                
+                </div>
+        <?php else : ?>
+            <!-- here we hard coded the MTN id to hide the error message -->
+            <?php if($this->user_id != '21677') {?>
+            <div class="warning_message">
+                This app is not compatible with your device / OS version <br>
+                <?php if($this->buildVersionInfo): ?>
+                    <?php foreach ($this->buildVersionInfo AS $buildVersionInfo) : ?>
+                        Required OS version: <?=$buildVersionInfo['minOsVersion'];?> <?=($buildVersionInfo['or_better'])? 'or better' : ''; ?>  <br />
+                    <?php endforeach; ?>
+                    <br />Detected OS version: <?=$this->osVersion; ?>
+                <?endif;?>
+            </div>
+            <?php } ?>
+        <?php endif; ?>
+    <?endif;?>
+    
+    
+
+    <div class="padding-all">
+        <h1><?= $this->product['name'] ?></h1>
+    </div>
+
+    
+    <div class="description">
+        <span class="other">
+            <span class="thumb">
+            <?= $this->thumbnail($this->product['thumb'], array('w' => 80, 'h' => 80)); ?>
+        </span>
+    </span>
+        <!-- here we hard code & check whether the user is MTN, if so we shows the download button -->
+<?php if (($this->user_id== '21677')||(!$this->warningMessage || ($this->warningMessage && $this->buildsInOtherLanguage))) : ?>
+    <!-- @TODO: Think a better way to do this -->
+    <? if ($this->isUrl == true AND $this->product['cost'] != 0): ?>
+            <a class='buy' href="<?= (count($this->product['file']) == 1) ? '/app/download/id/' . $this->product['id'] : '#sources' ?>">
+                Buy
+            </a>
+    <? elseif ($this->isUrl): ?>
+            <a class='download' href="<?= (count($this->product['file']) == 1) ? '/app/download/id/' . $this->product['id'] : '#sources' ?>">
+                Download
+            </a>
+    <? elseif ($this->product['cost'] == 0): ?>
+            <a class='download' href="<?php echo PROJECT_BASEPATH;?>app/download/np/1/id/<?= $this->product['id'] ?>">
+                Download
+            </a>
+    <? elseif ($this->purchased): ?>
+            <a class='download' href="<?php echo PROJECT_BASEPATH;?>app/download/np/1/id/<?= $this->product['id'] ?>">
+                Download
+            </a>
+    <? elseif (empty(Zend_Auth::getInstance()->getIdentity()->id)): ?>
+            <a class='buy' href="/user/login/?next=buy">
+                Buy
+            </a>
+    <? elseif (!empty(Zend_Auth::getInstance()->getIdentity()->id) && !$hasOtherLanguageBuilds): ?>
+            <a class='buy' href="<?php echo PROJECT_BASEPATH;?>app/download/np/1/id/<?= $this->product['id'] ?>">
+                Buy
+            </a>
+    <? endif; ?>
+<?php endif;?>
+                                <br />
+                                
+                                
+    <?= isset($this->product['user_meta']) ? $this->product['user_meta']->COMPANY_NAME : '' ?><? //= $this->trim($this->item['desc'], 200)  ?><br/>
+                                <strong><?= ($this->product['cost'] == 0) ? 'FREE' : '$' . $this->product['cost'] ?></strong>
+                                <br/>
+                    
+                                <br clear="all">
+                                    <?php 
+                                        $opts   = array(
+                                            'url'   => 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/{$this->product['id']}",
+                                            'title' => $this->product['name'],
+                                            'description'   => $this->product['desc_brief'] 
+                                        );
+                                        echo $this->partial('partials/addthis.phtml', $opts)
+                                    ?>
+                                    
+                                
+                                
+                                <span class="mini-description">
+                                    <?= $this->product['desc'] ?>
+                                </span>
+                        </div>
+                        
+                        <div class="visuals">
+    <? if ($this->isUrl && (count($this->product['file']) != 1)): ?>
+    <?
+                                    if (is_array($this->product['file']))
+                                        foreach ($this->product['file'] as $url): ?>
+    <? if (preg_match('/^(http|https|ftp):\/\/([A-Z0-9][A-Z0-9_-]*(?:\.[A-Z0-9][A-Z0-9_-]*)+):?(\d+)?\/?/i', $url)): ?>
+                                                <a href="<?= $url ?>"><img src="<?=$this->cdn('site_assets')?>/mobile/images/link_go.png" /> <?= $url ?></a><br clear="all">
+    <? else: ?>
+                                                    <a href="<?= $this->S3Url($this->product['id'] . '/' . $url) ?>"><img src="<?=$this->cdn('site_assets')?>/mobile/images/link_go.png" /> <?= $url ?></a><br clear="all">
+    <? endif; ?>
+    <? endforeach; ?>
+    <? else: ?>
+    <?
+                if (isset($this->product['screenshots']))
+                    foreach ($this->product['screenshots'] as $file): ?>
+                        <span class="thumb">
+                            <?php
+                                $imgHtml    = $this->thumbnail($file, array('w' => 100, 'h' => 160, 'far' => 1), array());
+                                $linkUrl    = $this->thumbnail($file, array(), array(), $returnUrl = true);
+                            ?>
+                            <a href='<?=$linkUrl?>'>
+                                <?=$imgHtml?>
+                            </a>
+                        </span>
+                    <? endforeach; ?>
+                <? endif; ?>
+                                </div>
+                    
+                    
+                                
+                                                    <!-- Apps by smae dev -->
+<? if ($this->appsByCp): ?>
+                                                            <div class="recommendations">
+                                                                <h1 class="padding-all">More apps by <?= $this->product['user_meta']->COMPANY_NAME ?></h1>
+    <?
+                                                            if (count($this->appsByCp) == 0) {
+    ?>
+                                                                <div class="app">
+                                                                    <span class="mini-description">
+                                                                        No more Apps by <?= $this->product['user_meta']->COMPANY_NAME ?>
+                                                                    </span>
+                                                                </div>
+    <?
+                                                            }
+                                                            foreach ($this->appsByCp as $product): ?>
+    <?= $this->partial('/partials/app.phtml', array("item" => $product)) ?>
+    <?php endforeach; ?>
+                                                            </div>
+<? endif; ?>
+
+
+                        <!-- Recomendations -->
+                        <div class="recommendations padding-all">
+                            <img alt="Go to" src="<?=$this->cdn('site_assets')?>/mobile/images/arrow_skip.png"> <b><a href="<?php echo PROJECT_BASEPATH;?>app/cp/id/<?= $this->product['id'] ?>">More Apps by <?= $this->product['user_meta']->COMPANY_NAME ?></a></b><br/><br/>
+                        </div>

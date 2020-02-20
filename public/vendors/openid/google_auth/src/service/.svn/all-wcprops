@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service
+END
+Google_BatchRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service/Google_BatchRequest.php
+END
+Google_Model.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service/Google_Model.php
+END
+Google_Service.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service/Google_Service.php
+END
+Google_Utils.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service/Google_Utils.php
+END
+Google_MediaFileUpload.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service/Google_MediaFileUpload.php
+END
+Google_ServiceResource.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/service/Google_ServiceResource.php
+END

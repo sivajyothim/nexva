@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="WS" resourceRoot="" soapui-version="2.5.1" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ProjectSettings@projectRoot">/var/www/soap</con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WSSoap" type="wsdl" bindingName="{http://www.example.org/e3/}WSSoap" soapVersion="1_1" anonymous="optional" definition="file:/var/www/soap/ws.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/var/www/soap/ws.wsdl"><con:part><con:url>file:/var/www/soap/ws.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="e3" targetNamespace="http://www.example.org/e3/" xmlns:tns="http://www.example.org/e3/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/e3/">
+      <xsd:element name="reverse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="reverseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sum">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="a" type="xsd:int"/>
+            <xsd:element name="b" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sumResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ping">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="in" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="pingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="reverseRequest">
+    <wsdl:part name="parameters" element="tns:reverse"/>
+  </wsdl:message>
+  <wsdl:message name="reverseResponse">
+    <wsdl:part name="parameters" element="tns:reverseResponse"/>
+  </wsdl:message>
+  <wsdl:message name="sumRequest">
+    <wsdl:part name="parameters" element="tns:sum"/>
+  </wsdl:message>
+  <wsdl:message name="sumResponse">
+    <wsdl:part name="parameters" element="tns:sumResponse"/>
+  </wsdl:message>
+  <wsdl:message name="pingRequest"></wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part name="parameters" element="tns:pingResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="serviceSoap">
+    <wsdl:operation name="reverse">
+      <wsdl:input message="tns:reverseRequest"/>
+      <wsdl:output message="tns:reverseResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="sum">
+      <wsdl:input message="tns:sumRequest"/>
+      <wsdl:output message="tns:sumResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:pingRequest"/>
+      <wsdl:output message="tns:pingResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSSoap" type="tns:serviceSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="reverse">
+      <soap:operation soapAction="http://www.example.org/e3/reverse"></soap:operation>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sum">
+      <soap:operation soapAction="http://www.example.org/e3/sum"></soap:operation>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ping">
+      <soap:operation soapAction="http://www.example.org/e3/ping"></soap:operation>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WS">
+    <wsdl:port name="WSSoap" binding="tns:WSSoap">
+      <soap:address location="http://localhost/soap/ws.php"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost/soap/ws.php</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.example.org/e3/ping" name="ping" bindingOperationName="ping" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/soap/ws.php</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/e3/serviceSoap/pingRequest"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.example.org/e3/reverse" name="reverse" bindingOperationName="reverse" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/soap/ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e3="http://www.example.org/e3/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <e3:reverse>
+         <in>?</in>
+      </e3:reverse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/e3/serviceSoap/reverseRequest"/></con:call></con:operation><con:operation isOneWay="false" action="http://www.example.org/e3/sum" name="sum" bindingOperationName="sum" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/soap/ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e3="http://www.example.org/e3/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <e3:sum>
+         <a>?</a>
+         <b>?</b>
+      </e3:sum>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.org/e3/serviceSoap/sumRequest"/></con:call></con:operation></con:interface><con:testSuite name="WSSoap TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="WSSoap TestSuite" searchProperties="true"><con:settings/><con:testStep type="request" name="ping"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSSoap</con:interface><con:operation>ping</con:operation><con:request name="ping"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/soap/ws.php</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+   &lt;soapenv:Header/>
+   &lt;soapenv:Body/>
+&lt;/soapenv:Envelope></con:request><con:wsaConfig action="http://www.example.org/e3/serviceSoap/pingRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" name="reverse"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSSoap</con:interface><con:operation>reverse</con:operation><con:request name="reverse"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/soap/ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e3="http://www.example.org/e3/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <e3:reverse>
+         <in>123456789</in>
+      </e3:reverse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="Simple Contains"><con:configuration><token>987654321</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:wsaConfig action="http://www.example.org/e3/serviceSoap/reverseRequest" mustUnderstand="NONE" version="200508"/></con:request></con:config></con:testStep><con:testStep type="request" name="sum"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>WSSoap</con:interface><con:operation>sum</con:operation><con:request name="sum"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost/soap/ws.php</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:e3="http://www.example.org/e3/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <e3:sum>
+         <a>?</a>
+         <b>?</b>
+      </e3:sum>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig action="http://www.example.org/e3/serviceSoap/sumRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

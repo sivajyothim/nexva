@@ -1,0 +1,863 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2014-08-28 12:20+0530\n"
+"PO-Revision-Date: 2014-09-11 19:28+0530\n"
+"Last-Translator: \n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: D:\\Nexva\\projects\\Qelasy\\partner web\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: sp\n"
+
+#: sp/index.phtml:1
+msgid "Click Here"
+msgstr "CLIQUER AQUI"
+
+#: sp/index.phtml:2
+msgid "Apps"
+msgstr "Aplicacion"
+
+#: sp/index.phtml:3
+msgid "Categories"
+msgstr "Categorias"
+
+#: sp/index.phtml:4
+msgid "collection"
+msgstr "Coleccion"
+
+#: sp/index.phtml:5
+msgid "Featured"
+msgstr "Seleccion"
+
+#: sp/index.phtml:6
+msgid "Free Collection"
+msgstr "Coleccion gratuita"
+
+#: sp/index.phtml:7
+msgid "Most"
+msgstr "Màs"
+
+#: sp/index.phtml:8
+msgid "Need Help?"
+msgstr "Ayuda?"
+
+#: sp/index.phtml:9 sp/index.phtml:48
+msgid "Premium Collection"
+msgstr "Coleccion Premium"
+
+#: sp/index.phtml:10
+msgid "Top"
+msgstr "Top"
+
+#: sp/index.phtml:11
+msgid "Top Collection"
+msgstr "Top Coleccion"
+
+#: sp/index.phtml:12
+msgid "viewed collection"
+msgstr "Coleccion consultada"
+
+#: sp/index.phtml:14
+msgid "Search"
+msgstr "Investigacion"
+
+#: sp/index.phtml:15
+msgid "Select Your Device"
+msgstr "Seleccione vuestro teléfono"
+
+#: sp/index.phtml:16
+msgid ""
+"Selecting a device helps us filter apps that are compatible with your "
+"handset."
+msgstr ""
+"La seleccion nos permite filtrar los  apps que son compatibles con vuestro "
+"teléfono"
+
+#: sp/index.phtml:17
+msgid "Start typing the name of your device"
+msgstr "Comience inscribiendo el nombre de su teléfono"
+
+#: sp/index.phtml:19
+msgid "No Device Selected"
+msgstr "Ningun teléfono seleccionado"
+
+#: sp/index.phtml:20
+msgid "Click To Select A Mobile Device"
+msgstr "Clique para elegir un teléfono"
+
+#: sp/index.phtml:22
+msgid "Click on thumbnail to zoom"
+msgstr "Clique en la etiqueta para obtenes un zoom"
+
+#: sp/index.phtml:23
+msgid "Screenshots"
+msgstr "apertura de pantalla"
+
+#: sp/index.phtml:25
+msgid "Nexva All Rights Reserved."
+msgstr "NEXVA derechos reservados en su totalidad"
+
+#: sp/index.phtml:26
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or  trade "
+"names of their respective owners and therefore copyrighted."
+msgstr ""
+
+#: sp/index.phtml:27 sp/index.phtml:49
+msgid "Register"
+msgstr ""
+
+#: sp/index.phtml:28
+msgid "Sign In"
+msgstr "Conectarse"
+
+#: sp/index.phtml:29
+msgid "Welcome"
+msgstr "Bien venido"
+
+#: sp/index.phtml:30
+msgid "You Are Here"
+msgstr "Usted està aqui"
+
+#: sp/index.phtml:31
+msgid "Buy "
+msgstr "Comprar"
+
+#: sp/index.phtml:32 sp/index.phtml:84
+msgid "Buy"
+msgstr "Comprar"
+
+#: sp/index.phtml:33
+msgid "Description"
+msgstr "Descripcion"
+
+#: sp/index.phtml:34
+msgid "Free"
+msgstr "Grattuito"
+
+#: sp/index.phtml:35
+msgid "Free Download"
+msgstr "Descarga gratuita"
+
+#: sp/index.phtml:36
+msgid "Price :"
+msgstr "Precio"
+
+#: sp/index.phtml:37
+msgid "Price : "
+msgstr "Precio :"
+
+#: sp/index.phtml:38
+msgid "Rate :"
+msgstr "Costo"
+
+#: sp/index.phtml:39
+msgid "Rate : "
+msgstr "Costo :"
+
+#: sp/index.phtml:40
+msgid "Vendor"
+msgstr "Proveedor"
+
+#: sp/index.phtml:41
+msgid "Vendor : "
+msgstr "Proveedor :"
+
+#: sp/index.phtml:42
+msgid "Whats new"
+msgstr "Novedades"
+
+#: sp/index.phtml:44
+msgid "Free Stuff"
+msgstr "App gratuitos"
+
+#: sp/index.phtml:45
+msgid "Logout"
+msgstr "Deconexion"
+
+#: sp/index.phtml:46
+msgid "Most Viewed"
+msgstr "Los màs vistos"
+
+#: sp/index.phtml:47
+msgid "Newest"
+msgstr "Reciente"
+
+#: sp/index.phtml:50
+msgid "SEARCH"
+msgstr "Investigacion"
+
+#: sp/index.phtml:51
+msgid "Staff Picks"
+msgstr "Seleccion"
+
+#: sp/index.phtml:52
+msgid "Price"
+msgstr "Precio"
+
+#: sp/index.phtml:53
+msgid "Rating"
+msgstr "Clasificacion"
+
+#: sp/index.phtml:54
+msgid "Supported Formats"
+msgstr "Formas Soportes"
+
+#: sp/index.phtml:55
+msgid "Latest Reviews"
+msgstr "Ultimos comentarios"
+
+#: sp/index.phtml:56
+msgid "No user reviews yet.."
+msgstr "Sin opinion todavia"
+
+#: sp/index.phtml:57
+msgid "Please login to post a review."
+msgstr "Por favor, conectese para enviar una opinion"
+
+#: sp/index.phtml:58 sp/index.phtml:107
+msgid "Name"
+msgstr "Nombre"
+
+#: sp/index.phtml:59
+msgid "Title"
+msgstr "Titulo"
+
+#: sp/index.phtml:60
+msgid "Review"
+msgstr "Comentario"
+
+#: sp/index.phtml:61
+msgid "Home"
+msgstr "Recepcion"
+
+#: sp/index.phtml:62 sp/index.phtml:197
+msgid "To download this app you need to install"
+msgstr "Para descargar esta aplicacion debe instalar"
+
+#: sp/index.phtml:63 sp/index.phtml:198
+msgid "on your Android device and sign in."
+msgstr "en vuestro teléfono Android y conectarse"
+
+#: sp/index.phtml:64
+msgid "To register you need to install"
+msgstr "Para gravar  debe instalar"
+
+#: sp/index.phtml:65
+msgid "on your Android device. Registration happens on your device."
+msgstr "on your Android device. Registration happens on you device"
+
+#: sp/index.phtml:66
+msgid "Please download the App store app using the following methods."
+msgstr "Svp,descargue la aplicacion App siguiendo las intrucciones siguierntes"
+
+#: sp/index.phtml:67
+msgid ""
+"The app you have selected has been pushed directly to your device. Be sure "
+"to have the"
+msgstr ""
+"La App que usted a elegido ha sido enviada a vuestro teléfono. Verifique"
+
+#: sp/index.phtml:68
+msgid "installed on your phone first."
+msgstr "de haberla instalado en vuestro primer teléfono"
+
+#: sp/index.phtml:69
+msgid "If you don't have"
+msgstr "Si usted no tiene"
+
+#: sp/index.phtml:70
+msgid "installed on your phone here is how to get it"
+msgstr "instale en vuestro teléfono, he aqui como hjacerlo"
+
+#: sp/index.phtml:72 sp/index.phtml:199
+msgid "If you want to install"
+msgstr "Si usted desea instalar"
+
+#: sp/index.phtml:73 sp/index.phtml:200
+msgid "on your phone use following methods."
+msgstr "en vuestro teléfono ,siga el siguiente procedeimiento"
+
+#: sp/index.phtml:75
+msgid "Type in your email address and we will email it to you"
+msgstr "introduzca vuestra direccion e-mail y nosotros le enviaremos"
+
+#: sp/index.phtml:76
+msgid "your email"
+msgstr "vuestro e-mail"
+
+#: sp/index.phtml:77
+msgid "send email"
+msgstr "ENVIAR EMAIL"
+
+#: sp/index.phtml:78
+msgid "Point your mobile browser to the following link:"
+msgstr " Abra la direccion siguiente en su navegador"
+
+#: sp/index.phtml:79
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr ""
+"Scaner le QR clave utilizando vuestro teléfono  para escribir en la pàgina"
+
+#: sp/index.phtml:80
+msgid "Do not have a QR code reader?"
+msgstr "No tiene usted scaner de  qr clave ?"
+
+#: sp/index.phtml:81
+msgid "Get one free"
+msgstr "Ontenga uno gratuito"
+
+#: sp/index.phtml:83
+msgid "Download"
+msgstr "Telecargar"
+
+#: sp/index.phtml:85
+msgid "More Details"
+msgstr "Màs informacion"
+
+#: sp/index.phtml:87
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: sp/index.phtml:88 sp/index.phtml:147
+msgid "Required infromation"
+msgstr "Informacion solicitada"
+
+#: sp/index.phtml:89
+msgid "User name"
+msgstr "su nombre"
+
+#: sp/index.phtml:90
+msgid "Password"
+msgstr "Contrasena"
+
+#: sp/index.phtml:91
+msgid "Forgot your password"
+msgstr ""
+
+#: sp/index.phtml:93
+msgid "Please enter First Name"
+msgstr ""
+
+#: sp/index.phtml:95
+msgid "Top Downloads"
+msgstr "Top de telecarga"
+
+#: sp/index.phtml:96
+msgid "Top Free"
+msgstr "Top gratuito"
+
+#: sp/index.phtml:97
+msgid "Featured Apps"
+msgstr "App selecionados"
+
+#: sp/index.phtml:98
+msgid "Top Premium"
+msgstr "Top Premium"
+
+#: sp/index.phtml:99
+msgid "Top Paid"
+msgstr "Top de pago"
+
+#: sp/index.phtml:100
+msgid "Your Device"
+msgstr "Vuestro teléfono"
+
+#: sp/index.phtml:101
+msgid "Sign Up"
+msgstr ""
+
+#: sp/index.phtml:102
+msgid "Next"
+msgstr "Siguiente"
+
+#: sp/index.phtml:103
+msgid "Previous"
+msgstr "Precedente"
+
+#: sp/index.phtml:105
+msgid "Most viewed collection"
+msgstr "LAS Colecciones màs consultadas"
+
+#: sp/index.phtml:106
+msgid "Contact Us"
+msgstr "Contàctenof"
+
+#: sp/index.phtml:108
+msgid "Email"
+msgstr "E-mail"
+
+#: sp/index.phtml:109
+msgid "Message"
+msgstr "Mensaje"
+
+#: sp/index.phtml:110
+msgid "SEND"
+msgstr "ENVIAR"
+
+#: sp/index.phtml:111
+msgid "RESET"
+msgstr "RAZ"
+
+#: sp/index.phtml:113
+msgid "Required Information"
+msgstr "Informacion solicitada"
+
+#: sp/index.phtml:114
+msgid "NO DEVICE SELECTED"
+msgstr "Ningun teléfono seleccionado"
+
+#: sp/index.phtml:115
+msgid "Feedback"
+msgstr "Reaccion"
+
+#: sp/index.phtml:117
+msgid "SUPPORTED FORMATS"
+msgstr "Formas Soportes"
+
+#: sp/index.phtml:118
+msgid "ADD YOUR OWN REVIEW"
+msgstr "AGREGAR VUESTRO COMENTARIO"
+
+#: sp/index.phtml:119
+msgid "App"
+msgstr "Aplicacion"
+
+#: sp/index.phtml:120
+msgid "Category"
+msgstr "Categoria"
+
+#: sp/index.phtml:121
+msgid "Newest Apps"
+msgstr "Recientes Apps"
+
+#: sp/index.phtml:122
+msgid "Free Apps"
+msgstr "Apps gratuito"
+
+#: sp/index.phtml:123
+msgid "Premium Apps"
+msgstr "Premium Apps"
+
+#: sp/index.phtml:124
+msgid "Top Downloaded Apps"
+msgstr "Top de Apps descargados"
+
+#: sp/index.phtml:125
+msgid "Most Viewed Apps"
+msgstr "los Apps màs consultados"
+
+#: sp/index.phtml:128
+msgid "Please enter your username"
+msgstr "Escriba su nombre de "
+
+#: sp/index.phtml:129
+msgid "Please enter your password"
+msgstr "Escriba su contrasena"
+
+#: sp/index.phtml:130
+msgid "The username or password you entered is incorrect"
+msgstr "El nombre del utilisador o la contrasena es incorrecta"
+
+#: sp/index.phtml:131
+msgid "Please enter a valid username"
+msgstr "escriba un nombre de utilizador valido"
+
+#: sp/index.phtml:132
+msgid "Please enter your username and password"
+msgstr "Escrsu nombre de utilizador y su contrasena"
+
+#: sp/index.phtml:133
+msgid "Account"
+msgstr "Cuenta"
+
+#: sp/index.phtml:134
+msgid "Updates"
+msgstr "Poner al dia"
+
+#: sp/index.phtml:135
+msgid "Help"
+msgstr "Ayuda"
+
+#: sp/index.phtml:136
+msgid "Premium"
+msgstr "Premium"
+
+#: sp/index.phtml:137
+msgid "Downloaded Apps"
+msgstr "Apps telecargado"
+
+#: sp/index.phtml:138
+msgid "Change Mobile"
+msgstr "Cargar teléfono"
+
+#: sp/index.phtml:139
+msgid "Terms & Conditions"
+msgstr "Terminos y condiciones"
+
+#: sp/index.phtml:140
+msgid "Download Started"
+msgstr "Descargargando"
+
+#: sp/index.phtml:141
+msgid "Later"
+msgstr "Màs tarde"
+
+#: sp/index.phtml:142
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvements"
+msgstr ""
+
+#: sp/index.phtml:143
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Por toda queja,buugben los apps descargados,dificultades de descarga o de "
+"compra, contactarnos a esta direccion e-mail"
+
+#: sp/index.phtml:144
+msgid "We will get back to you within 48 hours."
+msgstr "Nos pondremos  en contacto en un periodo de 48H"
+
+#: sp/index.phtml:145
+msgid "Payment was unsuceessful"
+msgstr "El pago hecho no ha sido validado"
+
+#: sp/index.phtml:146
+msgid "Paid"
+msgstr "Pagos"
+
+#: sp/index.phtml:148
+msgid "Info"
+msgstr "Informacion"
+
+#: sp/index.phtml:149
+msgid "Feature"
+msgstr "Seleccion"
+
+#: sp/index.phtml:150
+msgid "Please download the"
+msgstr ""
+
+#: sp/index.phtml:151
+msgid "App store app using the following methods."
+msgstr ""
+
+#: sp/index.phtml:152
+msgid "FEEDBACK"
+msgstr "Reaccion"
+
+#: sp/index.phtml:153
+msgid "LOGIN HERE"
+msgstr "Conectarsze aqui"
+
+#: sp/index.phtml:154
+msgid "To download this app you need to visit the following URL"
+msgstr "Para cargar esta aplicacion debe ir a este sitio"
+
+#: sp/index.phtml:155
+msgid "App Store All Rights Reserved."
+msgstr "App Store Derechos totalmente reservados"
+
+#: sp/index.phtml:156
+msgid "See all results for"
+msgstr "Ver todos los resultados para"
+
+#: sp/index.phtml:157
+msgid "No results found"
+msgstr "Ningun resultado encontrado"
+
+#: sp/index.phtml:158
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr ""
+"Lamentablemente, nunguna aplicacion corresponde a vuestros criterios de "
+
+#: sp/index.phtml:159
+msgid "Have an Issue?"
+msgstr "Tiene Usted un problema ?"
+
+#: sp/index.phtml:160
+msgid "You are not signed in yet"
+msgstr "Usted todavia no se ha identificado  "
+
+#: sp/index.phtml:161
+msgid "No Match Found"
+msgstr "Ninguna correspondenca"
+
+#: sp/index.phtml:162
+msgid "Ok"
+msgstr "Ok"
+
+#: sp/index.phtml:163
+msgid "You haven't log in yet ? Please log in."
+msgstr "No se ha conectado usted aun ? Conectese por favor "
+
+#: sp/index.phtml:164
+msgid "No Data Found"
+msgstr "ningun archivo encontrado"
+
+#: sp/index.phtml:165
+msgid "Downloading"
+msgstr "descarga en curso"
+
+#: sp/index.phtml:166
+msgid "Login to add a ticket"
+msgstr "conectarse para agregar un tiquet"
+
+#: sp/index.phtml:167
+msgid "Search Results for"
+msgstr "resultados de la busqueda por"
+
+#: sp/index.phtml:168
+msgid "Powered by"
+msgstr "fabricado por"
+
+#: sp/index.phtml:169
+msgid "The security key wasn't entered correctly"
+msgstr "la llave de seguridad que usted introdujo no es corecta"
+
+#: sp/index.phtml:170
+msgid "Please try again"
+msgstr "la llave de seguridad no ha sido corectamente"
+
+#: sp/index.phtml:171
+msgid "Add a ticket"
+msgstr "comienze nuevamente por favor"
+
+#: sp/index.phtml:172
+msgid "View my ticket"
+msgstr "agregar un tiquet"
+
+#: sp/index.phtml:173
+msgid "Subject"
+msgstr "materia"
+
+#: sp/index.phtml:174
+msgid "Type"
+msgstr "tipo"
+
+#: sp/index.phtml:175
+msgid "Priority"
+msgstr "prioridad"
+
+#: sp/index.phtml:176
+msgid "Select Type"
+msgstr "selectionar el tipo"
+
+#: sp/index.phtml:177
+msgid "Question"
+msgstr "pregunta"
+
+#: sp/index.phtml:178
+msgid "Incident"
+msgstr "incidente"
+
+#: sp/index.phtml:179
+msgid "Problem"
+msgstr "problema"
+
+#: sp/index.phtml:180
+msgid "Select Priority"
+msgstr "seleccionar la prioridad"
+
+#: sp/index.phtml:181
+msgid "Low"
+msgstr "débil"
+
+#: sp/index.phtml:182
+msgid "Medium"
+msgstr "medio"
+
+#: sp/index.phtml:183
+msgid "High"
+msgstr "fuerte"
+
+#: sp/index.phtml:184
+msgid "Urgent"
+msgstr "urjente"
+
+#: sp/index.phtml:185
+msgid "Your ticket submitted successfully"
+msgstr "vuestro tiquet ha tenido éxito"
+
+#: sp/index.phtml:186
+msgid "Your response submitted successfully"
+msgstr "vuestra respuesta tuvo éxito"
+
+#: sp/index.phtml:187
+msgid "Responces"
+msgstr "respuestas"
+
+#: sp/index.phtml:188
+msgid "No Response found"
+msgstr "ningunas respuestas encontradas"
+
+#: sp/index.phtml:189
+msgid "Reply"
+msgstr "responder"
+
+#: sp/index.phtml:190
+msgid "Submit"
+msgstr "someter"
+
+#: sp/index.phtml:191
+msgid "Platforms"
+msgstr "plataformas"
+
+#: sp/index.phtml:192
+msgid "Please add your Commenst with more than 10 letters"
+msgstr ""
+"Por favor agregar vuestros comentarios que contengan màs de 10 palabras"
+
+#: sp/index.phtml:193
+msgid "No apps found under this category"
+msgstr "ninguna aplicaccion encontrada en esta categoria"
+
+#: sp/index.phtml:194
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+
+#: sp/index.phtml:195
+msgid "This app is only available in the following languages"
+msgstr "la aplicaccion es disponible unicamente en los siguientes idiomas"
+
+#: sp/index.phtml:196
+msgid "This app-store will be supported for subscribers only"
+msgstr "la aplicaccion es disponible unicamente para los suscriptores"
+
+#: sp/index.phtml:201
+msgid "Do not have a QR code reader? Get one free"
+msgstr ""
+"Usted no tiene escaner de lectura de la clave ? Obtener uno gratuitamente"
+
+#: sp/index.phtml:202
+msgid "We're sorry, the keyword/s you searched for did not return any results"
+msgstr "Ningun resultado por esta clave"
+
+#: sp/index.phtml:203
+msgid "Please fill the Name"
+msgstr "dar el nombre"
+
+#: sp/index.phtml:204
+msgid "Page not found. (404 - Not Found)"
+msgstr "Pagina imposible de encontrar"
+
+#: sp/index.phtml:205
+msgid "Please select a type"
+msgstr "Seleccionar un tipo svp"
+
+#: sp/index.phtml:206
+msgid "ticket"
+msgstr "tiquet"
+
+#: sp/index.phtml:207
+msgid "open"
+msgstr "Abierto"
+
+#: sp/index.phtml:208
+msgid "Dashboard"
+msgstr "tablero de control"
+
+#: sp/index.phtml:209
+msgid "Please select a priority"
+msgstr "Seleccionar una prioridad svp"
+
+#: sp/index.phtml:210
+msgid "Please add a subject"
+msgstr "Agregar comentariio"
+
+#: sp/index.phtml:211
+msgid "COPYRIGHT_TXT"
+msgstr ""
+
+#: sp/index.phtml:212
+msgid "About Us"
+msgstr ""
+
+#: sp/index.phtml:213
+msgid "Terms of Use"
+msgstr ""
+
+#: sp/index.phtml:214
+msgid "Privacy Policy"
+msgstr ""
+
+#: sp/index.phtml:215
+msgid "Developer"
+msgstr ""
+
+#: sp/index.phtml:216
+msgid "RIGHTS_TXT_QELASY"
+msgstr "Qelasy derechos reservados en su totalidad"
+
+#: sp/index.phtml:217
+msgid "About"
+msgstr ""
+
+#: sp/index.phtml:218
+msgid "Press"
+msgstr ""
+
+#: sp/index.phtml:219
+msgid "Login here"
+msgstr "Conectarsze aqui"
+
+#: sp/index.phtml:220
+msgid "Login type"
+msgstr ""
+
+#: sp/index.phtml:221
+msgid "Sign in as parents or university students"
+msgstr ""
+
+#: sp/index.phtml:222
+msgid "Sign in as students"
+msgstr ""
+
+#: sp/index.phtml:223
+msgid "Pin"
+msgstr ""
+
+#: sp/index.phtml:224
+msgid "Student account not found"
+msgstr ""
+
+#: sp/index.phtml:225
+msgid "Pin you entered is incorrect"
+msgstr ""
+
+#: sp/index.phtml:226
+msgid "The student id or password you entered is incorrect"
+msgstr ""
+
+#: sp/index.phtml:227
+msgid "The user name or password you entered is incorrect"
+msgstr ""
+
+#, fuzzy
+#~ msgid "ABC123"
+#~ msgstr "yrduytiuu"
+
+#, fuzzy
+#~ msgid "MTN Developer Challenge"
+#~ msgstr "Portail développeur"
+
+#~ msgid "Top Payant"
+#~ msgstr "Top Payant"
+
+#~ msgid "Featured "
+#~ msgstr "Sélection"
+
+#~ msgid "You Are Here >"
+#~ msgstr "Vous êtes ici>"

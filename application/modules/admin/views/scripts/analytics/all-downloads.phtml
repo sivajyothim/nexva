@@ -1,0 +1,81 @@
+<?php $this->headScript()->captureStart();?>
+<?php $this->headScript()->captureEnd();?>
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+
+
+
+
+<?php 
+    //lets do some calculations
+//    $totalViews     = array_sum($this->appView);
+//    $totalDownloads = array_sum($this->appDownloads);    
+?>
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView' => $this->endTimeView
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+<div id='visualizations'>
+    
+    
+      
+       
+            <div class="title">
+                <h3>All Downloads</h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <?php if(count($this->productDownloadCounts)>0){ ?>
+                <table cellspacing="0" cellpadding="0" class='sortTable'>
+                    <thead>
+                        <tr>
+                            <th width='60%'>App Name</th>
+                            <th width='10%'>Views</th>
+                            <th width='10%'>Downloads</th>
+                            <th width='10%'>Conversion Rate</th>
+                            <th width='10%'>% of total (downloads)</th>
+                        </tr>
+                    </thead>                     
+                    <tbody>
+                        <?php 
+//                            $base   = $url = 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/";
+//                            $sum    = array_sum($this->downloadsByApp);
+//                            $class  = ''; 
+                        ?>
+                       
+                        <?php foreach ($this->productDownloadCounts as $app) { ?>
+                        <?php 
+//                            $class = ($class == 'class="alt"') ? '' : 'class="alt"';
+//                            $break      = strpos($app, ' ');
+//                            $appId      = substr($app, 0, $break);
+//                            $appName    = substr($app, $break);
+                            $views      = isset($this->productViewCounts[$app->product_id]) ? $this->productViewCounts[$app->product_id] : 0;                            
+                        ?>
+                        <tr>
+                            <td><?php echo $app->name;?></td>
+                            <td><?php echo $views ?></td>
+                            <td><?php echo $app->count ?></td>
+                            <td><?php echo ($views) ? round($app->count / $views * 100, 2) : 0 ?>%</td>
+                            <td><?php echo ($app->count ) ? round($app->count / $this->sum * 100, 2) : 0; ?>%</td>
+                        </tr>
+                        <?php 
+                            } ?>
+                    </tbody>
+                </table>
+                     <?php }else{ ?>
+                    <div class='full_block' id='stats_downloads_by_app'>
+                        We haven't collected enough data to display analytics for this report.
+                    </div>
+                     <?php } ?>
+                
+                  <?= $this->paginationControl($this->productDownloadCounts,'Sliding','partials/analytics_paginator.phtml',array('from_view' =>$this->startTimeView,'to_view'=>$this->endTimeView)); ?>
+            </div>
+        </div>
+  
+</div>
+ 

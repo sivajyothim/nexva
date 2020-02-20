@@ -1,0 +1,7 @@
+<?php $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/ckeditor/ckeditor.js'); ?>
+<?php $this->headScript()->appendFile( PROJECT_BASEPATH.'common/js/ckeditor/adapters/jquery.js'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        $('.richeditor').ckeditor();
+    });
+<?php $this->headScript()->captureEnd();?>

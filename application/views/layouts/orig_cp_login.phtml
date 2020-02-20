@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+        
+        <title><?= isset($this->cpTitle) ? $this->cpTitle : 'neXva.com - mobile reloaded - CP Administration' ?></title> 
+
+    <!-- Core Stylesheet -->
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+    <link href="/cp/assets/css/core.css" media="screen" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/cp/assets/css/yellow.css" title="styles2" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/cp/assets/css/login.css" title="styles2" media="screen" />
+    <?php if(isset($this->customCss)): ?>
+            <link type="text/css" rel="stylesheet" href="<?php echo PROJECT_BASEPATH;?>cp/assets/css/cp.css" media="screen"/>
+    <?php endif; ?>
+    <!-- Javascript Files -->
+    <script type="text/javascript" src="/cp/assets/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/jquery-ui-1.7.2.custom.min.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/superfish.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/jquery.wysiwyg.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/jquery-stylesheetToggle.js"></script>
+    <script type="text/javascript" src="/cp/assets/js/forestcp.js"></script>
+
+    <!-- Adding dynamic libs and CSS Meta to the layout view -->
+    <?php
+    echo $this->headMeta();
+    echo $this->headScript();
+    echo $this->headStyle();
+    echo $this->headLink();
+    ?>
+    <!--[if IE 6]>
+    <link href="/cp/assets/css/ie6.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="/cp/assets/js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>
+      /* EXAMPLE */
+      DD_belatedPNG.fix('.logo img, .message, table img');
+
+      /* string argument can be any CSS selector */
+    </script>
+    <![endif]-->
+    <script type='text/javascript'>
+    $(document).ready(function(){
+    	$('#header-tabs h3 span').attr('title', '');
+        $('#header-tabs h3 a').hover(
+                 function() {
+                     var title = ($(this).attr('title') != '')? $(this).attr('title') : '';
+                     if (title != '') {
+                          $('#tab-title').stop(true, true).html(title).slideDown();
+                          $(this).attr('title', '');
+                     }
+                 },
+                 function() {
+                      var title   = $('#tab-title').html();
+                      if (title != '') {
+                          $(this).attr('title', $('#tab-title').html());
+                          $('#tab-title').slideUp().html();
+                      }
+                 }
+        );
+    });
+    </script>
+
+</head>
+  <body>
+    <?php echo $this->render('parts/cp/header.phtml'); ?>
+    <!-- start Wrap -->
+    
+    <div id="wrap" class="fixed">
+            <div id="content">
+                <noscript>
+                    <!-- Show message when javascript is not enabled -->
+                    <div class="message error">
+                        <p>Javascript is needed for this template to work properly. <br />Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.</p>
+                    </div>
+                </noscript>
+                
+                <?php 
+                    //build tab array. done in view since this is the only page
+                    
+                	$chapSessionNs = new Zend_Session_Namespace('chap');
+                	              
+                        $tabFile = '';
+                        if(!empty($chapSessionNs->chap->username))
+                        {
+                           $tabFile = APPLICATION_PATH. '/../public/cp/'.$chapSessionNs->chap->username.'/tabs.php'; 
+                        }
+                                                
+                                	               
+                    $tabs   = array();
+                    $tabs['Login']  = array('URL' => CP_PROJECT_BASEPATH.'/user/login', 'LABEL' => 'Sign up with neXva and start enjoying a host of tools crafted to make your job easier');
+                    
+                    if( file_exists($tabFile)) require_once $tabFile;
+                    $currentTab             = isset($this->currentTab) ? $this->currentTab : 'Login';
+
+                ?>
+                 <div id='header-tabs'>
+                    <?php foreach ($tabs as $name => $tab) : ?>
+                        <h3>
+                            <?php /*Zend_Debug::dump($currentTab.'='.$name);*/?>
+                            <?php if ($name == $currentTab) : ?>
+                                <span title='<?=htmlspecialchars($tab['LABEL'], ENT_QUOTES);?>'><?=$name?></span>
+                            <?php else : ?>
+                                <a href='<?=$tab['URL']?>' title='<?=htmlspecialchars($tab['LABEL'], ENT_QUOTES);?>'><?=$name?></a>
+                            <?php endif; ?>
+                        </h3>
+                    <?php endforeach;?>
+                    <?php /*die();*/?>
+                 </div> <!-- End title -->
+                 
+                <div id='tab-cont'>
+                    <div id='tab-title-cont'><span id='tab-title'>&nbsp;</span></div>
+                    <div id='tab-wrap'> 
+                    <div style='clear:both'></div>
+                    <?php echo $this->layout()->content ?>
+                    <div style='clear:both'></div>
+                    </div>
+                </div>
+                
+            </div>
+    
+        </div>
+        <!-- End Wrap -->
+
+        <!-- Footer -->
+        <?= $this->render('/parts/cp/footer.phtml'); ?>
+        <!-- Footer -->
+        <?php echo $this->partial('/parts/analytics.phtml')?>  
+  </body>
+</html><!-- 

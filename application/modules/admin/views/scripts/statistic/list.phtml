@@ -1,0 +1,118 @@
+<div class="title">
+
+    <h3>Users | neXva.com</h3>
+
+    <div class="selector" title="content_box">
+        <a class="tab <? if($this->selected_tab == '' or $this->selected_tab == 'tab-cps'){echo ' active';}?>" href="tab-cps">Cps</a>
+        <a class="tab <? if($this->selected_tab == 'tab-customers' ){echo ' active';}?>" href="tab-customers">Customers</a>
+        <a class="tab <? if($this->selected_tab == 'tab-administrators' ){echo ' active';}?>" href="tab-administrators">Administrators</a>
+        
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+        <div style="padding:20px 0px" align="center">
+            <form method="POST" name="frmsearch" id="frmsearch" action="#">
+                <input type="text"  value="<?=$this->search;?>"name="search" id="search" class="txt-input medium" style="width:300px" />
+                <select class="select-input small" name="tab" id="tab"  >
+                    <option value="tab-cps">CP</option>
+                    <option value="tab-customers" <? if($this->selected_tab == 'tab-customers' )echo 'selected=selected';?>>Customers</option>
+                    <option value="tab-administrators" <? if($this->selected_tab == 'tab-administrators' )echo 'selected=selected';?>>Administrators</option>
+                </select>
+                <select class="select-input small" name="status" id="status"  >
+                    <option value="1">Active</option>
+                    <option value="0" <? if($this->status == 'nonactive' )echo 'selected=selected';?>>Non Active</option>
+                </select>
+                <input type="submit" class="button" name="submit" value="Search" />
+                <small>Remove the search value and hit search to get the full list.</small>
+            </form>
+        </div>
+        <div id="content_box">
+            <div class="tab-cps">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                           
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Type</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <? foreach($this->cps_list as $user): ?>
+                             <?= $this->partial('partials/row.phtml',array('user'=>$user)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->cps_list, 'Sliding', 'partials/paginator.phtml',array("tab"=>"tab-cps","page_name" =>"page_cps")); ?>
+            </div>
+
+             <!-- tab not-approved -->
+            <div class="tab-customers">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Type</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->customers_list as $user): ?>
+                         <?= $this->partial('partials/row.phtml',array('user'=>$user)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->customers_list, 'Sliding', 'partials/paginator.phtml',array("tab"=>"tab-customers","page_name" =>"page_customers")); ?>
+            </div>
+            <!-- tab -->
+
+            <!-- tab not-approved -->
+            <div class="tab-administrators">
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" name="check" /></th>-->
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Type</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <? foreach($this->administrators_list as $user): ?>
+                         <?= $this->partial('partials/row.phtml',array('user'=>$user)); ?>
+                        <?endforeach; ?>
+                    </tbody>
+                </table>
+                 <!-- End Table -->
+                 <?= $this->paginationControl($this->administrators_list, 'Sliding', 'partials/paginator.phtml',array("tab=tab-administrators","page_name" =>"page_administrators")); ?>
+            </div>
+            <!-- tab -->
+
+           
+
+            
+
+        </div>
+    </div>
+</div>

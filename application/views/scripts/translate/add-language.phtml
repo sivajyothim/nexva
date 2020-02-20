@@ -1,0 +1,84 @@
+<?php 
+    $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/core.css');
+?>
+
+<style>
+    #content .inner {
+        margin:0;
+         
+    } 
+</style>
+
+<?php 
+    $phrase = $this->phrase;
+    $phraseLang = $this->phraseLang; 
+?>
+<div id='content'>
+    <div class='inner'>
+    
+     <div class='title'><h3>Save Translation</h3></div>
+     <div class='box'>
+        
+        <div class='txt'>
+        
+        
+         <form action='/translate/add-language/id/<?php echo $phrase->id?>' accept-charset="UTF-8" method='post'>
+            <p>
+                <label>Phrase</label>
+                <?php echo $phrase->name?>
+            </p>
+            
+            <p>
+                <label for='lang_id'>Language</label>
+                <strong><?php echo $this->languageName?></strong>
+            </p>
+            
+            <p>
+                <label for='value'>Translation</label>
+                <textarea class='txt-input medium' rows='7' id='value' name='value'><?php echo $phraseLang->value?></textarea>
+            </p>
+                <input type='hidden' name='phraseLangId' value='<?php echo $phraseLang->id?>'>
+            <p>
+                <input type="submit" class="txt-input small" value="Save Phrase" id="submit" name="submit">
+                <input type="button" onclick='window.location="/section/add-language/id/<?=$phrase->id?>/"' class="txt-input small" value="Cancel" id="cancel" name="cancel">
+            </p>
+          </form>  
+        </div>
+     </div>
+     
+     
+     <div class='title'><h3>All Translations </h3></div>
+     <div class='box'>
+        <div class='txt'>
+            <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Language</th>
+                    <th>Value</th>
+                    <th>&nbsp</th>
+                </tr>
+                </thead>
+            <?php if (count($this->translations)): $class = '';?>
+                <tbody>
+            <?php foreach ($this->translations as $item):  $class = ($class == 'alt') ? '' : 'alt' ;?>
+            <?php $item = (object) $item; ?>
+                <tr>
+                    <td class='<?=$class?>'><?=$item->lang_name?></td>
+                    <td class='<?=$class?>'><?=mb_substr(strip_tags($item->value), 0, 100)?></td>
+                    <td class='<?=$class?>'>
+                        <?php if ($this->languageId == $item->language_id) : ?>
+                            <a href='/translate/add-language/id/<?php echo $phrase->id?>/plId/<?php echo $item->pl_id ?>'>Edit</a>
+                            &nbsp;&nbsp;&nbsp; 
+                            <a href='/translate/delete-translation/id/<?php echo $phrase->id?>/plId/<?php echo $item->pl_id ?>' class='del_conf'>Delete</a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+                </tbody>
+            <?php endif; ?>
+            </table>
+        </div>
+     </div>
+
+    </div>
+</div>

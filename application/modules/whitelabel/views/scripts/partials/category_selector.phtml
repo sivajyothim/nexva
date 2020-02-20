@@ -1,0 +1,29 @@
+<?php $categories = $this->CategoryMenu()->getSortedCategories($this->CHAP_ID);?>
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+<div id="category_list" style="left: -210px;" data-visible="0">
+        <div id="category_list_body">
+            <div id="category_list_container">
+                <ul class="category_list_column">
+                    <?php foreach ($categories as $cat) : ?>
+                        <li>
+                            <span><?=$temp->_($cat->name)?></span>
+                            <?php if (!empty($cat->children)) : ?>
+                            <ul>
+                                <?php foreach ($cat->children as $child) : ?>
+                                    <li>
+                                        <a href='<?=$this->url()->category($child->id)?>'>
+                                            <?=$temp->_($child->name)?>
+                                        </a>
+                                    </li>
+                                <?php endforeach;?>
+                            </ul>
+                            <?php endif;?>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+        </div>
+        <div id="category_list_icon">
+            <a id="close_open_category_list" href="#" style="background-position: 0pt -9px;">close / open</a>
+        </div>
+    </div> <!-- << Category selector >> -->

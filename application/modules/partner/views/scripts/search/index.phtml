@@ -1,0 +1,36 @@
+ <div id="main_right_pane">
+ 
+<? if($this->products): ?>
+ 
+  <?=$this->paginationControl($this->paginator, 'Sliding', 'partials/product_category_block.phtml', array('baseUrl' => $this->baseUrl)); ?>
+ 
+ 
+ 	<?=$this->partial('partials/product_search.phtml', array('products' => $this->products,  'partnerId' => $this->partnerId, 'appStoreAppid' => $this->appStoreAppid, 'nexLinkerUrl' => $this->nexLinkerUrl, 'loggedUser' => $this->loggedUser) );?>
+ 
+	
+	<div style="clear: both;"></div>
+	
+	<?=$this->paginationControl($this->paginator, 'Sliding', 'partials/product_category_block.phtml', array('baseUrl' => $this->baseUrl)); ?>
+<? else: ?>
+
+<div class="inr_tabs_wrapper">
+		<div class="inr_tab_bar"><?php if(!$this->mtnIran):?><span class="inr_brdcrtxt_pur">+</span> <?php endif; ?>
+			
+		</div>
+	<div class="box_content_top"></div>
+	<div class="box_content_middle">
+		<div class="inrtab_selection_top inner_content">
+	
+                <?php if($this->mtnIran && $this->noResuls) : ?>
+                    <div style="text-align: center;margin-top: 20px;" class='warning_message'><?=$this->translate('SEARCH_KEYWORD');?> </div>
+                <?php else: ?>
+                    <div style="text-align: center;margin-top: 20px;" class='warning_message'><?=$this->noResuls;?> </div>
+                <?php endif; ?>
+		
+		</div>
+	</div>
+	
+	<div style="clear: both;"></div>
+<? endif; ?>
+</div>
+

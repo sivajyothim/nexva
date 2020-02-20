@@ -1,0 +1,136 @@
+<?php if (!empty($this->message)) : ?>
+<div class="message error">
+    <p><?php echo $this->message ?></p>
+</div>
+<?php endif;?>
+
+<div id="content_box">
+<div id="box">
+
+
+
+            <!-- Start Sidebar -->
+            <div id="sidebar">
+                <!-- Start Sidebar Box #1 -->
+                <div class="sort">
+                    <div class="title"><h3>System Device Status | neXva.com</h3></div>
+                    <div class="box">
+                        <div class="txt">
+                            <ul class="todo">
+
+                               
+                                <li>
+                                    <a href="#"><b>Handsets</b></a>
+                                    <p>System has total <b><?= $this->handsets_count; ?></b> number of handsets registered. Total <?= $this->devicesMissingImages; ?> devices missing Images.</p>
+                                    <span style='color: red;'>Please follow follwing steps 1, 2, 3, 4 to update the neXva device table.</span>
+                                
+                                    <ul class="links">
+                                        
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>handset/list"  target="_blank">List All Handsets</a></li>
+                                    </ul>
+                                    <ul class="links">
+                                        <? $config = Zend_Registry::get('config'); ?>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>device/images"  target="_blank">List devices with missing images</a></li>
+                                    </ul>
+                                </li>
+                             
+                              
+                            </ul>
+                            
+                             <ul class="todo">
+
+                               
+                                <li>
+                                    <a href="#"><b>1. Update WURFL databse</b></a>
+                                    <p>This will update the WURFL databse. Click on follwing link and then click on the link "Update database from wurfl.sourceforge.net" 
+                                    	this will download the latest WURFL Zip file and then it will populate the new devices in to  WURFL databse. 
+                                    <span style='color: red;'>This is the first step of the new Devices update.</p>
+                                    </span>
+                                    <ul class="links">
+                                        <? $config = Zend_Registry::get('config'); ?>
+                                        <li><a href="http://<?=$config->nexva->application->base->url ?>/vendors/Tera-WURFL/admin/" target="_blank">Update WURFL databse</a></li>
+                                    </ul>
+                        
+                                    
+                                 
+                                </li>
+                             
+                              
+                            </ul>
+                            
+                            
+                              <ul class="todo">
+
+                               
+                                <li>
+                                    <a href="#"><b>2. Update WURFL Device table</b></a>
+                                    <p>This will update the WURFL devices table in the neXva Database which holds temporary data until it process by the next script [ Populate new devices ].
+                                    This will read the downloaded, updated WURFL devices Zip file and then populate those devices in to the WURFL devices table. This might take some time don't                                      
+                                    refresh page during the process.</p>
+
+                                    <span style='color: red;'>This is the second step of the new Devices update.
+                                    </span>
+                                  
+                                    <ul class="links">
+                                        
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>device/updatewurfltable"  target="_blank">Update WURFL Device table</a></li>
+                                    </ul>
+              
+                                </li>
+                             
+                              
+                            </ul>
+                            
+                            
+                              <ul class="todo">
+
+                               
+                                <li>
+                                    <a href="#"><b>3. Populate new devices</b></a>
+                                    <p>This will update the neXva devices table in the neXva Database. and when it is done then it will remove all the data records in the WURFL devices table.
+                                     This might take some time don't refresh page during the process </p> 
+                                    <span style='color: red;'>This is the third step of the new Devices update.
+                                    </span>
+                                                      
+                                    <ul class="links">
+                                        
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>device/loadnewdevices"  target="_blank">Populate new devices</a></li>
+                                    </ul>
+                                </li>
+                             
+                              
+                            </ul>
+                            
+                                       <ul class="todo">
+
+                               
+                                <li>
+                                    <a href="#"><b>4. Empty WURFL devices</b></a>
+                                    <p>we have populated all the devices so this data records no longer required. This will empty  WURFL devices</p> 
+                                    <span style='color: red;'>This is the fourth step of the new Devices update.
+                                    </span>
+                                                      
+                                    <ul class="links">
+                                        
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>device/emptytable"  target="_blank">Empty WURFL devices</a></li>
+                                    </ul>
+                                </li>
+                             
+                              
+                            </ul>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- End Sidebar Box #1 -->
+
+
+            </div>
+
+
+<br><br>
+
+
+</div>
+</div>

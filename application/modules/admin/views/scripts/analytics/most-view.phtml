@@ -1,0 +1,37 @@
+<?php $this->headScript()->captureStart(); ?>
+    var __DATA_APP          = eval(<?php echo $this->appViewJson;?>); 
+<?php $this->headScript()->captureEnd(); ?>
+
+<?php echo $this->partial('partials/analytics_includes.phtml'); ?>
+
+
+<?php
+$opts = array(
+    'startTimeView' => $this->startTimeView,
+    'endTimeView' => $this->endTimeView
+);
+echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+<div id='visualizations'>
+
+
+     <div id='stats_downloads_by_app_cont' class='chart_box_full'>
+            <div class="title">
+                <h3>Most Viewed</h3>
+                <div class='filter'>
+                        <a href='<?php echo ADMIN_PROJECT_BASEPATH;?>product/view' class='button'>See all products</a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="txt">
+                    <div class='full_block' id='stats_view_by_app'>
+                We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+                </div>
+            </div>
+        </div> 
+
+
+</div>

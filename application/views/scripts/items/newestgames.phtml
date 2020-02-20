@@ -1,0 +1,36 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/28/13
+ * Time: 9:55 AM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<div class="blkCenter innerPage containerGap">
+    <!-- product list page start -->
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contContent">
+                <div class="blockContent">
+                    <div class="blkHead">
+                        <h2 id="pageTitle">Newest Games Collection</h2>
+                        <ul id="breadcrumbs">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="<?php echo PROJECT_BASEPATH;?>items/newestgames/">Newest Games</a></li>
+                        </ul>
+                        <div style='text-align: center'>
+                            <?php echo $this->paginationControl($this->products, 'Sliding', 'partials/items_pagination.phtml'); ?>
+                        </div>
+                    </div>
+                    <?php echo $this->render('items/products.phtml'); ?>
+                </div>
+                <div style='text-align: center'>
+                    <?php echo $this->paginationControl($this->products, 'Sliding', 'partials/items_pagination.phtml'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- product list page end -->
+</div>

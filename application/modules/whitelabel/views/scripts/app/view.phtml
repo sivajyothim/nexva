@@ -1,0 +1,207 @@
+<?php $temp=Zend_Registry::get('browserLocale'); ?>
+<?php
+    $this->headScript()->appendFile($this->Cdn('site_assets'). '/wl/js/tabs.js');
+    $this->headScript()->appendFile($this->Cdn('site_assets'). '/wl/js//fancybox/jquery.fancybox-1.3.4.pack.js');
+    $this->headScript()->appendFile($this->Cdn('site_assets'). '/wl/js//fancybox/jquery.fancybox-1.3.4.pack.js');
+    $this->headLink()->appendStylesheet($this->Cdn('site_assets'). '/wl/js//fancybox/jquery.fancybox-1.3.4.css');
+    $this->headScript()->appendFile($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.js');
+    $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/web/nexlinker/shadowbox/shadowbox.css');
+?>
+ 
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){
+        $(function() {
+            Shadowbox.init({
+                'troubleElements' : ["select", "object", "embed"]
+            }, function(){
+                $( ".nexlink" ).each(function(){          
+                    //$(this).attr('href', $(this).attr('href') + '/<?=$this->CHAP_ID?>/1');
+                    $(this).removeClass('display_none');
+                });
+            });
+        });
+    });
+<?php $this->headScript()->captureEnd();?>
+
+
+<?php $this->headScript()->captureStart(); ?>
+   $('#tabs a').tabs(); 
+   $("a[rel='fancybox']").fancybox();
+   
+<?php $this->headScript()->captureEnd(); ?>
+    
+<?php     
+    $product    = $this->product; 
+?>
+
+<?php if ($this->SETTINGS->facebook_app_id && $this->SETTINGS->enable_comments == 1) : ?>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=<?=$this->SETTINGS->facebook_app_id?>";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+<?php endif;?>
+
+
+<?php if($this->appExists === TRUE) : ?>
+    
+<div class="breadcrumb">
+            <div class="container">
+                <h1><?=$product->name?></h1>
+            </div>
+            
+            <div id="breadcrumbs">
+                <div class="container">
+                    <div class="bread-1">
+                        <a href="/"><?= $temp->_('Home') ?></a>
+                    </div>
+                    <div class="bread-2">&nbsp;</div>
+                    <?php if (isset($this->breadcrumb[0])) : ?>
+                    <div class="bread-1">
+                        <a class='close_open_category' href="#"><?= $temp->_($this->breadcrumb[0]['name']) ?></a>
+                    </div>
+                    <div class="bread-2">&nbsp;</div>
+                    <?php endif;?>
+                    
+                    <?php if (isset($this->breadcrumb[1])) : ?>
+                    <div class="bread-1">
+                        <a href="<?=$this->url()->category($this->breadcrumb[1]['id'])?>"><?=$temp->_($this->breadcrumb[1]['name']) ?></a>
+                    </div>
+                    <div class="bread-2">&nbsp;</div>
+                    <?php endif;?>
+                    
+                </div><!-- << container >> -->
+            </div><!-- << breadcrumbs >> -->
+            
+        </div>
+        
+        <div class="container">
+                
+            <div class="product-info">
+                <div class="left">
+                    <div class="image">
+                        <div class="product_outside_border">
+                            <div class="product_outside">
+                                <div class="product_inside">
+                                    <div class="image">
+                                        <?php
+                                                $image  = (isset($product->images[0])) ? '/product_visuals/' . APPLICATION_ENV . '/' . $product->images[0]['filename'] : '/wl/images/coming_soon.jpg';  
+                                        ?>
+                                        <a rel="fancybox" class="fancybox" title="<?=$product->name?>" href="<?=$image?>">
+                                        
+                                            <?php
+                                                $image  = (isset($product->images[0])) ? $product->images[0]['filename'] : 'coming_soon.jpg';  
+                                            ?>
+                                            <?php $htmlOpts = array('alt' => $product->name, 'autoheight' => 1);?>
+                                            <?=$this->thumbnail('/product_visuals/' . APPLICATION_ENV . '/' . $image, array('w' => 400, 'h' => 275, 'aoe' => 0), $htmlOpts); ?>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- << product outside border >> -->
+                    </div><!-- << image >> -->
+                    
+                    <div class="image-additional">
+                        <?php foreach ($product->images as $image) : ?>
+                        <div class="image">
+                            <div class="product_outside_border">
+                                <div class="product_outside">
+                                    <div class="product_inside">
+                                        
+                                        <a href="<?='/product_visuals/' . APPLICATION_ENV . '/' . $image['filename']?>" title="<?=$product->name?>" rel="fancybox" class="fancybox">
+                                            <?php $htmlOpts = array('alt' => $product->name, 'autoheight' => 1);?>
+                                            <?=$this->thumbnail('/product_visuals/' . APPLICATION_ENV . '/' . $image['filename'], array('w' => 44, 'h' => 44, 'aoe' => 0), $htmlOpts); ?>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div><!-- << product outside border >> -->
+                        </div><!-- << image >> -->
+                        <?php endforeach; ?>
+                    </div><!-- << image additional >> -->
+                </div><!-- << left >> -->
+                
+                <div class="right">
+                    <div class="top">
+                        <h1><?=$product->name?></h1>
+                    </div>
+                    <div class="price">
+                        <?php if ($product->price == 0) : ?>
+                            FREE
+                        <?php else : ?>
+                            <?=$this->locale()->getCurrencySymbol()?><?=$product->price?>
+                        <?php endif; ?>
+                    </div>
+                    <div class="description">
+                        <span><?= $temp->_('Developed by') ?></span> <?=$product->userMeta->COMPANY_NAME?>
+                        <span><?= $temp->_('More Info') ?></span>
+
+                        
+                    </div>
+                    
+                    <div class="description">   
+                        <?php foreach($this->platforms as $platform) : ?>
+                            <img src='/web/images/platforms/<?=$platform->id?>.png'  alt='<?=$platform->name?>' title='<?=$platform->name?>'>
+                        <?php endforeach;?>
+                    </div>
+                    
+                    <div class="description">
+                        <span><?= $temp->_('Scan Code to Download. Don not have a QR code reader?')?> <a href='/app/view/id/7990'><?= $temp->_('Get one free')?></a></span><br>
+                        <img name="qr_code" src="<?=$this->qr("http://" . $this->CHAP->WHITELABLE_URL . "/app/show/id/". $product->id, 100, 100)?>" 
+                            width="100" height="100" border="0" id="qr_code" alt="Generating QR code.." />
+                    </div>
+                    
+                    <div id="product-description"></div>
+                    
+                    <div class="cart">
+                        <div>
+                            <?php $baseUrl  = Zend_Registry::get('config')->nexva->application->base->url?>
+                                <a class="button nexlink" rel='shadowbox;height=530;width=600' href='http://<?=$baseUrl?>/nl/<?=$product->id?>/<?=$this->CHAP_ID?>/1' id="button-cart"><span><?= $temp->_('Download') ?></span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="share">
+                        <?php 
+                            $opts   = array(
+                                'url'   => 'http://' . $this->CHAP->WHITELABLE_URL_WEB . "/app/view/id/{$product->id}",
+                                'title' => $product->name,
+                                'description'   => $product->meta->BRIEF_DESCRIPTION //trimming is done internally 
+                            );
+                            echo $this->partial('partials/addthis.phtml', $opts);
+                        ?>
+                    </div>
+                </div><!-- << right >> -->
+                
+                <div class="clearfix">&nbsp;</div>
+            </div><!-- << product info >> -->
+            
+            <div class="section htabs" id="tabs">
+                <a href="#tab-description" style="display: inline;" class="selected"><?= $temp->_('Description')?></a>
+                <a href="#tab-review" style="display: inline;">
+                    <?= $temp->_('Reviews') ?>
+                </a>
+            </div>
+            
+            <div class="tab-content" id="tab-description" style="display: block;">
+                <div>
+                    <?=$product->meta->FULL_DESCRIPTION?>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="tab-review" style="display: none;">
+                <div id="review"></div>
+                 <div class="fb-comments" data-href="<?='http://' . $this->CHAP->WHITELABLE_URL_WEB . "/app/view/id/{$product->id}"?>" 
+                        data-num-posts="4" data-width="470"></div>
+            </div>
+            
+            <div class="clearfix">&nbsp;</div>
+        </div><!-- << container >> -->
+    
+    
+<?php else : ?>
+    <div class="container">
+        <p>This app has been removed</p>
+    </div>
+<?php endif; ?>

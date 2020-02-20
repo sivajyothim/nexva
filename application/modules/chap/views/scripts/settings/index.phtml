@@ -1,0 +1,70 @@
+<div class="title">
+    <h3>Whitelabel Settings Panel</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <p>
+            You can control the behavior of your site from this page. Please contact an admin if you need assistance in changing these settings.
+        </p>
+        <p>
+            <strong>Please note that for image changes, images need to be handed over to neXva admin and uploaded before they can be changed.</strong>
+        </p>
+        <p>
+           <strong>Value Types</strong>
+        </p>
+        <p>
+            <strong>STRING</strong> - Any alphanumeric character is valid<br>
+            <strong>BOOLEAN</strong> - Only 1 or 0 are valid values 
+        </p>
+    </div>
+</div>
+
+
+<div class="title">
+    <h3>Settings</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <form action="/settings/save" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Setting</th>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($this->settings as $setting => $opts) : ?>
+                    <tr>
+                        <td><?=ucwords(str_replace('_', ' ', $setting))?></td>
+                        <td>
+                            <?php 
+                                $value  = isset($this->savedSettings->{$setting}) ? $this->savedSettings->{$setting} : $opts['default'];
+                            ?>
+                            <?php
+                                $input  = ""; 
+                                switch ($opts['type']) {
+                                    case 'text' :
+                                        $input  = "<textarea style='width:350px;' class='txt-input large' name='{$setting}'>{$value}</textarea>"; 
+                                        break;
+                                        
+                                    case 'string'   :
+                                    default    :
+                                        $input  = "<input value='{$value}' class='txt-input medium' type='text' name='{$setting}'>";
+                                        break;
+                                }
+                            ?>
+                            <?=$input?>
+                            
+                        </td>
+                        <td><?=ucfirst($opts['type'])?> | <?=$opts['description']?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+            
+            <input type="submit" style="width : 80px" class="txt-input small submit button" href="tab-screenshots" value="Save" id="submit" name="submit">
+        </form>
+    </div>
+</div>

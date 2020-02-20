@@ -1,0 +1,227 @@
+Manifest-Version: 1.0
+MIDlet-Jar-Size: 6163066
+MicroEdition-Configuration: CLDC-1.1
+RIM-COD-URL-70: Songstar-70.cod
+MIDlet-Version: 1.0.9
+RIM-COD-Size: 70768
+RIM-COD-URL-69: Songstar-69.cod
+RIM-COD-URL-68: Songstar-68.cod
+RIM-COD-URL-67: Songstar-67.cod
+RIM-COD-URL-66: Songstar-66.cod
+RIM-COD-Size-70: 64152
+RIM-COD-URL-65: Songstar-65.cod
+RIM-COD-URL-64: Songstar-64.cod
+RIM-COD-URL-63: Songstar-63.cod
+RIM-COD-URL-62: Songstar-62.cod
+RIM-COD-URL-61: Songstar-61.cod
+RIM-COD-URL-60: Songstar-60.cod
+RIM-MIDlet-Flags-1: 0
+MIDlet-Name: MTN Song Star
+RIM-COD-Size-69: 58000
+RIM-COD-Size-68: 51084
+RIM-COD-Size-67: 56612
+RIM-COD-Size-66: 54020
+RIM-COD-Size-65: 51056
+RIM-COD-Size-64: 51056
+RIM-COD-URL-59: Songstar-59.cod
+RIM-COD-Size-63: 51056
+RIM-COD-URL-58: Songstar-58.cod
+RIM-COD-Size-62: 51036
+RIM-COD-URL-57: Songstar-57.cod
+RIM-COD-Size-61: 51024
+RIM-COD-URL-56: Songstar-56.cod
+RIM-COD-Size-60: 51672
+RIM-COD-URL-55: Songstar-55.cod
+RIM-COD-URL-54: Songstar-54.cod
+RIM-COD-URL-53: Songstar-53.cod
+RIM-COD-URL-52: Songstar-52.cod
+RIM-COD-URL-51: Songstar-51.cod
+RIM-COD-URL-50: Songstar-50.cod
+RIM-COD-Size-59: 55420
+RIM-COD-Size-58: 51036
+RIM-COD-Size-57: 54868
+RIM-COD-Size-56: 40472
+RIM-COD-URL-9: Songstar-9.cod
+RIM-COD-Size-55: 51036
+RIM-COD-URL-8: Songstar-8.cod
+RIM-COD-Size-54: 51236
+RIM-COD-URL-49: Songstar-49.cod
+RIM-COD-URL-7: Songstar-7.cod
+RIM-COD-Size-53: 51036
+RIM-COD-URL-48: Songstar-48.cod
+RIM-COD-URL-6: Songstar-6.cod
+MicroEdition-Profile: MIDP-2.0
+RIM-COD-Size-52: 55916
+RIM-COD-URL-47: Songstar-47.cod
+RIM-COD-URL-5: Songstar-5.cod
+RIM-COD-Size-51: 51008
+RIM-COD-URL-46: Songstar-46.cod
+RIM-COD-URL-4: Songstar-4.cod
+RIM-COD-Size-50: 50996
+RIM-COD-URL-45: Songstar-45.cod
+RIM-COD-URL-3: Songstar-3.cod
+RIM-COD-URL-44: Songstar-44.cod
+RIM-COD-URL-2: Songstar-2.cod
+RIM-COD-URL-43: Songstar-43.cod
+RIM-COD-URL-1: Songstar-1.cod
+RIM-COD-URL-42: Songstar-42.cod
+RIM-COD-URL-41: Songstar-41.cod
+RIM-COD-Size-9: 38476
+RIM-COD-URL-40: Songstar-40.cod
+RIM-COD-Size-8: 51140
+RIM-COD-Size-7: 58048
+RIM-COD-Size-6: 54676
+RIM-COD-Size-5: 57856
+RIM-COD-Size-4: 56760
+RIM-COD-Size-3: 59272
+RIM-COD-Size-2: 68100
+RIM-COD-Size-1: 62916
+RIM-COD-Size-49: 50988
+RIM-COD-Size-48: 57092
+RIM-COD-Size-47: 51624
+RIM-COD-Size-46: 51108
+RIM-COD-Size-45: 40996
+RIM-COD-Size-44: 51084
+RIM-COD-URL-39: Songstar-39.cod
+RIM-COD-Size-43: 51084
+RIM-COD-URL-38: Songstar-38.cod
+RIM-COD-URL-37: Songstar-37.cod
+RIM-COD-Size-42: 54424
+RIM-COD-URL-36: Songstar-36.cod
+RIM-COD-Size-41: 51108
+RIM-COD-URL-35: Songstar-35.cod
+RIM-COD-Size-40: 51100
+RIM-COD-URL-34: Songstar-34.cod
+RIM-COD-URL-33: Songstar-33.cod
+RIM-COD-URL-32: Songstar-32.cod
+RIM-COD-URL-31: Songstar-31.cod
+RIM-COD-URL-30: Songstar-30.cod
+RIM-COD-Module-Dependencies: net_rim_cldc,net_rim_bb_web_jse_api,net_rim_xml_org,net_rim_bb_browser_field2_api,net_rim_os,net_rim_bbapi_phone,net_rim_bbapi_mailv2,net_rim_bbapi_browser,net_rim_bbapi_push,net_rim_networkapi,net_rim_bb_browser_field_api,net_rim_ui_api,net_rim_bbapi_invoke,net_rim_xml
+MIDlet-Vendor: 8Digital
+RIM-COD-Size-39: 51084
+RIM-COD-Size-38: 52968
+RIM-COD-Size-37: 51108
+RIM-COD-Size-36: 51096
+RIM-COD-Size-35: 51084
+RIM-COD-URL-29: Songstar-29.cod
+RIM-COD-Size-34: 38120
+RIM-COD-URL-28: Songstar-28.cod
+RIM-COD-Size-33: 53892
+RIM-COD-URL-27: Songstar-27.cod
+RIM-COD-Size-32: 51084
+RIM-COD-URL-26: Songstar-26.cod
+RIM-COD-Size-31: 56220
+RIM-COD-URL-25: Songstar-25.cod
+RIM-COD-Size-30: 51084
+RIM-COD-URL-24: Songstar-24.cod
+RIM-COD-URL-23: Songstar-23.cod
+RIM-COD-URL-22: Songstar-22.cod
+RIM-COD-URL-21: Songstar-21.cod
+RIM-COD-URL-20: Songstar-20.cod
+RIM-COD-URL: Songstar.cod
+MIDlet-Description: MTN Song Star for BlackBerry
+RIM-COD-SHA1-70: 80 44 32 5e d5 b7 ec ed 75 14 b9 57 a4 53 95 c8 c7 c8 4f 4f
+RIM-COD-Module-Name: Songstar
+RIM-COD-Size-29: 57204
+RIM-COD-Size-28: 51116
+RIM-COD-Size-27: 51108
+RIM-COD-Size-26: 58724
+RIM-COD-Size-25: 55496
+RIM-COD-URL-19: Songstar-19.cod
+RIM-COD-Size-24: 55244
+RIM-COD-URL-18: Songstar-18.cod
+RIM-COD-Size-23: 51684
+RIM-COD-URL-17: Songstar-17.cod
+RIM-COD-Size-22: 57576
+RIM-COD-URL-16: Songstar-16.cod
+RIM-COD-Size-21: 57272
+RIM-COD-URL-15: Songstar-15.cod
+RIM-COD-Size-20: 58124
+RIM-COD-URL-14: Songstar-14.cod
+RIM-COD-URL-13: Songstar-13.cod
+RIM-COD-URL-12: Songstar-12.cod
+RIM-COD-URL-11: Songstar-11.cod
+RIM-COD-SHA1-69: a0 36 58 c6 19 1b 58 e0 f6 5c 9c 1f 49 99 57 ea 0d 8e dc 81
+RIM-COD-URL-10: Songstar-10.cod
+RIM-COD-SHA1-68: 4b be db 86 7f 3d 83 95 ed 34 9b 91 af 1c ce 2a 25 6d 7a ee
+RIM-COD-SHA1-67: d2 f6 9d b8 5e a5 d6 8d 80 94 62 cf da 9e 15 33 a5 01 5b 8e
+RIM-COD-SHA1-66: 42 e6 fe 70 30 7f c6 ec 13 8c 17 74 6f ac 89 45 07 45 bf fc
+RIM-COD-SHA1-65: 3d e3 c6 5b 16 e2 aa 1d a0 eb bf 58 0d 1f cf a6 d6 03 38 09
+RIM-COD-SHA1-64: 68 a3 97 dc f2 0d 6f 04 86 31 12 47 af 58 94 bd eb b2 11 54
+RIM-COD-SHA1-63: 7e 57 02 4d a4 c9 be 73 80 fb d2 41 54 a9 ac cf f8 2b 28 ec
+RIM-COD-SHA1-62: 4f b8 fe 2f 70 9e c3 1c 46 b3 2a 18 42 8f 9a 72 0b 6d 98 57
+RIM-COD-SHA1-61: 0d e1 58 3e 1e 9c ba 88 9f 4f fb e0 04 66 16 7e f5 1f db 26
+RIM-COD-SHA1-60: 80 3f 69 93 fa 75 7f 43 2f 24 b1 46 b7 13 37 0f 7b a7 fe df
+RIM-COD-Size-19: 53056
+RIM-COD-Size-18: 58104
+RIM-COD-Size-17: 56960
+RIM-COD-Size-16: 43300
+RIM-COD-Size-15: 45052
+RIM-COD-Size-14: 58808
+RIM-COD-Size-13: 55848
+RIM-COD-Size-12: 44016
+RIM-COD-Size-11: 62328
+RIM-COD-Size-10: 53372
+RIM-COD-SHA1-59: df 96 33 98 98 a7 28 e9 28 43 f9 70 90 e9 8d 47 57 85 45 d4
+RIM-COD-SHA1-58: 2f dc 7c e6 3d 06 e9 39 da 40 fa 83 d5 4c db d9 aa 3e c6 ba
+RIM-COD-SHA1-57: 79 b7 86 7e 61 08 e6 70 87 7f 48 c1 65 1f 43 aa 39 8b f8 de
+RIM-COD-SHA1-56: ca 61 14 be ce 10 63 09 9e 6b bf ce e4 5b ec 3f 1b 72 c6 ac
+RIM-COD-SHA1-55: e2 92 c8 f8 14 5c ff da 40 d8 12 4c c3 fb d0 86 e8 03 68 94
+RIM-COD-SHA1-54: e5 f7 8d 41 9b a6 df 02 6c cd 2a 75 f7 5f 8e 7e 97 5a 76 1f
+RIM-COD-SHA1-53: 1f 64 c8 f5 e4 b0 3f d5 6f 4a cf d1 04 41 c7 44 a8 e4 22 a0
+MIDlet-1: MTN Song Star,images/icon.png,rim:foreground;WIDGET;
+RIM-COD-SHA1-52: 0b b2 07 71 0e 2d 5d d4 0f 20 1a 71 1c 58 d9 bd ef 24 07 7f
+RIM-COD-SHA1-51: df 48 eb 65 71 51 4d 92 74 e8 b0 e2 2a a1 17 73 b6 4c 10 3f
+RIM-COD-SHA1-50: df 20 bd ea d6 41 e7 a8 33 be d1 30 86 8d 48 54 4e da 1c 43
+RIM-COD-SHA1: f6 b1 05 fa 30 5b 45 61 28 2f cb 3c 3d 8c 45 20 42 04 e2 2a
+RIM-COD-SHA1-49: 02 f8 27 c1 5b ba 04 8c 3f 5e ed fe e1 70 10 f7 6c 99 8f 1f
+RIM-COD-SHA1-48: 31 ad 83 3e 4a c0 61 e8 38 e5 56 ab 8a 4d 5a 21 6e 9f 5b 98
+RIM-COD-SHA1-47: 62 da 84 bb ef 06 04 ff 41 c5 20 be 51 83 8e 6f 09 38 e7 6f
+RIM-COD-SHA1-46: c7 f3 fa c5 fa 56 77 be 92 f7 ac 4e fc 5d e9 e0 08 14 a0 8e
+RIM-COD-SHA1-45: 56 00 a8 2a 29 9c 1b 0a 31 ac bb d9 36 0a da b0 5c 90 89 ab
+RIM-COD-SHA1-44: e0 f4 43 bd 65 7f fe c7 93 28 6f e0 ef f3 4e 22 32 cf 6c b0
+RIM-COD-SHA1-43: 07 bf 9d aa db 30 a2 ba 87 86 cc 09 31 3f a9 93 12 16 61 1a
+RIM-COD-SHA1-42: d3 dc 58 09 c6 3f 67 71 aa 4d 44 53 ac 36 1d 43 7d 1c c9 1e
+RIM-COD-SHA1-41: cc 6a 57 70 30 85 1d e2 9e b9 c0 19 fa 62 d7 d8 85 ba a3 c3
+RIM-COD-SHA1-40: 01 e9 d0 4d 1a f9 0c 9c 33 ad af a6 29 83 ae 47 e2 5d 8e 60
+RIM-COD-SHA1-39: a3 ab 8a 94 b2 e2 56 fe 21 e5 ac 30 9b 5f bb e6 4b d6 f5 cc
+RIM-COD-SHA1-38: e3 29 6a bc 0e 4f 6d be bf 9e 45 32 75 d0 bf b3 5d c7 ff 93
+RIM-COD-SHA1-37: 2b ab f8 5d 0d a0 57 15 53 d0 c1 d5 a4 d1 45 23 72 4d 96 e0
+RIM-COD-SHA1-36: 44 51 ae 79 ef 60 15 52 70 4f 34 e6 3e 31 ee 9a d4 db 78 12
+MIDlet-Jar-URL: Songstar.jar
+RIM-COD-SHA1-35: ba 2e 85 3f 3e e7 35 4b f9 f0 7a 76 ab 57 b1 d0 0d f7 9e f9
+RIM-COD-SHA1-34: b6 4b 69 75 a9 fd 65 f7 fc 1a 8b 9a 96 22 a1 6d 03 f9 c8 8f
+RIM-COD-SHA1-33: 88 41 7f af 29 9e b5 f3 6c 84 ac d5 74 84 f2 4a 90 fa ec 0c
+RIM-COD-SHA1-32: 81 3e 68 25 5f 9d 2c 93 78 e7 6e bf fd 9c b1 05 5f 1f 7e 60
+RIM-COD-SHA1-31: ab 46 5e 55 af 62 a6 5f 0c bd 07 a3 ca dd 45 66 44 43 ce 01
+RIM-COD-SHA1-30: 2a b0 c8 d0 91 31 94 ed 57 d9 63 13 15 ed b7 ba 56 00 bd 1a
+RIM-COD-SHA1-9: 05 51 30 de 09 7f e0 64 06 ff db c0 bf 00 5c 31 88 7e 94 83
+RIM-COD-SHA1-8: 22 a3 d8 d4 28 8f a4 61 4e 83 50 8c cc 03 f2 8b ad 14 c4 ac
+RIM-COD-SHA1-7: 21 a8 a5 fa 5c 06 79 ef 8c e4 2e 08 34 ef c3 ca d8 79 8e ce
+RIM-COD-SHA1-6: 38 59 f1 7e cc b2 65 9b 1e 40 4b 19 3a a1 d3 92 77 89 73 1d
+RIM-COD-SHA1-5: 70 d4 a3 4e 9b ab b0 0d ed d2 10 7b 49 57 a8 12 a1 d8 9b e7
+RIM-COD-SHA1-4: 60 80 69 26 af 80 b9 0b cf 97 4e 78 71 64 31 01 10 97 f9 1e
+RIM-COD-SHA1-3: 68 ea 6f 93 8b 8a a8 a9 d8 ee 5b 54 ac 56 94 4c 72 2f b6 b4
+RIM-COD-SHA1-2: 02 c5 fd e4 b2 22 8a 49 05 15 42 88 26 9d b1 4d a3 b2 ba cb
+RIM-COD-SHA1-1: c1 3c 84 c8 1c d4 58 26 7d 52 82 7c 6b 4f 6b 71 f3 ef 21 4f
+RIM-COD-SHA1-29: 7b 75 58 f7 d9 19 48 be 80 d4 cd 8e 10 6f cf 91 ce 42 a1 96
+RIM-COD-SHA1-28: 8c 9f c7 4d 0b c3 4f da f7 1e 08 8a e3 cb b0 99 95 9f 8e b5
+RIM-COD-SHA1-27: a0 49 9f 90 83 bf 87 72 1d b1 df 8c 12 b6 8e d7 f4 3d 87 c0
+RIM-COD-SHA1-26: f8 06 d3 6b bb f9 77 3a d5 71 6d c2 b5 f8 f1 2e 6b c9 57 a6
+RIM-COD-SHA1-25: 8d f8 43 fa 42 ec d9 f3 0b e8 f4 b2 39 f5 66 eb 6a e9 ec 1c
+RIM-COD-SHA1-24: 14 b3 a6 40 90 40 73 d9 a7 9b 1a 63 f9 88 90 0a 6a 1d f5 9d
+RIM-COD-SHA1-23: fa 25 f8 19 80 2d 8a 00 dd a9 cf f8 ff e6 a0 0a a3 3a 86 b0
+RIM-COD-SHA1-22: b3 01 14 33 63 cd 42 ba 1c c2 10 47 f8 76 64 2d 4f 35 ec 19
+RIM-COD-SHA1-21: 7e 28 97 f3 b3 a2 e2 aa c4 72 9d 3d 39 5a c0 89 2e 48 b0 90
+RIM-COD-SHA1-20: e9 15 b4 57 0d 78 c9 22 fa 99 4e d6 62 ad a3 8a db 8e b7 a2
+RIM-COD-Creation-Time: 1381089062
+RIM-COD-SHA1-19: ef 5c 0b 4e 64 7e 3a 83 c2 c2 80 6c d7 c7 75 f0 4f 2b 26 35
+RIM-COD-SHA1-18: 2d 34 c8 86 f4 53 48 60 68 16 01 b3 f3 62 1b 8c 6b 50 c7 d4
+RIM-COD-SHA1-17: 22 09 ef 2e da d9 a8 24 17 01 eb 9e 5d 1d 4d bd c9 0b 8d d2
+RIM-COD-SHA1-16: b5 f4 03 68 28 b0 56 8b c8 73 93 30 62 af 24 38 77 98 d1 14
+RIM-COD-SHA1-15: e3 a7 d6 20 98 90 63 58 d0 3a 25 8f 85 cb 0f 86 73 df 1e dc
+RIM-COD-SHA1-14: 31 f3 01 f9 e7 25 8a 62 47 80 81 a3 be 83 60 a6 0d b4 2b c9
+RIM-COD-SHA1-13: bc 75 54 c0 80 43 6f db e4 92 00 86 8a 63 15 93 77 2d ea d8
+RIM-COD-SHA1-12: 7a 39 fa ce cb 29 23 63 23 90 26 98 d5 d5 64 a0 22 87 4c 66
+RIM-COD-SHA1-11: 4e c9 da ea 1a 65 20 8a 75 9b 8f ac 35 07 d2 c4 b9 78 c9 5a
+RIM-COD-SHA1-10: 0d e9 75 67 b1 79 93 2e a4 4e 2b b8 dd bb 02 37 91 a6 74 5f

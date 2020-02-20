@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis
+END
+PlainHTTPFetcher.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/PlainHTTPFetcher.php
+END
+Yadis.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/Yadis.php
+END
+Manager.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/Manager.php
+END
+Misc.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/Misc.php
+END
+XRIRes.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/XRIRes.php
+END
+ParanoidHTTPFetcher.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/ParanoidHTTPFetcher.php
+END
+ParseHTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/ParseHTML.php
+END
+HTTPFetcher.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/HTTPFetcher.php
+END
+XML.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/XML.php
+END
+XRDS.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/XRDS.php
+END
+XRI.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Auth/Yadis/XRI.php
+END

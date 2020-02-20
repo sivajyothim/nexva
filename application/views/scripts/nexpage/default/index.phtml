@@ -1,0 +1,234 @@
+<?php $t = $this->t()->setPhraseTags($this->phraseTags); ?>
+
+<?php $this->headScript()->captureStart() ?>
+    <?php if (@$this->cpDetails->TWITTER) : ?>
+         //get twitter status
+         $(document).ready(function(){
+             $.get("/nexpage/get.resource/resource/twitter/cpid/" + __CP_ID, function(data) {
+                 $("#twitter-status-text").html(data);
+             });
+         });
+    <?php endif; ?>
+<?php $this->headScript()->captureEnd() ?>
+
+<div id="content">
+    <div id="maintext">
+        <!-- check whether image is available first -->
+        
+        <?php if($this->nexpageStatus == 1 ):
+                           
+        ?>
+        
+        <?php if($this->cpDetails->LOGO): ?>
+              <img id='logo' width="120"  src="<?=$this->cdn('site_assets')?>/cp/static/logos/<?=$this->cpDetails->LOGO;?>" alt="<?=$this->cpDetails->LOGO;?>" class="cplogo alignleft" />
+        <?php endif; ?> 
+        <h1><?=$this->cpDetails->COMPANY_NAME;?></h1>
+        
+        <p>           
+            <?=$this->Wikimarkup($this->cpDetails->COMPANY_DESCRIPTION);?>
+        </p>
+        <div class='clear'></div>
+        <br><br>
+        <h2><?php $t->_('applications');?></h2>
+        <ul class="blocklist">
+          <?php if($this->products): ?>
+              <?=$this->partial('partials/nexpage_product_block.phtml', array("product" => $this->products, 'ratings' => $this->ratings));?>
+          <?php else: ?> 
+              <li> <strong><?php $t->_('no_apps');?></strong> </li>
+          <?php endif; ?> 
+         
+        </ul>
+        <a class='button' href='<?=$this->baseUrl(); ?>/cp/<?=$this->slug($this->cpDetails->COMPANY_NAME); ?>.<?=$this->cpid ?>'>
+            <?php $t->_('see_all');?>   
+        </a>
+        
+        <?php else: ?>
+        
+         <p style="font-weight: bold;">
+            <?php $t->_('no_nexpage_feature');?>  
+         </p>
+        
+        <?php endif; ?>
+    </div><!-- end #maintext -->
+</div><!-- end #content -->
+
+<?php
+
+/******************************************************************************************************************
+ **************************************** SIDEBAR CODE GOES BELOW *************************************************
+ ******************************************************************************************************************
+ */ 
+?>  
+        <?php if($this->nexpageStatus == 1 ):
+                           
+        ?>
+<div id="side">
+                        <div id="sideright">
+                                <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                                
+                            <ul>
+                                
+                                <?php if($this->cpDetails->TWITTER): ?>
+                                <li class="widget-container twitter-status">
+                                    <div class="sidebox">
+                                        <p>
+                                        <fb:like href="<?php echo $this->baseUrl(); ?>/np/<?php echo $this->cpid; ?>.<?=$this->slug($this->cpDetails->COMPANY_NAME); ?>" 
+                                            layout="button_count" show_faces="true" width="285" action="like"></fb:like>
+                                        </p> 
+                                        <a href='http://www.twitter.com/<?=$this->cpDetails->TWITTER?>'>
+                                            <img class='alignleft' src='<?=$this->cdn('site_assets')?>/web/nexpage/default/images/twitter_verysmall.gif'>
+                                        </a>
+                                        <p id='twitter-status-text'>
+                                            <img class='alignleft' src='<?=$this->cdn('site_assets')?>/web/nexpage/default/images/loading.gif'>
+                                            <br><br>
+                                        </p>
+                                        
+                                         
+                                        <div class='clear'></div>
+                                    </div>
+                                </li>
+                                <?php endif; ?>
+                                <li class="widget-container">
+                                    <div class="sidebox">
+                                    
+                                   <?php  if(($this->cpDetails->FACEBOOK) or ($this->cpDetails->TWITTER)  or ($this->cpDetails->LINKEDIN) or ($this->cpDetails->SKYPE)): ?>
+                                    
+                                        <h3><?php $t->_('find_us_on');?></h3>
+                                        <ul class="social"> 
+                                       <?php if ($this->cpDetails->FACEBOOK) : ?>        
+                                           <li>
+                                                <a href="<?=$this->cpDetails->FACEBOOK?>" target="_blank" title="<?=$this->cpDetails->FACEBOOK?>">
+                                                    <img src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/facebook.png" alt="Facebook" />
+                                                </a>
+                                           </li>
+                                       <?php endif; ?>
+                                       <?php if ($this->cpDetails->TWITTER) : ?>   
+                                            <li>
+                                                <a href="http://www.twitter.com/<?=$this->cpDetails->TWITTER?>" title="@<?=$this->cpDetails->TWITTER?>" target="_blank">
+                                                    <img src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/twitter.png" alt="Twitter" />
+                                                </a>
+                                            </li>
+                                       <?php endif; ?>
+                                       <?php if ($this->cpDetails->LINKEDIN) : ?>  
+                                          <li>
+                                                <a href="<?=$this->cpDetails->LINKEDIN?>" target="_blank">
+                                                    <img src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/linkedin.png" alt="Linkedin" />
+                                                </a>
+                                          </li>
+                                       <?php endif; ?>
+                                        </ul>
+                                        
+                                    <?php endif; ?>
+                                    </div>
+                                </li>
+    
+                                <li class="widget-container">
+                                    <div class="sidebox">
+                                        <h3><?php $t->_('address');?></h3>
+                                        <div class="widget-text">
+                                        <p><strong><?=$this->cpDetails->COMPANY_NAME?></strong><br>
+                                        <?=$this->cpDetails->ADDRESS?><br>
+                                        <?=$this->cpDetails->CITY?><br> 
+                                        <?php if($this->cpDetails->COUNTRY) 
+                                                  echo $this->country($this->cpDetails->COUNTRY); 
+                                                                                  
+                                        ?></p>
+                                        <ul class="noborder">
+                                        <?php if ($this->cpDetails->TELEPHONE) : ?>       
+                                            <li>
+                                                <span class="left">
+                                                    <img  class="alignleft" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/phone-small.png"> 
+                                                    <?php $t->_('telephone');?>:
+                                                </span> 
+                                                <span title="<?=$this->cpDetails->TELEPHONE?>" class="right">
+                                                     <?=$this->trim($this->cpDetails->TELEPHONE, 17)?> 
+                                                </span>
+                                            </li>
+                                        <?php endif;?> 
+                                        <?php if ($this->cpDetails->FAX) : ?>  
+                                            <li>
+                                                <span class="left"> 
+                                                    <img  class="alignleft" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/fax-small.png"> 
+                                                    <?php $t->_('fax');?>:
+                                                </span> 
+                                                
+                                                <span title="<?=$this->cpDetails->FAX?>" class="right">
+                                                    <?=$this->trim($this->cpDetails->FAX, 17)?> 
+                                                </span>
+                                            </li>
+                                       <?php endif; ?>
+                                       <?php if ($this->cpDetails->WEB) : ?>  
+                                            <li>
+                                                <span class="left">
+                                                    <img  class="alignleft" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/web-small.png">
+                                                    <?php $t->_('www');?>:
+                                                </span> 
+                                                <span class="right">
+                                                    <?php $url = str_ireplace('http://', '', $this->cpDetails->WEB);?>
+                                                    <a title='http://<?=$url?>' href='http://<?=$url?>'>
+                                                        <?=$this->trim($url, 17)?>
+                                                    </a>
+                                                </span>
+                                             </li>
+                                       <?php endif; ?>
+                                       <?php if ($this->cpDetails->Skype) : ?>  
+                                            <li>
+                                                <span class="left">  
+                                                    <img  class="alignleft" src="<?=$this->cdn('site_assets')?>/web/nexpage/default/images/icon-skype.png"> 
+                                                    <?php $t->_('skype_id');?>:
+                                                </span> 
+                                                <span class="right" title='<?=$this->cpDetails->SKYPE?>'>
+                                                    <?=$this->trim($this->cpDetails->SKYPE, 17)?>  
+                                                </span>
+                                             </li>
+                                       <?php endif; ?>
+                                        </ul>
+                                        <?php if ($this->cpDetails->GOOGLE_MAP_URL) : ?>
+                                        <br><br>
+                                        <?php 
+                                            $embedUrl   = $this->cpDetails->GOOGLE_MAP_URL;
+                                            $embedUrl   = (strpos($embedUrl, 'output=embed') === false) ? $embedUrl . '&output=embed' : $embedUrl;
+                                        ?>
+                                        <iframe width="240" height="240" frameborder="0" 
+                                            scrolling="no" marginheight="0" marginwidth="0" src="<?=$embedUrl?>"></iframe>
+                                        <br />
+                                        <small><a target="_blank" href="<?=str_ireplace('output=embed', '', $this->cpDetails->GOOGLE_MAP_URL)?>" style="text-align:left"><?php $t->_('view_larger_map');?></a></small>
+                                        <?php endif; ?>
+                                        
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                                <li class="widget-container widget-recent">
+                                    <div id='contact_form' class="sidebox">
+                                        <h3><?php $t->_('contact_us_title');?></h3>
+                                        <form action="" id="contact">
+                                        <fieldset>
+                                          <label id="name_label" for="name"><?php $t->_('contact_your_name');?></label>
+                                          <input type="text" class="text-input" value="" size="25" id="name" name="name">
+                                          <span id="name_error" class="error" style="display: none;"><?php $t->_('contact_your_name_fail');?></span>
+                                          <br style="clear: both;">
+                                         <label id="email_label" for="email"><?php $t->_('contact_your_email');?></label>
+                                          <input type="text" class="text-input" value="" size="25" id="email" name="email">
+                                          <span id="email_error" class="error" style="display: none;"><?php $t->_('contact_your_email_fail');?></span>
+                                          <span id="email_error2" class="error" style="display: none;"><?php $t->_('contact_your_email_fail_valid');?></span>
+                                          <br style="clear: both;">
+                                          <label id="msg_label" for="msg"><?php $t->_('contact_your_message');?></label>
+                                         <textarea class="text-input" id="msg" name="msg" rows="8" cols="19"></textarea>
+                                          <span id="msg_error" class="error" style="display: none;"><?php $t->_('contact_your_message_fail');?></span>
+                                          <br>
+                                           <?php $t->_h('contact_submit');?> 
+                                          <button id="submit_btn"  type='submit' class="but" name="submit"><?php $t->_('contact_submit', true);?></button>
+                                         
+                                        </fieldset>
+                                      </form>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                        
+                        <?php endif; ?>
+                        
+                        <!-- end #sideright -->
+                    </div><!-- end #side -->         

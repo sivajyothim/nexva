@@ -1,0 +1,83 @@
+<?php 
+    $this->headLink()->appendStylesheet($this->cdn('site_assets').'/common/js/jquery/plugins/validation/css/validationEngine.jquery.css');
+    $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/validation/js/jquery.validationEngine.js');
+    $this->headScript()->appendFile($this->cdn('site_assets').'/common/js/jquery/plugins/validation/js/languages/jquery.validationEngine-en.js');
+?>
+<script type="text/javascript">
+$(document).ready(function(){
+     $("#review").validationEngine();
+
+     $('#body').keyup(function(){
+         var span   = $('#charlimit');
+         var $this  = $(this);
+         var length = $this.val().length;
+
+         if (length < 20) {
+             span.html((20 - length) + ' more to go ...');
+         } else {
+        	 span.html((1000 - length) + ' characters left...');
+         } 
+         if (length > 1000) {
+        	 span.css({'color' : '#aa0000'});
+         } else {
+        	 span.css({'color' : '#666'});
+         }
+     });
+});
+</script>
+
+<div class="prodListPage">
+
+    <div class='container' >
+        <div class='textBlock'>
+            <br>
+            <a class='orangeButton' href="/<?=$this->productId;?>">Back to <?=$this->productInfo['name']?> product page</a>
+        <br><br>
+            <h2>Create your own review</h2>
+            
+            <p style='padding:0px;'>Write a review and rate your experience with this app</p>
+            <?
+            $errors = $this->errors;
+            if(is_array($errors)) :?>
+                <div class='message-error'>
+                    <p class='header'>Please correct the following problems</p>
+                <?php foreach ($errors as $error): ?>
+                    <p><?=$error?></p>
+                <?endforeach;?>
+                </div>
+            <?endif;?>
+             <br>
+            
+            <?php 
+                $review = $this->review;
+            ?>
+            <form class='smallInputForm' id="review" style='width:auto;' name="review" action="/review/add/pid/<?=$this->productId;?>" method="post">
+                <div class="input">
+                    <label>Name *</label>
+                    <input class="validate[required]"  name="reviewer" id="name" type="text" value='<?=$review->reviewer?>'/>
+                </div>
+                
+                <div class="input">
+                    <label>Review *</label>
+                    <textarea id='body' name="body"  class="validate[required,minSize[20],maxSize[1000]]" rows='10' ><?=$review->body?></textarea>
+                    <span style='display:block; color:#666;margin-top: 5px;' id='charlimit'>Enter at least 20 characters</span>
+                </div>
+            
+                <div class="input">
+                    <label>Rate your experience with this app</label>
+                    <select name='rating'>
+                        <?php foreach (range(1, 5) as $rating) : ?>
+                            <option <?=($review->rating == $rating) ? 'selected = "selected"': ''?> value='<?=$rating?>'><?=$rating?> stars</option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                 <input type="hidden" value="<?=$this->productId;?> " name="pid" id="pid" />
+                <div class="input submit">
+                    <button id='submit' class='orangeButton' type='submit'>Submit Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+ 

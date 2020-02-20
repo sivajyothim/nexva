@@ -1,0 +1,127 @@
+<?= $this->render('parts/partner/header.phtml') ?>
+
+
+<div id="main_wrapper_inner_middle">
+
+    <div id="horizontal_dotted_line"></div>		 
+
+
+    <div class="client_main_pane">
+        <div id="cli_main_content_pane"> 
+
+            <div class="space_div"></div>
+
+            <!-- slider -->
+            <?= $this->layout()->content ?>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div id="main_wrapper_inner_bottom">
+    <div class="client_main_pane">
+
+        <div class="template_row" id="footer_area_wrapper"> 
+            <div class="space_div"></div>
+
+
+            <div id="footer_menu_div">
+
+                <div id="footer_quick_links">
+
+                    <?= $this->render('parts/partner/footer_nav.phtml') ?>
+                   
+
+                </div>
+                <div id="footer_vsep"></div>
+                <div id="footer_right_div">
+                    <?php if($this->chap_id !=935529){ ?>
+                        <div id="specteri_logo"> 
+                        </div>
+                    <?php }else{?>
+                        <div id="footer_logo"> 
+                        </div>
+                    <?php } ?>
+                    
+                    <?php if($this->mtnIran) { ?>
+                    <div id="footer_copy_left">
+                        <p><b><?php echo date('Y')?></b> <span class="mark_orange">&copy;</span> <?php echo $this->translate("MTN Iran App Store All Rights Reserved.");?></p>
+                    </div>
+                    <?php } ?>
+                    
+                    <?php
+                    if($this->mtnIran == FALSE) { ?>
+                    <div id="quick_links">
+                        <ul>
+                            <li> 
+                                <?php
+                                $auth = Zend_Auth::getInstance();
+                                if (isset($auth->getIdentity()->id) and isset($auth)):
+                                    ?>
+
+                                <?php echo $this->translate("Welcome");?><?php if($this->mtnIran == FALSE) { echo $auth->getIdentity()->email; } else { echo $auth->getIdentity()->username; } ?>
+                                <li>|</li>
+<? else: ?>
+                                <?php if(($this->showLoginLink == 'yes')&& ($this->chap_id !=935529)) { ?>
+                                    <li>
+                                    
+                                  <!-- <a href="<?= $this->baseUri; ?>/info/login" title="Login"><?php echo $this->translate("Sign In");?></a>  -->  
+                                    <a class="register_with_select" id="" title="Register" href="#register_with_select" >
+                                        <p style="display:inline;" onclick="loadPopupBoxFeature();"><?php echo $this->translate("Sign In");?></p><?php /*echo $this->translate("Register");*/?>
+                                    </a>
+                                    
+                                    
+                                    </li>
+                                <?php } ?>
+                                <?php if(($this->showRegisterLink == 'yes') && ($this->chap_id !=935529)){ ?>
+                                <li>|</li>
+                                <!--<li><a class="nexlink" rel="shadowbox;height=530;width=600" href="http://www.nexva.com/nexlinker/partner/id/13862"><?php /*echo $this->translate("Register");*/?></a></li>-->
+                                <li><a class="register_with_select" id="register_with_select" title="Register" href="#register_with_select" >
+                                        <p style="display:inline;" onclick="loadPopupBoxFeature();"><?php echo $this->translate("Register");?></p><?php /*echo $this->translate("Register");*/?>
+                                    </a></li>
+                                <?php } ?>
+                                    
+                                <?php if($this->qelasy) : ?>
+                                    <li>|</li>
+                                    <li><a href="/index/page/id/57">
+                                        <p><?php echo $this->translate("About");?></p>
+                                    </a></li>
+                                <?php endif; ?>
+
+<? endif; ?>
+                        </ul>
+                    </div>
+                    <?php } ?>
+                    
+                </div>
+
+            </div>
+
+            <div id="footer_copy">
+                <div id="copy_right_inner">
+                    <?php if($this->mtnIran || $this->ycoins) { ?>
+                    <p><?php echo $this->translate("COPYRIGHT_TXT");?></p>
+                    <?php } else { ?>
+                    <p><?php echo $this->translate($this->copyRightText);?></p>
+                    <!--<p><?php /*echo $this->copyRightText ;*/?></p>-->
+                    <!--<p><?php /*echo $this->translate('Products, Logos and Companies mentioned herein are trademarks or trade names of their respective owners and therefore copyrighted.');*/?></p>-->
+                    <?php } ?>
+                </div>
+                <?php if($this->mtnIran == FALSE) { ?>
+                <div id="footer_copy_left">
+                    <p><b><?php echo date('Y')?></b> <span class="mark_orange">&copy;</span> <?= ($this->qelasy) ? $this->translate("RIGHTS_TXT_QELASY") : $this->translate("Nexva All Rights Reserved.");?></p>
+                </div>
+                <?php } ?>
+            </div>
+        </div> 
+    </div>
+</div> 
+</div>
+</body>
+</html>
+<?php
+//End output buffering and send HTML to the browser as a whole
+ob_end_flush(); 
+?>

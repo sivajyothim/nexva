@@ -1,0 +1,1 @@
+Folder to be used for image uploads and the life from the admin panel through the content editor

@@ -1,0 +1,126 @@
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+
+<?php $this->headScript()->captureStart();?>
+    var __DATA_DATE         = eval(<?php echo $this->appViewDateJson?>); //app views by date
+    var __DATA_DOWNLOADS    = eval(<?php echo $this->appDownloadDateJson;?>); //downloads
+    var __DATA_APP          = eval(<?php echo $this->appViewJson;?>); //most often downloaded
+    var __DATA_CHAPS        = eval(<?php echo $this->appViewsByChapJson?>);//view breakdown by chap
+   
+    
+<?php $this->headScript()->captureEnd();?>
+<?php               
+                $chapId = Zend_Auth::getInstance()->getIdentity()->id;
+                if(!in_array($chapId, array('585474','585480'))){ ?>
+                        <?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/appview.js'); ?>
+            <?php }else{?>
+                        <?php $this->headScript()->appendFile('/cp/assets/js/analytics/appview_fr.js'); ?>
+            <?php } ?>
+
+
+
+<?php 
+    //lets do some calculations
+    $totalViews     = array_sum($this->appView);
+    $totalDownloads = array_sum($this->appDownloads);
+?>
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView'   => $this->endTimeView,
+        'product'       => $this->product,
+        'queryString'   => $this->queryString
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+
+<div id='visualizations'>
+    <?php 
+        $opts   = array(
+            'product'       => $this->product
+        );
+        echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+
+
+    <div id='stats_view_by_date_cont' class="title">
+        <h3><?php echo $this->translate("App Views / Downloads");?></h3>
+        <div class='filter'>
+            
+        </div>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='full_block' id='stats_view_by_date'></div>
+            <div id="overview_view_by_date" style=";margin-top:20px;width:100%;height:50px"></div>
+        </div>
+    </div>
+
+    <div class='chart_box_full'>
+    <div class="title">
+        <h3><?php echo $this->translate("App Views by CHAP");?></h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='full_block' id='stats_apps_by_chap'>
+                <?php echo $this->translate("We haven't collected enough data to display analytics for this app. Check back soon!");?>
+        </div>
+        </div>
+    </div>
+    </div> 
+    
+    <?php if (!$this->product) : ?>    
+        <div id='stats_downloads_by_app_cont' class='chart_box_full'>
+            <div class="title">
+                <h3><?php echo $this->translate("Most Viewed");?></h3>
+                <div class='filter'>
+                        <a href='<?php echo PROJECT_BASEPATH;?>product/view' class='button'><?php echo $this->translate("See all products")?></a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="txt">
+                    <div class='full_block' id='stats_view_by_app'>
+                <?php echo $this->translate("We haven't collected enough data to display analytics for this app. Check back soon!");?>
+                </div>
+                
+                </div>
+            </div>
+        </div> 
+            <div class="title">
+                <h3><?php echo $this->translate("All Views");?></h3>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <table cellspacing="0" cellpadding="0" class='sortTable'>
+                    <thead>
+                        <tr>
+                            <th width='60%'><?php echo $this->translate("App Name");?></th>
+                            <th width='10%'><?php echo $this->translate("Views");?></th>
+                            <th width='10%'><?php echo $this->translate("Downloads");?></th>
+                            <th width='10%'><?php echo $this->translate("Conversion Rate");?></th>
+                            <th width='10%'>% <?php echo $this->translate("of total (views)");?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $base   = $url = 'http://' . Zend_Registry::get('config')->nexva->application->base->url . "/";
+                            $sum    = array_sum($this->viewsByApp);
+                            $class  = ''; 
+                        ?>
+                        <?php foreach ($this->viewsByApp as $app ) : ?>
+                        <tr>
+                            <td><?php echo $app->name;?></td>
+                            <td><?php echo $app->views;?></td>
+                            <td><?php echo $app->downloads; ?></td>
+                            <td><?php echo ($app->views and $app->downloads) ? round(($app->downloads / $app->views) * 100, 2) : 0 ?>%</td>
+                            <td><?php echo ($app->views and $app->downloads) ? round(($app->views / $this->totalViews) * 100, 2) : 0; ?>%</td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>
+ 

@@ -1,0 +1,189 @@
+<?php $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+   
+
+    
+    	$("#from").datepicker({ dateFormat: 'yy-mm-dd'});
+    	$("#to").datepicker({ dateFormat: 'yy-mm-dd'});
+    	
+    
+        $( ".date" ).attr('readonly', 'readonly')
+    
+        $('#date-range').change(function(){
+            if ($(this).val() == '') {
+                return false;
+            }
+            var endTime     = new Date();
+            var startTime   = new Date(endTime.getTime() - (parseInt($(this).val(), 10) * 1000));
+            
+            $("[name='from']").val(getFormattedDate(startTime));
+            $("[name='to']").val(getFormattedDate(endTime));
+            
+            $(this).parent().submit();
+        });
+       
+       $('#csvDownload').click(function(){
+            alert("Coming soon! Probably");
+       });
+    });
+    
+    function getFormattedDate(dateObj) {
+        var year    = dateObj.getFullYear();
+        var month   = ((dateObj.getMonth() + 1) < 10) ?  '0' + (dateObj.getMonth() + 1) : dateObj.getMonth() + 1;
+        var date    = dateObj.getDate();
+        return year + '-' + month + '-' + date;
+    }
+<?php $this->headScript()->captureEnd();?>
+
+<div id="content_box">
+<div id="box">
+<div style='text-align:center; margin:15px '>
+    <form class='date_filter' action='/analytics/summary/'  method='post'>
+        <input type='text' id='from' size='12' class='date txt-input ' data-hint='from' name='from' value='<?=$this->from?>'> 
+        <input type='text' id='to' size='12' class='date txt-input ' data-hint='until' name='to' value='<?=$this->to?>'>
+        <select class='select-input' id='date-range'>
+            <option selected="selected" value=''>[SELECT RANGE]</option>
+            <option value='604800'>Last Week</option>
+            <option value='2678400'>Last Month</option>
+        </select>
+        <button class='button'>Filter</button>
+    </form>
+</div>
+
+
+<div class="title">
+    <h3>Snapshot</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <ul class="icon_list wide">
+            <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($this->totalDownloadsWidget)?></span>
+                    <a href="#stats_view_by_date_cont">widget downloads</a>
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($this->totalDownloads)?></span>
+                    <a href="#stats_view_by_date_cont">downloads</a>
+                </p>
+            </li>
+            
+             <li>
+                <p>
+                    <span class='large_text'><?php echo number_format($this->totalViews)?></span>
+                    <a href="#stats_view_by_date_cont">views</a>
+                </p>
+            </li>
+            
+            <li class='large_text'>
+                <p>
+                    <span class='large_text'><?php echo number_format($this->totalApps)?></span>
+                    <a href="#stats_view_by_date_cont">total apps</a>
+                </p>
+            </li>
+            
+            <li class='large_text'>
+                <p>
+                    <span class='large_text'><?php echo number_format($this->overallApps)?></span>
+                    <a href="#stats_view_by_date_cont"> Overall app count</a>
+                </p>
+            </li>
+            
+            <li class='large_text'>
+                <p>
+                    <span class='large_text'><?php echo number_format($this->totalUsers)?></span>
+                    <a href="#stats_view_by_date_cont">CP signups</a>
+                </p>
+            </li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="title">
+    <h3>Platforms</h3>
+</div>
+<div class="box">
+    <div class='txt'>
+    <table cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>App</th>
+                <th>Count</th>
+                <th>Overall Count</th>
+            </tr>
+        </thead>
+    <?php if (count($this->appsForPlatformDateRnage)): $class = '';?>
+        <tbody>
+    <?php foreach ($this->appsForPlatformDateRnage as $item): $class = ($class == 'alt') ? '' : 'alt' ;?>
+        <tr>
+            <td class='<?=$class?>'><?=$item->name?></td>
+            <td class='<?=$class?>'><?=$item->count?></td>
+            <td class='<?=$class?>'><?=$this->appsForPlatform[$item->name]; ?></td>
+        </tr>
+    <?php endforeach; ?>
+        </tbody>
+    <?php endif; ?>
+    </table>
+    </div>
+</div>
+
+<div style='float:left; width:48%;'>
+    <div class="title">
+        <h3>Most Viewed Apps</h3>
+    </div>
+    <div class="box">
+        <div class='txt'>
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>App</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+        <?php if (count($this->viewsByApp)): $class = '';?>
+            <tbody>
+        <?php foreach ($this->viewsByApp as $item => $value): $class = ($class == 'alt') ? '' : 'alt' ;?>
+            <tr>
+                <td class='<?=$class?>'><?=$value->name?> </td>
+                <td class='<?=$class?>'><?=$value->count?></td>
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+        </div>
+    </div>
+</div>
+
+<div style='float:right; width:48%;'>
+    <div class="title">
+        <h3>Most Downloaded Apps</h3>
+    </div>
+    <div class="box">
+        <div class='txt'>
+        <table cellpadding="0" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Apps</th>
+                    <th>Count</th>
+                </tr>
+            </thead>
+        <?php if (count($this->downloadsByApp)): $class = '';?>
+            <tbody>
+        <?php foreach ($this->downloadsByApp as $value): $class = ($class == 'alt') ? '' : 'alt' ;?>
+            <tr>
+                <td class='<?=$class?>'><?=$value->name?></td>
+                <td class='<?=$class?>'><?=$value->count?></td>
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+        </div>
+    </div>
+</div>

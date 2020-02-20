@@ -1,0 +1,14 @@
+Hi <?=$this->name; ?>,<br /><br />
+<?=!empty($this->body) ? $this->body : ''; ?>
+<br /><br />
+
+To edit your content, please click the link below (you may need to login first): <br/><br/>
+
+<a href="<?='http://'.Zend_Registry::get('config')->nexva->application->cpbo->url."/product/edit/id/" . $this->product['id'];?>">
+    <?='http://'.Zend_Registry::get('config')->nexva->application->cpbo->url."/product/edit/id/" . $this->product['id'];?>
+</a>
+
+<br/><br/>
+
+Thank you.<br />
+- Content Administrator.

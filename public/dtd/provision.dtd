@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT value (#PCDATA)>
+<!ELEMENT useragents ((useragent+))>
+<!ELEMENT useragent (#PCDATA)>
+<!ELEMENT uris ((uri+))>
+
+<!ELEMENT device (#PCDATA)>
+
+<!ELEMENT uri (#PCDATA)>
+<!ATTLIST uri
+	mimetype CDATA #IMPLIED
+>
+<!ELEMENT selection (#PCDATA)>
+<!ELEMENT registration ((model*))>
+<!ATTLIST registration
+	type (commercial | demo | freeware) #REQUIRED
+>
+<!ELEMENT property (#PCDATA)>
+<!ATTLIST property
+	name (version | price | notification_email | currency.name | category.sub | category.parent) #REQUIRED
+>
+<!ELEMENT properties ((property+))>
+<!ELEMENT model ((value))>
+<!ATTLIST model
+	method (static | pool |dynamic ) #IMPLIED
+>
+<!ELEMENT images ((image+))>
+<!ELEMENT image (#PCDATA)>
+<!ATTLIST image
+	height CDATA #IMPLIED
+	width CDATA  #IMPLIED
+	mimetype CDATA #IMPLIED
+	priority CDATA #IMPLIED
+	size CDATA #IMPLIED
+	type (thumbnail | screenshot) #REQUIRED
+>
+<!ELEMENT devices ( (useragents* | device* | attributes*  ))> 
+<!ATTLIST devices
+	selection (manual | attribute) #IMPLIED
+>
+<!ELEMENT descriptions ((description+))>
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST description
+	language CDATA #REQUIRED
+	type (title | long | keywords | brief) #REQUIRED
+>
+<!ELEMENT builds ((build+))>
+<!ELEMENT build ((uris, devices*))>
+<!ATTLIST build
+	language CDATA #REQUIRED
+	id CDATA #IMPLIED
+	name CDATA #REQUIRED
+	platform (java | ios | blackberry | android | symbian | independent) #REQUIRED
+	type (url | file) #REQUIRED
+>
+<!ELEMENT attributes ((attribute*))>
+<!ELEMENT attribute (#PCDATA)>
+<!ATTLIST attribute
+	better (1 | 0) #IMPLIED
+	name (supports.mp3_playback | supports.j2me_2.0 | supports.j2me_1.0 | os | navigation | minimum_version | min_resolution_width | min_resolution_height) #REQUIRED
+>
+<!ELEMENT archive ((descriptions, images, properties, registration, builds))>
+
+<!ATTLIST archive
+	version CDATA #REQUIRED
+	id CDATA #IMPLIED
+	simulate CDATA #IMPLIED
+>

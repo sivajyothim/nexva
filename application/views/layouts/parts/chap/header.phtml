@@ -1,0 +1,40 @@
+<?php
+$cpauth = Zend_Auth::getInstance();
+if ($cpauth->getIdentity()) {
+    $user  =  Zend_Auth::getInstance()->getIdentity() ;
+    $user = new Cpbo_Model_UserMeta();
+	$user->setEntityId(Zend_Auth::getInstance()->getIdentity()->id);
+	$updatedAt = $user->LAST_LOGIN;
+    
+    
+}
+?>
+<!-- Start Header -->
+
+<div id="header">
+
+    <!-- Start Logo -->
+    <div class="logo">
+        <a href="/">
+            <img src="<?php echo PROJECT_BASEPATH;?>chap/assets/img/global/logo.png" alt="logo"/>
+        </a>
+    </div>
+    <!-- End Logo -->
+
+    <!-- Start Info -->
+    <?php
+        $locale  =   Zend_Registry::get('Zend_Locale');
+        $date   =   new Zend_Date(Zend_Date::DATETIME_FULL,$locale);
+    ?>
+    <?php if ($user) :?>
+    <div class="info">
+        <div>
+            <h2>Welcome back <span><?php echo Zend_Auth::getInstance()->getIdentity()->email;?></span></h2>
+            <small>Last login : <?=$date;?> GMT+0</small>
+            <small><a href="http://www.nexva.com" target="_blank">View Website</a>  | <a href="<?php echo PROJECT_BASEPATH; ?>/user/logout">Log out</a></small>
+        </div>
+    </div>
+    <?php endif;?>
+    <!-- End Info -->
+</div>
+<!-- End Header -->

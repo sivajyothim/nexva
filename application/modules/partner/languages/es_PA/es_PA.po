@@ -1,0 +1,1642 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: nexva\n"
+"POT-Creation-Date: 2016-06-03 16:46+0530\n"
+"PO-Revision-Date: 2016-06-03 16:46+0530\n"
+"Last-Translator: nexva <nexva@gmail.com>\n"
+"Language-Team: nexva <nexva@gmail.com>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.11\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: D:\\nexva_v2\\application\\modules\\partnermobile"
+"\\languages\\es_PA\n"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:1
+msgid " APP"
+msgstr "MostApp"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:2
+msgid "App Store All Rights Reserved."
+msgstr "App Store Todos los Derechos Reservados"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:3
+msgid "Accounts/Tax"
+msgstr "Cuenta/Impuestos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:4
+msgid "Account"
+msgstr "Cuenta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:5
+msgid "Action/Strategy"
+msgstr "Accion/Estrategia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:6
+msgid "Add your own review"
+msgstr "Agrega tus comentarios"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:7
+msgid "Add a ticket"
+msgstr "Social NetworksCrear un Ticket"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:8
+msgid "Animation"
+msgstr "Animacion"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:9
+msgid "App"
+msgstr "App"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:10
+msgid "Apps"
+msgstr "Apps"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:11
+msgid "Arcade"
+msgstr "Juegos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:12
+msgid "Art,musique and cinema"
+msgstr "Arte, Musica y Cine"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:13
+msgid "Art/Fashion"
+msgstr "Arte/Moda"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:14
+msgid "Arts & Crafts"
+msgstr "Arte y Manualidades"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:15
+msgid "Arts history"
+msgstr "Arte e Historia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:16
+msgid "Astro"
+msgstr "Astrologia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:17
+msgid "Atlas and world map"
+msgstr "Atlas y Mapa Mundial"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:18
+msgid "Audio books"
+msgstr ""
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:19
+msgid "Blogs/Images"
+msgstr "Blogs/imagenes"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:20
+msgid "BOOKS & REFERENCE"
+msgstr "LIBROS Y REFERENCIA"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:21
+msgid "Building and Public works"
+msgstr "Construcción y obras publicas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:22
+msgid "BUSINESS & FINANCE"
+msgstr "NEGOCIOS Y FINANZAS"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:23
+msgid "Business and management"
+msgstr "Negocios y Gerencia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:24
+msgid "Buy"
+msgstr "Compra"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:25
+msgid "Calculator"
+msgstr "Calculadora"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:26
+msgid "Calm"
+msgstr "Tranquilidad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:27
+msgid "Cards"
+msgstr "Cartas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:28
+msgid "Casino/Cards/Betting"
+msgstr "Casino/Cartas/Apuesta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:29
+msgid "Categories"
+msgstr "Categorias"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:30
+msgid "Category"
+msgstr "Categoria"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:31
+msgid "Change Mobile"
+msgstr "Cambio de movil"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:32
+msgid "Civic education"
+msgstr "Educacion Civica"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:33
+msgid "Click Here"
+msgstr "Haga Click Aqui"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:34
+msgid "Click on thumbnail to zoom"
+msgstr "Haga Click en Imagen para hacer agrandar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:35
+msgid "Click To Select A Mobile Device"
+msgstr "Haga Click en Imagen para selecionar equipo movil"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:36
+msgid "collection"
+msgstr "coleccion"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:37
+msgid "Comics/Manga"
+msgstr "Comics/Manga"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:38
+msgid "Contact Us"
+msgstr "Contactenos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:39
+msgid "Currency/Convertors"
+msgstr "Moneda/Conversor"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:40
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:41
+msgid "Dating"
+msgstr "Citas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:42
+msgid "Description"
+msgstr "Descripcion"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:43
+msgid "Developers/DB"
+msgstr "Desarrolladores/BD"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:44
+msgid "Do not have a QR code reader?"
+msgstr "No tiene un lector de barras QR?"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:45
+msgid "Do not have a QR code reader? Get one free"
+msgstr "No tiene un lector de barras QR? Consiga uno gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:46
+msgid "Download"
+msgstr "descargue"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:47
+msgid "Download Started"
+msgstr "descarga comenzando"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:48
+msgid "Downloaded Apps"
+msgstr "Apps Descargados"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:49
+msgid "Downloading"
+msgstr "descargando"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:50
+msgid "eBooks"
+msgstr "eBooks/Libros Electronicos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:51
+msgid "Economy and Finance"
+msgstr "Economia y Finanzas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:52
+msgid "EDUCATION & ELEARNING"
+msgstr "EDUCACION Y EDUCACION ELECTRONICA"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:53
+msgid "Email"
+msgstr "Correo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:54
+msgid "Exams and Test"
+msgstr "Examenes y pruebas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:55
+msgid "Feature"
+msgstr "Características"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:56
+msgid "Featured"
+msgstr "Destacado"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:57
+#, fuzzy
+msgid "Featured Apps"
+msgstr "Apps Destacadas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:58
+msgid "Feedback"
+msgstr "FEEDBACK"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:59
+msgid "FEEDBACK"
+msgstr "Commentaire"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:60
+msgid "Food/Recipes"
+msgstr "Comida/Recetas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:61
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please add a ticket. We will get "
+"back to you within 48 hours."
+msgstr ""
+"Para servicio al cliente, problemas o compras por error, por favor agrega un "
+"ticket. Le responderemos en un periodo de 48 horas."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:62
+msgid ""
+"For any customer service issues, bugs in the app downloaded, difficulty "
+"downloading or purchases made by mistake please contact us at this email :"
+msgstr ""
+"Para servicio al cliente, problemas o compras por error, por favor agrega un "
+"ticket. Le responderemos en un periodo de 48 horas."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:63
+msgid "Free"
+msgstr "Gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:64
+msgid "Free Apps"
+msgstr "Apps Gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:65
+msgid "Free Collection"
+msgstr "Coleccion Gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:66
+msgid "Free Download"
+msgstr "Descargas Gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:67
+msgid "Free Stuff"
+msgstr "Cosas Gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:68
+msgid "French"
+msgstr "Frances"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:69
+msgid "GAMES"
+msgstr "GAMES"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:70
+msgid "Games, Art and Creation"
+msgstr "Juegos, Arte y creatividad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:71
+msgid "Get one free"
+msgstr "Reciba una Gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:72
+msgid "GOODIES & ENTERTAINMENT"
+msgstr "ENTERTENIMIENTO"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:73
+msgid "GPS/Maps"
+msgstr "GPS/Mapas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:74
+msgid "Have an Issue?"
+msgstr "Tiene un Problema?"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:75
+msgid "Health/Diet/Fitness"
+msgstr "Salud/Dieta/Ejercicios"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:76
+msgid "Health/Fitness"
+msgstr "Salud/Ejercicios"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:77
+msgid "Help"
+msgstr "Ayuda"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:78
+msgid "High"
+msgstr "Alto"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:79
+msgid "History"
+msgstr "Historia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:80
+msgid "History and Geography"
+msgstr "Historia y Geografia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:81
+msgid "Hobbies/Pets"
+msgstr "Pasatiempos/Mascotas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:82
+msgid "Home"
+msgstr "Casa"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:83
+msgid "Human sciences"
+msgstr "Humanidades"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:84
+msgid "Humor/Jokes"
+msgstr "Humor/Chistes"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:85
+msgid "If you don't have"
+msgstr "si no tiene"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:86
+msgid "If you want to install"
+msgstr "Si quiere instalar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:87
+msgid "Incident"
+msgstr "incidente"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:88
+msgid "Info"
+msgstr "Informacion"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:89
+msgid "Informatic and Internet"
+msgstr "Informacion e Internet"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:90
+msgid "installed on your phone first."
+msgstr "instalado en tu telefono de primero"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:91
+msgid "installed on your phone here is how to get it"
+msgstr "Instalado en tu telefono, asi es como lo accesas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:92
+msgid "Internet/WAP"
+msgstr "Internet/WAP"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:93
+msgid "Inventory/Sales"
+msgstr "Inventario/Ventas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:94
+msgid "Kids"
+msgstr "Niños"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:95
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:296
+msgid "Kids/Early learning"
+msgstr "Niños/aprendizaje precoz"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:96
+msgid "Language"
+msgstr "Idioma"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:97
+msgid "Languages and antiquity"
+msgstr "idiomas y antiguedades"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:98
+msgid "Later"
+msgstr "mas tarde"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:99
+msgid "Latest Reviews"
+msgstr "Opiniones recientes"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:100
+msgid "Law"
+msgstr "Leyes"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:101
+msgid "Life and Earth Sciences"
+msgstr "vida y ciencias de la tierra"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:102
+msgid "LIFESTYLE & WELLNESS"
+msgstr "ESTILOS DE VIDA Y BIENESTAR"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:103
+msgid "Litterature"
+msgstr "Literatura"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:104
+msgid "Living languages"
+msgstr "Idiomas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:105
+msgid "Logic/Puzzle/Trivia"
+msgstr "Logica/Rompecabezas/Trivia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:106
+msgid "Login"
+msgstr "Registro"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:107
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:299
+msgid "LOGIN HERE"
+msgstr "INICIO DE SESIÓN AQUÍ"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:108
+msgid "Login to add a ticket"
+msgstr "Registrese para agregar un ticket"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:109
+msgid "Logout"
+msgstr "Salir"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:110
+msgid "Low"
+msgstr "Bajo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:111
+msgid "Lyrics/Bands"
+msgstr "Letras de canciones/Bandas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:112
+msgid "Marketing and Trade"
+msgstr "Mercadeo y Negocios"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:113
+msgid "Mathematics"
+msgstr "Matematicas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:114
+msgid "Medecine"
+msgstr "Medicina"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:115
+msgid "Medical"
+msgstr "Medico"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:116
+msgid "Medium"
+msgstr "Mediano"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:117
+msgid "Message"
+msgstr "Mensaje"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:118
+msgid "More Details"
+msgstr "Mas detalles"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:119
+msgid "Most"
+msgstr "Mas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:120
+msgid "Most Viewed"
+msgstr "Mas vistos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:121
+msgid "Most Viewed Apps"
+msgstr "Apps mas vistas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:122
+msgid "Most viewed collection"
+msgstr "Colección vista"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:123
+msgid "MP3/Music"
+msgstr "Mp3/Musica"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:124
+msgid "MUSIC & AUDIO"
+msgstr "Musica / Audio"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:125
+msgid "Music and painting Learning"
+msgstr "Aprendizaje de Musica y pintura"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:126
+#, fuzzy
+msgid "Name"
+msgstr "Name"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:127
+msgid "Nature and animals"
+msgstr "Nature and animals"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:128
+msgid "Need Help?"
+msgstr "Ayuda?"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:129
+msgid "Newest"
+msgstr "Mas nuevos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:130
+msgid "Newest Apps"
+msgstr "Apps mas nuevas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:131
+msgid "News"
+msgstr "Noticias"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:132
+msgid "NEWS & SPORTS"
+msgstr "NOTICIAS Y DEPORTES"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:133
+msgid "Next"
+msgstr "Próximo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:134
+msgid "Nexva All Rights Reserved."
+msgstr "Todos los derechos reservados."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:135
+msgid "No apps found under this category"
+msgstr "No hay apps bajo esta categoría."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:136
+msgid "No Data Found"
+msgstr "No hay información disponible"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:137
+msgid "No Device Selected"
+msgstr "No hay equipo seleccionado"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:138
+msgid "No Match Found"
+msgstr "Sin coincidencias"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:139
+msgid "No Response found"
+msgstr "Sin respuesta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:140
+msgid "No results found"
+msgstr "Sin resultados"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:141
+msgid "No user reviews yet.."
+msgstr "Sin comentarios aun…"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:142
+msgid "Office Productivity"
+msgstr "Productividad de oficina"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:143
+msgid "Ok"
+msgstr "Ok"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:144
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:333
+msgid "on your Android device and sign in."
+msgstr "en el dispositivo Android y abrir una sesión."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:145
+msgid "on your Android device. Registration happens on your device."
+msgstr "en su dispositivo Android. Registrese desde su su dispositivo ."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:146
+msgid "on your phone use following methods."
+msgstr "en su teléfono utilice los métodos siguientes"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:147
+msgid "open"
+msgstr "abierto"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:148
+msgid "Organizers/Clocks/Desktop"
+msgstr "Organizadores / Relojes / Escritorio"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:149
+msgid "Page not found. (404 - Not Found)"
+msgstr "Página no encontrada. ( 404 No encontrado)"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:150
+msgid "Paid"
+msgstr "Pagado"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:151
+msgid "Password"
+msgstr "Contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:152
+msgid "Payment was unsuceessful"
+msgstr "El pago no tuvo éxito"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:153
+msgid "Personlization/Skins"
+msgstr "Personalización / Pieles"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:154
+msgid "Physics and Chemistry"
+msgstr "Física y Química"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:155
+msgid "Platforms"
+msgstr "plataformas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:156
+msgid "Please add a subject"
+msgstr "Por favor, añade un asunto"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:157
+msgid "Please add your Commenst with more than 10 letters"
+msgstr "Por favor, añada su comentario con más de 10 letras"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:158
+msgid "Please enter a valid username"
+msgstr "Por favor, introduzca un nombre de usuario válido"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:159
+msgid "Please enter your password"
+msgstr "Por favor, introduzca su contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:160
+msgid "Please enter your username"
+msgstr "Por favor, ingrese su nombre de usuario"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:161
+msgid "Please enter your username and password"
+msgstr "por favor introduzca su nombre de usuario y contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:162
+msgid "Please fill the Name"
+msgstr "Por favor, complete su Nombre"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:163
+msgid "Please login to post a review."
+msgstr "Inicia sesión para escribir un comentario."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:164
+msgid "Please select a priority"
+msgstr "Por favor, seleccione una prioridad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:165
+msgid "Please select a type"
+msgstr "Por favor seleccione un tipo de"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:166
+msgid "Please try again"
+msgstr "Por favor, inténtelo de nuevo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:167
+msgid "podcasts"
+msgstr "podcasts"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:168
+msgid "POI/Guides"
+msgstr "POI /Guías"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:169
+msgid "Point your mobile browser to the following link:"
+msgstr "Dirija su navegador móvil al siguiente enlace :"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:170
+msgid "Powered by"
+msgstr "Con el esfuerzo de /preparado por"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:171
+msgid "Premium"
+msgstr "Premium"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:172
+msgid "Premium Apps"
+msgstr "Aplicaciones premium"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:173
+msgid "Premium Collection"
+msgstr "Colección premium"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:174
+msgid "Previous"
+msgstr "Anterior"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:175
+msgid "Price"
+msgstr "Precio"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:176
+msgid "Priority"
+msgstr "Prioridad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:177
+msgid "Problem"
+msgstr "problema"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:178
+msgid ""
+"Products, Logos and Companies mentioned herein are trademarks or trade names "
+"of their respective owners and therefore copyrighted"
+msgstr ""
+"Productos , logotipos y empresas mencionados son marcas comerciales o "
+"nombres  comerciales de sus respectivos propietarios y por lo tanto con "
+"derechos de autor"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:179
+msgid "Question"
+msgstr "Pregunta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:180
+msgid "Rate"
+msgstr "tarifa"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:181
+msgid "Rating"
+msgstr "Clasificación"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:182
+msgid "Reading"
+msgstr "Leyendo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:183
+msgid "Reference/Dictionaries"
+msgstr "Referencia / Diccionarios"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:184
+msgid "Religion"
+msgstr "Religión"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:185
+msgid "Religion and spirituality"
+msgstr "Religión y Espiritualidad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:186
+msgid "Reply"
+msgstr "Respuesta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:187
+msgid "Required infromation"
+msgstr "Información requerida"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:188
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:189
+msgid "Responces"
+msgstr "Respuestas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:190
+msgid "Review"
+msgstr "Opinión"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:191
+msgid "Ringtones"
+msgstr "Tonos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:192
+msgid "Rock"
+msgstr "Rock"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:193
+msgid "Role Playing/Multiplayer"
+msgstr "Juego de roles / Multijugador"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:194
+msgid "RSS"
+msgstr "RSS"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:195
+msgid "Scan the QR code using your phone to be directly taken to the app page"
+msgstr ""
+"Escanear el código QR utilizando su teléfono para ser redireccionado a la "
+"página de la aplicación"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:196
+msgid "Screenshots"
+msgstr "Imágenes de pantalla"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:197
+msgid "Search"
+msgstr "Buscar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:198
+msgid "Search Results for"
+msgstr "Buscar resultados para"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:199
+msgid "Security/Backup"
+msgstr "Seguridad / Copia de seguridad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:200
+msgid "See all results for"
+msgstr "Ver todos los resultados para"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:201
+msgid "Select Priority"
+msgstr "Seleccione prioridad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:202
+#, fuzzy
+msgid "Select Type"
+msgstr "Seleccionar el tipo de"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:203
+msgid "Select Your Device"
+msgstr "Seleccione su dispositivo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:204
+msgid ""
+"Selecting a device helps us filter apps that are compatible with your "
+"handset."
+msgstr ""
+"Seleccionar un dispositivo nos ayuda a filtrar las aplicaciones que son "
+"compatibles con su teléfono."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:205
+msgid "SEND"
+msgstr "ENVIAR"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:206
+msgid "send email"
+msgstr "enviar correo electrónico"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:207
+msgid "Shopping/Brands"
+msgstr "Compras /Marcas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:208
+msgid "Sign In"
+msgstr "Registrarse"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:209
+msgid "Social Networks"
+msgstr "Redes sociales"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:210
+msgid "SOCIAL NETWORKS & MESSAGING"
+msgstr "REDES SOCIALES Y MENSAJERIA"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:211
+msgid "Social Sciences"
+msgstr "Ciencias Sociales"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:212
+msgid "Sorry! Couldn't find Apps matching your search criteria"
+msgstr ""
+"Lo siento! No se encontraron aplicaciones que coincidan con sus criterios de "
+"búsqueda"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:213
+msgid "Sport and Physical education"
+msgstr "El deporte y la educación física"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:214
+msgid "Sports"
+msgstr "Deportes"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:215
+msgid "Staff Picks"
+msgstr "Seleccion del personal / Selección del Staff"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:216
+msgid "Start typing the name of your device"
+msgstr "Escriba el nombre de su dispositivo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:217
+msgid "Stocks/Finance"
+msgstr "Bolsa de Valores / Finanzas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:218
+msgid "Subject"
+msgstr "Tema"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:219
+msgid "Submit"
+msgstr "Enviar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:220
+msgid "Supported Formats"
+msgstr "formatos compatibles"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:221
+msgid "Techno"
+msgstr "Tecnologia"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:222
+msgid "technologies"
+msgstr "tecnologías"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:223
+msgid "Technology"
+msgstr "Tecnología"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:224
+msgid "Terms & Conditions"
+msgstr "Términos y condiciones"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:225
+#, fuzzy
+msgid ""
+"The app you have selected has been pushed directly to your device. Be sure "
+"to have the"
+msgstr ""
+"La aplicación que ha seleccionado lo lleva directamente a su dispositivo. "
+"Asegúrese de tener la"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:226
+msgid "The security key wasn't entered correctly"
+msgstr "La clave de seguridad no se ha introducido correctamente"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:227
+msgid "The username or password you entered is incorrect"
+msgstr "El nombre de usuario o la contraseña son incorrectos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:228
+msgid "THEMES"
+msgstr "TEMAS"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:229
+msgid "This app is only available in the following languages"
+msgstr "Esta aplicación sólo está disponible en los siguientes idiomas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:230
+msgid "This app-store will be supported for subscribers only"
+msgstr "Esta app-store es válida solo para suscriptores"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:231
+msgid "ticket"
+msgstr "boleto"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:232
+msgid "Title"
+msgstr "Título"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:233
+msgid "To download this app you need to install"
+msgstr "Para descargar esta aplicación es necesario instalar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:234
+msgid "To download this app you need to visit the following URL"
+msgstr "Para descargar esta aplicación es necesario visitar la siguiente URL"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:235
+msgid "To register you need to install"
+msgstr "Para inscribirse es necesario instalar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:236
+msgid "TOOLS & PRODUCTIVITY"
+msgstr "HERRAMIENTAS UTILIDADES"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:237
+msgid "Top"
+msgstr "Top"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:238
+msgid "Top Collection"
+msgstr "Top Collection"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:239
+msgid "Top Downloaded Apps"
+msgstr "Apps mas descargadas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:240
+msgid "Top Downloads"
+msgstr "Los más descargados"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:241
+msgid "Top Free"
+msgstr "Principales gratis"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:242
+msgid "Top Paid"
+msgstr "Mejor pagados"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:243
+msgid "Top Premium"
+msgstr "Top premium"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:244
+msgid "Translation/Language"
+msgstr "Traductores / Idioma"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:245
+msgid "Travel"
+msgstr "Viajar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:246
+msgid "TRAVEL & GPS"
+msgstr "VIAJES y GPS"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:247
+msgid "Type"
+msgstr "Tipo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:248
+msgid "Type in your email address and we will email it to you"
+msgstr "Escriba su dirección y le enviaremos por correo electrónico"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:249
+msgid "University"
+msgstr "Universidad"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:250
+msgid "Updates"
+msgstr "actualizaciones"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:251
+#, fuzzy
+msgid ""
+"Updates are apps that have a newer version. This is either added "
+"functionalities, bug fixes or improvementsSSS"
+msgstr ""
+"Las actualizaciones son aplicaciones  con versiones mas recientes. Esto "
+"agrega funcionalidades, mejoras y correcciones de errores."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:252
+msgid "Urgent"
+msgstr "Urgente"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:253
+msgid "Vendor"
+msgstr "Vendedor"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:254
+msgid "View my ticket"
+msgstr "Ver mi boleto"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:255
+#, fuzzy
+msgid "viewed collection"
+msgstr "Colección de mas vistas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:256
+msgid "Wallpaper/Screensavers"
+msgstr "Fondos / Salvapantallas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:257
+msgid "We will get back to you within 48 hours."
+msgstr "Nos pondremos en contacto con usted dentro de 48 horas."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:258
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:259
+msgid "We're sorry, the keyword/s you searched for did not return any results"
+msgstr "Lo sentimos, la palabra clave buscada no arroja resultados"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:260
+msgid "Whats new"
+msgstr "Qué hay de nuevo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:261
+msgid "World discovring"
+msgstr "Descubrimiento mundial"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:262
+msgid "Writing"
+msgstr "Escritura"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:263
+msgid "You are here"
+msgstr "Estás aquí"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:264
+msgid "You are not signed in yet"
+msgstr "Usted no se ha inscrito todavía"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:265
+msgid "You haven't log in yet ? Please log in."
+msgstr "No esta conectado? Por favor Iniciar sesión."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:266
+msgid "Your Device"
+msgstr "Tu dispositivo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:267
+msgid "your email"
+msgstr "Tu correo electrónico"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:268
+msgid "Your response submitted successfully"
+msgstr "Su respuesta ha enviado correctamente"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:269
+msgid "Your ticket submitted successfully"
+msgstr "Su ticket se ha enviado correctamente"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:270
+msgid "404 - Not Found"
+msgstr "404 No encontrado"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:271
+msgid ""
+"A verification SMS has been sent to your mobile. Please use the given "
+"verification code to complete your registration"
+msgstr ""
+"un mensaje de verificacion a sido enviado a su mobil. Favor usar el codigo "
+"enviado para completarsu registro"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:272
+msgid "About Us"
+msgstr "Acerca de nosotros"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:273
+msgid "Already Verified User"
+msgstr "Usuario Verificado"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:274
+msgid "An error occurred unexpectedly, Please try again later."
+msgstr "Un error inesperado a ocurrido, trate de nuevo mas tarde"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:275
+msgid "Android App"
+msgstr "App Android"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:276
+msgid "App Updates"
+msgstr "Actualizaciones de App"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:277
+msgid "as you requested."
+msgstr "como usted pidió"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:278
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:279
+msgid "Change Mobile Number"
+msgstr "Cambie numero de telefono"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:280
+msgid "Click here to reset it"
+msgstr "Haga Click aqui para resetar"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:281
+msgid "Confirm Mobile Number"
+msgstr "Confirmar numero de telefono"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:282
+#, fuzzy
+msgid "Confirm Password"
+msgstr "Confirmar Contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:283
+msgid "Device Tools"
+msgstr "Herramientas de dispositivos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:284
+msgid "Download starting..."
+msgstr "Descargando …"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:285
+msgid "Email not found for this user"
+msgstr "Correo electrónico no encontrado para este usuario"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:286
+msgid "Enter Captcha"
+msgstr "Introducir Captcha"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:287
+msgid ""
+"Enter the email address you signed up with and we'll email you a link to "
+"reset your password"
+msgstr ""
+"Introduzca la dirección de correo electrónico que y te enviaremos por email "
+"un link para restablecer tu contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:288
+msgid "First Name"
+msgstr "Nombre"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:289
+msgid "Forgot Password"
+msgstr "Olvidó su contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:290
+#, fuzzy
+msgid "Forgot your password"
+msgstr "Olvidó su contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:291
+msgid "Graphic Tools"
+msgstr "Inicializando el pago…"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:292
+msgid "IM/SMS/Email/VOIP"
+msgstr "IM/SMS/Email/VOIP"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:293
+msgid "In Progress.. Please wait..."
+msgstr "En progreso... Espera..."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:294
+msgid "Initializing Payment..."
+msgstr ""
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:295
+msgid ""
+"Inovex CaboApps presents a content store that has the best selection of "
+"local and international apps. Each app is tested for quality, malware and "
+"scams. Paid or in app purchased can be made using your airtime. If you have "
+"any suggestions or a problem downloading an app or an app that is not "
+"functioning please contact us with the following ticketing system : http://"
+"caboapps.nexva.com/ticket/add-ticket"
+msgstr ""
+"Novex CaboApps presenta una tienda de contenidos que tiene la mejor "
+"selección de aplicaciones locales e internacionales. Cada aplicación se "
+"prueba para calidad, malware y fraudes. Pagado o en aplicación comprada se "
+"puede hacer utilizando su tiempo de uso. Si tienes alguna sugerencia o un "
+"problema al descargar una aplicación o una aplicación que no funciona por "
+"favor contáctenos con el siguiente sistema de venta de entradas: http://"
+"caboapps.nexva.com/ticket/add-ticket"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:297
+msgid "Last Name"
+msgstr "Apellido"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:298
+msgid "Loading . . ."
+msgstr "Cargando…"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:300
+msgid "Mobile"
+msgstr "Movil"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:301
+msgid "Mobile Number"
+msgstr "Numero de movil"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:302
+msgid "Mobile Number cannot be less than 10 digits"
+msgstr "Numero de movil no puede ser menor a 10 digitos"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:303
+msgid "Mobile number changed successfully"
+msgstr "Número de teléfono móvil modificado con éxito"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:304
+msgid "Mobile Number not found for this user"
+msgstr "Número de móvil no encontrado para este usuario"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:305
+msgid "Mobile Number not Matching"
+msgstr "Número de móvil no corresponde"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:306
+msgid "Mobile number not registered"
+msgstr "Número de teléfono móvil no está registrado"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:307
+msgid "Mobile Number or password is incorrect"
+msgstr "Número de móvil o la contraseña es incorrecta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:308
+msgid "Mobile Web"
+msgstr "Web móvil"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:309
+msgid "Movies/Trailers"
+msgstr "Películas/Trailers"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:310
+msgid "Telemetro  App Store All Rights Reserved."
+msgstr "Zimbra App Store todos los derechos reservados."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:311
+msgid "My Account"
+msgstr "Mi cuenta"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:312
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:313
+msgid "New version available"
+msgstr "Nueva versión disponible"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:314
+msgid "News/Magazines"
+msgstr "Noticias y revistas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:315
+msgid "No any Updates found"
+msgstr "No todas las actualizaciones encontradas"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:316
+msgid "No Apps already downloaded."
+msgstr "No hay aplicaciones ya descargadas."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:317
+msgid "No Apps found for selected word."
+msgstr "No hay aplicaciones para la palabra seleccionada."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:318
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:319
+msgid "Password not Matching"
+msgstr "Contraseña no corresponde"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:320
+msgid "Password reset successfully"
+msgstr "Contraseña restablecida exitosamente"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:321
+msgid "Payment was unsuccessful"
+msgstr "Pago no tuvo éxito"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:322
+msgid "Phone Number"
+msgstr "Numero de Telefono"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:323
+msgid "players/Converters"
+msgstr "reproductores y convertidores."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:324
+msgid "Please add a valid email"
+msgstr "favor agregue un correo electrónico válido"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:325
+msgid "Please add a valid password"
+msgstr "favor, añadir una contraseña válida"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:326
+msgid "Please add your Comments with more than 10 letters"
+msgstr "Por favor agregar sus comentarios con más de 10 letras"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:327
+msgid "Please check your internet connection or try again later."
+msgstr "Por favor compruebe su conexión de internet o intente más tarde."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:328
+msgid "Please confirm your Mobile Number"
+msgstr "Por favor confirme su número de móvil"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:329
+msgid "Please confirm your Password"
+msgstr "Por favor, confirmar su contraseña"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:330
+msgid "Please download new improved version"
+msgstr "Por favor descargar nueva versión mejorada"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:331
+#, fuzzy
+msgid "Please download the App store app using the following methods."
+msgstr "Descargue la aplicación app store utilizando los siguientes métodos."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:332
+msgid "Please enter a valid Email address for your Email"
+msgstr "Escriba una dirección válida de correo electrónico para correo"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:334
+msgid "Please download the"
+msgstr "Por favor, descargue el"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:335
+msgid "App store app using the following methods."
+msgstr "aplicación tienda de aplicaciones utilizando los métodos siguientes."
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:336
+#, fuzzy
+msgid "App Store has a rich selection of the best"
+msgstr "App Store tiene una amplia selección de los mejores"
+
+#: D:\nexva_v2\application\modules\partnermobile\languages\es_PA/index.phtml:337
+msgid ""
+"and global apps just for you. Each app is tested for quality, malware and "
+"scams. For convenience, Paid apps can be purchased using your phone credit."
+msgstr ""
+"y apps para usted. Cada app ha sido probada por calidad, virus y fraudes. "
+"Para su conveniencia las apps de pago pueden ser compradas usando el credito "
+"que tenga en la tienda."
+
+#~ msgid "Please enter First Name"
+#~ msgstr "Veuillez inscrire votre prénom"
+
+#~ msgid "Please enter Last Name"
+#~ msgstr "Veuillez inscrire votre nom"
+
+#~ msgid "Please enter your Email address"
+#~ msgstr "Veuillez inscrire votre adresse email"
+
+#~ msgid "Please enter your Phone Number"
+#~ msgstr "Veuillez inscrire votre numéro de téléphone"
+
+#~ msgid "Please enter your Password"
+#~ msgstr "Veuillez entrer votre mot de passe"
+
+#~ msgid "This Email already exists"
+#~ msgstr "Cet Email existe déjà"
+
+#~ msgid "You have completed your registration successfully"
+#~ msgstr "Vous avez terminé votre inscription"
+
+#~ msgid "This Phone Number already exists"
+#~ msgstr "Ce numéro de téléphone existe déjà"
+
+#~ msgid "Verification failed. verification code is incorrect"
+#~ msgstr "Echec vérification. Le code de vérification est incorrect"
+
+#~ msgid "You successfully completed the registration process"
+#~ msgstr "Le processus d'enregistrement a été effectué avec succès"
+
+#~ msgid ""
+#~ "You have not verified your account. A verification SMS has been sent to "
+#~ "your mobile . Please use the given verification code or get it resent by "
+#~ "clicking below \"Resend verification code\" to verify your account"
+#~ msgstr ""
+#~ "Vous n'avez pas vérifié votre compte. Un message de verification a été "
+#~ "envoyé sur votre portable. Veuillez utiliser le code de vérification ou "
+#~ "demander son renvoi en cliquant ci-dessous  \"Renvoyer le code de "
+#~ "vérification  \"pour vérifier votre compte"
+
+#~ msgid "Please enter your Mobile Number"
+#~ msgstr "Veuillez inscrire votre numéro de mobile"
+
+#~ msgid "This number has already been used. Please try another"
+#~ msgstr "Ce numéro a déjà été utilisé. Veuillez en essayer un autre"
+
+#~ msgid "Please enter your Email"
+#~ msgstr "Veuillez inscrire votre email"
+
+#~ msgid "User not found registered with this email"
+#~ msgstr "Aucun utilisateur avec cette adresse email n'a été trouvé"
+
+#~ msgid ""
+#~ "You have requested to change password. A verification SMS has been sent "
+#~ "to your mobile. Please use the given verification code to verify"
+#~ msgstr ""
+#~ "Vous avez demandé le changement de mot de passe. Un message de "
+#~ "vérification a été envoyé sur votre portable. Veuillez utiliser ce code."
+
+#~ msgid "Please enter your Verification Code"
+#~ msgstr "Veuillez inscrire votre code de vérification"
+
+#~ msgid "Verification code is incorrect"
+#~ msgstr "Le code de vérification est incorrect"
+
+#~ msgid "Verification code is incorrect."
+#~ msgstr "Code de vérification incorrect"
+
+#~ msgid ""
+#~ "You have requested to resend verification code. A verification SMS has "
+#~ "been sent to your mobile. Please use the given verification code to "
+#~ "verify your account"
+#~ msgstr ""
+#~ "Vous avez demandé le renvoi de votre code de vérification. Un messagea "
+#~ "été envoyé sur votre portable. Veuillez utiliser ce code pour vérifier "
+#~ "votre compte."
+
+#~ msgid "Sign Up"
+#~ msgstr "S'inscrire"
+
+#~ msgid "Forgot Password?"
+#~ msgstr "Mot de passe oublié?"
+
+#~ msgid "Reset Password"
+#~ msgstr "Reinitialiser le mot de passe"
+
+#~ msgid ""
+#~ "Please use this verification code 888555 to complete your registration. "
+#~ "\"MTN CONGO APP STORE\""
+#~ msgstr ""
+#~ "Utilisez le code de vérification 888555 pour terminer votre "
+#~ "enregistrement. \"MTN CONGO APP STORE\""
+
+#~ msgid ""
+#~ "Please use this verification code 888666 to verify your mobile number. "
+#~ "\"MTN CONGO APP STORE\""
+#~ msgstr ""
+#~ "Veuillez utiliser le code de vérification 888555 pour vérifier votre "
+#~ "numéro de téléphone. \"MTN CONGO APP STORE\""
+
+#~ msgid ""
+#~ "Please use this verification code 8886656 to complete the password "
+#~ "resetting process. \"MTN CONGO APP STORE\""
+#~ msgstr ""
+#~ "Svp utilisez le code de vérification 888555 pour terminer la "
+#~ "réinitialisation de votre mot de passe. \"MTN CONGO APP STORE\""
+
+#~ msgid ""
+#~ "Please use this verification code 7878778 as you requested. \"MTN CONGO "
+#~ "APP STORE\""
+#~ msgstr ""
+#~ "Svp, utilisez le code de vérification 7878778 comme vous avez demandé ."
+#~ "\"MTN CONGO APP STORE\""
+
+#~ msgid "Verify"
+#~ msgstr "Vérifier"
+
+#~ msgid "Resend Verification Code"
+#~ msgstr "Renvoyer code de vérification"
+
+#~ msgid "Register"
+#~ msgstr "S'inscrire"
+
+#~ msgid "Verification Code"
+#~ msgstr "Code de vérification"
+
+#~ msgid "Request"
+#~ msgstr "demander"
+
+#~ msgid "Please use this verification code"
+#~ msgstr "Veuillez utiliser votre code de vérification"
+
+#~ msgid "to complete your registration."
+#~ msgstr "Terminer votre inscription"
+
+#~ msgid "to verify your mobile number."
+#~ msgstr "Pour vérifier votre numéro de téléphone"
+
+#~ msgid "to complete the password resetting process."
+#~ msgstr "Compléter le processus de réinitialisation de mot de passe."
+
+#~ msgid "Login here"
+#~ msgstr "Se connecter ici"
+
+#~ msgid "Login type"
+#~ msgstr "Type de connection"
+
+#~ msgid "Sign in as parents or university students"
+#~ msgstr "Se connecter en tant que Parent d'élève ou Etudiant"
+
+#~ msgid "Sign in as students"
+#~ msgstr "Se connecter en tant qu'élève"
+
+#~ msgid "Pin"
+#~ msgstr "Code de confidentialité"
+
+#~ msgid "Student account not found"
+#~ msgstr "Compte étudiant introuvable"
+
+#~ msgid "Pin you entered is incorrect"
+#~ msgstr "Code confidentiel incorrect"
+
+#~ msgid "The student id or password you entered is incorrect"
+#~ msgstr "Votre id ou code confidentiel est incorrect"
+
+#~ msgid "The user name or password you entered is incorrect"
+#~ msgstr "Votre nom d'utilisateur ou mot de passé est incorrect"
+
+#~ msgid "Privacy"
+#~ msgstr "Règles de confidentialité"
+
+#~ msgid "Please enter a valid mobile number"
+#~ msgstr "Numero ou code incorrect"
+
+#~ msgid "Please enter your mobile number and password"
+#~ msgstr "Entrez votre numero de telephone et votre mot de passe"
+
+#~ msgid "Please enter a valid number"
+#~ msgstr "Numero ou code incorrect"
+
+#~ msgid "User not found registered with this phone number"
+#~ msgstr "Aucun utilisateur trouvé enregistré avec cette numéro de téléphone"
+
+#~ msgid "This field is required"
+#~ msgstr "Ce champ est obligatoire"
+
+#~ msgid "Please enter at least 5 characters"
+#~ msgstr "Un minimum de 5 caracteres est requit"
+
+#~ msgid "This Phone Number already exists. Please try using forgot password"
+#~ msgstr "Ce numero existe deja. clique sur Mot de passe oublié"
+
+#~ msgid "Please enter at least"
+#~ msgstr "Un minimum de"
+
+#~ msgid "characters"
+#~ msgstr "caracteres est requit"
+
+#, fuzzy
+#~ msgid "Update"
+#~ msgstr "Mises à jours"
+
+#, fuzzy
+#~ msgid "Please fill all the required fields"
+#~ msgstr "Renseigner le nom"
+
+#~ msgid "Open"
+#~ msgstr "Ouvrir"
+
+#, fuzzy
+#~ msgid "My Tickets"
+#~ msgstr "Ticket"
+
+#~ msgid "Responses"
+#~ msgstr "Résultat de Recherche"
+
+#, fuzzy
+#~ msgid "Response"
+#~ msgstr "Réponses"

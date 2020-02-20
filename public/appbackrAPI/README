@@ -1,0 +1,39 @@
+Author: Jorge Mendoza
+Company: appbackr
+Version: 1.0
+
+Requirements: In order to have the appscore icon show the correct appscore you need to
+              have your website allow cross origin resources from www.appbackr.com
+		
+ 	      In order to get any proper information out of this API, this API  must 
+	      use android_id of any google.
+
+	      You need to include the following javascript/css files (unless you already
+	      have jquery and bootstrap) This version of fancy box must be included.
+
+Quick start:
+	include:
+   	 <link href= "bootstrap/CSS/bootstrap.min.css" rel="stylesheet">
+   	 <link href= "fancybox/source/jquery.fancybox.css" rel="stylesheet">
+    	 <script src="bootstrap/js/bootstrap.min.js"></script>
+   	 <script src="jquery-1.11.1.min.js"></script>
+  	 <script src="fancybox/source/jquery.fancybox.pack.js"></script>
+   	 <script src="fancybox/source/helpers/jquery.fancybox-buttons.js"></script>
+   	 <script src="fancybox/source/helpers/jquery.fancybox-media.js"></script>
+ 	 <script src="fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+ 	 <script src="appscoreAPI.js"></script>
+
+
+	Call the any of the following functions in javascript:
+	appscoreID(htmlId, android_id,top,left)
+	appscoreClass(htmlClass, android_id,top,left)
+	appscoreBody(android_id,top,left)
+
+Notes:  If you don’t wish to use the appscore icon and only want to use the webpage
+        linking to a particular data point use the url 
+	“https://www.appbackr.com/XchangeApi/Appscore?id={android_id here}“
+	example: https://www.appbackr.com/XchangeApi/Appscore?id=com.rovio.angrybirds
+
+	There is a sample version of this code working in the include called “test.html”
+
+	If you have any questions please contact jorge@appbackr.com

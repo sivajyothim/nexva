@@ -1,0 +1,131 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".parent_cat, .parent_cat_dis").click(function(){
+		if (this.checked) {
+			$(this).parent().next().find(":checkbox").attr("checked", "checked");
+		} else {
+			$(this).parent().next().find(":checkbox").removeAttr("checked");
+		}
+	});
+
+	$('.child_cat').click(function(){
+		if (!this.checked) {
+			$(this).closest('div').prev().find(":checkbox").removeAttr("checked");
+		}
+	});
+
+   $('.child_cat_dis').click(function(){
+        if (this.checked) {
+            $(this).closest('div').prev().find(":checkbox").attr("checked", "checked");
+        }
+    });
+	
+});
+</script>
+
+<div class="title">
+    <h3>Customize Category Visibility</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <p>You can control which categories appear in the 'All Categories' page by hiding categories shown in the list below</p>
+    </div>
+</div>
+
+<div class="box_right">
+<div class="title">
+        <h3>Hidden Categories</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form action="/category/customize" method="post">
+                <p><input type="submit" class="txt-input small" value="&laquo; Show Categories " id="submit" name="submit"></p>  
+                <?php 
+                    $disabledCats = array();
+                    $disabledParents    = isset($this->disabledCatList[0]) ? $this->disabledCatList[0] : array();
+                    $parentCategories   = $this->enabledCatList[0]; 
+                    unset($this->disabledCatList[0]);
+                ?>
+                <?php foreach ($this->disabledCatList as $parentId => $children) :?>
+                    &nbsp;&nbsp;
+                    <?php 
+                        if (isset($disabledParents[$parentId])) {
+                            $parentCategory   = $disabledParents[$parentId];
+                            $disabledCats[$parentCategory->id]   = $parentCategory->id;
+                        } else {
+                            $parentCategory   = $parentCategories[$parentId]; //take from the full list of parents since it's not disabled
+                            $parentCategory->id = '';
+                        }
+                    ?>
+                    
+                    <label for="en_cat_<?=$parentCategory->id?>">
+                        <input type="checkbox" class="parent_cat_dis" name='categories[]' value="<?=$parentCategory->id?>" id="en_cat_<?=$parentCategory->id?>"> 
+                        &nbsp;&nbsp;
+                        <?=$parentCategory->name?>
+                    </label>
+                    
+                    <div style="margin-left:20px;"> 
+                    <?php   
+                        foreach ($children as $category) : 
+                                $disabledCats[$category->id]   = $category->id;
+                    ?>
+                                <label for="hi_cat_<?=$category->id?>">
+                                    <input class="child_cat_dis" type="checkbox" name='categories[]' value="<?=$category->id?>" id="hi_cat_<?=$category->id?>"> 
+                                    &nbsp;&nbsp;
+                                    <?=$category->name?>
+                                </label>
+                    <?php endforeach;?>
+                    </div> 
+                <?php endforeach;?>
+                <br>
+                <input type="hidden" name="mode" value="show">
+                <p><input type="submit" class="txt-input small" value="&laquo; Show Categories" id="submit" name="submit"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="box_left">
+    <div class="title">
+        <h3>Visible Categories</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <form action="/category/customize" method="post">
+                <p style="text-align:right"><input type="submit" class="txt-input small" value="Hide Categories &raquo;" id="submit" name="submit"></p>  
+                <?php 
+                    unset($category); 
+                    $parentCategories   = $this->enabledCatList[0]; unset($this->enabledCatList[0]);
+                ?>
+                <?php foreach ($this->enabledCatList as $parentId => $parentCategoryCont) : ?>
+                    <?php $parentCategory   = $parentCategories[$parentId]?>
+                    <?php if (isset($disabledCats[$parentCategory ->id])) continue;?>
+                    &nbsp;&nbsp;
+                    <label for="en_cat_<?=$parentCategory->id?>">
+                        <input type="checkbox" class="parent_cat" name='categories[]' value="<?=$parentCategory->id?>" id="en_cat_<?=$parentCategory->id?>"> 
+                        &nbsp;&nbsp;
+                        <?=$parentCategory->name?>
+                    </label>
+                
+                    <div style="margin-left:20px;">
+                    <?php foreach ($parentCategoryCont as $category) : ?>
+                        <?php if (isset($disabledCats[$category->id])) continue;?>
+                        
+                        <label for="en_cat_<?=$category->id?>">
+                            <input class="child_cat" type="checkbox" name='categories[]' value="<?=$category->id?>" id="en_cat_<?=$category->id?>"> 
+                            &nbsp;&nbsp;
+                            <?=$category->name?>
+                        </label>
+                    <?php endforeach;?>
+                    </div>
+                <?php endforeach;?>
+                <br>
+                <input type="hidden" name="mode" value="hide">
+                <p style="text-align:right"><input type="submit" class="txt-input small" value="Hide Categories &raquo;" id="submit" name="submit"></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+

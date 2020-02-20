@@ -1,0 +1,61 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/16/14
+ * Time: 12:01 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<?php if ($this->pageCount) {
+    $urlData = array();
+    if($this->institute_value) { $urlData['institute_value'] = $this->institute_value; }
+    ?>
+
+    <div id="paginationControl" class="pagination">
+        <!-- Previous page link -->
+
+        <?php if (isset($this->previous)):
+            $urlData['page'] = $this->previous;
+            ?>
+            <a href="<?php echo $this->url($urlData); ?>"> &lt;&lt; Previous</a>
+
+        <?php else: ?>
+
+            <span class="disabled">&lt;&lt; Previous</span>
+
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+
+            <?php if ($page != $this->current):
+                $urlData['page'] = $page;
+                ?>
+
+                <a class="number" href="<?php echo $this->url($urlData); ?>"><?php echo $page; ?></a>
+
+            <?php else: ?>
+
+                <a class="number current"><?php echo $page; ?></a>
+
+            <?php endif; ?>
+
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)):
+            $urlData['page'] = $this->next;
+            ?>
+
+            <a href="<?php echo $this->url($urlData); ?>">Next &gt;&gt;</a>
+
+        <?php else: ?>
+
+            <span class="disabled">Next &gt;&gt;</span>
+
+        <?php endif; ?>
+
+    </div>
+<?php } ?>

@@ -1,0 +1,30 @@
+
+<div class="hidden" id="<?=$this->id ?>">
+  <p>You may download this app using one of the following ways: <br /><br /></p>
+    1. Scan the QR code using your phone to be directly taken to the installation file:<br /><br />
+  <center>
+    <img name="qr_code" src="<?= $this->or_code ?>" width="150" height="150" border="0" id="qr_code" alt="Generating QR code.." />
+  </center>
+  <br />
+  <center>Do not have a QR code reader on your phone?<a href="http://nexva.com/7990" target="_blank">Get one free'> </a> </center>
+  <br />
+</p>
+<p>
+  2. Point your mobile browser to the following link:')<br /><br />
+<center>
+  <? $config = Zend_Registry::get("config"); ?>
+  <? $url = "http://".$config->nexva->application->base->url."/".$this->id?>
+  <a href="<?= $url ?>"><?= $url ?></a>
+</center>
+<!-- @todo
+  <br />
+
+  3. Enter your phone number below and we'll text you a link:  <br/><br />
+    <center> + <input type="text" size="3"> <input type="text" size="15"> <input type="button" value="Text Link"> </center>
+    
+  <br />
+  4. <a href="#">Download</a> to your computer and install manually (advanced users).
+ -->
+
+</p>
+</div>

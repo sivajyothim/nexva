@@ -1,0 +1,21 @@
+<?php $this->headStyle()->captureStart('APPEND', array('media' => 'all'));?>
+
+    .code_block {
+        border-radius: 5px 5px 5px 5px;
+        float: left;
+        font-family: tahoma;
+        margin: 10px;
+        overflow: visible;
+        padding: 3px;
+    }
+   
+<?php $this->headStyle()->captureEnd();?>
+<?php foreach ($this->promoCodes as $code) : ?>
+
+    <div class='code_block'>
+        <a href="/promotion-code/view/id/<?=$code?>">
+            <img src="/promotion-code/view/id/<?=$code?>">
+        </a>
+    </div>
+
+<?php endforeach; ?>

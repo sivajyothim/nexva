@@ -1,0 +1,92 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 6/7/13
+ * Time: 3:15 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/css/smoothness/jquery-ui.css">
+<script type="text/javascript">
+    $().ready(function(){
+       $("#from").datepicker({ dateFormat: 'yy-mm-dd',changeYear: true,changeMonth: true});
+       $("#to").datepicker({ dateFormat: 'yy-mm-dd',changeYear: true,changeMonth: true});
+       $( ".date" ).attr('readonly', 'readonly')
+       $('#date-range').change(function(){
+            if ($(this).val() == '') {
+                return false;
+            }
+
+            var endTime     = new Date();
+            var startTime   = new Date(endTime.getTime() - (parseInt($(this).val(), 10) * 1000));
+
+            $("#from").val(getFormattedDate(startTime));
+            $("#to").val(getFormattedDate(endTime));
+
+            $(this).parent().submit();
+       });
+        $('#chaps').change(function(){
+            if ($(this).val() == '') {
+                return false;
+            }
+
+            $(this).parent().submit();
+        });
+    });
+    function getFormattedDate(dateObj) {
+        var year    = dateObj.getFullYear();
+        var month   = ((dateObj.getMonth() + 1) < 10) ?  '0' + (dateObj.getMonth() + 1) : dateObj.getMonth() + 1;
+        var date    = dateObj.getDate();
+        return year + '-' + month + '-' + date;
+    }
+</script>
+<div id="wrap">
+    <div id="content_box">
+        <div id="box">
+            <div style="text-align:center; margin:15px ">
+                <form class="date_filter" action="/analytics/chapanalytics/" method="post">
+                    <input type='text' id='from' size='12' class='date txt-input ' data-hint='from' name='from' value='<?php echo $this->from;?>'/>
+                    <input type='text' id='to' size='12' class='date txt-input ' data-hint='until' name='to' value='<?php echo $this->to;?>'/>
+                    <select class='select-input' id='date-range'>
+                        <option selected="selected" value=''>[SELECT RANGE]</option>
+                        <option value='604800'>Last Week</option>
+                        <option value='2678400'>Last Month</option>
+                    </select>
+                    <select id="chaps" name="chaps" class='select-input'>
+                        <option value="">[SELECT CHAP]</option>
+                        <?php foreach($this->cps_list as $user){ ?>
+                            <option value="<?php echo $user->id;?>" <?php echo ($this->chap == $user->id)?'selected="selected"':'';?>><?php echo $user->username;?></option>
+                        <?php }?>
+                    </select>
+                    <button class='button'>Filter</button>
+                </form>
+            </div>
+        </div>
+        <div class="box">
+            <div class="tab-handsets" >
+                <table cellpadding="0" cellspacing="0" style="width:50%;margin:auto;">
+                    <thead class="title">
+                        <tr>
+                            <th style="width:30%;">CHAP</th>
+                            <th style="width:10%;text-align:right;">Downloads</th>
+                            <th style="width:30%;text-align:right;">Revenue</th>
+                            <!--<th style="width:30%;">Date</th>-->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach($this->chapSales as $chapSale){
+                            $chap = $this->ThemeMeta($chapSale->id,'WHITELABLE_SITE_NAME'); ?>
+                            <tr>
+                                <td><?php echo $chap[0]['meta_value'] ;?></td>
+                                <td style="text-align:right;"><?php echo $chapSale->download_count;?></td>
+                                <td style="text-align:right;"><?php echo '$ ',$chapSale->total_val;?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <?php echo $this->paginationControl($this->chapSales, 'Sliding', 'partials/paginator.phtml'); ?>
+            </div>
+        </div>
+    </div>
+</div>

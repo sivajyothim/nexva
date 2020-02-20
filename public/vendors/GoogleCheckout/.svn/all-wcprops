@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/repos/nexva_v1/!svn/ver/5677/v2/trunk/public/vendors/GoogleCheckout
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/CHANGELOG
+END
+UPGRADE
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/UPGRADE
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/README
+END
+googlemessage.log
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/googlemessage.log
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/.project
+END
+TODO
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/TODO
+END
+googleerror.log
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/nexva_v1/!svn/ver/5646/v2/trunk/public/vendors/GoogleCheckout/googleerror.log
+END

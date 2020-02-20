@@ -1,0 +1,32 @@
+<ul>
+    <? foreach($this->footerMenuItems as $menuItem): ?>
+    <li>
+        <? if($menuItem->type == 'EXTERNAL') : ?>
+                <a href="<?= $menuItem->url; ?>" title="<?= $menuItem->title; ?>" target="<?= $menuItem->target_window; ?>"><?php echo $this->translate($menuItem->title); ?></a>
+        <? else : ?>
+                <a href="<?= $this->baseUri; ?>/index/page/id/<?= $menuItem->page_id; ?>" title="<?= $menuItem->title; ?>" target="<?= $menuItem->target_window; ?>"><?php echo $this->translate($menuItem->title); ?></a>
+        <? endif; ?>
+    </li>
+    <? endforeach; ?> 
+</ul>
+
+<?php if($this->partnerId == 23045) { ?>
+    <!--div id="quick_links">
+        <ul>
+            <li>
+                <?php
+                $auth = Zend_Auth::getInstance();
+                if (isset($auth->getIdentity()->id) and isset($auth)):
+                ?>
+                    <?php echo $this->translate("Welcome");?><?php echo $auth->getIdentity()->username; ?>
+                    <li>|</li>
+                    <li><a href="<?= $this->baseUri; ?>/info/logout" title="Logout"><?php echo $this->translate("Logout"); ?></a></li>
+                <? else: ?>
+                    <?php if($this->showLoginLink == 'yes') { ?>
+                        <li><a href="<?= $this->baseUri; ?>/info/login" title="Login"><?php echo $this->translate("Sign In");?></a></li>
+                    <?php } ?>
+                <? endif; ?>
+
+        </ul>
+    </div-->
+<?php } ?>

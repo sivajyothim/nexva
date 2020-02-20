@@ -1,0 +1,177 @@
+Body Bg is machan 
+
+#ffffff
+
+----------------------------------------------------------
+
+Header Navigation font is:
+
+Home           Free Stuff           Premium Collection           Top           Newest           Staff picks
+
+Arial Bold 12
+
+----------------------------------------------------------
+
+All Header Big FOnts (Except the Home Slider) 
+
+Trebuchet MS   Size 21
+Color: #565656
+Letter-spacing:-1px;
+
+----------------------------------------------------------
+
+Search Above links of the SIGN in is
+
+Tahoma - 10px
+text-transorm:uppercase;
+
+
+----------------------------------------------------------
+
+Whats New Font for the Header
+
+Trebuchet MS   Size 30
+
+Letter-spacing:1px;
+
+Colour: #FF5A00
+
+----------------------------------------------------------
+
+Header Game Title
+
+Trebuchet MS   Size 24
+
+Letter-spacing:1px;
+
+Colour: #565656
+
+----------------------------------------------------------
+
+Header Description for the slider 
+
+
+Arial 12
+
+color:#000000
+
+
+----------------------------------------------------------
+
+
+Date: Text Arial
+
+size: 12
+
+colour: #565656
+
+
+----------------------------------------------------------
+
+Need help? 
+
+Font colour: #FF7800
+FOnt size: 10px 
+Text-transform-uppercase;
+
+
+Click here
+
+Font colour: #3A3A3A
+FOnt size: 10px 
+Text-transform-uppercase;
+
+
+----------------------------------------------------------
+
+
+Tab font "Grey"
+
+Font colour: #565656
+FOnt size: 12px 
+
+
+----------------------------------------------------------
+
+
+Premium Collection "Purple"
+
+
+Font colour: #BB0158
+FOnt size: 12px 
+font-weight:bold;
+
+
+----------------------------------------------------------
+
+Home Box COlours
+
+Game Name 
+
+Font COlour: #00A9E9
+FOnt-type: Tahoma
+Font-size: 12px;
+
+
+Vender Name: 
+Font COlour: #565656
+FOnt-type: Tahoma
+Font-size: 11px;
+font-weight:bold;
+
+
+Star Rating font
+
+Bracket( )     
+
+Font COlour: #565656
+FOnt-type: Arial
+Font-size: 11px;
+font-weight:normal;
+
+
+Star Rating Value
+
+Font COlour: #00A9E9
+FOnt-type: Arial
+Font-size: 10px;
+font-weight:bold;
+
+----------------------------------------------------------
+
+Top Categories:
+
+Trebuchet MS   18
+
+
+Top
+Font COlour: #FF5A00
+FOnt-type: Trebuchet MS;
+Font-size: 18px;
+font-weight:bold;
+letter-spacing:-1px;
+
+
+Categories
+Font COlour: #565656
+FOnt-type: Trebuchet MS;
+Font-size: 18px;
+font-weight:bold;
+letter-spacing:-1px;
+
+
+----------------------------------------------------------
+
+
+Top Categories BG
+
+background-color: #FCFCFC;
+
+
+----------------------------------------------------------
+
+
+
+
+
+

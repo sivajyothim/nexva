@@ -1,0 +1,66 @@
+<ul>
+    <li><a href="/">
+     <?php if($this->chap_id == 21134){ ?>
+        <?php echo $this->translate("APPtitude");?>
+    <?php } else { ?>
+        <?php echo $this->translate("Home");?>
+     <?php } ?>
+    </a></li>
+    <?php if($this->chap_id != 23045){ ?>
+    <li><a href="<?=$this->baseUri;?>/app/featured"><?php 
+    if($this->chap_id == 276531 and $this->currentLanguageId == 60)  
+        echo "Sélection"; 
+        else  
+        echo $this->translate("Featured");?></a></li>
+    <?php } ?>
+    <li><a href="<?=$this->baseUri;?>/app/newest"><?php ?>
+    <?php 
+    if($this->chap_id == 276531 and $this->currentLanguageId == 60)  
+        echo "Nouveautés"; 
+        else  
+        echo $this->translate("Newest");?></a></li>
+
+    </a></li>
+    <li><a href="<?=$this->baseUri;?>/app/free"><?php echo $this->translate("Top Free");?></a></li>
+    
+    <?php if($this->showTopPaidApps == 'yes'): ?>  
+    <li><a href="<?=$this->baseUri;?>/app/premium"><?php echo $this->translate("Top Paid");?></a></li>
+    <?php endif; ?>
+    <li><a href="<?=$this->baseUri;?>/app/top"><?php echo $this->translate("Top Downloads");?></a></li>    
+    <li><a href="<?=$this->baseUri;?>/app/most-viewed"><?php echo $this->translate("Most Viewed");?></a></li>
+    <?php if($this->chap_id == 21134){ ?>
+        <li><a href="<?php echo $this->baseUri;?>/app/mtn-developer-challenge" style="color:red;"><?php { echo $this->translate("MTN Developer Challenge");}?></a></li>
+        
+       <!--   <li><a href="<?php echo $this->baseUri;?>/app/appstitude" style="color:red;"><?php { echo $this->translate("APPtitude");}?></a></li> -->
+      <li><a href="<?php echo $this->baseUri;?>/app/islamic" style="color:red;"><?php { echo $this->translate("Islamic APPs");}?></a></li>
+    <?php } ?>
+    
+     <?php if($this->chap_id == 276531){ ?>
+        <li><a href="<?php echo $this->baseUri;?>/app/mtn-developer-challenge" style="color:red;"><?php { echo $this->translate("Application Day");}?></a></li>
+    <?php } ?>
+    
+         <?php if($this->chap_id == 320345){ ?>
+        <li><a href="<?php echo $this->baseUri;?>/app/mtn-developer-challenge" style="color:red;"><?php { echo $this->translate("Developer Challenge");}?></a></li>
+    <?php } ?>
+      
+        <?php
+        if($this->chap_id == 23045 || $this->chap_id == 115189 || $this->chap_id == 81449   ){
+            ?>
+        <li><a href="<?php echo PROJECT_BASEPATH;?>app/get-latest-appstore-build-url"><?php 
+
+        
+        if($this->chap_id == 115189) {
+        	echo $this->translate("Download ¥Coins App Store");
+        }  elseif($this->chap_id == 23045) {
+        	echo $this->translate("App Store");
+        } else {
+            echo $this->translate('Download Android App');
+        }
+
+        ?>
+        
+        </a></li>
+        <?php
+        }
+        ?>
+</ul>

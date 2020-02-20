@@ -1,0 +1,43 @@
+<?php //$currency = $this->ChangeCurrency($this->chap_id);?>
+
+<div class="ui-content ui-body-d">
+      <h2><?php echo $this->translate("neXpager Apps");?></h2> 
+      <ul class="ui-icon-alt ui-listview">  
+          <?php
+        $x = 0;
+        foreach($this->nexvaApps as $app) : 
+            $x++;
+            ?>
+          
+        <li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-count ui-li-has-thumb ui-first-child ui-btn-up-d">
+          <div class="ui-btn-inner ui-li">
+            <div class="ui-btn-text"> <a class="ui-link-inherit" href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>"  rel="external"> 
+                  <img class="ui-li-thumb" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>">
+             <p class="ui-li-aside"><span class="price-red-bg">
+                 <? if($app['price'] > 0) : ?>
+                        
+                        
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '$';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo $app['price']; } */?>
+                            <!-- to be change -->
+                            <?php /*if(!empty($currency)){ echo $currency[0]['symbol'];} else { echo '₦';} */?><!-- --><?php /*if(!empty($currency)){ echo number_format(ceil($currency[0]['rate']*$app['price']),2, '.', ',');}else{ echo number_format(($app['price'])*165,2); } */?>
+                            <?php echo (($app['price']) > 0) ? $this->currencyDetails["symbol_web"]. " ".number_format(ceil($app['price']*$this->currencyDetails["rate"]),2, '.', ',') : $this->translate("Free") ;?>
+                       
+            
+                    <? else : ?>
+                        
+                        <?php echo $this->translate("Free");?>
+                        
+                    <? endif; ?></span></p>
+              <h3 class="ui-li-heading blue-color"><?= $app['name'] ?></h3>
+              <p class="ui-li-desc-ul-li"><?= $this->trim($app['vendor'],18) ?></p>
+              <div id="rating"><?= $this->partial('partials/rating_inner.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'])); ?>
+              </div>
+              </a> </div>
+            <span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div>
+        </li>
+        
+        <? endforeach; ?>
+        
+      </ul>
+     <!-- <div class="empty-height"></div>-->
+    </div>

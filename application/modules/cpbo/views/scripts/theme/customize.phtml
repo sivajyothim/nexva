@@ -1,0 +1,404 @@
+<!-- Start Content Box #2 -->
+<div class="title">
+
+    <h3>White label settings</h3>
+    <div class="selector" title="content_box">
+        <a class="tab <? if(($this->activeTab == 'onwhitelabel')or(!isset($this->activeTab))) {
+            echo 'active';
+           }?>" href="tab-onwhitelabel">Enable White label</a>
+        <a class="tab <?=($this->activeTab == 'template')?'active':'';?>" href="tab-template">Pick template</a>
+        <a class="tab <?=($this->activeTab == 'logo')?'active':'';?>" href="tab-logo">Logo</a>
+        <a class="tab <?=($this->activeTab == 'header')?'active':'';?>" href="tab-header">Header settings</a>
+        <a class="tab <?=($this->activeTab == 'social')?'active':'';?>" href="tab-social">Social networking</a>
+        <a class="tab <?=($this->activeTab == 'footer')?'active':'';?>" href="tab-footer">Contact & Footer settings</a>
+
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+
+            <!-- Start tab-whitelabel-enable -->
+
+            <div class="tab-onwhitelabel">
+                <?echo $this->render('partials/message.phtml'); ?>
+                <table>
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <form action="/theme/customize" method="post" >
+                                    <small>
+                                        <h3>Please note...</h3>
+                                        <p>
+                                            You are going to enable white label,which means nexva site will be running on your name.nexva.com sub domain.
+
+                                        </p>
+                                    </small>
+                                    <input type="hidden" name="whitelabel_enabled" id="whitelabel_enabled" value="<?=($this->theme->WHITELABEL_ENABLED)?"0":"1"; ?>" />
+                                    <input type="submit" value="<?=($this->theme->WHITELABEL_ENABLED)?"Disable white label":"Enable white label"; ?>"  class="button" />
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- End tab-whitelabel-enable -->
+
+            <!-- Start tab-template -->
+            <div class="tab-template">
+                <?echo $this->render('partials/message.phtml'); ?>
+                <table cellpadding="0" cellspacing="0">
+
+                    <tbody>
+
+                        <tr>
+                            <td><img src="/cp/assets/img/theme_brown.png" border="0" />
+                                <br /><br />
+
+
+                                <div style="padding-left:35px;">
+                                    <input type="button" class="button " value="<?=($this->theme->LAYOUT == 'brown')?"Selected":'Select this theme'; ?>"  style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayout/brown'" />
+                                    <?if($this->theme->LAYOUT == 'brown'):?>
+                                    <input type="button" class="button" value="Customize this theme" style="cursor:pointer;background-color: #F3643A;" onclick="location.href='/theme/customize_selected'" />
+                                    <?endif;?>
+                                </div>
+
+
+                            </td>
+
+
+
+
+
+                            <td><img src="/cp/assets/img/theme_red.png" border="0" />
+                                <br /><br />
+                                <div style="padding-left:35px;">
+                                    <input type="button" class="button " value="<?=($this->theme->LAYOUT == 'red')?"Selected":'Select this theme'; ?>"  style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayout/red'" />
+                                    <?if($this->theme->LAYOUT == 'red'):?>
+                                    <input type="button" class="button" value="Customize this theme" style="cursor:pointer;background-color: #F3643A;" onclick="location.href='/theme/customize_selected'" />
+                                    <?endif;?>
+                                </div>
+                            </td>
+
+
+
+
+                            <td><img src="/cp/assets/img/theme_gray.png" border="0" />
+                                <br /><br />
+                                <div style="padding-left:35px;">
+                                    <input type="button" class="button " value="<?=($this->theme->LAYOUT == 'gray')?"Selected":'Select this theme'; ?>"  style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayout/gray'" />
+                                    <?if($this->theme->LAYOUT == 'gray'):?>
+                                    <input type="button" class="button" value="Customize this theme" style="cursor:pointer;background-color: #F3643A;" onclick="location.href='/theme/customize_selected'" />
+                                    <?endif;?>
+                                </div>
+                            </td>
+                        </tr>
+
+
+
+
+                        <tr>
+                               <td><img src="/cp/assets/img/theme_blue.png" border="0" />
+                                <br /><br />
+                                <div style="padding-left:35px;">
+                                    <input type="button" class="button " value="<?=($this->theme->LAYOUT == 'blue')?"Selected":'Select this theme'; ?>"  style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayout/blue'" />
+                                    <?if($this->theme->LAYOUT == 'blue'):?>
+                                    <input type="button" class="button" value="Customize this theme" style="cursor:pointer;background-color: #F3643A;" onclick="location.href='/theme/customize_selected'" />
+                                    <?endif;?>
+                                </div>
+                            </td>
+
+                            <td><img src="/cp/assets/img/theme_green.png" border="0" />
+                                <br /><br />
+                                <div style="padding-left:35px;">
+                                    <input type="button" class="button " value="<?=($this->theme->LAYOUT == 'green')?"Selected":'Select this theme'; ?>"  style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayout/green'" />
+                                    <?if($this->theme->LAYOUT == 'green'):?>
+                                    <input type="button" class="button" value="Customize this theme" style="cursor:pointer;background-color: #F3643A;" onclick="location.href='/theme/customize_selected'" />
+                                    <?endif;?>
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+                <!--
+                <table>
+
+
+                    <?if(!$this->disableCssUpload): ?>
+                    <tr>
+                        <td>Or.. you can upload your own CSS file to customize the default layout.(remember if you upload your own css file you cant use any above themes)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <form name="uploadcss" id="uploadcss" method="post"  action="/theme/uploadcss" enctype="multipart/form-data" >
+                                <input type="file" name="css" id="css" />
+                                <input type="submit" value="Upload your Css" class="button" />
+                            </form>
+                        </td>
+                    </tr>
+                    <?endif;?>
+                    <tr>
+                        <td>&nbsp;</td>
+
+                    </tr>
+                    <?if($this->disableCssUpload): ?>
+                    <tr>
+                        <td>
+                            <form action="/theme/editcss" name="editcss" id="editcss" method="post">
+                                <textarea name="css" id="css" class="txt-input large" rows="12"><?=$this->css;?></textarea>
+                                <br /><input type="submit" value="Save CSS" class="button" />
+                                <input type="button" class="button" value="Delete this CSS file" onclick="location.href='/theme/deletecss'" />
+                            </form>
+                        </td>
+                    </tr>
+                    <?endif;?>
+                </table>
+                -->
+            </div>
+            <!-- End tab-template -->
+
+            <!-- End Tab-Logo-->
+            <div class="tab-logo">
+                <?echo $this->render('partials/message.phtml'); ?>
+                <table>
+                    <tbody>
+
+                        <tr>
+                            <td>
+
+                                <?if('' != $this->theme->LOGO ): ?>
+                                <small>If you upload a new logo that will replace the old one.</small><br />
+                                <img src="<?=$this->logoPath.$this->theme->LOGO;?>"  width="100" height="50"/>
+                                <?endif;?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form action="/theme/customize" method="post" enctype="multipart/form-data">
+
+                                    <input type="file" name="logo" id="logo"  class="txt-input medium"/><br />
+                                    <input type="submit" value="Save"  class="button" />
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--End Tab Logo-->
+            <!-- Start Tab header-->
+            <div class="tab-header">
+
+                <?echo $this->render('partials/message.phtml'); ?>
+
+                <form id="" name="" action="/theme/customize"  method="post">
+                    <!-- Start Table -->
+                    <table cellpadding="0" cellspacing="0">
+
+                        <tbody>
+
+                            <tr>
+                                <td style="width:20%;"> <label>Title</label></td>
+                                <td>
+                                    <input  name="page_title" id="page_title" type="text" class="txt-input medium" value="<?=$this->theme->PAGE_TITLE;?>" />
+                                    <small>You can put your white label SITE NAME /TITLE here</small>
+                                </td>
+                                <td>
+                            </tr>
+
+                            <tr>
+                                <td><label>Title Description</label>
+                                <td>
+
+                                    <input  name="page_title_desc" id="page_title_desc" type="text" class="txt-input medium" value="<?=$this->theme->PAGE_TITLE_DESC;?>" />
+                                    <small>Describe your whitelabel shop name</small>
+                                </td>
+                                <td>
+                            </tr>
+
+
+
+
+                            <tr>
+                                <td><label>Window title</label></td>
+                                <td>
+
+                                    <input  name="window_title" id="window_title" type="text" class="txt-input medium" value="<?=$this->theme->WINDOW_TITLE;?>" />
+                                    <small>Window title will be displayed on top of the browser bar</small>
+                                </td>
+                                <td>
+                            </tr>
+
+                            <tr>
+                                <td><label>Customize the manu</label></td>
+                                <td>
+                                    <textarea  class="textarea-input medium" id="manu" name="manu" width="500" style="height:250px">
+
+                                    <?if(isset($this->theme->MANU) and ($this->theme->MANU != '')): ?>
+                                    <ul>
+                            <li><a href="#">Main Page</a>
+                                <ul>
+                                    <li><a href="#">Main</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Portfolio</a>
+                                <ul>
+                                    <li><a href="#">Coop Site</a></li>
+                                    <li><a href="#">Featured items</a>
+                                        <ul>
+                                            <li><a href="#">Item one</a></li>
+                                            <li><a href="#">Item two</a></li>
+                                            <li><a href="#">Item three</a></li>
+                                            <li><a href="#">Item four</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Mail us</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="#">Nexva site</a></li>
+                        </ul>
+                                    <?else:?>
+                                    <?=$this->theme->MANU;?>
+                                    <?endif;?>
+                                    </textarea>
+                                    <small>Window title will be displayed on top of the browser bar</small>
+                                </td>
+                                <td>
+                            </tr>
+
+                            <tr>
+
+
+                            </tr>
+
+                            <tr>
+
+                                <td >
+
+                                    <input  name="cat" id="cat" type="hidden"  value="header" />
+                                    <input  name="" id="" type="submit" class="button"  value="Save" />
+                                </td>
+                                <td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                    <!-- End Table -->
+                </form>
+            </div>
+
+            <!-- End Tab header-->
+
+            <!-- Start Tab Social -->
+            <div class="tab-social">
+                <?echo $this->render('partials/message.phtml'); ?>
+
+                <form id="" name="" action="/theme/customize" method="post" >
+                    <table cellpadding="0" cellspacing="0">
+                        <tbody>
+
+                            <tr>
+                                <td style="width:20%">Your site RSS/Atom url</td>
+                                <td><input  name="feed" id="feed" type="text" class="txt-input medium" value="<?=$this->theme->FEED;?>" />
+                                    <small>Insert your company feed(Rss/Atom) url.eg :http://www.facebook.com/feed</small></td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%">Facebook url</td>
+                                <td><input  name="facebook" id="facebook" type="text" class="txt-input medium" value="<?=$this->theme->FACEBOOK;?>" />
+                                    <small>Insert your company Facebook fan page url.eg :http://www.facebook.com/pages/neXva-Inc/</small></td>
+                            </tr>
+                            <tr>
+                                <td>Twitter url    </td>
+
+                                <td>
+
+                                    <input  name="twitter" id="twitter" type="text" class="txt-input medium"  value="<?=$this->theme->TWITTER;?>" />
+                                    <br />
+                                    <small>Insert your twitter url eg: http://twitter.com/nexva </small>
+                                </td>
+                            <tr>
+                                <td>Linked in url </td>
+                                <td>
+                                    <input  name="linkedin" id="linkedin" type="text" class="txt-input medium"  value="<?=$this->theme->LINKEDIN;?>" />
+                                    <br />
+                                    <small>Insert your linked-in url eg: http://www.linkedin.com/company/940580 </small>
+                                    <input  name="cat" id="cat" type="hidden"  value="social" />
+                                </td>
+                            </tr>
+                            <tr><td>&nbsp;</td><td>
+                                    <input type="submit" value="Save"  class="button" />
+                                    <br />
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <!-- End Tab Social -->
+
+            <!-- End Tab Footer-->
+            <div class="tab-footer">
+                <?echo $this->render('partials/message.phtml'); ?>
+
+                <form id="" name="" action="/theme/customize" method="post" >
+                    <table>
+                        <tbody>
+
+                            <tr>
+                                <td style="width:20%">Short description about your business/service</td>
+                                <td>
+                
+                <textarea id="wysiwyg" name="about_business"rows="10" cols="10" class="textarea-input large">
+                <?=$this->theme->ABOUT_BUSINESS;?>
+                </textarea>
+
+                                    <br />
+                                    <small>Brief description about your business/service with in 500 letters.</small></td>
+                            </tr>
+                            <tr>
+                                <td style="width:20%">Footer message</td>
+                                <td><input  name="footer" id="footer" type="text" class="txt-input medium" value="<?=$this->theme->FOOTER;?>" />
+
+                                    <br />
+                                    <small>Footer message can be your &copy; copyrights information.</small></td>
+                            </tr>
+                            <tr>
+                                <td>Footer html</td>
+
+                                <td><input  name="footer_html" id="footer_html" type="text" class="txt-input medium"  value="<?=$this->theme->FOOTER_HTML;?>" />
+                                    <br />
+                                    <input  name="cat" id="cat" type="hidden"  value="footer" />
+                                    <input type="submit" value="Save"  class="button" />
+                                    <br />
+                                    <small>You can put html footer here.eg : &lt;a href=&quot;http://www.example.com/contactus.html&quot;&gt;Contact us&lt;/a&gt;</small>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <!--End Tab Footer-->
+
+
+
+
+        </div>
+    </div>
+</div>
+<!-- End Content Box #2 -->

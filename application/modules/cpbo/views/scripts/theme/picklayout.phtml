@@ -1,0 +1,60 @@
+<!-- Start Content Box #2 -->
+<div class="title">
+
+    <h3>View contents</h3>
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-table">
+
+                <?echo $this->render('partials/message.phtml'); ?>
+
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+
+                    <tbody>
+
+                        <tr>
+                            <td><img src="/cp/assets/img/theme_pink_flower.png" border="0" />
+                                <br /><br />
+                                <div style="padding-left:35px;">
+                                    <input type="button" class="button " value="Select this theme"  style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayut/1'">
+                                </div>
+                            </td>
+                            <td><img src="/cp/assets/img/theme_sun_shine.png" border="0" />
+                                <br /><br />
+                                <div style="padding-left:35px;cursor:pointer">
+                                   <input type="button" class="button" value="Select this theme" style="cursor:pointer" onclick="location.href='/theme/customize/pickedlayout/2'">
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+
+
+
+                        <?if($this->show_empty_msg == true):?>
+                        <tr>
+                            <td colspan="5">
+                                <small>
+                                    <i>No Templates are available.
+                                    </i>
+                                </small>
+                            </td>
+                        </tr>
+                        <?endif; ?>
+
+
+                    </tbody>
+                </table>
+                <!-- End Table -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Content Box #2 -->

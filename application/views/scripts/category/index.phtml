@@ -1,0 +1,38 @@
+<div class="blkCenter innerPage containerGap">
+    <!-- product list page start -->
+    <div class="prodListPage">
+        <div class="container">
+            <div class="contContent">
+                <div class="blockContent">
+                    <div class="blkHead">
+                        <h2 id="pageTitle"><?=$this->categoryInfo->name?></h2>
+                        <ul id="breadcrumbs">
+                            <li><a href="/">Home</a></li>
+                            <?foreach($this->categoryBreadcrumbs as $breadcrumb): ?>
+                            <li><a href="<?php echo PROJECT_BASEPATH;?>category/<?=$this->slug($breadcrumb['name'])."/".$breadcrumb['id']?>"><?=$breadcrumb['name']?></a></li>
+                            <?endforeach;?>
+                        </ul>
+                         <div style='text-align: center'> 
+                         <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator_category.phtml', array('baseUrl' => $this->baseUrl)); ?>
+                          </div>
+                    </div>
+                    <ul id="selectTabs">
+                        <?if (isset($this->selectedDevices) && count($this->selectedDevices) > 0): ?>
+                            <?foreach($this->selectedDevices as $device): ?>
+                        <li <?if( $this->request()->device_id == $device['id'] ): ?>class="selected" <?endif;?>> 
+                            <a href="/category/apps-for-<?=$this->slug($device['phone'])?>/<?=$this->categoryInfo->id?>/<?=$device['id']?>"><?=$device['phone']?></a>
+                        </li>
+                            <?endforeach;?>
+                        <?endif;?>
+                    </ul>
+                    <?=$this->render('partials/product_block.phtml'); ?>
+                </div>
+                
+                  <div style='text-align: center'> 
+                         <?= $this->paginationControl($this->paginator, 'Sliding', 'partials/paginator_category.phtml', array('baseUrl' => $this->baseUrl)); ?>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <!-- product list page end -->
+</div>

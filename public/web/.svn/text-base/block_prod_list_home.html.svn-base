@@ -1,0 +1,21 @@
+  <div class="prodListBlk">
+    <div class="container">
+      <div class="contTop"></div>
+      <div class="contContent">
+        <div class="blockContent">
+          <div class="blkHead">
+            <h2>&nbsp;</h2>
+            <ul class="btn">
+              <li><a href="#" class="moreapps">More Apps</a></li>
+            </ul>
+          </div>
+          <div class="blkList">
+            <div class="prodListItem">
+              <!-- listing of prodcts - include (for each product): block_prod_view_list_vertical.html -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contBottom"></div>
+    </div>
+  </div>

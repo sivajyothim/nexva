@@ -1,0 +1,162 @@
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, table, th, td, hr
+{
+    margin: 0; padding: 0; border: 0; outline: none;
+}
+
+body
+{
+    line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 100%;
+    font-weight: normal;
+}
+
+ul, ol
+{
+    list-style: none;
+}
+
+a
+{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+.clear{
+    clear: both;
+}
+
+.center{
+    text-align: center;
+}
+
+/* display the device count */
+.display_count{
+    color: #FBB117;
+    float: left;
+    font-size: 40px;
+}
+.display_count small{
+    font-size: 12px;
+}
+/* phone elements */
+.phones {
+    max-height:500px;
+    overflow-x:auto;
+    overflow-y:auto;
+    border: 1px solid maroon;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.search_phones {
+    border: 1px solid maroon;
+    max-height: 350px;
+    overflow-x:auto;
+    overflow-y:auto;
+}
+
+.phone {
+    float: left;
+    /*text-align: center;*/
+    padding: 5px;
+    height: 160px;
+    width: 125px;
+    text-align: center;
+}
+
+.phone_tbl td{
+    padding: 0px;
+}
+
+/* Title of the product view */
+.info_title{
+    background-attachment:scroll;
+    background-color:#CCCCCC;
+    border-top-style:solid;
+    border-top-width:1px;
+    font-size:13px;
+    font-weight:bold;
+    padding-bottom:5px;
+    padding-left:15px;
+    padding-right:5px;
+    padding-top:5px;
+}
+
+.info_title h3{
+    font-size:14px;
+    font-weight:bold;
+}
+
+input.submit, input.button{
+    border: #E47924 1px solid;
+}
+
+.phones {
+	margin-top: 10px;
+}
+
+.content h1
+{
+    font-family: 'Yanone Kaffeesatz',arial,serif;
+    font-size:28px;
+    font-weight:normal;
+    margin-bottom: 12px;
+}
+
+.content h3
+{
+    font-family: 'Yanone Kaffeesatz',arial,serif;
+    font-size:16px;
+    font-weight:normal;
+    margin-bottom: 10px;
+}
+.content p
+{
+    font-family: arial,serif;
+}
+
+
+#div_heading {
+   
+    width: 400px !important;
+}
+
+
+.content li {
+    margin-left: 30px;
+    padding-bottom: 10px;
+    list-style: disc !important;
+    font-family: arial,serif;
+}
+
+.content ul {
+    
+    padding-bottom: 10px;
+}
+
+#content table thead th, #content table tbody tr td {
+    padding: 8px !important;
+    font-family: arial,serif;
+    font-size: 14px;
+}
+
+
+#content table thead th, #content table tbody tr td {
+    padding: 8px !important;
+    font-family: arial,serif;
+    font-size: 14px;
+}
+
+#content table tbody tr td ul{
+
+    padding-bottom: 2px;
+}

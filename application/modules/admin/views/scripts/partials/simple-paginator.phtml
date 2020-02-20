@@ -1,0 +1,38 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 11/4/13
+ * Time: 3:26 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<?php if ($this->pageCount): ?>
+    <div id="paginationControl" class="pagination">
+
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+            <a href="<?= $this->url(array('page' => $this->previous)); ?>">&lt;&lt; Previous</a>
+        <?php else: ?>
+            <span class="disabled">&lt;&lt; Previous</span>
+        <?php endif; ?>
+
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+            <?php if ($page != $this->current): ?>
+                <a href="<?= $this->url(array('page' => $page)); ?>" class="number"><?=$page?></a>
+            <?php else: ?>
+                <a class="number current"><?=$page?></a>
+            <?php endif; ?>
+        <?php endforeach; ?>
+
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+            <a href="<?= $this->url(array('page' => $this->next)); ?>">Next &gt;&gt;</a>
+        <?php else: ?>
+            <span class="disabled">Next &gt;&gt;</span>
+        <?php endif; ?>
+
+    </div>
+<?php endif; ?>

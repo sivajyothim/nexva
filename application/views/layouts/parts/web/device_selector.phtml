@@ -1,0 +1,19 @@
+<div id="searchSg" style="display: none;"></div>
+<div id="systemMsg" style="display: none;"></div>
+<div id="phoneSelect" style="display: none;">
+        <br>
+        <p style='padding:5px 10px;' class='spaced ui-state-highlight ui-corner-all'>
+            <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+            Selecting a device helps us filter apps that are compatible with your handset. 
+        You can add multiple devices if you wish to do so.
+        </p>
+        <p class='spaced'>Start typing the name of your device</p>
+        <form id="searchPhone">
+            <div>
+                <input size='40' id="q_phone" autocomplete="off" type='text' class='rounded'>
+                <input type="button" value="search" id="searchBtnPhone" name="search">
+                <img class='display_none' width='16'  src="<?=$this->cdn('site_assets')?>/web/images/loading.gif" border="0" id="seach_loading" alt="loading" />
+            </div>
+        </form>
+        <div id="searchSgPhone"></div>
+</div>

@@ -1,0 +1,301 @@
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+<?php $this->headScript()->captureEnd();?>
+<script language="javascript" type="text/javascript">
+<!--
+function popitup(url) {
+	newwindow=window.open(url,'name','height=500,width=600');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+
+// -->
+</script>
+<style>
+<!--
+<?php $this->headStyle()->captureStart() ?>
+#content .ui-tabs .ui-tabs-nav.ui-widget-header {
+    background:none;
+    background-color: #000;
+}   
+
+#content .ui-tabs .ui-tabs-nav li {
+    float:right;
+    border: none;
+} 
+
+#content .ui-tabs .ui-tabs-nav li a {
+    color : #fff;
+    background: none;
+    background-color: #000;
+}
+
+#content .ui-tabs .ui-tabs-nav li a:hover,  #content .ui-tabs .ui-tabs-nav li.ui-state-active a {
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+   color : #000;
+   background-color: #fff;
+}
+
+
+<?php $this->headStyle()->captureEnd() ?>
+-->
+</style>
+
+<!-- Start Content Box #2 -->
+
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div id='tabs'>
+             <ul>
+              	
+              	<li><a href="#invoices"><?php echo $this->translate("Invoices");?></a></li>
+             	<li><a href="#my-funds"><?php echo $this->translate("My Funds");?></a></li>
+             	<li><a href="#transactions"><?php echo $this->translate("Transactions");?></a></li>
+             	<li><a href="#royalties"><?php echo $this->translate("Royalties");?></a></li> 
+
+            </ul>
+            
+              <!-- tab Invoice List -->
+                 <div id="invoices" class='ui-tabs-hide'>
+                     <div class="txt">
+				      <?php
+				        if($this->paymentStatus == 'success'):
+					  ?>
+				        <div class="message info">
+				           <p><?php echo $this->translate("Your payment is been successfully completed. An invoice has been sent to your email address.");?></p>
+				        </div>
+				     <?php
+				     endif;
+				     if($this->paymentStatus == 'failed'):
+				     ?>
+				      <div class="message error">
+					       <p><?php echo $this->translate("Your payment has failed. No funds were transfered. Please try again");?></p>
+				      </div>
+				        
+				     <?php
+				     endif;
+
+				     ?>
+				     </div>
+	        		<table cellpadding="0" cellspacing="0">
+	                    <thead>
+	                        <tr>
+	
+	                            <th><?php echo $this->translate("Invoice no");?></th>
+	                            <th><?php echo $this->translate("Date");?></th>
+	                            <th><?php echo $this->translate("Amount");?></th>
+	                            <th><?php echo $this->translate("Payment gateway");?></th>
+	                            <th><?php echo $this->translate("Transaction id");?></th>
+	                            <th> </th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	
+	                        <?php foreach($this->accountCpInvoiceData as $data): ?>
+	                        <tr style="background-color: #f4f4f4;">
+	
+	                            <td>CP-<?=strtotime(substr($data['date'],0, 10))."-".str_pad($data['id'], 6, "0", STR_PAD_LEFT); ?></td>
+	                            <td><?=$data['date'];?></td>
+	                            <td>$<?=number_format($data['amount'], 2, '.', '')?></td>
+	                            <td><?=$data['payment_gateway']; ?></td>
+	                            <td><?=$data['transaction_id'];?></td>	
+	                            <td>  <a href="#" onclick="return popitup('/payment/invoice/id/<?=$data['id'] ?>')" ><img alt="View" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/view.png" title="<?php echo $this->translate("View Invoice");?>" ></a></td>	
+	
+	                        </tr>
+	                        <?php endforeach; ?>
+	                       
+	                        <tr>
+	                            <td></td>
+	                            <td colspan="6"><?=$this->paginationControl($this->accountCpInvoiceData, 'Sliding', 'partials/paginator-cp.phtml', array("tab" => '#invoices', 'page_name' => 'page_invoice')); ?></td>
+	                        </tr>
+	                        <?if($this->emptyMsgCpInvoices != ''):?>
+	                        <tr style="visibility: hidden"></tr>
+	                        <tr><td colspan="6" style="text-align: center;"><small><i><?=$this->translate($this->emptyMsgCpInvoices);?></i></small></td></tr>
+	                     	<?endif; ?>
+	                    </tbody>
+	                </table>
+                  	
+                 </div>
+                 <!-- tab tab Invoice List -->
+        
+
+                 <!-- tab Make a Payment -->
+                 <div id="my-funds" class='ui-tabs-hide'>
+                 
+                  <form method="post" id="payment" name="payment" action="/payment/paynow">
+                    <fieldset>
+                       
+                 
+                  
+                    <p align="center">
+                
+                        <div align="center" style="font-size:18px;padding-bottom: 20px;"><?php echo $this->translate("Funds available");?> :<span style="color:olive;padding-left:20px;">$<?=$this->accountDataxCredit; ?></span></div>
+                          <div align="center" > <label><?php echo $this->translate("Amount");?>  &nbsp;  <input name="amount" id="amount" type="text" class="txt-input small validate(required)" style="width: 100px" value="" /> &nbsp;  <input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Pay via Payal");?>" />  &nbsp;  </label> </div> 
+                       
+
+                  
+                    </p>
+                    <span style="float:left;">
+                        <input type="hidden"  name="userid" id="userid" value="<?=Zend_Auth::getInstance()->getIdentity()->id; ?>" />
+                        <input type="hidden" class="button" name="Save" id="Save" value="Save payout options" />
+                       
+                    </span>
+
+                        </fieldset>
+                  </form>
+                 
+                  	
+                 </div>
+                 <!-- tab Make a Payment ends -->
+                 
+                 
+                <!-- tab Made payments  summery -->
+                <div id="transactions" class='ui-tabs-hide'>
+                  <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <td colspan="6"><div style="margin-top:10px;margin-bottom: 100px;">
+                                    <legend>
+                                        <form name="form1" id="form1" action="/payment/submit/tab/#transactions" method="POST">
+                                           <input style="padding-right: 56px;margin-right: 10px;" type='text' size='' class='date txt-input texthint'  name='from_view' id='from_view_transactions' value='<?=$this->from_date?>' placeholder="From Date" > 
+                                            <input  style="padding-right: 56px;margin-right: 10px;" type='text' size='' class='date txt-input texthint'  name='to_view' id='to_view_transactions' value='<?=$this->to_date?>' placeholder="To Date">
+                                            <input type="submit" class="button" name="submit" value="<?php echo $this->translate("Filter Transactions");?>" />
+                                        </form>
+                                    </legend>  
+                                </div></td>
+
+                        </tr>
+                      
+                        <tr>
+
+                            <th><?php echo $this->translate("Description");?> </th>
+                            <th><?php echo $this->translate("Date");?></th>
+                            <th><?php echo $this->translate("Credited");?></th>
+                            <th><?php echo $this->translate("Debited");?></th>
+                            <th><?php echo $this->translate("Total");?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach($this->accountCpCreditLeftData as $data): ?>
+                        <tr  style="background-color: #f4f4f4;">
+
+                            <td <?if($data['credit']<0){?>style="background-color: #D5E8D5"<?}?>>
+                            
+                            <?if($data['credit']): ?>
+                            
+                            Deposit made via PAYPAL Invoice id - 
+                            
+                             <a href="#" onclick="return popitup('/payment/invoice/id/<?=trim(substr($data['description'],37))?>')" >
+                            
+                             <?='CP-'.strtotime( substr($data['date'],0, 10) )."-".str_pad( trim(substr($data['description'],37)), 6, "0", STR_PAD_LEFT) ?> </a>
+							
+							<? else:  ?>
+							
+                            <?=$data['description']; ?>
+                            
+                            <?endif;?>
+                            
+                        
+
+                            </td>
+                            <td <?if($data['credit']<0){?>style="background-color: #D5E8D5"<?}?>><?=$data['date'];?></td>
+                            <td <?if($data['credit']<0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['credit']; ?></td>
+                            <td <?if($data['credit']<0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['debit']; ?></td>
+                            <td <?if($data['credit']<0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['total'];?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                       
+                        <tr>
+                            <td></td>
+                            <td colspan="5"><?=$this->paginationControl($this->accountCpCreditLeftData, 'Sliding', 'partials/paginator-cp.phtml', array("tab" => '#transactions', 'page_name' => 'page_cp', 'year' => $this->selected_year, 'month' => $this->selected_month )); ?></td>
+                        </tr>
+                         <?if($this->emptyMsgCpCredits != ''):?>
+                        <tr style="visibility: hidden"></tr>
+                        <tr><td colspan="6" style="text-align: center;"><small><i><?=$this->emptyMsgCpCredits;?></i></small></td></tr>
+                        <?endif; ?>
+                    </tbody>
+                </table>
+                <!-- End Table -->
+                 </div>
+                 <!-- tab Made payments summery ends -->
+                
+                <!-- tab Received payment summery -->
+            	<div id="royalties" class='ui-tabs-hide'>
+                       
+                <!-- Start Table -->
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+
+                        <tr>
+                            <td colspan="6"><div style="margin-top:10px;margin-bottom: 20px;">
+                                    <legend>
+                                        <form name="form1" id="form1" action="/payment/submit/tab/#royalties" method="POST">
+                                 
+                                            <input style="padding-right: 56px;margin-right: 10px;" type='text' size='' class='date txt-input texthint' name='from_view' id='from_view' value='<?=$this->from_date?>' placeholder="From Date" > 
+                                            <input  style="padding-right: 56px;margin-right: 10px;" type='text' size='' class='date txt-input texthint'  name='to_view' id='to_view' value='<?=$this->to_date?>' placeholder="To Date">
+                                            <input type="submit" class="button" name="submit" value="<?php echo $this->translate("Show details");?>" />
+<!--                                            <div style="float:left;padding-top:30px;padding-left:10px;"></div>-->
+                                        </form>
+                                    </legend>  
+                                </div></td>
+
+                        </tr>
+                        <tr><td colspan="5" align="center" style="font-size:18px;padding-bottom: 20px;"><?php echo $this->translate("Total amount payable");?> <span style="color:olive;padding-left:20px;">$<?=$this->account_datax; ?></span></td></tr>
+                        <tr>                            
+                           
+                            <th><?php echo $this->translate("Description");?> </th>
+                            <th><?php echo $this->translate("Date");?></th>
+                            <th><?php echo $this->translate("Credited");?></th>
+                            <th><?php echo $this->translate("Debited");?></th>
+                            <th><?php echo $this->translate("Total");?></th>
+                             <th><?php echo $this->translate("Type");?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach($this->account_data as $data): ?>
+                        <tr  style="background-color: #f4f4f4;">
+
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>><?=$data['description']; ?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>><?=$data['date'];?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['credit']; ?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['debit']; ?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>>$<?=$data['total'];?></td>
+                            <td <?if($data['debit']>0){?>style="background-color: #D5E8D5"<?}?>><?=$data['payment_method'];?></td>
+
+                        </tr>
+                        <?php endforeach; ?>
+                       
+                        <tr>
+                            <td></td>
+                            <td colspan="5"><?= $this->paginationControl($this->account_data, 'Sliding', 'partials/paginator-cp.phtml', array("tab" => '#royalties', 'page_name' => 'page', 'year' => $this->selected_year, 'month' => $this->selected_month)); ?></td>
+                        </tr>
+                                   
+                        <?if($this->emptyMsgPayble != ''):?>
+                        <tr style="visibility: hidden"></tr>
+                        <tr><td colspan="6" style="text-align: center;"><small><i><?=$this->translate($this->emptyMsgPayble);?></i></small></td></tr>
+                        <?endif; ?>
+                         
+                    </tbody>
+                </table>
+                <!-- End Table -->
+                  
+                </div>
+              	<!-- tab Received payment summery ends -->
+            
+
+            
+            
+        </div>
+    </div>
+</div>
+   
+<!-- End Content Box #2 -->

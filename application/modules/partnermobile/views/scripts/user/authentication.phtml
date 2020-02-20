@@ -1,0 +1,79 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 8/30/13
+ * Time: 1:53 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#authenticateform").validate();
+        $("#resend_verification").click(function(){
+            var resend = true;
+            $.post("/user/resend-verification",{resend:resend},function(data) {
+                window.location.href = '/user/forgot-verification';
+                /*if(data)
+                 {
+                 window.location.href = '/user/forgot-verification';
+                 }*/
+                /*if(data == 'noooooooooooo')
+                 {
+                 //$('#jquery_message').addClass('ui-block-a');
+                 //$('#jquery_message').html('<div class="ui-block-a"><button type="v" data-theme="b">Mobile Number not found for this user.</button></div>');
+                 //$('#jquery_message').html('<div data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" data-theme="b" data-disabled="false" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-b" aria-disabled="false"><span class="ui-btn-inner"><span class="ui-btn-text">Mobile Number not found for this user.</span></span><button data-theme="b" type="v" class="ui-btn-hidden" data-disabled="false"></button></div>');
+                 }*/
+            });
+            //$.post("/user/resend-verification",{resend:resend});
+        });
+    });
+</script>
+<div class="ui-grid-solo">
+    <?php
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                {
+                    echo $this->escape($message);
+                };?>
+           </span></span></div>
+    <?php }
+    if($this->Messages)
+    { ?>
+    <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+        <?php foreach($this->Messages as $key=>$value)
+        {
+            if(is_array($value))
+            {
+                foreach($value as $one=>$two)
+                {
+                    echo $this->translate($two);
+                }
+                echo '<br/>';
+            }
+            else
+            {
+                echo $this->translate($value),'<br/>';
+            }
+        } ?>
+       </span></span></div>
+    <?php } ?>
+</div>
+
+<div class="ui-body ui-body-c">
+    <form action="/user/authentication" method="post" id="authenticateform" data-ajax="false">
+        <!--<input type="hidden" value="<?php /*echo $this->userID;*/?>" name="userID">-->
+        <fieldset data-role="fieldcontain" style="text-align:center;">
+            <label for="activation_code"><?php echo $this->translate("Verification Code");?> :</label>
+            <input type="text" name="activation_code" id="activation_code" class="required" width="200px">
+        </fieldset>
+        <input type="submit" value="<?php echo $this->translate("Verify")?>">
+    </form>
+    <button id="resend_verification"><?php echo $this->translate("Resend Verification Code");?></button>
+</div>
+
+
+

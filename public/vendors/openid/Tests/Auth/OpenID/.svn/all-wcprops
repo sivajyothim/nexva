@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID
+END
+OpenID_Yadis.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/OpenID_Yadis.php
+END
+HMAC.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/HMAC.php
+END
+AX.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/AX.php
+END
+AuthRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/AuthRequest.php
+END
+Parse.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Parse.php
+END
+BigMath.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/BigMath.php
+END
+Extension.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Extension.php
+END
+Discover_OpenID.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Discover_OpenID.php
+END
+Association.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Association.php
+END
+Util.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Util.php
+END
+TestUtil.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/TestUtil.php
+END
+Negotiation.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Negotiation.php
+END
+Message.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Message.php
+END
+PAPE.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/PAPE.php
+END
+TrustRoot.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/TrustRoot.php
+END
+VerifyDisco.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/VerifyDisco.php
+END
+DiffieHellman.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/DiffieHellman.php
+END
+MemStore.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/MemStore.php
+END
+Consumer.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Consumer.php
+END
+AssociationResponse.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/AssociationResponse.php
+END
+URINorm.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/URINorm.php
+END
+StoreTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/StoreTest.php
+END
+CryptUtil.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/CryptUtil.php
+END
+SReg.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/SReg.php
+END
+Nonce.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Nonce.php
+END
+KVForm.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/KVForm.php
+END
+RPVerify.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/RPVerify.php
+END
+Server.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/repos/nexva_v1/!svn/ver/22980/v2/trunk/public/vendors/openid/Tests/Auth/OpenID/Server.php
+END

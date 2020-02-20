@@ -1,0 +1,272 @@
+<html>
+        <?php
+            $sessionChapDetails = new Zend_Session_Namespace('partner');
+            $chapId = $sessionChapDetails->id;
+        ?>
+    <head <?php if($chapId == 23045) { echo 'xml:lang="fa" dir="rtl"'; } ?>>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title></title>
+        <style type="text/css" media="screen">
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            a {
+                color: #cc0000;
+            }
+
+            td.permission {
+                font-family: Georgia, serif;
+                font-size: 11px;
+                font-weight: normal;
+                color: #333333;
+                padding: 20px 0 10px 0;
+            }
+
+            td.permission a {
+                font-family: Georgia, serif;
+                font-size: 11px;
+                font-weight: normal;
+                color: #000000;
+            }
+
+            td.header {
+                height: 75px;
+                border-top: 1px dotted #d5d5d5;
+                border-bottom: 1px dotted #d5d5d5;
+            }
+
+            td.header h1 {
+                font-family: Georgia;
+                font-size: 44px;
+                font-weight: bold;
+                color: #000000;
+                display: inline;
+            }
+
+            table.sidebar td {
+                border-bottom: 1px dotted #d5d5d5;
+                padding: 20px 0 20px 0;
+            }
+
+            h4.meta {
+                font-family: Georgia;
+                font-size: 12px;
+                font-weight: normal;
+                color: #999999;
+                margin: 0;
+                padding: 0;
+                text-transform: uppercase;
+            }
+
+            table.sidebar ul {
+                margin: 0 0 0 24px;
+                padding: 0;
+            }
+
+            table.sidebar ul li a {
+                font-family: Arial;
+                font-size: 12px;
+                font-weight: normal;
+                color: #cc0000;
+            }
+
+            table.sidebar h3 {
+                font-family: Georgia;
+                font-size: 18px;
+                font-weight: normal;
+                color: #000000;
+                margin: 0 0 10px 0;
+                padding: 0;
+            }
+
+            table.sidebar p {
+                font-family: Georgia;
+                font-size: 12px;
+                font-weight: normal;
+                color: #000000;
+                margin: 0 0 12px 0;
+                padding: 0;
+            }
+
+            table.sidebar p.miniheader {
+                font-family: Georgia;
+                font-size: 12px;
+                font-weight: bold;
+                color: #000000;
+                margin: 0 0 4px 0;
+                padding: 0;
+            }
+
+            td.mainbar h2 {
+                font-family: Georgia;
+                font-size: 18px;
+                font-weight: normal;
+                color: #000000;
+                margin: 20px 0 8px 0;
+                padding: 0;
+            }
+
+            td.mainbar h2 a {
+                font-family: Georgia;
+                font-size: 18px;
+                font-weight: normal;
+                color: #000000;
+                text-decoration: none;
+            }
+
+            td.mainbar p {
+                font-family: Georgia;
+                font-size: 13px;
+                font-weight: normal;
+                color: #333333;
+                margin: 0 0 20px 0;
+                padding: 0;
+            }
+
+            td.mainbar p.top {
+                padding: 0 0 6px 0;
+                border-bottom: 1px dotted #d5d5d5;
+            }
+
+            td.mainbar p.top a {
+                font-family: Georgia;
+                font-size: 10px;
+                font-weight: normal;
+                color: #cc0000;
+            }
+
+            td.mainbar ul {
+                font-family: Georgia;
+                font-size: 13px;
+                font-weight: normal;
+                color: #333333;
+            }
+
+            td.footer {
+                font-family: Georgia;
+                font-size: 11px;
+                font-weight: normal;
+                color: #333333;
+                padding: 10px 0 10px 0;
+            }
+
+            td.footer span {
+                font-weight: bold;
+            }
+            #review{
+
+                background-color:#E8F4FD;
+}
+            #review .reviewbox{
+                margin-top:10px;
+                width: 90%;
+                height:150px;
+                padding:10px;
+
+
+}
+
+#review .rate{
+    margin-top:30px;
+    margin-bottom: 30px;
+    padding:10px;
+    background-color: silver;
+}
+
+
+
+.mail_header{
+    font-family: arial;
+    font-size:14px;
+    color:#666666;
+    font-weight: bold;
+}
+
+
+
+.review_header{
+    font-family:arial;
+    font-size:14px;
+    color:#666666;
+    font-weight: bold;
+}
+        </style>
+
+    </head>
+    <body>
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+
+                <td align="center">
+
+                    <table width="580" border="0" cellspacing="0" cellpadding="0" <?php if($chapId == 23045) { echo 'style="direction:rtl;"'; } ?>>
+                    
+                     <?php if($this->isChap === FALSE) : ?>
+                        <tr>
+                            <td class="header" height="77">
+                                <img src="http://<?=Zend_Registry::get('config')->nexva->application->base->url?>/web/images/nexva_logo.gif" alt="neXva logo" />
+                            </td>
+                        </tr>
+                      <?php endif; ?>  
+                        
+                        <tr>
+                            <td>
+                                <?=$this->layout()->content ?> <br /> <br />
+                            </td>
+                        </tr>
+
+                        
+                        <?php if($this->isChap === FALSE) : ?>
+                        
+                                <tr>
+                                    <td align="center" class="permission">
+                                            <p style="font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;">This email may contain images linked to external sites.
+                                                Please allow your email viewer to fetch these resources if you can't view this email properly.
+                                                If this email was marked as spam, please add do-not-reply@nexva.com to your address book.
+                                            </p>
+                                            <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;'>
+                                                You are recieving this email because you signed up with or visited nexva.com.
+                                                Information on how to unsubscribe (if applicable) can be found at the end of this email.
+                                            </p>
+
+                                    </td>
+                                </tr>
+                        
+                                <tr>
+                                    <td align="center" valign="top" class="footer">
+                                            <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;'>This is an auto-generated email. Please do not reply. If you have any questions regarding this email, please write to us at contact@nexva.com.</p>
+                                            <br/>
+                                            <a href="http://www.facebook.com/pages/neXva-Inc/189510615951">
+                                                <img border="0" width="40" height="40" alt="Facebook" src="http://corp.nexva.com/sites/default/files/f-icon.png?1281006745">
+                                            </a>
+                                            <a href="http://twitter.com/nexva">
+                                                <img border="0" width="40" height="40" alt="Twitter" src="http://corp.nexva.com/sites/default/files/t-icon.png?1281006755">
+                                            </a>
+                                            <a href="http://www.linkedin.com/companies/940580/neXva?trk=pp_icon">
+                                                <img border="0" width="40" height="40" alt="LinkedIn" src="http://corp.nexva.com/sites/default/files/in_icon.png?1281006769">
+                                            </a>
+                                            <br/>
+                                            <br/>
+                                            <span style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;'>neXva Inc.</span><br>
+                                            <span style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;'>7660 Fay Avenue, Suite H340. La Jolla 92037 CA. USA.</span>
+                                    </td>
+                                </tr>
+                        <?php else : ?>
+                                <tr>
+                                    <td align="center" valign="top" class="footer">
+                                            <p style='font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px;'>This is an auto-generated email. Please do not reply.</p>
+                                    </td>
+                                </tr>   
+                        <?php endif; ?>
+                    </table>
+
+
+                </td>
+            </tr>
+        </table>
+
+    </body>
+</html>

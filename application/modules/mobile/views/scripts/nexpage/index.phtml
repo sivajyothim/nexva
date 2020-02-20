@@ -1,0 +1,120 @@
+<?php $t = $this->t();//translator?>
+<?php if ($this->active) : ?>             
+<div class="promoted">
+    <div class="app">
+
+        <p> 
+            <span class='cp_logo'>
+            <?php if ($this->cpDetails->LOGO) : ?>   
+                <?= $this->thumbnail('/cp/static/logos/'.$this->cpDetails->LOGO, array('w' => 70, 'h' => 70)); ?>       
+            <?php endif; ?>
+            </span> 
+            <?=$this->Wikimarkup($this->cpDetails->COMPANY_DESCRIPTION);?> 
+        </p>
+        <span class='clear'></span>
+        </div>
+        
+</div>
+<div class="featured">
+<?php if(count($this->products) == 0):  ?>
+<div class="app">
+    <span class="mini-description">
+        <?php $t->_('no_apps_for_device ');?>
+    </span>
+</div>
+<?php endif; ?>
+
+<?php else: ?>
+          <div class="promoted">
+             <div class="app">
+                 <?php $t->_('no_nexpage_feature');?>
+             </div>
+          </div>
+<?php endif; ?>
+
+
+<?php if (count($this->products)) :?>
+    <?php foreach ($this->products as $product): ?>
+        <?= $this->partial('/partials/app_nexpage.phtml', array("item" => $product, 'cpid' => $this->cpid)) ?>
+    <?php endforeach; ?>
+    
+    <?=$this->paginationControl($this->products,'Sliding','partials/paginator_nexpager.phtml', array( 'baseUrlfo' => $this->baseUrlfo))?>    
+    
+<?php endif; ?>
+
+
+<div class='app'> 
+        <span class="mini-description">
+            <b><?=$this->cpDetails->COMPANY_NAME?></b><br>
+               <?=$this->cpDetails->ADDRESS?><br>
+               <?php if($this->cpDetails->CITY) 
+                                                  echo $this->cpDetails->CITY, ', '; 
+                                                                                  
+                                        ?>  <?php if($this->cpDetails->COUNTRY) 
+                                                  echo $this->country($this->cpDetails->COUNTRY); 
+                                                                                  
+                                        ?>
+        </span><br>
+        <span class="mini-description">
+        
+        <?php if ($this->cpDetails->TELEPHONE) : ?>                              
+            <span>
+                <label><?php $t->_('info_telephone');?></label>
+                <a href='tel:<?=$this->cpDetails->TELEPHONE?>'><?=$this->cpDetails->TELEPHONE?></a>
+            </span>
+         <?php endif; ?>
+         <?php if ($this->cpDetails->WEB) : ?>                              
+            <span>
+                <label><?php $t->_('info_www');?></label>
+                <a href='http://<?=$this->cpDetails->WEB?>' target="_blank"><?=$this->cpDetails->WEB?></a>
+            </span>
+         <?php endif; ?>
+         <?php if ($this->cpDetails->FAX) : ?> 
+            <span>
+                <label><?php $t->_('info_fax');?></label>
+                <?=$this->cpDetails->FAX?>
+            </span>
+          <?php endif; ?>
+          <?php if ($this->cpDetails->TELEPHONE) : ?> 
+            <span>
+                <label><?php $t->_('info_skype');?></label>
+                <?=$this->cpDetails->TELEPHONE?>
+            </span>
+           <?php endif; ?>
+           
+           
+          
+        </span>  
+        
+        <?php  if(($this->cpDetails->FACEBOOK) or ($this->cpDetails->TWITTER)  or ($this->cpDetails->LINKEDIN)): ?>
+        <p class='social'>
+          <?php if ($this->cpDetails->FACEBOOK) : ?>      
+              <a href='<?=$this->cpDetails->FACEBOOK?>'><img src='<?=$this->cdn('site_assets')?>/mobile/images/facebook_icon_small.gif'></a>
+          <?php endif; ?>
+          <?php if ($this->cpDetails->TWITTER) : ?>   
+              <a href='http://www.twitter.com/<?=$this->cpDetails->TWITTER?>'><img src='<?=$this->cdn('site_assets')?>/mobile/images/twitter_icon_small.gif'></a>
+          <?php endif; ?>
+          <?php if ($this->cpDetails->LINKEDIN) : ?> 
+              <a href='<?=$this->cpDetails->LINKEDIN?>'><img src='<?=$this->cdn('site_assets')?>/mobile/images/linkedin_icon_small.gif'></a>
+           <?php endif; ?>
+        </p>  
+        
+        <?php endif; ?>
+    </div>
+
+<!-- 
+<?php if($this->productsCount) : ?> 
+<div class="menu padding-all"> 
+    <a href="http://<?=$_SERVER['HTTP_HOST']; ?>/app/cpproducts/id/<?=$this->cpid; ?>"><strong> <?php $t->_('see_all');?> <?=$this->productsCount; ?> <?php $t->_('apps_by');?> <?=$this->cpName; ?></strong></a> 
+</div>
+<br>
+<?php endif; ?>
+ -->
+ 
+<?php if (count($this->recommendedProducts)) :?>
+<h1 style='padding-bottom:3px;padding-left: 2px;'><?php $t->_('discover_more');?> </h1>
+    <?php foreach ($this->recommendedProducts as $product): ?>
+        <?= $this->partial('/partials/app.phtml', array("item" => $product)) ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+ 

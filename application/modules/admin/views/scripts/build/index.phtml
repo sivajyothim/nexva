@@ -1,0 +1,154 @@
+<div class="title">
+    <h3 style="cursor: s-resize;"><?=isset($this->builbname) ? 'Edit Build ' . $this->builbname : 'Create New Build '?></h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div id="content_box">
+            <form action="/build/save" method="post" enctype="multipart/form-data" id="build">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td valign="top" align="left">
+                                <!-- Upload Button to select files to upload-->
+                                <!-- <div id="upload_button" >Upload File</div><span id="status_message" ></span> -->
+                                <!--List Files-->
+                                <!-- <ul id="files_list" ></ul> -->
+                                <label>Build Name :</label>
+                                <input name="build_name" id="build_name" type="text" class="txt-input medium validate(required)" value="<?=$this->builbname?>"/>
+                                <small>Eg: Java, MIDP 1.0</small>
+                                <?=$this->form_files->file ?>
+                                <!--
+                                <input type="file" name="files[]" class="txt-input medium"/>
+                                <input type="file" name="files[]" class="txt-input medium"/>
+                                <input type="file" name="files[]" class="txt-input medium"/>
+                                -->
+                                <ul>
+                                    <?
+                                    if(!empty ($this->files)):
+                                        foreach($this->files as $build): ?>
+                                    <li>
+                                                <?=$build->filename?>
+                                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>build/filedelete/bid/<?=$this->build_id?>/id/<?=$build->id?>" onclick="return confirm('Are you sure you want to delete?')">
+                                            <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+                                        </a>
+                                    </li>
+                                        <? endforeach;
+                                    endif;
+                                    ?>
+                                </ul>
+                                <?= $this->form_files->id ?>
+                                <?= $this->form_files->build_id ?>
+                            </td>
+                        </tr>
+                        <?php
+                        $checked = $this->selected;
+                        $savedAttributes = $this->deviceAttributes;
+                        ?>
+                        <tr>
+                            <td>
+                                <? if(isset ($checked)): ?>
+                                <input type="button" value="Show Currently Selected Devices" class="show_selected txt-input small">
+                                <? endif; ?>
+                                <div  class="phones_selected" style="height:400px;overflow-x:auto;overflow-y:auto;">
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- end file upload -->
+                        <!-- device selection -->
+                        <tr>
+                            <td valign="top" align="left">
+                                <input type="radio" class="radio_all" name="radio" <?=($checked == 'ALL_DEVICES')? 'checked' : '' ?> id="radio" value="ALL_DEVICES"/> <strong>Select All Devices</strong> (Currently supporting 5430 devices and increasing)
+                                <small>Select this if your app support all devices (eg: a Web service)</small>
+                                <ul class="radio_all_ul">
+                                    <li>
+                                        <input type="button" class="showall txt-input small" value="Show All Devices" />
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="left" class="tree">
+                                <input type="radio" name="radio" class="radio_attrib" id="radio" <?=($checked == 'BY_ATTRIBUTE')? 'checked' : '' ?> value="BY_ATTRIBUTE"/> <strong>Device with attributes</strong>
+                                <small>You can select devices with attributes such as MP3 payback and Java MIDP 2.0 or over support.</small>
+                                <ul class="radio_attrib_ul">
+                                    <li><br/><strong>Playback Attributes</strong></li>
+                                    <li>
+                                        <input type="checkbox" class="mp3_playback" <?=(is_array($savedAttributes) && array_key_exists(4, $savedAttributes))? 'checked' : '' ?> name="mp3_playback" value="mp3_playback"/> Support MP3 Playback
+                                    </li>
+                                    <li><br/><strong>Java Attributes</strong></li>
+                                    <li>
+                                        <input type="checkbox" class="java_midp_1"  <?=(is_array($savedAttributes) && array_key_exists(5, $savedAttributes))? 'checked' : '' ?>  value="java_midp_1" name="java_midp_1"/> Support MIDP 1.0
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" class="java_midp_2"  <?=(is_array($savedAttributes) && array_key_exists(6, $savedAttributes))? 'checked' : '' ?> value="java_midp_2" name="java_midp_2"/> Support MIDP 2.0 or Over
+                                    </li>
+                                    <li><br/><strong>Display Attributes</strong></li>
+                                    <li>
+                                        Minimum Resolution Width <input type="text" class="device_width txt-input small" name="width"  <?=(is_array($savedAttributes) && array_key_exists(7, $savedAttributes))? 'value = ' . $savedAttributes[7] : '' ?> />
+                                        <small>Leave this as a blank if you do not want to filter by width.</small>
+                                    </li>
+                                    <li>
+                                        Minimum Resolution Height <input type="text" class="device_height txt-input small" name="height" <?=(is_array($savedAttributes) && array_key_exists(8, $savedAttributes))? 'value = ' . $savedAttributes[8] : '' ?>/>
+                                        <small>Leave this as a blank if you do not want to filter by height.</small>
+                                    </li>
+                                    <li><br/><strong>Navigation Attributes</strong></li>
+                                    <li>
+                                        Poninting Method <select class="device_pointing_method select-input small" name="navigation_method">
+                                            <option value="any">Any</option>
+                                            <option <?=(is_array($savedAttributes) && in_array('touchscreen', $savedAttributes))? 'selected' : '' ?> value="touchscreen">Touchscreen</option>
+                                            <option <?=(is_array($savedAttributes) && in_array('clickwheel', $savedAttributes))? 'selected' : '' ?> value="clickwheel">Clickwheel</option>
+                                            <option <?=(is_array($savedAttributes) && in_array('joystick', $savedAttributes))? 'selected' : '' ?> value="joystick">Joystick</option>
+                                            <option <?=(is_array($savedAttributes) && in_array('stylus', $savedAttributes))? 'selected' : '' ?> value="stylus">Stylus</option>
+                                            <option <?=(is_array($savedAttributes) && in_array('mouse', $savedAttributes))? 'selected' : '' ?> value="mouse">Mouse</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <input type="button" class="attributes txt-input small" value="Show Devices" />
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="left">
+                                <input type="radio" class="manually_select" name="radio" id="radio"  <?=($checked == 'CUSTOM')? 'checked' : '' ?> value="CUSTOM"/> <strong>Manually Select Devices</strong>
+                                <small>Select devices manually.</small>
+                                <ul class="radio_manual_ul">
+                                    <li><br/><strong>Type Device Keywords to Search :</strong></li>
+                                    <li>
+                                        <input type="text" class="suggest_devices txt-input medium" />
+                                        <small>Eg: Type 'Bold' for 'Blackberry Bold', 'N70' for 'Nokia N70'. You can use two keywords separated by space eg. 'Bold Curve' to search Blackberry Bold and Blackberry Curve both</small>
+                                        <input type="button" class="search txt-input small" value="Search" />
+                                    </li>
+                                </ul>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="operations" class="operations"><a href="#" class="select_none_all">Select None</a></div>
+                                <div  class = "phones">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="left" class="tree">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="left" class="tree">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="left" class="tree">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left"><?= $this->form_devices->submit ?></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!-- end device selection -->
+    </div>
+</div>

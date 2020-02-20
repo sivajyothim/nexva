@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/nexva_v1/!svn/ver/23215/v2/trunk/public/vendors/openid/google_auth/src
+END
+config.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/nexva_v1/!svn/ver/23215/v2/trunk/public/vendors/openid/google_auth/src/config.php
+END
+Google_Client.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/Google_Client.php
+END

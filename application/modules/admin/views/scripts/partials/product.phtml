@@ -1,0 +1,380 @@
+<?php
+$active = (null === $this->active) ? 1 : $this->active;
+?>
+<div class="title">
+    <h3 style="cursor: s-resize;">Create content</h3>
+    <div title="content_box" class="selector hide_div">
+        <a href="tab-basic" class="tab <?=($active == 1) ? 'active' : '' ?>">Basic Info</a>
+        <a href="tab-screenshots" class="tab <?=($active == 2) ? 'active' : '' ?>">Visuals</a>
+        <!-- <a href="tab-category" class="tab <?//=($active == 3) ? 'active' : '' ?>">Category</a> -->
+        <a href="tab-registration" class="tab <?=($active == 3) ? 'active' : '' ?>">Registration</a>
+        <!-- <a href="tab-language" class="tab">Language</a> -->
+        <!--<a class="tab active" href="tab-table-approve">Unapproved Product Queue</a>-->
+        <!--<a class="tab" href="tab-table">Approved Product List</a>-->
+    </div>
+</div>
+
+<div class="box">
+    <div class="txt">
+        <!--
+        Showing error/info messages
+        TODO : add UL to display statys/ error and info messages.
+        -->
+        <?php
+        if(is_array($this->flashMessenger->getMessages())):
+            foreach ($this->flashMessenger->getMessages() as $class => $value):
+                $key = key($value);
+                ?>
+        <div class="message <?=key($value)?>">
+                    <?=$this->partial('partials/itemlist.phtml', array("item" => $value[$key]));?>
+        </div>
+            <?php
+            endforeach;
+        endif;
+        ?>
+        <div id="content_box">
+            <!-- screenshots -->
+            <div class="tab-screenshots hide_div">
+                <form action="<?= $this->escape($this->form_visuals->getAction()) ?>" method="<?= $this->escape($this->form_visuals->getMethod()) ?>" enctype="<?= $this->escape($this->form_visuals->getAttrib('enctype')) ?>">
+                    <input type="hidden" value="" name="create"/>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td align="right" ></td>
+                                <td align="left" colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <?php
+                                $config = Zend_Registry::get('config');
+                                $visualPath = $config->nexva->application->cpbo->url;
+                                ?>
+                                <td valign="top" align="right">Thumbnail Picture : (256X256)</td>
+                                <td valign="top" align="left">
+                                    <?= $this->form_visuals->thumbnail ?>
+                                    <div class="thumbnail">
+                                        <? if(!empty ($this->thumbnail)): ?>
+                                            <?=$this->thumbnail($config->product->visuals->dirpath . '/' . $this->thumbnail, array('w'=>80, 'h'=>80));?>
+                                        <? endif; ?>
+                                        <!--
+                                        <img src="http://www.nexva.com/prod/productimg/AdvancedEnglishDictionaryThesaurusAndroid17Tw.net_100x100.jpg"/></img>
+                                        -->
+                                    </div>
+                                </td>
+                                <td width="20%" valign="top" align="left" rowspan="4">
+                                    <strong>Thumbnails :</strong><br>
+                                    Size should be 256w X 256h and it should be an exact square.<br>
+                                    gif, jpeg or png only <br><br>
+                                    <strong>Screenshots:</strong><br>
+                                    Size should be 320w X 480h.<br>
+                                    gif, jpeg or png only <br><br>
+                                    Your Thumbnail will be displayed to the left of your short description  on the content listings pages (category pages, search results, etc).  You can check your content's presentation by clicking "View" from your  main content Admin page.
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td valign="top" align="right">Screenshots : (320X480)</td>
+                                <td valign="top" align="left">
+                                    <?= $this->form_visuals->id ?>
+                                    <?= $this->form_visuals->review ?>
+                                    <?= $this->form_visuals->screenshots ?>
+                                    <div class="thumbnail">
+                                        <?php if(is_array($this->visualScreenshots)):
+                                            foreach($this->visualScreenshots as $id => $name) :?>
+                                                <?=$this->thumbnail($config->product->visuals->dirpath . '/' . $name, array('w'=>128));?>
+                                        <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/visualdelete/prod/<?=$this->productId?>/id/<?=$id?>" onclick="return confirm('Are you sure you want to delete?')">
+                                            <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+                                        </a>
+                                            <?php
+                                            endforeach;
+                                        endif;
+                                        ?>
+                                    </div>
+                                </td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+
+                                <td align="left" colspan="2">
+                                    <?= $this->form_visuals->submit ?>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <!-- device selection -->
+            <div class="tab-device-selection"  style="display: none">
+                <div class="display_count"></div>
+                <input type="hidden" class="display_count_hid" value="0" />
+                <form action="<?= $this->escape($this->form_devices->getAction()) ?>" class="device_selector" method="<?= $this->escape($this->form_devices->getMethod()) ?>">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td valign="top" align="left">
+                                    <?= $this->form_devices->id ?>
+                                    <?= $this->form_visuals->review ?>
+                                     <?= $this->form_devices->build ?>
+                                    <?php
+                                    $checked = $this->selected;
+                                    $savedAttributes = $this->deviceAttributes;
+                                    ?>
+                                    <input type="radio" class="radio_all" name="radio" <?=($checked == 'ALL_DEVICES')? 'checked' : '' ?> id="radio" value="ALL_DEVICES" /> <strong>Select All Devices</strong> (Currently supporting 5430 devices and increasing)
+                                    <small>Select this if your app support all devices (eg: a Web service)</small>
+                                    <ul class="radio_all_ul">
+                                        <li>
+                                            <input type="button" class="showall txt-input small" value="Show All Devices" />
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                    <input type="radio" name="radio" class="radio_attrib" id="radio" <?=($checked == 'BY_ATTRIBUTE')? 'checked' : '' ?> value="BY_ATTRIBUTE" /> <strong>Device with attributes</strong>
+                                    <small>You can select devices with attributes such as MP3 payback and Java MIDP 2.0 or over support.</small>
+                                    <ul class="radio_attrib_ul">
+                                        <li><br/><strong>Playback Attributes</strong></li>
+                                        <li>
+                                            <input type="checkbox" class="mp3_playback" <?=(is_array($savedAttributes) && array_key_exists(4, $savedAttributes))? 'checked' : '' ?> name="mp3_playback" value="mp3_playback" /> Support MP3 Playback
+                                        </li>
+                                        <li><br/><strong>Java Attributes</strong></li>
+                                        <li>
+                                            <input type="checkbox" class="java_midp_1"  <?=(is_array($savedAttributes) && array_key_exists(5, $savedAttributes))? 'checked' : '' ?>  value="java_midp_1" name="java_midp_1" /> Support MIDP 1.0
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="java_midp_2"  <?=(is_array($savedAttributes) && array_key_exists(6, $savedAttributes))? 'checked' : '' ?> value="java_midp_2" name="java_midp_2" /> Support MIDP 2.0 or Over
+                                        </li>
+                                        <li><br/><strong>Display Attributes</strong></li>
+                                        <li>
+                                            Minimum Resolution Width <input type="text" class="device_width txt-input small" name="width"  <?=(is_array($savedAttributes) && array_key_exists(7, $savedAttributes))? 'value = ' . $savedAttributes[7] : '' ?> />
+                                            <small>Leave this as a blank if you do not want to filter by width.</small>
+                                        </li>
+                                        <li>
+                                            Minimum Resolution Height <input type="text" class="device_height txt-input small" name="height" <?=(is_array($savedAttributes) && array_key_exists(8, $savedAttributes))? 'value = ' . $savedAttributes[8] : '' ?> />
+                                            <small>Leave this as a blank if you do not want to filter by height.</small>
+                                        </li>
+                                        <li><br/><strong>Navigation Attributes</strong></li>
+                                        <li>
+                                            Poninting Method <select class="device_pointing_method select-input small" name="navigation_method">
+                                                <option value="any">Any</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('touchscreen', $savedAttributes))? 'selected' : '' ?> value="touchscreen">Touchscreen</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('clickwheel', $savedAttributes))? 'selected' : '' ?> value="clickwheel">Clickwheel</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('joystick', $savedAttributes))? 'selected' : '' ?> value="joystick">Joystick</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('stylus', $savedAttributes))? 'selected' : '' ?> value="stylus">Stylus</option>
+                                                <option <?=(is_array($savedAttributes) && in_array('mouse', $savedAttributes))? 'selected' : '' ?> value="mouse">Mouse</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <input type="button" class="attributes txt-input small" value="Show Devices" />
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left">
+                                    <input type="radio" class="manually_select" name="radio" id="radio"  <?=($checked == 'CUSTOM')? 'checked' : '' ?> value="CUSTOM" /> <strong>Manually Select Devices</strong>
+                                    <small>Select devices manually.</small>
+                                    <ul class="radio_manual_ul">
+                                        <li><br/><strong>Type Device Keywords to Search :</strong></li>
+                                        <li>
+                                            <input type="text" class="suggest_devices txt-input medium" />
+                                        </li>
+                                    </ul>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <? if(isset ($checked)): ?>
+                                    <input type="button" value="Show Currently Selected Devices" class="show_selected txt-input small">
+                                        <? endif; ?>
+                                    <div  class="phones_selected" style="height:400px;overflow-x:auto;overflow-y:auto;">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="operations" class="operations"><a href="#" class="select_none_all">Select None</a></div>
+                                    <div  class = "phones">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="left" class="tree">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left"><?= $this->form_devices->submit ?></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <!-- Language -->
+            <div class="tab-language" style="display: none">
+                <table width="100%" cellspacing="1" cellpadding="1" border="0" class="br1">
+                    <tbody><tr><td align="center" class="text-11-normal-orange" colspan="5"></td></tr>
+                        <tr>
+                            <td align="center" class="text-8-normal-black" colspan="5">Add your content details in other languages of nexva site. </td>
+                        </tr>
+                        <tr>
+                            <td align="left" class="text-8-normal-black" colspan="5"><a href="javascript:showContentLanguageAdd('LangAdd','A','2601')"><span class="text-8-normal-darkblue">Add language </span></a></td>
+                        </tr>
+                        <tr>
+                            <td width="9%" bgcolor="#feefb1" align="center" class="text-8-normal-black"><strong>Language</strong></td>
+                            <td width="31%" bgcolor="#feefb1" align="center" class="text-8-normal-black"><strong>Content Name </strong></td>
+                            <td width="40%" bgcolor="#feefb1" align="center" class="text-8-normal-black"><strong>Brief description </strong></td>
+                            <td width="20%" bgcolor="#feefb1" align="center" class="text-8-normal-black">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#feefb1" align="center" class="text-8-normal-black">English</td>
+                            <td valign="top" bgcolor="#feefb1" align="center" class="text-8-normal-black">Advanced English Dictionary &amp; Thesaurus (Android)</td>
+                            <td valign="top" bgcolor="#feefb1" align="left" class="text-8-normal-black">WordNet&reg; is a large lexical database of English with up to 140,000 entries and more than 1.4 million words, developed by the Cognitive Science Laboratory at Princeton University.</td>
+                            <td valign="top" bgcolor="#feefb1" align="left" class="text-8-normal-black">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td valign="top" bgcolor="#ffffff" align="center" class="text-8-normal-black" colspan="4">
+                                <div align="left" id="txtLangAdd"></div>
+                            </td>
+                        </tr>
+                        <tr><td valign="top" align="center" class="text-8-normal-black" colspan="5"><input type="button" value="Save and Continue" class="txt-input small" name="Submit"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- prodcut registration details -->
+            <div class="tab-registration hide_div">
+                <?=$this->form_registration?>
+            </div>
+
+            <!-- Category -->
+            <div class="tab-category hide_div">
+
+                <form action="<?=$this->escape($this->form_category->getAction()) ?>" method="<?= $this->escape($this->form_category->getMethod()) ?>">
+                    <?=$this->form_category->id ?>
+                    <strong>Please select only one sub category which is most suitable for your content.</strong>
+                    <?= $this->form_visuals->review ?>
+
+                    <ul id="checkchildren" class="tree">
+                        <?php
+                        $categories = null;
+                        $categories = $this->categories;
+                        $parent = $categories[0];
+                        ?>
+                        <?php foreach ($parent as $id => $name): ?>
+                        <li>
+                                <?php
+                                $selectedCategory = $this->categorySelected;
+                                $parent = new stdClass();
+                                $parent->id = $id;
+                                $parent->name = '<b>' . $name . '</b>' ;
+                                $parent->class = 'parent';
+                                $parent->checked = '';
+                                if(is_array($selectedCategory))
+                                    $parent->checked = (array_key_exists($id, $selectedCategory)) ? 'checked' : '';
+                                ?>
+                                <?=$this->partial('partials/checkbox.phtml', array("checkbox" => $parent));?>
+                            <ul>
+                                    <?php foreach ($categories[$id] as $id => $name): ?>
+                                <li>
+                                            <?php
+                                            $child = new stdClass();
+                                            $child->id = $id;
+                                            $child->name = $name;
+                                            $child->class = 'child';
+                                            $child->checked = '';
+                                            if(is_array($selectedCategory))
+                                                $child->checked = (array_key_exists($id, $selectedCategory)) ? 'checked' : '';
+                                            ?>
+                                            <?=$this->partial('partials/checkbox.phtml', array("checkbox" => $child));?>
+                                </li>
+                                    <?php endforeach; ?>
+                            </ul>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <ul>
+                        <li>
+                            <?= $this->form_category->submit ?>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+
+            <div class="tab-files" style="display: none">
+                <form action="<?= $this->escape($this->form_files->getAction()) ?>" method="<?= $this->escape($this->form_files->getMethod()) ?>" enctype="<?= $this->escape($this->form_files->getAttrib('enctype')) ?>">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td align="right"><strong>Files/URL</strong>  </td>
+                                <td align="left" colspan="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td valign="top" align="right">Content : (Files/URL)</td>
+                                <td width="31%" valign="top" align="left">
+                                    <!-- Upload Button to select files to upload-->
+                                    <!-- <div id="upload_button" >Upload File</div><span id="status_message" ></span> -->
+                                    <!--List Files-->
+                                    <!-- <ul id="files_list" ></ul> -->
+                                    <?= $this->form_files->id ?>
+                                    <?= $this->form_visuals->review ?>
+                                    <label>Build Name :</label>
+                                    <input name="build_name" id="build_name" type="text" class="txt-input medium"/>
+                                    <small>Eg: Java, MIDP 1.0</small>
+                                    <?=$this->form_files->file ?>
+                                    <!--
+                                    <input type="file" name="files[]" class="txt-input medium"/>
+                                    <input type="file" name="files[]" class="txt-input medium"/>
+                                    <input type="file" name="files[]" class="txt-input medium"/>
+                                    -->
+                                    <ul>
+                                        <? //if(is_array($this->builds)):
+                                            foreach($this->builds as $build): ?>
+                                        <li>
+                                                    <?=$build->name?>
+                                            <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/builddelete/prod/<?=$this->productId?>/id/<?=$build->id?>" onclick="return confirm('Are you sure you want to delete?')">
+                                                <img title="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" alt="Delete">
+                                            </a>
+                                        </li>
+                                            <? endforeach;
+                                        //endif;
+                                        ?>
+                                    </ul>
+                                </td>
+                                <td width="36%" valign="top" align="left" rowspan="4">Jar or Jad<br>
+                                    2MB max file size
+                                    <strong>Important Note:</strong>
+                                    Instructions of upload. TODO : Add instruction by file types.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">&nbsp;</td>
+                                <td valign="top" align="left" colspan="2">
+                                    <?= $this->form_files->submit ?>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+            <!-- Basic product details -->
+            <div class="tab-basic hide_div">
+                <?php /*Zend_Debug::dump($this->form_basic);die();*/?>
+                <?=$this->form_basic?>
+            </div>
+        </div>
+    </div>
+</div>

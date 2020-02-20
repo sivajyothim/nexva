@@ -1,0 +1,183 @@
+<?php //$currency = $this->ChangeCurrency($this->chap_id);?>
+<div data-theme="d">
+<h2 class="font-size-16">
+<?php 
+if($this->partnerId == 21134) :
+    echo $this->translate('What\'s New');
+else:
+    echo $this->translate('Staff Picks');
+endif;
+
+    ?>
+</h2>
+    <div id="product-carousel" class="owl-carousel">
+
+        <?php
+        $x = 0;
+        foreach($this->featuredApps as $app) :
+            $x++;
+        $chapPlatformType = $this->chapInfo->WHITELABLE_PLATEFORM;
+            ?>
+
+        <div class="item">
+
+            <ul data-role="listview" data-inset="true">
+                <li>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">
+                            <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external">
+                                <img class="ui-li-thumb-slider" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" />
+                            </a>
+                        </div>
+                        <div class="ui-block-b"><h6 style="white-space: normal"><?= $this->trim($app['brief_description'],80); ?></h6></div>
+                    </div>
+                    <div class="clear-both-cls"></div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <h2>
+                                <a href="<?php echo PROJECT_BASEPATH;?>app/detail/id/<?=$app['product_id']?>" rel="external"><?= $app['name'] ?></a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a"><h3><?= $this->trim($app['vendor'],18) ?></h3></div>
+                    </div>
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" <?php if($this->partnerId == 23045) { echo 'style="direction:rtl !important;"'; } ?>>
+                            <?= $this->partial('partials/rating.phtml', array('product_id'=>$app['product_id'], 'avgRating'=>$app['avg_rating'], 'totalRatings'=>$app['total_ratings'], 'productRated'=>$app['product_rated'], 'page' => 'home')); ?>
+                        </div>
+                        <div class="ui-block-b">
+
+                            <?php
+                      $hrefUrl = '';
+                      if($this->airtelSriLanka || $this->qelasy || $this->mtnIran || $this->ycoins){
+                          
+                          if($app['price'] > 0){ 
+                              if($this->airtelSriLanka || $this->mtnIran){
+                                  $buyActionName = 'buy';
+                              }
+                              if($this->qelasy || $this->ycoins){
+                                  $buyActionName = 'buy-app-by-redirection-pg';
+                              }
+                          }
+                          else{
+                              $buyActionName = 'download';
+                          }
+
+                          //If user not logged in to MTNI redirects to login
+                          if($this->mtnIran && !Zend_Auth::getInstance()->hasIdentity()){
+                            $hrefUrl = '/user/login';
+                          }
+                          else{
+                            $hrefUrl = "/app/".$buyActionName."/id/".$app['product_id']."/build/".$app['build_id'];
+                          }
+                          
+     
+                      }
+                      else{
+                        
+                        if($app['price'] > 0 && !Zend_Auth::getInstance()->hasIdentity() && !$this->tempPassword){
+                            $hrefUrl = '/user/login';
+                        }
+                        elseif($app['price'] > 0 && !Zend_Auth::getInstance()->hasIdentity() && $this->tempPassword){
+                            $hrefUrl = '/user/register';
+                        }
+                        else{
+                            if($this->partnerId == '80184' && $app['price'] > 0){    // For mtn uganda there are more than one payment option
+                                $hrefUrl = '#popup-payment-selection-'.$x;
+                            } else {
+                                $hrefUrl = '#popup-app-selection-'.$x;
+                            }
+                        }
+                      }
+                      
+                      $dataAjax = '';
+                        if($this->airtelSriLanka || $this->qelasy || $this->mtnIran || $this->ycoins){
+                            $dataAjax = 'data-ajax="false"';
+                        }
+                        elseif(($this->product['cost']) > 0  && !Zend_Auth::getInstance()->hasIdentity()){
+                            $dataAjax = 'data-ajax="false"';
+                        }
+                    ?>
+                            
+                            <? if($app['price'] > 0) : ?>
+
+                                <?php if($this->devicePlatform == 'Android' && Zend_Auth::getInstance()->hasIdentity() && ($chapPlatformType=='ANDROID_PLATFORM_CHAP_ONLY' || $chapPlatformType=='ANDROID_AND_MULTIPLE_PLATFORM_CHAP')) : ?>
+                                    <a <?= $dataAjax ?>  href="<?= $hrefUrl ?>" data-rel="popup" data-position-to="window" data-role="button" data-icon="custom" id="downloadheadericon" data-mini="true" data-iconpos="left" data-theme="c">
+                                        <?echo $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($app['price']*$this->currencyDetails["rate"])),2, '.', ','); ?>
+                                    </a>
+                                <?php else: ?>
+                                    <a <?= $dataAjax ?>  href="<?= !(Zend_Auth::getInstance()->hasIdentity()) ? '/user/login' : '/app/buy/id/'.$app['product_id'].'/build/'.$app['build_id']?>" rel="external" data-role="button" data-icon="custom" id="priceicon" data-mini="true" data-iconpos="left" data-theme="c"><?echo $this->currencyDetails["symbol_web"]. " ".number_format($this->PricePoints(ceil($app['price']*$this->currencyDetails["rate"])),2, '.', ','); ?></a>
+                                <?php endif; ?>
+                                
+
+                            <? else : ?>
+                                <?php if($this->devicePlatform == 'Android' && (Zend_Auth::getInstance()->hasIdentity() || $this->allowFreeDownload) && ($chapPlatformType=='ANDROID_PLATFORM_CHAP_ONLY' || $chapPlatformType=='ANDROID_AND_MULTIPLE_PLATFORM_CHAP')) : ?>
+                                    <a <?= $dataAjax ?>  href="<?= $hrefUrl ?>" data-rel="popup" data-position-to="window" data-role="button" data-icon="custom" id="downloadheadericon" data-mini="true" data-iconpos="left" data-theme="c">
+                                        <?php echo $this->translate("Download");?>
+                                    </a>
+                                <?php else: ?>
+                                    <?php //if($_SERVER['REMOTE_ADDR'] == '220.247.236.99') { echo Zend_Auth::getInstance()->hasIdentity(); } ?>
+                                    <a <?= $dataAjax ?> href="<?= (!Zend_Auth::getInstance()->hasIdentity() && !$this->headerEnrichment) ? '/user/login' : '/app/download/id/'.$app['product_id'].'/build/'.$app['build_id']?>" rel="external" data-role="button" data-icon="custom" id="downloadheadericon" data-mini="true" data-iconpos="left" data-theme="c"><?php echo $this->translate("Download");?></a>
+                                <?php endif; ?>
+
+                            <? endif; ?>
+<?php //if($_SERVER['REMOTE_ADDR'] == '220.247.236.99') { echo $this->headerEnrichment; } ?>
+                        </div>
+                    </div>
+                    <?= (isset($app['updates_available']) &&($app['updates_available'] == 1)) ? '<span class="update-available">!</span>' : ''; ?>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <? endforeach; ?>
+
+    </div>    </div>
+
+
+<?php
+    $x = 0;
+    foreach($this->featuredApps as $app) :
+    $x++;
+?> 
+
+        <!--Popup if the if the user using android device to select the app or appstore app-->
+        <div data-role="popup" id="popup-app-selection-<?= $x ?>" data-overlay-theme="a" class="ui-corner-all">
+             <?php if($this->partnerId == 283006 ){ ?>
+            <ul data-role="listview">
+                <li><p style="word-break: break-all !important;white-space: pre-wrap !important;"><?php echo $this->translate("To download this app you need to install MTS Appstore on your Android device and sign in.")?>  </p>
+                </li>
+                <li>
+                    <a data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->appStoreAppDetails['cost']) > 0 ) ? $buyActionName : 'download' ?>/id/<?= $this->appStoreAppDetails['id'] ?>/build/<?= $this->appStoreAppDetails['supported_platforms'][0]->build_id ?>"><img class="ui-li-thumb-inner-small" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->appStoreAppDetails['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /><?= $this->appStoreAppDetails['name']; ?>
+                    </a>
+                </li>
+            </ul>
+             <?php }else { ?>
+                        <ul data-role="listview">
+                  <li><!--Creating build URL-->
+                        <?php 
+                            if(Zend_Auth::getInstance()->hasIdentity() || $this->allowFreeDownload ) :
+                        ?>
+                            <a data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($app['price']) > 0 ) ? 'buy' : 'download'?>/id/<?= $app['product_id'] ?>/build/<?= $app['build_id'] ?>">
+                                <img src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".basename($app['thumbnail'])."&w=80&h=80&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /><?= $app['name']; ?>
+                            </a>
+                        <?php 
+                            endif;
+                        ?>
+                  </li>
+                               <?php if($this->partnerId != 585480 and $this->partnerId !=  585474) :?>
+                            <?php if($this->appStoreAppDetails['id'] != $app['product_id']  ): ?>
+          <li><a data-ajax="false" href="<?php echo PROJECT_BASEPATH;?>app/<?= (($this->appStoreAppDetails['cost']) > 0 ) ? $buyActionName : 'download'?>/id/<?=$this->appStoreAppDetails['id']?>/build/<?=$this->appStoreAppDetails['supported_platforms'][0]->build_id ?>"><img class="ui-li-thumb-inner-small" src="<?= $this->productImages()."/vendors/phpThumb/phpThumb.php?src=/product_visuals/".APPLICATION_ENV."/".$this->appStoreAppDetails['thumb_name']."&w=320&h=480%&aoe=0&fltr[]=ric|0|0&q=100&f=png" ?>" /><?= $this->appStoreAppDetails['name']; ?>
+          </a></li>
+                    <?php endif; ?>
+          <?php endif; ?>
+               </ul>
+             <?php } ?>
+            
+        </div>
+
+<?php 
+    endforeach; 
+?>

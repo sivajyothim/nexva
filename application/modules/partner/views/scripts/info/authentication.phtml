@@ -1,0 +1,98 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 1/6/14
+ * Time: 4:38 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#resendVerify").click(function(event){
+            //alert('kjdsbglefg');
+            event.preventDefault();
+            var resend = true;
+            $.post("/info/resend-verification",{resend:resend},function(data) {
+                //window.location.href = '/info/forgot-verification';
+                //alert('nooooooooooooooo');
+                //alert(data);
+            });
+        });
+    });
+</script>
+<div class="ui-grid-solo">
+    <?php
+    if($this->flashMessages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-b ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+                <?php foreach($this->flashMessages as $message)
+                    {
+                        echo $this->escape($message);
+                    };?>
+           </span></span></div>
+    <?php }
+    if($this->Messages)
+    { ?>
+        <div class="ui-submit ui-btn ui-btn-up-c ui-shadow ui-btn-corner-all"><span class="ui-btn-inner"><span class="ui-btn-text" style="white-space: normal">
+        <?php foreach($this->Messages as $key=>$value)
+                    {
+                        if(is_array($value))
+                        {
+                            foreach($value as $one=>$two)
+                            {
+                                echo $this->translate($two);
+                            }
+                            echo '<br/>';
+                        }
+                        else
+                        {
+                            echo $this->translate($value),'<br/>';
+                        }
+                    } ?>
+       </span></span></div>
+    <?php } ?>
+</div>
+
+<div id="main_right_pane">
+    <div class="inr_tabs_wrapper">
+        <div class="inr_tab_bar"><span class="inr_brdcrtxt_pur">+</span>
+            <span class="inr_brdcrtxt_grey"><?php echo $this->translate("Authenticate");?></span>
+        </div>
+        <div class="box_content_top"></div>
+        <div class="box_content_middle">
+            <div class="inrtab_selection_top inner_content">
+                <div id="form_wrapper">
+                    <form action="/info/authentication" method="post" id="authenticateform" name="authenticateform">
+                        <div align="right" class="required_wrapper">
+                            <span class="required_txt_style"><?php echo $this->translate("Required Information");?> (</span><span class="form_font_red">*</span><span class="required_txt_style">)</span>
+                        </div>
+                        <br /><br />
+                        <div class="form_col3_class1">
+                            <div class="form_col3_class1_left">
+                                <span class="form_font_tel"><?php echo $this->translate("Verification Code");?></span>
+                                <span class="form_font_red">*</span>
+                            </div>
+                            <div class="form_col3_class1_right">
+                                <input type="text" id="verificationCode" name="verificationCode" class="input_smallresult_form" style="width:90%" />
+                                <br />
+                                <span id="verificationCodeInfo"></span>
+                            </div>
+                        </div>
+                        <!--<fieldset data-role="fieldcontain" style="text-align:center;">
+                            <label for="activation_code"><?php /*echo $this->translate("Verification Code");*/?> :</label>
+                            <input type="text" name="activation_code" id="activation_code" class="required" width="200px">
+                        </fieldset>
+                        <input type="submit" value="<?php /*echo $this->translate("Verify")*/?>">-->
+                        <div align="right" class="submit_btn_wrapper">
+                            <input type="submit" id="verify" name="verify" value="<?php echo $this->translate("Verify");?>" class="partner_btn" />
+                            <input type="submit" id="resendVerify" name="resendVerify" value="<?php echo $this->translate("Resend Verification Code");?>" class="partner_btn" style="width:200px;" />
+                        </div>
+                    </form>
+                    <!--<input type="submit" id="resendVerify" name="resendVerify" value="<?php /*echo $this->translate("Resend Verification Code");*/?>" class="partner_btn" style="width:200px;" />-->
+                    <!--<button id="resendVerify"><?php /*echo $this->translate("Resend Verification Code");*/?></button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

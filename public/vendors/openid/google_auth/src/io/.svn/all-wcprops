@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io
+END
+Google_IO.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io/Google_IO.php
+END
+Google_HttpRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io/Google_HttpRequest.php
+END
+Google_CurlIO.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io/Google_CurlIO.php
+END
+Google_REST.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io/Google_REST.php
+END
+Google_CacheParser.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io/Google_CacheParser.php
+END
+cacerts.pem
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/repos/nexva_v1/!svn/ver/22996/v2/trunk/public/vendors/openid/google_auth/src/io/cacerts.pem
+END

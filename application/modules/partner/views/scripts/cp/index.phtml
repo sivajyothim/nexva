@@ -1,0 +1,21 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 1/9/14
+ * Time: 3:05 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<div id="main_right_pane">
+
+    <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/cp_pagination.phtml', array('baseUrl' => $this->baseUrl, 'cpId' => $this->cpid)); ?>
+
+    <?php echo $this->partial('partials/product.phtml', array('products' => $this->products, 'partnerId' => $this->chapId, 'appStoreAppid' => $this->appStoreAppid, 'nexLinkerUrl' => $this->nexLinkerUrl, 'loggedUser' => $this->loggedUser, 'chap_id' => $this->chapId)) ; ?>
+
+    <div style="clear: both;"></div>
+
+    <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/cp_pagination.phtml', array('baseUrl' => $this->baseUrl, 'cpId' => $this->cpid)); ?>
+
+</div>

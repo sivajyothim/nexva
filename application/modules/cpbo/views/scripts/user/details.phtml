@@ -1,0 +1,317 @@
+<?php $this->headScript()->captureStart();?>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+<?php $this->headScript()->captureEnd();?>
+<style>
+<!--
+<?php $this->headStyle()->captureStart() ?>
+#content .ui-tabs .ui-tabs-nav.ui-widget-header {
+    background:none;
+    background-color: #000;
+}   
+
+#content .ui-tabs .ui-tabs-nav li {
+    float:right;
+    border: none;
+} 
+
+#content .ui-tabs .ui-tabs-nav li a {
+    color : #fff;
+    background: none;
+    background-color: #000;
+}
+
+#content .ui-tabs .ui-tabs-nav li a:hover,  #content .ui-tabs .ui-tabs-nav li.ui-state-active a {
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+   color : #000;
+   background-color: #fff;
+}
+
+
+<?php $this->headStyle()->captureEnd() ?>
+-->
+</style>
+
+<script>
+
+$(document).ready(function(){
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    $('.message').delay(2000).fadeOut(500);
+});
+</script>
+<div class="box">
+ <div class="txt">
+    <?php if('' != $this->update_res){ ?>
+     <div class="message info">
+        <p><?php echo $this->translate($this->update_res); ?></p>
+        </div>
+    <?php } ?>
+    <div id="content_box">
+        <div id='tabs' class="ui-tabs">
+             <ul class = "ui-tabs-nav" >
+                <li><a href="#tabs-5"><?php echo $this->translate("Payout options");?></a></li> 
+                <li><a href="#tabs-4"><?php echo $this->translate("Support details");?></a></li> 
+                <li><a href="#tabs-3"><?php echo $this->translate("Address");?></a></li>
+                <li><a href="#tabs-2"><?php echo $this->translate("Company information");?></a></li>
+                <li><a href="#account-settings"><?php echo $this->translate("Account settings");?></a></li>
+
+            </ul>
+            <p>
+                <?= $this->render('/partials/message.phtml'); ?>
+            </p>
+                           
+                <div id="tabs-5" class='ui-tabs-container ui-tabs-hide'>
+                    <form method="post" id="user_register" name="user_register" action="">
+                        <fieldset>        
+                            <p>
+                                <label><?php echo $this->translate("Paypal address");?></label>
+                                <input name="paypal_address" id="paypal_address" type="text" class="txt-input small" value="<?php echo $this->user_meta->PAYPAL_ADDRESS; ?>" />
+                                <small><?php echo $this->translate("Require a different payout solution? We might be able to help - contact us on");?> payments@nexva.com</small>
+                            </p>
+                            <span style="float:left;">
+                                <input type="hidden"  name="userid" id="userid" value="<?=Zend_Auth::getInstance()->getIdentity()->id; ?>" />
+                                <input type="hidden" class="button" name="Save" id="Save" value="Save payout options" />
+                                <input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Save");?>" />
+                            </span>
+                        </fieldset>
+                    </form>
+                </div>
+               
+                <div id="tabs-4" class='ui-tabs-container ui-tabs-hide'>
+                    <form method="post" id="user_register" name="user_register" action="">
+                        <fieldset>
+                            <p>
+                                <label><?php echo $this->translate("Support email");?></label>
+                                <input name="support_email" id="support_email" type="text" class="txt-input small " value="<?php echo $this->user_meta->SUPPORT_EMAIL; ?>" />
+                            </p>
+
+                            <p>
+                                <label><?php echo $this->translate("Support text");?></label>
+                                <textarea id="support_text" name="support_text" class="textarea-input small"  rows="4"><?php echo $this->user_meta->SUPPORT_TEXT; ?></textarea>
+                                <small><?php echo $this->translate("This text will be attached to the bottom of the email when receipts are sent to users who purchase your content.");?></small>
+                            </p>
+                            <span style="float:left;">
+                                <input type="hidden"  name="userid" id="userid" value="<?=Zend_Auth::getInstance()->getIdentity()->id; ?>" />
+                                <input type="hidden" class="button" name="Save" id="Save" value="Save support details" />
+                                <input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Save");?>" />
+                            </span>
+
+                        </fieldset>
+                    </form>
+                </div>
+                                      
+                <div id="tabs-3" class='ui-tabs-container ui-tabs-hide'>
+                    <form method="post" id="user_register" name="user_register" action="">
+
+                    <fieldset>
+                        <p>
+                            <label><?php echo $this->translate("Address");?></label>
+                            <input name="address" id="address" type="text" class="txt-input small" value="<?php echo $this->user_meta->ADDRESS; ?>"/>
+                        </p>
+
+                        <p>
+                            <label><?php echo $this->translate("City");?></label>
+                            <input name="city" id="city" type="text" class="txt-input small" value="<?php echo $this->user_meta->CITY; ?>"/>
+                        </p>
+
+                        <p>
+                            <label><?php echo $this->translate("Province/State");?></label>
+                            <input name="province" id="province" type="text" class="txt-input small" value="<?php echo $this->user_meta->PROVINCE; ?>"/>
+                        </p>
+
+                        <p>
+                            <label><?php echo $this->translate("ZIP/Postal Code");?></label>
+                            <input name="zip" id="zip" type="text" class="txt-input" value="<?php echo $this->user_meta->ZIP; ?>" style="length:100px;"/>
+                        </p>
+                        <p>
+                            <label><?php echo $this->translate("Country");?> </label>
+                            <?php
+                            $countriesList = $this->countries;
+
+                            $country = new Zend_Form_Element_Select('country');
+
+                            echo $country ->setOptions(array("value" => $this->user_meta->COUNTRY))
+                                    ->setAttrib('class', 'select-input small')->setAttrib('style', 'width:200px')->addMultiOptions( $countriesList);
+
+                            ?>
+                        </p>
+                                                
+                        <p>
+                            <label><?php echo $this->translate("Phone");?></label>
+                            <input name="telephone" id="telephone" type="text" class="txt-input small" value="<?php echo $this->user_meta->TELEPHONE; ?>" />
+                        </p>
+
+                        <p>
+                            <label><?php echo $this->translate("Fax");?></label>
+                            <input name="fax" id="fax" type="text" class="txt-input small" value="<?php echo $this->user_meta->FAX; ?>"/>
+                        </p>
+    
+                        <p>
+                            <label><?php echo $this->translate("URL");?></label>
+                            <input name="web" id="web" type="text" class="txt-input small" value="<?php echo $this->user_meta->WEB; ?>"/>
+                            <small> e.g. http://www.nexva.com </small>
+                        </p>
+                        
+                        <p>
+                            <label> <img alt="" src="/web/nexpage/default/images/icon-skype.png"> <?php echo $this->translate("Skype ID");?></label>
+                            <input name="skype" id="skype" type="text" class="txt-input small" value="<?php echo $this->user_meta->SKYPE; ?>"/>
+                        </p>
+                        
+                        <p>
+                            <label> <img alt="" src="/web/nexpage/default/images/facebook.png"> <?php echo $this->translate("Facebook URL");?></label>
+                            <input name="facebook" id="facebook" type="text" class="txt-input small" value="<?php echo $this->user_meta->FACEBOOK; ?>"/>
+                            <small> e.g. http://www.facebook.com/pages/neXva-Inc/189510615951</small>
+                        </p>
+                        
+                        <p>
+                            <label> <img alt="" src="/web/nexpage/default/images/twitter.png"> <?php echo $this->translate("Twitter ID");?></label>
+                            <input name="twitter" id="twitter" type="text" class="txt-input small" value="<?php echo $this->user_meta->TWITTER; ?>"/>
+                            <small> e.g. nexva </small>
+                        </p>
+                        
+                        <p> 
+                            <label> <img alt="" src="/web/nexpage/default/images/linkedin.png"> <?php echo $this->translate("Linkedin  URL");?></label>
+                            <input name="linkedin" id="linkedin" type="text" class="txt-input small" value="<?php echo $this->user_meta->LINKEDIN; ?>"/>
+                            <small> e.g. http://www.linkedin.com/companies/940580/neXva?trk=pp_icon</small>
+                        </p>
+                                                                       
+                        <p>
+                            <label> <?php echo $this->translate("Google Maps location URL");?> </label>
+                            <textarea rows="4" class="textarea-input small" name="google_map_url" id="google_map_url"><?php echo $this->user_meta->GOOGLE_MAP_URL; ?></textarea>
+                             <small> e.g. http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=eiffel+tower&amp;sll=37.0625,-95.677068&amp;sspn=40.59616,93.076172&amp;ie=UTF8&amp;hq=Tour+Eiffel&amp;hnear=Tour+Eiffel,+Parc+du+Champ+de+Mars,+75007+Paris,+Ile-de-France,+France&amp;t=h&amp;ll=48.858844,2.294351&amp;spn=0.017619,0.038418&amp;output=embed </small>
+                        </p>
+
+                        
+                        <span style="float:left;">
+                            <input type="hidden"  name="userid" id="userid" value="<?=Zend_Auth::getInstance()->getIdentity()->id; ?>" />
+                            <input type="hidden" class="button" name="Save" id="Save" value="Save residence details" />
+                            <input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Save");?>" />
+                        </span>
+                    </fieldset>
+                    </form>
+                </div>
+                                       
+                 <!-- tab Company details -->
+                 <div id="tabs-2" class='ui-tabs-container ui-tabs-hide'>
+                  <!-- Start Form -->
+                  <form method="post" id="user_register" name="user_register" action="" enctype="multipart/form-data">
+                        <fieldset>
+                     <?//= $this->render('/partials/message.phtml'); ?>
+                     <p>
+                        <label><?php echo $this->translate("Company name");?></label>
+                        <input name="company_name" id="company_name" type="text" class="txt-input small validate(required(Company name field))" value="<?php echo $this->user_meta->COMPANY_NAME; ?>"/>
+                    </p>
+                    <p>
+                        <label><?php echo $this->translate("First name");?></label>
+                        <input name="first_name" id="first_name" type="text" class="txt-input small validate(required(First name field))" value="<?php echo $this->user_meta->FIRST_NAME; ?>"/>
+                    </p>
+                    <p>
+                        <label><?php echo $this->translate("Last name");?></label>
+                        <input name="last_name" id="last_name" type="text" class="txt-input small validate(required(Last name field))" value="<?php echo $this->user_meta->LAST_NAME; ?>"/>
+                    </p>
+                   
+
+                    <p>
+                        <label><?php echo $this->translate("Department");?></label>
+                        <input name="department" id="department" type="text" class="txt-input small" value="<?php echo $this->user_meta->DEPARTMENT; ?>"/>
+                    </p>
+
+                    <p>
+                        <label><?php echo $this->translate("Designation");?></label>
+                        <input name="designation" id="designation" type="text" class="txt-input small" value="<?php echo $this->user_meta->DESIGNATION; ?>"/>
+                    </p>
+                    
+                    
+                    <p>
+                       <label><?php echo $this->translate("Brief description of your company");?> </label>
+                       <textarea rows="4" class="textarea-input small" name="company_description" id="company_description"><?php echo $this->user_meta->COMPANY_DESCRIPTION; ?></textarea>
+                    </p>
+                        
+                        
+
+                 
+                    <p>
+                        <label><?php echo $this->translate("Company Logo");?> </label>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="2097152" id="MAX_FILE_SIZE">
+                        <input type="file" name="logo" id="logo" class="txt-input medium">
+                      <br /> <br /> <span style="font-size: 10px;">[ <?php echo $this->translate("Logo image should be an exact square. gif, jpeg or png only");?> ] </span>
+                    </p>    
+                    <? if($this->user_meta->LOGO): ?>
+                    <p>
+                                                           
+                    <img alt="" src="<?='/cp/static/logos/'.$this->user_meta->LOGO?>">  
+                          <a onclick="return confirm('Are you sure you want to delete?')" href="/user/logodelete/id/<?=Zend_Auth::getInstance()->getIdentity()->id; ?>">
+                              <img alt="Delete" src="<?php echo ADMIN_PROJECT_BASEPATH;?>assets/img/global/icons/delete.png" title="<?php echo $this->translate("Delete");?>">
+                          </a>                                            
+                    </p>
+                     <? endif; ?>
+                        <span style="float:left;">
+                        <input type="hidden"  name="userid" id="userid" value="<?=Zend_Auth::getInstance()->getIdentity()->id; ?>" />
+                        <input type="hidden"  name="logo" id="logo" value="<?=$this->user_meta->LOGO?>" />
+
+                        <input type="hidden" class="button" name="Save" id="Save" value="Save name and company details" />
+                        <input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Save");?>" />
+                        </span>
+                         </fieldset>  
+                  </form>
+                  
+                </div>
+
+            <div id="account-settings" class='ui-tabs-container ui-tabs-hide'>
+
+                <form method="POST" action="/user/reset-Account-Id" name="frm_nexva_id" id="frm_nexva_id"
+                      onsubmit="return confirm(<?php echo $this->translate("Are you sure you want to reset your account ID?");?>);">
+                    <fieldset>
+                        <p>
+                            <label>neXva <?php echo $this->translate("Account ID");?></label>
+                            <span><br /><?=$this->user_meta->ACCOUNT_ID?></span>
+                            <input type="submit" value="<?php echo $this->translate("Reset Account ID");?>" class="button" >
+                        </p>
+                    </fieldset>
+
+                </form>
+
+                <form method="POST" action="" name="user_login" id="user_login">
+                            <fieldset>
+                                <p>
+                                    <label><?php echo $this->translate("E-mail");?></label>
+                                    <input autocomplete="off" name="email" id="email" type="text" readonly="true" class="txt-input small validate(required(Email field),email)" value="<?php echo $this->user['email']; ?>"/>
+                                </p>
+
+                                <p>
+                                    <label><?php echo $this->translate("password");?></label>
+                                    <input autocomplete="off" name="password" id="password"   type="password" class="txt-input small " value=""/>
+                                </p>
+
+
+                                <p>
+                                    <label><?php echo $this->translate("Retype password");?></label>
+                                    <input autocomplete="off" name="retypepassword" id="retypepassword" type="password" class="txt-input small" value="" />
+                                </p>
+
+
+                                <?if($this->captcha != ''): ?>
+                                <p>
+                                    
+                                   <img src="/captcha/<?=$this->captcha?>.png" alt="Please refresh this page if you don't see a valid secirity code" />
+                                  <br />
+                                  <label><?php echo $this->translate("Enter the security key you see inside the image");?></label>
+                                  <input autocomplete="off" name="captchaval" id="captchaval" type="text" class="txt-input small validate(required(Security code))" value="" style="width:200px;"/>
+                                   <input type="hidden" name="captcha_id" value="<?=$this->captcha?>" />
+                                </p>
+                                <?endif; ?>
+
+                                <span style="float:left;">
+                                      <input type="hidden" class="button" name="Save" id="Save" value="Save login details" />
+                                      <input type="submit" class="button" name="submit" id="submit" value="<?php echo $this->translate("Save");?>" />
+                                </span>
+                            </fieldset>
+                        </form>
+                  
+                </div>                               
+        </div> 
+
+                    </div>
+                </div>
+            </div>

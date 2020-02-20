@@ -1,0 +1,84 @@
+<?php $this->headLink()->appendStylesheet($this->Cdn('site_assets').'/cp/assets/css/analytics.css'); ?>
+<?php $this->headLink()->appendStylesheet( PROJECT_BASEPATH.'admin/assets/css/smoothness/jquery-ui.css'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/excanvas.min.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.pie.js'); ?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/jquery.flot.stack.js'); ?>
+
+<?php $this->headScript()->captureStart();?>
+    var __DATA_DATE         = eval(<?php echo $this->appViewDateJson?>); //app views by date
+    var __DATA_DEVICE       = eval(<?php echo $this->appVisitsDeviceJson?>); //most popular products
+    var __DATA_APP          = eval(<?php echo $this->appViewJson?>);  // most popular apps
+    var __DATA_DOWNLOADS    = eval(<?php echo $this->appDownloadDateJson;?>); //downloads
+    var __DATA_PLATFORMS    = eval(<?php echo $this->appDownloadBuildJson;?>); //platforms
+<?php $this->headScript()->captureEnd();?>
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/cp/assets/js/analytics/appview.js'); ?>
+
+<?php $product  = $this->product;?>
+
+<div class="title">
+    <h3>Analytics for <?php echo $product['name']?></h3>
+    <div class='filter'>
+        <input type='text' class='txt-input texthint' data-hint='start typing to search for apps' id='app_search' name='app_search' size='40'>
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+        <p>Some text statistics</p>
+                <p>Sum : <?php echo array_sum($this->appView)?></p>
+        <p>Sum : <?php echo array_sum($this->appDownloads)?></p>
+    </div>
+</div>
+
+
+
+
+<div class="title">
+    <h3>Recent App Views / Downloads</h3>
+    <div class='filter'>
+        <form action='/analytics-app/index/pro_id/<?=$product['id']?>' method='post'>
+            <input type='text' class='date txt-input texthint' data-hint='from date' name='from_view' value='<?=$this->startTimeView?>'> -
+            <input type='text' class='date txt-input texthint' data-hint='to date' name='to_view' value='<?=$this->endTimeView?>'>
+            <button>Filter By Date</button>
+        </form>
+    </div>
+</div>
+<div class="box">
+    <div class="txt">
+        <div id='stats_view_by_date'></div>
+    </div>
+</div>
+
+<div class="title">
+    <h3>Most Popular Products Comparison</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <div id='stats_view_by_date'></div>
+    </div>
+</div>
+
+
+<div id='stats_view_by_device_cont' class='chart_box_mid'>
+    <div class="title">
+        <h3>Top Devices</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='pie_block' id='stats_view_by_device'></div>
+        </div>
+    </div>
+</div>
+
+<div id='stats_view_by_app_cont' class='chart_box_mid'>
+    <div class="title">
+        <h3>Top Platforms</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <div class='pie_block' id='stats_view_by_platform'></div>
+        </div>
+    </div>
+</div>
+
+ 

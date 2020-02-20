@@ -1,0 +1,29 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Maheel-Appmonkeyz
+ * Date: 2/18/14
+ * Time: 8:51 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;"><?php echo $this->title; ?></h3>
+    </div>
+    <div class="content-box-content">
+        <form method="post" action="/campaign/add-email-campaign/" id="add-email-campaign" name="add-email-campaign">
+            <input type="hidden" id="campaign-id" name="campaign-id" value="<?php if( isset($this->campaignRow) ){ echo $this->campaignRow->id; }?>">
+            <p>
+                <label>Campaign Name <span class="mendatory_fileds">*</span></label>
+                <input id="campaign-name" name="campaign-name" class="text-input small-input required" type="text" value="<?php if( isset($this->campaignRow) ){ echo $this->campaignRow->name; }?>" />
+            </p>
+            <p>
+                <label>Campaign Description</label>
+                <textarea id="campaign-description" name="campaign-description"  class="textarea" rows="3" cols="79" style="width:30% !important;"><?php if( isset($this->campaignRow) ){ echo $this->campaignRow->description; }?></textarea>
+            </p>
+            <input id="btnSubmit" name="btnSubmit" class="button" type="submit" value="<?= isset($this->menuId) ? 'Save' : 'Submit' ?>">
+            <input id="btnReset" name="btnReset" class="button" type="reset" value="Reset">
+        </form>
+    </div>
+</div>

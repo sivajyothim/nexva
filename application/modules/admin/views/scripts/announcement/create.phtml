@@ -1,0 +1,73 @@
+<?php $an = $this->announcement; ?>
+<!-- Start Content Box #1 -->
+<div class="title">
+
+    <h3>Announcements | nexva.com</h3>
+
+
+</div>
+<div class="box">
+    <div class="txt">
+
+        <div id="content_box">
+            <div class="tab-login">
+                <?= $this->render('partials/message.phtml'); ?>
+                <!-- Start pagecreate Form -->
+                <form method="post" action="/announcement/create/id/<?php echo $an->id ?>">
+                    <fieldset>
+
+                        <p><label>Title</label>
+                            <input type="text" id="title" name="title" class="txt-input medium" value="<?=$an->title;?>"/>
+                        </p>
+
+                        <p><label>Body</label>
+                            <textarea class="txt-input medium" id="wysiwyg" name="message"><?=$an->message;?></textarea>
+                        </p>
+
+
+                        <!--<p><label>Announcement for</label>
+                            <select class="select-input small" name="for" id="for">
+                                <option value="1" <?php /*echo ($this->vars['for'] == 'CP')?'selected="selected"':'';*/?> >All CP's</option>
+                                <?php
+/*                                    foreach($this->chaps as $chap) { */?>
+                                        <option value="<?php /*echo $chap->user_id;*/?>" > CP's for <?php /*echo $chap->meta_value;*/?></option>
+                                    <?php /*} */?>
+                            </select>
+                        </p>-->
+
+                        <p>
+                            <label>Announcement for</label>
+                            <select class="select-input small" name="cp_chap" id="cp_chap">
+                                <option value="-1">All CP's</option>
+                                <?php foreach($this->chaps as $chap) { ?>
+                                    <option value="<?php echo $chap->user_id;?>" > CP's for <?php echo $chap->meta_value;?></option>
+                                <?php } ?>
+                            </select>
+                        </p>
+
+
+                        <?php if (!($an->status && is_numeric($an->id))) : ?>
+                        <p>
+                            <label>Approve ? (Approving will publish the message to users. Cannot be undone)</label>
+                            <input type="checkbox" id="status" name="status" value="1" <?php if($an->status) : ?>checked<?php endif;?> />
+                        </p>
+                        <?php endif; ?>
+                        <p style="float:left;">
+                            <input type="submit" class="button" name="submit" value="Save" />
+                            <input type="button" class="button" name="button" value="Cancel" onClick="location.href='/announcement/list'"/>
+                        </p>
+                     <!--<p  class="remember"><input type="checkbox" /> Remember Me</p>-->
+                    </fieldset>
+                    
+                </form>
+                <!-- End Login Form -->
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<!-- End Content Box #1 -->
+
+

@@ -1,0 +1,66 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: viraj
+ * Date: 5/13/14
+ * Time: 12:57 PM
+ * To change this template use File | Settings | File Templates.
+ */
+?>
+
+<style type="text/css">
+    #qelasy-grades{
+        width:300px;
+    }
+    #qelasy-grades #preloader_qelasy{
+        position: relative;
+        top:10px;
+        left:142px;
+    }
+    #apps_feature img{
+        /*margin-left:50px;*/
+    }
+    #qelasy-grades-form .button{
+        margin-top: 25px;
+        margin-left: 120px;
+    }
+    #qelasy-grades-form #wrapper{
+        width:99.9%;
+    }
+    #qelasy-grades-form #wrapper p{
+        text-align:center;
+    }
+    #qelasy-grades-form .wrapper-left{
+        width:50%;
+        float:left;
+        height:32px;
+    }
+    #qelasy-grades-form .wrapper-left input{
+        float:right;
+        margin-top:8px;
+        margin-right:10px;
+    }
+    #qelasy-grades-form .wrapper-right{
+        width:50%;
+        float:right;
+        height:32px;
+        /*padding:5px;*/
+        vertical-align:middle;
+    }
+    #qelasy-grades-form .wrapper-right img{
+        float:left;
+    }
+
+</style>
+
+<div style="display:none;">
+    <div id="qelasy-grades">
+        <div class="pop_up_head pop_up_head_custom"><h3>Qelasy Grades.</h3></div>
+        <img id='preloader_qelasy' class='display_none' width='16'  src="<?= $this->cdn('site_assets') ?>/web/images/loading.gif" border="0" id="seach_loading" alt="loading" />
+        <div  style="overflow:auto">
+            <form id="qelasy-grades-form" action="/qelasy/assign-grade-for-apps" >
+
+            </form>
+        </div>
+    </div>
+</div>

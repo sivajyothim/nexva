@@ -1,0 +1,79 @@
+<?php $this->headScript()->captureStart();?>
+    var __DATA_DEVICE       = eval(<?php echo $this->appVisitsDeviceJson?>); //most popular products
+<?php $this->headScript()->captureEnd();?>
+<?php echo $this->partial('partials/analytics_includes.phtml');?>
+
+
+
+<?php 
+    //lets do some calculations
+    $totalViews     = 0; //array_sum($this->appView);
+    $totalDownloads = 0; //array_sum($this->appDownloads);
+?>
+
+<?php 
+    $opts   = array(
+        'startTimeView' => $this->startTimeView, 
+        'endTimeView' => $this->endTimeView,
+        'product'       => $this->product,
+        'queryString'   => $this->queryString
+    );
+    echo $this->partial('partials/analytics_menu.phtml', $opts);
+?>
+
+<div id='visualizations'>
+    <?php 
+        $opts   = array(
+            'product'       => $this->product
+        );
+        echo $this->partial('partials/analytics_product_info.phtml', $opts);
+    ?>
+    <div id='stats_view_by_device_cont' class='chart_box_full'>
+        <div class="title">
+            <h3>Top Devices</h3>
+                <div class='filter'>
+                        <a href='<?php echo ADMIN_PROJECT_BASEPATH;?>product/view' class='button'>See all products</a>
+                </div>
+        </div>
+        <div class="box">
+            <div class="txt">
+                <div class='full_block' id='stats_view_by_device'>
+                We haven't collected enough data to display analytics for this app. Check back soon!
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="title">
+            <h3>All Devices</h3>
+    </div>
+    <div class="box">
+        <div class="txt">
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Device Name</th>
+                        <th>Visits</th>
+                        <th>%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $appVisitsDevice    = $this->appVisitsDevice;
+                        $sum    = array_sum($appVisitsDevice);
+                        $class  = ''; 
+                    ?>
+                    <?php foreach ($appVisitsDevice as $device => $hits) : ?>
+                    <?php $class = ($class == 'class="alt"') ? '' : 'class="alt"';?>
+                    <tr>
+                        <td><?php echo substr($device, strpos($device, '-') + 1);?></td>
+                        <td><?php echo $hits ?></td>
+                        <td><?php echo round($hits / $sum * 100, 2) ?>%</td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ 

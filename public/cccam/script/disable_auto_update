@@ -1,0 +1,6 @@
+#!/bin/bash
+# Disable CCcam Auto Reload
+
+sudo cat /etc/crontab | grep -v "/var/www/cccam-cms-new/script/load_cccam_config" > /etc/crontab.new
+sudo rm /etc/crontab
+sudo mv /etc/crontab.new /etc/crontab

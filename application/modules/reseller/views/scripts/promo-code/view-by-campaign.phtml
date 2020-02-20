@@ -1,0 +1,154 @@
+<?php $this->headScript()->appendFile($this->cdn('site_assets').'/common//js/jquery/plugins/tablesorter/jquery.tablesorter.min.js'); ?>
+<?php $this->headScript()->captureStart();?>
+    $(document).ready(function(){ 
+        $(".sortTable").tablesorter(); 
+    }); 
+<?php $this->headScript()->captureEnd();?>        
+        
+        <div class="title">
+    <h3>Snapshot</h3>
+</div>
+<div class="box">
+    <div class="txt">
+        <ul class="icon_list wide">
+            <li>
+                <p>
+                    <span class='large_text'><?=count($this->promoCodes)?></span>
+                    total codes
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <span class='large_text' id='code_num_used'></span>
+                    codes used
+                </p>
+            </li>
+            
+            <li>
+                <p>
+                    <span class='large_text' id='code_num_applied'></span>
+                    total applies
+                </p>
+            </li>
+            
+            
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>
+        
+        
+        <div class="title">
+            <?php if (isset($this->campaignName)) : ?>
+                <h3>All Promotion Codes for Campaign : <?=$this->campaignName?></h3>
+            <?php else : ?>
+                <h3>Unassigned Promotion Codes</h3>
+            <?php endif;?>
+        </div>
+        <div class="box">
+    <div class="txt">
+        <table cellpadding="0" cellspacing="0" class='sortTable'>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Enabled</th>
+                    <th>Type</th>
+                    <th>Discount Amount</th>
+                    <th><abbr title='The amount the reseller is charged for every purchase'>Reseller Amount (?)</abbr></th>
+                    <th>Usage</th>
+                    <th>Current Usage</th>
+                    <th>Maximum Usage</th>
+                    
+                    <th>Validity</th>
+                    <th>&nbsp</th>
+                </tr>
+            </thead>
+        <?php if (count($this->promoCodes)): $class = '';?>
+            <tbody>
+        <?php 
+            $numberUsed     = 0;
+            $numberApplies  = 0;
+        ?>
+        <?php foreach ($this->promoCodes as $item): $class = ($class == 'alt') ? '' : 'alt' ; $item = (object) $item;?>
+            <?php 
+                if ($item->enabled != 1) $numberUsed++;
+                if (is_numeric($item->current_use)) $numberApplies += $item->current_use;
+            ?>
+            <tr>
+                <td class='<?=$class?>' title="<?=htmlspecialchars($item->description)?>"><?=$item->code?></td>
+                <td class='<?=$class?>'><?=($item->enabled) ? 'Yes' : 'No'?></td>
+                
+                
+                
+                <td class='<?=$class?>'>
+                    <?php if ($item->use_type == 'SINGLE') : ?>
+                        Single Use
+                    <?php elseif ($item->use_type == 'GENERAL') : ?>
+                        Unlimited Use
+                    <?php elseif ($item->use_type == 'LIMITED') : ?>
+                        Limited Use
+                    <?php endif; ?>
+                    
+                </td>
+                <td class='<?=$class?>'>
+                    <?php if ($item->discount_type == 'ABSOLUTE') : ?>
+                        $<?=number_format($item->amount, 2)?>
+                    <?php else : ?>
+                        <?=number_format($item->amount, 0)?>%
+                    <?php endif;?>
+                </td>
+                <td class='<?=$class?>'>
+                    <?php if ($item->promo_type == 'DEBIT') : ?>
+                        <?php if ($item->debit_amount > 0) : ?>
+                            $<?=number_format($item->debit_amount, 2)?>
+                        <?php else : ?>
+                            <?php 
+                                $proPrice       = $item->products[0]->price;
+                                $debitAmount    = 0;
+                                if ($item->discount_type == 'ABSOLUTE') {
+                                    $debitAmount = $item->amount;
+                                } else {
+                                    $debitAmount = round($proPrice * $item->amount / 100, 2);
+                                }
+                                echo '$' . number_format($debitAmount, 2)
+                            ?>
+                        <?php endif;?>
+                    <?php endif;?>
+                </td>
+                
+                <td class='<?=$class?>'>
+                    <?php if ($item->promo_type == 'STANDARD') : ?>
+                        Standard
+                    <?php elseif ($item->promo_type == 'DEBIT') : ?>
+                        Pre / Post Paid
+                    <?php elseif ($item->promo_type == 'CREDIT') : ?>
+                        
+                    <?php endif;?>
+                </td>
+                <td class='<?=$class?>'><?=$item->current_use ? $item->current_use : 0?></td>
+                <td class='<?=$class?>'>
+                    <?=$item->use_limit ? $item->use_limit: 'N/A'?>
+                </td>
+                
+                <td class='<?=$class?>'>
+                        <?=date('d-m-Y', strtotime($item->valid_from))?> - <br>
+                        <?=date('d-m-Y', strtotime($item->valid_to))?>
+                </td>
+                <td class='<?=$class?>'>
+                    <a href='/promo-code/share/code/<?php echo $item->code ?>'>Share</a>
+<!--                    <a href='/promo-code/view/id/<?php echo $item->id ?>'>View</a>-->
+                </td>
+            </tr>
+        <?php endforeach; ?>
+            </tbody>
+        <?php endif; ?>
+        </table>
+    </div>
+    
+<script>    
+    $(document).ready(function(){
+        $('#code_num_used').html('<?=$numberUsed?>');
+        $('#code_num_applied').html('<?=$numberApplies?>');
+    });
+</script>
