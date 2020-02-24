@@ -69,14 +69,14 @@
                     </div>
                     <div id="primaryLinks">
                         <ul class="btn" id="primary">
-                            <li><a id="primary_about" target="_blank" href="<?php echo CP_PROJECT_BASEPATH;?>">ABOUT</a></li>
+                            <li><a id="primary_about" target="_blank" href="http://corp.nexva.com/about_us.php#about">ABOUT</a></li>
                             <li><a id="primary_adv" target="_blank" href="<?PHP echo CP_PROJECT_BASEPATH;?>user/login">DEVELOPERS</a></li>
                             <li><a id="primary_signup" href="<?php echo PROJECT_BASEPATH;?>user/login">SIGNUP</a></li>
-                            <li><a id="primary_contact" target="_blank" href="<?php echo CP_PROJECT_BASEPATH;?>index.php#contact_usa">CONTACT</a></li>
+                            <li><a id="primary_contact" target="_blank" href="http://corp.nexva.com/index.php#contact_usa">CONTACT</a></li>
                         </ul>
                     </div>
                      <div id='searchContainer' class='rounded'>
-                        <form action='/search/index/q' method="get">
+                        <form action='<?php echo PROJECT_BASEPATH;?>search/index/q' method="get">
                                 <input class='rounded suggest' type="text" id="q" name="q" value="<?=$this->escape($this->keywords)?>" title='search all apps' autocomplete="off">
                                 <input type="submit" class='rounded button' value="Search" id="searchBtn" name="search">
                         </form>

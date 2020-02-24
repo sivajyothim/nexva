@@ -22,7 +22,7 @@
 ?>
 <div id="newst_app">
     <ul>
-        <? foreach ($this->newestApps as  $app): ?>
+        <?  foreach ($this->newestApps as  $app): ?>
             
                 <li>
                     <a class="app_name_link" href="<?=$this->baseUri;?>/app/<?=$this->slug($app['name']);?>.<?=$app['product_id']?>">

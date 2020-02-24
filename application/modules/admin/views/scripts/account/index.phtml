@@ -19,7 +19,7 @@
                         <tr>
                             <td colspan="6"><div style="margin-top:10px;margin-bottom: 100px;">
                                     <legend>
-                                        <form name="form1" id="form1" action="/account" method="POST">
+                                        <form name="form1" id="form1" action="<?php echo ADMIN_PROJECT_BASEPATH;?>account" method="POST">
                                             <?
                                             $year   = new Zend_Form_Element_Select('year');
                                             $options = $this->year;

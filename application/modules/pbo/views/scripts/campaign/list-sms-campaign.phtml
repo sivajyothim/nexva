@@ -37,21 +37,21 @@
             <tbody id="sms-table">
                 <?php foreach($this->campaigns as $campaign){ ?>
                     <tr>
-                        <td style="text-align: center"><a href="/campaign/edit-sms-campaign/id/<?php echo $campaign->id;?>"><?php echo $campaign->name; ?></a></td>
+                        <td style="text-align: center"><a href="<?php echo PBO_PROJECT_BASEPATH; ?>campaign/edit-sms-campaign/id/<?php echo $campaign->id;?>"><?php echo $campaign->name; ?></a></td>
                         <td style="text-align: center"><?php echo $campaign->description; ?></td>
                         <td style="text-align: right"><?php echo $campaign->created_date; ?></td>
                         <td style="text-align: right">
                             <!--<a title="Send" href="#campaign" id="send_<?php /*echo $campaign->id; */?>">
-                                <img src="/pbo/images/icons/email-send-icon.png" style=" position:relative; top:4px; width:16px"  alt="Send" onclick="campaignBox(<?php /*echo $campaign->id; */?>);load_poup_box(<?php /*echo $campaign->id; */?>)"/>
+                                <img src="<?php echo PROJECT_BASEPATH; ?>pbo/images/icons/email-send-icon.png" style=" position:relative; top:4px; width:16px"  alt="Send" onclick="campaignBox(<?php /*echo $campaign->id; */?>);load_poup_box(<?php /*echo $campaign->id; */?>)"/>
                             </a>
                             <a title="View Stats" href="#" id="view_<?php /*echo $campaign->id; */?>">
-                                <img src="/pbo/images/icons/view-details.png" style="   position:relative; top:4px" alt="View Stats" />
+                                <img src="<?php echo PROJECT_BASEPATH; ?>pbo/images/icons/view-details.png" style="   position:relative; top:4px" alt="View Stats" />
                             </a>-->
-                            <a title="Send" href="/campaign/send-sms/campaignId/<?php echo $campaign->id; ?>" >
-                                <img src="/pbo/images/icons/email-send-icon.png" style=" position:relative; top:4px; width:16px"  alt="Send" />
+                            <a title="Send" href="<?php echo PBO_PROJECT_BASEPATH; ?>campaign/send-sms/campaignId/<?php echo $campaign->id; ?>" >
+                                <img src="<?php echo PROJECT_BASEPATH; ?>pbo/images/icons/email-send-icon.png" style=" position:relative; top:4px; width:16px"  alt="Send" />
                             </a>
-                            <a title="View Stats" href="/campaign/view-stats/id/<?php echo $campaign->id; ?>" id="view_<?php echo $campaign->id; ?>">
-                                <img src="/pbo/images/icons/view-details.png" style="   position:relative; top:4px" alt="View Stats" />
+                            <a title="View Stats" href="<?php echo PBO_PROJECT_BASEPATH; ?>campaign/view-stats/id/<?php echo $campaign->id; ?>" id="view_<?php echo $campaign->id; ?>">
+                                <img src="<?php echo PROJECT_BASEPATH; ?>pbo/images/icons/view-details.png" style="   position:relative; top:4px" alt="View Stats" />
                             </a>
                         </td>
                     </tr>

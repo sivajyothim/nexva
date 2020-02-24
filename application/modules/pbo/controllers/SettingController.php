@@ -247,10 +247,10 @@ class Pbo_SettingController extends Zend_Controller_Action
 
                 $this->_helper->flashMessenger->addMessage('Developer Panel Settings successfully saved.');
                 //$this->_helper->flashMessenger->setNamespace('success')->addMessage('Developer Panel Settings successfully saved.');
-               //$this->_redirect ('/setting');
+               //$this->_redirect (PBO_PROJECT_BASEPATH.'setting');
             }
             
-            $this->_redirect ('/setting');
+            $this->_redirect (PBO_PROJECT_BASEPATH.'setting');
         }       
                 
         //Theme meta keys

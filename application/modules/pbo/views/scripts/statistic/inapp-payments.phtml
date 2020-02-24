@@ -20,7 +20,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($this->inappDetails as $inapps) { ?>
+                <?php 
+                foreach($this->inappDetails as $inapps) { ?>
                     <tr>
                         <td><?php echo $inapps->nexva_app_id; ?></td>
                         <td><?php echo $inapps->mobile_no; ?></td>
@@ -35,8 +36,14 @@
         </table>
 
         <br />
+        
         <div style ="width : 100%">
-            <?php echo  $this->paginationControl($this->inappDetails, 'Sliding', 'partials/pagination-inapp-payments.phtml'); ?>
+            <?php if($this->inappDetails != '') 
+                { 
+                echo  $this->paginationControl($this->inappDetails, 'Sliding', 'partials/pagination-inapp-payments.phtml'); 
+                        
+                } 
+                ?>
         </div>
         <br />
 

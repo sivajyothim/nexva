@@ -10,8 +10,8 @@
                                     <a href="#"><b>Approved Product</b></a>
                                     <p>You have <b>20556</b> of total approved products.</p>
                                     <ul class="links">
-                                        <li><a href="<?php echo PROJECT_BASEPATH;?>product/view/tab/tab-not-approved">Approve Queues</a></li>
-                                        <li><a href="<?php echo PROJECT_BASEPATH;?>product/view/">List All Products</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/view/tab/tab-not-approved">Approve Queues</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>product/view/">List All Products</a></li>
                                     </ul>
                                 </li>
 
@@ -20,7 +20,7 @@
                                     <p>You have total <b><?= $this->cp_count; ?></b> number of content providers singed up with neXva.com</p>
                                     <ul class="links">
                                         <!--<li><a href="#">Create CP Account</a></li>-->
-                                        <li><a href="/user/list/tab/tab-cps">List All CP's</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/list/tab/tab-cps">List All CP's</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -28,16 +28,16 @@
                                     <p>You have total <b><?= $this->customer_count; ?></b> number of customers singed up with neXva.com</p>
                                     <ul class="links">
                                         <!--<li><a href="#">Create CP Account</a></li>-->
-                                        <li><a href="/user/list/tab/tab-customers">List All Customers</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>user/list/tab/tab-customers">List All Customers</a></li>
                                     </ul>
                                 </li>
                                
                                 <li>
-                                    <a href="/handset/list"><b>Handsets</b></a>
+                                    <a href="<?php echo ADMIN_PROJECT_BASEPATH;?>handset/list"><b>Handsets</b></a>
                                     <p>System has total <b><?= $this->handsets_count; ?></b> number of handsets registered.</p>
                                     <ul class="links">
                                         
-                                        <li><a href="/handset/list">List All Handsets</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>handset/list">List All Handsets</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -45,14 +45,14 @@
                                     <p>System has total <b><?= $this->platforms_count; ?></b> number of mobile platforms/OS registered.</p>
                                     <ul class="links">
                                         
-                                        <li><a href="/platform/list">List All Platform/OS</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>platform/list">List All Platform/OS</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#"><b>Approved Reviews</b></a>
                                     <p>System has total <b><?= $this->non_approve_count; ?></b> number of non-approved reviews.</p>
                                      <ul class="links">
-                                        <li><a href="/review/list">Approve Queues</a></li>
+                                        <li><a href="<?php echo ADMIN_PROJECT_BASEPATH;?>review/list">Approve Queues</a></li>
                                                     </ul>
                                 </li>
                             </ul>

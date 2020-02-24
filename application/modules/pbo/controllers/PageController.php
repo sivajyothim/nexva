@@ -101,9 +101,10 @@ class Pbo_PageController extends Zend_Controller_Action
     {
 
         $chapId = Zend_Auth::getInstance()->getIdentity()->id;
-
+        
         $languageUsersModel = new Pbo_Model_LanguageUsers();
         $languages = $languageUsersModel->getChapLanguages($chapId);
+        print_r($languages).'jyoti';
         $this->view->languages = $languages;
 
         if($this->_request->isPost())

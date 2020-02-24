@@ -67,7 +67,7 @@ class Pbo_CampaignController extends Zend_Controller_Action {
 
             if($lastInsertId){
                 $this->_helper->flashMessenger->setNamespace('success')->addMessage($message);
-                $this->_redirect ('/campaign/list-sms-campaign');
+                $this->_redirect (PBO_PROJECT_BASEPATH.'/campaign/list-sms-campaign');
             } else {
                 $this->_helper->flashMessenger->setNamespace('error')->addMessage('Something wrong with saving SMS campaign. ');
             }

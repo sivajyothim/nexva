@@ -462,7 +462,7 @@ class Admin_UserController extends Zend_Controller_Action {
 //        $this->view->breadcrumbs['Create User'] = $this->getFrontController()->getBaseUrl() . '/admin/user/create';
     // Set Form element valuse and action
 
-    $form->setAction($this->getFrontController()->getBaseUrl() . '/user/edit/id/' . $userid);
+    $form->setAction(ADMIN_PROJECT_BASEPATH . 'user/edit/id/' . $userid);
     $this->view->form = $form;
     $this->view->form->id->setValue($user->getId());
     $this->view->form->username->setValue($user->getUsername());

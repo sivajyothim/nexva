@@ -30,7 +30,7 @@ class Pbo_TicketController extends Zend_Controller_Action
     public function indexAction()
     {        
         $chapId = Zend_Auth::getInstance()->getIdentity()->id; 
-        
+        echo $chapId.'jyothi';
         $ticketModel = new Pbo_Model_Tickets();
         $pages = 0;
         

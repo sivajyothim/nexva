@@ -63,7 +63,8 @@ $(document).ready(function() {
                             <div class="slider_inner_wrapper_left">
                                 <div class="home_slider_frame">
                                     <div class="home_slider_frameimage">
-                                        <img class="" autoheight="1" src="http://jyothilocal.com/nexva/public/vendors/phpThumb/phpThumb.php?src=/product_visuals/production/29be0008eb273e9bc4032f0e71beba7d.png&amp;w=200&amp;h=270&amp;aoe=0&amp;fltr[]=ric|0|0&amp;q=100&amp;f=png">
+                                         <?php  echo $this->thumbnail($app["product"]["thumb"],array("w" => 200, "h" => 270, "aoe" => 0),array("class" => "", "autoheight" => 1)) ?>
+                                        <!--<img class="" autoheight="1" src="<?php //echo PROJECT_BASEPATH.$app["product"]["thumb"];?>" width="200" height="270" autoheight="1" class="">-->
                                     </div>
                                 </div>
                             </div>

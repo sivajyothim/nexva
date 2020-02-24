@@ -37,7 +37,7 @@ $(document).ready(function(){
 			},
 			select: function( event, ui ) {
 				if (ui.item.id == 0) {
-					window.location	= '/search/index/q/' + $("#q").val();
+					window.location	= project_base_path + 'search/index/q/' + $("#q").val();
 				} else {
 					window.location	= '/' + ui.item.id;
 				}

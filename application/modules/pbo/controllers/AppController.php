@@ -220,14 +220,14 @@ class Pbo_AppController extends Zend_Controller_Action
 
                 //after successful app feature we remove the featured apps cache, newly featured apps will immediately start to appear in the front
                 $cache->remove($key);
-                $this->_redirect('/app/index'.$urlStr);
+                $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
             }
             else
             {
                 if($currentFeauredPlatformCount[0]->app_count >= $featuresProCount)
                 {
                     $this->_helper->flashMessenger->setNamespace('error')->addMessage('Featured app limit has already exceeded. Please remove Featured apps from the list and try again');
-                    $this->_redirect('/app/index'.$urlStr);
+                    $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
                 }
             }
         }
@@ -246,7 +246,7 @@ class Pbo_AppController extends Zend_Controller_Action
         //after successful app feature we remove the featured apps cache, newly featured apps will immediately start to appear in the front
         $cache->remove($key);
 
-        $this->_redirect('/app/index'.$urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     
@@ -303,14 +303,14 @@ class Pbo_AppController extends Zend_Controller_Action
 
                 //after successful app banner we remove the bannered apps cache, newly bannered apps will immediately start to appear in the front
                 $cache->remove($key);
-                $this->_redirect('/app/index'.$urlStr);
+                $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
             }
             else
             {
                 if($currentBannerPlatformCount[0]->app_count >= $bannerCount)
                 {
                     $this->_helper->flashMessenger->setNamespace('error')->addMessage('Banner limit has already exceeded. Please remove banner/s from the list and try again');
-                    $this->_redirect('/app/index'.$urlStr);
+                    $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
                 }
             }
 
@@ -330,7 +330,7 @@ class Pbo_AppController extends Zend_Controller_Action
 
         //after successful app banner we remove the bannered apps cache, newly bannered apps will immediately start to appear in the front
         $cache->remove($key);
-        $this->_redirect('/app/index'.$urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     
@@ -376,7 +376,7 @@ class Pbo_AppController extends Zend_Controller_Action
             $this->_helper->flashMessenger->setNamespace('success')->addMessage('App successfully un-flagged.');
         }        
         
-        $this->_redirect('/app/index'.$urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     public function appstitudeAction()
@@ -417,7 +417,7 @@ class Pbo_AppController extends Zend_Controller_Action
     		$this->_helper->flashMessenger->setNamespace('success')->addMessage('App successfully un-flagged.');
     	}
     
-    	$this->_redirect('/app/index'.$urlStr);
+    	$this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     public function islamicAction()
@@ -458,7 +458,7 @@ class Pbo_AppController extends Zend_Controller_Action
     		$this->_helper->flashMessenger->setNamespace('success')->addMessage('App successfully un-flagged.');
     	}
     
-    	$this->_redirect('/app/index'.$urlStr);
+    	$this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     
@@ -500,7 +500,7 @@ class Pbo_AppController extends Zend_Controller_Action
     		$this->_helper->flashMessenger->setNamespace('success')->addMessage('App successfully un-flagged.');
     	}
     
-    	$this->_redirect('/app/index'.$urlStr);
+    	$this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     
@@ -546,7 +546,7 @@ class Pbo_AppController extends Zend_Controller_Action
             $this->_helper->flashMessenger->setNamespace('success')->addMessage('App successfully disapproved.');
         }        
         
-        $this->_redirect('/app/index'.$urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
     }
     
     
@@ -713,7 +713,7 @@ class Pbo_AppController extends Zend_Controller_Action
 
         if(count($categories)==0){
             $this->_helper->flashMessenger->setNamespace('error')->addMessage('Assign Categories for this CHAP');
-            $this->_redirect('/category/manage-category');
+            $this->_redirect (PBO_PROJECT_BASEPATH.'category/manage-category');
         }
 
         $this->view->categories = $categories;
@@ -1053,7 +1053,7 @@ class Pbo_AppController extends Zend_Controller_Action
         if(is_null($platforms))
         {
             $this->_helper->flashMessenger->setNamespace('error')->addMessage('Select at least one Platform to be featured !');
-            $this->_redirect('/app/index'.$urlStr);
+            $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
         }
 
         if($status == 1)
@@ -1068,7 +1068,7 @@ class Pbo_AppController extends Zend_Controller_Action
 
                 //after successful app feature we remove the featured apps cache, newly featured apps will immediately start to appear in the front
                 $cache->remove($key);
-                $this->_redirect('/app/index'.$urlStr);
+                $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
             }
             else
             {
@@ -1080,7 +1080,7 @@ class Pbo_AppController extends Zend_Controller_Action
                         if($currentFeauredPlatformCount[$i]->app_count >= $featuresProCount)
                         {
                             $this->_helper->flashMessenger->setNamespace('error')->addMessage('Featured app limit has reached. Please remove Featured apps from the list and try again');
-                            $this->_redirect('/app/index'.$urlStr);
+                            $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
                         }
                     }
                 }
@@ -1100,7 +1100,7 @@ class Pbo_AppController extends Zend_Controller_Action
 
         //after successful app feature we remove the featured apps cache, newly featured apps will immediately start to appear in the front
         $cache->remove($key);
-        $this->_redirect('/app/index'.$urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
 
     }
 
@@ -1132,7 +1132,7 @@ class Pbo_AppController extends Zend_Controller_Action
         if(is_null($platforms))
         {
             $this->_helper->flashMessenger->setNamespace('error')->addMessage('Select at least one Platform to be Banner !');
-            $this->_redirect('/app/index'.$urlStr);
+            $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
         }
 
         if($status == 1)
@@ -1147,7 +1147,7 @@ class Pbo_AppController extends Zend_Controller_Action
 
                 //after successful app banner we remove the bannered apps cache, newly bannered apps will immediately start to appear in the front
                 $cache->remove($key);
-                $this->_redirect('/app/index'.$urlStr);
+                $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
             }
             else
             {
@@ -1158,7 +1158,7 @@ class Pbo_AppController extends Zend_Controller_Action
                         if($currentBannerPlatformCount[$i]->app_count >= $bannerCount)
                         {
                             $this->_helper->flashMessenger->setNamespace('error')->addMessage('Banner limit has reached. Please remove banner/s from the list and try again');
-                            $this->_redirect('/app/index'.$urlStr);
+                            $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
                         }
                     }
                 }
@@ -1178,7 +1178,7 @@ class Pbo_AppController extends Zend_Controller_Action
 
         //after successful app banner we remove the bannered apps cache, newly bannered apps will immediately start to appear in the front
         $cache->remove($key);
-        $this->_redirect('/app/index'.$urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/index'.$urlStr);
 
     }
     
@@ -1268,7 +1268,7 @@ class Pbo_AppController extends Zend_Controller_Action
         $proId  = $this->_getParam('id', null);
         
         if (!$proId) {
-            $this->_redirect('/');
+            $this->_redirect (PBO_PROJECT_BASEPATH.'');
         }
         
         if($this->_request->isPost())
@@ -1343,7 +1343,7 @@ class Pbo_AppController extends Zend_Controller_Action
         $proId  = (int) $this->_getParam('id', false);
         
         if (!$proId) {
-            $this->_redirect('/');
+            $this->_redirect (PBO_PROJECT_BASEPATH.'');
         }
         //$this->__checkOwner($proId);
         $langId     = (int) $this->_getParam('langId', null);
@@ -1381,14 +1381,14 @@ class Pbo_AppController extends Zend_Controller_Action
         //print_r($data); die();
         
         $proLangModel->saveTranslation($proId, $langId, $data);
-        $this->_redirect('/app/translate/id/' . $proId . $urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/translate/id/' . $proId . $urlStr);
     }
     
     function removetranslationAction() {
         $proId  = (int) $this->_getParam('id', false);
         
         if (!$proId) {
-            $this->_redirect('/');
+            $this->_redirect (PBO_PROJECT_BASEPATH.'');
         }
         
         if($this->_request->isPost())
@@ -1438,12 +1438,12 @@ class Pbo_AppController extends Zend_Controller_Action
         $chapLangId = $languageChap[0]->id;     
         
         if($chapLangId != $langId){
-            $this->_redirect('/app/index');
+            $this->_redirect (PBO_PROJECT_BASEPATH.'app/index');
         }
         
         $proModel   = new Model_ProductLanguageMeta();
         $proModel->delete("product_id = {$proId} AND language_id = {$langId}");
         
-        $this->_redirect('/app/translate/id/' . $proId . $urlStr);
+        $this->_redirect (PBO_PROJECT_BASEPATH.'app/translate/id/' . $proId . $urlStr);
     }
 }

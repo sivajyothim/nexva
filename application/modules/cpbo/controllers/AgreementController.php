@@ -227,10 +227,10 @@ class Cpbo_AgreementController extends Nexva_Controller_Action_Cp_MasterControll
                     'agreement_sign'      => '1'
                 );
                 $userModel->update($data, array('id = ?' => $userId));
-                $this->_redirect('/');
+                $this->_redirect(CP_PROJECT_BASEPATH);
             }
         }
-
+       
         try {
             $file = $this->checkCpAgreementExists();
 

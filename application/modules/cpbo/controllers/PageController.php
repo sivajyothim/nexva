@@ -68,6 +68,7 @@ class Cpbo_PageController extends Nexva_Controller_Action_Cp_MasterController {
         } catch (Exception $e){
             var_dump($e->getMessage());die();
         }
+        print_r($page);exit;
         $this->view->page   = (object) $page;
     }
 

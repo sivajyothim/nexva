@@ -26,7 +26,7 @@ class Whitelabel_SearchController extends Nexva_Controller_Action_Whitelabel_Mas
             'count'     => $productModel->getCountForSearchByTerm($q),
             'page'      => $page,
             'limit'     => 20,
-            'baseUrl'   => "/search/index/q/{$q}"
+            'baseUrl'   => PROJECT_BASEPATH."search/index/q/{$q}"
         );
         
         $this->view->paging = $paging;

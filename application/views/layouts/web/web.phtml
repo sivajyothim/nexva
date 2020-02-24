@@ -89,7 +89,7 @@ Drop us a line: jahufar+htmlsrc@nexva.com with a portfolio of your best work and
                         </ul>
                     </div>
                      <div id='searchContainer' class='rounded'>
-                        <form action='/search/index/q' method="get">
+                        <form action='<?php echo PROJECT_BASEPATH;?>search/index/q' method="get">
                                 <input class='rounded suggest' type="text" id="q" name="q" value="<?=$this->escape($this->keywords)?>" title='search all apps' autocomplete="off">
                                 <input type="submit" class='rounded button' value="Search" id="searchBtn" name="search">
                         </form>

@@ -522,3 +522,8 @@ function is_bot_cherck() {
 	return false;
 
 }
+?>
+
+<script>
+    var project_base_path = "<?php echo PROJECT_BASEPATH; ?>";
+</script>

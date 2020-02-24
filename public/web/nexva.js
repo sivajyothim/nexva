@@ -64,7 +64,7 @@ $(document).ready(function() {
 		
 	    $('#search').submit(function() {
 	        
-	      $('#search').attr('action', '/search/index/q/'+$('#q').val());
+	      $('#search').attr('action', project_base_path + 'search/index/q/'+$('#q').val());
 	      return true;
 	    });
 		

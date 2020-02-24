@@ -19,7 +19,7 @@ class Cpbo_TicketController extends Nexva_Controller_Action_Cp_MasterController 
                 $session->lock();
             }
             if( $this->_request->getActionName() != "login" )
-                $this->_redirect('/user/login');
+                $this->_redirect(CP_PROJECT_BASEPATH.'user/login');
         }
     }
 
@@ -74,7 +74,7 @@ class Cpbo_TicketController extends Nexva_Controller_Action_Cp_MasterController 
                
                 if(count($fileUploadAdapter->getMessages()) > 0){
                     $this->_helper->flashMessenger->setNamespace('error')->addMessage(implode(', ', $fileUploadAdapter->getMessages()));
-                    $this->_redirect('/ticket/create');
+                    $this->_redirect(CP_PROJECT_BASEPATH.'ticket/create');
                 }
                 else
                 {
@@ -110,7 +110,7 @@ class Cpbo_TicketController extends Nexva_Controller_Action_Cp_MasterController 
             $translate = Zend_Registry::get('Zend_Translate');
             
             $this->_helper->flashMessenger->setNamespace('success')->addMessage($translate->translate("Your ticket submited successfully."));
-            $this->_redirect('/ticket/list');
+            $this->_redirect(CP_PROJECT_BASEPATH.'ticket/list');
         }
     }
 
@@ -145,7 +145,7 @@ class Cpbo_TicketController extends Nexva_Controller_Action_Cp_MasterController 
         /*get translater*/
         $translate = Zend_Registry::get('Zend_Translate');
         $this->_helper->flashMessenger->setNamespace('success')->addMessage($translate->translate("Selected ticket(s) deleted successfully."));
-        $this->_redirect('/ticket/list');
+        $this->_redirect(CP_PROJECT_BASEPATH.'ticket/list');
     }
 
     function singleTicketAction()
@@ -155,7 +155,7 @@ class Cpbo_TicketController extends Nexva_Controller_Action_Cp_MasterController 
 
         if($ticketId == null)
         {
-            $this->_redirect('/ticket/list');
+            $this->_redirect(CP_PROJECT_BASEPATH.'ticket/list');
         }
 
         $ticketModel = new Cpbo_Model_Ticket();
@@ -367,7 +367,7 @@ class Cpbo_TicketController extends Nexva_Controller_Action_Cp_MasterController 
         {
             $this->_helper->flashMessenger->setNamespace('Error')->addMessage($translate->translate("Error downloading file."));
             //$url = Zend_Controller_Front::getInstance()->getRequest()->getRequestUri();     //echo $url;die();
-            $this->_redirect('/ticket/list');
+            $this->_redirect(CP_PROJECT_BASEPATH.'ticket/list');
         }
     }
 

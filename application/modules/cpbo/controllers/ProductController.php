@@ -26,7 +26,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
 			}
 			/*
             if (!in_array($this->getRequest()->getActionName(), $skip_action_names)) {
-                $this->_redirect('/user/login');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'user/login');
             }
             */
 		}
@@ -379,7 +379,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
             $productChannelModel->removeChannel($productId,$chapId);
         }
 
-        $this->_redirect('product/edit/id/'.$productId.'/6/4');
+        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/'.$productId.'/6/4');
     }
 
     function channelAction()
@@ -394,14 +394,14 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         // if there is no any product id redirect to create page
         if (empty($productId)) {
             $this->_flashMessenger->addMessage(array('error' => $translate->translate("You have not create an Application Profile to Preview it please create it now.")));
-            $this->_redirect('product/create');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
         }
 
         $formBasic = new Model_Platform();
         $row = $formBasic->find($productId);
         if (empty($row)) {// no Basic info found redirect to create page
             $this->_flashMessenger->addMessage(array('error' => $translate->translate("You have not create an Application Profile to Preview it please create it now.")));
-            $this->_redirect('product/create');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
         }
 
         $formVisuals = new Model_ProductImages();
@@ -412,7 +412,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         $countVisuals = $rowVisuals->count();
         if (empty($countVisuals)) {// if no screenshots
             $this->_flashMessenger->addMessage(array('error' => $translate->translate("Product visuals are not found!. Please upload atleast one screenshot and thumbnail.")));
-            $this->_redirect('product/edit/id/' . $productId . '/6/2');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/2');
         }
 
         $userModel = new Cpbo_Model_User();
@@ -429,21 +429,21 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
             $prodBuild = new Model_ProductBuild();
             $builds = $prodBuild->getBuildsByProductId($productId);
             if (isset($review) && !empty($review))
-                $this->_redirect('product/display/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
             elseif (count($builds) > 0)
-                $this->_redirect('build/show/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'build/show/id/' . $productId);
             else
-                $this->_redirect('build/create/productid/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'build/create/productid/' . $productId);
         }
 
-        $this->_redirect('product/edit/id/'.$productId.'/6/4');
+        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/'.$productId.'/6/4');
 
     }
 
     function translateAction() {
         $proId  = $this->_getParam('id', null);
         if (!$proId) {
-            $this->_redirect('/');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'');
         }
         $this->__checkOwner($proId);
     
@@ -478,7 +478,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         $proId  = (int) $this->_getParam('id', false);
         
         if (!$proId) {
-            $this->_redirect('/');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'');
         }
         $this->__checkOwner($proId);
         $langId     = (int) $this->_getParam('langId', null);
@@ -490,14 +490,14 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
             'desc'      => $this->_getParam('desc')
         );
         $proLangModel->saveTranslation($proId, $langId, $data);
-        $this->_redirect('/product/translate/id/' . $proId . '/');
+        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/translate/id/' . $proId . '/');
     }
     
     function removeTranslationAction() {
         $proId  = (int) $this->_getParam('id', false);
         
         if (!$proId) {
-            $this->_redirect('/');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'');
         }
         $this->__checkOwner($proId);
         $langId     = (int) $this->_getParam('langId', null);
@@ -505,7 +505,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         $proModel   = new Model_ProductLanguageMeta();
         $proModel->delete("product_id = {$proId} AND language_id = {$langId}");
         
-        $this->_redirect('/product/translate/id/' . $proId . '/');
+        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/translate/id/' . $proId . '/');
     }
     
     /**
@@ -527,7 +527,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         if ($return) {
             return false;
         } else {
-            $this->_redirect('/');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'');
         } 
     }
     
@@ -547,7 +547,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         $create = $requestPerms['create'];
         //$this->view->edit = $edit;
 //        if(empty ($productId))
-//            $this->_redirect('product/create');
+//            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
         $review = $requestPerms['review'];
         $form_basic = new Cpbo_Form_ProductBasicInfo();
         // TODO : there is a way to send data directly to form
@@ -572,9 +572,9 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
             }
 
             $productId = $this->saveBasicInfo($form_values, $product);
-            echo "jyothi".$productId;
+            //echo "jyothi".$productId;
             /*if($form_values['ycoin-inapp']){
-                $this->_redirect('page/ycoins');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'page/ycoins');
             }*/
 
             //if anything has changed with basic information
@@ -612,7 +612,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
             }
 
             if($form_values['ycoin-inapp']){
-                $this->_redirect('page/ycoins');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'page/ycoins');
             }
             /*get translater*/
             $translate = Zend_Registry::get('Zend_Translate');
@@ -626,16 +626,16 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                 $this->_redirect($url);
             }
             else
-                $this->_redirect('product/display/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
         }
         else {
             $error = $this->formatErrorMsg($form_basic->getMessages());
             $this->_flashMessenger->addMessage(array('error' => $error));
             // loop  to same step
             if (empty($productId))
-                $this->_redirect('product/create');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
             else
-                $this->_redirect('product/edit/id/' . $productId . '/6/1');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/1');
         }
     }
 		
@@ -919,9 +919,9 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                 }
                 // redirect to next step
                 if (empty($review))
-                    $this->_redirect('product/edit/id/' . $productId . '/6/5');
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/5');
                 else
-                    $this->_redirect('product/display/id/' . $productId);
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
             }
             else {
                 // create the URL FORM and use it
@@ -942,15 +942,15 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                     $this->_flashMessenger->addMessage(array('info' => $translate->translate("Successfully Add the  URL filed!.")));
                     // redirect to next step
                     if (empty($review))
-                        $this->_redirect('product/edit/id/' . $productId . '/6/5');
+                        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/5');
                     else
-                        $this->_redirect('product/display/id/' . $productId);
+                        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
                 }
                 else {
                     $error = $this->formatErrorMsg($formFiles->getMessages());
                     $this->_flashMessenger->addMessage(array('error' => $error));
                     // redirect to next step
-                    $this->_redirect('product/edit/id/' . $productId . '/6/4');
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/4');
                 }
             }
         }
@@ -982,7 +982,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                     $error = 'You should select at least one category.';
                     $this->_flashMessenger->addMessage(array('error' => $error));
                     // redirect to same page
-                    $this->_redirect('product/edit/id/' . $productId . '/6/3');
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/3');
                 }
 
                 // if more than two categories seleted, one parent and one child
@@ -990,7 +990,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                     $error = 'You should select only one parent/sub category category.';
                     $this->_flashMessenger->addMessage(array('error' => $error));
                     // redirect to same page
-                    $this->_redirect('product/edit/id/' . $productId . '/6/3');
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/3');
                 }
 
                 foreach ($categories as $key => $value) {
@@ -1010,15 +1010,15 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                 $this->_flashMessenger->addMessage(array('info' => $translate->translate("Successfully Added to Categories!.")));
                 // redirect to next step
                 if (empty($review))
-                    $this->_redirect('product/edit/id/' . $productId . '/6/4');
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/4');
                 else
-                    $this->_redirect('product/display/id/' . $productId);
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
             }
             else {
                 $error = $this->formatErrorMsg($formCategory->getMessages());
                 $this->_flashMessenger->addMessage(array('error' => $error));
                 // redirect to next step
-                $this->_redirect('product/edit/id/' . $productId . '/6/3');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/3');
             }
         }
     }
@@ -1127,16 +1127,16 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                 $this->_flashMessenger->addMessage(array('info' =>  $translate->translate("Successfully Saved Selected Devices").'!.'));
                 // redirect to next step
                 if (empty($review))
-                    $this->_redirect('product/edit/id/' . $productId . '/6/6');
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/6');
                 else
-                    $this->_redirect('product/display/id/' . $productId);
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
             }
         }
         else {
             $error = $this->formatErrorMsg($formDevices->getMessages());
             $this->_flashMessenger->addMessage(array('error' => $error));
             // redirect to next step
-            $this->_redirect('product/edit/id/' . $productId . '/6/5');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/5');
         }
     }
 
@@ -1162,14 +1162,14 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         // if there is no any product id redirect to create page
         if (empty($productId)) {
             $this->_flashMessenger->addMessage(array('error' => $translate->translate("You have not create an Application Profile to Preview it please create it now.")));
-            $this->_redirect('product/create');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
         }
 
         $formBasic = new Model_Platform();
         $row = $formBasic->find($productId);
         if (empty($row)) {// no Basic info found redirect to create page
             $this->_flashMessenger->addMessage(array('error' => $translate->translate("You have not create an Application Profile to Preview it please create it now.")));
-            $this->_redirect('product/create');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
         }
 
         $formVisuals = new Model_ProductImages();
@@ -1179,7 +1179,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
         $countVisuals = $rowVisuals->count();
         if (empty($countVisuals)) {// if no screenshots
             $this->_flashMessenger->addMessage(array('error' => $translate->translate("Product visuals are not found!. Please upload atleast one screenshot and thumbnail.")));
-            $this->_redirect('product/edit/id/' . $productId . '/6/2');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/2');
         }
         
         
@@ -1192,7 +1192,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
 //        $countFiles = $rowFiles->count();
 //        if(empty ($countFiles)) {// if no files
 //            $this->_flashMessenger->addMessage(array('error' => 'Application file is not found!, Please upload Applicatin Files!.'));
-//            $this->_redirect('product/edit/id/' . $productId  . '/6/4');
+//            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId  . '/6/4');
 //        }
 //        $formDevices = new Model_ProductDevices();
 //        $rowDevices = $formDevices->fetchAll(
@@ -1201,7 +1201,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
 //        $countDevices = $rowDevices->count();
 //        if(empty ($countDevices)) {// if no devices are selected
 //            $this->_flashMessenger->addMessage(array('error' => 'You must have at lease one compatible device selected in your application.'));
-//            $this->_redirect('product/edit/id/' . $productId  . '/6/5');
+//            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId  . '/6/5');
 //        }
 
 //        $formCategories = new Model_ProductCategories();
@@ -1211,7 +1211,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
 //        $countCategoris = $rowCategoris->count();
 //        if (empty($countCategoris)) {// if no devices are selected
 //            $this->_flashMessenger->addMessage(array('error' => 'Please select at least one category to continue.'));
-//            $this->_redirect('product/edit/id/' . $productId . '/6/3');
+//            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/3');
 //        }
 
         $form_registration = new Cpbo_Form_ProductRegistration();
@@ -1340,7 +1340,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
                                         $url.= '/create/create';
                                     }
                                     $this->_redirect($url);
-			                		//$this->_redirect('product/edit/id/' . $productId . '/6/3/status/error');
+			                		//$this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/3/status/error');
 			                    	
 			                    	}
 			                    	
@@ -1397,7 +1397,7 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
 						
 						//$this->_flashMessenger->addMessage(array('error' => 'Please select the value for registration model.'));
 			            //redirect to next step
-			            //$this->_redirect('product/edit/id/' . $productId . '/6/3/status/error');
+			            //$this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/3/status/error');
                         if($create){
                             $changed = false;
                         }
@@ -1420,14 +1420,14 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
          $prodBuild = new Model_ProductBuild();
             $builds = $prodBuild->getBuildsByProductId($productId);
             if (isset($review) && !empty($review))
-                $this->_redirect('product/display/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
             elseif (count($builds) > 0)
-                $this->_redirect('build/show/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'build/show/id/' . $productId);
             else
-                $this->_redirect('build/create/productid/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'build/create/productid/' . $productId);
         } else {
             
-             $this->_redirect('product/channel/id/'.$productId);
+             $this->_redirect (CPBO_PROJECT_BASEPATH.'product/channel/id/'.$productId);
         }
         
                                             
@@ -1439,11 +1439,11 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
 		                /*$prodBuild = new Model_ProductBuild();
 		                $builds = $prodBuild->getBuildsByProductId($productId);
 		                if (isset($review) && !empty($review))
-		                    $this->_redirect('product/display/id/' . $productId);
+		                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
 		                elseif (count($builds) > 0)
-		                    $this->_redirect('build/show/id/' . $productId);
+		                    $this->_redirect (CPBO_PROJECT_BASEPATH.'build/show/id/' . $productId);
 		                else
-		                    $this->_redirect('build/create/productid/' . $productId);*/
+		                    $this->_redirect (CPBO_PROJECT_BASEPATH.'build/create/productid/' . $productId);*/
 			            
 						
 					}
@@ -1475,26 +1475,26 @@ class Cpbo_ProductController extends Nexva_Controller_Action_Cp_MasterController
          $prodBuild = new Model_ProductBuild();
             $builds = $prodBuild->getBuildsByProductId($productId);
             if (isset($review) && !empty($review))
-                $this->_redirect('product/display/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
             elseif (count($builds) > 0)
-                $this->_redirect('build/show/id/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'build/show/id/' . $productId);
             else
-                $this->_redirect('build/create/productid/' . $productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'build/create/productid/' . $productId);
         } else {
                
-                $this->_redirect('product/channel/id/'.$productId);
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/channel/id/'.$productId);
         }
 
                 // if already have builds then redirect to buid mange page
                 /*$prodBuild = new Model_ProductBuild();
                 $builds = $prodBuild->getBuildsByProductId($productId);
                 if (isset($review) && !empty($review))
-                    $this->_redirect('product/display/id/' . $productId);
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/display/id/' . $productId);
                 elseif (count($builds) > 0)
-                    //$this->_redirect('build/show/id/' . $productId);
-                    $this->_redirect('product/channel/id/'.$productId);
+                    //$this->_redirect (CPBO_PROJECT_BASEPATH.'build/show/id/' . $productId);
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'product/channel/id/'.$productId);
                 else
-                    $this->_redirect('build/create/productid/' . $productId);*/
+                    $this->_redirect (CPBO_PROJECT_BASEPATH.'build/create/productid/' . $productId);*/
             }
             else {
                 $error = $this->formatErrorMsg($form_registration->getMessages());
@@ -2066,10 +2066,10 @@ public function displayAction() {
             $translate = Zend_Registry::get('Zend_Translate');
             if ($update) {
                 $this->_flashMessenger->addMessage(array('info' => $translate->translate("Your product")." ". $formBasic['name'] . ' '.$translate->translate("is waiting to approve.")));
-                $this->_redirect('product/view');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/view');
             } else {
                 $this->_flashMessenger->addMessage(array('error' => $translate->translate("Error occured while saving data, please re-try.")));
-                $this->_redirect('product/view');
+                $this->_redirect (CPBO_PROJECT_BASEPATH.'product/view');
             }
         }
     }
@@ -2240,9 +2240,9 @@ public function basicInappAction() {
       $this->_flashMessenger->addMessage(array('error' => $error));
       // loop  to same step
       if (empty($productId))
-        $this->_redirect('product/create');
+        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/create');
       else
-        $this->_redirect('product/edit/id/' . $productId . '/6/1');
+        $this->_redirect (CPBO_PROJECT_BASEPATH.'product/edit/id/' . $productId . '/6/1');
     }
   }
 	
@@ -2483,7 +2483,7 @@ public function basicInappAction() {
         } 
         else
         {
-            $this->_redirect('/product/view');
+            $this->_redirect (CPBO_PROJECT_BASEPATH.'product/view');
         }
          
         
